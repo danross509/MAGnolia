@@ -1,0 +1,31 @@
+Nextflow
+    -Update version?
+
+QUALITY CONTROL
+    -Trimmomatic
+    -[Long reads]
+    -Bowtie2
+    -DRep
+
+    -FastQC
+    -LongQC?
+    -SAMTools
+
+ASSEMBLY
+    -Single sample assembly
+    -Co-assembly
+    -User specified assembly groups?
+
+    -Megahit
+    -SPAdes
+    -Canu
+    -Hipmer
+    -Flye?
+
+Binning
+    If single sample / user specified groups
+    -Single sample / group binning?
+    -Co-binning (concatenation)?
+    -Cross-mapping?
+
+    
