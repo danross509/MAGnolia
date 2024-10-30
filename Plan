@@ -22,10 +22,24 @@ ASSEMBLY
     -Hipmer
     -Flye?
 
+Validate assembly
+
 Binning
     If single sample / user specified groups
     -Single sample / group binning?
     -Co-binning (concatenation)?
     -Cross-mapping?
 
-    
+    -Maxbin2
+    -Metabat2
+    -Concoct
+    -COMBin
+    -Aamb
+    -Semibin2
+
+Bin Refinement
+    -MetaWRAP Bin Refinement 
+        <3 bins vs >3 bins
+
+Bin Quantification
+    -Sour mash?
