@@ -1,0 +1,21 @@
+#!/usr/bin/env nextflow
+
+process multiqc {
+
+    container "community.wave.seqera.io/library/multiqc:1.25.1--dc1968330462e945"
+    conda "bioconda::multiqc=1.25.1"
+
+    publishDir "${params.projectDir}/QC/${step}/multiqc", mode: 'move'
+
+    input:
+        path all_fastqc
+        val step
+
+    output:
+        path "multiqc_report.html"
+        path "multiqc_data"
+
+    """
+    multiqc $all_fastqc
+    """ 
+}
