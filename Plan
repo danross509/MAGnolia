@@ -1,13 +1,13 @@
 Nextflow
-    -Update version?
 
 QUALITY CONTROL
+    -MultiQC (before)
+    -Dedupe?
     -Trimmomatic
     -[Long reads]
     -Bowtie2
-    -DRep
+    -MultiQC (after)
 
-    -FastQC
     -LongQC?
     -SAMTools
 
