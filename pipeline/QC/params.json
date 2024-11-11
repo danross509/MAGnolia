@@ -1,5 +1,5 @@
 {
-    "reads_fastq": "/data/users/danross/pipeline_test/data/*{1,2}.fastq.gz",
+    "short_reads": "/data/users/danross/pipeline_test/data/*{1,2}.fastq.gz",
     "phiX": "/data/users/danross/databases/phiX174_virus.fa",
     "projectDir": "/data/users/danross/pipeline_test",
     "pairing": "PE",

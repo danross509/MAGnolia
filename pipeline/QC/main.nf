@@ -1,8 +1,8 @@
 #!/usr/bin/env nextflow
 
 /*
-From the pipeline_test directory, use the command:
-    nextflow run ../pipeline/QC/main.nf -params-file ../pipeline/QC/params.json -resume
+From the pipeline directory, use the command:
+    nextflow run QC/main.nf -params-file QC/params.json -resume
 */
 
 include {fastqc as fastqc_in} from '../modules/local/fastqc/fromPairs/main.nf'
@@ -36,12 +36,12 @@ workflow {
     // projectDir = Channel.fromPath(params.projectDir, type: 'dir')
 
     // Create input channel from a text file listing input file paths
-    reads = Channel.fromFilePairs(params.reads_fastq, checkIfExists:true)
+    short_reads = Channel.fromFilePairs(params.short_reads, checkIfExists:true)
  
     // Create pre-QC fastqc report for input reads;
     // Collect pre-QC fastqc output;
     // Summarize with multiqc
-    fastqc_in(reads, "pre-QC")
+    fastqc_in(short_reads, "pre-QC")
     all_fastqc_in = fastqc_in.out.collect().ifEmpty([])
     multiqc_in(all_fastqc_in, "pre-QC")
 
@@ -49,7 +49,7 @@ workflow {
     //DEDUPLICATE()
 
     // Trim adapters and poor quality reads
-    trimmomatic(reads, params.pairing)
+    trimmomatic(short_reads, params.pairing)
 
     // Build index for contaminant genome(s);
     // Remove contaminant reads
