@@ -5,20 +5,20 @@ process trimmomatic {
     container "community.wave.seqera.io/library/trimmomatic:0.39--a688969e471089d7"
     conda "bioconda::trimmomatic=0.39"
 
-    //publishDir 'QC/trimmomatic', mode: 'symlink'
+    publishDir "${params.projectDir}/QC/trimmomatic", mode: 'symlink'
 
     input:
         tuple val(sampleID), path(reads_fastq)
         val pairing
 
     output:
-        tuple val(sampleID), path("${sampleID}_p_{1,2}.fastq")
+        tuple val(sampleID), path("${sampleID}_{1,2}.p.fastq")
 
     script:
-    fq_1_paired = "${sampleID}_p_1.fastq"
-    fq_1_unpaired = "${sampleID}_s_1.fastq"
-    fq_2_paired = "${sampleID}_p_2.fastq"
-    fq_2_unpaired = "${sampleID}_s_2.fastq"
+    fq_1_paired = "${sampleID}_1.p.fastq"
+    fq_1_unpaired = "${sampleID}_1.s.fastq"
+    fq_2_paired = "${sampleID}_2.p.fastq"
+    fq_2_unpaired = "${sampleID}_2.s.fastq"
 
     """
     trimmomatic $pairing  \

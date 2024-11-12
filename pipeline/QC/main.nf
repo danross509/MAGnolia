@@ -1,8 +1,16 @@
 #!/usr/bin/env nextflow
 
 /*
-From the pipeline directory, use the command:
-    nextflow run QC/main.nf -params-file QC/params.json -resume
+I have created a separate folder to run tests from, located in the same parent directory as this git repository
+I am testing it with the following data:
+wget https://zenodo.org/record/3992790/files/test_reads.tar.gz
+tar -xzf test_reads.tar.gz
+
+I am developing it using conda environments. To run it you need to simply have a conda environment with nextflow installed
+From the MAG_Pipeline folder, run the following command:
+    nextflow run pipeline/QC/main.nf -params-file pipeline/QC/params.json -resume
+
+You will need to ensure that the path to your data in parans.json is accurate
 */
 
 include {fastqc as fastqc_in} from '../modules/local/fastqc/fromPairs/main.nf'
@@ -36,7 +44,12 @@ workflow {
     // projectDir = Channel.fromPath(params.projectDir, type: 'dir')
 
     // Create input channel from a text file listing input file paths
+    // If paired-read filenames are identified by R1/R2, the R will be removed for this pipeline
     short_reads = Channel.fromFilePairs(params.short_reads, checkIfExists:true)
+        .map { sample, reads ->
+            def sampleID = sample.replaceAll(/_R$/, '')
+            return [sampleID, reads]
+        }
  
     // Create pre-QC fastqc report for input reads;
     // Collect pre-QC fastqc output;

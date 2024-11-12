@@ -15,8 +15,10 @@ process fastqc {
         val step
 
     output:
-        path "${sampleID}_{1,2}_fastqc.{html,zip}"
+        path "*{1,2}_fastqc.{html,zip}"
+        //path "${sampleID}_{1,2}_fastqc.{html,zip}"
 
+    script:
     """
     fastqc -q $reads_fastq
     """
