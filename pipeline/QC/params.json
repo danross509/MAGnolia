@@ -1,9 +1,0 @@
-{
-    "short_reads": "/data/users/danross/pipeline_test/data/*{1,2}.fastq.gz",
-    "nanopore_reads": "NULL",
-    "pacBio_reads": "NULL",
-    "phiX": "/data/users/danross/databases/phiX174_virus.fa",
-    "projectDir": "/data/users/danross/pipeline_test",
-    "pairing": "PE",
-    "bowtie2_sensitivity": "very-sensitive-local"
-}
