@@ -1,0 +1,10 @@
+{
+    "short_reads": "${launchDir}/data/paired_X/*{1,2}.fastq.gz",
+    "nanopore_reads": "NULL",
+    "pacBio_reads": "NULL",
+    "phiX": "${projectDir}/reference_genomes/phiX174_virus.fa",
+    "resultsDir": "./pipeline_test",
+    "bowtie2_sensitivity": "very-sensitive-local",
+
+    "mh_preset": "meta"
+}

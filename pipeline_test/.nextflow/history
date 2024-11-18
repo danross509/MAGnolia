@@ -1,0 +1,11 @@
+2024-11-18 15:35:54	17.4s	ecstatic_tesla	OK	e58a5e309cf1bb3627eb85144ee58447	f37edd8d-9226-47a9-a0da-1999f4af8aee	nextflow run ../main.nf -params-file ../params.json -resume
+2024-11-18 15:36:49	45.9s	tiny_cori	OK	e58a5e309cf1bb3627eb85144ee58447	f37edd8d-9226-47a9-a0da-1999f4af8aee	nextflow run ../main.nf -params-file ../params.json -resume
+2024-11-18 15:38:11	4.9s	ridiculous_heyrovsky	OK	e58a5e309cf1bb3627eb85144ee58447	f37edd8d-9226-47a9-a0da-1999f4af8aee	nextflow run ../main.nf -params-file ../params.json -resume
+2024-11-18 16:48:35	48s	berserk_stallman	OK	f46d669373184b8da6c6fd7a491c0be5	f37edd8d-9226-47a9-a0da-1999f4af8aee	nextflow run ../main.nf -params-file ../params.json -resume
+2024-11-18 16:50:35	5s	desperate_fermat	OK	f46d669373184b8da6c6fd7a491c0be5	f37edd8d-9226-47a9-a0da-1999f4af8aee	nextflow run ../main.nf -params-file ../params.json -resume
+2024-11-18 16:52:10	-	confident_brazil	-	f46d669373184b8da6c6fd7a491c0be5	f37edd8d-9226-47a9-a0da-1999f4af8aee	nextflow run ../main.nf -params-file ../params.json -resume
+2024-11-18 16:52:35	-	loving_brenner	-	f46d669373184b8da6c6fd7a491c0be5	f37edd8d-9226-47a9-a0da-1999f4af8aee	nextflow run ../main.nf -params-file ../params.json -resume
+2024-11-18 16:54:38	-	loving_leibniz	-	e7876e7215e915a963821bafde4be6cd	f37edd8d-9226-47a9-a0da-1999f4af8aee	nextflow run ../main.nf -params-file ../params.json -resume
+2024-11-18 16:55:07	5s	insane_meninsky	OK	f46d669373184b8da6c6fd7a491c0be5	f37edd8d-9226-47a9-a0da-1999f4af8aee	nextflow run ../main.nf -params-file ../params.json -resume
+2024-11-18 17:03:17	-	boring_plateau	-	693f43ca53fef116860579bd17c06ab9	f37edd8d-9226-47a9-a0da-1999f4af8aee	nextflow run ../main.nf -params-file ../params.json -resume
+2024-11-18 17:20:00	5.7s	nauseous_albattani	OK	3c1c6e8e61f6232470a96664de67ca06	f37edd8d-9226-47a9-a0da-1999f4af8aee	nextflow run ../main.nf -params-file ../params.json -resume
