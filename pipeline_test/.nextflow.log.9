@@ -1,0 +1,120 @@
+Nov.-18 15:36:48.436 [main] DEBUG nextflow.cli.Launcher - $> nextflow run ../main.nf -params-file ../params.json -resume
+Nov.-18 15:36:48.510 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.10.0
+Nov.-18 15:36:48.529 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/danross/.nextflow/plugins; core-plugins: nf-amazon@2.9.0,nf-azure@1.10.1,nf-cloudcache@0.4.2,nf-codecommit@0.2.2,nf-console@1.1.4,nf-google@1.15.2,nf-tower@1.9.3,nf-wave@1.7.2
+Nov.-18 15:36:48.542 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov.-18 15:36:48.543 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov.-18 15:36:48.546 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov.-18 15:36:48.559 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov.-18 15:36:48.584 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /data/users/danross/MAG_Pipeline/nextflow.config
+Nov.-18 15:36:48.588 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /data/users/danross/MAG_Pipeline/nextflow.config
+Nov.-18 15:36:48.613 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/danross/.nextflow/secrets/store.json
+Nov.-18 15:36:48.616 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@511505e7] - activable => nextflow.secret.LocalSecretsProvider@511505e7
+Nov.-18 15:36:48.638 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov.-18 15:36:49.048 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Nov.-18 15:36:49.063 [main] DEBUG nextflow.cli.CmdRun - Launching `../main.nf` [tiny_cori] DSL2 - revision: e58a5e309c
+Nov.-18 15:36:49.065 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov.-18 15:36:49.065 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Nov.-18 15:36:49.123 [main] DEBUG nextflow.Session - Session UUID: f37edd8d-9226-47a9-a0da-1999f4af8aee
+Nov.-18 15:36:49.123 [main] DEBUG nextflow.Session - Run name: tiny_cori
+Nov.-18 15:36:49.124 [main] DEBUG nextflow.Session - Executor pool size: 16
+Nov.-18 15:36:49.133 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov.-18 15:36:49.140 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=48; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Nov.-18 15:36:49.167 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 24.10.0 build 5928
+  Created: 27-10-2024 18:36 UTC (14:36 EDT)
+  System: Linux 6.8.0-40-generic
+  Runtime: Groovy 4.0.23 on OpenJDK 64-Bit Server VM 11.0.9.1-internal+0-adhoc..src
+  Encoding: UTF-8 (UTF-8)
+  Process: 3323164@tilia [132.208.75.66]
+  CPUs: 16 - Mem: 251.4 GB (59.4 GB) - Swap: 2 GB (1.8 GB)
+Nov.-18 15:36:49.194 [main] DEBUG nextflow.Session - Work-dir: /data/users/danross/MAG_Pipeline/pipeline_test/work [ext2/ext3]
+Nov.-18 15:36:49.195 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /data/users/danross/MAG_Pipeline/bin
+Nov.-18 15:36:49.206 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov.-18 15:36:49.217 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Nov.-18 15:36:49.250 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Nov.-18 15:36:49.278 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 17; maxThreads: 1000
+Nov.-18 15:36:49.599 [main] DEBUG nextflow.Session - Session start
+Nov.-18 15:36:49.863 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov.-18 15:36:50.503 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov.-18 15:36:50.504 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-18 15:36:50.510 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov.-18 15:36:50.516 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=16; memory=251.4 GB; capacity=16; pollInterval=100ms; dumpInterval=5m
+Nov.-18 15:36:50.518 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Nov.-18 15:36:50.587 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov.-18 15:36:50.587 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-18 15:36:50.627 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov.-18 15:36:50.628 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-18 15:36:50.643 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov.-18 15:36:50.643 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-18 15:36:50.654 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov.-18 15:36:50.654 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-18 15:36:50.660 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov.-18 15:36:50.660 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-18 15:36:50.672 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov.-18 15:36:50.672 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov.-18 15:36:50.678 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: QC:fastqc_in, QC:multiqc_out, fastqc_out, multiqc_out, QC:fastqc_out, filter_contaminants, multiqc_in, fastqc_in, QC:filter_contaminants, trimmomatic, QC:trimmomatic, QC:build_index, QC:multiqc_in, fastqc, build_index, multiqc
+Nov.-18 15:36:50.679 [main] DEBUG nextflow.Session - Igniting dataflow network (8)
+Nov.-18 15:36:50.686 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /data/users/danross/MAG_Pipeline/pipeline_test/data/paired_RX/; pattern: *{1,2}.fastq.gz; options: [checkIfExists:true]
+Nov.-18 15:36:50.688 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > QC:fastqc_in
+Nov.-18 15:36:50.688 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > QC:multiqc_in
+Nov.-18 15:36:50.690 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > QC:trimmomatic
+Nov.-18 15:36:50.691 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > QC:build_index
+Nov.-18 15:36:50.692 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > QC:filter_contaminants
+Nov.-18 15:36:50.693 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > QC:fastqc_out
+Nov.-18 15:36:50.694 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > QC:multiqc_out
+Nov.-18 15:36:50.696 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_e1bf6135665b31e2: /data/users/danross/MAG_Pipeline/main.nf
+  Script_b04b45a3c55621be: /data/users/danross/MAG_Pipeline/./QC/main.nf
+  Script_2cc224b8d823fb5e: /data/users/danross/MAG_Pipeline/./QC/../modules/local/fastqc/fromPairs/main.nf
+  Script_2309fd1ceda75271: /data/users/danross/MAG_Pipeline/./QC/../modules/local/trimmomatic/fromPairs/main.nf
+  Script_f7bc1c7c4582939d: /data/users/danross/MAG_Pipeline/./QC/../modules/local/bowtie2/filter_contaminants/main.nf
+  Script_e379fa8049e7cd74: /data/users/danross/MAG_Pipeline/./QC/../modules/local/multiqc/main.nf
+  Script_97ad6ac0e7301ebf: /data/users/danross/MAG_Pipeline/./QC/../modules/local/bowtie2/build_index/main.nf
+Nov.-18 15:36:50.696 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Nov.-18 15:36:50.696 [main] DEBUG nextflow.Session - Session await
+Nov.-18 15:36:50.814 [Actor Thread 14] DEBUG nextflow.conda.CondaCache - conda found local env for environment=bioconda::trimmomatic=0.39; path=/data/users/danross/MAG_Pipeline/pipeline_test/work/conda/env-0046915b3d133c15377355218154162e
+Nov.-18 15:36:50.814 [Actor Thread 16] DEBUG nextflow.conda.CondaCache - conda found local env for environment=bioconda::fastqc=0.12.1; path=/data/users/danross/MAG_Pipeline/pipeline_test/work/conda/env-49dea791c31ead673ed2e341e1c6d206
+Nov.-18 15:36:50.814 [Actor Thread 10] DEBUG nextflow.conda.CondaCache - conda found local env for environment=bioconda::bowtie2=2.5.4; path=/data/users/danross/MAG_Pipeline/pipeline_test/work/conda/env-0cb56a1d4ec38748313caff826628134
+Nov.-18 15:36:50.905 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-18 15:36:50.908 [Task submitter] INFO  nextflow.Session - [d1/a2b6c5] Submitted process > QC:trimmomatic (1)
+Nov.-18 15:36:50.917 [Actor Thread 17] INFO  nextflow.processor.TaskProcessor - [b9/b53057] Cached process > QC:build_index
+Nov.-18 15:36:50.921 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-18 15:36:50.922 [Task submitter] INFO  nextflow.Session - [54/1185d6] Submitted process > QC:fastqc_in (2)
+Nov.-18 15:36:50.929 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-18 15:36:50.930 [Task submitter] INFO  nextflow.Session - [04/978a63] Submitted process > QC:trimmomatic (2)
+Nov.-18 15:36:50.940 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-18 15:36:50.941 [Task submitter] INFO  nextflow.Session - [8d/6060d2] Submitted process > QC:fastqc_in (1)
+Nov.-18 15:36:54.215 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: QC:trimmomatic (1); status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/work/d1/a2b6c595156fbd8cbbd4c4ead73c72]
+Nov.-18 15:36:54.216 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=48; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Nov.-18 15:36:54.241 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-18 15:36:54.242 [Task submitter] INFO  nextflow.Session - [c0/103328] Submitted process > QC:filter_contaminants (1)
+Nov.-18 15:36:54.551 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: QC:trimmomatic (2); status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/work/04/978a63acbab07e48b18b8358d07d19]
+Nov.-18 15:36:54.567 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-18 15:36:54.567 [Task submitter] INFO  nextflow.Session - [b5/2f5f1a] Submitted process > QC:filter_contaminants (2)
+Nov.-18 15:37:06.134 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: QC:fastqc_in (1); status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/work/8d/6060d24ae94838252d051cbc13767a]
+Nov.-18 15:37:08.223 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: QC:fastqc_in (2); status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/work/54/1185d612787f22ac3c595bca9b606e]
+Nov.-18 15:37:08.267 [Actor Thread 17] DEBUG nextflow.conda.CondaCache - conda found local env for environment=bioconda::multiqc=1.25.1; path=/data/users/danross/MAG_Pipeline/pipeline_test/work/conda/env-6ccee1822125702460ed108336c1be05
+Nov.-18 15:37:08.284 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-18 15:37:08.284 [Task submitter] INFO  nextflow.Session - [d9/318789] Submitted process > QC:multiqc_in
+Nov.-18 15:37:14.598 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: QC:multiqc_in; status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/work/d9/318789a30e950e7bdce093bf5c6eec]
+Nov.-18 15:37:14.620 [TaskFinalizer-5] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=48; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Nov.-18 15:37:19.973 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: QC:filter_contaminants (1); status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/work/c0/103328223af21eddf2ffd18ee204e6]
+Nov.-18 15:37:19.995 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-18 15:37:19.996 [Task submitter] INFO  nextflow.Session - [c4/2b7316] Submitted process > QC:fastqc_out (1)
+Nov.-18 15:37:23.155 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: QC:filter_contaminants (2); status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/work/b5/2f5f1a5ef7878ab5aeea1ac80b890f]
+Nov.-18 15:37:23.170 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-18 15:37:23.171 [Task submitter] INFO  nextflow.Session - [84/110888] Submitted process > QC:fastqc_out (2)
+Nov.-18 15:37:29.273 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: QC:fastqc_out (1); status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/work/c4/2b73167c56e374b3025f41604c776f]
+Nov.-18 15:37:32.153 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: QC:fastqc_out (2); status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/work/84/1108889d21b6917d19214dfde08880]
+Nov.-18 15:37:32.175 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov.-18 15:37:32.175 [Task submitter] INFO  nextflow.Session - [b4/ab7245] Submitted process > QC:multiqc_out
+Nov.-18 15:37:34.690 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: QC:multiqc_out; status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/work/b4/ab72455acba64af7a8024e4a1f863a]
+Nov.-18 15:37:34.696 [main] DEBUG nextflow.Session - Session await > all processes finished
+Nov.-18 15:37:34.791 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Nov.-18 15:37:34.792 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov.-18 15:37:34.796 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Nov.-18 15:37:34.797 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Nov.-18 15:37:34.807 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=10; failedCount=0; ignoredCount=0; cachedCount=1; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=2m; failedDuration=0ms; cachedDuration=1.1s;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=4; peakMemory=0; ]
+Nov.-18 15:37:34.881 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Nov.-18 15:37:34.926 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Nov.-18 15:37:34.927 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
