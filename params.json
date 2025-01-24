@@ -1,12 +1,15 @@
 {
+    "bigThreads": "14",
+    "bigMem": "256",
+
     "short_reads": "${launchDir}/data/paired_X/*{1,2}.fastq.gz",
     "paired_reads": true,
     "nanopore_reads": "NULL",
     "pacBio_reads": "NULL",
-    "phiX": "${projectDir}/reference_genomes/phiX174_virus.fa",
+    "contaminants": "${projectDir}/reference_genomes/phiX174_virus.fa",
     "resultsDir": "./pipeline_test",
     "bowtie2_sensitivity": "very-sensitive-local",
 
-    "mh_preset": "meta",
+    "mh_preset": "meta-large",
     "coassembly": true
 }

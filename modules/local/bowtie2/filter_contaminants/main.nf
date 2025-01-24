@@ -9,7 +9,7 @@ process filter_contaminants {
 
     input:
         tuple val(meta), path(reads_trimmed)
-        path index_db
+        tuple val(contaminant_meta), path(contaminant_fasta), path(contaminant_index)
         val sensitivity
 
     output:
@@ -18,14 +18,16 @@ process filter_contaminants {
 
     script:
 
-    index = "${index_db[0].getBaseName(2)}"
+    index = "${contaminant_meta.id}_index"
 
     if (meta.paired_end) {
+
+        //-2 ${reads_trimmed[2]} if using trimmomatic
 
         """
         bowtie2 -p 8 -x $index \
         -1 ${reads_trimmed[0]} \
-        -2 ${reads_trimmed[2]} \
+        -2 ${reads_trimmed[1]} \
         --${sensitivity} \
         --un-conc-gz \
         $meta.id \

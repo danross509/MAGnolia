@@ -11,7 +11,9 @@ process fastp {
         tuple val(meta), path(reads_fastq)
 
     output:
-        tuple val(meta), path("${meta.id}_{1,2,se}.fastq.gz")
+        tuple val(meta), path("${meta.id}_trimmed_{1,2,se}.fastq.gz"), emit: reads
+        path "fastp.html"
+        path "fastp.json"
 
     script:
     fq_1_paired = "${meta.id}_trimmed_1.fastq.gz"
@@ -26,14 +28,17 @@ process fastp {
         -I ${reads_fastq[1]} \
         -o $fq_1_paired \
         -O $fq_2_paired \
-        --unpaired1 $fq_unpaired 
+        --unpaired1 $fq_unpaired \
+        --unpaired2 $fq_unpaired \
+        --dedup
         """
     } else if (!meta.paired_end) {
 
         """
         fastp  \
-        ${reads_fastq[0]} \
-        $fq_unpaired 
+        -i ${reads_fastq[0]} \
+        -o $fq_unpaired \
+        --dedup
         """
     }
 }

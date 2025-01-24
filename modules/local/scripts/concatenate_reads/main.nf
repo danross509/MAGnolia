@@ -11,13 +11,13 @@ process concatenate_reads {
         tuple val(meta), path(clean_reads)
 
     output:
-        tuple val(meta), path("${filename}.fastq.gz")
+        tuple val(allMeta), path("${filename}.fastq.gz")
 
     script:
  
-    //allMeta = [:]
-    //allMeta.id = "allReads"
-    //allMeta.paired_end = meta.paired_end
+    allMeta = [:]
+    allMeta.id = "allReads"
+    allMeta.paired_end = meta.paired_end
 
     //if (meta.is_paired == "PE"){
     //} else if (meta.is_paired == "SE") {

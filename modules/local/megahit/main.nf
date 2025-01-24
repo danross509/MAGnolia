@@ -5,42 +5,56 @@ process megahit {
     container "community.wave.seqera.io/library/megahit:1.2.9--23234b8da1e27898"
     conda "bioconda::megahit=1.2.9"
 
-    publishDir "${launchDir}/Assembly/megahit", mode: 'symlink'
+    publishDir "${launchDir}/Assembly/", mode: 'symlink'
 
     input:
-        tuple val(meta), path(reads_fastq)
+        tuple val(meta), path(reads)
         val mh_preset
+        val bigThreads
+        val bigMem
 
     output:
-        path("final.contigs.fa")
+        tuple val(meta), path("megahit/*.contigs.fa"), emit: final_contigs
+        tuple val(meta), path("megahit/intermediate_contigs/k*.addi.fa")
+        tuple val(meta), path("megahit/intermediate_contigs/k*.contigs.fa")
+        tuple val(meta), path("megahit/intermediate_contigs/k*.final.contigs.fa")
+        tuple val(meta), path("megahit/intermediate_contigs/k*.local.fa")
+        tuple val(meta), path('megahit/log')
+        path "megahit/options.json"
 
     script:
 
+    threads = bigThreads
+
     if (meta.paired_end) {
 
-        reads_1 = 
-        reads_2 = 
+        //reads_1 = reads[0]
+        //reads_2 = reads[1]
+        //{--presets meta} not working
+        //{--tmp-dir tmp} not working
+        //gzip files after? pigz?
+
         """
         megahit \
-        -1 $reads_1 -2 $reads_2 \
+        -1 ${reads[0]} -2 ${reads[1]} \
         -o megahit \
-        --tmp-dir tmp \
+        -t $threads \
+        -m ${bigMem}000000000 \
         --presets $mh_preset \
         --verbose \
         --continue
         """
-    }/* else if (!meta.paired_end) {
+    } else if (!meta.paired_end) {
 
         """
         megahit \
-        -1 $reads_1 -2 $reads_2 \
+        -r ${reads[0]} \
         -o megahit \
-        --tmp-dir tmp \
         -t $threads \
-        -m ${mem}000000000 \
-        --presets meta-large \
+        -m ${bigMem}000000000 \
+        --presets $mh_preset \
         --verbose \
         --continue
         """
-    }*/
+    }
 }

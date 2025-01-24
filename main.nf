@@ -21,12 +21,24 @@ Nextflow principally uses either Docker containers or conda environments to laun
 I am developing it using conda environments. To run it you need to have a conda environment with nextflow installed
 */
 
-include { QC } from './QC/main.nf'
+
+include { QC } from './subworkflows/local/QC/main.nf'
+include { assembly } from './subworkflows/local/Assembly/main.nf'
+include { BINNING_PREPARATION } from './subworkflows/nf-core/binning_preparation/main.nf'
+include { BINNING } from './subworkflows/local/Binning/main.nf'
+include { domain_classification } from './subworkflows/nf-core/domain_classification/main.nf'
+include { BINNING_REFINEMENT } from './subworkflows/nf-core/binning_refinement/main.nf'
+
 /*
 The following modules are currently in development:
-include { assembly } from './Assembly/main.nf'
-include { binning } from './Binning/main.nf'
-include { taxonony } from './Taxonomy/main.nf'
+
+include { kraken2 } from './Kraken2/main.nf'
+include { bracken } from './Bracken/main.nf'
+include { quast } from './QUAST/main.nf'
+include { busco } from './Busco/main.nf'
+include { checkm } from './CheckM/main.nf' (include both 1 and 2)
+include { taxonony } from './Taxonomy/main.nf' (include both ncbi, gtdb)
+include { bakta } from './Bakta/main.nf'
 include { annotation } from './Annotation/main.nf'
 */
 
@@ -39,6 +51,9 @@ workflow {
      * If paired-read filenames are identified by R1/R2, the R will be removed for simplicity
      * PE and SE reads will be identified and handled as necessary for each software
      */
+
+    ch_versions = Channel.empty()
+
     short_reads = Channel.fromFilePairs(params.short_reads, size: -1, checkIfExists:true)
         .map { sample, reads ->
             def sampleID = sample.replaceAll(/_R$/, '')
@@ -62,19 +77,22 @@ workflow {
         }
     //short_reads.view()
     
-    phiX = params.phiX
+    contaminants = channel.fromPath(params.contaminants)
+        .map { contaminant ->
+            def meta = [:]
+            // Set meta.id
+            meta.id = contaminant.getBaseName()
+            return [meta, contaminant]
+        }
     bowtie2_sensitivity = params.bowtie2_sensitivity
     paired_reads = params.paired_reads
     coassembly = params.coassembly
 
     QC( short_reads,
-        phiX,
+        contaminants,
         bowtie2_sensitivity,
         paired_reads,
-        coassembly
-        )
-
-    //QC.out[1].collect().view()
+        coassembly )
 
 
 
@@ -84,10 +102,116 @@ workflow {
      */
     clean_reads = QC.out
     mh_preset = params.mh_preset
+    bigThreads =  params.bigThreads
+    bigMem = params.bigMem
 
-    /*assembly(   clean_reads,
-                mh_preset
-                )*/
+    //clean_reads.view()
+
+    assembly( clean_reads,
+              mh_preset,
+              bigThreads,
+              bigMem )
+
+    /*
+     *  Collect assembly fasta from Assembly
+     */
+
+    final_assemblies = assembly.out
+
+    BINNING_PREPARATION (final_assemblies, clean_reads)
+
+
+
+    BINNING( BINNING_PREPARATION.out.grouped_mappings,
+             clean_reads,
+             bigThreads )
+
+/*
+            ch_binning_results_bins = binning.out.bins.map { meta, bins ->
+                def meta_new = meta + [domain: 'unclassified']
+                [meta_new, bins]
+            }
+            ch_binning_results_unbins = binning.out.unbinned.map { meta, bins ->
+                def meta_new = meta + [domain: 'unclassified']
+                [meta_new, bins]
+            }
+*/
+    if (params.classify_bin_domains){
+
+        domain_classification ( final_assemblies,
+                                binning.out.bins,
+                                binning.out.unbinned )
+
+        binning_results_bins = domain_classification.out.classified_bins.map { meta, bins ->
+                def meta_new = meta + [refinement: 'unrefined']
+                [meta_new, bins]
+        }
+        binning_results_unbins = domain_classification.out.classified_unbins.map { meta, bins ->
+                def meta_new = meta + [refinement: 'unrefined']
+                [meta_new, bins]
+        }
+
+    } else {
+
+        ch_binning_results_bins = BINNING.out.bins.map { meta, bins ->
+                def meta_new = meta + [domain: 'unclassified', refinement: 'unrefined']
+                [meta_new, bins]
+        }
+        ch_binning_results_unbins = BINNING.out.unbinned.map { meta, bins ->
+                def meta_new = meta + [domain: 'unclassified', refinement: 'unbinned_unrefined']
+                [meta_new, bins]
+        }
+
+    }
+
+      // Only run if 2+ binners are used*************************************************************************************************************
+        if (params.bin_refinement) {
+            ch_prokarya_bins_dastool = ch_binning_results_bins.filter { meta, bins ->
+                meta.domain != "eukarya"
+            }
+
+            ch_eukarya_bins_dastool = ch_binning_results_bins.filter { meta, bins ->
+                meta.domain == "eukarya"
+            }
+
+            //if (params.ancient_dna) {
+            //    ch_contigs_for_binrefinement = ANCIENT_DNA_ASSEMBLY_VALIDATION.out.contigs_recalled
+            //}
+            //else {
+                ch_contigs_for_binrefinement = BINNING_PREPARATION.out.grouped_mappings.map { meta, contigs, bam, bai -> [meta, contigs] } //}
+            //}
+
+            BINNING_REFINEMENT(ch_contigs_for_binrefinement, ch_prokarya_bins_dastool)
+            // ch_refined_bins = ch_eukarya_bins_dastool
+            //     .map{ meta, bins ->
+            //             def meta_new = meta + [refinement: 'eukaryote_unrefined']
+            //             [meta_new, bins]
+            //         }.mix( BINNING_REFINEMENT.out.refined_bins)
+
+            ch_refined_bins = BINNING_REFINEMENT.out.refined_bins
+            ch_refined_unbins = BINNING_REFINEMENT.out.refined_unbins
+            ch_versions = ch_versions.mix(BINNING_REFINEMENT.out.versions)
+
+            if (params.postbinning_input == 'raw_bins_only') {
+                ch_input_for_postbinning_bins = ch_binning_results_bins
+                ch_input_for_postbinning_bins_unbins = ch_binning_results_bins.mix(ch_binning_results_unbins)
+            }
+            else if (params.postbinning_input == 'refined_bins_only') {
+                ch_input_for_postbinning_bins = ch_refined_bins
+                ch_input_for_postbinning_bins_unbins = ch_refined_bins.mix(ch_refined_unbins)
+            }
+            else if (params.postbinning_input == 'both') {
+                ch_all_bins = ch_binning_results_bins.mix(ch_refined_bins)
+                ch_input_for_postbinning_bins = ch_all_bins
+                ch_input_for_postbinning_bins_unbins = ch_all_bins.mix(ch_binning_results_unbins).mix(ch_refined_unbins)
+            }
+        }
+        else {
+            ch_input_for_postbinning_bins = ch_binning_results_bins
+            ch_input_for_postbinning_bins_unbins = ch_binning_results_bins.mix(ch_binning_results_unbins)
+        }
+
+    ch_input_for_postbinning_bins.view()
     
 }
 
