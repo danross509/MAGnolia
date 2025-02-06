@@ -28,6 +28,14 @@ include { BINNING_PREPARATION } from './subworkflows/nf-core/binning_preparation
 include { BINNING } from './subworkflows/local/Binning/main.nf'
 include { domain_classification } from './subworkflows/nf-core/domain_classification/main.nf'
 include { BINNING_REFINEMENT } from './subworkflows/nf-core/binning_refinement/main.nf'
+include { DEPTHS } from './subworkflows/nf-core/depths/main.nf'
+include { BIN_QC } from './subworkflows/nf-core/bin_qc/main.nf'
+
+include { QUAST_BINS } from './modules/nf-core_mag/quast/quast_bins/main.nf'
+include { QUAST_BINS_SUMMARY } from './modules/nf-core_mag/quast/quast_bins_summary/main.nf'
+
+include { GTDBTK } from './subworkflows/nf-core_mag/gtdbtk/main.nf'
+include { BIN_SUMMARY } from './modules/nf-core_mag/bin_summary/main.nf'
 
 /*
 The following modules are currently in development:
@@ -42,6 +50,8 @@ include { bakta } from './Bakta/main.nf'
 include { annotation } from './Annotation/main.nf'
 */
 
+//errorStrategy = { task.exitStatus in [12,143,137,104,134,139] ? 'retry' : 'finish' }
+
 workflow {
     // Specify the output directory
     // projectDir = Channel.fromPath(params.projectDir, type: 'dir')
@@ -54,19 +64,71 @@ workflow {
 
     ch_versions = Channel.empty()
 
+     ////////////////////////////////////////////////////
+    /* --  Create channel for reference databases  -- */
+    ////////////////////////////////////////////////////
+
+    /*if (params.host_genome) {
+        host_fasta = params.genomes[params.host_genome].fasta ?: false
+        ch_host_fasta = Channel.value(file("${host_fasta}"))
+        host_bowtie2index = params.genomes[params.host_genome].bowtie2 ?: false
+        ch_host_bowtie2index = Channel.value(file("${host_bowtie2index}/*"))
+    }
+    else if (params.host_fasta) {
+        ch_host_fasta = Channel.value(file("${params.host_fasta}"))
+    }
+    else {
+        ch_host_fasta = Channel.empty()
+    }
+
+    if (params.kraken2_db) {
+        ch_kraken2_db_file = file(params.kraken2_db, checkIfExists: true)
+    }
+    else {
+        ch_kraken2_db_file = []
+    }
+
+    if (params.cat_db) {
+        ch_cat_db_file = Channel.value(file("${params.cat_db}"))
+    }
+    else {
+        ch_cat_db_file = Channel.empty()
+    }
+
+    if (params.krona_db) {
+        ch_krona_db_file = Channel.value(file("${params.krona_db}"))
+    }
+    else {
+        ch_krona_db_file = Channel.empty()
+    }
+
+    if (!params.keep_phix) {
+        ch_phix_db_file = Channel.value(file("${params.phix_reference}"))
+    }
+*/
+    gtdb = params.skip_binqc || params.skip_gtdbtk ? false : params.gtdb_db
+
+    if (gtdb) {
+        gtdb = file("${gtdb}", checkIfExists: true)
+        gtdb_mash = params.gtdb_mash ? file("${params.gtdb_mash}", checkIfExists: true) : []
+    }
+    else {
+        gtdb = []
+    }
+
     short_reads = Channel.fromFilePairs(params.short_reads, size: -1, checkIfExists:true)
         .map { sample, reads ->
             def sampleID = sample.replaceAll(/_R$/, '')
-            return [sampleID, reads]
+            return [ sampleID, reads ]
         }
         .map { sampleID, reads ->           //Inspired by nf-core components meta-map
             def meta = [:]
             // Set meta.id
             meta.id = sampleID
             // Set meta.paired_end
-            if (reads.size() == 2) {
+            if ( reads.size() == 2 ) {
                 meta.paired_end = true
-            } else if (reads.size() == 1) {
+            } else if ( reads.size() == 1 ) {
                 meta.paired_end = false
             } else {
                 exit 1, "ERROR: Check input files-> ${sampleID} contains invalid number of samples"
@@ -77,12 +139,12 @@ workflow {
         }
     //short_reads.view()
     
-    contaminants = channel.fromPath(params.contaminants)
+    contaminants = channel.fromPath( params.contaminants )
         .map { contaminant ->
             def meta = [:]
             // Set meta.id
             meta.id = contaminant.getBaseName()
-            return [meta, contaminant]
+            return [ meta, contaminant ]
         }
     bowtie2_sensitivity = params.bowtie2_sensitivity
     paired_reads = params.paired_reads
@@ -118,13 +180,15 @@ workflow {
 
     final_assemblies = assembly.out
 
-    BINNING_PREPARATION (final_assemblies, clean_reads)
+    BINNING_PREPARATION ( final_assemblies, clean_reads )
 
 
 
     BINNING( BINNING_PREPARATION.out.grouped_mappings,
              clean_reads,
              bigThreads )
+
+    //BINNING.out.bins.view()
 
 /*
             ch_binning_results_bins = binning.out.bins.map { meta, bins ->
@@ -136,82 +200,187 @@ workflow {
                 [meta_new, bins]
             }
 */
-    if (params.classify_bin_domains){
+    if ( params.bin_domain_classification ){
 
         domain_classification ( final_assemblies,
                                 binning.out.bins,
                                 binning.out.unbinned )
 
         binning_results_bins = domain_classification.out.classified_bins.map { meta, bins ->
-                def meta_new = meta + [refinement: 'unrefined']
-                [meta_new, bins]
+                def meta_new = meta + [ refinement: 'unrefined' ]
+                [ meta_new, bins ]
         }
         binning_results_unbins = domain_classification.out.classified_unbins.map { meta, bins ->
-                def meta_new = meta + [refinement: 'unrefined']
-                [meta_new, bins]
+                def meta_new = meta + [ refinement: 'unrefined' ]
+                [ meta_new, bins ]
         }
 
     } else {
 
         ch_binning_results_bins = BINNING.out.bins.map { meta, bins ->
-                def meta_new = meta + [domain: 'unclassified', refinement: 'unrefined']
-                [meta_new, bins]
+                def meta_new = meta + [ domain: 'unclassified', refinement: 'unrefined' ]
+                [ meta_new, bins ]
         }
         ch_binning_results_unbins = BINNING.out.unbinned.map { meta, bins ->
-                def meta_new = meta + [domain: 'unclassified', refinement: 'unbinned_unrefined']
-                [meta_new, bins]
+                def meta_new = meta + [ domain: 'unclassified', refinement: 'unbinned_unrefined' ]
+                [ meta_new, bins ]
         }
 
     }
 
       // Only run if 2+ binners are used*************************************************************************************************************
-        if (params.bin_refinement) {
-            ch_prokarya_bins_dastool = ch_binning_results_bins.filter { meta, bins ->
+    if ( params.bin_refinement ) {
+        ch_prokarya_bins_dastool = ch_binning_results_bins.filter { meta, bins ->
+            meta.domain != "eukarya"
+        }
+
+        ch_eukarya_bins_dastool = ch_binning_results_bins.filter { meta, bins ->
+            meta.domain == "eukarya"
+        }
+
+        //if (params.ancient_dna) {
+        //    ch_contigs_for_binrefinement = ANCIENT_DNA_ASSEMBLY_VALIDATION.out.contigs_recalled
+        //}
+        //else {
+            ch_contigs_for_binrefinement = BINNING_PREPARATION.out.grouped_mappings.map { meta, contigs, bam, bai -> [ meta, contigs ] } //}
+        //}
+
+        BINNING_REFINEMENT( ch_contigs_for_binrefinement, ch_prokarya_bins_dastool )
+        // ch_refined_bins = ch_eukarya_bins_dastool
+        //     .map{ meta, bins ->
+        //             def meta_new = meta + [refinement: 'eukaryote_unrefined']
+        //             [meta_new, bins]
+        //         }.mix( BINNING_REFINEMENT.out.refined_bins)
+
+        ch_refined_bins = BINNING_REFINEMENT.out.refined_bins
+        ch_refined_unbins = BINNING_REFINEMENT.out.refined_unbins
+        ch_versions = ch_versions.mix( BINNING_REFINEMENT.out.versions )
+
+        if ( params.postbinning_input == 'raw_bins_only' ) {
+            ch_input_for_postbinning_bins = ch_binning_results_bins
+            ch_input_for_postbinning_bins_unbins = ch_binning_results_bins.mix( ch_binning_results_unbins )
+        }
+        else if ( params.postbinning_input == 'refined_bins_only' ) {
+            ch_input_for_postbinning_bins = ch_refined_bins
+            ch_input_for_postbinning_bins_unbins = ch_refined_bins.mix( ch_refined_unbins )
+        }
+        else if ( params.postbinning_input == 'both' ) {
+            ch_all_bins = ch_binning_results_bins.mix( ch_refined_bins )
+            ch_input_for_postbinning_bins = ch_all_bins
+            ch_input_for_postbinning_bins_unbins = ch_all_bins.mix( ch_binning_results_unbins ).mix( ch_refined_unbins )
+        }
+    } else {
+        ch_input_for_postbinning_bins = ch_binning_results_bins
+        ch_input_for_postbinning_bins_unbins = ch_binning_results_bins.mix( ch_binning_results_unbins )
+    }
+
+    ch_input_for_postbinning = params.exclude_unbins_from_postbinning
+        ? ch_input_for_postbinning_bins
+        : ch_input_for_postbinning_bins_unbins
+
+    DEPTHS(ch_input_for_postbinning, BINNING.out.metabat2depths, clean_reads)
+    ch_input_for_binsummary = DEPTHS.out.depths_summary
+    //ch_versions = ch_versions.mix(DEPTHS.out.versions)
+
+    /*
+    * Bin QC subworkflows: for checking bin completeness with either BUSCO, CHECKM, CHECKM2, and/or GUNC
+    */
+
+    if (!params.skip_binqc) {
+        BIN_QC(ch_input_for_postbinning)
+
+        ch_bin_qc_summary = BIN_QC.out.qc_summary
+        ch_versions = ch_versions.mix(BIN_QC.out.versions)
+    }
+    
+    ch_quast_bins_summary = Channel.empty()
+    if (!params.skip_quast) {
+        ch_input_for_quast_bins = ch_input_for_postbinning
+            .groupTuple()
+            .map { meta, bins ->
+                def new_bins = bins.flatten()
+                [meta, new_bins]
+            }
+
+        QUAST_BINS(ch_input_for_quast_bins)
+        ch_versions = ch_versions.mix(QUAST_BINS.out.versions.first())
+        ch_quast_bin_summary = QUAST_BINS.out.quast_bin_summaries.collectFile(keepHeader: true) { meta, summary ->
+            ["${meta.id}.tsv", summary]
+        }
+        QUAST_BINS_SUMMARY(ch_quast_bin_summary.collect())
+        ch_quast_bins_summary = QUAST_BINS_SUMMARY.out.summary
+    
+    }
+
+    // If CAT is not run, then the CAT global summary should be an empty channel
+        /*if (params.cat_db_generate || params.cat_db) {
+            ch_cat_global_summary = CAT_SUMMARY.out.combined
+        }
+        else {*/
+            ch_cat_global_summary = Channel.empty()
+        //}
+
+    /*
+     * GTDB-tk: taxonomic classifications using GTDB reference
+     */
+
+    if (!params.skip_gtdbtk) {
+
+        ch_gtdbtk_summary = Channel.empty()
+        if (gtdb) {
+
+            ch_gtdb_bins = ch_input_for_postbinning.filter { meta, bins ->
                 meta.domain != "eukarya"
             }
 
-            ch_eukarya_bins_dastool = ch_binning_results_bins.filter { meta, bins ->
-                meta.domain == "eukarya"
-            }
-
-            //if (params.ancient_dna) {
-            //    ch_contigs_for_binrefinement = ANCIENT_DNA_ASSEMBLY_VALIDATION.out.contigs_recalled
-            //}
-            //else {
-                ch_contigs_for_binrefinement = BINNING_PREPARATION.out.grouped_mappings.map { meta, contigs, bam, bai -> [meta, contigs] } //}
-            //}
-
-            BINNING_REFINEMENT(ch_contigs_for_binrefinement, ch_prokarya_bins_dastool)
-            // ch_refined_bins = ch_eukarya_bins_dastool
-            //     .map{ meta, bins ->
-            //             def meta_new = meta + [refinement: 'eukaryote_unrefined']
-            //             [meta_new, bins]
-            //         }.mix( BINNING_REFINEMENT.out.refined_bins)
-
-            ch_refined_bins = BINNING_REFINEMENT.out.refined_bins
-            ch_refined_unbins = BINNING_REFINEMENT.out.refined_unbins
-            ch_versions = ch_versions.mix(BINNING_REFINEMENT.out.versions)
-
-            if (params.postbinning_input == 'raw_bins_only') {
-                ch_input_for_postbinning_bins = ch_binning_results_bins
-                ch_input_for_postbinning_bins_unbins = ch_binning_results_bins.mix(ch_binning_results_unbins)
-            }
-            else if (params.postbinning_input == 'refined_bins_only') {
-                ch_input_for_postbinning_bins = ch_refined_bins
-                ch_input_for_postbinning_bins_unbins = ch_refined_bins.mix(ch_refined_unbins)
-            }
-            else if (params.postbinning_input == 'both') {
-                ch_all_bins = ch_binning_results_bins.mix(ch_refined_bins)
-                ch_input_for_postbinning_bins = ch_all_bins
-                ch_input_for_postbinning_bins_unbins = ch_all_bins.mix(ch_binning_results_unbins).mix(ch_refined_unbins)
-            }
+            GTDBTK(
+                ch_gtdb_bins,
+                ch_bin_qc_summary,
+                gtdb,
+                gtdb_mash
+            )
+            ch_versions = ch_versions.mix(GTDBTK.out.versions.first())
+            ch_gtdbtk_summary = GTDBTK.out.summary
         }
-        else {
-            ch_input_for_postbinning_bins = ch_binning_results_bins
-            ch_input_for_postbinning_bins_unbins = ch_binning_results_bins.mix(ch_binning_results_unbins)
-        }
+    }
+    else {
+        ch_gtdbtk_summary = Channel.empty()
+    }
 
-    ch_input_for_postbinning_bins.view()
+    if ((!params.skip_binqc) || !params.skip_quast || !params.skip_gtdbtk) {
+        BIN_SUMMARY(
+            ch_input_for_binsummary,
+            ch_bin_qc_summary.ifEmpty([]),
+            ch_quast_bins_summary.ifEmpty([]),
+            ch_gtdbtk_summary.ifEmpty([]),
+            ch_cat_global_summary.ifEmpty([]),
+            params.binqc_tool
+        )
+    }
+
+    /*
+     * Prokka: Genome annotation
+     */
+
+    /*if (!params.skip_prokka) {
+        ch_bins_for_prokka = ch_input_for_postbinning
+            .transpose()
+            .map { meta, bin ->
+                def meta_new = meta + [id: bin.getBaseName()]
+                [meta_new, bin]
+            }
+            .filter { meta, bin ->
+                meta.domain != "eukarya"
+            }
+
+        PROKKA(
+            ch_bins_for_prokka,
+            [],
+            []
+        )
+        ch_versions = ch_versions.mix(PROKKA.out.versions.first())
+    }
+    */
     
 }
 

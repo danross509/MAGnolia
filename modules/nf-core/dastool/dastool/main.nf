@@ -51,6 +51,8 @@ process DASTOOL_DASTOOL {
         $args \\
         $proteins_pred \\
         $db_dir \\
+        --write_bins \\
+        --write_unbinned \\
         -t $task.cpus \\
         -i $bin_list \\
         -c $clean_contigs \\

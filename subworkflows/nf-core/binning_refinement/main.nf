@@ -71,13 +71,9 @@ workflow BINNING_REFINEMENT {
     ch_versions = ch_versions.mix(DASTOOL_FASTATOCONTIG2BIN_MAXBIN2.out.versions.first())
     ch_versions = ch_versions.mix(DASTOOL_FASTATOCONTIG2BIN_CONCOCT.out.versions.first())
 
-    ch_input_for_dastool.view()
-
     // Run DAStool
     DASTOOL_DASTOOL(ch_input_for_dastool, [], [])
     ch_versions = ch_versions.mix(DASTOOL_DASTOOL.out.versions.first())
-
-    DASTOOL_DASTOOL.out.bins.view()
 
     // Prepare bins for downstream analysis (separate from unbins, add 'binner' info and group)
     // use DASTool as 'binner' info allowing according grouping of refined bin sets,

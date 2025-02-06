@@ -3,7 +3,7 @@
 include { TIARA_TIARA                                                  } from '../../../modules/nf-core/tiara/tiara/main.nf'
 include { TIARA_CLASSIFY                                               } from '../../../modules/nf-core/scripts/tiara_classify/main.nf'
 include { DASTOOL_FASTATOCONTIG2BIN as DASTOOL_FASTATOCONTIG2BIN_TIARA } from '../../../modules/nf-core/dastool/fastatocontig2bin/main.nf'
-include { COMBINE_TSV as TIARA_SUMMARY                                 } from '../../../modules/nf-core/scripts/combine_tsv/main.nf'
+include { COMBINE_TSV as TIARA_SUMMARY                                 } from '../../../modules/nf-core_mag/combine_tsv/main.nf'
 
 workflow TIARA {
     take:

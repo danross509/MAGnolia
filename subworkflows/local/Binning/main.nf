@@ -25,25 +25,6 @@ workflow BINNING {
 
     main:
 
-    //clean_reads.view()
-    //final_assembly.view()
-
-    // Binning preparation with bowtie2
-    //build_index(final_assembly)
-
-    //align_input_ch = build_index.out.join(clean_reads, remainder: true)
-    //align_input_ch = build_index.out.combine(clean_reads)
-    //    .map { meta_assembly, assembly, index, meta_reads, reads ->
-    //       tuple(meta_assembly, assembly, index, reads)
-    //    }
-
-    //align_input_ch.view()
-
-    //bowtie2_align(align_input_ch,
-    //            bigThreads)
-
-
-
     jgi_input_ch = assemblies
         .map {meta, assembly, bams, bais ->
             [meta, bams, bais]
@@ -79,64 +60,63 @@ workflow BINNING {
 
 
     // Bin assembled contigs with MetaBAT2;
-    metabat2(metabat2_input_ch,
+    if ( !params.skip_metabat2 ) {
+        metabat2(metabat2_input_ch,
             bigThreads)
-    final_bins_for_gunzip = final_bins_for_gunzip.mix( metabat2.out.bins.transpose() )
-    binning_results_gzipped_final = binning_results_gzipped_final.mix( metabat2.out.bins )
-
+        final_bins_for_gunzip = final_bins_for_gunzip.mix( metabat2.out.bins.transpose() )
+        binning_results_gzipped_final = binning_results_gzipped_final.mix( metabat2.out.bins )
+    }
 
     // nf_core MAG convert_depths for MaxBin2
-    convert_depths(metabat2_input_ch)
-    maxbin2_input_ch = convert_depths.out.output
-        .map { meta, assembly, reads, abund ->
-            meta.binner = 'MaxBin2'
-            [meta, assembly, reads, abund]
-        }
+    if ( !params.skip_maxbin2 ) {
+        convert_depths(metabat2_input_ch)
+        maxbin2_input_ch = convert_depths.out.output
+            .map { meta, assembly, reads, abund ->
+                def meta_new = meta + [binner: 'MaxBin2']
+                [meta_new, assembly, reads, abund]
+            }
 
     //maxbin2_input_ch.view()
-
-    maxbin2(maxbin2_input_ch,
+        maxbin2(maxbin2_input_ch,
             bigThreads)
 
-    ADJUST_MAXBIN2_EXT(maxbin2.out.bins)
+        ADJUST_MAXBIN2_EXT(maxbin2.out.bins)
 
-    final_bins_for_gunzip = final_bins_for_gunzip.mix( ADJUST_MAXBIN2_EXT.out.renamed_bins.transpose() )
-    binning_results_gzipped_final = binning_results_gzipped_final.mix( ADJUST_MAXBIN2_EXT.out.renamed_bins )
-    
+        final_bins_for_gunzip = final_bins_for_gunzip.mix( ADJUST_MAXBIN2_EXT.out.renamed_bins.transpose() )
+        binning_results_gzipped_final = binning_results_gzipped_final.mix( ADJUST_MAXBIN2_EXT.out.renamed_bins )
+    }
 
     // Create CONCOCT input
-    concoct_input_ch = assemblies
-        .map {meta, assembly, bams, bais ->
-            def meta_new = meta + [binner: 'CONCOCT']
-            [meta_new, assembly, bams, bais]
-        }
-        .multiMap {
-            meta, assembly, bams, bais ->
-                assembly: [meta, assembly]
-                bams: [meta, bams, bais]
-        }
+    if ( !params.skip_concoct ){
+        concoct_input_ch = assemblies
+            .map {meta, assembly, bams, bais ->
+                def meta_new = meta + [binner: 'CONCOCT']
+                [meta_new, assembly, bams, bais]
+            }
+            .multiMap {
+                meta, assembly, bams, bais ->
+                    assembly: [meta, assembly]
+                    bams: [meta, bams, bais]
+            }
 
-    //concoct_input_ch.assembly.view()
-    //concoct_input_ch.bams.view()
-
-    FASTA_BINNING_CONCOCT (concoct_input_ch.assembly,
+        FASTA_BINNING_CONCOCT (concoct_input_ch.assembly,
                             concoct_input_ch.bams)
 
-    final_bins_for_gunzip = final_bins_for_gunzip.mix( FASTA_BINNING_CONCOCT.out.bins.transpose() )
-    binning_results_gzipped_final = binning_results_gzipped_final.mix( FASTA_BINNING_CONCOCT.out.bins )
-
+        final_bins_for_gunzip = final_bins_for_gunzip.mix( FASTA_BINNING_CONCOCT.out.bins.transpose() )
+        binning_results_gzipped_final = binning_results_gzipped_final.mix( FASTA_BINNING_CONCOCT.out.bins )
+    }
 
     // decide which unbinned fasta files to further filter, depending on which binners selected
     // NOTE: CONCOCT does not produce 'unbins' itself, therefore not included here.
-    /*if ( !params.skip_metabat2 && params.skip_maxbin2 ) {
+    if ( !params.skip_metabat2 && params.skip_maxbin2 ) {
         ch_input_splitfasta = metabat2.out.unbinned
     } else if ( params.skip_metabat2 && !params.skip_maxbin2 ) {
         ch_input_splitfasta = maxbin2.out.unbinned_fasta
     } else if ( params.skip_metabat2 && params.skip_maxbin2 ) {
         ch_input_splitfasta = Channel.empty()
-    } else {*/
+    } else {
         ch_input_splitfasta = metabat2.out.unbinned.mix(maxbin2.out.unbinned_fasta)
-    //}
+    }
 
     SPLIT_FASTA ( ch_input_splitfasta )
     // large unbinned contigs from SPLIT_FASTA for decompressing for MAG_DEPTHS,

@@ -13,7 +13,7 @@ process maxbin2 {
 
 
     output:
-        tuple val(meta), path("*.fasta.gz") , optional:true, emit: bins
+        tuple val(meta), path("*.fasta.gz")     , optional:true, emit: bins
         tuple val(meta), path("*.summary")      , emit: summary
         tuple val(meta), path("*.abundance")    , emit: abundance   , optional: true
         tuple val(meta), path("*.log.gz")       , emit: log
