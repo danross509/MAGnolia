@@ -23,7 +23,7 @@ process CONCOCT_EXTRACTFASTABINS {
 
     script:
     def args   = task.ext.args ?: ''
-    prefix = task.ext.prefix ?: "concoct"
+    prefix = task.ext.prefix ?: "${meta.assembler}-concoct"
     """
     mkdir ${prefix}
 

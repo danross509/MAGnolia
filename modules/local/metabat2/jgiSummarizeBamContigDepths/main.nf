@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
 
-process jgiSummarizeBamContigDepths {
+process JGISUMMARIZEBAMCONTIGDEPTHS {
 
     container "community.wave.seqera.io/library/metabat2:15c68d548f9e9b8f"
     conda "bioconda::metabat2=2.15"

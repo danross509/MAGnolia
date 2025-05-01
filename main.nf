@@ -3,7 +3,11 @@
 /*
 To run this pipeline during development:
 From the MAG_Pipeline/pipeline_test/ folder, run the following command:
-    nextflow run ../main.nf -params-file ../params.json -resume
+    nextflow run ../main.nf -resume
+
+DO NOT NAME {NANOPORE BARCODE FOLDERS} OR {PACBIO FILES} AS ***_#
+THERE IS MAPPING CODE FOR SHORT READ SAMPLES TO FIRSTLY, ON IMPUT, CONVERT {_R1,_R2} TO {_1,_2}, AND LATER TO REMOVE THE {_1,_2} FOR SAMPLE ID EXTRACTION
+USING {_##} NOTATION (ie. _01, _02) FOR LONG READ SAMPLEIDs IS UNAFFECTED
 
 
 
@@ -22,10 +26,14 @@ I am developing it using conda environments. To run it you need to have a conda 
 */
 
 
-include { QC } from './subworkflows/local/QC/main.nf'
-include { assembly } from './subworkflows/local/Assembly/main.nf'
+include { QC_SHORT } from './subworkflows/local/qc_short/main.nf'
+include { CONCATENATE_READS as CONCATENATE_ONT_BARCODES } from './modules/local/scripts/concatenate_reads/main.nf'
+include { QC_NANOPORE } from './subworkflows/local/qc_nanopore/main.nf'
+//include { QC_PACBIO} from './subworkflows/local/qc_pacbio/main.nf'
+include { ASSEMBLY_SHORT } from './subworkflows/local/assembly_short/main.nf'
+include { ASSEMBLY_LONG } from './subworkflows/local/assembly_long/main.nf'
 include { BINNING_PREPARATION } from './subworkflows/nf-core/binning_preparation/main.nf'
-include { BINNING } from './subworkflows/local/Binning/main.nf'
+include { BINNING } from './subworkflows/local/binning/main.nf'
 include { domain_classification } from './subworkflows/nf-core/domain_classification/main.nf'
 include { BINNING_REFINEMENT } from './subworkflows/nf-core/binning_refinement/main.nf'
 include { DEPTHS } from './subworkflows/nf-core/depths/main.nf'
@@ -48,9 +56,16 @@ include { checkm } from './CheckM/main.nf' (include both 1 and 2)
 include { taxonony } from './Taxonomy/main.nf' (include both ncbi, gtdb)
 include { bakta } from './Bakta/main.nf'
 include { annotation } from './Annotation/main.nf'
+include { galah }
 */
 
 //errorStrategy = { task.exitStatus in [12,143,137,104,134,139] ? 'retry' : 'finish' }
+
+/*
+for file in CLEAN_READS/*; do 
+	mv $(readlink $file) CLEAN_READS/
+done
+*/
 
 workflow {
     // Specify the output directory
@@ -104,93 +119,255 @@ workflow {
 
     if (!params.keep_phix) {
         ch_phix_db_file = Channel.value(file("${params.phix_reference}"))
-    }
-*/
+    }*/
+
     gtdb = params.skip_binqc || params.skip_gtdbtk ? false : params.gtdb_db
 
-    if (gtdb) {
-        gtdb = file("${gtdb}", checkIfExists: true)
-        gtdb_mash = params.gtdb_mash ? file("${params.gtdb_mash}", checkIfExists: true) : []
+    if ( gtdb ) {
+        gtdb = file( "${gtdb}", checkIfExists: true )
+        gtdb_mash = params.gtdb_mash ? file( "${params.gtdb_mash}", checkIfExists: true ) : []
     }
     else {
         gtdb = []
     }
 
-    short_reads = Channel.fromFilePairs(params.short_reads, size: -1, checkIfExists:true)
-        .map { sample, reads ->
-            def sampleID = sample.replaceAll(/_R$/, '')
-            return [ sampleID, reads ]
-        }
-        .map { sampleID, reads ->           //Inspired by nf-core components meta-map
-            def meta = [:]
-            // Set meta.id
-            meta.id = sampleID
-            // Set meta.paired_end
-            if ( reads.size() == 2 ) {
-                meta.paired_end = true
-            } else if ( reads.size() == 1 ) {
-                meta.paired_end = false
-            } else {
-                exit 1, "ERROR: Check input files-> ${sampleID} contains invalid number of samples"
-            }
-            // Set bin-group
-            meta.bin_group = "all"
-            return [ meta, reads ]
-        }
-    //short_reads.view()
+    /****************
+        Data input
+     ****************/
     
-    contaminants = channel.fromPath( params.contaminants )
-        .map { contaminant ->
-            def meta = [:]
-            // Set meta.id
-            meta.id = contaminant.getBaseName()
-            return [ meta, contaminant ]
+    //Create channel of raw short reads
+    short_reads = Channel.empty()
+    if( params.short_reads ) {
+        short_reads = Channel.fromFilePairs ( params.short_reads, size: -1 )
+            .map { sample, reads ->
+                def sampleID = sample.replaceAll(/_R$/, '')
+                return [ sampleID, reads ]
+            }
+            .map { sampleID, reads ->
+                def meta = [:]
+                // Set meta.id
+                meta.id = sampleID
+                meta.sequencer = 'Illumina'
+                // Set meta.paired_end
+                if ( reads.size() == 2 ) {
+                    meta.paired_end = true
+                } else if ( reads.size() == 1 ) {
+                    meta.paired_end = false
+                } else {
+                    exit 1, "ERROR: Check short read input files -> ${sampleID} contains invalid number of samples"
+                }
+                // Set bin-group
+                meta.bin_group = "all"
+                return [ meta, reads ]
+            }
+    }
+    short_reads.view()
+    
+    
+    //Create channel of raw ONT (Nanopore) reads
+    nanopore_reads = Channel.empty()
+    if ( params.nanopore_reads ) {
+        nanopore_barcodes = Channel.fromPath ( "${params.nanopore_reads}/*" )
+            .map { reads ->
+                def meta = [:]
+                // Set barcode folder name as meta.id
+                def barcode = reads.getParent().getName()
+                meta.id = barcode
+                return [ meta, reads ]
+            }
+            .groupTuple()
+            .map { meta, reads ->
+                if ( !params.nanopore_reads_corrected ) {
+                    def meta_new = meta + [ sequencer: 'ONT', corrected: false ]
+                    return [ meta_new, reads ]
+                } else {
+                    def meta_new = meta + [ sequencer: 'ONT', corrected: true ]
+                    return [ meta_new, reads ]
+                }
+            }
+        //nanopore_barcodes.view()
+
+        CONCATENATE_ONT_BARCODES ( 
+            nanopore_barcodes,
+            "",
+            "RAW_ONT_BARCODES"
+            )
+
+        nanopore_reads = CONCATENATE_ONT_BARCODES.out
+
+        nanopore_reads.view()
+    }
+    
+
+    //Create channel of raw PacBio reads
+    pacbio_reads = Channel.empty()
+    if ( params.pacbio_reads ) {
+        pacbio_reads = Channel.fromPath ( params.pacbio_reads )
+    }
+    
+    
+
+
+    /*long_reads = Channel.empty()
+    if ( params.nanopore_reads && !params.pacbio_reads) {
+        long_reads = nanopore_reads
+    } else if ( !params.nanopore_reads && params.pacbio_reads) {
+        long_reads = pacbio_reads
+    } else if ( params.nanopore_reads && params.pacbio_reads) {
+        long_reads = nanopore_reads.mix(pacbio_reads)
+    } else {
+        long_reads = false
+    }*/
+
+    /*********************
+        Quality control
+     *********************/
+    // Create channel of phiX genome to remove
+    phiX = Channel.empty()
+    if ( !params.skip_qc && params.short_reads && params.remove_phiX ) {
+        phiX = Channel.fromPath ( params.phiX )
+            .map { reference ->
+                def meta = [:]
+                meta.id = reference.getBaseName()
+                return [ meta, reference ]
+            }
+    }
+
+    host_genome = Channel.empty()
+    // Create channel of host genome to remove
+    if ( !params.skip_qc && params.host_genome ) {
+        host_genome = Channel.fromPath ( params.host_genome )
+            .map { reference ->
+                def meta = [:]
+                meta.id = reference.getBaseName()
+                return [ meta, reference ]
+            }
+    }
+
+    // Short read quality control
+    concatenated_reads = Channel.empty()        // Channel to concatenate fastq files for assembly ('per_sample' will be ungrouped sample fastq's)
+    individual_clean_reads = Channel.empty()    // Channel to group original individual sample fastq's according to assembly file (for use in binning)
+    if ( !params.skip_qc && params.short_reads ) {
+        QC_SHORT ( 
+            short_reads,
+            phiX,
+            host_genome
+        )
+        concatenated_reads = concatenated_reads.mix ( QC_SHORT.out.concatenated_reads )
+        individual_clean_reads = individual_clean_reads.mix ( QC_SHORT.out.original_clean_reads )
+    }
+        
+    concatenated_reads.view() 
+    individual_clean_reads.view()  
+
+    concatenated_long_reads = Channel.empty()
+    individual_clean_long_reads = Channel.empty()
+    // ONT quality control
+    if ( !params.skip_qc && params.nanopore_reads ) {
+        QC_NANOPORE ( 
+            nanopore_reads,
+            host_genome
+        )
+        concatenated_long_reads = concatenated_long_reads.mix ( QC_NANOPORE.out.concatenated_reads )
+        individual_clean_long_reads = individual_clean_long_reads.mix ( QC_NANOPORE.out.original_clean_reads )
+    }
+
+    // PacBio quality control
+    if ( !params.skip_qc && params.pacbio_reads ) {
+        QC_PACBIO ( pacbio_reads
+            // Host species
+        )
+        concatenated_long_reads = concatenated_long_reads.mix ( QC_PACBIO.out.concatenated_reads )
+        individual_clean_long_reads = individual_clean_long_reads.mix ( QC_PACBIO.out.original_clean_reads )
+    }
+
+    concatenated_long_reads.view()
+
+    /**************
+        Assembly
+     **************/
+
+    
+    final_contigs = Channel.empty()
+    final_assembly_graphs = Channel.empty()
+
+    if ( !params.skip_assembly ) {
+        if ( params.short_reads && !params.nanopore_reads && !params.pacbio_reads ) {
+            ASSEMBLY_SHORT ( concatenated_reads )
+            final_contigs = final_contigs.mix ( ASSEMBLY_SHORT.out )
+        } else if ( !params.short_reads && ( params.nanopore_reads || params.pacbio_reads )) {
+            ASSEMBLY_LONG ( concatenated_long_reads )
+            final_contigs = final_contigs.mix ( ASSEMBLY_LONG.out.assembly_out )
+            final_assembly_graphs = final_assembly_graphs.mix ( ASSEMBLY_LONG.out.assembly_graph_out )
+        } /*else if (params.short_reads && (params.nanopore_reads || params.pacbio_reads)) {
+            ASSEMBLY_HYBRID( concatenated_reads )
+            final_contigs = ASSEMBLY_HYBRID.out
+        }*/
+        
+    }
+
+    final_contigs.view()
+    final_assembly_graphs.view()
+
+    /*************
+        Binning
+     *************/
+
+    binning_prep_input = Channel.empty()
+    if ( !params.skip_binning ) {
+
+        // 'Per_assembly' binning associates the read files used in each contig file, for all assembly modes
+        // 'Grouped' binning concatenates the contig files of the selected samples, for 'per_sample' assembly only (for now)
+        // 'Cobinning' concatenates all contig files and collects all individual read files, for all assembly modes
+
+        binning_prep_reads = Channel.empty()
+        // If short reads only
+        if ( params.short_reads && !params.nanopore_reads && !params.pacbio_reads ) { 
+            binning_prep_reads = binning_prep_reads.mix ( individual_clean_reads )
+        // If long reads only    
+        } else if ( !params.short_reads && ( params.nanopore_reads || params.pacbio_reads )) {
+            binning_prep_reads = binning_prep_reads.mix ( individual_clean_long_reads )
+        // If hybrid assembly
+        } else if ( params.short_reads && ( params.nanopore_reads || params.pacbio_reads )) {
+            binning_prep_reads = 'to do' // individual_clean_hybrid_reads
         }
-    bowtie2_sensitivity = params.bowtie2_sensitivity
-    paired_reads = params.paired_reads
-    coassembly = params.coassembly
+            
+        if ( params.binning_mode == 'per_assembly') {                
+            binning_prep_reads = binning_prep_reads
+                .map { meta, reads ->
+                    [ meta.id, meta, reads ]
+                }
+            binning_prep_input = final_contigs
+                .map { meta, contigs ->
+                    [ meta.id, meta, contigs ]
+                }
+                .combine ( binning_prep_reads, by: 0 )
+                .map { id, contigs_meta, contigs, grouped_reads_meta, grouped_reads ->
+                    [ contigs_meta, contigs, grouped_reads_meta, grouped_reads ]
+                }
+        } else if ( params.binning_mode == 'grouped' ) {
 
-    QC( short_reads,
-        contaminants,
-        bowtie2_sensitivity,
-        paired_reads,
-        coassembly )
+        } else if ( params.binning_mode == 'cobinning' ) {
 
+        } else {
+                exit 1, "ERROR: Binniing mode <${params.binning_mode}> is invalid"
+        }
 
+        //binning_prep_input.view()                    
 
+        BINNING_PREPARATION ( binning_prep_input )
 
-    /*
-     *  Collect clean reads from QC, assemble
-     */
-    clean_reads = QC.out
-    mh_preset = params.mh_preset
-    bigThreads =  params.bigThreads
-    bigMem = params.bigMem
-
-    //clean_reads.view()
-
-    assembly( clean_reads,
-              mh_preset,
-              bigThreads,
-              bigMem )
-
-    /*
-     *  Collect assembly fasta from Assembly
-     */
-
-    final_assemblies = assembly.out
-
-    BINNING_PREPARATION ( final_assemblies, clean_reads )
-
-
-
-    BINNING( BINNING_PREPARATION.out.grouped_mappings,
-             clean_reads,
-             bigThreads )
+        BINNING_PREPARATION.out.semibin2_mappings.view()
+        /*BINNING (
+            BINNING_PREPARATION.out.semibin2_mappings,
+            BINNING_PREPARATION.out.grouped_mappings,
+            final_assembly_graphs
+        )*/
+    }
 
     //BINNING.out.bins.view()
 
-/*
+    /*
             ch_binning_results_bins = binning.out.bins.map { meta, bins ->
                 def meta_new = meta + [domain: 'unclassified']
                 [meta_new, bins]
@@ -199,12 +376,15 @@ workflow {
                 def meta_new = meta + [domain: 'unclassified']
                 [meta_new, bins]
             }
-*/
-    if ( params.bin_domain_classification ){
+    */
+    ch_binning_results_bins = Channel.empty()
+    ch_binning_results_unbins = Channel.empty()
 
-        domain_classification ( final_assemblies,
-                                binning.out.bins,
-                                binning.out.unbinned )
+/*    if ( !params.skip_binning && !params.skip_bin_domain_classification ) {
+
+        domain_classification ( final_contigs,
+                                BINNING.out.bins,
+                                BINNING.out.unbinned )
 
         binning_results_bins = domain_classification.out.classified_bins.map { meta, bins ->
                 def meta_new = meta + [ refinement: 'unrefined' ]
@@ -215,7 +395,7 @@ workflow {
                 [ meta_new, bins ]
         }
 
-    } else {
+    } else if ( !params.skip_binning && params.skip_bin_domain_classification) {
 
         ch_binning_results_bins = BINNING.out.bins.map { meta, bins ->
                 def meta_new = meta + [ domain: 'unclassified', refinement: 'unrefined' ]
@@ -229,7 +409,7 @@ workflow {
     }
 
       // Only run if 2+ binners are used*************************************************************************************************************
-    if ( params.bin_refinement ) {
+    if ( !params.skip_bin_refinement ) {
         ch_prokarya_bins_dastool = ch_binning_results_bins.filter { meta, bins ->
             meta.domain != "eukarya"
         }
@@ -278,9 +458,13 @@ workflow {
         ? ch_input_for_postbinning_bins
         : ch_input_for_postbinning_bins_unbins
 
-    DEPTHS(ch_input_for_postbinning, BINNING.out.metabat2depths, clean_reads)
-    ch_input_for_binsummary = DEPTHS.out.depths_summary
-    //ch_versions = ch_versions.mix(DEPTHS.out.versions)
+    if (!params.skip_binning){
+        DEPTHS(ch_input_for_postbinning, BINNING.out.metabat2depths, clean_reads)
+        ch_input_for_binsummary = DEPTHS.out.depths_summary
+    }
+*/    
+    
+    
 
     /*
     * Bin QC subworkflows: for checking bin completeness with either BUSCO, CHECKM, CHECKM2, and/or GUNC
@@ -293,7 +477,7 @@ workflow {
         ch_versions = ch_versions.mix(BIN_QC.out.versions)
     }
     
-    ch_quast_bins_summary = Channel.empty()
+/*    ch_quast_bins_summary = Channel.empty()
     if (!params.skip_quast) {
         ch_input_for_quast_bins = ch_input_for_postbinning
             .groupTuple()
@@ -310,8 +494,8 @@ workflow {
         QUAST_BINS_SUMMARY(ch_quast_bin_summary.collect())
         ch_quast_bins_summary = QUAST_BINS_SUMMARY.out.summary
     
-    }
-
+        }
+*/
     // If CAT is not run, then the CAT global summary should be an empty channel
         /*if (params.cat_db_generate || params.cat_db) {
             ch_cat_global_summary = CAT_SUMMARY.out.combined
@@ -323,7 +507,7 @@ workflow {
     /*
      * GTDB-tk: taxonomic classifications using GTDB reference
      */
-
+    /*
     if (!params.skip_gtdbtk) {
 
         ch_gtdbtk_summary = Channel.empty()
@@ -357,7 +541,7 @@ workflow {
             params.binqc_tool
         )
     }
-
+    */
     /*
      * Prokka: Genome annotation
      */

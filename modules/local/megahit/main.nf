@@ -1,11 +1,12 @@
 #!/usr/bin/env nextflow
 
-process megahit {
+process MEGAHIT {
+    tag "$meta.id"
 
     container "community.wave.seqera.io/library/megahit:1.2.9--23234b8da1e27898"
     conda "bioconda::megahit=1.2.9"
 
-    publishDir "${launchDir}/Assembly/", mode: 'symlink'
+    publishDir "${launchDir}/Assembly/${meta.id}/", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads)
@@ -43,6 +44,8 @@ process megahit {
         --presets $mh_preset \
         --verbose \
         --continue
+
+        mv ./megahit/final.contigs.fa ./megahit/${meta.id}_final.contigs.fa
         """
     } else if (!meta.paired_end) {
 
@@ -55,6 +58,8 @@ process megahit {
         --presets $mh_preset \
         --verbose \
         --continue
+
+        mv ./megahit/final.contigs.fa ./megahit/${meta.id}_final.contigs.fa
         """
     }
 }

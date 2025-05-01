@@ -3,12 +3,13 @@
 /*
 */
 
-process fastqc {
+process FASTQC {
+    tag "$meta.id"
 
     container "community.wave.seqera.io/library/fastqc:0.12.1--af7a5314d5015c29"
     conda "bioconda::fastqc=0.12.1"
 
-    publishDir "${launchDir}/QC/${step}/${meta.id}", mode: 'symlink'
+    publishDir "${launchDir}/QC/${meta.id}/${step}", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads_fastq)

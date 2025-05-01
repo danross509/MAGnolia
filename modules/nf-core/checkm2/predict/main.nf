@@ -12,9 +12,9 @@ process CHECKM2_PREDICT {
     tuple val(dbmeta), path(db)
 
     output:
-    tuple val(meta), path("${prefix}")                   , emit: checkm2_output
-    tuple val(meta), path("${prefix}/quality_report.tsv"), emit: checkm2_tsv
-    path("versions.yml")                                 , emit: versions
+    tuple val(meta), path("${prefix}")                              , emit: checkm2_output
+    tuple val(meta), path("${prefix}/${prefix}_quality_report.tsv")  , emit: checkm2_tsv
+    path("versions.yml")                                            , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -31,6 +31,8 @@ process CHECKM2_PREDICT {
         --database_path ${db} \\
         ${args}
 
+    mv ${prefix}/quality_report.tsv ${prefix}/${prefix}_quality_report.tsv
+
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         checkm2: \$(checkm2 --version)
@@ -42,7 +44,7 @@ process CHECKM2_PREDICT {
     prefix = task.ext.prefix ?: "${meta.id}"
     """
     mkdir -p ${prefix}/diamond_output ${prefix}/protein_files
-    touch ${prefix}/quality_report.tsv ${prefix}/checkm2.log
+    touch ${prefix}/${prefix}quality_report.tsv ${prefix}/checkm2.log
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

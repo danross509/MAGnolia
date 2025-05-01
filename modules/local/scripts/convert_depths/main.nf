@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
 
-process convert_depths {
+process CONVERT_DEPTHS {
 
     conda "bioconda::bioawk=1.0"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?

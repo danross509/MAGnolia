@@ -9,7 +9,7 @@ process ADJUST_MAXBIN2_EXT {
         'https://depot.galaxyproject.org/singularity/ubuntu:20.04' :
         'nf-core/ubuntu:20.04' }"
 
-    publishDir "${launchDir}/Binning/${meta.id}/maxbin2", mode: 'symlink'
+    publishDir "${launchDir}/Binning/${meta.id}/${meta.assembler}-maxbin2", mode: 'symlink'
 
     input:
     tuple val(meta), path(bins)

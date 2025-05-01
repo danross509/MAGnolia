@@ -1,38 +1,31 @@
 #!/usr/bin/env nextflow
 
-process concatenate_reads {
+process CONCATENATE_READS {
+    tag "$filename"
 
     container ""
     conda ""
 
-    publishDir "${launchDir}/CLEAN_READS", mode: 'symlink'
+    publishDir "${launchDir}/${save_directory}", mode: 'symlink'
 
     input:
-        tuple val(meta), path(clean_reads)
+        tuple val(meta), path(reads)
+        val new_filename
+        val save_directory
+
 
     output:
-        tuple val(allMeta), path("${filename}.fastq.gz")
+        tuple val(meta), path("${filename}.fastq.gz")
 
     script:
- 
-    allMeta = [:]
-    allMeta.id = "allReads"
-    allMeta.paired_end = meta.paired_end
 
-    //if (meta.is_paired == "PE"){
-    //} else if (meta.is_paired == "SE") {
-    //    allMeta.paired_end = false
-    //}
-    //allMeta.sense = meta.sense
-    
-    if (meta.sense == "R1") {
-        filename = "all_reads_1"
-    } else if (meta.sense == "R2"){
-        filename = "all_reads_2"
+    filename = "${new_filename}"
+    if (filename.size() < 1) {
+        filename = "${meta.id}"
     }
 
     """
-    cat $clean_reads > ${filename}.fastq.gz
+    cat $reads > ${filename}.fastq.gz
     """ 
 
 }

@@ -2,13 +2,14 @@
 
 
 
-include { metabat2 } from '../../../modules/local/metabat2/metabat2/main.nf'
+include { METABAT2 } from '../../../modules/local/metabat2/metabat2/main.nf'
 //include { build_index } from '../../../modules/local/bowtie2/build_index/main.nf'
 //include { bowtie2_align } from '../../../modules/local/bowtie2/bowtie2_align/main.nf'
-include { jgiSummarizeBamContigDepths } from '../../../modules/local/metabat2/jgiSummarizeBamContigDepths/main.nf'
-include { convert_depths } from '../../../modules/local/scripts/convert_depths/main.nf'
-include { maxbin2 } from '../../../modules/local/maxbin2/main.nf'
+include { JGISUMMARIZEBAMCONTIGDEPTHS } from '../../../modules/local/metabat2/jgiSummarizeBamContigDepths/main.nf'
+include { CONVERT_DEPTHS } from '../../../modules/local/scripts/convert_depths/main.nf'
+include { MAXBIN2 } from '../../../modules/local/maxbin2/main.nf'
 include { ADJUST_MAXBIN2_EXT } from '../../../modules/local/scripts/rename_maxbin2_bins'
+//include {McDevol}
 
 include { FASTA_BINNING_CONCOCT } from '../../nf-core/fasta_binning_concoct/main.nf'
 
@@ -19,68 +20,90 @@ include { GUNZIP as GUNZIP_UNBINS } from '../../../modules/nf-core/gunzip/main.n
 
 workflow BINNING {
     take:
-    assemblies
-    clean_reads
-    bigThreads
+    assembly_alignments_semibin2
+    assembly_alignments
+    assembly_graphs
+    
 
     main:
 
-    jgi_input_ch = assemblies
-        .map {meta, assembly, bams, bais ->
+    jgi_input_ch = assembly_alignments
+        .map {meta, contigs, bams, bais ->
             [meta, bams, bais]
         }
 
-    jgiSummarizeBamContigDepths(jgi_input_ch,
-                                bigThreads)
+    JGISUMMARIZEBAMCONTIGDEPTHS(jgi_input_ch,
+                                params.lgThreads)
 
-    ch_metabat_depths = jgiSummarizeBamContigDepths.out.depth
+    ch_metabat_depths = JGISUMMARIZEBAMCONTIGDEPTHS.out.depth
         .map { meta, depths ->
             def meta_new = meta + [binner: 'MetaBAT2']
             [ meta_new, depths ]
         }
         
 
-    // main bins for decompressing for MAG_DEPTHS
+    // Main bins for decompressing for MAG_DEPTHS
     final_bins_for_gunzip = Channel.empty()
 
-    // final gzipped bins
+    // Final gzipped bins
     binning_results_gzipped_final = Channel.empty()
 
+    // Create SemiBin2/SemiBin input
+    if ( !params.skip_semibin2 ) {
+        env = ['human_gut', 'dog_gut', 'ocean', 'soil', 'cat_gut', 'human_oral', 'mouse_gut', 'pig_gut', 'built_environment', 'wastewater', 'chicken_caecum', 'global']
+        if ( env.contains(params.semibin_environment) ) {
+            // NEEDS TO KNOW: {single_sample | coassembly OR grouped assembly | cobinning OR grouped binning}, {short read | long read} 
+            semibin_input_ch = assembly_alignments_semibin2
+                .map { meta, contigs, bams, bais ->
+                    [ meta, contigs, bams ]
+                }
+                .join ( params.semibin_environment )
+
+            SEMIBIN2 (
+                semibin_input_ch,
+                params.use_semibin1
+            )
+
+        } else {
+            exit 1, "ERROR: SemiBin2 environment <${params.semibin_environment}> is invalid"
+        }
+    }
+
+        
 
     // Create metabat2 input
-    metabat2_input_ch = assemblies
-        .map {meta, assembly, bams, bais ->
+    metabat2_input_ch = assembly_alignments
+        .map {meta, contigs, bams, bais ->
             def meta_new = meta + [binner: 'MetaBAT2']
-            [ meta_new, assembly, bams, bais ]
+            [ meta_new, contigs, bams, bais ]
         }
         .join(ch_metabat_depths, by: 0)
-        .map { meta, assembly, bams, bais, depths ->
-            [ meta, assembly, depths ]
+        .map { meta, contigs, bams, bais, depths ->
+            [ meta, contigs, depths ]
         }
-
 
     // Bin assembled contigs with MetaBAT2;
     if ( !params.skip_metabat2 ) {
-        metabat2(metabat2_input_ch,
-            bigThreads)
-        final_bins_for_gunzip = final_bins_for_gunzip.mix( metabat2.out.bins.transpose() )
-        binning_results_gzipped_final = binning_results_gzipped_final.mix( metabat2.out.bins )
+        METABAT2(metabat2_input_ch,
+            params.lgThreads)
+        final_bins_for_gunzip = final_bins_for_gunzip.mix( METABAT2.out.bins.transpose() )
+        binning_results_gzipped_final = binning_results_gzipped_final.mix( METABAT2.out.bins )
     }
 
     // nf_core MAG convert_depths for MaxBin2
     if ( !params.skip_maxbin2 ) {
-        convert_depths(metabat2_input_ch)
-        maxbin2_input_ch = convert_depths.out.output
-            .map { meta, assembly, reads, abund ->
+        CONVERT_DEPTHS(metabat2_input_ch)
+        maxbin2_input_ch = CONVERT_DEPTHS.out.output
+            .map { meta, contigs, reads, abund ->
                 def meta_new = meta + [binner: 'MaxBin2']
-                [meta_new, assembly, reads, abund]
+                [meta_new, contigs, reads, abund]
             }
 
     //maxbin2_input_ch.view()
-        maxbin2(maxbin2_input_ch,
-            bigThreads)
+        MAXBIN2(maxbin2_input_ch,
+            params.lgThreads)
 
-        ADJUST_MAXBIN2_EXT(maxbin2.out.bins)
+        ADJUST_MAXBIN2_EXT(MAXBIN2.out.bins)
 
         final_bins_for_gunzip = final_bins_for_gunzip.mix( ADJUST_MAXBIN2_EXT.out.renamed_bins.transpose() )
         binning_results_gzipped_final = binning_results_gzipped_final.mix( ADJUST_MAXBIN2_EXT.out.renamed_bins )
@@ -88,18 +111,18 @@ workflow BINNING {
 
     // Create CONCOCT input
     if ( !params.skip_concoct ){
-        concoct_input_ch = assemblies
-            .map {meta, assembly, bams, bais ->
+        concoct_input_ch = assembly_alignments
+            .map {meta, contigs, bams, bais ->
                 def meta_new = meta + [binner: 'CONCOCT']
-                [meta_new, assembly, bams, bais]
+                [meta_new, contigs, bams, bais]
             }
             .multiMap {
-                meta, assembly, bams, bais ->
-                    assembly: [meta, assembly]
+                meta, contigs, bams, bais ->
+                    contigs: [meta, contigs]
                     bams: [meta, bams, bais]
             }
 
-        FASTA_BINNING_CONCOCT (concoct_input_ch.assembly,
+        FASTA_BINNING_CONCOCT (concoct_input_ch.contigs,
                             concoct_input_ch.bams)
 
         final_bins_for_gunzip = final_bins_for_gunzip.mix( FASTA_BINNING_CONCOCT.out.bins.transpose() )
@@ -109,13 +132,13 @@ workflow BINNING {
     // decide which unbinned fasta files to further filter, depending on which binners selected
     // NOTE: CONCOCT does not produce 'unbins' itself, therefore not included here.
     if ( !params.skip_metabat2 && params.skip_maxbin2 ) {
-        ch_input_splitfasta = metabat2.out.unbinned
+        ch_input_splitfasta = METABAT2.out.unbinned
     } else if ( params.skip_metabat2 && !params.skip_maxbin2 ) {
-        ch_input_splitfasta = maxbin2.out.unbinned_fasta
+        ch_input_splitfasta = MAXBIN2.out.unbinned_fasta
     } else if ( params.skip_metabat2 && params.skip_maxbin2 ) {
         ch_input_splitfasta = Channel.empty()
     } else {
-        ch_input_splitfasta = metabat2.out.unbinned.mix(maxbin2.out.unbinned_fasta)
+        ch_input_splitfasta = METABAT2.out.unbinned.mix(MAXBIN2.out.unbinned_fasta)
     }
 
     SPLIT_FASTA ( ch_input_splitfasta )
@@ -142,6 +165,6 @@ workflow BINNING {
     bins_gz                                      = binning_results_gzipped_final
     unbinned                                     = ch_splitfasta_results_gunzipped
     unbinned_gz                                  = SPLIT_FASTA.out.unbinned
-    metabat2depths                               = jgiSummarizeBamContigDepths.out.depth
+    metabat2depths                               = JGISUMMARIZEBAMCONTIGDEPTHS.out.depth
     //versions                                     = ch_versions
 }

@@ -1,15 +1,14 @@
 #!/usr/bin/env nextflow
 
-process filter_contaminants {
-
+process FILTER_CONTAMINANTS {
+    tag "${meta.id}_${contaminant_meta.id}"
     container "community.wave.seqera.io/library/bowtie2:2.5.4--d51920539234bea7"
     conda "bioconda::bowtie2=2.5.4"
 
-    publishDir "${launchDir}/CLEAN_READS/", mode: 'symlink'
+    publishDir "${launchDir}/CLEAN_READS/illumina", mode: 'symlink'
 
     input:
-        tuple val(meta), path(reads_trimmed)
-        tuple val(contaminant_meta), path(contaminant_fasta), path(contaminant_index)
+        tuple val(meta), path(reads_trimmed), val(contaminant_meta), path(contaminant_fasta), path(contaminant_index)
         val sensitivity
 
     output:

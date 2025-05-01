@@ -1,17 +1,19 @@
 #!/usr/bin/env nextflow
 
-process fastp {
+process FASTP {
+    tag "$meta.id"
 
     container "community.wave.seqera.io/library/fastp:0.23.4--f8cefc1e5f7a782e"
     conda "bioconda::fastp=0.23.4"
 
-    publishDir "${launchDir}/QC/fastp", mode: 'symlink'
+    publishDir "${launchDir}/QC/${meta.id}/fastp", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads_fastq)
 
     output:
-        tuple val(meta), path("${meta.id}_trimmed_{1,2,se}.fastq.gz"), emit: reads
+        tuple val(meta), path("${meta.id}_trimmed_{1,2}.fastq.gz"), emit: reads_PE, optional: true
+        tuple val(meta), path("${meta.id}_trimmed_{se}.fastq.gz"), emit: reads_SE, optional: true
         path "fastp.html"
         path "fastp.json"
 

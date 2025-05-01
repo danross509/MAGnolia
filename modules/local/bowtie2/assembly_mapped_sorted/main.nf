@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
 
-process BOWTIE2_ASSEMBLY_ALIGNMENT {
+process BOWTIE2_ASSEMBLY_MAPPED_SORTED {
     tag "${assembly_meta.id}_${reads_meta.id}"
 
     container "community.wave.seqera.io/library/bowtie2:2.5.4--d51920539234bea7"
@@ -12,7 +12,7 @@ process BOWTIE2_ASSEMBLY_ALIGNMENT {
         tuple val(assembly_meta), path(assembly), path(index), val(reads_meta), path(reads)
 
     output:
-        tuple val(assembly_meta), path(assembly), path("${assembly_meta.id}_${reads_meta.id}.bam"), path("${assembly_meta.id}_${reads_meta.id}.bam.bai"), emit: mappings
+        tuple val(assembly_meta), path(assembly), path("${assembly_meta.id}_${reads_meta.id}_mapped.sorted.bam"), path("${assembly_meta.id}_${reads_meta.id}_mapped.sorted.bam.bai"), emit: mappings
         tuple val(assembly_meta), val(reads_meta), path("*.bowtie2.log"), emit: log
         //path "versions.yml", emit: versions
 
@@ -32,8 +32,9 @@ process BOWTIE2_ASSEMBLY_ALIGNMENT {
         -2 ${reads[1]} \\
         2> "${name}.bowtie2.log" | \
         samtools view -@ "${task.cpus}" -bS | \
-        samtools sort -@ "${task.cpus}" -o "${name}.bam"
-        samtools index "${name}.bam"
+        samtools view -@ "${task.cpus}" -b -F 4 | \
+        samtools sort -@ "${task.cpus}" -o "${name}_mapped.sorted.bam"
+        samtools index "${name}_mapped.sorted.bam"
         """
     } else if (!assembly_meta.paired_end) {
         """
@@ -44,8 +45,9 @@ process BOWTIE2_ASSEMBLY_ALIGNMENT {
         -U ${reads[0]} \\
         2> "${name}.bowtie2.log" | \
         samtools view -@ "${task.cpus}" -bS | \
-        samtools sort -@ "${task.cpus}" -o "${name}.bam"
-        samtools index "${name}.bam"
+        samtools view -@ "${task.cpus}" -b -F 4 | \
+        samtools sort -@ "${task.cpus}" -o "${name}_mapped.sorted.bam"
+        samtools index "${name}_mapped.sorted.bam"
         """
     }
 
