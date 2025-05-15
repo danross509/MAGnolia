@@ -15,7 +15,8 @@ process CONCATENATE_READS {
 
 
     output:
-        tuple val(meta), path("${filename}.fastq.gz")
+        tuple val(meta), path("${filename}.fastq.gz")                                   , emit: symlinks, optional: true
+        tuple val(meta), val("${launchDir}/${save_directory}${filename}.fastq.gz")      , emit: setup_reads_csv, optional: true
 
     script:
 

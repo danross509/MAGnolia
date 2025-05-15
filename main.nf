@@ -134,10 +134,66 @@ workflow {
     /****************
         Data input
      ****************/
+
+    reads = Channel.fromPath ( params.reads_file )
+        .splitCsv (header: true)
+        .map { meta ->
+            def meta_new = [:]
+            def reads = []
+
+            meta_new.id = meta.sampleID
+            meta_new.sequencer = meta.sequencer
+            if ( meta.paired_end == 'true' ) {
+                meta_new.paired_end = true
+            } else {
+                meta_new.paired_end = false
+            }
+            if ( meta.corrected == 'true' ) {
+                meta_new.corrected = true
+            } else {
+                meta_new.corrected = false
+            }
+            meta_new.bin_group = meta.bin_group
+            meta_new.assembly_group = meta.assembly_group
+
+            if ( meta_new.paired_end ) {
+                return [ meta_new, [ meta.reads_R1, meta.reads_R2 ]]
+            } else {
+                return [ meta_new, [ meta.reads_R1 ]]
+            }
+        }
     
-    //Create channel of raw short reads
+    //reads.view()
     short_reads = Channel.empty()
-    if( params.short_reads ) {
+    short_reads = short_reads.mix ( reads )
+        .map { meta, reads ->
+            if ( meta.sequencer == 'Illumina' ) {
+                return [ meta, reads ]
+            } 
+        }
+
+    nanopore_reads = Channel.empty()
+    nanopore_reads = nanopore_reads.mix ( reads )
+        .map { meta, reads ->
+            if ( meta.sequencer == 'ONT' ) {
+                return [ meta, reads ]
+            } 
+        }
+
+    pacbio_reads = Channel.empty()
+    pacbio_reads = pacbio_reads.mix ( reads )
+        .map { meta, reads ->
+            if ( meta.sequencer == 'PacBio' ) {
+                return [ meta, reads ]
+            } 
+        }
+
+    // Set params for each read set
+    
+    
+/*    //Create channel of raw short reads
+    short_reads = Channel.empty()
+    if ( params.short_reads ) {
         short_reads = Channel.fromFilePairs ( params.short_reads, size: -1 )
             .map { sample, reads ->
                 def sampleID = sample.replaceAll(/_R$/, '')
@@ -204,20 +260,9 @@ workflow {
     if ( params.pacbio_reads ) {
         pacbio_reads = Channel.fromPath ( params.pacbio_reads )
     }
-    
-    
+*/    
 
 
-    /*long_reads = Channel.empty()
-    if ( params.nanopore_reads && !params.pacbio_reads) {
-        long_reads = nanopore_reads
-    } else if ( !params.nanopore_reads && params.pacbio_reads) {
-        long_reads = pacbio_reads
-    } else if ( params.nanopore_reads && params.pacbio_reads) {
-        long_reads = nanopore_reads.mix(pacbio_reads)
-    } else {
-        long_reads = false
-    }*/
 
     /*********************
         Quality control

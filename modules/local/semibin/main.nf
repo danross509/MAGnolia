@@ -1,11 +1,12 @@
 #!/usr/bin/env nextflow
 
 process SEMIBIN {
+    tag "$assembly_meta.id"
 
     container "community.wave.seqera.io/library/pip_semibin:b6a41dbb4d1296c7"
     conda "${moduleDir}/environment.yml"
 
-    "${launchDir}/Binning/${meta.id}/${meta.assembler}-${semibin_version}", mode: 'symlink'
+    publishDir "${launchDir}/Binning/${assembly_meta.id}/${assembly_meta.assembler}-${semibin_version}", mode: 'symlink'
 
     input:
         tuple val(assembly_meta), path(assembly), path(bams), path(environment)

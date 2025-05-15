@@ -19,6 +19,7 @@ include { GUNZIP as GUNZIP_UNBINS } from '../../../modules/nf-core/gunzip/main.n
 
 
 workflow BINNING {
+    
     take:
     assembly_alignments_semibin2
     assembly_alignments
