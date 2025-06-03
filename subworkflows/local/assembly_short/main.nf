@@ -8,6 +8,7 @@ include { SPADES as METASPADES } from '../../../modules/local/spades/main.nf'
 workflow ASSEMBLY_SHORT {
     take:
     clean_reads
+    original_clean_reads
 
     main:
 
@@ -19,23 +20,31 @@ workflow ASSEMBLY_SHORT {
         megahit_input_ch = clean_reads
             .map { meta, reads ->
                 def meta_new = meta + [assembler: 'MEGAHIT']
-                [meta_new, reads]
+                [ meta_new, reads ]
             }
 
+        original_clean_reads = original_clean_reads
+            .map { meta, reads ->
+                def meta_new = meta + [assembler: 'MEGAHIT']
+                [ meta_new, reads ]
+            }
+
+        megahit_input_ch.view()
+
         // Run MEGAHIT    
-        MEGAHIT(
+        MEGAHIT (
             megahit_input_ch,
             params.megahit_preset,
             params.lgThreads,
             params.lgMem
         )
 
-        assembly_out = assembly_out.mix( MEGAHIT.out.final_contigs )
+        assembly_out = assembly_out.mix ( MEGAHIT.out.final_contigs )
 
-    } else if (params.assembler_short_reads == 'spades') {
+    } else if ( params.assembler_short_reads == 'spades' ) {
     // Short read assembly with metaSPAdes
         // Establish use of --meta option : paired reads only
-        if (params.paired_short_reads && params.spades_use_meta) {
+        if ( params.paired_short_reads && params.spades_use_meta ) {
             use_meta=true
         } else {
             use_meta=null
@@ -44,11 +53,17 @@ workflow ASSEMBLY_SHORT {
         spades_input_ch = clean_reads
         .map { meta, reads ->
             def meta_new = meta + [assembler: 'SPAdes']
-            [meta_new, reads, [], []]
+            [ meta_new, reads, [], [] ]
         }
 
+        original_clean_reads = original_clean_reads
+            .map { meta, reads ->
+                def meta_new = meta + [assembler: 'SPAdes']
+                [ meta_new, reads ]
+            }
+
         // Run metaSPAdes
-        METASPADES(
+        METASPADES (
             spades_input_ch,
             use_meta,
             params.lgThreads,
@@ -57,20 +72,20 @@ workflow ASSEMBLY_SHORT {
             []
         )
 
-        assembly_out = assembly_out.mix( METASPADES.out.scaffolds )
+        assembly_out = assembly_out.mix ( METASPADES.out.scaffolds )
         
     } else if (params.assembler_short_reads == 'hipmer') {
         hipmer_input_ch = clean_reads
             .map { meta, reads ->
                 def meta_new = meta + [assembler: 'HipMer']
-                [meta_new, reads]
+                [ meta_new, reads ]
             }
         
         HIPMER(
             hipmer_input_ch,
             params.hipmer_depths
         )
-    } else if (params.assembler_short_reads == 'gatb'){
+    } else if ( params.assembler_short_reads == 'gatb' ){
         
     }
 
@@ -79,6 +94,7 @@ workflow ASSEMBLY_SHORT {
     println "Assembly timestamp"
 
     emit:
-    assembly_out
-    assembly_graph_out
+    contigs = assembly_out
+    assembly_graph = assembly_graph_out
+    reads = original_clean_reads
 }

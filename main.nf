@@ -2,8 +2,8 @@
 
 /*
 To run this pipeline during development:
-From the MAG_Pipeline/pipeline_test/ folder, run the following command:
-    nextflow run ../main.nf -resume
+From the MAG_Pipeline/pipeline_test/[short_only | nanopore_only | pacbio_only | hybrid] folder, run the following command:
+    nextflow run ../../main.nf -resume
 
 DO NOT NAME {NANOPORE BARCODE FOLDERS} OR {PACBIO FILES} AS ***_#
 THERE IS MAPPING CODE FOR SHORT READ SAMPLES TO FIRSTLY, ON IMPUT, CONVERT {_R1,_R2} TO {_1,_2}, AND LATER TO REMOVE THE {_1,_2} FOR SAMPLE ID EXTRACTION
@@ -27,9 +27,10 @@ I am developing it using conda environments. To run it you need to have a conda 
 
 
 include { QC_SHORT } from './subworkflows/local/qc_short/main.nf'
-include { CONCATENATE_READS as CONCATENATE_ONT_BARCODES } from './modules/local/scripts/concatenate_reads/main.nf'
+//include { CONCATENATE_READS as CONCATENATE_ONT_BARCODES } from './modules/local/scripts/concatenate_reads/main.nf'
 include { QC_NANOPORE } from './subworkflows/local/qc_nanopore/main.nf'
 //include { QC_PACBIO} from './subworkflows/local/qc_pacbio/main.nf'
+include { ASSEMBLY_PREPARATION } from './subworkflows/local/assembly_preparation/main.nf'
 include { ASSEMBLY_SHORT } from './subworkflows/local/assembly_short/main.nf'
 include { ASSEMBLY_LONG } from './subworkflows/local/assembly_long/main.nf'
 include { BINNING_PREPARATION } from './subworkflows/nf-core/binning_preparation/main.nf'
@@ -163,7 +164,8 @@ workflow {
             }
         }
     
-    //reads.view()
+    reads.view()
+
     short_reads = Channel.empty()
     short_reads = short_reads.mix ( reads )
         .map { meta, reads ->
@@ -290,23 +292,35 @@ workflow {
     }
 
     // Short read quality control
-    concatenated_reads = Channel.empty()        // Channel to concatenate fastq files for assembly ('per_sample' will be ungrouped sample fastq's)
-    individual_clean_reads = Channel.empty()    // Channel to group original individual sample fastq's according to assembly file (for use in binning)
+    corrected_reads = Channel.empty()
     if ( !params.skip_qc && params.short_reads ) {
         QC_SHORT ( 
             short_reads,
             phiX,
             host_genome
         )
-        concatenated_reads = concatenated_reads.mix ( QC_SHORT.out.concatenated_reads )
-        individual_clean_reads = individual_clean_reads.mix ( QC_SHORT.out.original_clean_reads )
+
+        corrected_reads = corrected_reads.mix ( QC_SHORT.out.host_filtered_reads )
     }
+
+    // **************    
+    concatenated_reads = Channel.empty()        // Channel to concatenate fastq files for assembly ('per_sample' will be ungrouped sample fastq's)
+    original_clean_reads = Channel.empty()    // Channel to group original individual sample fastq's according to assembly file (for use in binning)
+    if ( !params.skip_assembly ) {
+        ASSEMBLY_PREPARATION (
+            corrected_reads
+        )
         
+        concatenated_reads = concatenated_reads.mix ( ASSEMBLY_PREPARATION.out.concatenated_reads )
+        original_clean_reads = original_clean_reads.mix ( ASSEMBLY_PREPARATION.out.original_clean_reads )
+    }
+    // *****************
+
     concatenated_reads.view() 
-    individual_clean_reads.view()  
+    original_clean_reads.view()  
 
     concatenated_long_reads = Channel.empty()
-    individual_clean_long_reads = Channel.empty()
+    original_clean_long_reads = Channel.empty()
     // ONT quality control
     if ( !params.skip_qc && params.nanopore_reads ) {
         QC_NANOPORE ( 
@@ -314,7 +328,7 @@ workflow {
             host_genome
         )
         concatenated_long_reads = concatenated_long_reads.mix ( QC_NANOPORE.out.concatenated_reads )
-        individual_clean_long_reads = individual_clean_long_reads.mix ( QC_NANOPORE.out.original_clean_reads )
+        original_clean_long_reads = original_clean_long_reads.mix ( QC_NANOPORE.out.original_clean_reads )
     }
 
     // PacBio quality control
@@ -323,7 +337,7 @@ workflow {
             // Host species
         )
         concatenated_long_reads = concatenated_long_reads.mix ( QC_PACBIO.out.concatenated_reads )
-        individual_clean_long_reads = individual_clean_long_reads.mix ( QC_PACBIO.out.original_clean_reads )
+        original_clean_long_reads = original_clean_long_reads.mix ( QC_PACBIO.out.original_clean_reads )
     }
 
     concatenated_long_reads.view()
@@ -335,15 +349,19 @@ workflow {
     
     final_contigs = Channel.empty()
     final_assembly_graphs = Channel.empty()
+    postAssembly_reads = Channel.empty()
 
     if ( !params.skip_assembly ) {
         if ( params.short_reads && !params.nanopore_reads && !params.pacbio_reads ) {
-            ASSEMBLY_SHORT ( concatenated_reads )
-            final_contigs = final_contigs.mix ( ASSEMBLY_SHORT.out )
+            ASSEMBLY_SHORT ( concatenated_reads, original_clean_reads )
+            final_contigs = final_contigs.mix ( ASSEMBLY_SHORT.out.contigs )
+            final_assembly_graphs = final_assembly_graphs.mix ( ASSEMBLY_SHORT.out.assembly_graph )
+            postAssembly_reads = postAssembly_reads.mix ( ASSEMBLY_SHORT.out.reads )
         } else if ( !params.short_reads && ( params.nanopore_reads || params.pacbio_reads )) {
-            ASSEMBLY_LONG ( concatenated_long_reads )
-            final_contigs = final_contigs.mix ( ASSEMBLY_LONG.out.assembly_out )
-            final_assembly_graphs = final_assembly_graphs.mix ( ASSEMBLY_LONG.out.assembly_graph_out )
+            ASSEMBLY_LONG ( concatenated_long_reads, original_clean_long_reads )
+            final_contigs = final_contigs.mix ( ASSEMBLY_LONG.out.contigs )
+            final_assembly_graphs = final_assembly_graphs.mix ( ASSEMBLY_LONG.out.assembly_graph )
+            postAssembly_reads = postAssembly_reads.mix ( ASSEMBLY_LONG.out.reads )
         } /*else if (params.short_reads && (params.nanopore_reads || params.pacbio_reads)) {
             ASSEMBLY_HYBRID( concatenated_reads )
             final_contigs = ASSEMBLY_HYBRID.out
@@ -353,6 +371,7 @@ workflow {
 
     final_contigs.view()
     final_assembly_graphs.view()
+    postAssembly_reads.view()
 
     /*************
         Binning
@@ -365,16 +384,16 @@ workflow {
         // 'Grouped' binning concatenates the contig files of the selected samples, for 'per_sample' assembly only (for now)
         // 'Cobinning' concatenates all contig files and collects all individual read files, for all assembly modes
 
-        binning_prep_reads = Channel.empty()
+        /*binning_prep_reads = Channel.empty()
         // If short reads only
         if ( params.short_reads && !params.nanopore_reads && !params.pacbio_reads ) { 
-            binning_prep_reads = binning_prep_reads.mix ( individual_clean_reads )
+            binning_prep_reads = binning_prep_reads.mix ( original_clean_reads )
         // If long reads only    
         } else if ( !params.short_reads && ( params.nanopore_reads || params.pacbio_reads )) {
-            binning_prep_reads = binning_prep_reads.mix ( individual_clean_long_reads )
+            binning_prep_reads = binning_prep_reads.mix ( original_clean_long_reads )
         // If hybrid assembly
         } else if ( params.short_reads && ( params.nanopore_reads || params.pacbio_reads )) {
-            binning_prep_reads = 'to do' // individual_clean_hybrid_reads
+            binning_prep_reads = 'to do' // original_clean_hybrid_reads
         }
             
         if ( params.binning_mode == 'per_assembly') {                
@@ -396,13 +415,15 @@ workflow {
 
         } else {
                 exit 1, "ERROR: Binniing mode <${params.binning_mode}> is invalid"
-        }
+        }*/
 
-        //binning_prep_input.view()                    
+        binning_prep_input = final_contigs.join ( postAssembly_reads )
 
-        BINNING_PREPARATION ( binning_prep_input )
+        binning_prep_input.view()                    
 
-        BINNING_PREPARATION.out.semibin2_mappings.view()
+        //BINNING_PREPARATION ( binning_prep_input )
+
+        //BINNING_PREPARATION.out.semibin2_mappings.view()
         /*BINNING (
             BINNING_PREPARATION.out.semibin2_mappings,
             BINNING_PREPARATION.out.grouped_mappings,

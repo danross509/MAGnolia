@@ -5,6 +5,7 @@ include { FLYE as METAFLYE } from '../../../modules/local/flye/main.nf'
 workflow ASSEMBLY_LONG {
     take:
     clean_reads_long
+    original_clean_reads_long
 
     main:
 
@@ -55,6 +56,11 @@ workflow ASSEMBLY_LONG {
                 [ meta_new, reads, read_type ]
             }
 
+        original_clean_reads_long = original_clean_reads_long
+            .map { meta, reads ->
+                def meta_new = meta + [assembler: 'Flye']
+            }
+
         // Run Flye    
         METAFLYE(
             flye_input_ch,
@@ -75,6 +81,11 @@ workflow ASSEMBLY_LONG {
                 def meta_new = meta + [assembler: 'MDBG']
                 [meta_new, reads]
             }
+
+        original_clean_reads_long = original_clean_reads_long
+            .map { meta, reads ->
+                def meta_new = meta + [assembler: 'MDBG']
+            }
         
         METAMDBG(
             mdbg_input_ch,
@@ -86,7 +97,8 @@ workflow ASSEMBLY_LONG {
     println "Long assembly timestamp"
 
     emit:
-    assembly_out
-    assembly_graph_out
+    contigs = assembly_out
+    assembly_graph = assembly_graph_out
+    reads = original_clean_reads_long
 
 }

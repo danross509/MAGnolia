@@ -9,7 +9,7 @@ process WRITE_SAMPLES_CSV {
     //publishDir "${launchDir}", mode: 'move'
 
     input:
-        tuple val(meta), val(reads)
+        tuple val(meta), val(reads), val(count)
 
     output:
         path "empty_file.txt"
@@ -34,7 +34,7 @@ process WRITE_SAMPLES_CSV {
         mkdir ${launchDir}/tmp
     fi
     cd ${launchDir}/tmp
-    write_samples_csv.py $sampleID -s $sequencer -p $paired_end -c $corrected -b $bin_group -a $assembly_group -1 $reads_1 -2 $reads_2
+    write_samples_csv.py $sampleID -s $sequencer -p $paired_end -c $corrected -b $bin_group -a $assembly_group -1 $reads_1 -2 $reads_2 -# $count
 
     """
 

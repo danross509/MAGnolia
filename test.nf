@@ -2,8 +2,8 @@
 
 /*
 To run this pipeline during development:
-From the MAG_Pipeline/pipeline_test/ folder, run the following command:
-    nextflow run ../test.nf -resume
+From the MAG_Pipeline/pipeline_test/[short_only | nanopore_only | pacbio_only | hybrid] folder, run the following command:
+    nextflow run ../../test.nf -resume
 */
 
 workflow {
@@ -81,6 +81,5 @@ workflow {
     nanopore_reads.count().view()
     nanopore_reads.view()
     pacbio_reads.count().view()
-    println 
 
 }

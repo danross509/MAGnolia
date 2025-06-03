@@ -8,8 +8,8 @@
 import argparse
 
 #OUTPUT_JSON = "samples.json"
-INPUT_CONFIG = "../default.config"
-OUTPUT_CONFIG = "../nextflow.config"
+INPUT_CONFIG = "../../default.config"
+OUTPUT_CONFIG = "nextflow.config"
 
 parser = argparse.ArgumentParser(
                     prog='write_config',
@@ -31,6 +31,7 @@ with open(INPUT_CONFIG, "r", encoding="utf8") as file:
     text = file.read()
 
 # Replace the required parameters
+# Read presence / absence
 if int(args.short_count) > 0 :
     text = text.replace("short_reads = false", "short_reads = true")
 if args.short_paired == 'true' :
@@ -40,6 +41,7 @@ if int(args.ont_count) > 0 :
 if int(args.pacbio_count) > 0 :
     text = text.replace("pacbio_reads = false", "pacbio_reads = true")
 
+# Read correctedness
 if args.corrected == 'true':
     if int(args.short_count) > 0 :
         text = text.replace("short_reads_corrected = false", "short_reads_corrected = true")
@@ -48,9 +50,11 @@ if args.corrected == 'true':
     if int(args.pacbio_count) > 0 :
         text = text.replace("pacbio_reads_corrected = false", "pacbio_reads_corrected = true")
 
+# Assembly, binning modes
 if 0 <= int(args.short_count) <= 3 and 0 <= int(args.ont_count) <= 3 and 0 <= int(args.pacbio_count) <= 3 :
     text = text.replace("assembly_mode = 'per_sample'", "assembly_mode = 'coassembly'")
 
+# Hybrid assembly
 if int(args.short_count) > 0 and (int(args.ont_count) > 0 or int(args.pacbio_count) > 0) :
     text = text.replace("skip_spadeshybrid = true", "skip_spadeshybrid = false")
 

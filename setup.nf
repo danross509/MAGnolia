@@ -2,13 +2,20 @@
 
 /*
 To run this pipeline during development:
-From the MAG_Pipeline/pipeline_test/ folder, run the following command:
-    nextflow run ../setup.nf --illumina $path --nanopore $path --pacbio $path --corrected --databases $paths
+From the MAG_Pipeline/pipeline_test/short_only/ folder, run the following command:
+    nextflow run ../../setup.nf --illumina data/paired_RX/ [--corrected]
 
-    nextflow run ../setup.nf --illumina data/paired_RX/ --nanopore data/nanopore/
+From the MAG_Pipeline/pipeline_test/nanopore_only/ folder, run the following command:
+    nextflow run ../../setup.nf --nanopore data/nanopore/ [--corrected]
+
+From the MAG_Pipeline/pipeline_test/pacbio_only/ folder, run the following command:
+    nextflow run ../../setup.nf --pacbio $path [--corrected]
+
+From the MAG_Pipeline/pipeline_test/hybrid/ folder, run the following command:
+    nextflow run ../../setup.nf --illumina data/paired_RX/ [--nanopore data/nanopore/ --pacbio $path] [--corrected]
 */
 
-include { CONCATENATE_READS as CONCATENATE_ONT_BARCODES } from './modules/local/scripts/concatenate_reads/main.nf'
+include { CONCATENATE_RAW_READS as CONCATENATE_ONT_BARCODES } from './modules/local/scripts/concatenate_raw_reads/main.nf'
 include { WRITE_SAMPLES_CSV } from './modules/local/scripts/write_sample_csv/main.nf'
 include { REMOVE_TMP_CSV } from './modules/local/scripts/write_sample_csv/remove_tmp.nf'
 include { REPLACE_SYMLINKS as REPLACE_CONCATENATED_SYMLINKS_ONT } from './modules/local/scripts/replace_symlinks/main.nf'
@@ -71,7 +78,13 @@ workflow {
                 }
             }
 
-        write_csv_input = write_csv_input.mix ( short_reads )
+        short_reads.view()
+
+        short_sample_count = short_reads.count()
+
+        println short_sample_count
+
+        write_csv_input = write_csv_input.mix ( short_reads.combine ( short_sample_count ) )
     }
     
     //Create channel of concatenated raw ONT (Nanopore) reads
@@ -103,8 +116,8 @@ workflow {
 
         CONCATENATE_ONT_BARCODES ( 
             nanopore_barcodes,
-            "",
-            nanopore_path
+            nanopore_path,
+            ""
             )
 
         // Replace the symlinks of the concatenated reads with the originals
@@ -119,7 +132,9 @@ workflow {
                 return [meta, [ path ]]
             }
 
-        write_csv_input = write_csv_input.mix ( nanopore_reads )         
+        nanopore_sample_count = nanopore_barcodes.count()
+
+        write_csv_input = write_csv_input.mix ( nanopore_reads.combine ( nanopore_sample_count ) )         
     }
 
     //Create channel of concatenated raw PacBio reads
@@ -127,10 +142,12 @@ workflow {
     if ( params.pacbio ) {
         pacbio_reads = Channel.fromPath ( params.pacbio_reads )
 
-        write_csv_input = write_csv_input.mix ( pacbio_reads )  
+        pacbio_sample_count = pacbio_reads.count()
+
+        write_csv_input = write_csv_input.mix ( pacbio_reads.combine ( pacbio_sample_count ) )  
     }
 
-    //write_csv_input.view()
+    write_csv_input.view()
 
     // Write csv file of input files
     // This is a channel of input, adding each file in no particular order

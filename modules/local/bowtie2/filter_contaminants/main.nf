@@ -5,15 +5,16 @@ process FILTER_CONTAMINANTS {
     container "community.wave.seqera.io/library/bowtie2:2.5.4--d51920539234bea7"
     conda "bioconda::bowtie2=2.5.4"
 
-    publishDir "${launchDir}/CLEAN_READS/illumina", mode: 'symlink'
+    publishDir "${launchDir}/CLEAN_READS/Illumina", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads_trimmed), val(contaminant_meta), path(contaminant_fasta), path(contaminant_index)
         val sensitivity
+        val suffix
 
     output:
-        tuple val(meta), path("${meta.id}_1.fastq.gz"), emit: R1
-        tuple val(meta), path("${meta.id}_2.fastq.gz"), emit: R2, optional: true
+        tuple val(meta), path("${meta.id}_${suffix}_1.fastq.gz"), emit: R1
+        tuple val(meta), path("${meta.id}_${suffix}_2.fastq.gz"), emit: R2, optional: true
 
     script:
 
@@ -32,8 +33,8 @@ process FILTER_CONTAMINANTS {
         $meta.id \
         > ${meta.id}_mapped_and_unmapped.sam
 
-        mv "${meta.id}.1" "${meta.id}_1.fastq.gz"
-        mv "${meta.id}.2" "${meta.id}_2.fastq.gz"
+        mv "${meta.id}.1" "${meta.id}_${suffix}_1.fastq.gz"
+        mv "${meta.id}.2" "${meta.id}_${suffix}_2.fastq.gz"
         """
     } else if (!meta.paired_end) {
 
@@ -45,7 +46,7 @@ process FILTER_CONTAMINANTS {
         $meta.id \
         > ${meta.id}_mapped_and_unmapped.sam
 
-        mv "${meta.id}.1" "${meta.id}_1.fastq.gz"
+        mv "${meta.id}.1" "${meta.id}_${suffix}_1.fastq.gz"
         """
     }
 }

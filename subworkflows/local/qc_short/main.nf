@@ -16,8 +16,6 @@ include { BOWTIE2_BUILD_INDEX as BOWTIE2_PHIX_INDEX } from '../../../modules/loc
 include { BOWTIE2_BUILD_INDEX as BOWTIE2_HOST_INDEX } from '../../../modules/local/bowtie2/build_index/main.nf'
 include { FILTER_CONTAMINANTS as BOWTIE2_FILTER_PHIX } from '../../../modules/local/bowtie2/filter_contaminants/main.nf'
 include { FILTER_CONTAMINANTS as BOWTIE2_FILTER_HOST } from '../../../modules/local/bowtie2/filter_contaminants/main.nf'
-include { CONCATENATE_READS as CONCATENATE_SHORT_READS_R1 } from '../../../modules/local/scripts/concatenate_reads/main.nf'
-include { CONCATENATE_READS as CONCATENATE_SHORT_READS_R2 } from '../../../modules/local/scripts/concatenate_reads/main.nf'
 
 workflow QC_SHORT {
     take:
@@ -35,10 +33,12 @@ workflow QC_SHORT {
         MULTIQC_IN ( all_fastqc_in, "Pre-FastQC" )
     }
 
+    //short_reads.view()
+
     // Trim adapters and poor quality reads
     //trimmomatic(short_reads)
     trimmed_reads = Channel.empty()
-    if ( !params.skip_fastp ){
+    if ( !params.skip_fastp ) {
         FASTP (
             short_reads
         )
@@ -57,7 +57,7 @@ workflow QC_SHORT {
                 }
         }
     } else {
-        trimmed_reads = trimmed_reads.mix ( nanopore_reads )
+        trimmed_reads = trimmed_reads.mix ( short_reads )
             .map { meta, reads ->
                 if ( params.short_reads_corrected ) {
                     def meta_new = meta + [ corrected: true ]
@@ -69,6 +69,16 @@ workflow QC_SHORT {
             }
     }
     
+    //trimmed_reads.view()
+
+    if ( params.remove_phiX && !params.host_genome ) {
+        suffix_phix = "corrected"
+        suffix_host = "NA"
+    } else {
+        suffix_phix = "filtered_phix"
+        suffix_host = "corrected"
+    }
+
     // Remove phiX reads
     phiX_filtered_reads = Channel.empty()
     if ( params.remove_phiX ) {
@@ -118,7 +128,8 @@ workflow QC_SHORT {
 
             BOWTIE2_FILTER_PHIX (
                 phiX_filter_input,
-                params.bowtie2_sensitivity
+                params.bowtie2_sensitivity,
+                suffix_phix
             )
 
             phiX_filtered_reads = phiX_filtered_reads.mix ( BOWTIE2_FILTER_PHIX.out.R1.join ( BOWTIE2_FILTER_PHIX.out.R2, remainder: true ))
@@ -145,6 +156,8 @@ workflow QC_SHORT {
                 }
             }
     }
+
+    //phiX_filtered_reads.view()
 
     // Remove host reads
     host_filtered_reads = Channel.empty()
@@ -195,7 +208,8 @@ workflow QC_SHORT {
 
             BOWTIE2_FILTER_HOST (
                 host_filter_input,
-                params.bowtie2_sensitivity
+                params.bowtie2_sensitivity,
+                suffix_host
             )
 
             host_filtered_reads = host_filtered_reads.mix ( BOWTIE2_FILTER_HOST.out.R1.join ( BOWTIE2_FILTER_HOST.out.R2, remainder: true ))
@@ -233,120 +247,11 @@ workflow QC_SHORT {
         MULTIQC_OUT ( all_fastqc_out, "Post-FastQC" )
     }
 
-    concatenated_reads = Channel.empty()
-    original_clean_reads = Channel.empty()
-
-    if ( params.assembly_mode == 'coassembly' ) { 
-        clean_reads_1 = host_filtered_reads
-            .map { meta, reads ->
-                def meta_new = meta + [ id: 'allReads' ]
-                /*def meta_new = [:]
-                meta_new.id = "allReads"
-                meta_new.sequencer = 'Illumina'
-                if ( reads.size() == 1 ) {
-                    meta_new.paired_end = false
-                } else if ( reads.size() == 2 ) {
-                    meta_new.paired_end = true
-                }
-                meta_new.corrected = true
-                meta_new.assembly_group = "all"*/
-                [ meta_new, reads[0] ] 
-            }
-            .groupTuple()
-        
-        CONCATENATE_SHORT_READS_R1 (
-            clean_reads_1,
-            "all_reads_1",
-            "CLEAN_READS/illumina"
-        )
-
-        if ( params.paired_short_reads ) {
-            clean_reads_2 = host_filtered_reads
-                .map { meta, reads ->
-                    if ( reads.size() == 2 ) {
-                        def meta_new = meta + [ id: 'allReads' ]
-                        /*def meta_new = [:]
-                        meta_new.id = "allReads"
-                        meta_new.sequencer = 'Illumina'
-                        meta_new.paired_end = true
-                        meta_new.corrected = true
-                        meta_new.assembly_group = "all"*/
-                        [ meta_new, reads[1] ]
-                    } else { 
-                        exit 1, "ERROR: Paired-read co-assembly contains invalid number of samples"
-                     }
-                }
-                .groupTuple()
-            
-            CONCATENATE_SHORT_READS_R2 (
-                clean_reads_2,
-                "all_reads_2",
-                "CLEAN_READS/illumina"
-            )
-
-            concatenated_reads = concatenated_reads.mix ( CONCATENATE_SHORT_READS_R1.out.join(CONCATENATE_SHORT_READS_R2.out) )
-                .map { meta, R1, R2 ->
-                    def meta_new = meta + [ assembly_group: "all" ]
-                    [ meta_new, [R1, R2] ]
-                }
-
-        } else {
-
-            concatenated_reads = concatenated_reads.mix ( CONCATENATE_SHORT_READS_R1.out )
-                .map { meta, R1 ->
-                    def meta_new = meta + [ assembly_group: "all" ]
-                    [ meta_new, R1 ]
-                }
-        }
-
-        original_clean_reads = original_clean_reads.mix ( host_filtered_reads )
-            .map { meta, reads ->
-                def meta_new = meta + [ id: 'allReads', assembly_group: "all" ]
-                /*def meta_new = [:]
-                meta_new.id = "allReads"
-                meta_new.sequencer = 'Illumina'
-                meta_new.paired_end = meta.paired_end
-                meta_new.corrected = true
-                meta_new.assembly_group = "all"*/
-                [ meta_new, reads ]
-            }
-            .groupTuple()
-        
-    } else if ( params.assembly_mode == 'grouped' ) {
-        println "To do"
-    } else if ( params.assembly_mode == 'per_sample' ) {
-        original_clean_reads = original_clean_reads.mix ( host_filtered_reads )
-            .map { meta, reads ->
-                def meta_new = meta + [ assembly_group: "self" ]
-                [ meta_new, reads ]
-            }
-    } else {
-        exit 1, "Assembly mode <${params.assembly_mode}> invalid, exiting"
-    }
-
-    // Output view checks
-    //println clean_reads_2 == null // always false
-    //println clean_reads_2.size() == null // always false
-    
-    //filter_contaminants.out.R2.count().view()
-    //println filter_contaminants.out.size() // always 2
-    //clean_reads_1.view()
-    /*concatenate_reads_1.out.view()
-    if (paired_reads){
-        clean_reads_2.view()
-        concatenate_reads_2.out.view()
-    }*/
-
-    //filter_contaminants.out.view()
-    //clean_reads_ch.view()
-    //clean_reads_1.map{meta, reads -> println reads.size()}
-
-    //final_reads.view()
+    //host_filtered_reads.view()
 
     println "QC timestamp"
 
     emit:
-    concatenated_reads
-    original_clean_reads
+    host_filtered_reads
 
 }

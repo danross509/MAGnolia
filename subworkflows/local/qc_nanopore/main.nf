@@ -8,7 +8,7 @@ include { FASTPLONG } from '../../../modules/local/fastplong/main.nf'
 include { MINIMAP2_INDEX } from '../../../modules/local/minimap2/index/main.nf'
 include { MINIMAP2_FILTER_HOST } from '../../../modules/local/minimap2/filter_host/main.nf'
 include { SAMTOOLS_EXTRACT_UNMAPPED } from '../../../modules/local/samtools/extract_unmapped/main.nf'
-include { CONCATENATE_READS as CONCATENATE_ONT_READS } from '../../../modules/local/scripts/concatenate_reads/main.nf'
+include { CONCATENATE_CLEAN_READS as CONCATENATE_ONT_READS } from '../../../modules/local/scripts/concatenate_clean_reads/main.nf'
 
 workflow QC_NANOPORE {
     take:
@@ -145,8 +145,7 @@ workflow QC_NANOPORE {
 
         CONCATENATE_ONT_READS(
             clean_nanopore_reads,
-            "all_reads_ont",
-            "CLEAN_READS/nanopore"
+            ""
         )
 
         concatenated_reads = concatenated_reads.mix ( CONCATENATE_ONT_READS.out )

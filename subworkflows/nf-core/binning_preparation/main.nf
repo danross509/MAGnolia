@@ -14,7 +14,7 @@ include { MINIMAP2_ASSEMBLY_MAPPED_SORTED } from '../../../modules/local/minimap
 
 workflow BINNING_PREPARATION {
     take:
-    assemblies                 // channel: [ val(contigs_meta), path(contigs), path(grouped_reads_meta) ,path([grouped_reads]) ]
+    assemblies                 // channel: [ val( meta ), path( contigs ), path([ [grouped], [reads] ]) ]
 
 
     main:
@@ -67,7 +67,7 @@ workflow BINNING_PREPARATION {
 
     split_reads = assemblies
         .map { contigs_meta, contigs, grouped_reads_meta, grouped_reads ->
-            println grouped_reads[0][0]
+            //println grouped_reads[0][0]
             [ grouped_reads ]
         }
         .flatten()
