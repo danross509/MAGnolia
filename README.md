@@ -15,7 +15,7 @@ Where `$path` identifies the directory containing, for each input type:
 
 --pacbio:       Specify folder containing PacBio reads... TO DO
 
---corrected:    Specify if all input reads have been previously corrected, otherwise can be edited in samples.csv
+--corrected:    Specify if all input reads have been previously corrected. This can be edited later in samples.csv
 ```
 
 This will generate 2 files in the launch directory:
