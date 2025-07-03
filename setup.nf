@@ -78,11 +78,11 @@ workflow {
                 }
             }
 
-        short_reads.view()
+        //short_reads.view()
 
         short_sample_count = short_reads.count()
 
-        println short_sample_count
+        //println short_sample_count
 
         write_csv_input = write_csv_input.mix ( short_reads.combine ( short_sample_count ) )
     }
@@ -162,18 +162,27 @@ workflow {
     }
 
     short_config_count = short_reads.count()
-    short_config_paired = short_reads
-        .map { meta, reads ->
-            if ( reads.size() == 2 ) {
-                return [ true ]
-            } else {
-                return [ false ]
+    short_config_paired = false
+    if ( params.illumina ) {
+        short_config_paired = short_reads
+            .map { meta, reads ->
+                if ( !meta.paired_end ) {
+                    return "false"
+                } else {
+                    return "true"
+                }
             }
-        }
-        .groupTuple()
+            .unique()
+    }
     nanopore_config_count = nanopore_barcodes.count()
     pacbio_config_count = pacbio_reads.count()
     config_corrected = params.corrected
+
+    short_config_count.view()
+    //short_config_paired.view()
+    nanopore_config_count.view()
+    pacbio_config_count.view()
+    //println config_corrected
 
     WRITE_CONFIG (
         short_config_count,

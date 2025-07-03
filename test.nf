@@ -6,6 +6,8 @@ From the MAG_Pipeline/pipeline_test/[short_only | nanopore_only | pacbio_only | 
     nextflow run ../../test.nf -resume
 */
 
+include { QC_SHORT } from './subworkflows/local/qc_short/main.nf'
+
 workflow {
 
     reads = Channel.fromPath ( params.reads_file )
@@ -35,8 +37,7 @@ workflow {
                 return [ meta_new, [ meta.reads_R1 ]]
             }
         }
-    
-    //reads.view()
+
     short_reads = Channel.empty()
     short_reads = short_reads.mix ( reads )
         .map { meta, reads ->
@@ -44,42 +45,47 @@ workflow {
                 return [ meta, reads ]
             } 
         }
+    
+    phiX = Channel.empty()
+    if ( !params.skip_qc && params.short_reads && params.remove_phiX ) {
+        phiX = Channel.fromPath ( params.phiX )
+            .map { reference ->
+                def meta = [:]
+                meta.id = reference.getBaseName()
+                return [ meta, reference ]
+            }
 
-    nanopore_reads = Channel.empty()
-    nanopore_reads = nanopore_reads.mix ( reads )
-        .map { meta, reads ->
-            if ( meta.sequencer == 'ONT' ) {
-                return [ meta, reads ]
-            } 
-        }
-
-    pacbio_reads = Channel.empty()
-    pacbio_reads = pacbio_reads.mix ( reads )
-        .map { meta, reads ->
-            if ( meta.sequencer == 'PacBio' ) {
-                return [ meta, reads ]
-            } 
-        }
-
-    //short_reads.view()
-    //nanopore_reads.view()
-
-    if ( short_reads.count() == 0 ) {
-        short_reads = false
+        phiX_index = Channel.fromPath ( "${projectDir}/reference_genomes/phiX/*.bt2" )
+            .map { index ->
+                def meta =[:]
+                meta.id = 'phiX174'
+                return [ meta, index ]
+            }
+            .groupTuple()
     }
 
-    if ( nanopore_reads.count() == 0 ) {
-        nanopore_reads = false
+    phiX_index.view()
+
+    host_genome = Channel.empty()
+    // Create channel of host genome to remove
+    if ( !params.skip_qc && params.host_genome ) {
+        host_genome = Channel.fromPath ( params.host_genome )
+            .map { reference ->
+                def meta = [:]
+                meta.id = reference.getBaseName()
+                return [ meta, reference ]
+            }
     }
 
-    if ( pacbio_reads.count() == 0 ) {
-        pacbio_reads = false
-    } 
+    /*corrected_reads = Channel.empty()
+    if ( !params.skip_qc && params.short_reads ) {
+        QC_SHORT ( 
+            short_reads,
+            phiX,
+            host_genome
+        )
 
-    short_reads.count().view()
-    short_reads.view()
-    nanopore_reads.count().view()
-    nanopore_reads.view()
-    pacbio_reads.count().view()
+        corrected_reads = corrected_reads.mix ( QC_SHORT.out.host_filtered_reads )
+    }*/
 
 }

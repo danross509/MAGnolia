@@ -1,8 +1,8 @@
 #!/usr/bin/env nextflow
 
 process SAMTOOLS_EXTRACT_UNMAPPED {
-    label 'process_low'
     tag "$meta.id"
+    label 'process_low'
 
     container "community.wave.seqera.io/library/samtools:1.21--0d76da7c3cf7751c"
     conda "bioconda::samtools=1.21"

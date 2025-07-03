@@ -1,8 +1,8 @@
 #!/usr/bin/env nextflow
 
 process MINIMAP2_INDEX {
-    label 'process_medium'
     tag "$meta.id"
+    label 'process_low'
 
     container "community.wave.seqera.io/library/minimap2:2.28--78db3d0b6e5cb797"
     conda "bioconda::minimap2=2.28"

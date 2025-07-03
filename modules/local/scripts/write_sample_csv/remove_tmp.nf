@@ -1,6 +1,7 @@
 #!/usr/bin/env nextflow
 
 process REMOVE_TMP_CSV {
+    label 'process_single'
 
     container ""
     conda ""
@@ -15,7 +16,7 @@ process REMOVE_TMP_CSV {
         path "error_no_file.txt"            , emit: error_no_file, optional: true
         path "error_file_empty.txt"         , emit: error_file_empty, optional: true
         
-
+ 
     script:
 
     """

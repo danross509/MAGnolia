@@ -2,6 +2,7 @@
 
 process CONCATENATE_CLEAN_READS {
     tag "$meta.id"
+    label 'process_low'
 
     container ""
     conda ""

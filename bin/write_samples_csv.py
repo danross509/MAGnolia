@@ -5,12 +5,9 @@
 
 # USAGE: ./write_samples_csv.py $sampleID -s $sequencer -p $paired_end -c $corrected -b $bin_group -a $assembly_group -1 $reads_1 -2 $reads_2
 
-import json
-#import sys
 import argparse
 import os
 
-#OUTPUT_JSON = "samples.json"
 OUTPUT_CSV = "samples.csv"
 
 parser = argparse.ArgumentParser(
@@ -27,8 +24,7 @@ parser.add_argument('-a', '--assembly_group')       # assembly group ID
 parser.add_argument('-1', '--reads_1')              # path to illumina reads R1, and to nanopore and pacbio reads
 parser.add_argument('-2', '--reads_2')              # path to paired illumina reads R2
 parser.add_argument('-#', '--sample_count')         # number of samples of given sequencer
-parser.add_argument('-v', '--verbose',
-                    action='store_true')            # on/off flag
+parser.add_argument('-v', '--verbose')    
 
 args = parser.parse_args()
 

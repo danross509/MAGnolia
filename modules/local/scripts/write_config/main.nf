@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process WRITE_CONFIG {
-    tag ""
+    label 'process_single'
 
     container ""
     conda ""
@@ -31,14 +31,17 @@ process WRITE_CONFIG {
     */
 
     // Checks if config file already exists before writing
+
+    def config_file = "${projectDir}/default.config"
+
     """
-    #if [[ -f ${launchDir}/nextflow.config ]]; then
-    #    echo "Error: nextflow.config already exists"
-    #    exit 1
-    #else
-        cd ${launchDir}
-        write_config.py -s $short_reads_count -p $short_reads_paired -n $nanopore_barcodes_count -pb $pacbio_reads_count -c $reads_corrected
-    #fi
+    if [[ -f ${launchDir}/nextflow.config ]]; then
+        echo "Warning: existing nextflow.config will be overwritten"
+        rm ${launchDir}/nextflow.config
+    fi
+    cd ${launchDir}
+    write_config.py -s $short_reads_count -p $short_reads_paired -n $nanopore_barcodes_count -pb $pacbio_reads_count -c $reads_corrected -f $config_file
+
     """
 
 }

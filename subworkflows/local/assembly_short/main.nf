@@ -29,7 +29,7 @@ workflow ASSEMBLY_SHORT {
                 [ meta_new, reads ]
             }
 
-        megahit_input_ch.view()
+        //megahit_input_ch.view()
 
         // Run MEGAHIT    
         MEGAHIT (
@@ -90,8 +90,6 @@ workflow ASSEMBLY_SHORT {
     }
 
     //"SPAdes" for tiara domain classification
-
-    println "Assembly timestamp"
 
     emit:
     contigs = assembly_out

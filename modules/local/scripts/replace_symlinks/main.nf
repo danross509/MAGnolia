@@ -1,6 +1,7 @@
 #!/usr/bin/env nextflow
 
 process REPLACE_SYMLINKS {
+    label 'process_single'
 
     container ""
     conda ""

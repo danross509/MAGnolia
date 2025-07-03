@@ -2,6 +2,7 @@
 
 process CONCATENATE_RAW_READS {
     tag "$meta.id"
+    label 'process_low'
 
     container ""
     conda ""
@@ -15,13 +16,12 @@ process CONCATENATE_RAW_READS {
 
 
     output:
-        tuple val(meta), path("${filename}.fastq.gz")                                       , emit: fastq, optional: true
-        tuple val(meta), val("${launchDir}/${sample_prep_directory}/${filename}.fastq.gz")  , emit: setup_reads_csv, optional: true
+        tuple val(meta), path("${meta.id}${strand}.fastq.gz")                                       , emit: fastq, optional: true
+        tuple val(meta), val("${launchDir}/${sample_prep_directory}/${meta.id}${strand}.fastq.gz")  , emit: setup_reads_csv, optional: true
 
     script:
 
-    def filename = "${meta.id}${strand}"
-    def command = reads.size() > 1 ? "cat $reads > ${filename}.fastq.gz" : reads.size() == 1 ? "ln -s ${reads[0]} ${filename}.fastq.gz" : ""
+    def command = reads.size() > 1 ? "cat $reads > ${meta.id}${strand}.fastq.gz" : reads.size() == 1 ? "ln -s ${reads[0]} ${meta.id}${strand}.fastq.gz" : ""
 
     """
     $command

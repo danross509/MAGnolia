@@ -54,14 +54,12 @@ To assemble and bin each sample on its own, the `assembly_group` and `bin_group`
 
 ____ supports *per sample*, *grouped sample*, and all sample *co-assembly*.
 
-Before assembly, `sampleID` will be replaced with `assembly_group` in order to concatenate the appropriate reads together.
-
-We recommend adjusting this to suit your analysis in the generated `samples.csv` file.
+This should be adjusted to suit your analysis in the generated `samples.csv` file.
  
 ### Per sample
 This is the default assembly method for 4+ samples, where the `assembly_group` parameter is set identical to `sampleID`. Each sample will be assembled individually. 
 
-In order to perform either `grouped sample` or all sample `co-binning` in the following step, `assembly_group` must be identical to `sampleID`.
+In order to perform either `grouped sample` or all sample `co-binning` in the following step, `assembly_group` MUST be identical to `sampleID`.
 
 ### Co-assembly
 Setup will default to using a *co-assembly* method for 3 or fewer samples, with `assembly_group` set as "allReads". Regardless of sample number, you can manually set `assembly_group` of all samples to a unique name in order to co-assemble them. DO NOT USE AN `assembly_group` NAME THAT IS IDENTICAL TO ANY `sampleID`.

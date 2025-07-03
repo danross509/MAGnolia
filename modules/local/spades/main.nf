@@ -1,6 +1,6 @@
 process SPADES {
     tag "$meta.id"
-    //label 'process_high'
+    label 'process_high'
 
     container "community.wave.seqera.io/library/spades:4.1.0--77799c52e1d1054a"
     conda 'bioconda::spades=4.1.0'
@@ -17,10 +17,10 @@ process SPADES {
 
     output:
         tuple val(meta), path('metaspades/*.scaffolds.fa.gz')    , optional:true, emit: scaffolds
-        tuple val(meta), path('metaspades/*.contigs.fa.gz')      , optional:true, emit: contigs
+        tuple val(meta), path('metaspades/*.assembly.fa.gz')      , optional:true, emit: contigs
         tuple val(meta), path('metaspades/*.transcripts.fa.gz')  , optional:true, emit: transcripts
         tuple val(meta), path('metaspades/*.gene_clusters.fa.gz'), optional:true, emit: gene_clusters
-        tuple val(meta), path('metaspades/*.assembly.gfa.gz')    , optional:true, emit: gfa
+        tuple val(meta), path('metaspades/*.assembly_graph.gfa.gz')    , optional:true, emit: gfa
         tuple val(meta), path('metaspades/*.warnings.log')       , optional:true, emit: warnings
         tuple val(meta), path('metaspades/*.spades.log')         , emit: log
         //path  "versions.yml"                          , emit: versions
@@ -52,8 +52,8 @@ process SPADES {
         gzip -n metaspades/${prefix}.scaffolds.fa
     fi
     if [ -f metaspades/contigs.fasta ]; then
-        mv metaspades/contigs.fasta metaspades/${prefix}.contigs.fa
-        gzip -n metaspades/${prefix}.contigs.fa
+        mv metaspades/contigs.fasta metaspades/${prefix}.assembly.fa
+        gzip -n metaspades/${prefix}.assembly.fa
     fi
     if [ -f metaspades/transcripts.fasta ]; then
         mv metaspades/transcripts.fasta metaspades/${prefix}.transcripts.fa

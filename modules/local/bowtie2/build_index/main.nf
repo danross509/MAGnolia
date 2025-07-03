@@ -1,7 +1,6 @@
 #!/usr/bin/env nextflow
 
 process BOWTIE2_BUILD_INDEX {
-
     tag "${meta.assembler}-${meta.id}"
 
     container "community.wave.seqera.io/library/bowtie2:2.5.4--d51920539234bea7"
@@ -13,8 +12,9 @@ process BOWTIE2_BUILD_INDEX {
         tuple val(meta), path(assembly)
 
     output:
-        tuple val(meta), path(assembly), path("${meta.id}*"), emit: assembly_index
-        //path "versions.yml"                                     , emit: versions
+        //tuple val(meta), path(assembly), path("${meta.id}*")        , emit: assembly_index
+        tuple val(meta), path("${meta.id}*")                        , emit: index
+        //path "versions.yml"                                         , emit: versions
 
     script:
 

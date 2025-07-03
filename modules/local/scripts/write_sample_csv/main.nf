@@ -2,6 +2,7 @@
 
 process WRITE_SAMPLES_CSV {
     tag "$meta.id"
+    label 'process_single'
 
     container ""
     conda ""
@@ -33,6 +34,11 @@ process WRITE_SAMPLES_CSV {
     if [[ ! -d ${launchDir}/tmp ]]; then
         mkdir ${launchDir}/tmp
     fi
+
+    if [[ -f ${launchDir}/samples.csv ]]; then
+        echo "Warning : existing samples.csv file will be overwritten"
+    fi
+
     cd ${launchDir}/tmp
     write_samples_csv.py $sampleID -s $sequencer -p $paired_end -c $corrected -b $bin_group -a $assembly_group -1 $reads_1 -2 $reads_2 -# $count
 

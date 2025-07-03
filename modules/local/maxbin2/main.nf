@@ -1,6 +1,8 @@
 #!/usr/bin/env nextflow
 
 process MAXBIN2 {
+    tag "$meta.id"
+    label 'process_medium'
 
     container "community.wave.seqera.io/library/maxbin2:d4f776ef82533cd3"
     conda "bioconda::maxbin2=2.2.7"

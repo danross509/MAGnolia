@@ -9,7 +9,7 @@ process CONCOCT_EXTRACTFASTABINS {
         'https://depot.galaxyproject.org/singularity/concoct:1.1.0--py312h245ed52_6':
         'biocontainers/concoct:1.1.0--py312h245ed52_6' }"
 
-    publishDir "${launchDir}/Binning/${meta.id}", mode: 'symlink'
+    publishDir "${launchDir}/BINNING/${meta.id}/${meta.assembler}-concoct", mode: 'symlink'
 
     input:
     tuple val(meta), path(original_fasta), path(csv)

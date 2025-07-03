@@ -1,6 +1,7 @@
 #!/usr/bin/env nextflow
 
 process BBDuk {
+    label 'process_medium'
 
     container ""
     conda ""

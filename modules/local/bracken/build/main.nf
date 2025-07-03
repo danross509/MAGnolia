@@ -1,0 +1,31 @@
+#!/usr/bin/env nextflow
+
+process BRACKEN_BUILD {
+    tag ""
+    label 'process_medium'
+
+    container ""
+    conda "bioconda::kraken2=2.14 bioconda::bracken=3.1"
+
+    //publishDir "${launchDir}/KRAKEN2/${meta.id}/${file_type}", mode: 'symlink'
+
+    input:
+        val database
+        val kmer_len
+        val read_len
+        val threads
+
+    output:
+        val true     , emit: bracken_built
+
+
+    script:
+
+    """
+    bracken-build \
+    -d $database \
+    -t $threads \
+    -k $kmer_len \
+    -l $read_len 
+    """
+}

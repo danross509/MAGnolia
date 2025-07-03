@@ -1,13 +1,15 @@
 #!/usr/bin/env nextflow
 
 process JGISUMMARIZEBAMCONTIGDEPTHS {
+    tag "$meta.id"
+    label 'process_medium'
 
     container "community.wave.seqera.io/library/metabat2:15c68d548f9e9b8f"
     conda "bioconda::metabat2=2.15"
 
     input:
     tuple val(meta), path(bam), path(bai)
-    val bigThreads
+    val threads
 
     output:
     tuple val(meta), path("*.txt.gz"), emit: depth
@@ -18,6 +20,6 @@ process JGISUMMARIZEBAMCONTIGDEPTHS {
         --outputDepth ${meta.id}.txt \
         $bam
 
-    bgzip --threads $bigThreads ${meta.id}.txt
+    bgzip --threads $threads ${meta.id}.txt
     """
 }

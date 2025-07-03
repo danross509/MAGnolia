@@ -6,7 +6,7 @@ process METABAT2 {
     container "community.wave.seqera.io/library/metabat2:15c68d548f9e9b8f"
     conda "bioconda::metabat2=2.15"
 
-    publishDir "${launchDir}/Binning/${meta.id}/${meta.assembler}-metabat2", mode: 'symlink'
+    publishDir "${launchDir}/BINNING/${meta.id}/${meta.assembler}-metabat2", mode: 'symlink'
 
     input:
         tuple val(meta), path(assembly), path(depth)

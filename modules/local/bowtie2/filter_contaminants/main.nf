@@ -8,7 +8,8 @@ process FILTER_CONTAMINANTS {
     publishDir "${launchDir}/CLEAN_READS/Illumina", mode: 'symlink'
 
     input:
-        tuple val(meta), path(reads_trimmed), val(contaminant_meta), path(contaminant_fasta), path(contaminant_index)
+        //tuple val(meta), path(reads_trimmed), val(contaminant_meta), path(contaminant_fasta), path(contaminant_index)
+        tuple val(meta), path(reads_trimmed), val(contaminant_meta), path(contaminant_index)
         val sensitivity
         val suffix
 
@@ -42,11 +43,11 @@ process FILTER_CONTAMINANTS {
         bowtie2 -p 8 -x $index \
         -U ${reads_trimmed[0]} \
         --${sensitivity} \
-        --un-conc-gz \
+        --un-gz \
         $meta.id \
         > ${meta.id}_mapped_and_unmapped.sam
 
-        mv "${meta.id}.1" "${meta.id}_${suffix}_1.fastq.gz"
+        mv "${meta.id}" "${meta.id}_${suffix}_1.fastq.gz"
         """
     }
 }

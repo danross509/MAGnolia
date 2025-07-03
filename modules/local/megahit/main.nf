@@ -15,7 +15,7 @@ process MEGAHIT {
         val bigMem
 
     output:
-        tuple val(meta), path("megahit/*.contigs.fa"), emit: final_contigs
+        tuple val(meta), path("megahit/*_assembly.fa"), emit: final_contigs
         tuple val(meta), path("megahit/intermediate_contigs/k*.addi.fa")
         tuple val(meta), path("megahit/intermediate_contigs/k*.contigs.fa")
         tuple val(meta), path("megahit/intermediate_contigs/k*.final.contigs.fa")
@@ -45,7 +45,7 @@ process MEGAHIT {
         --verbose \
         --continue
 
-        mv ./megahit/final.contigs.fa ./megahit/${meta.id}_final.contigs.fa
+        mv ./megahit/final.contigs.fa ./megahit/${meta.id}_assembly.fa
         """
     } else if (!meta.paired_end) {
 
@@ -59,7 +59,7 @@ process MEGAHIT {
         --verbose \
         --continue
 
-        mv ./megahit/final.contigs.fa ./megahit/${meta.id}_final.contigs.fa
+        mv ./megahit/final.contigs.fa ./megahit/${meta.id}_assembly.fa
         """
     }
 }

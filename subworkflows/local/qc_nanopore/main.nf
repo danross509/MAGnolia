@@ -51,8 +51,7 @@ workflow QC_NANOPORE {
                     def meta_new = meta + [ corrected: true ]
                     [ meta_new, reads ] 
                 } else {
-                    def meta_new = meta + [ corrected: false ]
-                    [ meta_new, reads ]
+                    [ meta, reads ]
                 }
             }
     }
@@ -81,10 +80,13 @@ workflow QC_NANOPORE {
         )
     
         minimap2_filter_input = trimmed_nanopore_reads.combine ( MINIMAP2_INDEX.out.index )
+
+        minimap2_filter_input.view()
     
         //Align ONT reads to host genome;
         MINIMAP2_FILTER_HOST (
-            minimap2_filter_input
+            minimap2_filter_input,
+            "corrected"
         )
 
         /*SAMTOOLS_EXTRACT_UNMAPPED (
@@ -93,17 +95,17 @@ workflow QC_NANOPORE {
 
         filtered_nanopore_reads = filtered_nanopore_reads.mix ( MINIMAP2_FILTER_HOST.out.filtered )
             .map { meta, reads ->
-                def meta_new = meta + [filtered: true]
+                def meta_new = meta + [filtered_host: true]
                 [ meta_new, reads ] 
             }
     } else {
         filtered_nanopore_reads = filtered_nanopore_reads.mix ( trimmed_nanopore_reads )
             .map { meta, reads ->
                 if ( params.nanopore_reads_corrected ) {
-                    def meta_new = meta + [filtered: true]
+                    def meta_new = meta + [filtered_host: true]
                     [ meta_new, reads ] 
                 } else {
-                    def meta_new = meta + [filtered: false]
+                    def meta_new = meta + [filtered_host: false]
                     [ meta_new, reads ]
                 }
             }
@@ -127,7 +129,7 @@ workflow QC_NANOPORE {
         MULTIQC_OUT(all_toulligqc_out, "post-toulligQC")*/
     }
 
-    concatenated_reads = Channel.empty()
+/*    concatenated_reads = Channel.empty()
     original_clean_reads = Channel.empty()
 
     if (params.assembly_mode == 'coassembly') { 
@@ -171,13 +173,9 @@ workflow QC_NANOPORE {
     } else {
         println "Assembly mode <${params.assembly_mode}> invalid, exiting"
     }
-
-    println "QC timestamp"
-
-    original_clean_reads.view()
+*/
 
     emit:
-    concatenated_reads
-    original_clean_reads
+    filtered_nanopore_reads
 
 }

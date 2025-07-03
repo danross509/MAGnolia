@@ -7,10 +7,6 @@
 
 import argparse
 
-#OUTPUT_JSON = "samples.json"
-INPUT_CONFIG = "../../default.config"
-OUTPUT_CONFIG = "nextflow.config"
-
 parser = argparse.ArgumentParser(
                     prog='write_config',
                     description='Write nextflow.config filebased on samples and metadata',
@@ -21,10 +17,14 @@ parser.add_argument('-p', '--short_paired')     # Are short reads paired?
 parser.add_argument('-n', '--ont_count')        # Number of nanopore barcodes
 parser.add_argument('-pb', '--pacbio_count')    # Number of PacBio reads
 parser.add_argument('-c', '--corrected')        # Are reads corrected
+parser.add_argument('-f', '--default_file')     # Default config file path
 parser.add_argument('-v', '--verbose',
                     action='store_true')        # on/off flag
 
 args = parser.parse_args()
+
+INPUT_CONFIG = args.default_file
+OUTPUT_CONFIG = "nextflow.config"
 
 # Read default nextflow.config
 with open(INPUT_CONFIG, "r", encoding="utf8") as file:

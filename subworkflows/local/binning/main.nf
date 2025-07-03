@@ -1,19 +1,19 @@
 #!/usr/bin/env nextflow
 
 
-
+include { SEMIBIN2 } from '../../../modules/local/semibin/semibin2/main.nf'
 include { METABAT2 } from '../../../modules/local/metabat2/metabat2/main.nf'
 //include { build_index } from '../../../modules/local/bowtie2/build_index/main.nf'
 //include { bowtie2_align } from '../../../modules/local/bowtie2/bowtie2_align/main.nf'
 include { JGISUMMARIZEBAMCONTIGDEPTHS } from '../../../modules/local/metabat2/jgiSummarizeBamContigDepths/main.nf'
-include { CONVERT_DEPTHS } from '../../../modules/local/scripts/convert_depths/main.nf'
+include { CONVERT_DEPTHS } from '../../../modules/nf-core_mag/convert_depths/main.nf'
 include { MAXBIN2 } from '../../../modules/local/maxbin2/main.nf'
-include { ADJUST_MAXBIN2_EXT } from '../../../modules/local/scripts/rename_maxbin2_bins'
+include { ADJUST_MAXBIN2_EXT } from '../../../modules/nf-core_mag/adjust_maxbin2_ext'
 //include {McDevol}
 
 include { FASTA_BINNING_CONCOCT } from '../../nf-core/fasta_binning_concoct/main.nf'
 
-include { SPLIT_FASTA } from '../../../modules/local/scripts/split_fasta/main.nf'
+include { SPLIT_FASTA } from '../../../modules/nf-core_mag/split_fasta/main.nf'
 include { GUNZIP as GUNZIP_BINS } from '../../../modules/nf-core/gunzip/main.nf'
 include { GUNZIP as GUNZIP_UNBINS } from '../../../modules/nf-core/gunzip/main.nf'
 
@@ -21,7 +21,6 @@ include { GUNZIP as GUNZIP_UNBINS } from '../../../modules/nf-core/gunzip/main.n
 workflow BINNING {
     
     take:
-    assembly_alignments_semibin2
     assembly_alignments
     assembly_graphs
     
@@ -33,8 +32,10 @@ workflow BINNING {
             [meta, bams, bais]
         }
 
+    jgi_input_ch.view()
+
     JGISUMMARIZEBAMCONTIGDEPTHS(jgi_input_ch,
-                                params.lgThreads)
+                                params.lowThreads)
 
     ch_metabat_depths = JGISUMMARIZEBAMCONTIGDEPTHS.out.depth
         .map { meta, depths ->
@@ -54,16 +55,20 @@ workflow BINNING {
         env = ['human_gut', 'dog_gut', 'ocean', 'soil', 'cat_gut', 'human_oral', 'mouse_gut', 'pig_gut', 'built_environment', 'wastewater', 'chicken_caecum', 'global']
         if ( env.contains(params.semibin_environment) ) {
             // NEEDS TO KNOW: {single_sample | coassembly OR grouped assembly | cobinning OR grouped binning}, {short read | long read} 
-            semibin_input_ch = assembly_alignments_semibin2
+            semibin2_input_ch = assembly_alignments
                 .map { meta, contigs, bams, bais ->
+                    def meta_new = meta + [binner: 'SemiBin2']
                     [ meta, contigs, bams ]
                 }
-                .join ( params.semibin_environment )
 
             SEMIBIN2 (
-                semibin_input_ch,
+                semibin2_input_ch,
+                params.semibin_environment,
                 params.use_semibin1
             )
+
+            //final_bins_for_gunzip = final_bins_for_gunzip.mix( SEMIBIN2.out.bins.transpose() )
+            //binning_results_gzipped_final = binning_results_gzipped_final.mix( SEMIBIN2.out.bins )
 
         } else {
             exit 1, "ERROR: SemiBin2 environment <${params.semibin_environment}> is invalid"
@@ -159,7 +164,7 @@ workflow BINNING {
     //ch_versions = ch_versions.mix(GUNZIP_BINS.out.versions.first())
     //ch_versions = ch_versions.mix(GUNZIP_UNBINS.out.versions.first())
 
-    println "Binning timestamp"
+    binning_results_gunzipped.view()
 
     emit:
     bins                                         = binning_results_gunzipped

@@ -2,6 +2,7 @@
 
 process HIPMER {
     tag "$meta.id"
+    label 'process_high'
 
     container 
     conda 

@@ -1,6 +1,7 @@
 #!/usr/bin/env nextflow
 
 process MULTIQC {
+    label 'process_single'
 
     container "community.wave.seqera.io/library/multiqc:1.25.1--dc1968330462e945"
     conda "bioconda::multiqc=1.25.1"

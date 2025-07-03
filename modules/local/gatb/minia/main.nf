@@ -2,6 +2,7 @@
 
 process GATB_MINIA {
     tag "$meta.id"
+    label 'process_high'
 
     container "community.wave.seqera.io/library/minia:3.2.6--92bae1756baab1ef", "community.wave.seqera.io/library/gatb:1.4.2--cf37d08b7005497e"
     conda "bioconda::minia=3.2.6", "bioconda::gatb=1.4.2"

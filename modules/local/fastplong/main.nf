@@ -2,6 +2,7 @@
 
 process FASTPLONG {
     tag "$meta.id"
+    label 'process_medium'
 
     container "community.wave.seqera.io/library/fastplong:0.2.2--03217e568967f163"
     conda "fastplong=0.2.2"

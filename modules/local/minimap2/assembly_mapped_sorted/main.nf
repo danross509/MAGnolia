@@ -1,8 +1,8 @@
 #!/usr/bin/env nextflow
 
 process MINIMAP2_ASSEMBLY_MAPPED_SORTED {
-    label 'process_MEDIUM'
-    tag "${assembly_meta.id}_${reads_meta.id}"
+    tag "${meta.id}_${sampleID}"
+    label 'process_high'
 
     container "community.wave.seqera.io/library/minimap2:2.28--78db3d0b6e5cb797"
     conda "bioconda::minimap2=2.28 bioconda::samtools=1.21"
@@ -11,16 +11,17 @@ process MINIMAP2_ASSEMBLY_MAPPED_SORTED {
 
     input:
 
-    tuple val(assembly_meta), path(assembly), path(assembly_index), val(preset_input), val(reads_meta), path(reads)
+    tuple val(meta), path(assembly), path(assembly_index), val(preset_input), val(sampleID), path(reads)
+    
 
     output:
-    tuple val(assembly_meta), path(assembly), path("${assembly_meta.id}_${reads_meta.id}_mapped.sorted.bam"), path("${assembly_meta.id}_${reads_meta.id}_mapped.sorted.bam.bai"), emit: mappings
-    //tuple val(assembly_meta), val(reads_meta), path("*.minimap2.log"), emit: log
+    tuple val(meta), path(assembly), path("${meta.id}_${sampleID}_mapped.sorted.bam"), path("${meta.id}_${sampleID}_mapped.sorted.bam.bai"), emit: mappings
+    //tuple val(meta), val(sampleID), path("*.minimap2.log"), emit: log
     path "versions.yml", emit: versions
 
     script:
     def args = task.ext.args ?: ''
-    def name = "${assembly_meta.id}_${reads_meta.id}"
+    def name = "${meta.id}_${sampleID}"
     def preset = task.ext.preset_input ?: "map-ont"
     def query = reads.size() == 1 ? "${reads[0]}" : "${reads[0]} ${reads[1]}"
 

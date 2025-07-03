@@ -4,7 +4,7 @@ include { FASTQC as FASTQC_OUT } from '../../../modules/local/fastqc/fromPairs/m
 include { FASTQC as FASTQC_IN } from '../../../modules/local/fastqc/fromPairs/main.nf'
 include { MULTIQC as MULTIQC_IN } from '../../../modules/local/multiqc/main.nf'
 include { MULTIQC as MULTIQC_OUT } from '../../../modules/local/multiqc/main.nf'
-include { trimmomatic } from '../../../modules/local/trimmomatic/fromPairs/main.nf'
+include { TRIMMOMATIC } from '../../../modules/local/trimmomatic/main.nf'
 include { FASTP } from '../../../modules/local/fastp/main.nf'
 include { MINIMAP2_INDEX as MINIMAP2_PHIX_INDEX} from '../../../modules/local/minimap2/index/main.nf'
 include { MINIMAP2_INDEX as MINIMAP2_HOST_INDEX} from '../../../modules/local/minimap2/index/main.nf'
@@ -20,7 +20,7 @@ include { FILTER_CONTAMINANTS as BOWTIE2_FILTER_HOST } from '../../../modules/lo
 workflow QC_SHORT {
     take:
     short_reads     // channel: [ val(meta), path([R1, R2]) ]
-    phiX
+    phiX_index
     host_genome
 
     main:
@@ -38,23 +38,53 @@ workflow QC_SHORT {
     // Trim adapters and poor quality reads
     //trimmomatic(short_reads)
     trimmed_reads = Channel.empty()
-    if ( !params.skip_fastp ) {
-        FASTP (
-            short_reads
-        )
+    if ( !params.skip_short_read_trimming ) {
+        if ( params.short_read_trimmer == 'fastp' ) {
+            FASTP (
+                short_reads,
+                params.fastp_adapter_sequences,
+                params.fastp_auto_adapter_detection,
+                params.fastp_qualified_quality_phred,
+                params.fastp_unqualified_percent_limit,
+                params.fastp_disable_length_filtering,
+                params.fastp_length_required,
+                params.fastp_deduplication
+            )
 
-        if ( params.paired_short_reads ) {
-            trimmed_reads = trimmed_reads.mix ( FASTP.out.reads_PE )
-                .map { meta, reads ->
-                    def meta_new = meta + [ corrected: true ]
-                    [ meta_new, reads ] 
-                }
+            if ( params.paired_short_reads ) {
+                trimmed_reads = trimmed_reads.mix ( FASTP.out.reads_PE )
+                    .map { meta, reads ->
+                        def meta_new = meta + [ corrected: true ]
+                        [ meta_new, reads ] 
+                    }
+            } else {
+                trimmed_reads = trimmed_reads.mix ( FASTP.out.reads_SE )
+                    .map { meta, reads ->
+                        def meta_new = meta + [corrected: true]
+                        [ meta_new, reads ] 
+                    }
+            }
+
+        } else if ( params.short_read_trimmer == 'trimmomatic' ) {
+            TRIMMOMATIC (
+                short_reads
+            )
+
+            if ( params.paired_short_reads ) {
+                trimmed_reads = trimmed_reads.mix ( TRIMMOMATIC.out.reads_PE )
+                    .map { meta, reads ->
+                        def meta_new = meta + [ corrected: true ]
+                        [ meta_new, reads ] 
+                    }
+            } else {
+                trimmed_reads = trimmed_reads.mix ( TRIMMOMATIC.out.reads_SE )
+                    .map { meta, reads ->
+                        def meta_new = meta + [corrected: true]
+                        [ meta_new, reads ] 
+                    }
+            }
         } else {
-            trimmed_reads = trimmed_reads.mix ( FASTP.out.reads_SE )
-                .map { meta, reads ->
-                    def meta_new = meta + [corrected: true]
-                    [ meta_new, reads ] 
-                }
+            exit 1, "ERROR: Short read trimmer option <${params.short_read_trimmer}> is invalid"
         }
     } else {
         trimmed_reads = trimmed_reads.mix ( short_reads )
@@ -63,8 +93,7 @@ workflow QC_SHORT {
                     def meta_new = meta + [ corrected: true ]
                     [ meta_new, reads ] 
                 } else {
-                    def meta_new = meta + [ corrected: false ]
-                    [ meta_new, reads ]
+                    [ meta, reads ]
                 }
             }
     }
@@ -103,7 +132,8 @@ workflow QC_SHORT {
     
             //Align ONT reads to host genome;
             MINIMAP2_FILTER_PHIX (
-                phiX_filter_input
+                phiX_filter_input,
+                suffix_phix
             )
 
             /*SAMTOOLS_EXTRACT_HOST_UNMAPPED (
@@ -120,11 +150,12 @@ workflow QC_SHORT {
                     }
                 }
         } else if ( params.short_read_filter == 'bowtie2' ) {
-            BOWTIE2_PHIX_INDEX (
+            /*BOWTIE2_PHIX_INDEX (
                 phiX
-            )
+            )*/
 
-            phiX_filter_input = trimmed_reads.combine ( BOWTIE2_PHIX_INDEX.out )
+            //phiX_filter_input = trimmed_reads.combine ( BOWTIE2_PHIX_INDEX.out.index )
+            phiX_filter_input = trimmed_reads.combine ( phiX_index )
 
             BOWTIE2_FILTER_PHIX (
                 phiX_filter_input,
@@ -183,7 +214,8 @@ workflow QC_SHORT {
     
             //Align ONT reads to host genome;
             MINIMAP2_FILTER_HOST (
-                host_filter_input
+                host_filter_input,
+                suffix_host
             )
 
             /*SAMTOOLS_EXTRACT_HOST_UNMAPPED (
@@ -204,7 +236,7 @@ workflow QC_SHORT {
                 host_genome
             )
 
-            host_filter_input = phiX_filtered_reads.combine ( BOWTIE2_HOST_INDEX.out )
+            host_filter_input = phiX_filtered_reads.combine ( BOWTIE2_HOST_INDEX.out.index )
 
             BOWTIE2_FILTER_HOST (
                 host_filter_input,
@@ -248,8 +280,6 @@ workflow QC_SHORT {
     }
 
     //host_filtered_reads.view()
-
-    println "QC timestamp"
 
     emit:
     host_filtered_reads
