@@ -6,7 +6,7 @@ process KRAKEN2 {
     container ""
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${launchDir}/KRAKEN2/${meta.id}/${file_type}", mode: 'symlink'
+    publishDir "${launchDir}/KRAKEN2/${file_type}/${meta.id}", mode: 'symlink'
 
     input:
         tuple val(meta), path(input_files)
@@ -14,8 +14,7 @@ process KRAKEN2 {
         val names
         val confidence
         val quick
-        val preload_db
-        val threads
+        val mapping
         val minimizer
         val zero_counts
         val min_hits
@@ -32,11 +31,15 @@ process KRAKEN2 {
     def paired = input_files.size() == 2 ? "--paired": ""
     def use_quick = quick ? "--quick" : ""
     def use_names = names ? "--use-names" : ""
-    def memory_mapping = preload_db ? "" : "--memory-mapping"
+    def memory_mapping = mapping ? "--memory-mapping" : ""
     def minimizer_data = minimizer ? "--report-minimizer-data" : ""
     def report_zero_counts = zero_counts ? "--report-zero-counts" : ""
 
     """
+    mkdir tmp
+    cp \$(readlink $input_files) tmp/
+    gunzip tmp/* 
+
     k2 classify \
     $use_names \
     --db $database \
@@ -50,7 +53,9 @@ process KRAKEN2 {
     $report_zero_counts \
     --minimum-hit-groups $min_hits \
     --log ${name}.log \
-    $input_files
+    tmp/*
+
+    rm -r tmp
     """
 }
 

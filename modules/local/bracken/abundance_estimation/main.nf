@@ -7,7 +7,7 @@ process BRACKEN_ABUNDANCE_ESTIMATION {
     container ""
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${launchDir}/KRAKEN2/${meta.id}/${file_type}", mode: 'symlink'
+    publishDir "${launchDir}/KRAKEN2/${file_type}/${meta.id}", mode: 'symlink'
 
     input:
         tuple val(meta), path(input_files)
@@ -19,7 +19,7 @@ process BRACKEN_ABUNDANCE_ESTIMATION {
         val built
 
     output:
-        tuple val(meta), path("*.bracken")  , emit: reports
+        tuple val(meta), path("*.bracken")  , emit: output
 
 
     script:

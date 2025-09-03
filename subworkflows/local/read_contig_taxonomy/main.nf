@@ -1,9 +1,11 @@
 #!/usr/bin/env nextflow
 
 include { KRAKEN2 } from '../../../modules/local/kraken2/classify/main.nf'
+include { KRONA_K2_UPDATE_TAXONOMY } from '../../../modules/local/krona/update_taxonomy/main.nf'
 include { KRONA_K2_IMPORT_TAXONOMY } from '../../../modules/local/krona/import_taxonomy/main.nf'
-include { BRACKEN_ABUNDANCE_ESTIMATION as BRACKEN_READS } from '../../../modules/local/bracken/abundance_estimation/main.nf'
-include { BRACKEN_SUMMARIZE_ABUNDANCE as BRACKEN_READS_SUMMARY } from '../../../modules/local/bracken/summarize_abundance/main.nf'
+include { BRACKEN_ABUNDANCE_ESTIMATION as BRACKEN } from '../../../modules/local/bracken/abundance_estimation/main.nf'
+include { BRACKEN_SUMMARIZE_ABUNDANCE as BRACKEN_SUMMARY } from '../../../modules/local/bracken/summarize_abundance/main.nf'
+include { COMBINE_BRACKEN_OUTPUTS } from '../../../modules/local/bracken/combine_bracken_outputs/main.nf'
 //include { METAPHLAN } from '../../../modules/local/biobakery/metaphlan/main.nf'
 
 workflow READ_CONTIG_TAXONOMY {
@@ -22,8 +24,7 @@ workflow READ_CONTIG_TAXONOMY {
             params.kraken2_useNames,
             params.kraken2_confidence,
             params.kraken2_quick,
-            params.kraken2_preload_db,
-            params.mdThreads,
+            params.kraken2_memory_mapping,
             params.kraken2_minimizer,
             params.kraken2_zero_counts,
             params.kraken2_minimum_hits,
@@ -31,14 +32,17 @@ workflow READ_CONTIG_TAXONOMY {
         )
 
         if ( !params.skip_krona ) {
+            KRONA_K2_UPDATE_TAXONOMY ()
+
             KRONA_K2_IMPORT_TAXONOMY (
                 KRAKEN2.out.reports,
-                stage
+                stage,
+                KRONA_K2_UPDATE_TAXONOMY.out.placeholder
             )
         }
 
         if ( !params.skip_bracken ) {
-            BRACKEN_READS (
+            BRACKEN (
                 KRAKEN2.out.reports,
                 kraken_db,
                 params.bracken_classification_level,
@@ -48,17 +52,23 @@ workflow READ_CONTIG_TAXONOMY {
                 bracken_built
             )
 
-            summarize_bracken_input = BRACKEN_READS.out.reports
+            summarize_bracken_input = BRACKEN.out.output
                 .collect { meta, report ->
                     [ report ]
-                }.view()
+                }
 
-            BRACKEN_READS_SUMMARY (
+            BRACKEN_SUMMARY (
                 summarize_bracken_input,
                 stage,
                 params.bracken_classification_level,
                 params.bracken_summary_NA
             )
+
+            COMBINE_BRACKEN_OUTPUTS (
+                summarize_bracken_input,
+                stage
+            )
+
         }
 
     }
