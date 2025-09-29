@@ -1,0 +1,6 @@
+channels:
+- conda-forge
+- bioconda
+dependencies:
+- bioconda::hifiasm_meta=0.3.3
+- bioconda::hifiasm=0.25.0

@@ -31,13 +31,14 @@ with open(INPUT_CONFIG, "r", encoding="utf8") as file:
     text = file.read()
 
 # Replace the required parameters
-# Read presence / absence
+# Based on read presence / absence
 if int(args.short_count) > 0 :
     text = text.replace("short_reads = false", "short_reads = true")
 if args.short_paired == 'true' :
     text = text.replace("paired_short_reads = false", "paired_short_reads = true")
 if int(args.ont_count) > 0 :
     text = text.replace("nanopore_reads = false", "nanopore_reads = true")
+    text = text.replace("skip_contig_polishing = true", "skip_contig_polishing = false")
 if int(args.pacbio_count) > 0 :
     text = text.replace("pacbio_reads = false", "pacbio_reads = true")
 

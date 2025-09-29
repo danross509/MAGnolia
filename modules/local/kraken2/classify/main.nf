@@ -36,10 +36,6 @@ process KRAKEN2 {
     def report_zero_counts = zero_counts ? "--report-zero-counts" : ""
 
     """
-    mkdir tmp
-    cp \$(readlink $input_files) tmp/
-    gunzip tmp/* 
-
     k2 classify \
     $use_names \
     --db $database \
@@ -53,9 +49,7 @@ process KRAKEN2 {
     $report_zero_counts \
     --minimum-hit-groups $min_hits \
     --log ${name}.log \
-    tmp/*
-
-    rm -r tmp
+    $input_files
     """
 }
 

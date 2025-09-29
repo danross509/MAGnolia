@@ -1,0 +1,12 @@
+"""
+ls $reads > ${meta.id}.txt
+
+minia \
+-in ${meta.id}.txt 
+
+gzip ${meta.id}.contigs.fa
+gzip ${meta.id}.unitigs.fa
+
+mv ${meta.id}.contigs.fa.gz ${meta.id}_assembly.fa.gz
+mv ${meta.id}.unitigs.fa.gz ${meta.id}_unitigs.fa.gz
+"""

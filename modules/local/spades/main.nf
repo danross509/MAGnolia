@@ -10,19 +10,17 @@ process SPADES {
     input:
         tuple val(meta), path(illumina), path(pacbio), path(nanopore)
         val run_metaspades
-        val bigThreads
-        val bigMem
         path yml
         path hmm
 
     output:
-        tuple val(meta), path('metaspades/*.scaffolds.fa.gz')    , optional:true, emit: scaffolds
-        tuple val(meta), path('metaspades/*.assembly.fa.gz')      , optional:true, emit: contigs
-        tuple val(meta), path('metaspades/*.transcripts.fa.gz')  , optional:true, emit: transcripts
-        tuple val(meta), path('metaspades/*.gene_clusters.fa.gz'), optional:true, emit: gene_clusters
-        tuple val(meta), path('metaspades/*.assembly_graph.gfa.gz')    , optional:true, emit: gfa
-        tuple val(meta), path('metaspades/*.warnings.log')       , optional:true, emit: warnings
-        tuple val(meta), path('metaspades/*.spades.log')         , emit: log
+        tuple val(meta), path('metaspades/*_scaffolds.fa.gz')    , optional:true, emit: scaffolds
+        tuple val(meta), path('metaspades/*_assembly.fa.gz')      , optional:true, emit: contigs
+        tuple val(meta), path('metaspades/*_transcripts.fa.gz')  , optional:true, emit: transcripts
+        tuple val(meta), path('metaspades/*_gene_clusters.fa.gz'), optional:true, emit: gene_clusters
+        tuple val(meta), path('metaspades/*_assembly_graph.gfa.gz')    , optional:true, emit: gfa
+        tuple val(meta), path('metaspades/*_warnings.log')       , optional:true, emit: warnings
+        tuple val(meta), path('metaspades/*_spades.log')         , emit: log
         //path  "versions.yml"                          , emit: versions
 
     //when:
@@ -37,40 +35,41 @@ process SPADES {
     def custom_hmms = hmm ? "--custom-hmms $hmm" : ""
     def reads = yml ? "--dataset $yml" : "$short_reads $pacbio_reads $nanopore_reads"
     def metaspades = run_metaspades ? "--meta" : ""
+    def mem = task.memory.toGiga()
     """
     spades.py \\
-        --threads $bigThreads \\
-        --memory $bigMem \\
+        --threads $task.cpus \\
+        --memory $mem \\
         $custom_hmms \\
         $reads \\
         $metaspades \\
         -o metaspades
-    mv metaspades/spades.log metaspades/${prefix}.spades.log
+    mv metaspades/spades.log metaspades/${prefix}_spades.log
 
     if [ -f metaspades/scaffolds.fasta ]; then
-        mv metaspades/scaffolds.fasta metaspades/${prefix}.scaffolds.fa
-        gzip -n metaspades/${prefix}.scaffolds.fa
+        mv metaspades/scaffolds.fasta metaspades/${prefix}_scaffolds.fa
+        gzip -n metaspades/${prefix}_scaffolds.fa
     fi
     if [ -f metaspades/contigs.fasta ]; then
-        mv metaspades/contigs.fasta metaspades/${prefix}.assembly.fa
-        gzip -n metaspades/${prefix}.assembly.fa
+        mv metaspades/contigs.fasta metaspades/${prefix}_assembly.fa
+        gzip -n metaspades/${prefix}_assembly.fa
     fi
     if [ -f metaspades/transcripts.fasta ]; then
-        mv metaspades/transcripts.fasta metaspades/${prefix}.transcripts.fa
-        gzip -n metaspades/${prefix}.transcripts.fa
+        mv metaspades/transcripts.fasta metaspades/${prefix}_transcripts.fa
+        gzip -n metaspades/${prefix}_transcripts.fa
     fi
     if [ -f metaspades/assembly_graph_with_scaffolds.gfa ]; then
-        mv metaspades/assembly_graph_with_scaffolds.gfa metaspades/${prefix}.assembly.gfa
-        gzip -n metaspades/${prefix}.assembly.gfa
+        mv metaspades/assembly_graph_with_scaffolds.gfa metaspades/${prefix}_assembly_graph.gfa
+        gzip -n metaspades/${prefix}_assembly_graph.gfa
     fi
 
     if [ -f metaspades/gene_clusters.fasta ]; then
-        mv metaspades/gene_clusters.fasta metaspades/${prefix}.gene_clusters.fa
-        gzip -n metaspades/${prefix}.gene_clusters.fa
+        mv metaspades/gene_clusters.fasta metaspades/${prefix}_gene_clusters.fa
+        gzip -n metaspades/${prefix}_gene_clusters.fa
     fi
 
     if [ -f metaspades/warnings.log ]; then
-        mv metaspades/warnings.log metaspades/${prefix}.warnings.log
+        mv metaspades/warnings.log metaspades/${prefix}_warnings.log
     fi
 
     """

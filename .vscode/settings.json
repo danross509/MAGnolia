@@ -1,4 +1,4 @@
 {
-    "nextflow.telemetry.enabled": true,
+    "nextflow.telemetry.enabled": false,
     "r.lsp.promptToInstall": false
 }

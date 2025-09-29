@@ -2,4 +2,5 @@ channels:
 - conda-forge
 - bioconda
 dependencies:
-- bioconda::kraken2=2.1.6
+- bioconda::minia=3.2.6
+- bioconda::gatb=1.4.2

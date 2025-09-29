@@ -33,7 +33,7 @@ workflow QC_SHORT {
         MULTIQC_IN ( all_fastqc_in, "Pre-FastQC" )
     }
 
-    //short_reads.view()
+    short_reads.view()
 
     // Trim adapters and poor quality reads
     //trimmomatic(short_reads)
@@ -98,7 +98,7 @@ workflow QC_SHORT {
             }
     }
     
-    //trimmed_reads.view()
+    trimmed_reads.view()
 
     if ( params.remove_phiX && !params.host_genome ) {
         suffix_phix = "corrected"

@@ -5,41 +5,41 @@ process GATB_MINIA {
     label 'process_high'
 
     container "community.wave.seqera.io/library/minia:3.2.6--92bae1756baab1ef", "community.wave.seqera.io/library/gatb:1.4.2--cf37d08b7005497e"
-    conda "bioconda::minia=3.2.6", "bioconda::gatb=1.4.2"
+    conda "${moduleDir}/environment.yml"
 
     publishDir "${launchDir}/Assembly/GATB/${meta.id}/", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads)
-        val depth_file
 
     output:
-        tuple val(meta), path("final_assembly.fasta"), emit: final_contigs
-        tuple val(meta), path("final_assembly_depths.txt"), emit: depth
+        tuple val(meta), path("*_assembly.fa.gz"), emit: final_contigs
+        tuple val(meta), path("*_assembly.gfa.gz"), emit: assembly_graph
+        tuple val(meta), path("*_unitigs.fa.gz"), emit: unitigs, optional: true
+        //tuple val(meta), path("final_assembly_depths.txt"), emit: depth
 
     script:
+    def read_files = meta.paired_end ? "-1 ${reads[0]} -2 ${reads[1]}" : "-s ${reads[0]}"
 
-    threads = bigThreads
+    """
+    gatb_minia_pipeline.py $read_files --no-scaffolding --no-error-correction --minia \$CONDA_PREFIX/bin/minia
 
-    if (meta.paired_end) {
+    # Replace assembly_final.contigs.fa symlink with contigs file
+    target=\$(readlink -e assembly_final.contigs.fa)
+    prefix=\${target%%.*}
+    unitigs=\${prefix}.unitigs.fa
+    kmer_size=\${prefix#*_k}
 
-        //reads_1 = reads[0]
-        //reads_2 = reads[1]
-        //{--presets meta} not working
-        //{--tmp-dir tmp} not working
-        //gzip files after? pigz?
+    sed -i '' assembly_final.contigs.fa
+    rm \$target
 
-        """
-        ./minia \
-        -1 ${reads[0]} -2 ${reads[1]} \
-        --post-asm-abd $depth_file
-        """
-    } else if (!meta.paired_end) {
+    gatb_bcalm_convertToGFA.py assembly_final.contigs.fa ${meta.id}_assembly.gfa \$kmer_size
 
-        """
-        megahit \
-        -r ${reads[0]} \
-        --post-asm-abd $depth_file
-        """
-    }
+    gzip assembly_final.contigs.fa
+    gzip \$unitigs
+    gzip ${meta.id}_assembly.gfa
+
+    mv assembly_final.contigs.fa.gz ${meta.id}_assembly.fa.gz
+    mv \${unitigs}.gz ${meta.id}_unitigs.fa.gz
+    """
 }

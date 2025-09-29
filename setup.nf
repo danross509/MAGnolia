@@ -9,16 +9,20 @@ From the MAG_Pipeline/pipeline_test/nanopore_only/ folder, run the following com
     nextflow run ../../setup.nf --nanopore data/nanopore/ [--corrected]
 
 From the MAG_Pipeline/pipeline_test/pacbio_only/ folder, run the following command:
-    nextflow run ../../setup.nf --pacbio $path [--corrected]
+    nextflow run ../../setup.nf --pacbio data/pacbio/ [--corrected]
 
 From the MAG_Pipeline/pipeline_test/hybrid/ folder, run the following command:
     nextflow run ../../setup.nf --illumina data/paired_RX/ [--nanopore data/nanopore/ --pacbio $path] [--corrected]
 */
 
-include { CONCATENATE_RAW_READS as CONCATENATE_ONT_BARCODES } from './modules/local/scripts/concatenate_raw_reads/main.nf'
+include { CONCATENATE_ONT_BARCODES } from './modules/local/scripts/concatenate_ont_barcodes/main.nf'
+include { PBTK_BAM2FASTQ } from './modules/local/pbtk/bam2fastq/main.nf'
+//include { CONFIRM_UNIQUE_FILES as CONFIRM_SAMPLE_ID_ONT } from './modules/local/scripts/confirm_unique_files/main.nf'
+include { CONFIRM_UNIQUE_FILES as CONFIRM_SAMPLE_ID_PB } from './modules/local/scripts/confirm_unique_files/main.nf'
 include { WRITE_SAMPLES_CSV } from './modules/local/scripts/write_sample_csv/main.nf'
 include { REMOVE_TMP_CSV } from './modules/local/scripts/write_sample_csv/remove_tmp.nf'
 include { REPLACE_SYMLINKS as REPLACE_CONCATENATED_SYMLINKS_ONT } from './modules/local/scripts/replace_symlinks/main.nf'
+include { REPLACE_SYMLINKS as REPLACE_FASTQ_SYMLINKS_PB } from './modules/local/scripts/replace_symlinks/main.nf'
 include { WRITE_CONFIG } from './modules/local/scripts/write_config/main.nf'
 
 
@@ -26,7 +30,10 @@ include { WRITE_CONFIG } from './modules/local/scripts/write_config/main.nf'
 params.illumina = false
 params.nanopore = false
 params.pacbio = false
+
 params.corrected = false
+params.coassembly = false
+params.cobinning = false
 
 workflow {
 
@@ -64,11 +71,20 @@ workflow {
                 } else {
                     meta.corrected = true
                 }
-                    
-                // Set bin group
-                meta.bin_group = sampleID
                 // Set assembly group
-                meta.assembly_group = sampleID
+                if ( !params.coassembly ) {
+                    meta.assembly_group = sampleID
+                } else {
+                    meta.assembly_group = "allReads"
+                }
+                // Set bin group
+                if ( !params.cobinning ) {
+                    meta.bin_group = sampleID
+                } else {
+                    meta.bin_group = "allReads"
+                }
+                
+
                 reads_path_1 = reads[0].toAbsolutePath().toString()
                 if ( reads.size() == 2 ) {
                     reads_path_2 = reads[1].toAbsolutePath().toString()
@@ -80,23 +96,25 @@ workflow {
 
         //short_reads.view()
 
-        short_sample_count = short_reads.count()
-
+        //short_sample_count = short_reads.count()
         //println short_sample_count
-
-        write_csv_input = write_csv_input.mix ( short_reads.combine ( short_sample_count ) )
+        //write_csv_input = write_csv_input.mix ( short_reads.combine ( short_sample_count ) )
+        
+        write_csv_input = write_csv_input.mix ( short_reads )
     }
     
     //Create channel of concatenated raw ONT (Nanopore) reads
+    nanopore_fastqs = Channel.empty()
     nanopore_barcodes = Channel.empty()
+    nanopore_reads = Channel.empty()
     if ( params.nanopore ) {
         def nanopore_path = params.nanopore.endsWith("/") ? params.nanopore : params.nanopore + "/"
-        nanopore_barcodes = Channel.fromPath ( "${nanopore_path}*/*" )
+        // Add option if presented as single fastq's?
+        nanopore_fastqs = Channel.fromPath ( "${nanopore_path}*.fastq.gz" )
             .map { reads ->
                 def meta = [:]
-                // Set barcode folder name as meta.id
-                def barcode = reads.getParent().getName()
-                meta.id = barcode
+                def sampleID = reads.getBaseName(2)
+                meta.id = sampleID
                 meta.sequencer = "ONT"
                 // Set paired_end as false for long reads
                 meta.paired_end = false
@@ -106,18 +124,57 @@ workflow {
                 } else {
                     meta.corrected = true
                 }
-                // Set bin group
-                meta.bin_group = barcode
                 // Set assembly group
-                meta.assembly_group = barcode
+                if ( !params.coassembly ) {
+                    meta.assembly_group = sampleID
+                } else {
+                    meta.assembly_group = "allReads"
+                }
+                // Set bin group
+                if ( !params.cobinning ) {
+                    meta.bin_group = sampleID
+                } else {
+                    meta.bin_group = "allReads"
+                }
+                
+                reads_path = reads.toAbsolutePath().toString()
+                return [ meta, [ reads_path ]] 
+            }
+
+        nanopore_barcodes = Channel.fromPath ( "${nanopore_path}*/*.fastq.gz" )
+            .map { reads ->
+                def meta = [:]
+                // Set barcode folder name as meta.id
+                def barcode = reads.getParent().getName()
+                meta.id = barcode
+                /*meta.sequencer = "ONT"
+                // Set paired_end as false for long reads
+                meta.paired_end = false
+                // Set default correctedness
+                if ( !params.corrected ) {
+                    meta.corrected = false
+                } else {
+                    meta.corrected = true
+                }
+                // Set assembly group
+                if ( !params.coassembly ) {
+                    meta.assembly_group = barcode
+                } else {
+                    meta.assembly_group = "allReads"
+                }
+                // Set bin group
+                if ( !params.cobinning ) {
+                    meta.bin_group = barcode
+                } else {
+                    meta.bin_group = "allReads"
+                }*/
                 return [ meta, reads ]
             }
             .groupTuple()
 
         CONCATENATE_ONT_BARCODES ( 
             nanopore_barcodes,
-            nanopore_path,
-            ""
+            nanopore_path
             )
 
         // Replace the symlinks of the concatenated reads with the originals
@@ -127,39 +184,216 @@ workflow {
             "${launchDir}/${nanopore_path}"
         )
 
-        nanopore_reads = CONCATENATE_ONT_BARCODES.out.setup_reads_csv
+        CONCATENATE_ONT_BARCODES.out.fastq.view()
+
+        nanopore_concatenated_barcodes = ( CONCATENATE_ONT_BARCODES.out.fastq )
+            .map { meta, reads ->
+                def sampleID = reads.getBaseName(2)
+                def meta_new = meta + [id: sampleID]
+                meta_new.sequencer = "ONT"
+                // Set paired_end as false for long reads
+                meta_new.paired_end = false
+                // Set default correctedness
+                if ( !params.corrected ) {
+                    meta_new.corrected = false
+                } else {
+                    meta_new.corrected = true
+                }
+                // Set assembly group
+                if ( !params.coassembly ) {
+                    meta_new.assembly_group = sampleID
+                } else {
+                    meta_new.assembly_group = "allReads"
+                }
+                // Set bin group
+                if ( !params.cobinning ) {
+                    meta_new.bin_group = sampleID
+                } else {
+                    meta_new.bin_group = "allReads"
+                }
+                
+                reads_path = "${launchDir}/${nanopore_path}${meta_new.id}.fastq.gz"
+                return [ meta_new, [ reads_path ]] 
+            }
+
+        nanopore_reads = nanopore_reads.mix ( nanopore_fastqs, nanopore_concatenated_barcodes )
+
+        //nanopore_sample_count = nanopore_barcodes.count()
+        //write_csv_input = write_csv_input.mix ( nanopore_reads.combine ( nanopore_sample_count ) )
+
+        write_csv_input = write_csv_input.mix ( nanopore_reads )         
+    }
+
+    //Create channel of concatenated raw PacBio reads
+    pacbio_fastqs = Channel.empty()
+    pacbio_bams = Channel.empty()
+    pacbio_reads = Channel.empty()
+    if ( params.pacbio ) {
+        def pacbio_path = params.pacbio.endsWith("/") ? params.pacbio : params.pacbio + "/"
+        pacbio_fastqs = Channel.fromPath ( "${pacbio_path}*.fastq.gz" )
+            .map { reads ->
+                def meta = [:]
+                def sampleID = reads.getBaseName(2)
+                meta.id = sampleID
+                meta.sequencer = "PacBio"
+                // Set paired_end as false for long reads
+                meta.paired_end = false
+                // Set default correctedness
+                if ( !params.corrected ) {
+                    meta.corrected = false
+                } else {
+                    meta.corrected = true
+                }
+                // Set assembly group
+                if ( !params.coassembly ) {
+                    meta.assembly_group = sampleID
+                } else {
+                    meta.assembly_group = "allReads"
+                }
+                // Set bin group
+                if ( !params.cobinning ) {
+                    meta.bin_group = sampleID
+                } else {
+                    meta.bin_group = "allReads"
+                }
+                
+                reads_path = reads.toAbsolutePath().toString()
+                return [ meta, [ reads_path ]] 
+            }
+
+        pacbio_bams = Channel.fromPath ( "${pacbio_path}*.bam" )
+            .map { reads ->
+                def meta = [:]
+                def sampleID = reads.getBaseName(1)
+                meta.id = sampleID
+                /*meta.sequencer = "PacBio"
+                // Set paired_end as false for long reads
+                meta.paired_end = false
+                // Set default correctedness
+                if ( !params.corrected ) {
+                    meta.corrected = false
+                } else {
+                    meta.corrected = true
+                }
+                // Set assembly group
+                if ( !params.coassembly ) {
+                    meta.assembly_group = sampleID
+                } else {
+                    meta.assembly_group = "allReads"
+                }
+                // Set bin group
+                if ( !params.cobinning ) {
+                    meta.bin_group = sampleID
+                } else {
+                    meta.bin_group = "allReads"
+                }*/
+                
+                return [ meta, reads ] 
+            }
+        
+        /*pacbio_pbis = Channel.fromPath ( "${pacbio_path}*.bam.pbi" )
+            .map { reads ->
+                def meta = [:]
+                def sampleID = reads.getBaseName(2)
+                meta.id = sampleID
+                meta.sequencer = "PacBio"
+                // Set paired_end as false for long reads
+                meta.paired_end = false
+                // Set default correctedness
+                if ( !params.corrected ) {
+                    meta.corrected = false
+                } else {
+                    meta.corrected = true
+                }
+                // Set assembly group
+                if ( !params.coassembly ) {
+                    meta.assembly_group = sampleID
+                } else {
+                    meta.assembly_group = "allReads"
+                }
+                // Set bin group
+                if ( !params.cobinning ) {
+                    meta.bin_group = sampleID
+                } else {
+                    meta.bin_group = "allReads"
+                }
+                
+                return [ meta, reads ] 
+            }*/
+
+        // To avoid replacing fastq.gz and bam with same sample names
+        CONFIRM_SAMPLE_ID_PB (
+            pacbio_bams,
+            pacbio_path,
+            "fastq.gz"
+        )
+
+        // Convert bams to fastq.gz. Generate bam.pbi if needed
+        pbtk_bam2fastq_input = CONFIRM_SAMPLE_ID_PB.out
+            .map { meta, reads ->
+                def sampleID = reads.getBaseName(1)
+                def meta_new = meta + [id: sampleID]
+                meta_new.sequencer = "PacBio"
+                // Set paired_end as false for long reads
+                meta_new.paired_end = false
+                // Set default correctedness
+                if ( !params.corrected ) {
+                    meta_new.corrected = false
+                } else {
+                    meta_new.corrected = true
+                }
+                // Set assembly group
+                if ( !params.coassembly ) {
+                    meta_new.assembly_group = sampleID
+                } else {
+                    meta_new.assembly_group = "allReads"
+                }
+                // Set bin group
+                if ( !params.cobinning ) {
+                    meta_new.bin_group = sampleID
+                } else {
+                    meta_new.bin_group = "allReads"
+                }
+                return [ meta_new, reads ]
+            }
+
+        PBTK_BAM2FASTQ (
+            pbtk_bam2fastq_input,
+            pacbio_path
+        )
+
+        // Replace the symlinks of the generated fastq files with the originals
+        move_fastq_pb_input = PBTK_BAM2FASTQ.out.count()
+        REPLACE_FASTQ_SYMLINKS_PB (
+            move_fastq_pb_input,
+            "${launchDir}/${pacbio_path}"
+        )
+
+        pacbio_converted_fastqs = PBTK_BAM2FASTQ.out.setup_reads_csv
             .map { meta, path ->
                 return [meta, [ path ]]
             }
 
-        nanopore_sample_count = nanopore_barcodes.count()
-
-        write_csv_input = write_csv_input.mix ( nanopore_reads.combine ( nanopore_sample_count ) )         
-    }
-
-    //Create channel of concatenated raw PacBio reads
-    pacbio_reads = Channel.empty()
-    if ( params.pacbio ) {
-        pacbio_reads = Channel.fromPath ( params.pacbio_reads )
-
-        pacbio_sample_count = pacbio_reads.count()
-
-        write_csv_input = write_csv_input.mix ( pacbio_reads.combine ( pacbio_sample_count ) )  
+        //pacbio_sample_count = pacbio_reads.count()
+        //write_csv_input = write_csv_input.mix ( pacbio_reads.combine ( pacbio_sample_count ) )
+        pacbio_reads = pacbio_reads.mix ( pacbio_fastqs, pacbio_converted_fastqs )
+        write_csv_input = write_csv_input.mix ( pacbio_reads )  
     }
 
     write_csv_input.view()
+    
 
     // Write csv file of input files
     // This is a channel of input, adding each file in no particular order
-    WRITE_SAMPLES_CSV {
+    WRITE_SAMPLES_CSV (
         write_csv_input
-    }
+    )
 
-    // Counting the output of WRITE_SAMPLES_CSV ensures the csv is complete before moving
+    // Counting the output of WRITE_SAMPLES_CSV ensures the csv is completed before moving
     remove_tmp_input = WRITE_SAMPLES_CSV.out.count()
-    REMOVE_TMP_CSV { 
+    REMOVE_TMP_CSV (
         remove_tmp_input
-    }
+    )
 
     short_config_count = short_reads.count()
     short_config_paired = false
@@ -174,7 +408,7 @@ workflow {
             }
             .unique()
     }
-    nanopore_config_count = nanopore_barcodes.count()
+    nanopore_config_count = nanopore_reads.count()
     pacbio_config_count = pacbio_reads.count()
     config_corrected = params.corrected
 

@@ -2,6 +2,7 @@
 
 process MEGAHIT {
     tag "$meta.id"
+    label 'process_high'
 
     container "community.wave.seqera.io/library/megahit:1.2.9--23234b8da1e27898"
     conda "bioconda::megahit=1.2.9"
@@ -11,11 +12,9 @@ process MEGAHIT {
     input:
         tuple val(meta), path(reads)
         val mh_preset
-        val bigThreads
-        val bigMem
 
     output:
-        tuple val(meta), path("megahit/*_assembly.fa"), emit: final_contigs
+        tuple val(meta), path("megahit/*_assembly.fa.gz"), emit: final_contigs
         tuple val(meta), path("megahit/intermediate_contigs/k*.addi.fa")
         tuple val(meta), path("megahit/intermediate_contigs/k*.contigs.fa")
         tuple val(meta), path("megahit/intermediate_contigs/k*.final.contigs.fa")
@@ -24,42 +23,25 @@ process MEGAHIT {
         path "megahit/options.json"
 
     script:
+    
+    def read_files = meta.paired_end ? "-1 ${reads[0]} -2 ${reads[1]}" : "-r ${reads[0]}"
 
-    threads = bigThreads
+    //{--presets meta} not working
+    //{--tmp-dir tmp} not working
+    //gzip files after? pigz?
 
-    if (meta.paired_end) {
+    """
+    megahit \
+    $read_files \
+    -o megahit \
+    -t $task.cpus \
+    -m $task.memory \
+    --presets $mh_preset \
+    --verbose \
+    --continue
 
-        //reads_1 = reads[0]
-        //reads_2 = reads[1]
-        //{--presets meta} not working
-        //{--tmp-dir tmp} not working
-        //gzip files after? pigz?
+    mv ./megahit/final.contigs.fa ./megahit/${meta.id}_assembly.fa
 
-        """
-        megahit \
-        -1 ${reads[0]} -2 ${reads[1]} \
-        -o megahit \
-        -t $threads \
-        -m ${bigMem}000000000 \
-        --presets $mh_preset \
-        --verbose \
-        --continue
-
-        mv ./megahit/final.contigs.fa ./megahit/${meta.id}_assembly.fa
-        """
-    } else if (!meta.paired_end) {
-
-        """
-        megahit \
-        -r ${reads[0]} \
-        -o megahit \
-        -t $threads \
-        -m ${bigMem}000000000 \
-        --presets $mh_preset \
-        --verbose \
-        --continue
-
-        mv ./megahit/final.contigs.fa ./megahit/${meta.id}_assembly.fa
-        """
-    }
+    gzip ./megahit/${meta.id}_assembly.fa
+    """
 }

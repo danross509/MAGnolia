@@ -1,0 +1,26 @@
+    """
+    mkdir tmp
+    cp \$(readlink $input_files) tmp/
+    for file in tmp/*; do
+        if [[ \$file == *.gz ]]; then 
+            gunzip \$file
+        fi
+    done
+
+    k2 classify \
+    $use_names \
+    --db $database \
+    $paired \
+    --threads $task.cpus \
+    --report ${name}.kreport \
+    $use_quick \
+    --output ${name}.krak2 \
+    $memory_mapping \
+    $minimizer_data \
+    $report_zero_counts \
+    --minimum-hit-groups $min_hits \
+    --log ${name}.log \
+    tmp/*
+
+    rm -r tmp
+    """

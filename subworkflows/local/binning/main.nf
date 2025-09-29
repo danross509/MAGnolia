@@ -58,7 +58,7 @@ workflow BINNING {
             semibin2_input_ch = assembly_alignments
                 .map { meta, contigs, bams, bais ->
                     def meta_new = meta + [binner: 'SemiBin2']
-                    [ meta, contigs, bams ]
+                    [ meta_new, contigs, bams ]
                 }
 
             SEMIBIN2 (

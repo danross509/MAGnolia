@@ -13,11 +13,10 @@ process FLYE {
         tuple val(meta), path(reads), val(read_type)
         val run_metaflye
         val genome_size
-        val bigThreads
 
     output:
-        tuple val(meta), path("*_assembly.fa"), emit: final_contigs
-        tuple val(meta), path("*_assembly_graph.gfa"), path("*_assembly_graph.gv"), emit: assembly_graph
+        tuple val(meta), path("*_assembly.fa.gz"), emit: final_contigs
+        tuple val(meta), path("*_assembly_graph.gfa.gz"), path("*_assembly_graph.gv.gz"), emit: assembly_graph
         tuple val(meta), path("*_assembly_info.txt"), emit: info
 
     script:
@@ -28,7 +27,7 @@ process FLYE {
     """
     flye \
     $reads_input \
-    --threads $bigThreads \
+    --threads $task.cpus \
     $metaflye \
     $genome \
     --out-dir ./
@@ -37,5 +36,9 @@ process FLYE {
     mv assembly_graph.gfa ${meta.id}_assembly_graph.gfa
     mv assembly_graph.gv ${meta.id}_assembly_graph.gv
     mv assembly_info.txt ${meta.id}_assembly_info.txt
+
+    gzip ${meta.id}_assembly.fa
+    gzip ${meta.id}_assembly_graph.gfa
+    gzip ${meta.id}_assembly_graph.gv
     """
 }
