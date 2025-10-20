@@ -8,7 +8,7 @@ process METAMDBG {
     container ""
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${launchDir}/Assembly/${meta.id}/metaMDBG", mode: 'symlink'
+    publishDir "${launchDir}/ASSEMBLY/${meta.id}/metaMDBG", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads)
@@ -18,8 +18,8 @@ process METAMDBG {
         val assembly_graph_reads
 
     output:
-        tuple val(meta), path("output/*_assembly.fa.gz")            , emit: final_contigs
-        tuple val(meta), path("output/*_assembly_graph.gfa.gz")     , emit: assembly_graph, optional: true
+        tuple val(meta), path("output/*_assembly.fa")            , emit: final_contigs
+        tuple val(meta), path("output/*_assembly_graph.gfa")     , emit: assembly_graph, optional: true
         //tuple val(meta), path("*_assembly_info.txt")    , emit: info, optional: true
 
     script:
@@ -71,7 +71,8 @@ process METAMDBG {
     fi 
 
     mv output/contigs.fasta.gz output/${meta.id}_assembly.fa.gz
+    gunzip output/${meta.id}_assembly.fa.gz
     mv output/assemblyGraph*bps.gfa output/${meta.id}_assembly_graph.gfa
-    gzip output/${meta.id}_assembly_graph.gfa
+    #gzip output/${meta.id}_assembly_graph.gfa
     """
 }

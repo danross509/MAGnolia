@@ -13,7 +13,7 @@ process HIFIASM_CONTIG_GFA2FA {
         tuple val(meta), path(contig_graph)
 
     output:
-        tuple val(meta), path("*_assembly.fa.gz"), emit: final_contigs
+        tuple val(meta), path("*_assembly.fa"), emit: final_contigs
 
     script:
     def prefix = "${meta.id}_assembly"
@@ -26,6 +26,6 @@ process HIFIASM_CONTIG_GFA2FA {
         awk '/^S/{print ">"\$2"\\n"\$3}' $contig_graph >${prefix}.fa
     fi
 
-    gzip ${prefix}.fa
+    #gzip ${prefix}.fa
     """
 }

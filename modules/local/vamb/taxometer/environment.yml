@@ -1,0 +1,5 @@
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - "bioconda::vamb=5.0.4"

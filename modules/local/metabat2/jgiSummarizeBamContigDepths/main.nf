@@ -12,7 +12,7 @@ process JGISUMMARIZEBAMCONTIGDEPTHS {
     val threads
 
     output:
-    tuple val(meta), path("*.txt.gz"), emit: depth
+    tuple val(meta), path("*.txt"), emit: depth
 
     script:
     """
@@ -20,6 +20,6 @@ process JGISUMMARIZEBAMCONTIGDEPTHS {
         --outputDepth ${meta.id}.txt \
         $bam
 
-    bgzip --threads $threads ${meta.id}.txt
+    #bgzip --threads $threads ${meta.id}.txt
     """
 }

@@ -1,0 +1,12 @@
+channels:
+- conda-forge
+- bioconda
+dependencies:
+- bioconda::bedtools=2.31.1
+- bioconda::hmmer==3.4
+- pip
+- pip:
+  - SemiBin=2.2.0
+  - torch==2.7.1
+  - torchvision==0.22.1
+  - torchaudio==2.7.1

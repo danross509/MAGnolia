@@ -7,7 +7,7 @@ process HIPMER {
     container 
     conda 
 
-    publishDir "${launchDir}/Assembly/${meta.id}/", mode: 'symlink'
+    publishDir "${launchDir}/ASSEMBLY/${meta.id}/metaHipmer2", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads)

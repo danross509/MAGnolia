@@ -29,11 +29,12 @@ parser.add_argument('-v', '--verbose')
 args = parser.parse_args()
 
 # Open sample file, write line 
+'''
 if not os.path.isfile(OUTPUT_CSV):
     with open(OUTPUT_CSV, "a", encoding="utf8") as sample_file:
         sample_file.write(f"sampleID,sequencer,paired_end,corrected,assembly_group,bin_group,reads_R1,reads_R2\n")
 
-'''
+
 assemblyGroup = ""
 if ( int(args.sample_count) <= 3 ):
     assemblyGroup = "allReads"

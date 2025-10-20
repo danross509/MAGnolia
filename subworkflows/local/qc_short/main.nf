@@ -33,7 +33,7 @@ workflow QC_SHORT {
         MULTIQC_IN ( all_fastqc_in, "Pre-FastQC" )
     }
 
-    short_reads.view()
+    //short_reads.view()
 
     // Trim adapters and poor quality reads
     //trimmomatic(short_reads)
@@ -98,7 +98,7 @@ workflow QC_SHORT {
             }
     }
     
-    trimmed_reads.view()
+    //trimmed_reads.view()
 
     if ( params.remove_phiX && !params.host_genome ) {
         suffix_phix = "corrected"
@@ -156,6 +156,8 @@ workflow QC_SHORT {
 
             //phiX_filter_input = trimmed_reads.combine ( BOWTIE2_PHIX_INDEX.out.index )
             phiX_filter_input = trimmed_reads.combine ( phiX_index )
+
+            phiX_filter_input.view()
 
             BOWTIE2_FILTER_PHIX (
                 phiX_filter_input,

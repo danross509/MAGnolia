@@ -7,7 +7,7 @@ process FLYE {
     container "community.wave.seqera.io/library/flye:2.9.5--d577924c8416ccd8"
     conda "bioconda::flye=2.9.5"
 
-    publishDir "${launchDir}/Assembly/${meta.id}/metaFlye", mode: 'symlink'
+    publishDir "${launchDir}/ASSEMBLY/${meta.id}/metaFlye", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads), val(read_type)
@@ -15,8 +15,9 @@ process FLYE {
         val genome_size
 
     output:
-        tuple val(meta), path("*_assembly.fa.gz"), emit: final_contigs
-        tuple val(meta), path("*_assembly_graph.gfa.gz"), path("*_assembly_graph.gv.gz"), emit: assembly_graph
+        tuple val(meta), path("*_assembly.fa"), emit: final_contigs
+        tuple val(meta), path("*_assembly_graph.gfa"), emit: assembly_graph
+        //tuple val(meta), path("*_assembly_graph.gfa"), path("*_assembly_graph.gv"), emit: assembly_graph
         tuple val(meta), path("*_assembly_info.txt"), emit: info
 
     script:
@@ -37,8 +38,8 @@ process FLYE {
     mv assembly_graph.gv ${meta.id}_assembly_graph.gv
     mv assembly_info.txt ${meta.id}_assembly_info.txt
 
-    gzip ${meta.id}_assembly.fa
-    gzip ${meta.id}_assembly_graph.gfa
-    gzip ${meta.id}_assembly_graph.gv
+    #gzip ${meta.id}_assembly.fa
+    #gzip ${meta.id}_assembly_graph.gfa
+    #gzip ${meta.id}_assembly_graph.gv
     """
 }

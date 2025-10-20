@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
 
-process CONCATENATE_FASTA {
+process SEMIBIN_CONCATENATE_FASTA {
     tag "$meta.id"
     label 'process_low'
 
@@ -27,6 +27,7 @@ process CONCATENATE_FASTA {
         -o ./
 
         mv ./concatenated.fa.gz ./${meta.id}_contigs.fa.gz
+        gunzip ./${meta.id}_contigs.fa.gz
         """
     } else {
         """

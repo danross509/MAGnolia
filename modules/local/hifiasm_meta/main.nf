@@ -2,7 +2,6 @@
 
 process HIFIASM_META {
     tag "$meta.id"
-    label 'process_high'
 
     container ""
     conda "${moduleDir}/environment.yml"
@@ -11,22 +10,22 @@ process HIFIASM_META {
 
     input:
         tuple val(meta), path(reads)
-        val no_binning
+        val skip_hmbin
         val enable_rs
         val force_rs
         val rs_threshold
 
     output:
-        tuple val(meta), path("*.p_ctg.gfa.gz"), emit: primary_contig_graph
-        tuple val(meta), path("*.a_ctg.gfa.gz"), emit: alternate_contig_graph
-        tuple val(meta), path("*.r_utg*.gfa.gz"), emit: raw_unitig_graph
-        tuple val(meta), path("*.p_utg*.gfa.gz"), emit: cleaned_unitig_graph
+        tuple val(meta), path("*.p_ctg.gfa"), emit: primary_contig_graph
+        tuple val(meta), path("*.a_ctg.gfa"), emit: alternate_contig_graph
+        tuple val(meta), path("*.r_utg*.gfa"), emit: raw_unitig_graph
+        tuple val(meta), path("*.p_utg*.gfa"), emit: cleaned_unitig_graph
         path "${meta.id}_assembly.log", emit: log
         //path "", emit: verison
 
     script:
     def prefix = "${meta.id}_assembly"
-    def binning = no_binning ? "--no-binning" : ""
+    def binning = skip_hmbin ? "--no-binning" : ""
     def read_selection = enable_rs ? "-S" : ""
     def force_selection = force_rs ? "--force-rs" : ""
     def rs_quantile = rs_threshold ?: ""
@@ -45,6 +44,6 @@ process HIFIASM_META {
     ${reads}
     &> ${meta.id}_assembly.log
 
-    gzip *.gfa
+    #gzip *.gfa
     """
 }

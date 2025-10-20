@@ -94,7 +94,7 @@ workflow ASSEMBLY_PREP_SHORT {
                 }
             }
     } else {
-        concatenated_reads = concatenated_reads.mix ( CONCATENATE_SHORT_READS_R1.out.fastq ).view()
+        concatenated_reads = concatenated_reads.mix ( CONCATENATE_SHORT_READS_R1.out.fastq )//.view()
             //.map { meta, R1 ->
             //    [ meta, [R1] ]
             //}

@@ -4,6 +4,7 @@ include { MEGAHIT } from '../../../modules/local/megahit/main.nf'
 include { SPADES as METASPADES } from '../../../modules/local/spades/main.nf'
 //include { metaHipMer } from '../../../modules/local/hipmer/main.nf'
 include { GATB_MINIA } from '../../../modules/local/gatb/minia/main.nf'
+include { QUAST_CONTIGS } from '../../../modules/local/quast/quast_contigs/main.nf'
 
 workflow ASSEMBLY_SHORT {
     take:
@@ -14,7 +15,6 @@ workflow ASSEMBLY_SHORT {
 
     assembly_out = Channel.empty()
     assembly_graph_out = Channel.empty()
-    unitigs_out = Channel.empty()
     
     // Short read assembly with megahit
     if (params.assembler_short_reads == 'megahit') {
@@ -39,6 +39,7 @@ workflow ASSEMBLY_SHORT {
         )
 
         assembly_out = assembly_out.mix ( MEGAHIT.out.final_contigs )
+        assembly_graph_out = assembly_graph_out.mix ( MEGAHIT.out.assembly_graph )
 
     } else if ( params.assembler_short_reads == 'spades' ) {
     // Short read assembly with metaSPAdes
@@ -70,6 +71,7 @@ workflow ASSEMBLY_SHORT {
         )
 
         assembly_out = assembly_out.mix ( METASPADES.out.scaffolds )
+        assembly_graph_out = assembly_graph_out.mix ( METASPADES.out.gfa )
         
     } else if (params.assembler_short_reads == 'hipmer') {
         hipmer_input_ch = clean_reads
@@ -95,7 +97,7 @@ workflow ASSEMBLY_SHORT {
                 [ meta_new, reads ]
             }
 
-        gatb_input_ch.view()
+        //gatb_input_ch.view()
 
         // Run GATB-minia-pipeline  
         GATB_MINIA (
@@ -104,14 +106,25 @@ workflow ASSEMBLY_SHORT {
 
         assembly_out = assembly_out.mix ( GATB_MINIA.out.final_contigs )
         assembly_graph_out = assembly_graph_out.mix ( GATB_MINIA.out.assembly_graph )
-        unitigs_out = unitigs_out.mix ( GATB_MINIA.out.unitigs )
     }
 
     //"SPAdes" for tiara domain classification
 
+    QUAST_CONTIGS ( 
+        assembly_out,
+        params.quast_assembly_min_contig,
+        params.quast_assembly_rna_finding,
+        params.quast_assembly_gene_finding,
+        params.quast_assembly_conserved_gene_finding,
+        params.quast_assembly_min_alignment,
+        params.quast_assembly_min_identity,
+        params.quast_assembly_mem_efficient,
+        params.quast_assembly_space_efficient,
+        params.quast_assembly_blast_db
+        )
+
     emit:
     contigs = assembly_out
     assembly_graph = assembly_graph_out
-    unitigs = unitigs_out
     reads = original_clean_reads
 }

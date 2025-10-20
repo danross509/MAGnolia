@@ -7,11 +7,13 @@ process MEDAKA {
         'https://depot.galaxyproject.org/singularity/medaka:1.4.4--py38h130def0_0' :
         'biocontainers/medaka:1.4.4--py38h130def0_0' }"
 
+    publishDir "${launchDir}/ASSEMBLY/${meta.id}/Medaka", mode: 'symlink'
+
     input:
     tuple val(meta), path(reads), path(assembly)
 
     output:
-    tuple val(meta), path("*_consensus.fa.gz")  , emit: assembly
+    tuple val(meta), path("*_consensus.fa")     , emit: assembly
     path "versions.yml"                         , emit: versions
 
     when:
@@ -26,19 +28,18 @@ process MEDAKA {
 
     """
     $gunzip_assembly
-    bgzip ${prefix}_tmp.fa
 
     medaka_consensus \\
         -t $task.cpus \\
         $args \\
         -i $reads \\
-        -d ${prefix}_tmp.fa.gz \\
+        -d ${prefix}_tmp.fa \\
         -o ./
 
     mv consensus.fasta ${prefix}_consensus.fa
 
-    gzip ${prefix}_consensus.fa
-    rm ${prefix}_tmp.fa.gz
+    #gzip ${prefix}_consensus.fa
+    rm ${prefix}_tmp.fa
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

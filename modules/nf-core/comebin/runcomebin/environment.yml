@@ -1,0 +1,6 @@
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - bioconda::comebin=1.0.4
+  - bioconda::seqkit=2.10.1

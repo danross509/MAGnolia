@@ -14,7 +14,8 @@ process MEGAHIT {
         val mh_preset
 
     output:
-        tuple val(meta), path("megahit/*_assembly.fa.gz"), emit: final_contigs
+        tuple val(meta), path("megahit/*_assembly.fa"), emit: final_contigs
+        tuple val(meta), val([]),  emit: assembly_graph // megahit does not produce a gfa, this is a placeholder 
         tuple val(meta), path("megahit/intermediate_contigs/k*.addi.fa")
         tuple val(meta), path("megahit/intermediate_contigs/k*.contigs.fa")
         tuple val(meta), path("megahit/intermediate_contigs/k*.final.contigs.fa")
@@ -42,6 +43,6 @@ process MEGAHIT {
 
     mv ./megahit/final.contigs.fa ./megahit/${meta.id}_assembly.fa
 
-    gzip ./megahit/${meta.id}_assembly.fa
+    #gzip ./megahit/${meta.id}_assembly.fa
     """
 }

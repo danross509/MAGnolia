@@ -34,7 +34,6 @@ include { ASSEMBLY_PREP_SHORT } from './subworkflows/local/assembly_prep_short/m
 include { ASSEMBLY_PREP_LONG } from './subworkflows/local/assembly_prep_long/main.nf'
 include { ASSEMBLY_SHORT } from './subworkflows/local/assembly_short/main.nf'
 include { ASSEMBLY_LONG } from './subworkflows/local/assembly_long/main.nf'
-include { CONTIG_POLISHING } from './subworkflows/local/contig_polishing/main.nf'
 include { READ_CONTIG_TAXONOMY as CONTIG_TAXONOMY } from './subworkflows/local/read_contig_taxonomy/main.nf'
 include { BINNING_PREPARATION } from './subworkflows/local/binning_preparation/main.nf'
 include { BINNING } from './subworkflows/local/binning/main.nf'
@@ -43,8 +42,8 @@ include { BINNING_REFINEMENT } from './subworkflows/nf-core/binning_refinement/m
 include { DEPTHS } from './subworkflows/nf-core/depths/main.nf'
 include { BIN_QC } from './subworkflows/nf-core/bin_qc/main.nf'
 
-include { QUAST_BINS } from './modules/nf-core_mag/quast/quast_bins/main.nf'
-include { QUAST_BINS_SUMMARY } from './modules/nf-core_mag/quast/quast_bins_summary/main.nf'
+include { QUAST_BINS } from './modules/local/quast/quast_bins/main.nf'
+include { QUAST_BINS_SUMMARY } from './modules/local/quast/quast_bins_summary/main.nf'
 
 include { GTDBTK } from './subworkflows/nf-core_mag/gtdbtk/main.nf'
 include { BIN_SUMMARY } from './modules/nf-core_mag/bin_summary/main.nf'
@@ -350,41 +349,43 @@ workflow {
     }
     // *****************
     
-    initial_contigs = Channel.empty()
+    final_contigs = Channel.empty()
     assembly_graphs = Channel.empty()
     reads_post_assembly = Channel.empty()
 
     if ( !params.skip_assembly ) {
         if ( params.short_reads && !params.nanopore_reads && !params.pacbio_reads ) {
             ASSEMBLY_SHORT ( concatenated_reads, original_clean_reads )
-            initial_contigs = initial_contigs.mix ( ASSEMBLY_SHORT.out.contigs )
+            final_contigs = final_contigs.mix ( ASSEMBLY_SHORT.out.contigs )
             assembly_graphs = assembly_graphs.mix ( ASSEMBLY_SHORT.out.assembly_graph )
             reads_post_assembly = reads_post_assembly.mix ( ASSEMBLY_SHORT.out.reads )
         } else if ( !params.short_reads && ( params.nanopore_reads || params.pacbio_reads )) {
             ASSEMBLY_LONG ( concatenated_long_reads, original_clean_long_reads )
-            initial_contigs = initial_contigs.mix ( ASSEMBLY_LONG.out.contigs )
-            assembly_graphs = assembly_graphs.mix ( ASSEMBLY_LONG.out.assembly_graph )
+            final_contigs = final_contigs.mix ( ASSEMBLY_LONG.out.contigs )
+            assembly_graphs = assembly_graphs.mix ( ASSEMBLY_LONG.out.assembly_graphs )
             reads_post_assembly = reads_post_assembly.mix ( ASSEMBLY_LONG.out.reads )
         } /*else if (params.short_reads && (params.nanopore_reads || params.pacbio_reads)) {
             ASSEMBLY_HYBRID( concatenated_reads )
-            initial_contigs = ASSEMBLY_HYBRID.out
+            final_contigs = ASSEMBLY_HYBRID.out
         }*/
         
     }
 
-    initial_contigs.view()
-    assembly_graphs.view()
-    reads_post_assembly.view()
+    //final_contigs.view()
+    //assembly_graphs.view()
+    //reads_post_assembly.view()
 
     /************************
         Contig polishing
      ************************/
 
-    final_contigs = Channel.empty()
+    /*final_contigs = Channel.empty()
     final_assembly_graphs = Channel.empty()
     reads_post_polishing = Channel.empty()
 
-    if ( !params.skip_contig_polishing ) {
+    if ( params.nanopore_reads && !params.skip_contig_polishing ) {
+        ont_contigs 
+
         CONTIG_POLISHING (
             initial_contigs, 
             assembly_graphs,
@@ -399,7 +400,7 @@ workflow {
         final_contigs = final_contigs.mix ( initial_contigs )
         final_assembly_graphs = final_assembly_graphs.mix ( assembly_graphs )
         reads_post_polishing = reads_post_polishing.mix ( reads_post_assembly )
-    }
+    }*/
 
     /*********************
         Contig taxonomy
@@ -458,20 +459,24 @@ workflow {
                 exit 1, "ERROR: Binniing mode <${params.binning_mode}> is invalid"
         }*/
 
-        binning_prep_input = final_contigs.join ( reads_post_polishing )
+        binning_prep_input = final_contigs
+            .join ( assembly_graphs )
+            .join ( reads_post_assembly )
 
-        binning_prep_input.view()                    
+        //binning_prep_input.view()                    
 
         BINNING_PREPARATION ( binning_prep_input )
 
-        BINNING_PREPARATION.out.grouped_mappings.view()
+        //BINNING_PREPARATION.out.grouped_mappings.view()
+
         BINNING (
-            BINNING_PREPARATION.out.grouped_mappings,
-            final_assembly_graphs
+            BINNING_PREPARATION.out.grouped_mappings
         )
+
+        BINNING.out.bins.view()
     }
 
-    //BINNING.out.bins.view()
+    
 
     /*
             ch_binning_results_bins = binning.out.bins.map { meta, bins ->

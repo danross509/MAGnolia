@@ -19,6 +19,7 @@ include { CONCATENATE_ONT_BARCODES } from './modules/local/scripts/concatenate_o
 include { PBTK_BAM2FASTQ } from './modules/local/pbtk/bam2fastq/main.nf'
 //include { CONFIRM_UNIQUE_FILES as CONFIRM_SAMPLE_ID_ONT } from './modules/local/scripts/confirm_unique_files/main.nf'
 include { CONFIRM_UNIQUE_FILES as CONFIRM_SAMPLE_ID_PB } from './modules/local/scripts/confirm_unique_files/main.nf'
+include { CREATE_TMP_CSV } from './modules/local/scripts/write_sample_csv/create_tmp.nf'
 include { WRITE_SAMPLES_CSV } from './modules/local/scripts/write_sample_csv/main.nf'
 include { REMOVE_TMP_CSV } from './modules/local/scripts/write_sample_csv/remove_tmp.nf'
 include { REPLACE_SYMLINKS as REPLACE_CONCATENATED_SYMLINKS_ONT } from './modules/local/scripts/replace_symlinks/main.nf'
@@ -384,9 +385,12 @@ workflow {
     
 
     // Write csv file of input files
+    CREATE_TMP_CSV ()
+
     // This is a channel of input, adding each file in no particular order
     WRITE_SAMPLES_CSV (
-        write_csv_input
+        write_csv_input,
+        CREATE_TMP_CSV.out
     )
 
     // Counting the output of WRITE_SAMPLES_CSV ensures the csv is completed before moving

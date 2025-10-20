@@ -9,13 +9,13 @@ process CONCOCT_EXTRACTFASTABINS {
         'https://depot.galaxyproject.org/singularity/concoct:1.1.0--py312h245ed52_6':
         'biocontainers/concoct:1.1.0--py312h245ed52_6' }"
 
-    publishDir "${launchDir}/BINNING/${meta.id}/${meta.assembler}-concoct", mode: 'symlink'
+    publishDir "${launchDir}/BINNING/${meta.id}/${meta.assembler}-CONCOCT", mode: 'symlink'
 
     input:
     tuple val(meta), path(original_fasta), path(csv)
 
     output:
-    tuple val(meta), path("${prefix}/*.fa.gz")  , emit: fasta
+    tuple val(meta), path("${prefix}/*.fa")  , emit: fasta
     path "versions.yml"                         , emit: versions, optional: true
 
     when:
@@ -36,7 +36,7 @@ process CONCOCT_EXTRACTFASTABINS {
     ## Add prefix to each file to disambiguate one sample's 1.fa, 2.fa from sample2
     for i in ${prefix}/*.fa; do
         mv \${i} \${i/\\///bin.}
-        gzip \${i/\\///bin.}
+        #gzip \${i/\\///bin.}
     done
 
     """

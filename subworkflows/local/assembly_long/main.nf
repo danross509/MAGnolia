@@ -4,6 +4,8 @@ include { HIFIASM_META } from '../../../modules/local/hifiasm_meta/main.nf'
 include { HIFIASM_CONTIG_GFA2FA } from '../../../modules/local/scripts/hifiasm_contig_gfa2fa/main.nf'
 include { FLYE as METAFLYE } from '../../../modules/local/flye/main.nf'
 include { METAMDBG } from '../../../modules/local/metamdbg/main.nf'
+include { CONTIG_POLISHING } from '../../../subworkflows/local/contig_polishing/main.nf'
+include { QUAST_CONTIGS } from '../../../modules/local/quast/quast_contigs/main.nf'
 
 workflow ASSEMBLY_LONG {
     take:
@@ -14,7 +16,8 @@ workflow ASSEMBLY_LONG {
 
     assembly_out = Channel.empty()
     assembly_graph_out = Channel.empty()
-    unitig_graph_out = Channel.empty()
+    unitigs = Channel.empty()
+    reads_out = Channel.empty()
 
     // Long read assembly with Hifiasm_meta
     if (params.assembler_long_reads == 'hifiasm') {
@@ -24,7 +27,7 @@ workflow ASSEMBLY_LONG {
                 [meta_new, reads]
             }
 
-        original_clean_reads_long = original_clean_reads_long
+        reads_out = reads_out.mix ( original_clean_reads_long )
             .map { meta, reads ->
                 def meta_new = meta + [assembler: 'Hifiasm_meta']
                 [meta_new, reads]
@@ -32,7 +35,7 @@ workflow ASSEMBLY_LONG {
 
         HIFIASM_META (
             hifiasm_input_ch,
-            params.hifiasm_no_binning,
+            params.skip_hmbin,
             params.hifiasm_read_selection,
             params.hifiasm_force_rs,
             params.hifiasm_rs_threshold
@@ -44,7 +47,7 @@ workflow ASSEMBLY_LONG {
 
         assembly_out = assembly_out.mix ( HIFIASM_CONTIG_GFA2FA.out.final_contigs )
         assembly_graph_out = assembly_graph_out.mix ( HIFIASM_META.out.primary_contig_graph )
-        unitig_graph_out = unitig_graph_out.mix ( HIFIASM_META.out.cleaned_unitig_graph )
+        unitigs = unitigs.mix ( HIFIASM_META.out.cleaned_unitig_graph )
 
     // Long read assembly with Flye
     } else if (params.assembler_long_reads == 'flye') {
@@ -88,7 +91,7 @@ workflow ASSEMBLY_LONG {
                 [ meta_new, reads, read_type ]
             }
 
-        original_clean_reads_long = original_clean_reads_long
+        reads_out = reads_out.mix ( original_clean_reads_long )
             .map { meta, reads ->
                 def meta_new = meta + [assembler: 'Flye']
                 [meta_new, reads]
@@ -112,7 +115,7 @@ workflow ASSEMBLY_LONG {
                 [meta_new, reads]
             }
 
-        original_clean_reads_long = original_clean_reads_long
+        reads_out = reads_out.mix ( original_clean_reads_long )
             .map { meta, reads ->
                 def meta_new = meta + [assembler: 'metaMDBG']
                 [meta_new, reads]
@@ -137,9 +140,89 @@ workflow ASSEMBLY_LONG {
         println "Unknown long read assembler, please see nextflow.config for instructions"
     }
 
+    // Polish nanopore contigs
+
+    contigs = Channel.empty()
+    assembly_graphs = Channel.empty()
+    reads = Channel.empty()
+
+    if ( params.nanopore_reads && !params.skip_contig_polishing ) {
+        // Isolate ONT assemblies
+        ont_polishing_contigs = assembly_out
+            .map { meta, contigs ->
+                if ( meta.sequencer == 'ONT' ) {
+                    return [ meta, contigs ]
+                } 
+            }
+
+        ont_polishing_gfa = assembly_graph_out
+            .map { meta, graphs ->
+                if ( meta.sequencer == 'ONT' ) {
+                    return [ meta, graphs ]
+                } 
+            }
+
+        ont_polishing_reads = reads_out
+            .map { meta, reads ->
+                if ( meta.sequencer == 'ONT' ) {
+                    return [ meta, reads ]
+                } 
+            }
+
+        CONTIG_POLISHING (
+            ont_polishing_contigs, 
+            ont_polishing_gfa,
+            ont_polishing_reads
+        )
+
+        // Isolate non-ONT assemblies, remix with polished ONT
+        contigs = contigs.mix ( assembly_out )
+            .map { meta, contigs ->
+                if ( meta.sequencer != 'ONT' ) {
+                    return [ meta, contigs ]
+                } 
+            }
+            .mix ( CONTIG_POLISHING.out.final_contigs )
+
+        assembly_graphs = assembly_graphs.mix ( assembly_graph_out )
+            .map { meta, graphs ->
+                if ( meta.sequencer != 'ONT' ) {
+                    return [ meta, graphs ]
+                } 
+            }
+            .mix ( CONTIG_POLISHING.out.corresponding_gfa )
+
+        reads = reads.mix ( reads_out )
+            .map { meta, reads ->
+                if ( meta.sequencer != 'ONT' ) {
+                    return [ meta, reads ]
+                } 
+            }
+            .mix (CONTIG_POLISHING.out.corresponding_reads )
+
+    } else {
+        contigs = contigs.mix ( assembly_out )
+        assembly_graphs = assembly_graphs.mix ( assembly_graph_out )
+        reads = reads.mix ( reads_out )
+    }
+
+    QUAST_CONTIGS ( 
+        contigs,
+        params.quast_assembly_min_contig,
+        params.quast_assembly_rna_finding,
+        params.quast_assembly_gene_finding,
+        params.quast_assembly_conserved_gene_finding,
+        params.quast_assembly_min_alignment,
+        params.quast_assembly_min_identity,
+        params.quast_assembly_mem_efficient,
+        params.quast_assembly_space_efficient,
+        params.quast_assembly_blast_db
+        )
+
     emit:
-    contigs = assembly_out
-    assembly_graph = assembly_graph_out
-    reads = original_clean_reads_long
+    contigs
+    assembly_graphs
+    unitigs
+    reads
 
 }

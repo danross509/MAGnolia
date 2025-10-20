@@ -1,0 +1,21 @@
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.10
+  - pytorch::pytorch
+  - pytorch::pytorch-cuda=11.7
+  - numpy
+  - scipy
+  - seaborn
+  - h5py 
+  - hdbscan 
+  - gcc 
+  - openmp 
+  - tqdm 
+  - biopython 
+  - fraggenescan 
+  - hmmer 
+  - tabulate

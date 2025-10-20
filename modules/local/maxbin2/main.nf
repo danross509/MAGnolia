@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process MAXBIN2 {
-    tag "$meta.id"
+    tag "${meta.assembler}-${meta.id}"
     label 'process_medium'
 
     container "community.wave.seqera.io/library/maxbin2:d4f776ef82533cd3"
@@ -11,7 +11,6 @@ process MAXBIN2 {
 
     input:
         tuple val(meta), path(assembly), path(reads), path(abund)
-        val bigThreads
 
 
     output:
@@ -20,14 +19,13 @@ process MAXBIN2 {
         tuple val(meta), path("*.abundance")    , emit: abundance   , optional: true
         tuple val(meta), path("*.log.gz")       , emit: log
         tuple val(meta), path("*.marker.gz")    , emit: marker_counts
-        tuple val(meta), path("*.noclass.gz")   , emit: unbinned_fasta
+        tuple val(meta), path("*.noclass")   , emit: unbinned_fasta
         tuple val(meta), path("*.tooshort.gz")  , emit: tooshort_fasta
         tuple val(meta), path("*_bin.tar.gz")   , emit: marker_bins , optional: true
         tuple val(meta), path("*_gene.tar.gz")  , emit: marker_genes, optional: true
 
     script:
 
-    threads = bigThreads
     def prefix = task.ext.prefix ?: "bin"
     def associate_files = ""
     if ( abund instanceof List ) {
@@ -43,10 +41,11 @@ process MAXBIN2 {
     run_MaxBin.pl \
     -contig $assembly \
     $associate_files \
-    -thread $bigThreads \
+    -thread ${task.cpus} \
     -out $prefix
 
-    gzip *.fasta *.noclass *.tooshort *log *.marker 
+    gzip *.fasta *.tooshort *log *.marker
+    #gzip *.fasta *.noclass *.tooshort *log *.marker 
     """
     
 }

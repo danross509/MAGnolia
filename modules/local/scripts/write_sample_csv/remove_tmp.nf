@@ -20,18 +20,18 @@ process REMOVE_TMP_CSV {
     script:
 
     """
-    if [[ ! -f ${launchDir}/tmp/samples_tmp.csv ]]; then
+    if [[ ! -f ${launchDir}/samples_tmp/samples_tmp.csv ]]; then
         touch error_no_file.txt
-    elif [[ ! -s ${launchDir}/tmp/samples_tmp.csv ]]; then
+    elif [[ ! -s ${launchDir}/samples_tmp/samples_tmp.csv ]]; then
         touch error_file_empty.txt
-        mv ${launchDir}/tmp/samples_tmp.csv ${launchDir}/samples.csv
-        rm -r ${launchDir}/tmp/
+        mv ${launchDir}/samples_tmp/samples_tmp.csv ${launchDir}/samples.csv
+        rm -r ${launchDir}/samples_tmp/
     else
         touch samples_csv_overwrite.txt
-        cd ${launchDir}/tmp
+        cd ${launchDir}/samples_tmp
         reorder_samples.py
         mv samples.csv ${launchDir}/samples.csv
-        rm -r ${launchDir}/tmp/
+        rm -r ${launchDir}/samples_tmp/
     fi
     
     """

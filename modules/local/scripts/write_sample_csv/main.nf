@@ -12,6 +12,8 @@ process WRITE_SAMPLES_CSV {
     input:
         //tuple val(meta), val(reads), val(count)
         tuple val(meta), val(reads)
+        val placeholder
+        
 
     output:
         path "empty_file.txt"
@@ -32,15 +34,7 @@ process WRITE_SAMPLES_CSV {
     """
     touch empty_file.txt
 
-    if [[ ! -d ${launchDir}/tmp ]]; then
-        mkdir ${launchDir}/tmp
-    fi
-
-    if [[ -f ${launchDir}/samples.csv ]]; then
-        echo "Warning : existing samples.csv file will be overwritten"
-    fi
-
-    cd ${launchDir}/tmp
+    cd ${launchDir}/samples_tmp
     write_samples_csv.py $sampleID -s $sequencer -p $paired_end -c $corrected -a $assembly_group -b $bin_group -1 $reads_1 -2 $reads_2
 
     """

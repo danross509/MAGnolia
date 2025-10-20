@@ -26,7 +26,7 @@ process MINIMAP2_ASSEMBLY_ALIGNMENT {
     def remove_unmapped = unmapped ? "samtools view -@ $task.cpus -b -F 4 |" : ""
 
     """
-    minimap2 -a \\
+    minimap2 --eqx -a \\
     -x $preset \\
     -t $task.cpus \\
     $args \\

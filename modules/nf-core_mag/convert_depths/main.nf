@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process CONVERT_DEPTHS {
-    tag "$meta.id"
+    tag "${meta.assembler}-${meta.id}"
 
     conda "bioconda::bioawk=1.0"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?

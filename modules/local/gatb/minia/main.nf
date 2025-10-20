@@ -7,15 +7,15 @@ process GATB_MINIA {
     container "community.wave.seqera.io/library/minia:3.2.6--92bae1756baab1ef", "community.wave.seqera.io/library/gatb:1.4.2--cf37d08b7005497e"
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${launchDir}/Assembly/GATB/${meta.id}/", mode: 'symlink'
+    publishDir "${launchDir}/ASSEMBLY/${meta.id}/GATB", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads)
 
     output:
-        tuple val(meta), path("*_assembly.fa.gz"), emit: final_contigs
-        tuple val(meta), path("*_assembly.gfa.gz"), emit: assembly_graph
-        tuple val(meta), path("*_unitigs.fa.gz"), emit: unitigs, optional: true
+        tuple val(meta), path("*_assembly.fa"), emit: final_contigs
+        tuple val(meta), path("*_assembly.gfa"), emit: assembly_graph
+        tuple val(meta), path("*_unitigs.fa"), emit: unitigs, optional: true
         //tuple val(meta), path("final_assembly_depths.txt"), emit: depth
 
     script:
@@ -35,11 +35,11 @@ process GATB_MINIA {
 
     gatb_bcalm_convertToGFA.py assembly_final.contigs.fa ${meta.id}_assembly.gfa \$kmer_size
 
-    gzip assembly_final.contigs.fa
-    gzip \$unitigs
-    gzip ${meta.id}_assembly.gfa
+    #gzip assembly_final.contigs.fa
+    #gzip \$unitigs
+    #gzip ${meta.id}_assembly.gfa
 
-    mv assembly_final.contigs.fa.gz ${meta.id}_assembly.fa.gz
-    mv \${unitigs}.gz ${meta.id}_unitigs.fa.gz
+    mv assembly_final.contigs.fa ${meta.id}_assembly.fa
+    mv \${unitigs} ${meta.id}_unitigs.fa
     """
 }
