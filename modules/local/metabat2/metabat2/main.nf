@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process METABAT2 {
-    tag "${meta.assembler}-${meta.id}"
+    tag "${meta.id}-${meta.assembler}"
     label 'process_medium'
 
     container "community.wave.seqera.io/library/metabat2:15c68d548f9e9b8f"
@@ -24,20 +24,21 @@ process METABAT2 {
     script:
 
     depth_file = depth.getBaseName()
-    def prefix = task.ext.prefix ?: "bin"
+    def prefix = task.ext.prefix ?: "${meta.id}_${meta.assembler}_MetaBAT2"
     //Look into metabat options
 
     """
-    gzip -d -f $depth
+    #gzip -d -f $depth
 
     metabat2 \
     -i $assembly \
-    -a $depth_file \
+    -a $depth \
     -t $task.cpus \
     --saveCls \
     --unbinned \
     -o ${prefix}
 
+    mv ${prefix} ${prefix}.tsv
     #gzip -cn ${prefix} > ${prefix}.tsv.gz
     #find . -name "*.fa" -type f | xargs -t -n 1 bgzip
     """

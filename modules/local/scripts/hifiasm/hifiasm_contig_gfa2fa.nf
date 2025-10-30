@@ -17,14 +17,10 @@ process HIFIASM_CONTIG_GFA2FA {
 
     script:
     def prefix = "${meta.id}_assembly"
-    def gzipped = contig_graph.getExtension() == "gz" ? true : false
+    def command = contig_graph.getExtension() == "gz" ? "zcat $contig_graph | awk '/^S/{print \">\"\$2\"\\n\"\$3}' - >${prefix}.fa" : "cat $contig_graph | awk '/^S/{print \">\"\$2\"\\n\"\$3}' - >${prefix}.fa"
 
     """
-    if [[ $gzipped ]]; then 
-        zcat $contig_graph | awk '/^S/{print ">"\$2"\\n"\$3}' - >${prefix}.fa
-    else
-        awk '/^S/{print ">"\$2"\\n"\$3}' $contig_graph >${prefix}.fa
-    fi
+    $command
 
     #gzip ${prefix}.fa
     """

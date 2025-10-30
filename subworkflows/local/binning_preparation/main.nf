@@ -24,11 +24,13 @@ workflow BINNING_PREPARATION {
     bin_group_contigs = Channel.empty()
     bin_group_gfa = Channel.empty()
     bin_group_reads = Channel.empty()
-
+  
+    // Group together contigs according to bin group
+    // If bin group != meta.id, rename
     bin_group_contigs = bin_group_contigs.mix ( assemblies )
         .map { meta, contigs, gfa, reads ->
             if ( !meta.coassembly && meta.id != meta.bin_group ) {
-                def meta_new = meta + [ id: meta.bin_group, assembly_group: 'self' ]
+                def meta_new = meta + [ id: meta.bin_group, assembly_group: 'self' ] // Don't change assembly group
                 [ meta_new, contigs ]
             } else { 
                 //println contigs.getExtension()
@@ -97,7 +99,7 @@ workflow BINNING_PREPARATION {
     // Do I need this step?
     //concatenated_assemblies = concatenated_assemblies.mix ( SEMIBIN_CONCATENATE_FASTA.out.concatenated_fasta.join ( bin_group_reads ))
 
-    //concatenated_assemblies.view()
+    //SEMIBIN_CONCATENATE_FASTA.out.concatenated_fasta.view()
 
     // Build minimap2 index for each contigs
     build_index_input = SEMIBIN_CONCATENATE_FASTA.out.concatenated_fasta
@@ -226,7 +228,16 @@ workflow BINNING_PREPARATION {
         params.remove_unmapped
     )
 
+    //MINIMAP2_ASSEMBLY_ALIGNMENT.out.mappings.view()
+
     // group mappings for one assembly
+    grouped_reads = split_reads
+        .map { meta, sampleID, reads ->
+            [ meta, reads ]
+        }
+        .groupTuple()
+    
+
     //ch_grouped_mappings = ch_grouped_mappings.mix ( BOWTIE2_ASSEMBLY_ALIGNMENT.out.mappings )
     ch_grouped_mappings = ch_grouped_mappings.mix ( MINIMAP2_ASSEMBLY_ALIGNMENT.out.mappings )
         .groupTuple(by: 0)
@@ -234,8 +245,10 @@ workflow BINNING_PREPARATION {
             [ meta, contigs.sort()[0], bams, bais ] 
         }
         .join ( bin_group_gfa )
-        .combine ( split_reads, by: 0 )
-        .map { meta, contigs, bams, bais, gfa, sampleID, reads ->
+        //.combine ( split_reads, by: 0 )
+        .combine ( grouped_reads, by: 0 )
+        //.map { meta, contigs, bams, bais, gfa, sampleID, reads ->
+        .map { meta, contigs, bams, bais, gfa, reads ->
             [ meta, reads, contigs, bams, bais, gfa ]
         }
     
@@ -244,8 +257,8 @@ workflow BINNING_PREPARATION {
     //bowtie2_assembly_multiqc = MINIMAP2_ASSEMBLY_ALIGNMENT.out.log.map { contigs_meta, reads_meta, log -> [ log ] }
 
 
-    ch_grouped_mappings.view()
-    split_reads.view()
+    //ch_grouped_mappings.view()
+    //split_reads.view()
 
     emit:
     //bowtie2_assembly_multiqc

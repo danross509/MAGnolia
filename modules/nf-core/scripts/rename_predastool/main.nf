@@ -1,8 +1,8 @@
 #!/usr/bin/env nextflow
 
 process RENAME_PREDASTOOL {
-    //tag "${meta.assembler}-${meta.binner}-${meta.id}"
-    //label 'process_low'
+    tag "${meta.assembler}-${meta.binner}-${meta.id}"
+    label 'process_low'
 
     conda "conda-forge::sed=4.7"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
@@ -13,18 +13,19 @@ process RENAME_PREDASTOOL {
     tuple val(meta), path(bins)
 
     output:
-    tuple val(meta), path("${meta.assembler}-${meta.binner}Refined-${meta.id}*"), emit: renamed_bins
+    tuple val(meta), path("${meta.id}_${meta.assembler}Refined_${meta.binner}*"), emit: renamed_bins
 
     script:
     """
     if [ -n "${bins}" ]
     then
         for bin in ${bins}; do
-            if [[ \${bin} =~ bin.([[:alnum:]]+).fa ]]; then
+            if [[ \${bin} =~ ${meta.id}_${meta.assembler}_${meta.binner}.([[:alnum:]]+).fa ]]; then
                 num=\${BASH_REMATCH[1]}
-                mv \${bin} ${meta.assembler}-${meta.binner}Refined-${meta.id}.\${num}.fa
+                mv \${bin} ${meta.id}_${meta.assembler}Refined_${meta.binner}.\${num}.fa
+                #mv \${bin} ${meta.assembler}-${meta.binner}Refined-${meta.id}.\${num}.fa
             else
-                echo "ERROR: the bin filename \${bin} does not match the expected format '${meta.assembler}-${meta.binner}-${meta.id}.([_[:alnum:]]+).fa'!"
+                echo "ERROR: the bin filename \${bin} does not match the expected format '${meta.id}_${meta.assembler}_${meta.binner}.([_[:alnum:]]+).fa'!"
                 exit 1
             fi
         done

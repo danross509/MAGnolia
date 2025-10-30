@@ -157,7 +157,7 @@ workflow QC_SHORT {
             //phiX_filter_input = trimmed_reads.combine ( BOWTIE2_PHIX_INDEX.out.index )
             phiX_filter_input = trimmed_reads.combine ( phiX_index )
 
-            phiX_filter_input.view()
+            //phiX_filter_input.view()
 
             BOWTIE2_FILTER_PHIX (
                 phiX_filter_input,

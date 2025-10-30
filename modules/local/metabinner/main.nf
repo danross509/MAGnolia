@@ -54,9 +54,9 @@ process METABINNER {
     mkdir bins
     for file in \${bin_path}/*; do
         if [[ -f \$file ]]; then
-            filename=\${file##*/}
-            basename=\${filename%.*}
-            mv \$file ./bins/\${basename}.fa
+            filename=\${file##*_}
+            num=\${filename%.*}
+            mv \$file ./bins/${meta.id}_${meta.assembler}_MetaBinner.\${num}.fa
         fi
     done
 

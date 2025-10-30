@@ -234,7 +234,7 @@ workflow {
         pacbio_fastqs = Channel.fromPath ( "${pacbio_path}*.fastq.gz" )
             .map { reads ->
                 def meta = [:]
-                def sampleID = reads.getBaseName(2)
+                def sampleID = reads.getBaseName(2).replaceAll(/.hifi_reads$/, '')
                 meta.id = sampleID
                 meta.sequencer = "PacBio"
                 // Set paired_end as false for long reads

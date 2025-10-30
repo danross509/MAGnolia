@@ -25,7 +25,7 @@ process SPLIT_FASTA {
     script:
     """
     # save unbinned contigs above thresholds into individual files, dump others in one file
-    split_fasta.py $unbinned ${params.min_length_unbinned_contigs} ${params.max_unbinned_contigs} ${params.min_contig_size}
+    split_fasta.py $unbinned ${params.min_length_unbinned_contigs} ${params.max_unbinned_contigs} ${params.min_contig_length}
 
     gzip *.fa
 

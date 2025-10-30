@@ -51,13 +51,13 @@ process VAMB_BIN {
 
     #find ${prefix}/bins -name "*.fna" -exec gzip {} \\;
 
-    if [[ -e ${prefix}/bins/*.fna ]]; then
-        for file in ${prefix}/bins/*.fna; do
+    for file in ${prefix}/bins/*.fna; do
+        if [[ -f ${prefix}/bins/*.fna ]]; then
             filename=\${file##*/}
             basename=\${filename%.fna}
-            mv \$file ${prefix}/bins/\${basename}.fa
-        done
-    fi
+            mv \$file ${prefix}/bins/${meta.id}_${meta.assembler}_VAMB.\${basename}.fa
+        fi
+    done
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

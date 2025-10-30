@@ -14,11 +14,11 @@ process COMEBIN_RUNCOMEBIN {
     val input_batch_size
 
     output:
-    tuple val(meta), path("${prefix}/comebin_res_bins/*.fa"), emit: bins
-    tuple val(meta), path("${prefix}/comebin_res.tsv")         , emit: tsv
-    tuple val(meta), path("${prefix}/comebin.log")             , emit: log
-    tuple val(meta), path("${prefix}/embeddings.tsv")          , emit: embeddings
-    tuple val(meta), path("${prefix}/covembeddings.tsv")       , emit: covembeddings
+    tuple val(meta), path("${prefix}/comebin_res_bins/*.fa")   , emit: bins
+    tuple val(meta), path("${prefix}/*.comebin_res.tsv")         , emit: tsv
+    tuple val(meta), path("${prefix}/*.comebin.log")             , emit: log
+    tuple val(meta), path("${prefix}/*.embeddings.tsv")          , emit: embeddings
+    tuple val(meta), path("${prefix}/*.covembeddings.tsv")       , emit: covembeddings
     path "versions.yml"                                        , emit: versions
 
     when:
@@ -53,6 +53,16 @@ process COMEBIN_RUNCOMEBIN {
         $args
 
     mv comebin_res ${prefix}
+    
+    for bin in ${prefix}/*; do
+        if [[ -f \$bin ]]; then
+            bin_name=\${bin##*/}
+            mv \$bin ${prefix}/${meta.id}_${meta.assembler}_COMEbin.\${bin_name}
+            if [[ "\$bin_name" == *.gz ]]; then
+                gunzip ${prefix}/${meta.id}_${meta.assembler}_COMEbin.\${bin_name}
+            fi
+        fi
+    done
 
     #find ${prefix}/comebin_res_bins/*.fa -exec gzip {} \\;
 

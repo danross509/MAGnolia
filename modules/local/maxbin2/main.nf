@@ -14,7 +14,7 @@ process MAXBIN2 {
 
 
     output:
-        tuple val(meta), path("*.fasta.gz")     , optional:true, emit: bins
+        tuple val(meta), path("*.fasta")     , optional:true, emit: bins
         tuple val(meta), path("*.summary")      , emit: summary
         tuple val(meta), path("*.abundance")    , emit: abundance   , optional: true
         tuple val(meta), path("*.log.gz")       , emit: log
@@ -26,7 +26,7 @@ process MAXBIN2 {
 
     script:
 
-    def prefix = task.ext.prefix ?: "bin"
+    def prefix = task.ext.prefix ?: "${meta.id}_${meta.assembler}_MaxBin2"
     def associate_files = ""
     if ( abund instanceof List ) {
         associate_files = "-abund ${abund[0]}"
@@ -44,7 +44,7 @@ process MAXBIN2 {
     -thread ${task.cpus} \
     -out $prefix
 
-    gzip *.fasta *.tooshort *log *.marker
+    gzip *.tooshort *log *.marker
     #gzip *.fasta *.noclass *.tooshort *log *.marker 
     """
     

@@ -38,8 +38,11 @@ include { READ_CONTIG_TAXONOMY as CONTIG_TAXONOMY } from './subworkflows/local/r
 include { BINNING_PREPARATION } from './subworkflows/local/binning_preparation/main.nf'
 include { BINNING } from './subworkflows/local/binning/main.nf'
 include { domain_classification } from './subworkflows/nf-core/domain_classification/main.nf'
-include { BINNING_REFINEMENT } from './subworkflows/nf-core/binning_refinement/main.nf'
-include { DEPTHS } from './subworkflows/nf-core/depths/main.nf'
+include { BIN_REFINEMENT } from './subworkflows/local/bin_refinement/main.nf'
+include { BIN_DEREPLICATION } from './subworkflows/local/bin_dereplication/main.nf'
+include { BIN_COVERAGE } from './subworkflows/local/bin_coverage/main.nf'
+
+//include { DEPTHS } from './subworkflows/nf-core/depths/main.nf'
 include { BIN_QC } from './subworkflows/nf-core/bin_qc/main.nf'
 
 include { QUAST_BINS } from './modules/local/quast/quast_bins/main.nf'
@@ -205,7 +208,7 @@ workflow {
             }
         }
     
-    // reads.view()
+    //reads.view()
 
     short_reads = Channel.empty()
     short_reads = short_reads.mix ( reads )
@@ -303,6 +306,9 @@ workflow {
         corrected_pacbio_reads = corrected_pacbio_reads.mix ( QC_PACBIO.out.filtered_pacbio_reads )
     }
 
+    all_corrected_reads = corrected_reads.mix ( corrected_ont_reads, corrected_pacbio_reads )
+    // if this is empty, exit
+
     //concatenated_long_reads.view()
 
     /*******************
@@ -311,10 +317,8 @@ workflow {
 
     read_taxonomy_input = Channel.empty()
     if ( !params.skip_read_taxonomy ) {
-        read_taxonomy_input = read_taxonomy_input.mix ( corrected_reads, corrected_ont_reads, corrected_pacbio_reads )
-
         READ_TAXONOMY (
-            read_taxonomy_input, 
+            all_corrected_reads, 
             kraken2_db_dir,
             run_bracken,
             "reads"
@@ -352,6 +356,7 @@ workflow {
     final_contigs = Channel.empty()
     assembly_graphs = Channel.empty()
     reads_post_assembly = Channel.empty()
+    hifiasm_bins = Channel.empty()
 
     if ( !params.skip_assembly ) {
         if ( params.short_reads && !params.nanopore_reads && !params.pacbio_reads ) {
@@ -361,9 +366,10 @@ workflow {
             reads_post_assembly = reads_post_assembly.mix ( ASSEMBLY_SHORT.out.reads )
         } else if ( !params.short_reads && ( params.nanopore_reads || params.pacbio_reads )) {
             ASSEMBLY_LONG ( concatenated_long_reads, original_clean_long_reads )
-            final_contigs = final_contigs.mix ( ASSEMBLY_LONG.out.contigs )
+            final_contigs = final_contigs.mix ( ASSEMBLY_LONG.out.final_contigs )
             assembly_graphs = assembly_graphs.mix ( ASSEMBLY_LONG.out.assembly_graphs )
-            reads_post_assembly = reads_post_assembly.mix ( ASSEMBLY_LONG.out.reads )
+            reads_post_assembly = reads_post_assembly.mix ( ASSEMBLY_LONG.out.final_reads )
+            hifiasm_bins = hifiasm_bins.mix ( ASSEMBLY_LONG.out.hifiasm_bins )
         } /*else if (params.short_reads && (params.nanopore_reads || params.pacbio_reads)) {
             ASSEMBLY_HYBRID( concatenated_reads )
             final_contigs = ASSEMBLY_HYBRID.out
@@ -374,33 +380,6 @@ workflow {
     //final_contigs.view()
     //assembly_graphs.view()
     //reads_post_assembly.view()
-
-    /************************
-        Contig polishing
-     ************************/
-
-    /*final_contigs = Channel.empty()
-    final_assembly_graphs = Channel.empty()
-    reads_post_polishing = Channel.empty()
-
-    if ( params.nanopore_reads && !params.skip_contig_polishing ) {
-        ont_contigs 
-
-        CONTIG_POLISHING (
-            initial_contigs, 
-            assembly_graphs,
-            reads_post_assembly
-        )
-    
-        final_contigs = final_contigs.mix ( CONTIG_POLISHING.out.final_contigs )
-        final_assembly_graphs = final_assembly_graphs.mix ( CONTIG_POLISHING.out.corresponding_gfa )
-        reads_post_polishing = reads_post_polishing.mix (CONTIG_POLISHING.out.corresponding_reads )
-
-    } else { 
-        final_contigs = final_contigs.mix ( initial_contigs )
-        final_assembly_graphs = final_assembly_graphs.mix ( assembly_graphs )
-        reads_post_polishing = reads_post_polishing.mix ( reads_post_assembly )
-    }*/
 
     /*********************
         Contig taxonomy
@@ -420,11 +399,9 @@ workflow {
      *************/
 
     binning_prep_input = Channel.empty()
+    initial_bins = Channel.empty()
+    post_refinement_bins = Channel.empty()
     if ( !params.skip_binning ) {
-
-        // 'Per_assembly' binning associates the read files used in each contig file, for all assembly modes
-        // 'Grouped' binning concatenates the contig files of the selected samples, for 'per_sample' assembly only (for now)
-        // 'Cobinning' concatenates all contig files and collects all individual read files, for all assembly modes
 
         /*binning_prep_reads = Channel.empty()
         // If short reads only
@@ -459,7 +436,7 @@ workflow {
                 exit 1, "ERROR: Binniing mode <${params.binning_mode}> is invalid"
         }*/
 
-        binning_prep_input = final_contigs
+        binning_prep_input = binning_prep_input.mix ( final_contigs )
             .join ( assembly_graphs )
             .join ( reads_post_assembly )
 
@@ -470,26 +447,100 @@ workflow {
         //BINNING_PREPARATION.out.grouped_mappings.view()
 
         BINNING (
-            BINNING_PREPARATION.out.grouped_mappings
+            BINNING_PREPARATION.out.grouped_mappings,
+            hifiasm_bins
         )
 
-        BINNING.out.bins.view()
+        //BINNING.out.bins.view()
+
+        refinement_contigs = BINNING_PREPARATION.out.grouped_mappings
+            .map { meta, reads, contigs, bams, bais, gfa ->
+                def meta_new = meta + [refined: false]
+                [ meta_new, contigs ]
+            }
+
+        initial_bins = initial_bins.mix ( BINNING.out.bins )
+            .map { meta, bins ->
+                def meta_new = meta + [refined: false]
+                [meta_new, bins]
+            }   
+
+        if ( !params.skip_bin_refinement ) {
+            BIN_REFINEMENT (
+                refinement_contigs,
+                initial_bins
+            )
+
+            post_refinement_bins = post_refinement_bins.mix ( BIN_REFINEMENT.out.refined_bins )
+
+            BIN_REFINEMENT.out.refined_bins.view()
+
+        } else {
+            post_refinement_bins = post_refinement_bins.mix ( initial_bins )
+        }
+            
+    }
+
+    //*****************
+    // DAStool and drep arguments
+    
+
+    /********************
+        Bin evaluation
+     ********************/
+
+    // CheckM
+
+    /*******************
+        Dereplication
+     *******************/
+
+    final_bins = Channel.empty()
+
+    if ( !params.skip_bin_dereplication ) {
+        BIN_DEREPLICATION ( post_refinement_bins )
+
+        final_bins = final_bins.mix ( BIN_DEREPLICATION.out.dereplicated_bins )
+
+    } else {
+        final_bins = final_bins.mix ( post_refinement_bins )
     }
 
     
+    /************************
+        Bin classification
+     ************************/
 
-    /*
-            ch_binning_results_bins = binning.out.bins.map { meta, bins ->
-                def meta_new = meta + [domain: 'unclassified']
-                [meta_new, bins]
-            }
-            ch_binning_results_unbins = binning.out.unbinned.map { meta, bins ->
-                def meta_new = meta + [domain: 'unclassified']
-                [meta_new, bins]
-            }
-    */
-    ch_binning_results_bins = Channel.empty()
-    ch_binning_results_unbins = Channel.empty()
+    // gtdb
+
+    /********************
+        Bin annotation
+     ********************/
+
+    // DRAM
+
+    /******************
+        Bin coverage
+     ******************/
+    
+    
+    bin_group_reads = BINNING_PREPARATION.out.grouped_mappings
+        .map { meta, reads, contigs, bams, bais, gfa ->
+            [ meta, reads ]
+        }
+
+    if ( !params.skip_bin_coverage ) {
+        BIN_COVERAGE (
+            all_corrected_reads,        // Calculate coverage for each original read sample...
+            bin_group_reads,         // ... as well as concatenated reads used in each binning instance (if applicable)
+            final_bins                  
+        )
+    }
+
+
+
+    // Manage file storage
+
 
 /*    if ( !params.skip_binning && !params.skip_bin_domain_classification ) {
 
@@ -679,45 +730,7 @@ workflow {
     
 }
 
-//  In development:
-/*  Quality Control
-        Currently the QC module produces a fastqc/multiqc report for the data before and after this step
-        Trimmomatic is used to remove adapters and low quality base pairs
-        Bowtie2 is used to remove contaminant/host reads, including PhiX as a default
-
-        I need to incorporate steps for long reads
-        I need to modify bowtie2 filter contaminants to also process singleton reads from paired samples
-        I would like to include a deduplication step, from the following: 
-            bbtools' clumpify (which does not handle large datasets well)
-            fastp deduplication (though this program seems to have poor support from the developers)
-
-    Assembly
-        I am using megahit to test the assembly module / parameters in the pipeline, due to it's speed
-        The final assembly module will have the following assembly algorithms to choose from:
-            megahit (https://github.com/voutcn/megahit)
-            metaSPAdes (https://github.com/ablab/spades)
-            metaHipMer (https://sourceforge.net/projects/hipmer/)
-            GATB (https://gatb.inria.fr/software/de-novo-genome-assembly/)
-            metaFlye (https://github.com/mikolmogorov/Flye)
-            Canu (https://github.com/marbl/canu)
-
-        Kracken/Bracken will provide an initial overview of the taxa present in the samples
-        (https://github.com/DerrickWood/kraken2/wiki)
-        (https://github.com/jenniferlu717/Bracken)
-        
-    Binning
-        I will include the following as binning options:
-            Metabat2 (https://bitbucket.org/berkeleylab/metabat/src/master/)
-            Maxbin2 (https://sourceforge.net/projects/maxbin2/)
-            CONCOCT (https://github.com/BinPro/CONCOCT)
-            AAMB/AVAMB/VAMB (https://github.com/RasmussenLab/vamb?tab=readme-ov-file)
-            Semibin2 (https://github.com/BigDataBiology/SemiBin)
-            COMEBin (https://github.com/ziyewang/COMEBin)
-        Along with one (or both) of the following refinement tools:
-            metaWRAP bin refinement (https://github.com/bxlab/metaWRAP)
-            DASTools (https://github.com/cmks/DAS_Tool)
-
-        CheckM/CheckM2 will validate the contamination and completeness of each bin
+/*  CheckM/CheckM2 will validate the contamination and completeness of each bin
         (https://github.com/Ecogenomics/CheckM)
         (https://github.com/chklovski/CheckM2)
 

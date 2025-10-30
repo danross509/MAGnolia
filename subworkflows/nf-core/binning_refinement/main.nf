@@ -35,6 +35,8 @@ workflow BINNING_REFINEMENT {
             meta, bins -> [meta, bins.flatten()]
         }
 
+    //ch_bins.view() // This is a channel of bins, grouped by Bin_group X Binner output (i.e. the untransposed binning output)
+
     // prepare bins
     ch_bins_for_fastatocontig2bin = RENAME_PREDASTOOL(ch_bins).renamed_bins
                                         .branch {
@@ -43,11 +45,15 @@ workflow BINNING_REFINEMENT {
                                             concoct:  it[0]['binner'] == 'CONCOCT'
                                         }
 
+    //ch_bins_for_fastatocontig2bin.metabat2.view()    // This too is a channel of the untransposed binning output, with files renamed                                
+
     // Generate DASTool auxilary files
     DASTOOL_FASTATOCONTIG2BIN_METABAT2 ( ch_bins_for_fastatocontig2bin.metabat2, "fa")
     // MaxBin2 bin extension was changed to 'fa' as well in RENAME_PREDASTOOL
     DASTOOL_FASTATOCONTIG2BIN_MAXBIN2 ( ch_bins_for_fastatocontig2bin.maxbin2, "fa")
     DASTOOL_FASTATOCONTIG2BIN_CONCOCT ( ch_bins_for_fastatocontig2bin.concoct, "fa")
+
+    //DASTOOL_FASTATOCONTIG2BIN_METABAT2.out.fastatocontig2bin.view() // tuple (meta), (tsv file) for each untransposed binning output
 
     // Run DASTOOL
     ch_fastatocontig2bin_for_dastool = Channel.empty()
@@ -60,12 +66,12 @@ workflow BINNING_REFINEMENT {
                                             def meta_new = meta - meta.subMap('binner')
                                             [ meta_new, fastatocontig2bin ]
                                     }
-                                    .groupTuple(by: 0)
+                                    .groupTuple(by: 0).view() // With binner removed, grouped by bin_group
 
     // Note: do not `failOnMismatch` on join here, in some cases e.g. MAXBIN2 will fail if no bins, so cannot join!
     // Only want to join for DAS_Tool on bins that 'exist'
 
-    ch_input_for_dastool = ch_contigs_for_dastool.join(ch_fastatocontig2bin_for_dastool, by: 0)
+    ch_input_for_dastool = ch_contigs_for_dastool.join(ch_fastatocontig2bin_for_dastool, by: 0).view() // Joined with contigs
 
     ch_versions = ch_versions.mix(DASTOOL_FASTATOCONTIG2BIN_METABAT2.out.versions.first())
     ch_versions = ch_versions.mix(DASTOOL_FASTATOCONTIG2BIN_MAXBIN2.out.versions.first())
@@ -75,6 +81,8 @@ workflow BINNING_REFINEMENT {
     DASTOOL_DASTOOL(ch_input_for_dastool, [], [])
     ch_versions = ch_versions.mix(DASTOOL_DASTOOL.out.versions.first())
 
+    DASTOOL_DASTOOL.out.bins.view()
+/*
     // Prepare bins for downstream analysis (separate from unbins, add 'binner' info and group)
     // use DASTool as 'binner' info allowing according grouping of refined bin sets,
     // while keeping information about original binning method in filenames and used binnames, e.g. "*-MaxBin2Refined-*.fa"
@@ -116,5 +124,5 @@ workflow BINNING_REFINEMENT {
     emit:
     refined_bins                = ch_dastool_bins_newmeta
     refined_unbins              = refined_unbins
-    versions                    = ch_versions
+    versions                    = ch_versions*/
 }

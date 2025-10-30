@@ -16,10 +16,12 @@ process HIFIASM_META {
         val rs_threshold
 
     output:
-        tuple val(meta), path("*.p_ctg.gfa"), emit: primary_contig_graph
-        tuple val(meta), path("*.a_ctg.gfa"), emit: alternate_contig_graph
-        tuple val(meta), path("*.r_utg*.gfa"), emit: raw_unitig_graph
-        tuple val(meta), path("*.p_utg*.gfa"), emit: cleaned_unitig_graph
+        tuple val(meta), path("*.p_ctg.gfa"),   emit: primary_contig_graph
+        tuple val(meta), path("*.a_ctg.gfa"),   emit: alternate_contig_graph
+        tuple val(meta), path("*.r_utg*.gfa"),  emit: raw_unitig_graph
+        tuple val(meta), path("*.p_utg*.gfa"),  emit: cleaned_unitig_graph
+        tuple val(meta), path("*.rescue.fa"),   emit: circle_contigs, optional: true
+        tuple val(meta), path("*.bins.tsv"),    emit: bins, optional: true 
         path "${meta.id}_assembly.log", emit: log
         //path "", emit: verison
 
@@ -40,6 +42,9 @@ process HIFIASM_META {
     -t $task.cpus \
     $ont_assembly \
     -o $prefix \
+    $read_selection \
+    $force_selection \
+    $rs_quantile \
     $binning \
     ${reads}
     &> ${meta.id}_assembly.log

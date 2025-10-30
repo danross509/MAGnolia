@@ -15,7 +15,7 @@ process SEMIBIN2 {
         val use_semibin1
 
     output:
-        tuple val(meta), path("{,co-assembly_,multi_}output/{,output_}bins/*.fa")                   , optional:true, emit: bins
+        tuple val(meta), path("{,co-assembly_,multi_}output/{,output_}bins/*.fa*")                  , optional:true, emit: bins
         //tuple val(meta), path("{,co-assembly_}output/output_recluster_bins/*.fa.gz")              , optional:true, emit: recluster_bins
         tuple val(meta), path("{,co-assembly_,multi_}output/{samples/}*_data_cov.csv")              , optional:true, emit: coverage
         tuple val(meta), path("{,co-assembly_,multi_}output/{samples/*/}*contig_bins.tsv")          , optional:true, emit: contig_bin_assignment
@@ -44,15 +44,15 @@ process SEMIBIN2 {
     -o $output
 
     if [[ -d multi_output ]]; then 
-        if [[ -e multi_output/bins/* ]]; then
-            for bin in multi_output/bins/*; do
-                bin_name=\${bin##*/}
-                mv \$bin multi_output/bins/${meta.id}_\${bin_name}
-                if [[ \$bin_name == *.gz]]; then
-                    gunzip multi_output/bins/${meta.id}_\${bin_name}
+        for bin in multi_output/bins/*; do
+            if [[ -f \$bin ]]; then
+                bin_name=\${bin##*_}
+                mv \$bin multi_output/bins/${meta.id}_${meta.assembler}_SemiBin2.\${bin_name}
+                if [[ "\$bin_name" == *.gz ]]; then
+                    gunzip multi_output/bins/${meta.id}_${meta.assembler}_SemiBin2.\${bin_name}
                 fi
-            done
-        fi
+            fi
+        done
         for folder in multi_output/samples/*; do
             if [[ -d \$folder ]]; then
                 sample_name=\${folder##*/}
@@ -67,15 +67,15 @@ process SEMIBIN2 {
         mv multi_output/SemiBinRun.log multi_output/${meta.id}_SemiBinRun.log
 
     elif [[ -d co-assembly_output ]]; then 
-        if [[ -e co-assembly_output/output_bins/* ]]; then
-            for bin in co-assembly_output/output_bins/*; do
-                bin_name=\${bin##*/}
-                mv \$bin co-assembly_output/output_bins/${meta.id}_\${bin_name}
-                if [[ \$bin_name == *.gz]]; then
-                    gunzip co-assembly_output/output_bins/${meta.id}_\${bin_name}
+        for bin in co-assembly_output/output_bins/*; do
+            if [[ -f \$bin ]]; then
+                bin_name=\${bin##*_}
+                mv \$bin co-assembly_output/output_bins/${meta.id}_${meta.assembler}_SemiBin2.\${bin_name}
+                if [[ "\$bin_name" == *.gz ]]; then
+                    gunzip co-assembly_output/output_bins/${meta.id}_${meta.assembler}_SemiBin2.\${bin_name}
                 fi
-            done
-        fi
+            fi
+        done
         for file in co-assembly_output/*; do
             if [[ -f \$file ]]; then
                 filename=\${file##*/}
@@ -86,15 +86,15 @@ process SEMIBIN2 {
         done
 
     elif [[ -d output ]]; then
-        if [[ -e output/output_bins/* ]]; then
-            for bin in output/output_bins/*; do
-                bin_name=\${bin##*/}
-                mv \$bin output/output_bins/${meta.id}_\${bin_name}
-                if [[ \$bin_name == *.gz]]; then
-                    gunzip output/output_bins/${meta.id}_\${bin_name}
+        for bin in output/output_bins/*; do
+            if [[ -f \$bin ]]; then
+                bin_name=\${bin##*_}
+                mv \$bin output/output_bins/${meta.id}_${meta.assembler}_SemiBin2.\${bin_name}
+                if [[ "\$bin_name" == *.gz ]]; then
+                    gunzip output/output_bins/${meta.id}_${meta.assembler}_SemiBin2.\${bin_name}
                 fi
-            done
-        fi
+            fi
+        done
         for file in output/*; do
             if [[ -f \$file ]]; then
                 filename=\${file##*/}

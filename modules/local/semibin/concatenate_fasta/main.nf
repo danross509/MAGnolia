@@ -13,7 +13,7 @@ process SEMIBIN_CONCATENATE_FASTA {
         tuple val(meta), path(contigs)
 
     output:
-        tuple val(meta), path("${meta.id}_contigs.fa*"), emit: concatenated_fasta
+        tuple val(meta), path("${meta.id}_contigs.fa"), emit: concatenated_fasta
         //path "versions.yml", emit: versions
 
     script:

@@ -22,10 +22,10 @@ process ADJUST_MAXBIN2_EXT {
     if [ -n "${bins}" ]
     then
         for file in ${bins}; do
-            [[ \${file} =~ (.*).fasta.gz ]];
+            [[ \${file} =~ (.*).fasta ]];
             bin="\${BASH_REMATCH[1]}"
-            mv \${file} \${bin}.fa.gz
-            gunzip \${bin}.fa.gz
+            mv \${file} \${bin}.fa
+            #gunzip \${bin}.fa.gz
         done
     fi
     """
