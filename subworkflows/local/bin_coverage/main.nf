@@ -18,22 +18,56 @@ workflow BIN_COVERAGE {
     
     main:
 
+    // Calculate coverage for each final bin on the original input reads
+    original_reads_input = original_reads
+        .map {meta, reads ->
+            def meta_new = [:]
+            meta_new.id = 'original_reads'
+            meta_new.paired_end = meta.paired_end
+            [ meta_new, reads ]
+        }
+        .groupTuple()
+        .filter { it.size() > 0 }
+        .map { meta, reads ->
+            [ meta, reads.flatten().sort { it.name } ]
+        }
+
+
+    // If samples have been co-assembled or co-binned, calculate coverage for the concatenated reads
     grouped_reads_input = bin_group_reads
         .map { meta, reads ->
             if ( !meta.coassembly && !meta.cobinning ) {
-                []
+                []                                          // Do not include reads which have been processed individually
             } else {
-                def meta_new = meta + [id: "${meta.id}_grouped"]
-                [ meta_new, reads ]
+                def meta_new = [:]
+                meta_new.id = 'grouped_reads'
+                meta_new.paired_end = meta.paired_end
+                [ meta_new, reads ]                         // Include concatenated read groups
             }
         }
+        .groupTuple()
+        .filter { it.size() > 0 }
+        .map { meta, reads ->
+            [ meta, reads.flatten().sort { it.name } ]
+        }
 
-    original_reads.view()
-    grouped_reads_input.view()
-    bins.view()
+
+
+    //original_reads_input.view()
+    //grouped_reads_input.view()
+    //bins.view()
+
 
     COVERM_GENOME_ORIGINAL ( 
-        original_reads,             // single channel of fastqs
+        original_reads_input,             // single channel of fastqs
+        bins,                       // single channel of bins
+        [],                         // val bam_input
+        [],                         // val interleaved
+        'auto'
+    )
+
+    COVERM_GENOME_GROUPED ( 
+        grouped_reads_input,             // single channel of fastqs
         bins,                       // single channel of bins
         [],                         // val bam_input
         [],                         // val interleaved

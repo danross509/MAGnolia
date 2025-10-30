@@ -221,18 +221,28 @@ workflow ASSEMBLY_LONG {
         final_reads = final_reads.mix ( reads_out )
     }
 
-    QUAST_CONTIGS ( 
-        final_contigs,
-        params.quast_assembly_min_contig,
-        params.quast_assembly_rna_finding,
-        params.quast_assembly_gene_finding,
-        params.quast_assembly_conserved_gene_finding,
-        params.quast_assembly_min_alignment,
-        params.quast_assembly_min_identity,
-        params.quast_assembly_mem_efficient,
-        params.quast_assembly_space_efficient,
-        params.quast_assembly_blast_db
+    if ( !params.skip_quast_contigs ) {
+        QUAST_CONTIGS ( 
+            final_contigs,
+            params.quast_assembly_min_contig,
+            params.quast_assembly_rna_finding,
+            params.quast_assembly_gene_finding,
+            params.quast_assembly_conserved_gene_finding,
+            params.quast_assembly_min_alignment,
+            params.quast_assembly_min_identity,
+            params.quast_assembly_mem_efficient,
+            params.quast_assembly_space_efficient,
+            params.quast_assembly_blast_db
         )
+    }
+    
+
+    coverage_input = Channel.empty()
+    if ( !params.skip_contig_coverage ) {
+        coverage_input = coverage_input.mix ( final_contigs.join ( final_reads ))
+
+        CONTIG_COVERAGE ( coverage_input )
+    }
 
     emit:
     final_contigs

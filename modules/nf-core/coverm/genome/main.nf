@@ -28,7 +28,7 @@ process COVERM_GENOME {
 
     def args          = task.ext.args ?: ""
     def prefix        = task.ext.prefix ?: "${meta.id}"
-    def fastq_input   = meta.single_end ? "--single" : interleaved ? "--interleaved" : "--coupled"
+    def fastq_input   = !meta.paired_end ? "--single" : interleaved ? "--interleaved" : "--coupled"
     def input_type    = bam_input ? "--bam-files" : "${fastq_input}"
 
     def reference_str  = "--genome-fasta-files ${reference}"

@@ -37,10 +37,11 @@ include { ASSEMBLY_LONG } from './subworkflows/local/assembly_long/main.nf'
 include { READ_CONTIG_TAXONOMY as CONTIG_TAXONOMY } from './subworkflows/local/read_contig_taxonomy/main.nf'
 include { BINNING_PREPARATION } from './subworkflows/local/binning_preparation/main.nf'
 include { BINNING } from './subworkflows/local/binning/main.nf'
-include { domain_classification } from './subworkflows/nf-core/domain_classification/main.nf'
+//include { domain_classification } from './subworkflows/nf-core/domain_classification/main.nf'
 include { BIN_REFINEMENT } from './subworkflows/local/bin_refinement/main.nf'
 include { BIN_DEREPLICATION } from './subworkflows/local/bin_dereplication/main.nf'
 include { BIN_COVERAGE } from './subworkflows/local/bin_coverage/main.nf'
+include { BIN_ANNOTATION } from './subworkflows/local/bin_annotation/main.nf'
 
 //include { DEPTHS } from './subworkflows/nf-core/depths/main.nf'
 include { BIN_QC } from './subworkflows/nf-core/bin_qc/main.nf'
@@ -53,6 +54,8 @@ include { BIN_SUMMARY } from './modules/nf-core_mag/bin_summary/main.nf'
 
 include { KRAKEN2_DB_DOWNLOAD } from './modules/local/kraken2/db_download/main.nf'
 include { BRACKEN_BUILD } from './modules/local/bracken/build/main.nf'
+include { DRAM_SETUP as DRAM_IMPORT_CONFIG } from './modules/local/dram/setup/main.nf'
+include { DRAM_SETUP as DRAM_PREPARE_DB } from './modules/local/dram/setup/main.nf'
 
 /*
 The following modules are currently in development:
@@ -118,7 +121,7 @@ workflow {
     }*/
 
     // Kraken2 database
-    //If there is a kraken database given
+    // If there is a kraken database given
     if ( params.kraken2_db ) {
         kraken2_db_dir = file ( params.kraken2_db, checkIfExists: true )
         // If that database will be used AND if bracken will be run
@@ -137,6 +140,7 @@ workflow {
             // Otherwise if bracken is already built
             } else run_bracken = true
         }
+    // If no database is specified but Kraken2 will be used
     } else if ( (!params.skip_read_taxonomy || !params.skip_contig_taxonomy) && !params.skip_kracken2 ) {
         KRAKEN2_DB_DOWNLOAD (
             db_download_dir,
@@ -147,6 +151,7 @@ workflow {
         
         kraken2_db_dir = KRAKEN2_DB_DOWNLOAD.out.directory
 
+        // If Bracken will also be used
         if ( !params.skip_bracken ) {
             BRACKEN_BUILD (
                 kraken2_db_dir,
@@ -158,12 +163,45 @@ workflow {
             run_bracken = BRACKEN_BUILD.out.bracken_built
         }
 
+    // If no Kraken2 database is given and Kraken2 will not be used
     } else {
         kraken2_db_dir = []
         run_bracken = []
     }
         
+    // DRAM databases
+    // If there is a DRAM config given
+    if ( params.dram_config_loc ) {
+        dram_config_loc = file ( params.dram_config_loc, checkIfExists: true )
+        // AND If DRAM will be used
+        if ( !params.skip_annotation && !params.skip_dram ) {
+            DRAM_IMPORT_CONFIG (
+                dram_config_loc.toAbsolutePath().toString(),
+                db_download_dir,
+                params.dram_kegg_loc,
+                params.dram_skip_uniref
+            )
+        }
 
+    // If no DRAM config is given but DRAM will be used
+    } else if ( !params.skip_annotation && !params.skip_dram ) {
+        if ( params.dram_kegg_loc ) {
+            kegg_file = file ( params.dram_kegg_loc, checkIfExists: true ).toAbsolutePath().toString()
+        } else {
+            kegg_file = false
+        }
+
+        DRAM_PREPARE_DB (
+            params.dram_config_loc,
+            db_download_dir,
+            kegg_file,
+            params.dram_skip_uniref
+        )
+
+    // If no DRAM config is given and DRAM will not be used
+    } else {
+
+    }
 
 
     gtdb = params.skip_binqc || params.skip_gtdbtk ? false : params.gtdb_db
@@ -473,7 +511,7 @@ workflow {
 
             post_refinement_bins = post_refinement_bins.mix ( BIN_REFINEMENT.out.refined_bins )
 
-            BIN_REFINEMENT.out.refined_bins.view()
+            //BIN_REFINEMENT.out.refined_bins.view()
 
         } else {
             post_refinement_bins = post_refinement_bins.mix ( initial_bins )
@@ -517,7 +555,9 @@ workflow {
         Bin annotation
      ********************/
 
-    // DRAM
+    if ( !params.skip_bin_annotation ) {
+       //BIN_ANNOTATION ()
+    }
 
     /******************
         Bin coverage
