@@ -7,6 +7,7 @@ include { FLYE as METAFLYE } from '../../../modules/local/flye/main.nf'
 include { METAMDBG } from '../../../modules/local/metamdbg/main.nf'
 include { CONTIG_POLISHING } from '../../../subworkflows/local/contig_polishing/main.nf'
 include { QUAST_CONTIGS } from '../../../modules/local/quast/quast_contigs/main.nf'
+include { CONTIG_COVERAGE } from '../../../subworkflows/local/contig_coverage/main.nf'
 
 workflow ASSEMBLY_LONG {
     take:

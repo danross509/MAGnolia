@@ -26,8 +26,15 @@ process DRAM_SETUP {
 
     """
     #Replace DRAM-setup.py with the fixed version in bin
+    if [[ -f \$CONDA_PREFIX/bin/DRAM-setup.py ]]; then
+        rm \$CONDA_PREFIX/bin/DRAM-setup.py
+    fi 
+
+    cp ${moduleDir}/DRAM-setup_fixed.py \$CONDA_PREFIX/bin/DRAM-setup.py
 
     DRAM-setup.py \
         $command 
+
+    
     """
 }

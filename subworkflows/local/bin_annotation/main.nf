@@ -11,12 +11,14 @@ workflow BIN_ANNOTATION {
     
     main:
 
-    DRAM_ANNOTATE (
-        
+    DRAM_ANNOTATE ( 
+        bins
     )
 
     DRAM_DISTILL (
-
+        DRAM_ANNOTATE.out.annotations,
+        DRAM_ANNOTATE.out.trnas,
+        DRAM_ANNOTATE.out.rrnas
     )
 
 

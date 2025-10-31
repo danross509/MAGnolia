@@ -544,7 +544,6 @@ workflow {
         final_bins = final_bins.mix ( post_refinement_bins )
     }
 
-    
     /************************
         Bin classification
      ************************/
@@ -555,8 +554,8 @@ workflow {
         Bin annotation
      ********************/
 
-    if ( !params.skip_bin_annotation ) {
-       //BIN_ANNOTATION ()
+    if ( !params.skip_annotation ) {
+       BIN_ANNOTATION ( final_bins )
     }
 
     /******************
@@ -572,7 +571,7 @@ workflow {
     if ( !params.skip_bin_coverage ) {
         BIN_COVERAGE (
             all_corrected_reads,        // Calculate coverage for each original read sample...
-            bin_group_reads,         // ... as well as concatenated reads used in each binning instance (if applicable)
+            bin_group_reads,            // ... as well as concatenated reads used in each binning instance (if applicable)
             final_bins                  
         )
     }
@@ -673,7 +672,7 @@ workflow {
     */
 
     if ( !params.skip_binqc ) {
-        BIN_QC ( ch_input_for_postbinning )
+        BIN_QC ( final_bins )
 
         ch_bin_qc_summary = BIN_QC.out.qc_summary
         ch_versions = ch_versions.mix ( BIN_QC.out.versions )

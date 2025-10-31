@@ -15,7 +15,7 @@ workflow BIN_DEREPLICATION {
     dereplicate_input = refined_bins.transpose()
         .map { meta, bin ->
             def meta_new = [:]
-            meta_new.id = 'allBins'
+            meta_new.id = 'dereplicated_bins'
             [ meta_new, bin ]
         }
         .groupTuple( by: 0 )
