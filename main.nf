@@ -37,9 +37,9 @@ include { ASSEMBLY_LONG } from './subworkflows/local/assembly_long/main.nf'
 include { READ_CONTIG_TAXONOMY as CONTIG_TAXONOMY } from './subworkflows/local/read_contig_taxonomy/main.nf'
 include { BINNING_PREPARATION } from './subworkflows/local/binning_preparation/main.nf'
 include { BINNING } from './subworkflows/local/binning/main.nf'
-//include { domain_classification } from './subworkflows/nf-core/domain_classification/main.nf'
 include { BIN_REFINEMENT } from './subworkflows/local/bin_refinement/main.nf'
 include { BIN_DEREPLICATION } from './subworkflows/local/bin_dereplication/main.nf'
+//include { BIN_CLASSIFICATION } from './subworkflows/local/bin_classification/main.nf'
 include { BIN_COVERAGE } from './subworkflows/local/bin_coverage/main.nf'
 include { BIN_ANNOTATION } from './subworkflows/local/bin_annotation/main.nf'
 
@@ -56,26 +56,9 @@ include { KRAKEN2_DB_DOWNLOAD } from './modules/local/kraken2/db_download/main.n
 include { BRACKEN_BUILD } from './modules/local/bracken/build/main.nf'
 include { DRAM_SETUP as DRAM_IMPORT_CONFIG } from './modules/local/dram/setup/main.nf'
 include { DRAM_SETUP as DRAM_PREPARE_DB } from './modules/local/dram/setup/main.nf'
-
-/*
-The following modules are currently in development:
-
-include { quast } from './QUAST/main.nf'
-include { busco } from './Busco/main.nf'
-include { checkm } from './CheckM/main.nf' (include both 1 and 2)
-include { taxonony } from './Taxonomy/main.nf' (include both ncbi, gtdb)
-include { bakta } from './Bakta/main.nf'
-include { annotation } from './Annotation/main.nf'
-include { galah }
-*/
+include { DRAM_UPDATE_CONFIG } from './modules/local/dram/update_config/main.nf'
 
 //errorStrategy = { task.exitStatus in [12,143,137,104,134,139] ? 'retry' : 'finish' }
-
-/*
-for file in CLEAN_READS/*; do 
-	mv $(readlink $file) CLEAN_READS/
-done
-*/
 
 workflow {
     // Specify the output directory
@@ -88,6 +71,11 @@ workflow {
      */
 
     ch_versions = Channel.empty()
+
+    /********************
+        Database setup
+     ********************/
+    
     db_download_dir = file("${params.databaseDownloadDir}").toAbsolutePath().toString()
      ////////////////////////////////////////////////////
     /* --  Create channel for reference databases  -- */
@@ -183,7 +171,7 @@ workflow {
             )
         }
 
-    // If no DRAM config is given but DRAM will be used
+    // If no DRAM config is given (dram_config_loc = false) but DRAM will be used
     } else if ( !params.skip_annotation && !params.skip_dram ) {
         if ( params.dram_kegg_loc ) {
             kegg_file = file ( params.dram_kegg_loc, checkIfExists: true ).toAbsolutePath().toString()
@@ -196,6 +184,11 @@ workflow {
             db_download_dir,
             kegg_file,
             params.dram_skip_uniref
+        )
+
+        DRAM_UPDATE_CONFIG (
+            db_download_dir,
+            DRAM_PREPARE_DB.out
         )
 
     // If no DRAM config is given and DRAM will not be used
@@ -320,8 +313,6 @@ workflow {
         corrected_reads = corrected_reads.mix ( QC_SHORT.out.host_filtered_reads )
     }
 
-    //concatenated_long_reads = Channel.empty()
-    //original_clean_long_reads = Channel.empty()
     // ONT quality control
     corrected_ont_reads = Channel.empty()
     if ( !params.skip_qc && params.nanopore_reads ) {
@@ -440,40 +431,6 @@ workflow {
     initial_bins = Channel.empty()
     post_refinement_bins = Channel.empty()
     if ( !params.skip_binning ) {
-
-        /*binning_prep_reads = Channel.empty()
-        // If short reads only
-        if ( params.short_reads && !params.nanopore_reads && !params.pacbio_reads ) { 
-            binning_prep_reads = binning_prep_reads.mix ( original_clean_reads )
-        // If long reads only    
-        } else if ( !params.short_reads && ( params.nanopore_reads || params.pacbio_reads )) {
-            binning_prep_reads = binning_prep_reads.mix ( original_clean_long_reads )
-        // If hybrid assembly
-        } else if ( params.short_reads && ( params.nanopore_reads || params.pacbio_reads )) {
-            binning_prep_reads = 'to do' // original_clean_hybrid_reads
-        }
-            
-        if ( params.binning_mode == 'per_assembly') {                
-            binning_prep_reads = binning_prep_reads
-                .map { meta, reads ->
-                    [ meta.id, meta, reads ]
-                }
-            binning_prep_input = final_contigs
-                .map { meta, contigs ->
-                    [ meta.id, meta, contigs ]
-                }
-                .combine ( binning_prep_reads, by: 0 )
-                .map { id, contigs_meta, contigs, grouped_reads_meta, grouped_reads ->
-                    [ contigs_meta, contigs, grouped_reads_meta, grouped_reads ]
-                }
-        } else if ( params.binning_mode == 'grouped' ) {
-
-        } else if ( params.binning_mode == 'cobinning' ) {
-
-        } else {
-                exit 1, "ERROR: Binniing mode <${params.binning_mode}> is invalid"
-        }*/
-
         binning_prep_input = binning_prep_input.mix ( final_contigs )
             .join ( assembly_graphs )
             .join ( reads_post_assembly )
@@ -528,6 +485,9 @@ workflow {
      ********************/
 
     // CheckM
+    /*if ( !params.skip_bin_evaluation) {
+        BIN_EVALUATION ()
+    }*/
 
     /*******************
         Dereplication
@@ -548,7 +508,9 @@ workflow {
         Bin classification
      ************************/
 
-    // gtdb
+    /*if ( !params.skip_classification ) {
+       BIN_CLASSIFICATION ( final_bins )
+    }*/
 
     /********************
         Bin annotation
@@ -708,18 +670,14 @@ workflow {
     /*
      * GTDB-tk: taxonomic classifications using GTDB reference
      */
-    /*
+    
     if (!params.skip_gtdbtk) {
 
         ch_gtdbtk_summary = Channel.empty()
         if (gtdb) {
 
-            ch_gtdb_bins = ch_input_for_postbinning.filter { meta, bins ->
-                meta.domain != "eukarya"
-            }
-
             GTDBTK(
-                ch_gtdb_bins,
+                final_bins,
                 ch_bin_qc_summary,
                 gtdb,
                 gtdb_mash
@@ -731,7 +689,7 @@ workflow {
     else {
         ch_gtdbtk_summary = Channel.empty()
     }
-
+    /*
     if ((!params.skip_binqc) || !params.skip_quast || !params.skip_gtdbtk) {
         BIN_SUMMARY(
             ch_input_for_binsummary,

@@ -51,10 +51,6 @@ if args.corrected == 'true':
     if int(args.pacbio_count) > 0 :
         text = text.replace("pacbio_reads_corrected = false", "pacbio_reads_corrected = true")
 
-# Assembly, binning modes
-if 0 <= int(args.short_count) <= 3 and 0 <= int(args.ont_count) <= 3 and 0 <= int(args.pacbio_count) <= 3 :
-    text = text.replace("assembly_mode = 'per_sample'", "assembly_mode = 'coassembly'")
-
 # Hybrid assembly
 if int(args.short_count) > 0 and (int(args.ont_count) > 0 or int(args.pacbio_count) > 0) :
     text = text.replace("skip_spadeshybrid = true", "skip_spadeshybrid = false")

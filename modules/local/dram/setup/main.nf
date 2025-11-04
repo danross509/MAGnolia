@@ -16,7 +16,7 @@ process DRAM_SETUP {
         val skip_uniref
 
     output:
-
+        path "dram_setup_finished.txt"
 
     script:
     def args = task.ext.args ?: ""
@@ -35,6 +35,6 @@ process DRAM_SETUP {
     DRAM-setup.py \
         $command 
 
-    
+    touch dram_setup_finished.txt
     """
 }

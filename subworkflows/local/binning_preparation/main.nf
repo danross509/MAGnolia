@@ -237,6 +237,8 @@ workflow BINNING_PREPARATION {
         }
         .groupTuple()
     
+    //grouped_reads.view()
+    
 
     //ch_grouped_mappings = ch_grouped_mappings.mix ( BOWTIE2_ASSEMBLY_ALIGNMENT.out.mappings )
     ch_grouped_mappings = ch_grouped_mappings.mix ( MINIMAP2_ASSEMBLY_ALIGNMENT.out.mappings )
@@ -247,10 +249,14 @@ workflow BINNING_PREPARATION {
         .join ( bin_group_gfa )
         //.combine ( split_reads, by: 0 )
         .combine ( grouped_reads, by: 0 )
+        //.view { meta, contigs, bams, bais, gfa, reads -> "Bin prep output before unwrap: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
         //.map { meta, contigs, bams, bais, gfa, sampleID, reads ->
         .map { meta, contigs, bams, bais, gfa, reads ->
-            [ meta, reads, contigs, bams, bais, gfa ]
+            def readsList = reads as List
+            def unwrapped = readsList.size() == 1 && readsList[0] instanceof List ? readsList[0] : readsList
+            [ meta, unwrapped, contigs, bams, bais, gfa ]
         }
+        //.view { meta, reads, contigs, bams, bais, gfa -> "Bin prep output: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
     
     // multiple symlinks to the same assembly -> use first of sorted list
     //bowtie2_assembly_multiqc = BOWTIE2_ASSEMBLY_ALIGNMENT.out.log.map { contigs_meta, reads_meta, log -> [ log ] }
