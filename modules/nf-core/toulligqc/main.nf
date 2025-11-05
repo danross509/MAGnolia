@@ -14,7 +14,7 @@ process TOULLIGQC {
     input:
 
     tuple val(meta), path(ontfile)
-    val step
+    val step                        // Added to generate pre- and post- trimming results
 
 
     output:
@@ -35,6 +35,7 @@ process TOULLIGQC {
         ("$ontfile".endsWith(".txt") || "$ontfile".endsWith(".txt.gz")) ? "--sequencing-summary-source ${ontfile}" :
         ("$ontfile".endsWith(".bam")) ? "--bam ${ontfile}" : ''
 
+    // Script modified to rename and rearrange output files
     """
     toulligqc \\
         $input_file \\

@@ -58,7 +58,9 @@ include { DRAM_SETUP as DRAM_IMPORT_CONFIG } from './modules/local/dram/setup/ma
 include { DRAM_SETUP as DRAM_PREPARE_DB } from './modules/local/dram/setup/main.nf'
 include { DRAM_UPDATE_CONFIG } from './modules/local/dram/update_config/main.nf'
 
-//errorStrategy = { task.exitStatus in [12,143,137,104,134,139] ? 'retry' : 'finish' }
+errorStrategy = { task.exitStatus in ((130..145) + 104) || task.exitStatus == null ? 'retry' : 'finish' }
+maxRetries    = 3
+maxErrors     = '-1'
 
 workflow {
     // Specify the output directory

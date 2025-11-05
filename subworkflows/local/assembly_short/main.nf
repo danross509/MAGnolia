@@ -3,7 +3,7 @@
 include { MEGAHIT } from '../../../modules/local/megahit/main.nf'
 include { SPADES as METASPADES } from '../../../modules/local/spades/main.nf'
 //include { metaHipMer } from '../../../modules/local/hipmer/main.nf'
-include { GATB_MINIA } from '../../../modules/local/gatb/minia/main.nf'
+include { GATB_MINIA_PIPELINE } from '../../../modules/local/gatb/minia_pipeline/main.nf'
 include { QUAST_CONTIGS } from '../../../modules/local/quast/quast_contigs/main.nf'
 include { CONTIG_COVERAGE } from '../../../subworkflows/local/contig_coverage/main.nf'
 
@@ -101,12 +101,12 @@ workflow ASSEMBLY_SHORT {
         //gatb_input_ch.view()
 
         // Run GATB-minia-pipeline  
-        GATB_MINIA (
+        GATB_MINIA_PIPELINE (
             gatb_input_ch
         )
 
-        assembly_out = assembly_out.mix ( GATB_MINIA.out.final_contigs )
-        assembly_graph_out = assembly_graph_out.mix ( GATB_MINIA.out.assembly_graph )
+        assembly_out = assembly_out.mix ( GATB_MINIA_PIPELINE.out.final_contigs )
+        assembly_graph_out = assembly_graph_out.mix ( GATB_MINIA_PIPELINE.out.assembly_graph )
     }
 
     //"SPAdes" for tiara domain classification

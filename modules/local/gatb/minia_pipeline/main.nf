@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
 
-process GATB_MINIA {
+process GATB_MINIA_PIPELINE {
     tag "$meta.id"
     label 'process_high'
 

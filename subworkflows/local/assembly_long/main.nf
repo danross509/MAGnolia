@@ -63,7 +63,7 @@ workflow ASSEMBLY_LONG {
                 [ meta_new, bins ]
             }
 
-        HIFIASM_CREATE_BIN_FILES.out.circular_mags.view()
+        //HIFIASM_CREATE_BIN_FILES.out.circular_mags.view()
 
     // Long read assembly with Flye
     } else if (params.assembler_long_reads == 'flye') {

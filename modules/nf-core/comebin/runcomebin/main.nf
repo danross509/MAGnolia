@@ -2,12 +2,10 @@ process COMEBIN_RUNCOMEBIN {
     tag "${meta.assembler}-${meta.id}"
     label 'process_high'
 
-    conda "${moduleDir}/environment.yml"
+    conda params.use_gpu ? "${moduleDir}/environment_gpu.yml" : "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'https://depot.galaxyproject.org/singularity/comebin:1.0.4--hdfd78af_0':
         'biocontainers/comebin:1.0.4--hdfd78af_0' }"
-
-    publishDir "${launchDir}/BINNING/${meta.id}/${meta.assembler}-COMEbin", mode: 'symlink'
 
     input:
     tuple val(meta), path(assembly), path(bam, stageAs: "bam/*")
