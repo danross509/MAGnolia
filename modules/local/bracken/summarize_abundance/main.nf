@@ -7,7 +7,7 @@ process BRACKEN_SUMMARIZE_ABUNDANCE {
     container ""
     conda "conda-forge::python=3.13 conda-forge::pandas=2.3.0 conda-forge::seaborn=0.13 conda-forge::matplotlib=3.10"
 
-    publishDir "${launchDir}/KRAKEN2/${file_type}", mode: 'symlink'
+    publishDir "${params.resultsDir}/KRAKEN2/${file_type}", mode: 'symlink'
 
     input:
         val abundances

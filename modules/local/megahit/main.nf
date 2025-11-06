@@ -7,7 +7,7 @@ process MEGAHIT {
     container "community.wave.seqera.io/library/megahit:1.2.9--23234b8da1e27898"
     conda "bioconda::megahit=1.2.9"
 
-    publishDir "${launchDir}/ASSEMBLY/${meta.id}/", mode: 'symlink'
+    publishDir "${params.resultsDir}/ASSEMBLY/${meta.id}/", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads)

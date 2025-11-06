@@ -7,7 +7,7 @@ process SEMIBIN2 {
     container "community.wave.seqera.io/library/pip_semibin:b6a41dbb4d1296c7"
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${launchDir}/BINNING/${meta.id}/${meta.assembler}-semibin2", mode: 'symlink'
+    publishDir "${params.resultsDir}/BINNING/${meta.id}/${meta.assembler}-semibin2", mode: 'symlink'
 
     input:
         tuple val(meta), path(assembly), path(bams)

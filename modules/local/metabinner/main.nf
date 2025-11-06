@@ -7,7 +7,7 @@ process METABINNER {
     container ""
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${launchDir}/BINNING/${meta.id}/${meta.assembler}-MetaBinner", mode: 'symlink'
+    publishDir "${params.resultsDir}/BINNING/${meta.id}/${meta.assembler}-MetaBinner", mode: 'symlink'
 
     input:
         tuple val(meta), path(assembly), path(depths)

@@ -7,7 +7,7 @@ process BRACKEN_BUILD {
     container ""
     conda "bioconda::kraken2=2.14 bioconda::bracken=3.1"
 
-    //publishDir "${launchDir}/KRAKEN2/${meta.id}/${file_type}", mode: 'symlink'
+    //publishDir "${params.resultsDir}/KRAKEN2/${meta.id}/${file_type}", mode: 'symlink'
 
     input:
         val database

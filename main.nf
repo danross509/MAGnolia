@@ -526,18 +526,19 @@ workflow {
         Bin coverage
      ******************/
     
-    
-    bin_group_reads = BINNING_PREPARATION.out.grouped_mappings
-        .map { meta, reads, contigs, bams, bais, gfa ->
-            [ meta, reads ]
-        }
+    if ( !params.skip_binning ) {
+        bin_group_reads = BINNING_PREPARATION.out.grouped_mappings
+            .map { meta, reads, contigs, bams, bais, gfa ->
+                [ meta, reads ]
+            }
 
-    if ( !params.skip_bin_coverage ) {
-        BIN_COVERAGE (
-            all_corrected_reads,        // Calculate coverage for each original read sample...
-            bin_group_reads,            // ... as well as concatenated reads used in each binning instance (if applicable)
-            final_bins                  
-        )
+        if ( !params.skip_bin_coverage ) {
+            BIN_COVERAGE (
+                all_corrected_reads,        // Calculate coverage for each original read sample...
+                bin_group_reads,            // ... as well as concatenated reads used in each binning instance (if applicable)
+                final_bins                  
+            )
+        }
     }
 
 

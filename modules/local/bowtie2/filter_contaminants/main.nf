@@ -5,7 +5,7 @@ process FILTER_CONTAMINANTS {
     container "community.wave.seqera.io/library/bowtie2:2.5.4--d51920539234bea7"
     conda "bioconda::bowtie2=2.5.4"
 
-    publishDir "${launchDir}/CLEAN_READS/Illumina", mode: 'symlink'
+    publishDir "${params.resultsDir}/CLEAN_READS/Illumina", mode: 'symlink'
 
     input:
         //tuple val(meta), path(reads_trimmed), val(contaminant_meta), path(contaminant_fasta), path(contaminant_index)

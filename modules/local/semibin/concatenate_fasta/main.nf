@@ -7,7 +7,7 @@ process SEMIBIN_CONCATENATE_FASTA {
     container "community.wave.seqera.io/library/pip_semibin:b6a41dbb4d1296c7"
     conda "${moduleDir}/../semibin2/environment.yml"
 
-    //publishDir "${launchDir}/BINNING/${meta.id}/${meta.assembler}-${semibin_version}", mode: 'symlink'
+    //publishDir "${params.resultsDir}/BINNING/${meta.id}/${meta.assembler}-${semibin_version}", mode: 'symlink'
 
     input:
         tuple val(meta), path(contigs)

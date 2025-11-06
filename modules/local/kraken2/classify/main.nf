@@ -6,7 +6,7 @@ process KRAKEN2 {
     container ""
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${launchDir}/KRAKEN2/${file_type}/${meta.id}", mode: 'symlink'
+    publishDir "${params.resultsDir}/KRAKEN2/${file_type}/${meta.id}", mode: 'symlink'
 
     input:
         tuple val(meta), path(input_files)

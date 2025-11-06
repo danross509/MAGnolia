@@ -7,7 +7,7 @@ process FASTPLONG {
     container "community.wave.seqera.io/library/fastplong:0.2.2--03217e568967f163"
     conda "fastplong=0.2.2"
 
-    publishDir "${launchDir}/QC/${meta.id}/fastplong", mode: 'symlink'
+    publishDir "${params.resultsDir}/QC/${meta.id}/fastplong", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads_fastq)

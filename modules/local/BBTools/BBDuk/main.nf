@@ -6,7 +6,7 @@ process BBDuk {
     container ""
     conda ""
 
-    publishDir "${launchDir}/QC/BBDuk", mode: 'symlink'
+    publishDir "${params.resultsDir}/QC/BBDuk", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads_fastq)

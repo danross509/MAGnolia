@@ -7,7 +7,7 @@ process HIFIASM_CONTIG_GFA2FA {
     container ""
     conda ""
 
-    publishDir "${launchDir}/ASSEMBLY/${meta.id}/Hifiasm_meta", mode: 'symlink'
+    publishDir "${params.resultsDir}/ASSEMBLY/${meta.id}/Hifiasm_meta", mode: 'symlink'
 
     input:
         tuple val(meta), path(contig_graph)

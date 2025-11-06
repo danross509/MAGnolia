@@ -7,12 +7,10 @@ process HIFIASM_CREATE_BIN_FILES {
     container ""
     conda ""
 
-    publishDir "${launchDir}/BINNING/${meta.id}/${meta.assembler}-hmBin", mode: 'symlink'
+    publishDir "${params.resultsDir}/BINNING/${meta.id}/${meta.assembler}-hmBin", mode: 'symlink'
 
     input:
-        tuple val(meta), path(all_contigs)
-        tuple val(meta), path(circle_contigs)
-        tuple val(meta), path(bins)
+        tuple val(meta), path(all_contigs), path(circle_contigs), path(bins)
 
     output:
         tuple val(meta), path("circular_MAGs/*.fa"),    emit: circular_mags

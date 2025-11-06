@@ -36,6 +36,8 @@ workflow ASSEMBLY_LONG {
                 [meta_new, reads]
             }
 
+        
+
         HIFIASM_META (
             hifiasm_input_ch,
             params.skip_hmbin,
@@ -48,20 +50,27 @@ workflow ASSEMBLY_LONG {
             HIFIASM_META.out.primary_contig_graph
         )
 
-        HIFIASM_CREATE_BIN_FILES (
-            HIFIASM_CONTIG_GFA2FA.out.final_contigs,
-            HIFIASM_META.out.circle_contigs,
-            HIFIASM_META.out.bins
-        )
+        // Join all together for single input channel?
+        if ( !params.skip_binning && !params.skip_hmbin ) {
+            hm_bin_file_input = HIFIASM_CONTIG_GFA2FA.out.final_contigs
+                .join ( HIFIASM_META.out.circle_contigs )
+                .join ( HIFIASM_META.out.bins )
+
+            HIFIASM_CREATE_BIN_FILES (
+                hm_bin_file_input
+            )
+
+            hifiasm_bins = hifiasm_bins.mix ( HIFIASM_CREATE_BIN_FILES.out.circular_mags, HIFIASM_CREATE_BIN_FILES.out.bins )
+                .map { meta, bins ->
+                    def meta_new = meta + [cobinning: false, binner: 'hmBin']
+                    [ meta_new, bins ]
+                }
+        }
 
         assembly_out = assembly_out.mix ( HIFIASM_CONTIG_GFA2FA.out.final_contigs )
         assembly_graph_out = assembly_graph_out.mix ( HIFIASM_META.out.primary_contig_graph )
         unitigs = unitigs.mix ( HIFIASM_META.out.cleaned_unitig_graph )
-        hifiasm_bins = hifiasm_bins.mix ( HIFIASM_CREATE_BIN_FILES.out.circular_mags, HIFIASM_CREATE_BIN_FILES.out.bins )
-            .map { meta, bins ->
-                def meta_new = meta + [cobinning: false, binner: 'hmBin']
-                [ meta_new, bins ]
-            }
+
 
         //HIFIASM_CREATE_BIN_FILES.out.circular_mags.view()
 

@@ -6,7 +6,7 @@ process WRITE_CONFIG {
     container ""
     conda ""
 
-    //publishDir "${launchDir}", mode: 'move'
+    //publishDir "${params.resultsDir}", mode: 'move'
 
     input:
         val short_reads_count

@@ -7,7 +7,7 @@ process KRAKEN2_DB_DOWNLOAD {
     container ""
     conda "${moduleDir}/../classify/environment.yml"
 
-    //publishDir "${launchDir}/KRAKEN2/${meta.id}/${file_type}", mode: 'symlink'
+    //publishDir "${params.resultsDir}/KRAKEN2/${meta.id}/${file_type}", mode: 'symlink'
 
     input:
         val db_dir

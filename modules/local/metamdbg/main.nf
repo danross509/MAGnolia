@@ -8,7 +8,7 @@ process METAMDBG {
     container ""
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${launchDir}/ASSEMBLY/${meta.id}/metaMDBG", mode: 'symlink'
+    publishDir "${params.resultsDir}/ASSEMBLY/${meta.id}/metaMDBG", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads)

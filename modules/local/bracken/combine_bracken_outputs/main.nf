@@ -7,7 +7,7 @@ process COMBINE_BRACKEN_OUTPUTS {
     container ""
     conda "${moduleDir}/../abundance_estimation/environment.yml"
 
-    publishDir "${launchDir}/KRAKEN2/${file_type}", mode: 'symlink'
+    publishDir "${params.resultsDir}/KRAKEN2/${file_type}", mode: 'symlink'
 
     input:
         val abundances

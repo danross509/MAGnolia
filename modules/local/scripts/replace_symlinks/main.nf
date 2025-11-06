@@ -6,7 +6,7 @@ process REPLACE_SYMLINKS {
     container ""
     conda ""
 
-    //publishDir "${launchDir}", mode: 'move'
+    //publishDir "${params.resultsDir}", mode: 'move'
 
     input:
         val placeholder     // This is a placeholder to ensure symlinks are not moved early : i.e. the counted output of the final process that requires them in the original work directory

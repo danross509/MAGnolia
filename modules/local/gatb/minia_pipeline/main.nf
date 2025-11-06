@@ -7,7 +7,7 @@ process GATB_MINIA_PIPELINE {
     container "community.wave.seqera.io/library/minia:3.2.6--92bae1756baab1ef", "community.wave.seqera.io/library/gatb:1.4.2--cf37d08b7005497e"
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${launchDir}/ASSEMBLY/${meta.id}/GATB", mode: 'symlink'
+    publishDir "${params.resultsDir}/ASSEMBLY/${meta.id}/GATB", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads)

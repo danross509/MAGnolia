@@ -6,7 +6,7 @@ process BOWTIE2_ASSEMBLY_MAPPED_SORTED {
     container "community.wave.seqera.io/library/bowtie2:2.5.4--d51920539234bea7"
     conda "bioconda::bowtie2=2.5.4 bioconda::samtools=1.21"
 
-    //publishDir "${launchDir}/CLEAN_READS/", mode: 'symlink'
+    //publishDir "${params.resultsDir}/CLEAN_READS/", mode: 'symlink'
 
     input:
         tuple val(assembly_meta), path(assembly), path(index), val(reads_meta), path(reads)

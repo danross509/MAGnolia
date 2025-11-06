@@ -7,7 +7,7 @@ process MINIMAP2_INDEX {
     container "community.wave.seqera.io/library/minimap2:2.28--78db3d0b6e5cb797"
     conda "bioconda::minimap2=2.28"
 
-    //publishDir "${launchDir}/QC/${meta.id}/minimap2_alignment/", mode: 'symlink'
+    //publishDir "${params.resultsDir}/QC/${meta.id}/minimap2_alignment/", mode: 'symlink'
 
     input:
 

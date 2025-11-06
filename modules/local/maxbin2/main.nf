@@ -7,7 +7,7 @@ process MAXBIN2 {
     container "community.wave.seqera.io/library/maxbin2:d4f776ef82533cd3"
     conda "bioconda::maxbin2=2.2.7"
 
-    //publishDir "${launchDir}/Binning/maxbin2/", mode: 'symlink'
+    //publishDir "${params.resultsDir}/Binning/maxbin2/", mode: 'symlink'
 
     input:
         tuple val(meta), path(assembly), path(reads), path(abund)

@@ -7,7 +7,7 @@ process HIPMER {
     container 
     conda 
 
-    publishDir "${launchDir}/ASSEMBLY/${meta.id}/metaHipmer2", mode: 'symlink'
+    publishDir "${params.resultsDir}/ASSEMBLY/${meta.id}/metaHipmer2", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads)
@@ -18,8 +18,6 @@ process HIPMER {
         tuple val(meta), path("final_assembly_depths.txt"), emit: depth
 
     script:
-
-    threads = bigThreads
 
     if (meta.paired_end) {
 

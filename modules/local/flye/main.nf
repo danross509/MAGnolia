@@ -7,7 +7,7 @@ process FLYE {
     container "community.wave.seqera.io/library/flye:2.9.5--d577924c8416ccd8"
     conda "bioconda::flye=2.9.5"
 
-    publishDir "${launchDir}/ASSEMBLY/${meta.id}/metaFlye", mode: 'symlink'
+    publishDir "${params.resultsDir}/ASSEMBLY/${meta.id}/metaFlye", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads), val(read_type)

@@ -7,7 +7,7 @@ process FASTP {
     container "community.wave.seqera.io/library/fastp:0.23.4--f8cefc1e5f7a782e"
     conda "bioconda::fastp=0.24.3"
 
-    publishDir "${launchDir}/QC/${meta.id}/fastp", mode: 'symlink'
+    publishDir "${params.resultsDir}/QC/${meta.id}/fastp", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads_fastq)

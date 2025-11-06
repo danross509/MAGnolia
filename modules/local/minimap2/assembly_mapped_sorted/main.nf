@@ -7,7 +7,7 @@ process MINIMAP2_ASSEMBLY_MAPPED_SORTED {
     container "community.wave.seqera.io/library/minimap2:2.28--78db3d0b6e5cb797"
     conda "bioconda::minimap2=2.28 bioconda::samtools=1.21"
 
-    //publishDir "${launchDir}/CLEAN_READS/nanopore", mode: 'symlink'
+    //publishDir "${params.resultsDir}/CLEAN_READS/nanopore", mode: 'symlink'
 
     input:
 

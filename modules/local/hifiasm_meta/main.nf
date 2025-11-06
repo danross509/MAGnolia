@@ -6,7 +6,7 @@ process HIFIASM_META {
     container ""
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${launchDir}/ASSEMBLY/${meta.id}/Hifiasm_meta", mode: 'symlink'
+    publishDir "${params.resultsDir}/ASSEMBLY/${meta.id}/Hifiasm_meta", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads)

@@ -7,7 +7,7 @@ process METABAT2 {
     container "community.wave.seqera.io/library/metabat2:15c68d548f9e9b8f"
     conda "bioconda::metabat2=2.15"
 
-    publishDir "${launchDir}/BINNING/${meta.id}/${meta.assembler}-metabat2", mode: 'symlink'
+    publishDir "${params.resultsDir}/BINNING/${meta.id}/${meta.assembler}-metabat2", mode: 'symlink'
 
     input:
         tuple val(meta), path(assembly), path(depth)
@@ -23,7 +23,7 @@ process METABAT2 {
 
     script:
 
-    depth_file = depth.getBaseName()
+    //depth_file = depth.getBaseName()
     def prefix = task.ext.prefix ?: "${meta.id}_${meta.assembler}_MetaBAT2"
     //Look into metabat options
 

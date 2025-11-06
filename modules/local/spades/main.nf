@@ -5,7 +5,7 @@ process SPADES {
     container "community.wave.seqera.io/library/spades:4.1.0--77799c52e1d1054a"
     conda 'bioconda::spades=4.1.0'
 
-    publishDir "${launchDir}/ASSEMBLY/${meta.id}/metaSPAdes", mode: 'symlink'
+    publishDir "${params.resultsDir}/ASSEMBLY/${meta.id}/metaSPAdes", mode: 'symlink'
 
     input:
         tuple val(meta), path(illumina), path(pacbio), path(nanopore)

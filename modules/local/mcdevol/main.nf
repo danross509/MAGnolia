@@ -7,7 +7,7 @@ process MCDEVOL {
     conda "${moduleDir}/environment.yml"
     container ""
 
-    publishDir "${launchDir}/BINNING/${meta.id}/${meta.assembler}-McDevol", mode: 'symlink'
+    publishDir "${params.resultsDir}/BINNING/${meta.id}/${meta.assembler}-McDevol", mode: 'symlink'
 
     input:
     tuple val(meta), path(assembly), path(depths)

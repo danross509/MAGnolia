@@ -7,7 +7,7 @@ process TRIMMOMATIC {
     container "community.wave.seqera.io/library/trimmomatic:0.39--a688969e471089d7"
     conda "bioconda::trimmomatic=0.39"
 
-    publishDir "${launchDir}/QC/${meta.id}/trimmomatic", mode: 'symlink'
+    publishDir "${params.resultsDir}/QC/${meta.id}/trimmomatic", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads_fastq)

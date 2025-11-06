@@ -7,7 +7,7 @@ process DRAM_DISTILL {
     container ""
     conda "${moduleDir}/../setup/environment.yml"
 
-    publishDir "${launchDir}/BIN_ANNOTATION/${meta.id}/", mode: 'symlink'
+    publishDir "${params.resultsDir}/BIN_ANNOTATION/${meta.id}/", mode: 'symlink'
 
     input:
         tuple val(meta), path(annotations)

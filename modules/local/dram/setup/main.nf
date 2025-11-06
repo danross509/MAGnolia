@@ -7,7 +7,7 @@ process DRAM_SETUP {
     container ""
     conda "${moduleDir}/environment.yml"
 
-    //publishDir "${launchDir}/KRAKEN2/${file_type}/${meta.id}", mode: 'symlink'
+    //publishDir "${params.resultsDir}/KRAKEN2/${file_type}/${meta.id}", mode: 'symlink'
 
     input:
         val config_loc

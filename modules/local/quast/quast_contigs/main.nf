@@ -8,7 +8,7 @@ process QUAST_CONTIGS {
         //'https://depot.galaxyproject.org/singularity/quast:5.0.2--py37pl526hb5aa323_2' :
         //'biocontainers/quast:5.0.2--py37pl526hb5aa323_2' }"
 
-    publishDir "${launchDir}/QUAST/contigs", mode: 'symlink'
+    publishDir "${params.resultsDir}/QUAST/contigs", mode: 'symlink'
 
     input:
     tuple val(meta), path(assembly)
