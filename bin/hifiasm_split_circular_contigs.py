@@ -43,9 +43,9 @@ def save_sequence(header, seq_lines, output_dir, bin_prefix):
 
     # Handle duplicate names
     counter = 0
-    output_file = output_dir / f"{bin_prefix}.{counter}.fa"
+    output_file = output_dir / f"{bin_prefix}.binCR{counter}.fa"
     while output_file.exists():
-        output_file = output_dir / f"{bin_prefix}.{counter}.fa"
+        output_file = output_dir / f"{bin_prefix}.binCR{counter}.fa"
         counter += 1
     
     with open(output_file, 'w') as f:

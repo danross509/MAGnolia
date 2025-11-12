@@ -460,7 +460,7 @@ workflow {
             .map { meta, bins ->
                 def meta_new = meta + [refined: false]
                 [meta_new, bins]
-            }   
+            }
 
         if ( !params.skip_bin_refinement ) {
             BIN_REFINEMENT (

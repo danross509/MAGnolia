@@ -60,11 +60,22 @@ workflow ASSEMBLY_LONG {
                 hm_bin_file_input
             )
 
-            hifiasm_bins = hifiasm_bins.mix ( HIFIASM_CREATE_BIN_FILES.out.circular_mags, HIFIASM_CREATE_BIN_FILES.out.bins )
+            hmBin_circular_mags = HIFIASM_CREATE_BIN_FILES.out.circular_mags
                 .map { meta, bins ->
                     def meta_new = meta + [cobinning: false, binner: 'hmBin']
                     [ meta_new, bins ]
                 }
+                .transpose()
+
+            hmBin_bins = HIFIASM_CREATE_BIN_FILES.out.bins
+                .map { meta, bins ->
+                    def meta_new = meta + [cobinning: false, binner: 'hmBin']
+                    [ meta_new, bins ]
+                }
+                .transpose()
+
+            hifiasm_bins = hifiasm_bins.mix ( hmBin_circular_mags, hmBin_bins )
+                .groupTuple()
         }
 
         assembly_out = assembly_out.mix ( HIFIASM_CONTIG_GFA2FA.out.final_contigs )

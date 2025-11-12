@@ -17,7 +17,7 @@ process HIFIASM_CREATE_BIN_FILES {
         tuple val(meta), path("bins/*.fa"),             emit: bins
 
     script:
-    def prefix = "${meta.id}_${meta.assembler}_hmBin"
+    def prefix = "${meta.id}-${meta.assembler}-hmBin"
     //def command = contig_graph.getExtension() == "gz" ? "zcat $contig_graph | awk '/^S/{print \">\"\$2\"\\n\"\$3}' - >${prefix}.fa" : "cat $contig_graph | awk '/^S/{print \">\"\$2\"\\n\"\$3}' - >${prefix}.fa"
 
     """
