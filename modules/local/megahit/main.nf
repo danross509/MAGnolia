@@ -3,6 +3,7 @@
 process MEGAHIT {
     tag "$meta.id"
     label 'process_high'
+    label 'process_gpu'
 
     container "community.wave.seqera.io/library/megahit:1.2.9--23234b8da1e27898"
     conda "bioconda::megahit=1.2.9"
@@ -26,6 +27,7 @@ process MEGAHIT {
     script:
     
     def read_files = meta.paired_end ? "-1 ${reads[0]} -2 ${reads[1]}" : "-r ${reads[0]}"
+    def use_gpu = params.use_gpu ? "--use-gpu" : ""
 
     //{--presets meta} not working
     //{--tmp-dir tmp} not working
@@ -38,6 +40,7 @@ process MEGAHIT {
     -t $task.cpus \
     -m $task.memory \
     --presets $mh_preset \
+    $use_gpu \
     --verbose \
     --continue
 

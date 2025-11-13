@@ -1,6 +1,7 @@
 process COMEBIN_RUNCOMEBIN {
     tag "${meta.assembler}-${meta.id}"
     label 'process_high'
+    label 'process_gpu'
 
     conda params.use_gpu ? "${moduleDir}/environment_gpu.yml" : "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?

@@ -14,6 +14,7 @@ process WRITE_CONFIG {
         val nanopore_barcodes_count
         val pacbio_reads_count
         val reads_corrected
+        val use_gpu
 
     output:
         //path "empty_file.txt"
@@ -40,7 +41,7 @@ process WRITE_CONFIG {
         rm ${launchDir}/nextflow.config
     fi
     cd ${launchDir}
-    write_config.py -s $short_reads_count -p $short_reads_paired -n $nanopore_barcodes_count -pb $pacbio_reads_count -c $reads_corrected -f $config_file
+    write_config.py -s $short_reads_count -p $short_reads_paired -n $nanopore_barcodes_count -pb $pacbio_reads_count -c $reads_corrected -f $config_file -g $use_gpu
 
     """
 

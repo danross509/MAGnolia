@@ -35,6 +35,7 @@ params.pacbio = false
 params.corrected = false
 params.coassembly = false
 params.cobinning = false
+params.use_gpu = false
 
 workflow {
 
@@ -265,7 +266,7 @@ workflow {
         pacbio_bams = Channel.fromPath ( "${pacbio_path}*.bam" )
             .map { reads ->
                 def meta = [:]
-                def sampleID = reads.getBaseName(1)
+                def sampleID = reads.getBaseName(1).replaceAll(/.hifi_reads$/, '')
                 meta.id = sampleID
                 /*meta.sequencer = "PacBio"
                 // Set paired_end as false for long reads
@@ -415,6 +416,7 @@ workflow {
     nanopore_config_count = nanopore_reads.count()
     pacbio_config_count = pacbio_reads.count()
     config_corrected = params.corrected
+    use_gpu = params.use_gpu
 
     short_config_count.view()
     //short_config_paired.view()
@@ -427,8 +429,8 @@ workflow {
         short_config_paired,
         nanopore_config_count,
         pacbio_config_count,
-        config_corrected
-
+        config_corrected,
+        use_gpu
     )
 }
 

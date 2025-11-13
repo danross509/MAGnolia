@@ -2,7 +2,7 @@
 
 process LRBINNER {
     tag "${meta.assembler}-${meta.id}"
-    //label 'process_high'
+    label 'process_gpu'
 
     conda "${moduleDir}/environment.yml"
     container ""

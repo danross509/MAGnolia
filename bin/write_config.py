@@ -18,6 +18,7 @@ parser.add_argument('-n', '--ont_count')        # Number of nanopore barcodes
 parser.add_argument('-pb', '--pacbio_count')    # Number of PacBio reads
 parser.add_argument('-c', '--corrected')        # Are reads corrected
 parser.add_argument('-f', '--default_file')     # Default config file path
+parser.add_argument('-g', '--use_gpu')          # Use an available GPU
 parser.add_argument('-v', '--verbose',
                     action='store_true')        # on/off flag
 
@@ -54,6 +55,9 @@ if args.corrected == 'true':
 # Hybrid assembly
 if int(args.short_count) > 0 and (int(args.ont_count) > 0 or int(args.pacbio_count) > 0) :
     text = text.replace("skip_spadeshybrid = true", "skip_spadeshybrid = false")
+
+if args.use_gpu == 'true': 
+    text = text.replace("use_gpu = false", "use_gpu = true")
 
 # Write the file out again
 with open(OUTPUT_CONFIG, "w") as file:
