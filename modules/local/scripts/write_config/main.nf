@@ -33,7 +33,7 @@ process WRITE_CONFIG {
 
     // Checks if config file already exists before writing
 
-    def config_file = "${projectDir}/default.config"
+    def config_file = "${projectDir}/nextflow.config"
     def config_folder = "${projectDir}/configs"
 
     """

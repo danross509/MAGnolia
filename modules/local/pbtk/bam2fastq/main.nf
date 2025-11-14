@@ -2,7 +2,7 @@
 
 process PBTK_BAM2FASTQ {
     tag "$meta.id"
-    label 'process_low'
+    label 'process_medium'
 
     container ""
     conda "bioconda::pbtk=3.5.0"
