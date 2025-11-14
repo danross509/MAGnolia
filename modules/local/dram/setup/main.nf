@@ -30,7 +30,12 @@ process DRAM_SETUP {
         rm \$CONDA_PREFIX/bin/DRAM-setup.py
     fi 
 
-    cp ${moduleDir}/DRAM-setup_fixed.py \$CONDA_PREFIX/bin/DRAM-setup.py 
+    if [[ -f \$CONDA_PREFIX/lib/python3.10/site-packages/mag_annotator/database_processing.py ]]; then
+        rm \$CONDA_PREFIX/lib/python3.10/site-packages/mag_annotator/database_processing.py
+    fi 
+
+    cp ${moduleDir}/DRAM-setup_fixed.py \$CONDA_PREFIX/bin/DRAM-setup.py
+    cp ${moduleDir}/database_processing_fixed.py \$CONDA_PREFIX/lib/python3.10/site-packages/mag_annotator/database_processing.py 
 
     python \$CONDA_PREFIX/bin/DRAM-setup.py \\
         $command 

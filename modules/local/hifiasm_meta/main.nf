@@ -2,6 +2,7 @@
 
 process HIFIASM_META {
     tag "$meta.id"
+    label 'process_high'
 
     container ""
     conda "${moduleDir}/environment.yml"
