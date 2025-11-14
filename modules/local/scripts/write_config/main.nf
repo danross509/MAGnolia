@@ -34,14 +34,22 @@ process WRITE_CONFIG {
     // Checks if config file already exists before writing
 
     def config_file = "${projectDir}/default.config"
+    def config_folder = "${projectDir}/configs"
 
     """
     if [[ -f ${launchDir}/nextflow.config ]]; then
         echo "Warning: existing nextflow.config will be overwritten"
         rm ${launchDir}/nextflow.config
     fi
+    
     cd ${launchDir}
     write_config.py -s $short_reads_count -p $short_reads_paired -n $nanopore_barcodes_count -pb $pacbio_reads_count -c $reads_corrected -f $config_file -g $use_gpu
+
+    if [[ -d ${launchDir}/configs ]]; then
+        echo "Warning: configs folder already exists, skipping"
+    else 
+        cp -r $config_folder ./
+    fi
 
     """
 
