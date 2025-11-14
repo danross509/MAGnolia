@@ -22,7 +22,7 @@ process DRAM_SETUP {
     def args = task.ext.args ?: ""
     def kegg = kegg_loc ? "--kegg_loc ${kegg_loc}" : ""
     def uniref = skip_uniref ? "--skip_uniref" : ""
-    def command = config_loc ? "import_config --config_loc  ${config_loc}" : "prepare_databases --output_dir ${db_dir}/DRAM_db ${kegg} ${uniref} ${args} --threads $task.cpus"
+    def command = config_loc ? "import_config --config_loc  ${config_loc}" : "prepare_databases --output_dir ${db_dir} ${kegg} ${uniref} ${args} --threads $task.cpus"
 
     """
     #Replace DRAM-setup.py with the fixed version in bin
@@ -30,9 +30,9 @@ process DRAM_SETUP {
         rm \$CONDA_PREFIX/bin/DRAM-setup.py
     fi 
 
-    cp ${moduleDir}/DRAM-setup_fixed.py \$CONDA_PREFIX/bin/DRAM-setup.py
+    cp ${moduleDir}/DRAM-setup_fixed.py \$CONDA_PREFIX/bin/DRAM-setup.py 
 
-    DRAM-setup.py \
+    python \$CONDA_PREFIX/bin/DRAM-setup.py \\
         $command 
 
     touch dram_setup_finished.txt

@@ -38,8 +38,7 @@ workflow BINNING {
     //jgi_input_ch.view()
 
     JGISUMMARIZEBAMCONTIGDEPTHS (
-        jgi_input_ch,
-        params.lowThreads
+        jgi_input_ch
         )
 
     ch_metabat_depths = JGISUMMARIZEBAMCONTIGDEPTHS.out.depth

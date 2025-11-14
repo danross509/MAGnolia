@@ -13,7 +13,6 @@ process BRACKEN_BUILD {
         val database
         val kmer_len
         val read_len
-        val threads
 
     output:
         val true     , emit: bracken_built
@@ -24,7 +23,7 @@ process BRACKEN_BUILD {
     """
     bracken-build \
     -d $database \
-    -t $threads \
+    -t $task.cpus \
     -k $kmer_len \
     -l $read_len 
     """

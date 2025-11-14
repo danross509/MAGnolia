@@ -121,8 +121,7 @@ workflow {
                 BRACKEN_BUILD (
                 kraken2_db_dir.toAbsolutePath().toString(),
                 params.bracken_kmer_len,
-                params.bracken_read_length,
-                params.lowThreads
+                params.bracken_read_length
                 )
 
                 // Set run_bracken to true
@@ -146,8 +145,7 @@ workflow {
             BRACKEN_BUILD (
                 kraken2_db_dir,
                 params.bracken_kmer_len,
-                params.bracken_read_length,
-                params.lowThreads
+                params.bracken_read_length
             )
 
             run_bracken = BRACKEN_BUILD.out.bracken_built
