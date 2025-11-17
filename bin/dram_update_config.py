@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(
                     epilog='')
 
 parser.add_argument('-d', '--dram_config')      # dram config file path
-parser.add_argument('-c', '--db_config')        # database_download.config path
+parser.add_argument('-c', '--db_config')        # databases.config path
 parser.add_argument('-v', '--verbose',
                     action='store_true')        # on/off flag
 
@@ -25,13 +25,13 @@ DATABASE_CONFIG = args.db_config
 print(DRAM_CONFIG)
 print(DATABASE_CONFIG)
 
-# Read the existing database_download.config file
+# Read the existing databases.config file
 with open(DATABASE_CONFIG, "r", encoding="utf8") as file:
     text = file.read()
 
 # Replace the dram config loc parameter 
 text = text.replace("dram_config_loc = false", f"dram_config_loc = "{DRAM_CONFIG}"")
 
-# Replace the database_download.config with the updated dram_config_loc
+# Replace the databases.config with the updated dram_config_loc
 with open(DATABASE_CONFIG, "w") as file:
   file.write(text)

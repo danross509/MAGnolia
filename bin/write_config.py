@@ -59,7 +59,7 @@ if int(args.short_count) > 0 and (int(args.ont_count) > 0 or int(args.pacbio_cou
 if args.use_gpu == 'true': 
     text = text.replace("use_gpu = false", "use_gpu = true")
 
-text = text.replace('includeConfig "${projectDir}/configs/', 'includeConfig "./configs/')
+#text = text.replace('${projectDir}/configs/process_labels.config', './configs/process_labels.config')
 
 # Write the file out again
 with open(OUTPUT_CONFIG, "w") as file:
