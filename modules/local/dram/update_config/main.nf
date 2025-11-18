@@ -16,7 +16,7 @@ process DRAM_UPDATE_CONFIG {
     def config_file = "${launchDir}/configs/database_download.config"
 
     """
-    DRAM-setup.py export_config > ${db_dir}/dram_config.txt
+    python \$CONDA_PREFIX/bin/DRAM-setup.py export_config > ${db_dir}/dram_config.txt
 
     dram_update_config.py -d ${db_dir}/dram_config.txt -c $config_file
     """

@@ -26,7 +26,7 @@ process DRAM_DISTILL {
     script:
 
     """
-    DRAM.py distill \
+    python \$CONDA_PREFIX/bin/DRAM.py distill \
         -i $annotations \
         -o DRAM-distill \
         --trna_path $trnas \

@@ -27,7 +27,7 @@ process DRAM_ANNOTATE {
     script:
 
     """
-    DRAM.py annotate \
+    python \$CONDA_PREFIX/bin/DRAM.py annotate \
         -i 'bins_input/*' \
         -o DRAM-annotation
 

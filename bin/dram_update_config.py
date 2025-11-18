@@ -30,7 +30,7 @@ with open(DATABASE_CONFIG, "r", encoding="utf8") as file:
     text = file.read()
 
 # Replace the dram config loc parameter 
-text = text.replace("dram_config_loc = false", f"dram_config_loc = "{DRAM_CONFIG}"")
+text = text.replace('dram_config_loc = false', f'dram_config_loc = "{DRAM_CONFIG}"')
 
 # Replace the database_download.config with the updated dram_config_loc
 with open(DATABASE_CONFIG, "w") as file:
