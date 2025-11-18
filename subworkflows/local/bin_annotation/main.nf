@@ -3,6 +3,8 @@
 include { DRAM_ANNOTATE } from '../../../modules/local/dram/annotate/main.nf'
 include { DRAM_DISTILL } from '../../../modules/local/dram/distill/main.nf'
 
+include { BAKTA_BAKTA } from '../../../modules/nf-core/bakta/bakta/main.nf'
+
 
 workflow BIN_ANNOTATION {
     
@@ -11,16 +13,24 @@ workflow BIN_ANNOTATION {
     
     main:
 
-    DRAM_ANNOTATE ( 
-        bins
-    )
+    if ( !params.skip_dram ) {
+        DRAM_ANNOTATE ( 
+            bins
+        )
 
-    DRAM_DISTILL (
-        DRAM_ANNOTATE.out.annotations,
-        DRAM_ANNOTATE.out.trnas,
-        DRAM_ANNOTATE.out.rrnas
-    )
+        DRAM_DISTILL (
+            DRAM_ANNOTATE.out.annotations,
+            DRAM_ANNOTATE.out.trnas,
+            DRAM_ANNOTATE.out.rrnas
+        )
+    }
 
+    /*if ( !params.skip_bakta ) {
+        BAKTA_BAKTA (
+            bins,
+            db_bakta
+        )
+    }*/
 
     //emit:
 

@@ -25,6 +25,7 @@ workflow ASSEMBLY_PREP_LONG {
     */
 
     clean_long_reads = clean_long_reads.mix ( corrected_ont_reads, corrected_pacbio_reads )
+        //.view { meta, reads -> "Before 1st map: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
         .map { meta, reads ->
             if ( meta.id == meta.assembly_group ) {
                 [ meta, reads ]
@@ -34,6 +35,7 @@ workflow ASSEMBLY_PREP_LONG {
             }
         }
         .groupTuple()
+        //.view { meta, reads -> "After groupTuple: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
         .map { meta, reads ->
             if ( reads.size() >= 2 ) {
                 def meta_new = meta + [ coassembly: true ]
@@ -43,7 +45,13 @@ workflow ASSEMBLY_PREP_LONG {
                 [ meta_new, reads ]
             }
         }
-    
+        .map { meta, reads ->
+            def readsList = reads as List
+            def unwrapped = readsList.size() == 1 && readsList[0] instanceof List ? readsList[0] : readsList
+            [meta, unwrapped]
+        }
+        //.view { meta, reads -> "After unwrap: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
+
     CONCATENATE_LONG_READS (
         clean_long_reads,
         ""
