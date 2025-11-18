@@ -13,7 +13,7 @@ process DRAM_UPDATE_CONFIG {
     output:        
 
     script:
-    def config_file = "${launchDir}/configs/database_download.config"
+    def config_file = "${projectDir}/configs/databases.config"
 
     """
     python \$CONDA_PREFIX/bin/DRAM-setup.py export_config > ${db_dir}/dram_config.txt

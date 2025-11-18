@@ -49,6 +49,7 @@ process WRITE_CONFIG {
         echo "Warning: configs folder already exists, skipping"
     else 
         cp -r $config_folder ./
+        rm configs/databases.config 
     fi
 
     """

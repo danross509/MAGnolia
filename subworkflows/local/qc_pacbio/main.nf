@@ -36,7 +36,7 @@ workflow QC_PACBIO {
 
     // Trim reads with FastpLong
     trimmed_pacbio_reads = Channel.empty()
-    if ( !params.skip_fastplong ) {
+    if ( !params.skip_pb_fastplong ) {
         FASTPLONG (
             pacbio_reads
         )
@@ -65,7 +65,7 @@ workflow QC_PACBIO {
             .map { meta, genome ->
                 def pacbio_preset = ''
                 if ( !params.minimap2_pacbio_preset ) {
-                    if ( !params.skip_fastplong || params.pacbio_hifi || params.pacbio_reads_corrected ) {
+                    if ( !params.skip_pb_fastplong || params.pacbio_hifi || params.pacbio_reads_corrected ) {
                         pacbio_preset = "map-hifi" // (<1% error)
                     } else {
                         pacbio_preset = "map-pb" // (<10% error)
