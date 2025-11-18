@@ -39,6 +39,7 @@ include { BINNING_PREPARATION } from './subworkflows/local/binning_preparation/m
 include { BINNING } from './subworkflows/local/binning/main.nf'
 include { BIN_REFINEMENT } from './subworkflows/local/bin_refinement/main.nf'
 include { BIN_DEREPLICATION } from './subworkflows/local/bin_dereplication/main.nf'
+include { BIN_EVALUATION } from './subworkflows/local/bin_evaluation/main.nf'
 //include { BIN_CLASSIFICATION } from './subworkflows/local/bin_classification/main.nf'
 include { BIN_COVERAGE } from './subworkflows/local/bin_coverage/main.nf'
 include { BIN_ANNOTATION } from './subworkflows/local/bin_annotation/main.nf'
@@ -57,65 +58,23 @@ include { BRACKEN_BUILD } from './modules/local/bracken/build/main.nf'
 include { DRAM_SETUP as DRAM_IMPORT_CONFIG } from './modules/local/dram/setup/main.nf'
 include { DRAM_SETUP as DRAM_PREPARE_DB } from './modules/local/dram/setup/main.nf'
 include { DRAM_UPDATE_CONFIG } from './modules/local/dram/update_config/main.nf'
-
-errorStrategy = { task.exitStatus in ((130..145) + 104) || task.exitStatus == null ? 'retry' : 'finish' }
-maxRetries    = 3
-maxErrors     = '-1'
+include { CHECKM2_DATABASEDOWNLOAD } from './modules/nf-core/checkm2/databasedownload/main.nf'
+include { UNTAR as CHECKM_UNTAR } from './modules/nf-core/untar/main.nf'
 
 workflow {
-    // Specify the output directory
-    // projectDir = Channel.fromPath(params.projectDir, type: 'dir')
-
-    /*
-     * Import quality control parameters
-     * If paired-read filenames are identified by R1/R2, the R will be removed for simplicity
-     * PE and SE reads will be identified and handled as necessary for each software
-     */
-
     ch_versions = Channel.empty()
 
     /********************
         Database setup
      ********************/
-    
     db_download_dir = file("${params.databaseDownloadDir}").toAbsolutePath().toString()
-     ////////////////////////////////////////////////////
-    /* --  Create channel for reference databases  -- */
-    ////////////////////////////////////////////////////
-
-    /*if (params.host_genome) {
-        host_fasta = params.genomes[params.host_genome].fasta ?: false
-        ch_host_fasta = Channel.value(file("${host_fasta}"))
-        host_bowtie2index = params.genomes[params.host_genome].bowtie2 ?: false
-        ch_host_bowtie2index = Channel.value(file("${host_bowtie2index}/*"))
-    }
-    else if (params.host_fasta) {
-        ch_host_fasta = Channel.value(file("${params.host_fasta}"))
-    }
-    else {
-        ch_host_fasta = Channel.empty()
-    }
-
-    if (params.cat_db) {
-        ch_cat_db_file = Channel.value(file("${params.cat_db}"))
-    }
-    else {
-        ch_cat_db_file = Channel.empty()
-    }
-
-    if (params.krona_db) {
-        ch_krona_db_file = Channel.value(file("${params.krona_db}"))
-    }
-    else {
-        ch_krona_db_file = Channel.empty()
-    }*/
 
     // Kraken2 database
     // If there is a kraken database given
     if ( params.kraken2_db ) {
         kraken2_db_dir = file ( params.kraken2_db, checkIfExists: true )
-        // If that database will be used AND if bracken will be run
-        if ( (!params.skip_read_taxonomy || !params.skip_contig_taxonomy) && !params.skip_kracken2 && !params.skip_bracken ) {
+        // If the database will be used AND if bracken will be run
+        if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_kracken2 && !params.skip_bracken ) {
             // If there is no bracken build, build it
             if ( !params.bracken_build_exists ) {
                 BRACKEN_BUILD (
@@ -126,6 +85,7 @@ workflow {
 
                 // Set run_bracken to true
                 run_bracken = BRACKEN_BUILD.out.bracken_built
+
             // Otherwise if bracken is already built
             } else run_bracken = true
         }
@@ -137,8 +97,12 @@ workflow {
             params.kraken2_kmer_len, 
             params.kraken2_max_db_size
         )
-        
+
         kraken2_db_dir = KRAKEN2_DB_DOWNLOAD.out.directory
+
+        /*
+        *   Update config file: kraken AND bracken
+        */
 
         // If Bracken will also be used
         if ( !params.skip_bracken ) {
@@ -156,46 +120,104 @@ workflow {
         kraken2_db_dir = []
         run_bracken = []
     }
-        
-    // DRAM databases
-    // If there is a DRAM config given
-    if ( params.dram_config_loc ) {
-        dram_config_loc = file ( params.dram_config_loc, checkIfExists: true )
-        // AND If DRAM will be used
-        if ( !params.skip_annotation && !params.skip_dram ) {
-            DRAM_IMPORT_CONFIG (
-                dram_config_loc.toAbsolutePath().toString(),
-                db_download_dir,
-                params.dram_kegg_loc,
-                params.dram_skip_uniref
-            )
-        }
+    
+    // Bin evaluation databases
+    if ( !params.skip_classification) {
+        // If running CheckM2
+        if ( params.checkm_version == 'checkm2' ) {
+            // If a database is specified
+            if ( params.checkm2_db ) {
+                checkm2_db_dir = [[ id: 'checkm2_db' ], file ( params.checkm2_db, checkIfExists: true )]
 
-    // If no DRAM config is given (dram_config_loc = false) but DRAM will be used
-    } else if ( !params.skip_annotation && !params.skip_dram ) {
-        if ( params.dram_kegg_loc ) {
-            kegg_file = file ( params.dram_kegg_loc, checkIfExists: true ).toAbsolutePath().toString()
+            // If not, download it
+            } else {
+                CHECKM2_DATABASEDOWNLOAD ( params.checkm2_db_version )
+                checkm2_db_dir = CHECKM2_DATABASEDOWNLOAD.out.database
+                ch_versions = ch_versions.mix ( CHECKM2_DATABASEDOWNLOAD.out.versions )
+
+                /*
+                *   Update config file
+                */
+            }
+
+            checkm_db_dir = []
+
+        } else if ( params.checkm_version == 'checkm' ) {
+            // If a database is specified
+            if ( params.checkm_db ) {
+                checkm_db_dir = [[ id: 'checkm_db' ], file ( params.checkm_db, checkIfExists: true )]
+
+            // If not, download it
+            } else {
+                checkm_db_dir = [[ id: 'checkm_db' ], file ( params.checkm_download_url, checkIfExists: true )]
+
+                CHECKM_UNTAR ( checkm_db_dir )
+                checkm_db_dir = CHECKM_UNTAR.out.untar
+                    .map { it[1] }
+                ch_versions = ch_versions.mix ( CHECKM_UNTAR.out.versions )
+
+                /*
+                *   Update config file
+                */
+            }
+
+            checkm2_db_dir = []
+
         } else {
-            kegg_file = false
+            // Error message and quit
         }
-
-        DRAM_PREPARE_DB (
-            params.dram_config_loc,
-            db_download_dir,
-            kegg_file,
-            params.dram_skip_uniref
-        )
-
-        DRAM_UPDATE_CONFIG (
-            db_download_dir,
-            DRAM_PREPARE_DB.out
-        )
-
-    // If no DRAM config is given and DRAM will not be used
     } else {
-
+        checkm2_db_dir = []
+        checkm_db_dir = []
     }
 
+    // Bin annotation databases
+    if ( !params.skip_annotation ) {
+        // If DRAM will be used
+        if ( !params.skip_dram ) {
+            // AND If there is a DRAM config given
+            if ( params.dram_config_loc ) {
+                dram_config_loc = file ( params.dram_config_loc, checkIfExists: true )
+
+                DRAM_IMPORT_CONFIG (
+                    dram_config_loc.toAbsolutePath().toString(),
+                    db_download_dir,
+                    params.dram_kegg_loc,
+                    params.dram_skip_uniref
+                )
+            }
+
+            // If no DRAM config is given but DRAM will be used
+            } else if ( !params.dram_config_loc ) {
+                // If a kegg file is available
+                if ( params.dram_kegg_loc ) {
+                    kegg_file = file ( params.dram_kegg_loc, checkIfExists: true ).toAbsolutePath().toString()
+                } else {
+                    kegg_file = false
+                }
+
+                DRAM_PREPARE_DB (
+                    params.dram_config_loc,
+                    db_download_dir,
+                    kegg_file,
+                    params.dram_skip_uniref
+                )
+
+                DRAM_UPDATE_CONFIG (
+                    db_download_dir,
+                    DRAM_PREPARE_DB.out
+                )
+
+        } 
+        
+        if ( !params.skip_bakta ) {
+            // bakta db download
+
+        /*
+        *   Update config file
+        */
+        }
+    }
 
     gtdb = params.skip_binqc || params.skip_gtdbtk ? false : params.gtdb_db
 
@@ -480,15 +502,6 @@ workflow {
     // DAStool and drep arguments
     
 
-    /********************
-        Bin evaluation
-     ********************/
-
-    // CheckM
-    /*if ( !params.skip_bin_evaluation) {
-        BIN_EVALUATION ()
-    }*/
-
     /*******************
         Dereplication
      *******************/
@@ -502,6 +515,19 @@ workflow {
 
     } else {
         final_bins = final_bins.mix ( post_refinement_bins )
+    }
+
+    /********************
+        Bin evaluation
+     ********************/
+
+    // CheckM
+    if ( !params.skip_bin_evaluation) {
+        BIN_EVALUATION (
+            final_bins,
+            checkm2_db_dir,
+            checkm_db_dir
+        )
     }
 
     /************************
