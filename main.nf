@@ -54,6 +54,7 @@ include { GTDBTK } from './subworkflows/nf-core_mag/gtdbtk/main.nf'
 include { BIN_SUMMARY } from './modules/nf-core_mag/bin_summary/main.nf'
 
 include { KRAKEN2_DB_DOWNLOAD } from './modules/local/kraken2/db_download/main.nf'
+include { KRAKEN2_UPDATE_CONFIG } from './modules/local/kraken2/update_config/main.nf'
 include { BRACKEN_BUILD } from './modules/local/bracken/build/main.nf'
 include { DRAM_SETUP as DRAM_IMPORT_CONFIG } from './modules/local/dram/setup/main.nf'
 include { DRAM_SETUP as DRAM_PREPARE_DB } from './modules/local/dram/setup/main.nf'
@@ -99,6 +100,10 @@ workflow {
         )
 
         kraken2_db_dir = KRAKEN2_DB_DOWNLOAD.out.directory
+
+        KRAKEN2_UPDATE_CONFIG (
+            kraken2_db_dir
+        )
 
         /*
         *   Update config file: kraken AND bracken
@@ -360,7 +365,7 @@ workflow {
     all_corrected_reads = corrected_reads.mix ( corrected_ont_reads, corrected_pacbio_reads )
     // if this is empty, exit
 
-    //concatenated_long_reads.view()
+    //all_corrected_reads.view()
 
     /*******************
         Read taxonomy
