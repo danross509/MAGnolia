@@ -127,7 +127,7 @@ workflow {
     }
     
     // Bin evaluation databases
-    if ( !params.skip_classification) {
+    if ( !params.skip_evaluation) {
         // If running CheckM2
         if ( params.checkm_version == 'checkm2' ) {
             // If a database is specified
@@ -175,6 +175,7 @@ workflow {
         checkm2_db_dir = []
         checkm_db_dir = []
     }
+
 
     // Bin annotation databases
     if ( !params.skip_annotation ) {
