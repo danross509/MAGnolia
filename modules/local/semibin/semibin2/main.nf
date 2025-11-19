@@ -2,7 +2,7 @@
 
 process SEMIBIN2 {
     tag "${meta.assembler}-${meta.id}"
-    label 'process_medium'
+    label 'process_high'
 
     container "community.wave.seqera.io/library/pip_semibin:b6a41dbb4d1296c7"
     conda "${moduleDir}/environment.yml"
