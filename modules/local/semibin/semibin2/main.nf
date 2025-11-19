@@ -5,7 +5,7 @@ process SEMIBIN2 {
     label 'process_high'
 
     container "community.wave.seqera.io/library/pip_semibin:b6a41dbb4d1296c7"
-    conda "${moduleDir}/environment.yml"
+    conda params.use_gpu ? "${moduleDir}/environment_gpu.yml" : "${moduleDir}/environment.yml"
 
     publishDir "${params.resultsDir}/BINNING/${meta.id}/${meta.assembler}-semibin2", mode: 'symlink'
 
