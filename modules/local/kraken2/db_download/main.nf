@@ -25,9 +25,11 @@ process KRAKEN2_DB_DOWNLOAD {
     def max_size = max_db_size ?: ""
 
     """
+    k2 download-taxonomy \
+    --db $name
+
     k2 build \
     $build \
-    --download-taxonomy \
     --db $name \
     $kmer_length \
     $max_size

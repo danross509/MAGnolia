@@ -27,7 +27,8 @@ process HIFIASM_META {
         //path "", emit: verison
 
     script:
-    def prefix = "${meta.id}_assembly"
+    def args = task.ext.args ?: ''
+    def prefix = task.ext.prefix ?: "${meta.id}_assembly"
     def binning = skip_hmbin ? "--no-binning" : ""
     def read_selection = enable_rs ? "-S" : ""
     def force_selection = force_rs ? "--force-rs" : ""
@@ -47,6 +48,7 @@ process HIFIASM_META {
     $force_selection \
     $rs_quantile \
     $binning \
+    $args \
     ${reads}
     &> ${meta.id}_assembly.log
 
