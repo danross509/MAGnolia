@@ -10,6 +10,7 @@ workflow BIN_ANNOTATION {
     
     take:
         bins
+        bakta_db
     
     main:
 
@@ -25,12 +26,20 @@ workflow BIN_ANNOTATION {
         )
     }
 
-    /*if ( !params.skip_bakta ) {
+    if ( !params.skip_bakta ) {
+        bakta_bins_input = bins.transpose()
+            .map { meta, bin ->
+                def sampleID = bin.getBaseName()
+                def meta_new = meta + [id: "${sampleID}"]
+                [ meta_new, bin ]
+            }
+
         BAKTA_BAKTA (
-            bins,
-            db_bakta
+            bakta_bins_input,
+            bakta_db,
+            [],[],[],[]
         )
-    }*/
+    }
 
     //emit:
 

@@ -56,6 +56,7 @@ include { BIN_SUMMARY } from './modules/nf-core_mag/bin_summary/main.nf'
 include { KRAKEN2_DB_DOWNLOAD } from './modules/local/kraken2/db_download/main.nf'
 include { KRAKEN2_UPDATE_CONFIG } from './modules/local/kraken2/update_config/main.nf'
 include { BRACKEN_BUILD } from './modules/local/bracken/build/main.nf'
+include { BAKTA_BAKTADBDOWNLOAD } from './modules/nf-core/bakta/baktadbdownload/main.nf'
 include { DRAM_SETUP as DRAM_IMPORT_CONFIG } from './modules/local/dram/setup/main.nf'
 include { DRAM_SETUP as DRAM_PREPARE_DB } from './modules/local/dram/setup/main.nf'
 include { DRAM_UPDATE_CONFIG } from './modules/local/dram/update_config/main.nf'
@@ -215,13 +216,30 @@ workflow {
                 )
 
         } 
-        
+        // If Bakta will be used
         if ( !params.skip_bakta ) {
-            // bakta db download
+            // AND If there is a Bakta directory given
+            if ( params.bakta_db ) {
+                bakta_db_dir = file ( params.bakta_db, checkIfExists: true )
 
-        /*
-        *   Update config file
-        */
+            // If no Bakta directory is given
+            } else {
+                BAKTA_BAKTADBDOWNLOAD ()
+
+                /*BAKTA_UPDATE_CONFIG (
+                    db_download_dir,
+                    BAKTA_BAKTADBDOWNLOAD.out.db
+                )
+                
+                bakta_db_dir = BAKTA_UPDATE_CONFIG.out.db_dir // "${db_download_dir}/bakta/db"
+                */
+                
+                /*
+                *   Update config file
+                */
+            }
+        } else {
+            bakta_db_dir = []
         }
     }
 
@@ -553,7 +571,10 @@ workflow {
      ********************/
 
     if ( !params.skip_annotation ) {
-       BIN_ANNOTATION ( final_bins )
+        BIN_ANNOTATION ( 
+            final_bins,
+            bakta_db_dir.toAbsolutePath().toString()
+        )
     }
 
     /******************
