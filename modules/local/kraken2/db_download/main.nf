@@ -2,7 +2,7 @@
 
 process KRAKEN2_DB_DOWNLOAD {
     tag ""
-    label 'process_medium'
+    label 'process_high'
 
     container ""
     conda "${moduleDir}/../classify/environment.yml"
@@ -27,6 +27,7 @@ process KRAKEN2_DB_DOWNLOAD {
     """
     k2 build \
     $build \
+    --download-taxonomy \
     --db $name \
     $kmer_length \
     $max_size

@@ -9,6 +9,8 @@ workflow BIN_CLASSIFICATION {
     
     take:
         bins
+        gtdb
+        gtdb_mash
     
     main:
 

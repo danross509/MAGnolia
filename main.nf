@@ -40,7 +40,7 @@ include { BINNING } from './subworkflows/local/binning/main.nf'
 include { BIN_REFINEMENT } from './subworkflows/local/bin_refinement/main.nf'
 include { BIN_DEREPLICATION } from './subworkflows/local/bin_dereplication/main.nf'
 include { BIN_EVALUATION } from './subworkflows/local/bin_evaluation/main.nf'
-//include { BIN_CLASSIFICATION } from './subworkflows/local/bin_classification/main.nf'
+include { BIN_CLASSIFICATION } from './subworkflows/local/bin_classification/main.nf'
 include { BIN_COVERAGE } from './subworkflows/local/bin_coverage/main.nf'
 include { BIN_ANNOTATION } from './subworkflows/local/bin_annotation/main.nf'
 
@@ -225,7 +225,7 @@ workflow {
         }
     }
 
-    gtdb = params.skip_binqc || params.skip_gtdbtk ? false : params.gtdb_db
+    gtdb = params.skip_classification || params.skip_gtdbtk ? false : params.gtdb_db
 
     if ( gtdb ) {
         gtdb = file( "${gtdb}", checkIfExists: true )
@@ -540,9 +540,13 @@ workflow {
         Bin classification
      ************************/
 
-    /*if ( !params.skip_classification ) {
-       BIN_CLASSIFICATION ( final_bins )
-    }*/
+    if ( !params.skip_classification ) {
+       BIN_CLASSIFICATION ( 
+            final_bins,
+            gtdb,
+            gtdb_mash
+        )
+    }
 
     /********************
         Bin annotation
@@ -704,7 +708,7 @@ workflow {
      * GTDB-tk: taxonomic classifications using GTDB reference
      */
     
-    if (!params.skip_gtdbtk) {
+    /*if (!params.skip_gtdbtk) {
 
         ch_gtdbtk_summary = Channel.empty()
         if (gtdb) {
@@ -721,7 +725,7 @@ workflow {
     }
     else {
         ch_gtdbtk_summary = Channel.empty()
-    }
+    }*/
     /*
     if ((!params.skip_binqc) || !params.skip_quast || !params.skip_gtdbtk) {
         BIN_SUMMARY(
