@@ -65,6 +65,7 @@ include { DRAM_SETUP as DRAM_IMPORT_CONFIG } from './modules/local/dram/setup/ma
 include { DRAM_SETUP as DRAM_PREPARE_DB } from './modules/local/dram/setup/main.nf'
 include { DRAM_UPDATE_CONFIG } from './modules/local/dram/update_config/main.nf'
 include { CHECKM2_DATABASEDOWNLOAD } from './modules/nf-core/checkm2/databasedownload/main.nf'
+include { CHECKM2_UPDATE_CONFIG } from './modules/local/checkm2/update_config/main.nf'
 include { UNTAR as CHECKM_UNTAR } from './modules/nf-core/untar/main.nf'
 
 workflow {
@@ -151,9 +152,12 @@ workflow {
                 checkm2_db_dir = CHECKM2_DATABASEDOWNLOAD.out.database
                 ch_versions = ch_versions.mix ( CHECKM2_DATABASEDOWNLOAD.out.versions )
 
-                /*
-                *   Update config file
-                */
+                checkm2_db_path = checkm2_db_dir
+                    .map { it[1] }.toAbsolutePath().toString()
+
+                CHECKM2_UPDATE_CONFIG (
+                    checkm2_db_path
+                )
             }
 
             checkm_db_dir = []
