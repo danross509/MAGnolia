@@ -10,8 +10,6 @@ process DRAM_UPDATE_CONFIG {
         val db_dir          // $PATH/to/database/dir
         path placeholder    // ensures DRAM setup is finished before generating dram_config.txt
 
-    output:        
-
     script:
     def config_file = params.database_config
 

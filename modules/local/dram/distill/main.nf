@@ -10,9 +10,7 @@ process DRAM_DISTILL {
     publishDir "${params.resultsDir}/BIN_ANNOTATION/${meta.id}/", mode: 'symlink'
 
     input:
-        tuple val(meta), path(annotations)
-        tuple val(meta), path(trnas)
-        tuple val(meta), path(rrnas)
+        tuple val(meta), path(annotations), path(trnas), path(rrnas)
 
     output:
         tuple val(meta), path("DRAM-distill/genome_stats.tsv")          , emit: genome_stats

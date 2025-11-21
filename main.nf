@@ -53,7 +53,9 @@ include { QUAST_BINS_SUMMARY } from './modules/local/quast/quast_bins_summary/ma
 include { GTDBTK } from './subworkflows/nf-core_mag/gtdbtk/main.nf'
 include { BIN_SUMMARY } from './modules/nf-core_mag/bin_summary/main.nf'
 
-include { KRAKEN2_DB_DOWNLOAD } from './modules/local/kraken2/db_download/main.nf'
+//include { KRAKEN2_DB_DOWNLOAD } from './modules/local/kraken2/db_download/main.nf'
+include { K2_DOWNLOAD_TAXONOMY } from './modules/local/kraken2/k2_download_taxonomy/main.nf'
+include { K2_BUILD } from './modules/local/kraken2/k2_build/main.nf'
 include { KRAKEN2_UPDATE_CONFIG } from './modules/local/kraken2/update_config/main.nf'
 include { BRACKEN_BUILD } from './modules/local/bracken/build/main.nf'
 include { BAKTA_BAKTADBDOWNLOAD } from './modules/nf-core/bakta/baktadbdownload/main.nf'
@@ -93,14 +95,26 @@ workflow {
         }
     // If no database is specified but Kraken2 will be used
     } else if ( (!params.skip_read_taxonomy || !params.skip_contig_taxonomy) && !params.skip_kracken2 ) {
-        KRAKEN2_DB_DOWNLOAD (
+        /*KRAKEN2_DB_DOWNLOAD (
             db_download_dir,
+            params.kraken2_build,
+            params.kraken2_kmer_len, 
+            params.kraken2_max_db_size
+        )*/
+
+        K2_DOWNLOAD_TAXONOMY (
+            db_download_dir
+        )
+
+        K2_BUILD (
+            K2_DOWNLOAD_TAXONOMY.out.directory,
             params.kraken2_build,
             params.kraken2_kmer_len, 
             params.kraken2_max_db_size
         )
 
-        kraken2_db_dir = KRAKEN2_DB_DOWNLOAD.out.directory
+        //kraken2_db_dir = KRAKEN2_DB_DOWNLOAD.out.directory
+        kraken2_db_dir = K2_BUILD.out.directory
 
         KRAKEN2_UPDATE_CONFIG (
             kraken2_db_dir

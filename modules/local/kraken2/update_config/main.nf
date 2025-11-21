@@ -9,8 +9,6 @@ process KRAKEN2_UPDATE_CONFIG {
     input:
         val db_dir          // $PATH/to/downloaded/database/dir
 
-    output:        
-
     script:
     def config_file = params.database_config
 

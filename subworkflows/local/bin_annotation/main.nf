@@ -19,10 +19,12 @@ workflow BIN_ANNOTATION {
             bins
         )
 
+        distill_input = DRAM_ANNOTATE.out.annotations
+            .join ( DRAM_ANNOTATE.out.trnas, by: 0 )
+            .join ( DRAM_ANNOTATE.out.rrnas, by: 0 )
+
         DRAM_DISTILL (
-            DRAM_ANNOTATE.out.annotations,
-            DRAM_ANNOTATE.out.trnas,
-            DRAM_ANNOTATE.out.rrnas
+            distill_input
         )
     }
 
