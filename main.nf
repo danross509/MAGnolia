@@ -58,7 +58,9 @@ include { K2_DOWNLOAD_TAXONOMY } from './modules/local/kraken2/k2_download_taxon
 include { K2_BUILD } from './modules/local/kraken2/k2_build/main.nf'
 include { KRAKEN2_UPDATE_CONFIG } from './modules/local/kraken2/update_config/main.nf'
 include { BRACKEN_BUILD } from './modules/local/bracken/build/main.nf'
+include { BRACKEN_UPDATE_CONFIG } from './modules/local/bracken/update_config/main.nf'
 include { BAKTA_BAKTADBDOWNLOAD } from './modules/nf-core/bakta/baktadbdownload/main.nf'
+include { BAKTA_UPDATE_CONFIG } from './modules/local/bakta/update_config/main.nf'
 include { DRAM_SETUP as DRAM_IMPORT_CONFIG } from './modules/local/dram/setup/main.nf'
 include { DRAM_SETUP as DRAM_PREPARE_DB } from './modules/local/dram/setup/main.nf'
 include { DRAM_UPDATE_CONFIG } from './modules/local/dram/update_config/main.nf'
@@ -77,24 +79,9 @@ workflow {
     // If there is a kraken database given
     if ( params.kraken2_db ) {
         kraken2_db_dir = file ( params.kraken2_db, checkIfExists: true )
-        // If the database will be used AND if bracken will be run
-        if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_kracken2 && !params.skip_bracken ) {
-            // If there is no bracken build, build it
-            if ( !params.bracken_build_exists ) {
-                BRACKEN_BUILD (
-                kraken2_db_dir.toAbsolutePath().toString(),
-                params.bracken_kmer_len,
-                params.bracken_read_length
-                )
-
-                // Set run_bracken to true
-                run_bracken = BRACKEN_BUILD.out.bracken_built
-
-            // Otherwise if bracken is already built
-            } else run_bracken = true
-        }
+        
     // If no database is specified but Kraken2 will be used
-    } else if ( (!params.skip_read_taxonomy || !params.skip_contig_taxonomy) && !params.skip_kracken2 ) {
+    } else if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_kracken2 ) {
         /*KRAKEN2_DB_DOWNLOAD (
             db_download_dir,
             params.kraken2_build,
@@ -120,25 +107,34 @@ workflow {
             kraken2_db_dir
         )
 
-        /*
-        *   Update config file: kraken AND bracken
-        */
-
-        // If Bracken will also be used
-        if ( !params.skip_bracken ) {
-            BRACKEN_BUILD (
-                kraken2_db_dir,
-                params.bracken_kmer_len,
-                params.bracken_read_length
-            )
-
-            run_bracken = BRACKEN_BUILD.out.bracken_built
-        }
-
     // If no Kraken2 database is given and Kraken2 will not be used
     } else {
         kraken2_db_dir = []
-        run_bracken = []
+    }
+
+    // If Kraken2 will be used AND if bracken will be run
+    if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_kracken2 && !params.skip_bracken ) {
+        // If there is no bracken build, build it
+        if ( !params.bracken_build_exists ) {
+            BRACKEN_BUILD (
+            kraken2_db_dir.toAbsolutePath().toString(),
+            params.bracken_kmer_len,
+            params.bracken_read_length
+            )
+
+            BRACKEN_UPDATE_CONFIG (
+                BRACKEN_BUILD.out.bracken_built
+            )
+
+            // Set run_bracken to true
+            run_bracken = BRACKEN_BUILD.out.bracken_built
+
+        // Otherwise if bracken is already built
+        } else {
+            run_bracken = true
+        }
+    } else {
+        run_bracken = false
     }
     
     // Bin evaluation databases
@@ -240,17 +236,15 @@ workflow {
             } else {
                 BAKTA_BAKTADBDOWNLOAD ()
 
+                BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString().view()
+
                 /*BAKTA_UPDATE_CONFIG (
-                    db_download_dir,
-                    BAKTA_BAKTADBDOWNLOAD.out.db
+                    BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString()
                 )
-                
-                bakta_db_dir = BAKTA_UPDATE_CONFIG.out.db_dir // "${db_download_dir}/bakta/db"
                 */
+                bakta_db_dir = BAKTA_BAKTADBDOWNLOAD.out.db // "${db_download_dir}/bakta/db"
                 
-                /*
-                *   Update config file
-                */
+                
             }
         } else {
             bakta_db_dir = []

@@ -3,7 +3,7 @@
 ## Originally written by David Ross for use within __
 ## See git repository (https://github.com/) for full license text.
 
-# USAGE: ./dram_update_config.py -f $dram_config_file
+# USAGE: ./dram_update_config.py -d ${db_dir}/dram_config.txt -c $config_file
 
 import argparse
 
