@@ -101,7 +101,7 @@ workflow BIN_EVALUATION {
                 ext: fa.extension.unique().join("")
             }
 
-        CHECKM_LINEAGEWF(bins_for_checkmlineagewf.reads, bins_for_checkmlineagewf.ext, ch_checkm_db)
+        CHECKM_LINEAGEWF(bins_for_checkmlineagewf.reads, bins_for_checkmlineagewf.ext, checkm_db_dir)
         ch_versions = ch_versions.mix(CHECKM_LINEAGEWF.out.versions.first())
 
         ch_checkmqa_input = CHECKM_LINEAGEWF.out.checkm_output
