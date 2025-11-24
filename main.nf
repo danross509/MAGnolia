@@ -69,7 +69,7 @@ include { CHECKM2_UPDATE_CONFIG } from './modules/local/checkm2/update_config/ma
 include { UNTAR as CHECKM_UNTAR } from './modules/nf-core/untar/main.nf'
 
 workflow {
-    ch_versions = Channel.empty()
+    ch_versions = channel.empty()
 
     /********************
         Database setup
@@ -77,10 +77,11 @@ workflow {
     db_download_dir = file("${params.databaseDownloadDir}").toAbsolutePath().toString()
 
     // Kraken2 database
+    kraken2_db_dir = channel.empty()
     // If there is a kraken database given
     if ( params.kraken2_db ) {
-        kraken2_db_dir = file ( params.kraken2_db, checkIfExists: true )
-        
+        kraken2_db_dir = kraken2_db_dir.mix ( file ( params.kraken2_db, checkIfExists: true ))
+        println ( "Kraken is true" )
     // If no database is specified but Kraken2 will be used
     } else if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_kracken2 ) {
         /*KRAKEN2_DB_DOWNLOAD (
@@ -89,7 +90,7 @@ workflow {
             params.kraken2_kmer_len, 
             params.kraken2_max_db_size
         )*/
-
+        println ( "Kraken is downloading" )
         K2_DOWNLOAD_TAXONOMY (
             db_download_dir
         )
@@ -102,7 +103,7 @@ workflow {
         )
 
         //kraken2_db_dir = KRAKEN2_DB_DOWNLOAD.out.directory
-        kraken2_db_dir = K2_BUILD.out.directory
+        kraken2_db_dir = kraken2_db_dir.mix ( K2_BUILD.out.directory )
 
         KRAKEN2_UPDATE_CONFIG (
             kraken2_db_dir
@@ -111,14 +112,17 @@ workflow {
     // If no Kraken2 database is given and Kraken2 will not be used
     } else {
         kraken2_db_dir = []
+        println ( "Kraken is empty" )
     }
+
+    println("kraken path = ${kraken2_db_dir}")
 
     // If Kraken2 will be used AND if bracken will be run
     if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_kracken2 && !params.skip_bracken ) {
         // If there is no bracken build, build it
         if ( !params.bracken_build_exists ) {
             BRACKEN_BUILD (
-            kraken2_db_dir.toAbsolutePath().toString(),
+            kraken2_db_dir,
             params.bracken_kmer_len,
             params.bracken_read_length
             )
@@ -269,7 +273,7 @@ workflow {
         Data input
      ****************/
 
-    reads = Channel.fromPath ( params.reads_file )
+    reads = channel.fromPath ( params.reads_file )
         .splitCsv (header: true)
         .map { meta ->
             def meta_new = [:]
@@ -299,7 +303,7 @@ workflow {
     
     //reads.view()
 
-    short_reads = Channel.empty()
+    short_reads = channel.empty()
     short_reads = short_reads.mix ( reads )
         .map { meta, reads ->
             if ( meta.sequencer == 'Illumina' ) {
@@ -307,7 +311,7 @@ workflow {
             } 
         }
 
-    nanopore_reads = Channel.empty()
+    nanopore_reads = channel.empty()
     nanopore_reads = nanopore_reads.mix ( reads )
         .map { meta, reads ->
             if ( meta.sequencer == 'ONT' ) {
@@ -315,7 +319,7 @@ workflow {
             } 
         }
 
-    pacbio_reads = Channel.empty()
+    pacbio_reads = channel.empty()
     pacbio_reads = pacbio_reads.mix ( reads )
         .map { meta, reads ->
             if ( meta.sequencer == 'PacBio' ) {
@@ -329,17 +333,17 @@ workflow {
         Quality control
      *********************/
     // Create channel of phiX genome to remove
-    //phiX = Channel.empty()
-    phiX_index = Channel.empty()
+    //phiX = channel.empty()
+    phiX_index = channel.empty()
     if ( !params.skip_qc && params.short_reads && params.remove_phiX ) {
-        /*phiX = Channel.fromPath ( params.phiX )
+        /*phiX = channel.fromPath ( params.phiX )
             .map { reference ->
                 def meta = [:]
                 meta.id = reference.getBaseName()
                 return [ meta, reference ]
             }
         */
-        phiX_index = Channel.fromPath ( "${projectDir}/reference_genomes/phiX/*.bt2" )
+        phiX_index = channel.fromPath ( "${projectDir}/reference_genomes/phiX/*.bt2" )
             .map { index ->
                 def meta =[:]
                 meta.id = 'phiX174'
@@ -348,10 +352,10 @@ workflow {
             .groupTuple()
     }
 
-    host_genome = Channel.empty()
+    host_genome = channel.empty()
     // Create channel of host genome to remove
     if ( !params.skip_qc && params.host_genome ) {
-        host_genome = Channel.fromPath ( params.host_genome )
+        host_genome = channel.fromPath ( params.host_genome )
             .map { reference ->
                 def meta = [:]
                 meta.id = reference.getBaseName()
@@ -360,7 +364,7 @@ workflow {
     }
 
     // Short read quality control
-    corrected_reads = Channel.empty()
+    corrected_reads = channel.empty()
     if ( !params.skip_qc && params.short_reads ) {
         QC_SHORT ( 
             short_reads,
@@ -372,7 +376,7 @@ workflow {
     }
 
     // ONT quality control
-    corrected_ont_reads = Channel.empty()
+    corrected_ont_reads = channel.empty()
     if ( !params.skip_qc && params.nanopore_reads ) {
         QC_NANOPORE ( 
             nanopore_reads,
@@ -383,7 +387,7 @@ workflow {
     }
 
     // PacBio quality control
-    corrected_pacbio_reads = Channel.empty()
+    corrected_pacbio_reads = channel.empty()
     if ( !params.skip_qc && params.pacbio_reads ) {
         QC_PACBIO ( 
             pacbio_reads,
@@ -402,7 +406,7 @@ workflow {
         Read taxonomy
      *******************/
 
-    read_taxonomy_input = Channel.empty()
+    read_taxonomy_input = channel.empty()
     if ( !params.skip_read_taxonomy ) {
         READ_TAXONOMY (
             all_corrected_reads, 
@@ -416,8 +420,8 @@ workflow {
         Assembly
      **************/
     // **************    
-    concatenated_reads = Channel.empty()        // Channel to concatenate fastq files for assembly ('per_sample' will be ungrouped sample fastq's)
-    original_clean_reads = Channel.empty()    // Channel to group original individual sample fastq's according to assembly file (for use in binning)
+    concatenated_reads = channel.empty()        // Channel to concatenate fastq files for assembly ('per_sample' will be ungrouped sample fastq's)
+    original_clean_reads = channel.empty()    // Channel to group original individual sample fastq's according to assembly file (for use in binning)
     if ( !params.skip_assembly && params.short_reads ) {
         ASSEMBLY_PREP_SHORT (
             corrected_reads
@@ -427,8 +431,8 @@ workflow {
         original_clean_reads = original_clean_reads.mix ( ASSEMBLY_PREP_SHORT.out.original_clean_reads )
     }
 
-    concatenated_long_reads = Channel.empty()       // Channel to concatenate fastq files for assembly ('per_sample' will be ungrouped sample fastq's)
-    original_clean_long_reads = Channel.empty()     // Channel to group original individual sample fastq's according to assembly file (for use in binning)
+    concatenated_long_reads = channel.empty()       // Channel to concatenate fastq files for assembly ('per_sample' will be ungrouped sample fastq's)
+    original_clean_long_reads = channel.empty()     // Channel to group original individual sample fastq's according to assembly file (for use in binning)
     if ( !params.skip_assembly && ( params.nanopore_reads || params.pacbio_reads ) ) {
         ASSEMBLY_PREP_LONG (
             corrected_ont_reads,
@@ -440,10 +444,10 @@ workflow {
     }
     // *****************
     
-    final_contigs = Channel.empty()
-    assembly_graphs = Channel.empty()
-    reads_post_assembly = Channel.empty()
-    hifiasm_bins = Channel.empty()
+    final_contigs = channel.empty()
+    assembly_graphs = channel.empty()
+    reads_post_assembly = channel.empty()
+    hifiasm_bins = channel.empty()
 
     if ( !params.skip_assembly ) {
         if ( params.short_reads && !params.nanopore_reads && !params.pacbio_reads ) {
@@ -485,9 +489,9 @@ workflow {
         Binning
      *************/
 
-    binning_prep_input = Channel.empty()
-    initial_bins = Channel.empty()
-    post_refinement_bins = Channel.empty()
+    binning_prep_input = channel.empty()
+    initial_bins = channel.empty()
+    post_refinement_bins = channel.empty()
     if ( !params.skip_binning ) {
         binning_prep_input = binning_prep_input.mix ( final_contigs )
             .join ( assembly_graphs )
@@ -542,7 +546,7 @@ workflow {
         Dereplication
      *******************/
 
-    final_bins = Channel.empty()
+    final_bins = channel.empty()
 
     if ( !params.skip_bin_dereplication ) {
         BIN_DEREPLICATION ( post_refinement_bins )
@@ -710,7 +714,7 @@ workflow {
         ch_versions = ch_versions.mix ( BIN_QC.out.versions )
     }
     
-/*    ch_quast_bins_summary = Channel.empty()
+/*    ch_quast_bins_summary = channel.empty()
     if (!params.skip_quast) {
         ch_input_for_quast_bins = ch_input_for_postbinning
             .groupTuple()
@@ -734,7 +738,7 @@ workflow {
             ch_cat_global_summary = CAT_SUMMARY.out.combined
         }
         else {*/
-            ch_cat_global_summary = Channel.empty()
+            ch_cat_global_summary = channel.empty()
         //}
 
     /*
@@ -743,7 +747,7 @@ workflow {
     
     /*if (!params.skip_gtdbtk) {
 
-        ch_gtdbtk_summary = Channel.empty()
+        ch_gtdbtk_summary = channel.empty()
         if (gtdb) {
 
             GTDBTK(
@@ -757,7 +761,7 @@ workflow {
         }
     }
     else {
-        ch_gtdbtk_summary = Channel.empty()
+        ch_gtdbtk_summary = channel.empty()
     }*/
     /*
     if ((!params.skip_binqc) || !params.skip_quast || !params.skip_gtdbtk) {

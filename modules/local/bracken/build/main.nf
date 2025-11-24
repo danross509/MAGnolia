@@ -5,7 +5,7 @@ process BRACKEN_BUILD {
     label 'process_medium'
 
     container ""
-    conda "bioconda::kraken2=2.14 bioconda::bracken=3.1"
+    conda "bioconda::kraken2=2.17 bioconda::bracken=3.1"
 
     //publishDir "${params.resultsDir}/KRAKEN2/${meta.id}/${file_type}", mode: 'symlink'
 
