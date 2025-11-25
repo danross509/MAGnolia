@@ -28,7 +28,7 @@ workflow BIN_REFINEMENT {
     //f2c2b.hmbin.view()
     //f2c2b.remaining.view()
     
-    hmbin_verified_f2c2b = Channel.empty()
+    hmbin_verified_f2c2b = channel.empty()
 
     if ( !params.skip_binning && !params.skip_hmbin ) {
         HMBIN_VERIFY_F2C2B ( f2c2b.hmbin )
@@ -39,7 +39,7 @@ workflow BIN_REFINEMENT {
     //HMBIN_VERIFY_F2C2B.out.view()
 
     // Remove original binner info, group by bin_group
-    fastatocontig2bin_grouped = Channel.empty()
+    fastatocontig2bin_grouped = channel.empty()
     fastatocontig2bin_grouped = fastatocontig2bin_grouped.mix ( f2c2b.remaining, hmbin_verified_f2c2b )
         .map { meta, fastatocontig2bin ->
             def meta_new = meta - meta.subMap('binner')

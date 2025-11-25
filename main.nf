@@ -77,10 +77,10 @@ workflow {
     db_download_dir = file("${params.databaseDownloadDir}").toAbsolutePath().toString()
 
     // Kraken2 database
-    kraken2_db_dir = channel.empty()
+    // kraken2_db_dir = channel.empty()
     // If there is a kraken database given
     if ( params.kraken2_db ) {
-        kraken2_db_dir = kraken2_db_dir.mix ( file ( params.kraken2_db, checkIfExists: true ))
+        kraken2_db_dir = file ( params.kraken2_db, checkIfExists: true )
         println ( "Kraken is true" )
     // If no database is specified but Kraken2 will be used
     } else if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_kracken2 ) {
@@ -103,7 +103,7 @@ workflow {
         )
 
         //kraken2_db_dir = KRAKEN2_DB_DOWNLOAD.out.directory
-        kraken2_db_dir = kraken2_db_dir.mix ( K2_BUILD.out.directory )
+        kraken2_db_dir = K2_BUILD.out.directory
 
         KRAKEN2_UPDATE_CONFIG (
             kraken2_db_dir

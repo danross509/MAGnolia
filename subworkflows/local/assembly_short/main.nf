@@ -2,7 +2,7 @@
 
 include { MEGAHIT } from '../../../modules/local/megahit/main.nf'
 include { SPADES as METASPADES } from '../../../modules/local/spades/main.nf'
-//include { metaHipMer } from '../../../modules/local/hipmer/main.nf'
+//include { METAHIPMER } from '../../../modules/local/hipmer/main.nf'
 include { GATB_MINIA_PIPELINE } from '../../../modules/local/gatb/minia_pipeline/main.nf'
 include { QUAST_CONTIGS } from '../../../modules/local/quast/quast_contigs/main.nf'
 include { CONTIG_COVERAGE } from '../../../subworkflows/local/contig_coverage/main.nf'
@@ -14,8 +14,8 @@ workflow ASSEMBLY_SHORT {
 
     main:
 
-    assembly_out = Channel.empty()
-    assembly_graph_out = Channel.empty()
+    assembly_out = channel.empty()
+    assembly_graph_out = channel.empty()
     
     // Short read assembly with megahit
     if (params.assembler_short_reads == 'megahit') {
@@ -74,18 +74,18 @@ workflow ASSEMBLY_SHORT {
         assembly_out = assembly_out.mix ( METASPADES.out.scaffolds )
         assembly_graph_out = assembly_graph_out.mix ( METASPADES.out.gfa )
         
-    } else if (params.assembler_short_reads == 'hipmer') {
+    } /*else if (params.assembler_short_reads == 'hipmer') {
         hipmer_input_ch = clean_reads
             .map { meta, reads ->
                 def meta_new = meta + [assembler: 'HipMer']
                 [ meta_new, reads ]
             }
         
-        HIPMER(
+        METAHIPMER(
             hipmer_input_ch,
             params.hipmer_depths
         )
-    } else if ( params.assembler_short_reads == 'gatb' ){
+    }*/ else if ( params.assembler_short_reads == 'gatb' ){
         gatb_input_ch = clean_reads
             .map { meta, reads ->
                 def meta_new = meta + [assembler: 'GATB']
@@ -126,7 +126,7 @@ workflow ASSEMBLY_SHORT {
         )
     }
     
-    coverage_input = Channel.empty()
+    coverage_input = channel.empty()
     if ( !params.skip_contig_coverage ) {
         coverage_input = coverage_input.mix ( assembly_out.join ( original_clean_reads ))
 

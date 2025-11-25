@@ -16,13 +16,13 @@ workflow ASSEMBLY_LONG {
 
     main:
 
-    assembly_out = Channel.empty()
-    assembly_graph_out = Channel.empty()
-    unitigs = Channel.empty()
-    reads_out = Channel.empty()
+    assembly_out = channel.empty()
+    assembly_graph_out = channel.empty()
+    unitigs = channel.empty()
+    reads_out = channel.empty()
 
     // Long read assembly with Hifiasm_meta
-    hifiasm_bins = Channel.empty()
+    hifiasm_bins = channel.empty()
     if (params.assembler_long_reads == 'hifiasm') {
         hifiasm_input_ch = clean_reads_long
             .map { meta, reads ->
@@ -178,9 +178,9 @@ workflow ASSEMBLY_LONG {
 
     // Polish nanopore contigs
 
-    final_contigs = Channel.empty()
-    assembly_graphs = Channel.empty()
-    final_reads = Channel.empty()
+    final_contigs = channel.empty()
+    assembly_graphs = channel.empty()
+    final_reads = channel.empty()
 
     if ( params.nanopore_reads && !params.skip_contig_polishing ) {
         // Isolate ONT assemblies
@@ -258,7 +258,7 @@ workflow ASSEMBLY_LONG {
     }
     
 
-    coverage_input = Channel.empty()
+    coverage_input = channel.empty()
     if ( !params.skip_contig_coverage ) {
         coverage_input = coverage_input.mix ( final_contigs.join ( final_reads ))
 

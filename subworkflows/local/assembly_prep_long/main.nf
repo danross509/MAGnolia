@@ -8,16 +8,16 @@ workflow ASSEMBLY_PREP_LONG {
     corrected_pacbio_reads
 
     main:
-    clean_long_reads = Channel.empty()
+    clean_long_reads = channel.empty()
 
-    concatenated_long_reads = Channel.empty()
-    original_clean_long_reads = Channel.empty()
+    concatenated_long_reads = channel.empty()
+    original_clean_long_reads = channel.empty()
 
-    //concatenated_ont_reads = Channel.empty()
-    //original_clean_ont_reads = Channel.empty()
+    //concatenated_ont_reads = channel.empty()
+    //original_clean_ont_reads = channel.empty()
 
-    //concatenated_pacbio_reads = Channel.empty()
-    //original_clean_pacbio_reads = Channel.empty()
+    //concatenated_pacbio_reads = channel.empty()
+    //original_clean_pacbio_reads = channel.empty()
 
     /*
     Since meta.sequencer is unique, this could also be done with the long reads mixed

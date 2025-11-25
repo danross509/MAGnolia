@@ -8,11 +8,11 @@ workflow ASSEMBLY_PREP_SHORT {
     corrected_reads
 
     main:
-    clean_reads_1 = Channel.empty()
-    clean_reads_2 = Channel.empty()
+    clean_reads_1 = channel.empty()
+    clean_reads_2 = channel.empty()
 
-    concatenated_reads = Channel.empty()
-    original_clean_reads = Channel.empty()
+    concatenated_reads = channel.empty()
+    original_clean_reads = channel.empty()
 
     clean_reads_1 = clean_reads_1.mix ( corrected_reads )
         .map { meta, reads ->

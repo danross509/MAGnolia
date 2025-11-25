@@ -4,6 +4,7 @@ include { DRAM_ANNOTATE } from '../../../modules/local/dram/annotate/main.nf'
 include { DRAM_DISTILL } from '../../../modules/local/dram/distill/main.nf'
 
 include { BAKTA_BAKTA } from '../../../modules/nf-core/bakta/bakta/main.nf'
+include { BAKTA_COLLECT_ANNOTATION_STATS } from '../../../modules/local/bakta/collect_annotation_stats/main.nf'
 
 
 workflow BIN_ANNOTATION {
@@ -41,6 +42,14 @@ workflow BIN_ANNOTATION {
             bakta_db,
             [],[],[],[]
         )
+
+        //bakta_summarize = BAKTA_BAKTA.out.json
+            //.collect()
+            
+
+        //BAKTA_COLLECT_ANNOTATION_STATS (
+            
+        //)
     }
 
     //emit:

@@ -23,7 +23,7 @@ workflow BIN_EVALUATION {
     checkm_db_dir // [db]
 
     main:
-    ch_versions = Channel.empty()
+    ch_versions = channel.empty()
 
     /*if (params.binqc_tool == "busco") {
         if (!ch_busco_db.isEmpty()) {

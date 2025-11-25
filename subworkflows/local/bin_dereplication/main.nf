@@ -13,7 +13,7 @@ workflow BIN_DEREPLICATION {
     main:
 
     dereplicate_input = refined_bins.transpose()
-        .map { meta, bin ->
+        .map { _meta, bin ->
             def meta_new = [:]
             meta_new.id = 'dereplicated_bins'
             [ meta_new, bin ]

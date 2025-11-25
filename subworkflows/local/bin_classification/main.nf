@@ -24,7 +24,7 @@ workflow BIN_CLASSIFICATION {
         // then grouping again to pass to the module.
         // Then make up meta id to match expected channel cardinality for GTDBTK
         gtdb_dir = gtdb.listFiles()
-        ch_db_for_gtdbtk = Channel
+        ch_db_for_gtdbtk = channel
                             .of(gtdb_dir)
                             .collect()
                             .map { ["gtdb", it] }
