@@ -67,6 +67,7 @@ include { DRAM_UPDATE_CONFIG } from './modules/local/dram/update_config/main.nf'
 include { CHECKM2_DATABASEDOWNLOAD } from './modules/nf-core/checkm2/databasedownload/main.nf'
 include { CHECKM2_UPDATE_CONFIG } from './modules/local/checkm2/update_config/main.nf'
 include { UNTAR as CHECKM_UNTAR } from './modules/nf-core/untar/main.nf'
+include { CHECKM_UPDATE_CONFIG } from './modules/local/checkm/update_config/main.nf'
 
 workflow {
     ch_versions = channel.empty()
@@ -143,7 +144,7 @@ workflow {
     }
     
     // Bin evaluation databases
-    if ( !params.skip_evaluation) {
+    if ( !params.skip_bin_evaluation) {
         // If running CheckM2
         if ( params.checkm_version == 'checkm2' ) {
             // If a database is specified
@@ -180,9 +181,9 @@ workflow {
                     .map { it[1] }
                 ch_versions = ch_versions.mix ( CHECKM_UNTAR.out.versions )
 
-                /*
-                *   Update config file
-                */
+                CHECKM_UPDATE_CONFIG (
+                    checkm_db_dir.toAbsolutePath().toString()
+                )
             }
 
             checkm2_db_dir = []
@@ -246,10 +247,10 @@ workflow {
 
                 BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString().view()
 
-                /*BAKTA_UPDATE_CONFIG (
+                BAKTA_UPDATE_CONFIG (
                     BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString()
                 )
-                */
+
                 bakta_db_dir = BAKTA_BAKTADBDOWNLOAD.out.db // "${db_download_dir}/bakta/db"
                 
                 
@@ -406,7 +407,7 @@ workflow {
         Read taxonomy
      *******************/
 
-    read_taxonomy_input = channel.empty()
+    //read_taxonomy_input = channel.empty()
     if ( !params.skip_read_taxonomy ) {
         READ_TAXONOMY (
             all_corrected_reads, 

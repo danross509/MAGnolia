@@ -20,10 +20,10 @@ workflow BIN_EVALUATION {
     take:
     bins // [meta, [list, of, bin, fastas]]
     checkm2_db_dir // [dbmeta, db]
-    checkm_db_dir // [db]
+    checkm_db_dir // [db]S
 
     main:
-    ch_versions = Channel.empty()
+    ch_versions = channel.empty()
 
     /*if (params.binqc_tool == "busco") {
         if (!ch_busco_db.isEmpty()) {
