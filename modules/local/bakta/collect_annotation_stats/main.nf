@@ -8,7 +8,7 @@ process BAKTA_COLLECT_ANNOTATION_STATS {
         : 'biocontainers/bakta:1.11.4--pyhdfd78af_0'}"
 
     input:
-    tuple val(meta), path(genomes)
+    tuple val(meta), path(jsons)
 
     //output:
     //tuple val(meta), path("${prefix}.embl"), emit: embl
@@ -19,8 +19,8 @@ process BAKTA_COLLECT_ANNOTATION_STATS {
     prefix = task.ext.prefix ?: "${meta.id}"
 
     """
-    collect-annotation-stats.py \\
-        ${genomes} \\
+   bakta_collect-annotation-stats.py \\
+        ${jsons} \\
         --prefix ${prefix} \\
         --output .
     """

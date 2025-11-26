@@ -43,13 +43,22 @@ workflow BIN_ANNOTATION {
             [],[],[],[]
         )
 
-        //bakta_summarize = BAKTA_BAKTA.out.json
-            //.collect()
+        bakta_summarize = bins.transpose()        
+            .map { meta, bin ->
+                def sampleID = bin.getBaseName()
+                def meta_new = meta + [id: "${sampleID}"]
+                [ meta_new, meta ]
+            }
+            .join ( BAKTA_BAKTA.out.json )
+            .map { _meta_bin, meta_all, json ->
+                [ meta_all, json ]
+            }
+            .groupTuple().view()
             
 
-        //BAKTA_COLLECT_ANNOTATION_STATS (
-            
-        //)
+        BAKTA_COLLECT_ANNOTATION_STATS (
+            bakta_summarize
+        )
     }
 
     //emit:

@@ -1,0 +1,8 @@
+channels:
+- defaults
+dependencies:
+- main::python==3.11
+- conda-forge::pandas
+- pip
+- pip:
+  - taxconverter==1.1.0

@@ -6,6 +6,7 @@ include { KRONA_K2_IMPORT_TAXONOMY } from '../../../modules/local/krona/import_t
 include { BRACKEN_ABUNDANCE_ESTIMATION as BRACKEN } from '../../../modules/local/bracken/abundance_estimation/main.nf'
 include { BRACKEN_SUMMARIZE_ABUNDANCE as BRACKEN_SUMMARY } from '../../../modules/local/bracken/summarize_abundance/main.nf'
 include { COMBINE_BRACKEN_OUTPUTS } from '../../../modules/local/bracken/combine_bracken_outputs/main.nf'
+include { TAXCONVERTER } from '../../../modules/local/taxconverter/main.nf'
 //include { METAPHLAN } from '../../../modules/local/biobakery/metaphlan/main.nf'
 
 workflow READ_CONTIG_TAXONOMY {
@@ -53,7 +54,7 @@ workflow READ_CONTIG_TAXONOMY {
             )
 
             summarize_bracken_input = BRACKEN.out.output
-                .collect { meta, report ->
+                .collect { _meta, report ->
                     [ report ]
                 }
 
@@ -71,6 +72,10 @@ workflow READ_CONTIG_TAXONOMY {
 
         }
 
+        if ( !params.skip_taxvamb) {
+            TAXCONVERTER ( KRAKEN2.out.output )
+        }
+        TAXCONVERTER.out.converted.view()
     }
 
     if ( !params.skip_metaphlan4 ) {
