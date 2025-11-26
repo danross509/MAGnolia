@@ -80,6 +80,8 @@ workflow {
     // Kraken2 database
     // kraken2_db_dir = channel.empty()
     // If there is a kraken database given
+    println("Kraken2db detected at ${params.kraken2_db}")
+    println("DRAM database detected at ${params.dram_config_loc}")
     if ( params.kraken2_db ) {
         kraken2_db_dir = file ( params.kraken2_db, checkIfExists: true )
         println ( "Kraken is true" )
@@ -121,9 +123,10 @@ workflow {
     // If Kraken2 will be used AND if bracken will be run
     if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_kracken2 && !params.skip_bracken ) {
         // If there is no bracken build, build it
+        println(kraken2_db_dir.toAbsolutePath().toString())
         if ( !params.bracken_build_exists ) {
             BRACKEN_BUILD (
-            kraken2_db_dir,
+            kraken2_db_dir.toAbsolutePath().toString(),
             params.bracken_kmer_len,
             params.bracken_read_length
             )

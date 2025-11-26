@@ -2,7 +2,7 @@
 
 process BRACKEN_BUILD {
     tag ""
-    label 'process_medium'
+    label 'process_high'
 
     container ""
     conda "bioconda::kraken2=2.17 bioconda::bracken=3.1"
@@ -21,6 +21,12 @@ process BRACKEN_BUILD {
     script:
 
     """
+    if [[ -f \$CONDA_PREFIX/bin/bracken-build ]]; then
+        rm \$CONDA_PREFIX/bin/bracken-build
+    fi 
+
+    cp ${moduleDir}/bracken-build_fixed \$CONDA_PREFIX/bin/bracken-build
+
     bracken-build \
     -d $database \
     -t $task.cpus \
