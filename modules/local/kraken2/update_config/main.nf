@@ -4,7 +4,7 @@ process KRAKEN2_UPDATE_CONFIG {
     label 'process_single'
 
     container ""
-    conda ""
+    conda "${moduleDir}/../classify/environment.yml"
 
     input:
         val db_dir          // $PATH/to/downloaded/database/dir
@@ -13,7 +13,9 @@ process KRAKEN2_UPDATE_CONFIG {
     def config_file = params.database_config
 
     """
-    kraken2_update_config.py -d ${db_dir} -c $config_file
+    installation=\$(which kraken2)
+
+    kraken2_update_config.py -d $db_dir -c $config_file -e \$installation
     """
 
 }

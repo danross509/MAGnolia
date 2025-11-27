@@ -30,7 +30,7 @@ with open(DATABASE_CONFIG, "r", encoding="utf8") as file:
     text = file.read()
 
 # Replace the bracken_build_exists parameter 
-text = text.replace('bracken_build_exists = false', f'bracken_build_exists = "{BUILT}"')
+text = text.replace('bracken_build_exists = false', f'bracken_build_exists = {BUILT}')
 
 # Replace the databases.config with the updated bracken_build_exists parameter
 with open(DATABASE_CONFIG, "w") as file:
