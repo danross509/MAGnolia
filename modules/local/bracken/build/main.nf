@@ -11,6 +11,7 @@ process BRACKEN_BUILD {
 
     input:
         val database
+        val executables
         val kmer_len
         val read_len
 
@@ -19,6 +20,7 @@ process BRACKEN_BUILD {
 
 
     script:
+    def exec = executables ? "-x ${executables}" : ""
 
     """
     if [[ -f \$CONDA_PREFIX/bin/bracken-build ]]; then
@@ -31,6 +33,7 @@ process BRACKEN_BUILD {
     -d $database \
     -t $task.cpus \
     -k $kmer_len \
-    -l $read_len 
+    -l $read_len \
+    $exec
     """
 }

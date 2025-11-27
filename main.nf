@@ -127,6 +127,7 @@ workflow {
         if ( !params.bracken_build_exists ) {
             BRACKEN_BUILD (
             kraken2_db_dir.toAbsolutePath().toString(),
+            params.kraken2_exec,
             params.bracken_kmer_len,
             params.bracken_read_length
             )
