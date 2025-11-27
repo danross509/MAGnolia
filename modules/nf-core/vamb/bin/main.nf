@@ -12,7 +12,7 @@ process VAMB_BIN {
     val min_contig_length
 
     output:
-    tuple val(meta), path("${prefix}/bins/*.fa")                , emit: bins             , optional: true
+    tuple val(meta), path("${prefix}/bins/*.fa")                 , emit: bins             , optional: true
     tuple val(meta), path("${prefix}/vae*_clusters_metadata.tsv"), emit: clusters_metadata
     tuple val(meta), path("${prefix}/vae*_clusters_split.tsv")   , emit: clusters_split   , optional: true
     tuple val(meta), path("${prefix}/vae*_clusters_unsplit.tsv") , emit: clusters_unsplit
@@ -52,7 +52,7 @@ process VAMB_BIN {
     #find ${prefix}/bins -name "*.fna" -exec gzip {} \\;
 
     for file in ${prefix}/bins/*.fna; do
-        if [[ -f ${prefix}/bins/*.fna ]]; then
+        if [[ -f \$file ]]; then
             filename=\${file##*/}
             basename=\${filename%.fna}
             mv \$file ${prefix}/bins/${meta.id}_${meta.assembler}_VAMB.\${basename}.fa

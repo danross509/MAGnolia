@@ -17,6 +17,7 @@ workflow READ_CONTIG_TAXONOMY {
     stage
 
     main:
+    tax_4_vamb = channel.empty()
 
     if ( !params.skip_kracken2 ) {
         KRAKEN2 (
@@ -72,17 +73,18 @@ workflow READ_CONTIG_TAXONOMY {
 
         }
 
-        if ( !params.skip_taxvamb) {
+        if ( stage == "contigs" ) {
             TAXCONVERTER ( KRAKEN2.out.output )
-        }
-        TAXCONVERTER.out.converted.view()
+
+            tax_4_vamb = tax_4_vamb.mix ( TAXCONVERTER.out.converted )
+        } 
     }
 
     if ( !params.skip_metaphlan4 ) {
 
     }
 
-    //emit:
-    
+    emit:
+    tax_4_vamb
     
 }

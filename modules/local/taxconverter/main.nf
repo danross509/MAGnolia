@@ -34,7 +34,7 @@ process TAXCONVERTER {
         -i ${prefix}_pre-conversion.tsv \\
         -o ${prefix}_k2Converted.tsv
 
-    rm ${prefix}_pre-conversion
+    rm ${prefix}_pre-conversion.tsv
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

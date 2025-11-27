@@ -30,7 +30,7 @@ workflow BINNING {
     main:
 
     jgi_input_ch = assembly_alignments
-        .map { meta, reads, contigs, bams, bais, gfa ->
+        .map { meta, _reads, _contigs, bams, bais, _gfa, _tax ->
             [ meta, bams, bais ]
         }
 
@@ -48,8 +48,8 @@ workflow BINNING {
         }
 
     // Main bins for decompressing for MAG_DEPTHS
-    initial_bins = Channel.empty()
-    ch_input_splitfasta = Channel.empty()
+    initial_bins = channel.empty()
+    ch_input_splitfasta = channel.empty()
 
     // Final gzipped bins
     //binning_results_gzipped_final = Channel.empty()
@@ -61,10 +61,10 @@ workflow BINNING {
     // Create SemiBin2/SemiBin input
     if ( !params.skip_semibin2 ) {
         env = ['human_gut', 'dog_gut', 'ocean', 'soil', 'cat_gut', 'human_oral', 'mouse_gut', 'pig_gut', 'built_environment', 'wastewater', 'chicken_caecum', 'global']
-        if ( env.contains(params.semibin_environment) ) {
+        if ( env.contains( params.semibin_environment )) {
             // NEEDS TO KNOW: {single_sample | coassembly OR grouped assembly | cobinning OR grouped binning}, {short read | long read} 
             semibin2_input_ch = assembly_alignments
-                .map { meta, reads, contigs, bams, bais, gfa ->
+                .map { meta, _reads, contigs, bams, _bais, _gfa, _tax ->
                     def meta_new = meta + [binner: 'SemiBin2']
                     [ meta_new, contigs, bams ]
                 }
@@ -86,7 +86,7 @@ workflow BINNING {
     // Create COMEbin input
     if ( !params.skip_comebin ) {
         comebin_input = assembly_alignments
-            .map { meta, reads, contigs, bams, bais, gfa ->
+            .map { meta, _reads, contigs, bams, _bais, _gfa, _tax ->
                 def meta_new = meta + [binner: 'COMEbin']
                 [ meta_new, contigs, bams ]
             }
@@ -103,21 +103,30 @@ workflow BINNING {
 
     // Create metabat2 input
     metabat2_input_ch = assembly_alignments
-        .map { meta, reads, contigs, bams, bais, gfa ->
+        .map { meta, _reads, contigs, bams, bais, _gfa, _tax ->
             def meta_new = meta + [ binner: 'MetaBAT2' ]
             [ meta_new, contigs, bams, bais ]
         }
         .join ( ch_metabat_depths, by: 0 )
-        .map { meta, contigs, bams, bais, depths ->
+        .map { meta, contigs, _bams, _bais, depths ->
             [ meta, contigs, depths ]
         }
 
     // Create Vamb / TaxVamb input       ****** Adjust to include taxonomy, name binner TaxVamb if provided
     if ( !params.skip_vamb ) {
-        vamb_input = metabat2_input_ch
-            .map { meta, contigs, depths ->
+        vamb_input = assembly_alignments
+            .map { meta, _reads, contigs, _bams, _bais, _gfa, tax ->
+                def meta_new = meta + [ binner: 'MetaBAT2' ]
+                [ meta_new, contigs, tax ]
+            }
+            .join ( ch_metabat_depths, by: 0 )
+            .map { meta, contigs, tax, depths ->
+                println(tax)
                 def meta_new = meta + [binner: 'Vamb']
-                [ meta_new, contigs, depths, [], [] ] // nf-core Vamb input includes bams and taxonomy
+                if ( tax ) {
+                    meta_new.binner = 'TaxVamb'
+                }     
+                [ meta_new, contigs, depths, [], tax ] // nf-core Vamb input includes bams and taxonomy
             }
 
         VAMB_CONVERT_ABUNDANCE (
@@ -137,7 +146,7 @@ workflow BINNING {
     // Create McDevol input
     /*if ( !params.skip_mcdevol ) {
         mcdevol_input = assembly_alignments
-            .map { meta, reads, contigs, bams, bais, gfa ->
+            .map { meta, reads, contigs, bams, bais, gfa, tax ->
                 def meta_new = meta + [binner: 'McDevol']
                 [ meta_new, contigs, bams ]
             }
@@ -203,7 +212,7 @@ workflow BINNING {
     // Create CONCOCT input
     if ( !params.skip_concoct ) {
         concoct_input_ch = assembly_alignments
-            .map { meta, reads, contigs, bams, bais, gfa ->
+            .map { meta, _reads, contigs, bams, bais, _gfa, _tax ->
                 def meta_new = meta + [ binner: 'CONCOCT' ]
                 [ meta_new, contigs, bams, bais ]
             }
@@ -225,7 +234,7 @@ workflow BINNING {
     // Create LRBinner input
     if ( !params.skip_lrbinner ) {
         lrbinner_input = assembly_alignments
-            .map { meta, reads, contigs, bams, bais, gfa ->
+            .map { meta, reads, contigs, _bams, _bais, _gfa, _tax ->
                 def meta_new = meta + [ binner: 'LRBinner' ]
                 [ meta_new, reads, contigs ]
             }

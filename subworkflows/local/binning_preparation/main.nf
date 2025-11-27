@@ -16,19 +16,20 @@ include { MINIMAP2_ASSEMBLY_ALIGNMENT } from '../../../modules/local/minimap2/as
 
 workflow BINNING_PREPARATION {
     take:
-    assemblies                 // channel: [ val( meta ), path( contigs ), path (gfa), path([ [grouped], [reads] ]) ]
+    assemblies                 // channel: [ val( meta ), path( contigs ), path (gfa), path([ [grouped], [reads] ]), path(contig taxonomy) ]
 
 
     main:
 
-    bin_group_contigs = Channel.empty()
-    bin_group_gfa = Channel.empty()
-    bin_group_reads = Channel.empty()
+    bin_group_contigs = channel.empty()
+    bin_group_gfa = channel.empty()
+    bin_group_reads = channel.empty()
+    bin_group_tax = channel.empty()
   
     // Group together contigs according to bin group
     // If bin group != meta.id, rename
     bin_group_contigs = bin_group_contigs.mix ( assemblies )
-        .map { meta, contigs, gfa, reads ->
+        .map { meta, contigs, _gfa, _reads, _tax ->
             if ( !meta.coassembly && meta.id != meta.bin_group ) {
                 def meta_new = meta + [ id: meta.bin_group, assembly_group: 'self' ] // Don't change assembly group
                 [ meta_new, contigs ]
@@ -49,7 +50,7 @@ workflow BINNING_PREPARATION {
         }
 
     bin_group_gfa = bin_group_gfa.mix ( assemblies )
-        .map { meta, contigs, gfa, reads ->
+        .map { meta, _contigs, gfa, _reads, _tax ->
             if ( !meta.coassembly && meta.id != meta.bin_group ) {
                 def meta_new = meta + [ id: meta.bin_group, assembly_group: 'self' ]
                 [ meta_new, gfa ]
@@ -69,7 +70,7 @@ workflow BINNING_PREPARATION {
         }
 
     bin_group_reads = bin_group_reads.mix ( assemblies )
-        .map { meta, contigs, gfa, reads ->
+        .map { meta, _contigs, _gfa, reads, _tax ->
             if ( !meta.coassembly && meta.id != meta.bin_group ) {
                 def meta_new = meta + [ id: meta.bin_group, assembly_group: 'self' ]
                 [ meta_new, reads ]
@@ -88,13 +89,37 @@ workflow BINNING_PREPARATION {
             }
         }
 
+    bin_group_tax = bin_group_tax.mix ( assemblies )
+        .map { meta, _contigs, _gfa, _reads, tax ->
+            if ( !meta.coassembly && meta.id != meta.bin_group ) {
+                def meta_new = meta + [ id: meta.bin_group, assembly_group: 'self' ]
+                [ meta_new, tax ]
+            } else { 
+                [ meta, tax ]
+            }
+        }
+        .groupTuple()
+        .map { meta, tax ->
+            if ( tax.size() >= 2 ) {
+                def meta_new = meta + [ cobinning: true ]
+                [ meta_new, tax ]
+            } else {
+                def meta_new = meta + [ cobinning: false ]
+                [ meta_new, tax ]
+            }
+        }
+
     //bin_group_contigs.view()
     //bin_group_reads.view()
+    //bin_group_gfa.view()
+    //bin_group_tax.view()
     //concatenated_assemblies = Channel.empty()
 
     SEMIBIN_CONCATENATE_FASTA (
         bin_group_contigs
     )
+
+    //TAXVAMB_CONCATENATE_TAXONOMY ()
 
     // Do I need this step?
     //concatenated_assemblies = concatenated_assemblies.mix ( SEMIBIN_CONCATENATE_FASTA.out.concatenated_fasta.join ( bin_group_reads ))
@@ -121,7 +146,7 @@ workflow BINNING_PREPARATION {
                 } else {
                     preset = params.minimap2_nanopore_preset
                 }
-            } else if ( meta.sequencer = "PacBio" ) {
+            } else if ( meta.sequencer == "PacBio" ) {
                 if ( !params.minimap2_pacbio_preset ) {
                     if ( meta.corrected ) {
                         preset = "map-hifi" // (<1% error)
@@ -218,7 +243,7 @@ workflow BINNING_PREPARATION {
 
     //mapping_input.view()
 
-    ch_grouped_mappings = Channel.empty()
+    ch_grouped_mappings = channel.empty()
 
     //BOWTIE2_ASSEMBLY_ALIGNMENT( 
     //    mapping_input
@@ -232,7 +257,7 @@ workflow BINNING_PREPARATION {
 
     // group mappings for one assembly
     grouped_reads = split_reads
-        .map { meta, sampleID, reads ->
+        .map { meta, _sampleID, reads ->
             [ meta, reads ]
         }
         .groupTuple()
@@ -257,7 +282,8 @@ workflow BINNING_PREPARATION {
             [ meta, unwrapped, contigs, bams, bais, gfa ]
         }
         //.view { meta, reads, contigs, bams, bais, gfa -> "Bin prep output: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
-    
+        .join ( bin_group_tax, by: 0 )
+
     // multiple symlinks to the same assembly -> use first of sorted list
     //bowtie2_assembly_multiqc = BOWTIE2_ASSEMBLY_ALIGNMENT.out.log.map { contigs_meta, reads_meta, log -> [ log ] }
     //bowtie2_assembly_multiqc = MINIMAP2_ASSEMBLY_ALIGNMENT.out.log.map { contigs_meta, reads_meta, log -> [ log ] }

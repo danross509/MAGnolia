@@ -8,7 +8,7 @@ process CREATE_TMP_CSV {
 
     //publishDir "${launchDir}", mode: 'move'
 
-    input:
+    //input:
         //tuple val(meta), val(reads), val(count)
 
     output:

@@ -16,7 +16,7 @@ process WRITE_CONFIG {
         val reads_corrected
         val use_gpu
 
-    output:
+    //output:
         //path "empty_file.txt"
 
     script:

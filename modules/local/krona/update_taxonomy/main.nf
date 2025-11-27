@@ -6,7 +6,7 @@ process KRONA_K2_UPDATE_TAXONOMY {
     container ""
     conda "${moduleDir}/../import_taxonomy/environment.yml"
 
-    input:
+    //input:
 
     output:
         path("empty_file.txt"), emit: placeholder

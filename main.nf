@@ -479,7 +479,7 @@ workflow {
     /*********************
         Contig taxonomy
      *********************/
-
+    tax_4_vamb = channel.empty()
     if ( !params.skip_contig_taxonomy ) {
         CONTIG_TAXONOMY (
             final_contigs, 
@@ -487,6 +487,14 @@ workflow {
             run_bracken,
             "contigs"
         )
+
+        tax_4_vamb = tax_4_vamb.mix ( CONTIG_TAXONOMY.out.tax_4_vamb )
+    } else {
+        // If contig taxonomy not performed, create a channel with empty placeholders
+        tax_4_vamb = tax_4_vamb.mix ( final_contigs )
+            .map { meta, _contigs ->
+                [ meta, [] ]
+            }
     }
 
     /*************
@@ -500,12 +508,13 @@ workflow {
         binning_prep_input = binning_prep_input.mix ( final_contigs )
             .join ( assembly_graphs )
             .join ( reads_post_assembly )
+            .join ( tax_4_vamb )
 
         //binning_prep_input.view()                    
 
         BINNING_PREPARATION ( binning_prep_input )
 
-        //BINNING_PREPARATION.out.grouped_mappings.view()
+        BINNING_PREPARATION.out.grouped_mappings.view()
 
         BINNING (
             BINNING_PREPARATION.out.grouped_mappings,
@@ -515,7 +524,7 @@ workflow {
         //BINNING.out.bins.view()
 
         refinement_contigs = BINNING_PREPARATION.out.grouped_mappings
-            .map { meta, reads, contigs, bams, bais, gfa ->
+            .map { meta, _reads, contigs, _bams, _bais, _gfa, _tax ->
                 def meta_new = meta + [refined: false]
                 [ meta_new, contigs ]
             }
@@ -603,7 +612,7 @@ workflow {
     
     if ( !params.skip_binning ) {
         bin_group_reads = BINNING_PREPARATION.out.grouped_mappings
-            .map { meta, reads, contigs, bams, bais, gfa ->
+            .map { meta, reads, _contigs, _bams, _bais, _gfa, _tax ->
                 [ meta, reads ]
             }
 
