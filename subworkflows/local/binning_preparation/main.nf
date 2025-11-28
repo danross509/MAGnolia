@@ -204,6 +204,32 @@ workflow BINNING_PREPARATION {
         }
 
 
+    grouped_gfa = bin_group_gfa
+        //.view { meta, gfa -> "Before 1st unwrap: meta=${meta}, gfa=${gfa}, gfa.class=${gfa.class}, gfa.size=${gfa.size()}, gfa[0].class=${gfa[0].class}" }
+        .map { meta, gfa ->
+            if ( gfa.size() == 1 && gfa[0] instanceof Path ) {
+                [ meta, gfa ]
+            } else {
+                def gfaList = gfa as List
+                def unwrapped = gfaList.size() == 1 && gfaList[0] instanceof List ? gfaList[0] : gfaList
+                [ meta, unwrapped ]
+            }
+        }
+
+    grouped_tax = bin_group_tax
+        .view { meta, tax -> "Before 1st unwrap: meta=${meta}, tax=${tax}, tax.class=${tax.class}, tax.size=${tax.size()}, tax[0].class=${tax[0].class}" }
+        .map { meta, tax ->
+            if ( tax.size() == 1 && tax[0] instanceof Path ) {
+                [ meta, tax ]
+            } else {
+                def taxList = tax as List
+                def unwrapped = taxList.size() == 1 && taxList[0] instanceof List ? taxList[0] : taxList
+                [ meta, unwrapped ]
+            }
+        }
+        .view { meta, tax -> "After 1st unwrap: meta=${meta}, tax=${tax}, tax.class=${tax.class}, tax.size=${tax.size()}, tax[0].class=${tax[0].class}" }
+        //.view { meta, tax -> "After 1st unwrap: meta=${meta}, tax=${tax}, tax.class=${tax.class}, tax.size=${tax.size()}" }
+        .view()
     /*
         .map { meta, reads ->
         // Recursively unwrap single-element lists until we get to the actual read data
@@ -271,7 +297,7 @@ workflow BINNING_PREPARATION {
         .map { meta, contigs, bams, bais -> 
             [ meta, contigs.sort()[0], bams, bais ] 
         }
-        .join ( bin_group_gfa )
+        .join ( grouped_gfa, by: 0 )
         //.combine ( split_reads, by: 0 )
         .combine ( grouped_reads, by: 0 )
         //.view { meta, contigs, bams, bais, gfa, reads -> "Bin prep output before unwrap: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
@@ -282,7 +308,7 @@ workflow BINNING_PREPARATION {
             [ meta, unwrapped, contigs, bams, bais, gfa ]
         }
         //.view { meta, reads, contigs, bams, bais, gfa -> "Bin prep output: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
-        .join ( bin_group_tax, by: 0 )
+        .join ( grouped_tax, by: 0 )
 
     // multiple symlinks to the same assembly -> use first of sorted list
     //bowtie2_assembly_multiqc = BOWTIE2_ASSEMBLY_ALIGNMENT.out.log.map { contigs_meta, reads_meta, log -> [ log ] }
