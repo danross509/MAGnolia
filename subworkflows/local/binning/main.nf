@@ -121,7 +121,7 @@ workflow BINNING {
             }
             .join ( ch_metabat_depths, by: 0 )
             .map { meta, contigs, tax, depths ->
-                println(tax)
+                println("${tax} has size ${tax.size()}")
                 def meta_new = meta + [binner: 'Vamb']
                 if ( tax ) {
                     meta_new.binner = 'TaxVamb'
