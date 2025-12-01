@@ -20,8 +20,8 @@ process K2_BUILD {
 
 
     script:
-    def kmer_length = kmer_len ?: ""
-    def max_size = max_db_size ?: ""
+    def kmer_length = kmer_len ? "--kmer-len ${kmer_len}" : ""
+    def max_size = max_db_size ? "--max-db-size ${max_db_size}" : ""
 
     """
     k2 build \

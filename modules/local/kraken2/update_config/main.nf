@@ -13,9 +13,7 @@ process KRAKEN2_UPDATE_CONFIG {
     def config_file = params.database_config
 
     """
-    installation=\$CONDA_PREFIX/share/kraken2-2.17/libexec
-
-    kraken2_update_config.py -d $db_dir -c $config_file -e \$installation
+    kraken2_update_config.py -d $db_dir -c $config_file
     """
 
 }

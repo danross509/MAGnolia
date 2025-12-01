@@ -125,10 +125,17 @@ workflow {
         // If there is no bracken build, build it
         println(kraken2_db_dir.toAbsolutePath().toString())
         if ( !params.bracken_build_exists ) {
+            if ( !params.bracken_memory_map && params.maxMem >= 240.GB ) {
+                bracken_mm = false
+            } else {
+                bracken_mm = true
+            }
+
             BRACKEN_BUILD (
             kraken2_db_dir.toAbsolutePath().toString(),
             params.bracken_kmer_len,
-            params.bracken_read_length
+            params.bracken_read_length,
+            bracken_mm
             )
 
             BRACKEN_UPDATE_CONFIG (
