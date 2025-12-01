@@ -12,6 +12,7 @@ include { COMEBIN_RUNCOMEBIN as COMEBIN } from '../../../modules/nf-core/comebin
 include { MCDEVOL } from '../../../modules/local/mcdevol/main.nf'
 include { LRBINNER } from '../../../modules/local/lrbinner/main.nf'
 include { VAMB_CONVERT_ABUNDANCE } from '../../../modules/local/vamb/convert_abundance/main.nf'
+include { VAMB_FILTER_TAXONOMY } from '../../../modules/local/scripts/taxvamb_filter_taxonomy/main.nf'
 include { VAMB_BIN } from '../../../modules/nf-core/vamb/bin/main.nf'
 //include { REPBIN }
 
@@ -121,7 +122,6 @@ workflow BINNING {
             }
             .join ( ch_metabat_depths, by: 0 )
             .map { meta, contigs, tax, depths ->
-                println("${tax} has size ${tax.size()}")
                 def meta_new = meta + [binner: 'Vamb']
                 if ( tax ) {
                     meta_new.binner = 'TaxVamb'
@@ -133,8 +133,13 @@ workflow BINNING {
             vamb_input
             )
 
-        VAMB_BIN ( 
+        VAMB_FILTER_TAXONOMY (
             VAMB_CONVERT_ABUNDANCE.out,
+            params.min_contig_length
+        )
+
+        VAMB_BIN ( 
+            VAMB_FILTER_TAXONOMY.out,
             params.min_contig_length
             )
 

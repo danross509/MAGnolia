@@ -5,6 +5,7 @@
  */
 
 include { SEMIBIN_CONCATENATE_FASTA } from '../../../modules/local/semibin/concatenate_fasta/main.nf'
+include { TAXVAMB_CONCATENATE_TAXONOMY } from '../../../modules/local/scripts/taxvamb_concatenate_tax/main.nf'
 
 //include { BOWTIE2_BUILD_INDEX } from '../../../modules/local/bowtie2/build_index/main.nf'
 //include { BOWTIE2_ASSEMBLY_ALIGNMENT } from '../../../modules/local/bowtie2/assembly_alignment/main.nf'
@@ -119,8 +120,6 @@ workflow BINNING_PREPARATION {
         bin_group_contigs
     )
 
-    //TAXVAMB_CONCATENATE_TAXONOMY ()
-
     // Do I need this step?
     //concatenated_assemblies = concatenated_assemblies.mix ( SEMIBIN_CONCATENATE_FASTA.out.concatenated_fasta.join ( bin_group_reads ))
 
@@ -203,6 +202,15 @@ workflow BINNING_PREPARATION {
             [ meta, sampleID, reads ]
         }
 
+    // group mappings for one assembly
+    grouped_reads = split_reads
+        .map { meta, _sampleID, reads ->
+            [ meta, reads ]
+        }
+        .groupTuple()
+    
+    //grouped_reads.view()
+
 
     grouped_gfa = bin_group_gfa
         //.view { meta, gfa -> "Before 1st unwrap: meta=${meta}, gfa=${gfa}, gfa.class=${gfa.class}, gfa.size=${gfa.size()}, gfa[0].class=${gfa[0].class}" }
@@ -269,8 +277,6 @@ workflow BINNING_PREPARATION {
 
     //mapping_input.view()
 
-    ch_grouped_mappings = channel.empty()
-
     //BOWTIE2_ASSEMBLY_ALIGNMENT( 
     //    mapping_input
     //)
@@ -281,16 +287,11 @@ workflow BINNING_PREPARATION {
 
     //MINIMAP2_ASSEMBLY_ALIGNMENT.out.mappings.view()
 
-    // group mappings for one assembly
-    grouped_reads = split_reads
-        .map { meta, _sampleID, reads ->
-            [ meta, reads ]
-        }
-        .groupTuple()
+    TAXVAMB_CONCATENATE_TAXONOMY (
+        grouped_tax
+    )
     
-    //grouped_reads.view()
-    
-
+    ch_grouped_mappings = channel.empty()
     //ch_grouped_mappings = ch_grouped_mappings.mix ( BOWTIE2_ASSEMBLY_ALIGNMENT.out.mappings )
     ch_grouped_mappings = ch_grouped_mappings.mix ( MINIMAP2_ASSEMBLY_ALIGNMENT.out.mappings )
         .groupTuple(by: 0)
@@ -308,7 +309,7 @@ workflow BINNING_PREPARATION {
             [ meta, unwrapped, contigs, bams, bais, gfa ]
         }
         //.view { meta, reads, contigs, bams, bais, gfa -> "Bin prep output: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
-        .join ( grouped_tax, by: 0 )
+        .join ( TAXVAMB_CONCATENATE_TAXONOMY.out.concatenated_tax, by: 0 )
 
     // multiple symlinks to the same assembly -> use first of sorted list
     //bowtie2_assembly_multiqc = BOWTIE2_ASSEMBLY_ALIGNMENT.out.log.map { contigs_meta, reads_meta, log -> [ log ] }
