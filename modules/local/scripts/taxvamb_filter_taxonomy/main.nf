@@ -12,10 +12,11 @@ process VAMB_FILTER_TAXONOMY {
     val minLength
 
     output:
-    tuple val(meta), path(assembly), path(abundance_tsv), path(bams), path("${meta.id}_filteredTax.tsv")
+    tuple val(meta), path(assembly), path(abundance_tsv), path(bams), path("${meta.id}_completedTax.tsv")
 
     script:
     """
-    taxvamb_filter_taxonomy.py -f $assembly -t $taxonomy -l $minLength -o ${meta.id}_filteredTax.tsv
+    taxvamb_filter_taxonomy.py -f $assembly -t $taxonomy -o ${meta.id}_completedTax.tsv
+    #taxvamb_filter_taxonomy.py -f $assembly -a $abundance_tsv -t $taxonomy -l $minLength -ot ${meta.id}_filteredTax.tsv -oa ${meta.id}_filteredAbundance.tsv -of ${meta.id}_filteredContigs.fa
     """
 }

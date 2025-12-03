@@ -5,83 +5,66 @@ import sys
 from pathlib import Path
 
 
-def parse_fasta_lengths(fasta_path):
-    contig_lengths = {}
-    current_contig = None
-    current_length = 0
+def get_fasta_contigs(fasta_path):
+    contig_names = set()
     
     with open(fasta_path, 'r') as f:
         for line in f:
             line = line.strip()
             if line.startswith('>'):
-                # Save previous contig if exists
-                if current_contig is not None:
-                    contig_lengths[current_contig] = current_length
-                
-                # Start new contig (remove '>' and take first word)
                 current_contig = line[1:].split()[0]
-                current_length = 0
+                contig_names.add(current_contig)
             else:
-                # Add to current sequence length
-                current_length += len(line)
-        
-        # Save last contig
-        if current_contig is not None:
-            contig_lengths[current_contig] = current_length
+                continue
     
-    return contig_lengths
+    return contig_names
 
-
-def filter_taxonomy(taxonomy_path, contig_lengths, min_length, output_path):
-    kept = 0
-    filtered = 0
+def update_taxonomy(taxonomy_path, contig_names, output_path):
+    classified_contigs = set()
+    added_contigs = set()
     
     with open(taxonomy_path, 'r') as infile, open(output_path, 'w') as outfile:
         # Process header
         header = infile.readline()
         outfile.write(header)
         
-        # Process each contig
+        # First process each classified contig
         for line in infile:
             line = line.strip()
             if not line:
                 continue
                 
-            # Split to get contig name (first column)
             parts = line.split('\t')
-            if len(parts) < 2:
-                continue
-                
+
+            # Add classified contig names to classified_contigs    
             contig_name = parts[0]
+            classified_contigs.add(contig_name)
             
-            # Check if contig exists and meets length requirement
-            if contig_name in contig_lengths:
-                if contig_lengths[contig_name] >= min_length:
-                    outfile.write(line + '\n')
-                    kept += 1
-                else:
-                    filtered += 1
-            else:
-                # Contig not found in assembly
-                filtered += 1
-                print(f"Warning: Contig '{contig_name}' not found in assembly", 
-                      file=sys.stderr)
-    
-    return kept, filtered
+            # Write each line to output file
+            outfile.write(line + '\n')
+
+        # Then parse all contigs, add those not classified to ouput file with blank classification
+        for contig in contig_names:
+            if contig not in classified_contigs:
+                added_contigs.add(contig)
+
+                # Write unclassified contigs to output file
+                outfile.write(contig + '\t' + '\n')
+
+    return added_contigs
+
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Filter taxonomy file based on contig lengths from assembly'
+        description='Filter taxonomy and FASTA files based on contig lengths and taxonomy predictions'
     )
     parser.add_argument('-f', '--fasta', required=True,
-                        help='Input FASTA assembly file')
+                        help='Input assembly file')
     parser.add_argument('-t', '--taxonomy', required=True,
-                        help='Input taxonomy TSV file')
-    parser.add_argument('-l', '--min-length', type=int, required=True,
-                        help='Minimum contig length to keep')
+                        help='Input taxonomy file')
     parser.add_argument('-o', '--output', required=True,
-                        help='Output filtered taxonomy TSV file')
+                        help='Output filtered taxonomy file')
     
     args = parser.parse_args()
     
@@ -94,23 +77,13 @@ def main():
         print(f"Error: Taxonomy file not found: {args.taxonomy}", file=sys.stderr)
         sys.exit(1)
     
-    # Parse contig lengths from FASTA
-    print(f"Reading contig lengths from {args.fasta}...", file=sys.stderr)
-    contig_lengths = parse_fasta_lengths(args.fasta)
-    print(f"Found {len(contig_lengths)} contigs in assembly", file=sys.stderr)
+    print(f"Reading contigs from {args.fasta}...", file=sys.stderr)
+    contig_names = get_fasta_contigs(args.fasta)
     
-    # Filter taxonomy file
-    print(f"Filtering taxonomy with minimum length {args.min_length}...", 
-          file=sys.stderr)
-    kept, filtered = filter_taxonomy(args.taxonomy, contig_lengths, 
-                                     args.min_length, args.output)
-    
-    # Report results
-    print(f"Results:", file=sys.stderr)
-    print(f"  Contigs kept: {kept}", file=sys.stderr)
-    print(f"  Contigs filtered out: {filtered}", file=sys.stderr)
-    print(f"Output written to {args.output}", file=sys.stderr)
+    print(f"Adding unclassified contig names to taxonomy file...", file=sys.stderr)
+    added_contigs = update_taxonomy(args.taxonomy, contig_names, args.output)
 
+    print(f"{len(added_contigs)} contigs from {args.fasta} without a taxonomy prediction were added to {args.taxonomy}", file=sys.stderr)
 
 if __name__ == '__main__':
     main()
