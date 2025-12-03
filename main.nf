@@ -818,27 +818,16 @@ workflow {
         ch_versions = ch_versions.mix(PROKKA.out.versions.first())
     }
     */
+
+    workflow.onComplete = {
+        // any workflow property can be used here
+        println "Pipeline complete"
+        println "Command line: $workflow.commandLine"
+    }
+
+    workflow.onError = {
+        println "Error: something when wrong"
+    }
     
 }
-
-/*  CheckM/CheckM2 will validate the contamination and completeness of each bin
-        (https://github.com/Ecogenomics/CheckM)
-        (https://github.com/chklovski/CheckM2)
-
-        Sourmash's gather alorithm will provide information on MAG distribution across samples
-        and what proportion of the samples don't map back to the MAGs
-        (https://github.com/sourmash-bio/sourmash)
-
-    Taxonomy
-        Users will have the option to classify bins using either the GTDB (https://github.com/Ecogenomics/GTDBTk)
-        or NCBI (https://github.com/ncbi/blast_plus_docs) databases
-    
-    Annotation
-        This is the step I have looked into the least.
-            KEGG
-            Eggnog
-            DRAM
-            CAZy
-            Bakta/Prokka
-*/
 
