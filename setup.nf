@@ -432,5 +432,17 @@ workflow {
         config_corrected,
         use_gpu
     )
+
+    workflow.onComplete = {
+        // any workflow property can be used here
+        println "<project> setup complete"
+        println "Please "
+        println "Command line: $workflow.commandLine"
+    }
+
+    workflow.onError = {
+        println "Error: something went wrong, please see nextflow.log for details"
+    }
+
 }
 

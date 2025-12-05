@@ -80,11 +80,13 @@ workflow {
     // Kraken2 database
     // kraken2_db_dir = channel.empty()
     // If there is a kraken database given
-    println("Kraken2db detected at ${params.kraken2_db}")
-    println("DRAM database detected at ${params.dram_config_loc}")
     if ( params.kraken2_db ) {
         kraken2_db_dir = file ( params.kraken2_db, checkIfExists: true )
-        println ( "Kraken is true" )
+        if ( kraken2_db_dir ) {
+            println ( "Kraken2 database found at ${kraken2_db_dir}" )
+        } else {
+            // exit
+        }
     // If no database is specified but Kraken2 will be used
     } else if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_kracken2 ) {
         /*KRAKEN2_DB_DOWNLOAD (
@@ -93,7 +95,7 @@ workflow {
             params.kraken2_kmer_len, 
             params.kraken2_max_db_size
         )*/
-        println ( "Kraken is downloading" )
+        println ( "Downloading Kraken2 database at ${db_download_dir}/kraken2_db" )
         K2_DOWNLOAD_TAXONOMY (
             db_download_dir
         )
@@ -115,10 +117,7 @@ workflow {
     // If no Kraken2 database is given and Kraken2 will not be used
     } else {
         kraken2_db_dir = []
-        println ( "Kraken is empty" )
     }
-
-    println("kraken path = ${kraken2_db_dir}")
 
     // If Kraken2 will be used AND if bracken will be run
     if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_kracken2 && !params.skip_bracken ) {
@@ -214,13 +213,18 @@ workflow {
             // AND If there is a DRAM config given
             if ( params.dram_config_loc ) {
                 dram_config_loc = file ( params.dram_config_loc, checkIfExists: true )
+                if ( dram_config_loc ) { 
+                    println("DRAM database found at ${dram_config_loc}")
 
-                DRAM_IMPORT_CONFIG (
-                    dram_config_loc.toAbsolutePath().toString(),
-                    db_download_dir,
-                    params.dram_kegg_loc,
-                    params.dram_skip_uniref
-                )
+                    DRAM_IMPORT_CONFIG (
+                        dram_config_loc.toAbsolutePath().toString(),
+                        db_download_dir,
+                        params.dram_kegg_loc,
+                        params.dram_skip_uniref
+                    )
+                } else {
+                    // exit
+                }
             }
 
             // If no DRAM config is given but DRAM will be used
@@ -255,7 +259,7 @@ workflow {
             } else {
                 BAKTA_BAKTADBDOWNLOAD ()
 
-                BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString().view()
+                BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString()
 
                 BAKTA_UPDATE_CONFIG (
                     BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString()
@@ -821,12 +825,12 @@ workflow {
 
     workflow.onComplete = {
         // any workflow property can be used here
-        println "Pipeline complete"
+        println "<project> complete"
         println "Command line: $workflow.commandLine"
     }
 
     workflow.onError = {
-        println "Error: something when wrong"
+        println "Error: something went wrong, please see nextflow.log for details"
     }
     
 }
