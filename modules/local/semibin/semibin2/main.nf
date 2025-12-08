@@ -3,6 +3,7 @@
 process SEMIBIN2 {
     tag "${meta.assembler}-${meta.id}"
     label 'process_high'
+    label params.use_gpu ? 'process_gpu' : ''
 
     container "community.wave.seqera.io/library/pip_semibin:b6a41dbb4d1296c7"
     conda params.use_gpu ? "${moduleDir}/environment_gpu.yml" : "${moduleDir}/environment.yml"
