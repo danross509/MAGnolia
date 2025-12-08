@@ -255,8 +255,17 @@ workflow {
             if ( params.bakta_db ) {
                 bakta_db_dir = file ( params.bakta_db, checkIfExists: true )
 
+                if ( bakta_db_dir) {
+                    bakta_db_dir = bakta_db_dir.toAbsolutePath().toString()
+                    println ( "Bakta database found at ${params.bakta_db}" )
+                } else {
+                    error ( "ERROR: bakta_db path ${params.bakta_db} does not exist" )
+                }
+
             // If no Bakta directory is given
             } else {
+                println ( "Bakta database not given, downloading to ${db_download_dir}" )
+
                 BAKTA_BAKTADBDOWNLOAD ()
 
                 BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString()
@@ -265,7 +274,7 @@ workflow {
                     BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString()
                 )
 
-                bakta_db_dir = BAKTA_BAKTADBDOWNLOAD.out.db // "${db_download_dir}/bakta/db"
+                bakta_db_dir = BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString() // "${db_download_dir}/bakta/db"
                 
                 
             }
@@ -613,7 +622,7 @@ workflow {
     if ( !params.skip_annotation ) {
         BIN_ANNOTATION ( 
             final_bins,
-            bakta_db_dir.toAbsolutePath().toString()
+            bakta_db_dir
         )
     }
 

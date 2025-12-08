@@ -4,9 +4,10 @@ channels:
 dependencies:
 - bioconda::bedtools=2.31.1
 - bioconda::hmmer==3.4
+- bioconda::samtools
 - pip
 - pip:
-  - SemiBin=2.2.0
-  - torch==2.7.1
-  - torchvision==0.22.1
-  - torchaudio==2.7.1
+  - SemiBin==2.2.0
+  - torch==2.9.1
+  - torchvision==0.24.1
+  - torchaudio==2.9.1
