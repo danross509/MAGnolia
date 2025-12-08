@@ -268,13 +268,13 @@ workflow {
 
                 BAKTA_BAKTADBDOWNLOAD ()
 
-                BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString()
+                //BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString()
 
                 BAKTA_UPDATE_CONFIG (
                     BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString()
                 )
 
-                bakta_db_dir = BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString() // "${db_download_dir}/bakta/db"
+                bakta_db_dir = BAKTA_BAKTADBDOWNLOAD.out.db // "${db_download_dir}/bakta/db"
                 
                 
             }
@@ -301,7 +301,6 @@ workflow {
         .splitCsv (header: true)
         .map { meta ->
             def meta_new = [:]
-            def reads = []
 
             meta_new.id = meta.sampleID
             meta_new.sequencer = meta.sequencer

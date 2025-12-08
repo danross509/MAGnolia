@@ -43,13 +43,13 @@ workflow {
         Data input
      ****************/
 
-    write_csv_input = Channel.empty()
+    write_csv_input = channel.empty()
 
     //Create channel of raw short reads
-    short_reads = Channel.empty()
+    short_reads = channel.empty()
     if ( params.illumina ) {
         def illumina_path = params.illumina.endsWith("/") ? params.illumina : params.illumina + "/"
-        short_reads = Channel.fromFilePairs ( "${illumina_path}*{1,2}.fastq.gz", size: -1 )
+        short_reads = channel.fromFilePairs ( "${illumina_path}*{1,2}.{fastq,fq}.gz", size: -1 )
             .map { sample, reads ->
                 def sampleID = sample.replaceAll(/_R$/, '')
                 return [ sampleID, reads ]
@@ -87,9 +87,9 @@ workflow {
                 }
                 
 
-                reads_path_1 = reads[0].toAbsolutePath().toString()
+                def reads_path_1 = reads[0].toAbsolutePath().toString()
                 if ( reads.size() == 2 ) {
-                    reads_path_2 = reads[1].toAbsolutePath().toString()
+                    def reads_path_2 = reads[1].toAbsolutePath().toString()
                     return [ meta, [ reads_path_1, reads_path_2 ]]
                 } else if ( reads.size() == 1 ) {
                     return [ meta, [ reads_path_1 ]]
@@ -106,13 +106,13 @@ workflow {
     }
     
     //Create channel of concatenated raw ONT (Nanopore) reads
-    nanopore_fastqs = Channel.empty()
-    nanopore_barcodes = Channel.empty()
-    nanopore_reads = Channel.empty()
+    nanopore_fastqs = channel.empty()
+    nanopore_barcodes = channel.empty()
+    nanopore_reads = channel.empty()
     if ( params.nanopore ) {
         def nanopore_path = params.nanopore.endsWith("/") ? params.nanopore : params.nanopore + "/"
         // Add option if presented as single fastq's?
-        nanopore_fastqs = Channel.fromPath ( "${nanopore_path}*.fastq.gz" )
+        nanopore_fastqs = channel.fromPath ( "${nanopore_path}*.{fastq,fq}.gz" )
             .map { reads ->
                 def meta = [:]
                 def sampleID = reads.getBaseName(2)
@@ -139,11 +139,11 @@ workflow {
                     meta.bin_group = "allReads"
                 }
                 
-                reads_path = reads.toAbsolutePath().toString()
+                def reads_path = reads.toAbsolutePath().toString()
                 return [ meta, [ reads_path ]] 
             }
 
-        nanopore_barcodes = Channel.fromPath ( "${nanopore_path}*/*.fastq.gz" )
+        nanopore_barcodes = channel.fromPath ( "${nanopore_path}*/*.{fastq,fq}.gz" )
             .map { reads ->
                 def meta = [:]
                 // Set barcode folder name as meta.id
@@ -214,7 +214,7 @@ workflow {
                     meta_new.bin_group = "allReads"
                 }
                 
-                reads_path = "${launchDir}/${nanopore_path}${meta_new.id}.fastq.gz"
+                def reads_path = "${launchDir}/${nanopore_path}${meta_new.id}.fastq.gz"
                 return [ meta_new, [ reads_path ]] 
             }
 
@@ -227,12 +227,12 @@ workflow {
     }
 
     //Create channel of concatenated raw PacBio reads
-    pacbio_fastqs = Channel.empty()
-    pacbio_bams = Channel.empty()
-    pacbio_reads = Channel.empty()
+    pacbio_fastqs = channel.empty()
+    pacbio_bams = channel.empty()
+    pacbio_reads = channel.empty()
     if ( params.pacbio ) {
         def pacbio_path = params.pacbio.endsWith("/") ? params.pacbio : params.pacbio + "/"
-        pacbio_fastqs = Channel.fromPath ( "${pacbio_path}*.fastq.gz" )
+        pacbio_fastqs = channel.fromPath ( "${pacbio_path}*.{fastq,fq}.gz" )
             .map { reads ->
                 def meta = [:]
                 def sampleID = reads.getBaseName(2).replaceAll(/.hifi_reads$/, '')
@@ -259,11 +259,11 @@ workflow {
                     meta.bin_group = "allReads"
                 }
                 
-                reads_path = reads.toAbsolutePath().toString()
+                def reads_path = reads.toAbsolutePath().toString()
                 return [ meta, [ reads_path ]] 
             }
 
-        pacbio_bams = Channel.fromPath ( "${pacbio_path}*.bam" )
+        pacbio_bams = channel.fromPath ( "${pacbio_path}*.bam" )
             .map { reads ->
                 def meta = [:]
                 def sampleID = reads.getBaseName(1).replaceAll(/.hifi_reads$/, '')
@@ -293,7 +293,7 @@ workflow {
                 return [ meta, reads ] 
             }
         
-        /*pacbio_pbis = Channel.fromPath ( "${pacbio_path}*.bam.pbi" )
+        /*pacbio_pbis = channel.fromPath ( "${pacbio_path}*.bam.pbi" )
             .map { reads ->
                 def meta = [:]
                 def sampleID = reads.getBaseName(2)
@@ -404,7 +404,7 @@ workflow {
     short_config_paired = false
     if ( params.illumina ) {
         short_config_paired = short_reads
-            .map { meta, reads ->
+            .map { meta, _reads ->
                 if ( !meta.paired_end ) {
                     return "false"
                 } else {

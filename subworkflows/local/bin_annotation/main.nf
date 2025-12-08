@@ -39,7 +39,7 @@ workflow BIN_ANNOTATION {
 
         BAKTA_BAKTA (
             bakta_bins_input,
-            bakta_db,
+            bakta_db.toAbsolutePath().toString(),
             [],[],[],[]
         )
 
