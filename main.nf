@@ -158,20 +158,33 @@ workflow {
         if ( params.checkm_version == 'checkm2' ) {
             // If a database is specified
             if ( params.checkm2_db ) {
-                checkm2_db_dir = [[ id: 'checkm2_db' ], file ( params.checkm2_db, checkIfExists: true )]
+                checkm2_db_dir = file ( params.checkm2_db, checkIfExists: true )
+
+                if ( checkm2_db_dir ) {
+                    println ( "CheckM2 database found at ${params.checkm2_db}" )
+                    checkm2_db_dir = checkm2_db_dir
+                        .map { db_path ->
+                            def meta = [ id: 'checkm2_db' ]
+                            return [ meta, db_path ]
+                        }
+                    
+                } else {
+                    error ( "ERROR: checkm2_db path ${params.checkm2_db} does not exist" )
+                }
 
             // If not, download it
             } else {
                 CHECKM2_DATABASEDOWNLOAD ( params.checkm2_db_version )
-                checkm2_db_dir = CHECKM2_DATABASEDOWNLOAD.out.database
                 ch_versions = ch_versions.mix ( CHECKM2_DATABASEDOWNLOAD.out.versions )
 
-                checkm2_db_path = checkm2_db_dir
-                    .map { it[1] }.toAbsolutePath().toString()
+                // tuple val(meta), path("checkm2_db_v${db_version}.dmnd")
 
                 CHECKM2_UPDATE_CONFIG (
-                    checkm2_db_path
+                    CHECKM2_DATABASEDOWNLOAD.out.database,
+                    params.checkm2_download_dir
                 )
+
+                checkm2_db_dir = CHECKM2_UPDATE_CONFIG.out.db
             }
 
             checkm_db_dir = []
@@ -223,7 +236,7 @@ workflow {
                         params.dram_skip_uniref
                     )
                 } else {
-                    // exit
+                    exit 1 ( "ERROR: DRAM database at ${dram_config_loc} not found" )
                 }
             }
 
@@ -255,7 +268,7 @@ workflow {
             if ( params.bakta_db ) {
                 bakta_db_dir = file ( params.bakta_db, checkIfExists: true )
 
-                if ( bakta_db_dir) {
+                if ( bakta_db_dir ) {
                     bakta_db_dir = bakta_db_dir.toAbsolutePath().toString()
                     println ( "Bakta database found at ${params.bakta_db}" )
                 } else {
@@ -271,11 +284,12 @@ workflow {
                 //BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString()
 
                 BAKTA_UPDATE_CONFIG (
-                    BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString()
+                    BAKTA_BAKTADBDOWNLOAD.out.db,
+                    params.bakta_download_dir
                 )
 
-                bakta_db_dir = BAKTA_BAKTADBDOWNLOAD.out.db // "${db_download_dir}/bakta/db"
-                
+                bakta_db_dir = BAKTA_UPDATE_CONFIG.out.db // "${db_download_dir}/bakta/db"
+                BAKTA_UPDATE_CONFIG.out.db.view()
                 
             }
         } else {

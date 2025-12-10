@@ -4,7 +4,7 @@ process VAMB_CONVERT_ABUNDANCE {
     tag "$meta.id"
     label 'process_single'
 
-    conda ""
+    conda "conda-forge::pandas"
     container ""
 
     input:
