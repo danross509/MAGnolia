@@ -41,7 +41,10 @@ def update_taxonomy(taxonomy_path, contig_names, output_path):
             classified_contigs.add(contig_name)
             
             # Write each line to output file
-            outfile.write(line + '\n')
+            if len(parts) < 2:
+                outfile.write(line + '\t' + '\n')
+            else:
+                outfile.write(line + '\n')
 
         # Then parse all contigs, add those not classified to ouput file with blank classification
         for contig in contig_names:

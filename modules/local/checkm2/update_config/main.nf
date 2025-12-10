@@ -11,7 +11,7 @@ process CHECKM2_UPDATE_CONFIG {
         val download_dir                // $desired/db/directory
 
     output:
-        tuple val(meta), path("${download_dir}/${db}")      , emit: db
+        tuple val(meta), val("${download_dir}/${db}")      , emit: db
         path "config_updated.txt"                           , emit: verified, optional: true
 
     script:
