@@ -4,9 +4,10 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
-  - python=3.10
+  - python==3.10
   - pytorch::pytorch
-  - pytorch::pytorch-cuda=11.7
+  - pytorch::pytorch-cuda==12.4
+  - nvidia::cuda-toolkit==12.4
   - numpy
   - scipy
   - seaborn

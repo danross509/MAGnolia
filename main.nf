@@ -158,15 +158,11 @@ workflow {
         if ( params.checkm_version == 'checkm2' ) {
             // If a database is specified
             if ( params.checkm2_db ) {
-                checkm2_db_dir = file ( params.checkm2_db, checkIfExists: true )
+                checkm2_db = file ( params.checkm2_db, checkIfExists: true )
 
-                if ( checkm2_db_dir ) {
+                if ( checkm2_db ) {
                     println ( "CheckM2 database found at ${params.checkm2_db}" )
-                    checkm2_db_dir = checkm2_db_dir
-                        .map { db_path ->
-                            def meta = [ id: 'checkm2_db' ]
-                            return [ meta, db_path ]
-                        }
+                    checkm2_db_dir = [[ id: 'checkm2_db' ], checkm2_db ]
                     
                 } else {
                     error ( "ERROR: checkm2_db path ${params.checkm2_db} does not exist" )
