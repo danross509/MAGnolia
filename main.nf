@@ -68,6 +68,7 @@ include { CHECKM2_DATABASEDOWNLOAD } from './modules/nf-core/checkm2/databasedow
 include { CHECKM2_UPDATE_CONFIG } from './modules/local/checkm2/update_config/main.nf'
 include { UNTAR as CHECKM_UNTAR } from './modules/nf-core/untar/main.nf'
 include { CHECKM_UPDATE_CONFIG } from './modules/local/checkm/update_config/main.nf'
+include { GTDB_DB_DOWNLOAD } from './modules/local/gtdb/db_download/main.nf'
 
 workflow {
     ch_versions = channel.empty()
@@ -85,7 +86,7 @@ workflow {
         if ( kraken2_db_dir ) {
             println ( "Kraken2 database found at ${kraken2_db_dir}" )
         } else {
-            // exit
+            exit 1 ( "ERROR: Kraken2 database at ${params.kraken2_db} not found" )
         }
     // If no database is specified but Kraken2 will be used
     } else if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_kracken2 ) {
@@ -165,7 +166,7 @@ workflow {
                     checkm2_db_dir = [[ id: 'checkm2_db' ], checkm2_db ]
                     
                 } else {
-                    error ( "ERROR: checkm2_db path ${params.checkm2_db} does not exist" )
+                    exit 1 ( "ERROR: checkm2_db path ${params.checkm2_db} does not exist" )
                 }
 
             // If not, download it
@@ -265,10 +266,10 @@ workflow {
                 bakta_db_dir = file ( params.bakta_db, checkIfExists: true )
 
                 if ( bakta_db_dir ) {
-                    bakta_db_dir = bakta_db_dir.toAbsolutePath().toString()
+                    //bakta_db_dir = bakta_db_dir.toAbsolutePath().toString()
                     println ( "Bakta database found at ${params.bakta_db}" )
                 } else {
-                    error ( "ERROR: bakta_db path ${params.bakta_db} does not exist" )
+                    exit 1 ( "ERROR: bakta_db path ${params.bakta_db} does not exist" )
                 }
 
             // If no Bakta directory is given
@@ -293,14 +294,40 @@ workflow {
         }
     }
 
-    gtdb = params.skip_classification || params.skip_gtdbtk ? false : params.gtdb_db
+    // Bin classification databases
+    if ( !params.skip_classification ) {
+        // If GTDB will be used
+        if ( !params.skip_gtdbtk ) {
+            // AND if there is a GTDB database given
+            if ( params.gtdb_db ) {
+                gtdb_db_dir = file ( params.gtdb_db, checkIfExists: true )
 
-    if ( gtdb ) {
-        gtdb = file( "${gtdb}", checkIfExists: true )
-        gtdb_mash = params.gtdb_mash ? file( "${params.gtdb_mash}", checkIfExists: true ) : []
-    }
-    else {
-        gtdb = []
+                if ( gtdb_db_dir ) {
+                    println ( "GTDB database found at ${params.gtdb_db}" )
+                } else {
+                    exit 1 ( "ERROR: gtdb_db path ${params.gtdb_db} does not exist" )
+                }
+
+            // If no GTDB database is given
+            } else {
+                println ( "GTDB database not given, downloading to ${db_download_dir}" )
+
+                GTDB_DB_DOWNLOAD (
+                    params.gtdb_download,
+                    db_download_dir
+                )
+
+                //GTDB_UPDATE_CONFIG (
+                //    GTDB_DB_DOWNLOAD.out.db
+                //)
+
+                //gtdb_db_dir = GTDB_UPDATE_CONFIG.out.db
+            }
+        } else {
+            gtdb_db_dir = []
+        }
+    } else {
+        gtdb_db_dir = []
     }
 
     /****************
@@ -616,13 +643,12 @@ workflow {
         Bin classification
      ************************/
 
-    if ( !params.skip_classification ) {
+    /*if ( !params.skip_classification ) {
        BIN_CLASSIFICATION ( 
             final_bins,
-            gtdb,
-            gtdb_mash
+            gtdb_db_dir
         )
-    }
+    }*/
 
     /********************
         Bin annotation

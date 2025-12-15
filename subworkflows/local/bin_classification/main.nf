@@ -9,10 +9,11 @@ workflow BIN_CLASSIFICATION {
     
     take:
         bins
-        gtdb
-        gtdb_mash
+        gtdb_db_dir
     
     main:
+
+    gtdb_mash = params.gtdb_mash ? file( "${params.gtdb_mash}", checkIfExists: true ) : []
 
     if ( gtdb.extension == 'gz' ) {
         // Expects to be tar.gz!
