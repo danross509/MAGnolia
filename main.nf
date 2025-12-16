@@ -30,15 +30,18 @@ include { QC_SHORT } from './subworkflows/local/qc_short/main.nf'
 include { QC_NANOPORE } from './subworkflows/local/qc_nanopore/main.nf'
 include { QC_PACBIO} from './subworkflows/local/qc_pacbio/main.nf'
 include { READ_CONTIG_TAXONOMY as READ_TAXONOMY } from './subworkflows/local/read_contig_taxonomy/main.nf'
+
 include { ASSEMBLY_PREP_SHORT } from './subworkflows/local/assembly_prep_short/main.nf'
 include { ASSEMBLY_PREP_LONG } from './subworkflows/local/assembly_prep_long/main.nf'
 include { ASSEMBLY_SHORT } from './subworkflows/local/assembly_short/main.nf'
 include { ASSEMBLY_LONG } from './subworkflows/local/assembly_long/main.nf'
 include { READ_CONTIG_TAXONOMY as CONTIG_TAXONOMY } from './subworkflows/local/read_contig_taxonomy/main.nf'
+
 include { BINNING_PREPARATION } from './subworkflows/local/binning_preparation/main.nf'
 include { BINNING } from './subworkflows/local/binning/main.nf'
 include { BIN_REFINEMENT } from './subworkflows/local/bin_refinement/main.nf'
 include { BIN_DEREPLICATION } from './subworkflows/local/bin_dereplication/main.nf'
+
 include { BIN_EVALUATION } from './subworkflows/local/bin_evaluation/main.nf'
 include { BIN_CLASSIFICATION } from './subworkflows/local/bin_classification/main.nf'
 include { BIN_COVERAGE } from './subworkflows/local/bin_coverage/main.nf'
@@ -50,8 +53,7 @@ include { BIN_QC } from './subworkflows/nf-core/bin_qc/main.nf'
 include { QUAST_BINS } from './modules/local/quast/quast_bins/main.nf'
 include { QUAST_BINS_SUMMARY } from './modules/local/quast/quast_bins_summary/main.nf'
 
-include { GTDBTK } from './subworkflows/nf-core_mag/gtdbtk/main.nf'
-include { BIN_SUMMARY } from './modules/nf-core_mag/bin_summary/main.nf'
+//include { BIN_SUMMARY } from './modules/nf-core_mag/bin_summary/main.nf'
 
 //include { KRAKEN2_DB_DOWNLOAD } from './modules/local/kraken2/db_download/main.nf'
 include { K2_DOWNLOAD_TAXONOMY } from './modules/local/kraken2/k2_download_taxonomy/main.nf'
@@ -69,6 +71,7 @@ include { CHECKM2_UPDATE_CONFIG } from './modules/local/checkm2/update_config/ma
 include { UNTAR as CHECKM_UNTAR } from './modules/nf-core/untar/main.nf'
 include { CHECKM_UPDATE_CONFIG } from './modules/local/checkm/update_config/main.nf'
 include { GTDB_DB_DOWNLOAD } from './modules/local/gtdb/db_download/main.nf'
+include { GTDB_UPDATE_CONFIG } from './modules/local/gtdb/update_config/main.nf'
 
 workflow {
     ch_versions = channel.empty()
@@ -79,7 +82,6 @@ workflow {
     db_download_dir = file("${params.databaseDownloadDir}").toAbsolutePath().toString()
 
     // Kraken2 database
-    // kraken2_db_dir = channel.empty()
     // If there is a kraken database given
     if ( params.kraken2_db ) {
         kraken2_db_dir = file ( params.kraken2_db, checkIfExists: true )
@@ -90,12 +92,6 @@ workflow {
         }
     // If no database is specified but Kraken2 will be used
     } else if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_kracken2 ) {
-        /*KRAKEN2_DB_DOWNLOAD (
-            db_download_dir,
-            params.kraken2_build,
-            params.kraken2_kmer_len, 
-            params.kraken2_max_db_size
-        )*/
         println ( "Downloading Kraken2 database at ${db_download_dir}/kraken2_db" )
         K2_DOWNLOAD_TAXONOMY (
             db_download_dir
@@ -153,7 +149,7 @@ workflow {
         run_bracken = false
     }
     
-    // Bin evaluation databases
+    // Bin evaluation (CheckM/CheckM2) databases
     if ( !params.skip_bin_evaluation) {
         // If running CheckM2
         if ( params.checkm_version == 'checkm2' ) {
@@ -286,7 +282,6 @@ workflow {
                 )
 
                 bakta_db_dir = BAKTA_UPDATE_CONFIG.out.db // "${db_download_dir}/bakta/db"
-                BAKTA_UPDATE_CONFIG.out.db.view()
                 
             }
         } else {
@@ -313,15 +308,15 @@ workflow {
                 println ( "GTDB database not given, downloading to ${db_download_dir}" )
 
                 GTDB_DB_DOWNLOAD (
-                    params.gtdb_download,
+                    params.gtdb_download
+                )
+
+                GTDB_UPDATE_CONFIG (
+                    GTDB_DB_DOWNLOAD.out.db,
                     db_download_dir
                 )
 
-                //GTDB_UPDATE_CONFIG (
-                //    GTDB_DB_DOWNLOAD.out.db
-                //)
-
-                //gtdb_db_dir = GTDB_UPDATE_CONFIG.out.db
+                gtdb_db_dir = GTDB_UPDATE_CONFIG.out.db
             }
         } else {
             gtdb_db_dir = []
@@ -334,7 +329,7 @@ workflow {
         Data input
      ****************/
 
-    reads = channel.fromPath ( params.reads_file )
+    reads_input = channel.fromPath ( params.reads_file )
         .splitCsv (header: true)
         .map { meta ->
             def meta_new = [:]
@@ -361,10 +356,10 @@ workflow {
             }
         }
     
-    //reads.view()
+    //reads_input.view()
 
     short_reads = channel.empty()
-    short_reads = short_reads.mix ( reads )
+    short_reads = short_reads.mix ( reads_input )
         .map { meta, reads ->
             if ( meta.sequencer == 'Illumina' ) {
                 return [ meta, reads ]
@@ -372,7 +367,7 @@ workflow {
         }
 
     nanopore_reads = channel.empty()
-    nanopore_reads = nanopore_reads.mix ( reads )
+    nanopore_reads = nanopore_reads.mix ( reads_input )
         .map { meta, reads ->
             if ( meta.sequencer == 'ONT' ) {
                 return [ meta, reads ]
@@ -380,7 +375,7 @@ workflow {
         }
 
     pacbio_reads = channel.empty()
-    pacbio_reads = pacbio_reads.mix ( reads )
+    pacbio_reads = pacbio_reads.mix ( reads_input )
         .map { meta, reads ->
             if ( meta.sequencer == 'PacBio' ) {
                 return [ meta, reads ]
@@ -510,22 +505,44 @@ workflow {
     hifiasm_bins = channel.empty()
 
     if ( !params.skip_assembly ) {
-        if ( params.short_reads && !params.nanopore_reads && !params.pacbio_reads ) {
-            ASSEMBLY_SHORT ( concatenated_reads, original_clean_reads )
+        if  ( !params.skip_spadeshybrid ) {
+            if ( params.short_reads && (params.nanopore_reads || params.pacbio_reads )) {
+                /*ASSEMBLY_HYBRID (
+                    concatenated_reads, 
+                    original_clean_reads,
+                    concatenated_long_reads, 
+                    original_clean_long_reads
+                )
+
+                final_contigs = ASSEMBLY_HYBRID.out.contigs
+                assembly_graphs = assembly_graphs.mix ( ASSEMBLY_HYBRID.out.assembly_graph )
+                reads_post_assembly = reads_post_assembly.mix ( ASSEMBLY_HYBRID.out.reads )
+                */
+            } else {
+                exit 1 ("ERROR: Cannot perform hybrid assembly without both short and long reads")
+            }
+
+        } else if ( params.short_reads ) {
+            ASSEMBLY_SHORT (
+                concatenated_reads, 
+                original_clean_reads
+            )
+
             final_contigs = final_contigs.mix ( ASSEMBLY_SHORT.out.contigs )
             assembly_graphs = assembly_graphs.mix ( ASSEMBLY_SHORT.out.assembly_graph )
             reads_post_assembly = reads_post_assembly.mix ( ASSEMBLY_SHORT.out.reads )
-        } else if ( !params.short_reads && ( params.nanopore_reads || params.pacbio_reads )) {
-            ASSEMBLY_LONG ( concatenated_long_reads, original_clean_long_reads )
+
+        } else if ( params.nanopore_reads || params.pacbio_reads ) {
+            ASSEMBLY_LONG (
+                concatenated_long_reads, 
+                original_clean_long_reads
+            )
+
             final_contigs = final_contigs.mix ( ASSEMBLY_LONG.out.final_contigs )
             assembly_graphs = assembly_graphs.mix ( ASSEMBLY_LONG.out.assembly_graphs )
             reads_post_assembly = reads_post_assembly.mix ( ASSEMBLY_LONG.out.final_reads )
             hifiasm_bins = hifiasm_bins.mix ( ASSEMBLY_LONG.out.hifiasm_bins )
-        } /*else if (params.short_reads && (params.nanopore_reads || params.pacbio_reads)) {
-            ASSEMBLY_HYBRID( concatenated_reads )
-            final_contigs = ASSEMBLY_HYBRID.out
-        }*/
-        
+        }
     }
 
     //final_contigs.view()
@@ -570,7 +587,7 @@ workflow {
 
         BINNING_PREPARATION ( binning_prep_input )
 
-        BINNING_PREPARATION.out.grouped_mappings.view()
+        //BINNING_PREPARATION.out.grouped_mappings.view()
 
         BINNING (
             BINNING_PREPARATION.out.grouped_mappings,
@@ -643,12 +660,12 @@ workflow {
         Bin classification
      ************************/
 
-    /*if ( !params.skip_classification ) {
+    if ( !params.skip_classification ) {
        BIN_CLASSIFICATION ( 
             final_bins,
             gtdb_db_dir
         )
-    }*/
+    }
 
     /********************
         Bin annotation

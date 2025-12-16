@@ -1,23 +1,21 @@
 #!/usr/bin/env nextflow
 
 process GTDB_DB_DOWNLOAD {
-    label 'process_low'
 
     conda "bioconda::gtdbtk=${params.gtdb_version}"
     container ""
 
     input:
     val db_url
-    path db_dir
 
     output:
-    //path "db*", emit: db
+    path "release*", emit: db
     path "versions.yml", emit: versions
 
     script:
     """
     wget $db_url
-    tar -xvzf *.tar.gz --directory $db_dir
+    tar -xvzf *.tar.gz
 
 
     cat <<-END_VERSIONS > versions.yml

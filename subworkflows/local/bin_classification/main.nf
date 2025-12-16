@@ -1,8 +1,6 @@
 #!/usr/bin/env nextflow
 
-include { GTDBTK_DB_PREPARATION } from '../../../modules/nf-core_mag/gtdbtk/db_preparation/main.nf'
 include { GTDBTK_CLASSIFYWF     } from '../../../modules/nf-core/gtdbtk/classifywf/main.nf'
-//include { GTDBTK_SUMMARY        } from '../../../modules/nf-core_mag/gtdbtk/summary/main.nf'
 
 
 workflow BIN_CLASSIFICATION {
@@ -13,31 +11,16 @@ workflow BIN_CLASSIFICATION {
     
     main:
 
-    gtdb_mash = params.gtdb_mash ? file( "${params.gtdb_mash}", checkIfExists: true ) : []
-
-    if ( gtdb.extension == 'gz' ) {
-        // Expects to be tar.gz!
-        ch_db_for_gtdbtk = GTDBTK_DB_PREPARATION ( gtdb ).db
-    } else if ( gtdb.isDirectory() ) {
-        // The classifywf module expects a list of the _contents_ of the GTDB
-        // database, not just the directory itself (I'm not sure why). But
-        // for now we generate this list before putting into a channel,
-        // then grouping again to pass to the module.
-        // Then make up meta id to match expected channel cardinality for GTDBTK
-        gtdb_dir = gtdb.listFiles()
-        ch_db_for_gtdbtk = channel
-                            .of(gtdb_dir)
-                            .collect()
-                            .map { ["gtdb", it] }
+    if ( gtdb_db_dir.isDirectory() ) {
+        gtdbtk_db = ["gtdbtk", gtdb_db_dir]
     } else {
-        error("Unsupported object given to --gtdb, database must be supplied as either a directory or a .tar.gz file!")
+        exit 1 ("gtdb_db must be supplied as a directory")
     }
 
     GTDBTK_CLASSIFYWF (
         bins,
-        ch_db_for_gtdbtk,
-        params.gtdbtk_pplacer_useram ? false : true,
-        gtdb_mash
+        gtdbtk_db,
+        params.gtdbtk_use_tmp_pplacer_dir
     )
 
 
