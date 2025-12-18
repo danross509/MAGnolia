@@ -70,8 +70,8 @@ include { CHECKM2_DATABASEDOWNLOAD } from './modules/nf-core/checkm2/databasedow
 include { CHECKM2_UPDATE_CONFIG } from './modules/local/checkm2/update_config/main.nf'
 include { UNTAR as CHECKM_UNTAR } from './modules/nf-core/untar/main.nf'
 include { CHECKM_UPDATE_CONFIG } from './modules/local/checkm/update_config/main.nf'
-include { GTDB_DB_DOWNLOAD } from './modules/local/gtdb/db_download/main.nf'
-include { GTDB_UPDATE_CONFIG } from './modules/local/gtdb/update_config/main.nf'
+include { GTDB_DB_DOWNLOAD } from './modules/local/gtdbtk/db_download/main.nf'
+include { GTDB_UPDATE_CONFIG } from './modules/local/gtdbtk/update_config/main.nf'
 
 workflow {
     ch_versions = channel.empty()

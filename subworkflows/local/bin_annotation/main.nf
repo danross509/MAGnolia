@@ -53,7 +53,7 @@ workflow BIN_ANNOTATION {
             .map { _meta_bin, meta_all, json ->
                 [ meta_all, json ]
             }
-            .groupTuple().view()
+            .groupTuple()
             
 
         BAKTA_COLLECT_ANNOTATION_STATS (

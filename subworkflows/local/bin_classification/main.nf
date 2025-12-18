@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
 
-include { GTDBTK_CLASSIFYWF     } from '../../../modules/nf-core/gtdbtk/classifywf/main.nf'
+include { GTDBTK_CLASSIFYWF } from '../../../modules/nf-core/gtdbtk/classifywf/main.nf'
 
 
 workflow BIN_CLASSIFICATION {
@@ -16,6 +16,8 @@ workflow BIN_CLASSIFICATION {
     } else {
         exit 1 ("gtdb_db must be supplied as a directory")
     }
+
+    bins.view()
 
     GTDBTK_CLASSIFYWF (
         bins,

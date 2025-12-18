@@ -225,7 +225,7 @@ workflow BINNING_PREPARATION {
         }
 
     grouped_tax = bin_group_tax
-        .view { meta, tax -> "Before 1st unwrap: meta=${meta}, tax=${tax}, tax.class=${tax.class}, tax.size=${tax.size()}, tax[0].class=${tax[0].class}" }
+        //.view { meta, tax -> "Before 1st unwrap: meta=${meta}, tax=${tax}, tax.class=${tax.class}, tax.size=${tax.size()}, tax[0].class=${tax[0].class}" }
         .map { meta, tax ->
             if ( tax.size() == 1 && tax[0] instanceof Path ) {
                 [ meta, tax ]
@@ -235,9 +235,9 @@ workflow BINNING_PREPARATION {
                 [ meta, unwrapped ]
             }
         }
-        .view { meta, tax -> "After 1st unwrap: meta=${meta}, tax=${tax}, tax.class=${tax.class}, tax.size=${tax.size()}, tax[0].class=${tax[0].class}" }
+        //.view { meta, tax -> "After 1st unwrap: meta=${meta}, tax=${tax}, tax.class=${tax.class}, tax.size=${tax.size()}, tax[0].class=${tax[0].class}" }
         //.view { meta, tax -> "After 1st unwrap: meta=${meta}, tax=${tax}, tax.class=${tax.class}, tax.size=${tax.size()}" }
-        .view()
+        //.view()
     /*
         .map { meta, reads ->
         // Recursively unwrap single-element lists until we get to the actual read data
