@@ -49,15 +49,17 @@ process METAMDBG {
         echo "min gfa k_value = \$min_gfa_k"
 
         if [[ $gfa_k == max ]]; then
-            k_value=\$max_gfa_k
+            k_value=\$((\$max_gfa_k-1))
+            echo "Unitig graph is not generated for the max metaMDBG k value <\$max_gfa_k>, using <\$k_value> to build assembly graph"
         elif [[ $gfa_k == min ]]; then
             k_value=\$min_gfa_k
+            echo "Using the minimum available metaMDBG k value <\$min_gfa_k> to build assembly graph"
         elif [[ $gfa_k -ge \$max_gfa_k ]]; then
             k_value=\$((\$max_gfa_k-1))
-            echo "Specified metaMDBG k value <${gfa_k}> is greater than the maximum <\$max_gfa_k>, using <\$max_gfa_k>"
+            echo "Specified metaMDBG k value <${gfa_k}> is greater than the maximum <\$max_gfa_k>, using <\$k_value> to build assembly graph"
         elif [[ $gfa_k < \$min_gfa_k ]]; then
             k_value=\$min_gfa_k
-            echo "Specified metaMDBG k value <${gfa_k}> is below the minimun <\$min_gfa_k>, using <\$min_gfa_k>"
+            echo "Specified metaMDBG k value <${gfa_k}> is below the minimun <\$min_gfa_k>, using <\$min_gfa_k> to build assembly graph"
         else
             k_value=$gfa_k
         fi

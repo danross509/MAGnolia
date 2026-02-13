@@ -5,3 +5,4 @@ channels:
   - bioconda
 dependencies:
   - bioconda::drep=3.6.2
+  - conda-forge::pandas=2.3.3

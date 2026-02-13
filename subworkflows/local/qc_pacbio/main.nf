@@ -38,7 +38,15 @@ workflow QC_PACBIO {
     trimmed_pacbio_reads = Channel.empty()
     if ( !params.skip_pb_fastplong ) {
         FASTPLONG (
-            pacbio_reads
+            pacbio_reads,
+            params.fplong_disable_quality,
+            params.fplong_n_base_limit,
+            params.fplong_n_per_limit,
+            params.fplong_min_phred,
+            params.fplong_unqualified_per,
+            params.fplong_mean_qual,
+            params.fplong_min_length,
+            params.fplong_max_length
         )
 
         trimmed_pacbio_reads = trimmed_pacbio_reads.mix ( FASTPLONG.out.reads )

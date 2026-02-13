@@ -152,7 +152,8 @@ workflow {
     // Bin evaluation (CheckM/CheckM2) databases
     if ( !params.skip_bin_evaluation) {
         // If running CheckM2
-        if ( params.checkm_version == 'checkm2' ) {
+        useCheckM2 = ['checkm2', 'both']
+        if ( useCheckM2.contains ( params.checkm_version ) ) {
             // If a database is specified
             if ( params.checkm2_db ) {
                 checkm2_db = file ( params.checkm2_db, checkIfExists: true )
@@ -180,32 +181,46 @@ workflow {
                 checkm2_db_dir = CHECKM2_UPDATE_CONFIG.out.db
             }
 
-            checkm_db_dir = []
+            if ( params.checkm_version == 'checkm2') {
+                checkm_db_dir = []
+            }
 
-        } else if ( params.checkm_version == 'checkm' ) {
+        } 
+        
+        // If running CheckM
+        useCheckM = ['checkm', 'both']
+        if ( useCheckM.contains ( params.checkm_version ) ) {
             // If a database is specified
             if ( params.checkm_db ) {
                 checkm_db_dir = [[ id: 'checkm_db' ], file ( params.checkm_db, checkIfExists: true )]
 
             // If not, download it
             } else {
-                checkm_db_dir = [[ id: 'checkm_db' ], file ( params.checkm_download_url, checkIfExists: true )]
+                checkm_untar_input = [[ id: 'checkm_db' ], file ( params.checkm_download_url, checkIfExists: true )]
 
-                CHECKM_UNTAR ( checkm_db_dir )
-                checkm_db_dir = CHECKM_UNTAR.out.untar
-                    .map { it[1] }
+                CHECKM_UNTAR ( checkm_untar_input )
+                CHECKM_UNTAR.out.untar.view()
+                //checkm_db_dir = CHECKM_UNTAR.out.untar
+                 //   .map { it[1] }
                 ch_versions = ch_versions.mix ( CHECKM_UNTAR.out.versions )
 
                 CHECKM_UPDATE_CONFIG (
-                    checkm_db_dir.toAbsolutePath().toString()
+                    CHECKM_UNTAR.out.untar,
+                    params.checkm2_download_dir
                 )
+
+                checkm_db_dir = CHECKM_UPDATE_CONFIG.out.db
             }
 
-            checkm2_db_dir = []
+            if ( params.checkm_version == 'checkm') {
+                checkm2_db_dir = []
+            }
+        }
 
-        } else {
+        if ( !useCheckM2.contains ( params.checkm_version ) && !useCheckM.contains ( params.checkm_version ) ) {
             // Error message and quit
         }
+
     } else {
         checkm2_db_dir = []
         checkm_db_dir = []

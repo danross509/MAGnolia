@@ -80,7 +80,10 @@ workflow BIN_EVALUATION {
     }
     */
 
-    if (params.checkm_version == "checkm2") {
+
+    // MODIFY TO ACCOUNT FOR POSSIBILITY OF BOTH CHECKM AND CHECKM2
+
+    if ( params.checkm_version == "checkm2" ) {
         CHECKM2_PREDICT(bins, checkm2_db_dir)
 
         COMBINE_BINQC_TSV(CHECKM2_PREDICT.out.checkm2_tsv.collect { summary -> summary[1] })
@@ -90,8 +93,7 @@ workflow BIN_EVALUATION {
             CHECKM2_PREDICT.out.versions.first(),
             COMBINE_BINQC_TSV.out.versions
         )
-    }
-    else if (params.checkm_version == "checkm") {
+    } else if ( params.checkm_version == "checkm" ) {
         bins_for_checkmlineagewf = bins
             .filter { meta, _bins ->
                 meta.domain != "eukarya"
