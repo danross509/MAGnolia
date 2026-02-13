@@ -2,7 +2,7 @@ process GTDBTK_CLASSIFYWF {
     tag "${meta.id}"
     label 'process_high_memory'
 
-    conda "${moduleDir}/environment.yml"
+    conda "${moduleDir}/environment_${params.gtdb_version}.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'https://depot.galaxyproject.org/singularity/gtdbtk:2.5.2--pyh1f0d9b5_0':
         'biocontainers/gtdbtk:2.5.2--pyh1f0d9b5_0' }"
