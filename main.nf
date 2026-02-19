@@ -192,7 +192,8 @@ workflow {
         if ( useCheckM.contains ( params.checkm_version ) ) {
             // If a database is specified
             if ( params.checkm_db ) {
-                checkm_db_dir = [[ id: 'checkm_db' ], file ( params.checkm_db, checkIfExists: true )]
+                //checkm_db_dir = [[ id: 'checkm_db' ], file ( params.checkm_db, checkIfExists: true )]
+                checkm_db_dir = [file ( params.checkm_db, checkIfExists: true )]
 
             // If not, download it
             } else {
@@ -631,7 +632,7 @@ workflow {
 
             post_refinement_bins = post_refinement_bins.mix ( BIN_REFINEMENT.out.refined_bins )
 
-            //BIN_REFINEMENT.out.refined_bins.view()
+            BIN_REFINEMENT.out.refined_bins.view()
 
         } else {
             post_refinement_bins = post_refinement_bins.mix ( initial_bins )
@@ -642,6 +643,31 @@ workflow {
     //*****************
     // DAStool and drep arguments
     
+    /********************
+        Bin evaluation
+     ********************/
+
+    bin_evaluations = channel.empty()
+    bins_post_evaluation = channel.empty()
+
+    // CheckM
+    if ( !params.skip_bin_evaluation) {
+        BIN_EVALUATION (
+            post_refinement_bins,
+            checkm2_db_dir,
+            checkm_db_dir
+        )
+
+        bins_post_evaluation = bins_post_evaluation.mix ( BIN_EVALUATION.out.bins_output )
+        bin_evaluations = bin_evaluations.mix( BIN_EVALUATION.out.bin_summary )
+
+    } else {
+
+        bins_post_evaluation = bins_post_evaluation.mix ( post_refinement_bins )
+
+    }
+
+    bin_evaluations.view()
 
     /*******************
         Dereplication
@@ -650,25 +676,15 @@ workflow {
     final_bins = channel.empty()
 
     if ( !params.skip_bin_dereplication ) {
-        BIN_DEREPLICATION ( post_refinement_bins )
+        BIN_DEREPLICATION ( 
+            bins_post_evaluation,
+            bin_evaluations
+        )
 
         final_bins = final_bins.mix ( BIN_DEREPLICATION.out.dereplicated_bins )
 
     } else {
-        final_bins = final_bins.mix ( post_refinement_bins )
-    }
-
-    /********************
-        Bin evaluation
-     ********************/
-
-    // CheckM
-    if ( !params.skip_bin_evaluation) {
-        BIN_EVALUATION (
-            final_bins,
-            checkm2_db_dir,
-            checkm_db_dir
-        )
+        final_bins = final_bins.mix ( bins_post_evaluation )
     }
 
     /************************

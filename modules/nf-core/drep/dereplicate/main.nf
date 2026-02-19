@@ -7,11 +7,10 @@ process DREP_DEREPLICATE {
         ? 'https://depot.galaxyproject.org/singularity/drep:3.6.2--pyhdfd78af_0'
         : 'biocontainers/drep:3.6.2--pyhdfd78af_0'}"
 
-    publishDir "${launchDir}/BINS/dereplicated/", mode: 'symlink'
-
     input:
     tuple val(meta), path(fastas, stageAs: 'input_fastas/*')
     tuple val(meta2), path(drep_work, stageAs: 'drep_work/')
+    tuple val(meta3), path(bin_evaluation)                      // Modified by David Ross (16-02-2026) to allow for --genomeInfo input
 
     output:
     tuple val(meta), path("dereplicated_genomes/*"), emit: fastas
@@ -26,6 +25,7 @@ process DREP_DEREPLICATE {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
+    def genome_info = bin_evaluation ? "--genomeInfo ${bin_evaluation}" : ""
     """
     if [[ ! -d drep_work/ ]]; then
         mkdir drep_work/
@@ -38,6 +38,7 @@ process DREP_DEREPLICATE {
         drep_work/ \\
         -p ${task.cpus} \\
         -g fastas_paths.txt \\
+        $genome_info \\
         ${args} \\
 
     ## We copy the output files to copies to ensure we don't break an already
