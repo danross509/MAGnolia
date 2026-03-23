@@ -7,7 +7,7 @@ process TRIMMOMATIC {
     container "community.wave.seqera.io/library/trimmomatic:0.39--a688969e471089d7"
     conda "bioconda::trimmomatic=0.39"
 
-    publishDir "${params.resultsDir}/QC/${meta.id}/trimmomatic", mode: 'symlink'
+    //publishDir "${params.resultsDir}/QC/${meta.id}/trimmomatic", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads_fastq)
@@ -22,6 +22,8 @@ process TRIMMOMATIC {
     def fq_2_paired = "${meta.id}_trimmed_2.fastq.gz"
     def fq_2_unpaired = "${meta.id}_trimmed_se_2.fastq.gz"
 
+    def args = task.ext.args ?: ''
+
     if (meta.paired_end) {
 
         """
@@ -32,7 +34,8 @@ process TRIMMOMATIC {
         $fq_2_paired \
         $fq_2_unpaired \
         ILLUMINACLIP:TruSeq3-PE.fa:2:30:10:2:True \
-        LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+        LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 \
+        $args
         """
     } else if (!meta.paired_end) {
 
@@ -41,7 +44,8 @@ process TRIMMOMATIC {
         ${reads_fastq[0]} \
         $fq_1_unpaired \
         ILLUMINACLIP:TruSeq3-SE.fa:2:30:10 \
-        LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+        LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 \
+        $args
         """
     }
 }

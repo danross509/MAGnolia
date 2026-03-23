@@ -7,7 +7,7 @@ process FASTPLONG {
     container "community.wave.seqera.io/library/fastplong:0.2.2--03217e568967f163"
     conda "fastplong=0.2.2"
 
-    publishDir "${params.resultsDir}/QC/${meta.id}/fastplong", mode: 'symlink'
+    //publishDir "${params.resultsDir}/QC/${meta.id}/fastplong", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads_fastq)
@@ -35,6 +35,7 @@ process FASTPLONG {
     def mean_qual = mean_qual_limit ? "--mean_qual ${mean_qual_limit}" : ""
     def length_required = min_length ? "--length_required ${min_length}" : ""
     def length_limit = max_length ? "--length_limit ${max_length}" : ""
+    def args = task.ext.args ?: ''
 
     """
     fastplong  \
@@ -48,6 +49,7 @@ process FASTPLONG {
     $mean_qual \
     $length_required \
     $length_limit \
+    $args \
     -h ${meta.id}_fastplong.html \
     -j ${meta.id}_fastplong.json
     """

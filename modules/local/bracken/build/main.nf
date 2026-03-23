@@ -7,8 +7,6 @@ process BRACKEN_BUILD {
     container ""
     conda "bioconda::kraken2=2.17 bioconda::bracken=3.1"
 
-    //publishDir "${params.resultsDir}/KRAKEN2/${meta.id}/${file_type}", mode: 'symlink'
-
     input:
         val database
         val kmer_len
@@ -21,6 +19,7 @@ process BRACKEN_BUILD {
 
     script:
     def replacement_py = bracken_mm ? "bracken-build_fixedMM" : "bracken-build_fixed"
+    def args = task.ext.args ?: ''
 
     """
     if [[ -f \$CONDA_PREFIX/bin/bracken-build ]]; then
@@ -33,7 +32,8 @@ process BRACKEN_BUILD {
     -d $database \
     -t $task.cpus \
     -k $kmer_len \
-    -l $read_len
+    -l $read_len \
+    $args
 
     """
 }

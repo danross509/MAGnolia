@@ -26,6 +26,7 @@ process MINIMAP2_INDEX {
     minimap2 -x $preset \
     -t $task.cpus \
     -d ${meta.id}-${preset}.mmi \
+    $args \
     $fasta 
 
     cat <<-END_VERSIONS > versions.yml
