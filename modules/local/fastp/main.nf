@@ -58,6 +58,7 @@ process FASTP {
         --unqualified_percent_limit $unqualified_limit \
         $disable_length_limit \
         $minimum_length \
+        --thread ${task.cpus} \
         $dedup
         """
     } else if (!meta.paired_end) {
@@ -73,6 +74,7 @@ process FASTP {
         --unqualified_percent_limit $unqualified_limit \
         $disable_length_limit \
         $minimum_length \
+        --thread ${task.cpus} \
         $dedup
         """
     }

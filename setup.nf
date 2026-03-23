@@ -149,34 +149,14 @@ workflow {
                 // Set barcode folder name as meta.id
                 def barcode = reads.getParent().getName()
                 meta.id = barcode
-                /*meta.sequencer = "ONT"
-                // Set paired_end as false for long reads
-                meta.paired_end = false
-                // Set default correctedness
-                if ( !params.corrected ) {
-                    meta.corrected = false
-                } else {
-                    meta.corrected = true
-                }
-                // Set assembly group
-                if ( !params.coassembly ) {
-                    meta.assembly_group = barcode
-                } else {
-                    meta.assembly_group = "allReads"
-                }
-                // Set bin group
-                if ( !params.cobinning ) {
-                    meta.bin_group = barcode
-                } else {
-                    meta.bin_group = "allReads"
-                }*/
+
                 return [ meta, reads ]
             }
             .groupTuple()
 
         CONCATENATE_ONT_BARCODES ( 
             nanopore_barcodes,
-            nanopore_path
+            "${launchDir}/${nanopore_path}"
             )
 
         // Replace the symlinks of the concatenated reads with the originals
@@ -268,60 +248,9 @@ workflow {
                 def meta = [:]
                 def sampleID = reads.getBaseName(1).replaceAll(/.hifi_reads$/, '')
                 meta.id = sampleID
-                /*meta.sequencer = "PacBio"
-                // Set paired_end as false for long reads
-                meta.paired_end = false
-                // Set default correctedness
-                if ( !params.corrected ) {
-                    meta.corrected = false
-                } else {
-                    meta.corrected = true
-                }
-                // Set assembly group
-                if ( !params.coassembly ) {
-                    meta.assembly_group = sampleID
-                } else {
-                    meta.assembly_group = "allReads"
-                }
-                // Set bin group
-                if ( !params.cobinning ) {
-                    meta.bin_group = sampleID
-                } else {
-                    meta.bin_group = "allReads"
-                }*/
                 
                 return [ meta, reads ] 
             }
-        
-        /*pacbio_pbis = channel.fromPath ( "${pacbio_path}*.bam.pbi" )
-            .map { reads ->
-                def meta = [:]
-                def sampleID = reads.getBaseName(2)
-                meta.id = sampleID
-                meta.sequencer = "PacBio"
-                // Set paired_end as false for long reads
-                meta.paired_end = false
-                // Set default correctedness
-                if ( !params.corrected ) {
-                    meta.corrected = false
-                } else {
-                    meta.corrected = true
-                }
-                // Set assembly group
-                if ( !params.coassembly ) {
-                    meta.assembly_group = sampleID
-                } else {
-                    meta.assembly_group = "allReads"
-                }
-                // Set bin group
-                if ( !params.cobinning ) {
-                    meta.bin_group = sampleID
-                } else {
-                    meta.bin_group = "allReads"
-                }
-                
-                return [ meta, reads ] 
-            }*/
 
         // To avoid replacing fastq.gz and bam with same sample names
         CONFIRM_SAMPLE_ID_PB (
@@ -361,7 +290,7 @@ workflow {
 
         PBTK_BAM2FASTQ (
             pbtk_bam2fastq_input,
-            pacbio_path
+            "${launchDir}/${pacbio_path}"
         )
 
         // Replace the symlinks of the generated fastq files with the originals

@@ -667,7 +667,7 @@ workflow {
 
     }
 
-    bin_evaluations.view()
+    //bin_evaluations.view()
 
     /*******************
         Dereplication
