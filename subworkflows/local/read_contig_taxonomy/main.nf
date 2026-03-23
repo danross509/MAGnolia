@@ -20,13 +20,19 @@ workflow READ_CONTIG_TAXONOMY {
     tax_4_vamb = channel.empty()
 
     if ( !params.skip_kracken2 ) {
+        if ( !params.kraken2_memory_mapping && (params.kraken2_hashk2d_size + 5.GB) <= params.maxMem ) {
+            kraken_mm = false
+        } else {
+            kraken_mm = true
+        }
+
         KRAKEN2 (
             reads,
             kraken_db,
             params.kraken2_useNames,
             params.kraken2_confidence,
             params.kraken2_quick,
-            params.kraken2_memory_mapping,
+            kraken_mm,
             params.kraken2_minimizer,
             params.kraken2_zero_counts,
             params.kraken2_minimum_hits,

@@ -48,10 +48,10 @@ include { BIN_COVERAGE } from './subworkflows/local/bin_coverage/main.nf'
 include { BIN_ANNOTATION } from './subworkflows/local/bin_annotation/main.nf'
 
 //include { DEPTHS } from './subworkflows/nf-core/depths/main.nf'
-include { BIN_QC } from './subworkflows/nf-core/bin_qc/main.nf'
+//include { BIN_QC } from './subworkflows/nf-core/bin_qc/main.nf'
 
-include { QUAST_BINS } from './modules/local/quast/quast_bins/main.nf'
-include { QUAST_BINS_SUMMARY } from './modules/local/quast/quast_bins_summary/main.nf'
+//include { QUAST_BINS } from './modules/local/quast/quast_bins/main.nf'
+//include { QUAST_BINS_SUMMARY } from './modules/local/quast/quast_bins_summary/main.nf'
 
 //include { BIN_SUMMARY } from './modules/nf-core_mag/bin_summary/main.nf'
 
@@ -66,6 +66,7 @@ include { BAKTA_UPDATE_CONFIG } from './modules/local/bakta/update_config/main.n
 include { DRAM_SETUP as DRAM_IMPORT_CONFIG } from './modules/local/dram/setup/main.nf'
 include { DRAM_SETUP as DRAM_PREPARE_DB } from './modules/local/dram/setup/main.nf'
 include { DRAM_UPDATE_CONFIG } from './modules/local/dram/update_config/main.nf'
+// Check the rest for ext.args
 include { CHECKM2_DATABASEDOWNLOAD } from './modules/nf-core/checkm2/databasedownload/main.nf'
 include { CHECKM2_UPDATE_CONFIG } from './modules/local/checkm2/update_config/main.nf'
 include { UNTAR as CHECKM_UNTAR } from './modules/nf-core/untar/main.nf'
@@ -278,7 +279,6 @@ workflow {
                 bakta_db_dir = file ( params.bakta_db, checkIfExists: true )
 
                 if ( bakta_db_dir ) {
-                    //bakta_db_dir = bakta_db_dir.toAbsolutePath().toString()
                     println ( "Bakta database found at ${params.bakta_db}" )
                 } else {
                     exit 1 ( "ERROR: bakta_db path ${params.bakta_db} does not exist" )
@@ -289,8 +289,6 @@ workflow {
                 println ( "Bakta database not given, downloading to ${db_download_dir}" )
 
                 BAKTA_BAKTADBDOWNLOAD ()
-
-                //BAKTA_BAKTADBDOWNLOAD.out.db.toAbsolutePath().toString()
 
                 BAKTA_UPDATE_CONFIG (
                     BAKTA_BAKTADBDOWNLOAD.out.db,
@@ -371,8 +369,6 @@ workflow {
                 return [ meta_new, [ meta.reads_R1 ]]
             }
         }
-    
-    //reads_input.view()
 
     short_reads = channel.empty()
     short_reads = short_reads.mix ( reads_input )
@@ -398,22 +394,12 @@ workflow {
             } 
         }
 
-    // Set params for each read set
-
     /*********************
         Quality control
      *********************/
-    // Create channel of phiX genome to remove
-    //phiX = channel.empty()
+    // Input phiX genome index for bowtie2 filtering
     phiX_index = channel.empty()
     if ( !params.skip_qc && params.short_reads && params.remove_phiX ) {
-        /*phiX = channel.fromPath ( params.phiX )
-            .map { reference ->
-                def meta = [:]
-                meta.id = reference.getBaseName()
-                return [ meta, reference ]
-            }
-        */
         phiX_index = channel.fromPath ( "${projectDir}/reference_genomes/phiX/*.bt2" )
             .map { index ->
                 def meta =[:]
@@ -823,12 +809,12 @@ workflow {
     * Bin QC subworkflows: for checking bin completeness with either BUSCO, CHECKM, CHECKM2, and/or GUNC
     */
 
-    if ( !params.skip_binqc ) {
+    /*if ( !params.skip_binqc ) {
         BIN_QC ( final_bins )
 
         ch_bin_qc_summary = BIN_QC.out.qc_summary
         ch_versions = ch_versions.mix ( BIN_QC.out.versions )
-    }
+    }*/
     
 /*    ch_quast_bins_summary = channel.empty()
     if (!params.skip_quast) {

@@ -7,7 +7,7 @@ process FASTP {
     container "community.wave.seqera.io/library/fastp:0.23.4--f8cefc1e5f7a782e"
     conda "bioconda::fastp=0.24.3"
 
-    publishDir "${params.resultsDir}/QC/${meta.id}/fastp", mode: 'symlink'
+    //publishDir "${params.resultsDir}/QC/${meta.id}/fastp", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads_fastq)
@@ -39,6 +39,8 @@ process FASTP {
     def minimum_length = length_required ? "--length_required ${length_required}" : ""
     def dedup = deduplication ? "--dedup" : ""
 
+    def args = task.ext.args ?: ''
+
     if (meta.paired_end) {
 
         """
@@ -58,7 +60,9 @@ process FASTP {
         --unqualified_percent_limit $unqualified_limit \
         $disable_length_limit \
         $minimum_length \
-        $dedup
+        --thread ${task.cpus} \
+        $dedup \
+        $args
         """
     } else if (!meta.paired_end) {
 
@@ -73,7 +77,9 @@ process FASTP {
         --unqualified_percent_limit $unqualified_limit \
         $disable_length_limit \
         $minimum_length \
-        $dedup
+        --thread ${task.cpus} \
+        $dedup \
+        $args
         """
     }
 }

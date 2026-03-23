@@ -7,7 +7,7 @@ process CONCATENATE_ONT_BARCODES {
     container ""
     conda ""
 
-    publishDir "${launchDir}/${file_directory}", mode: 'symlink'
+    publishDir "${file_directory}", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads)
@@ -16,18 +16,18 @@ process CONCATENATE_ONT_BARCODES {
 
     output:
         tuple val(meta), path("${meta.id}*.fastq.gz")                                       , emit: fastq, optional: true
-        //tuple val(meta), val("${launchDir}/${file_directory}/${meta.id}.fastq.gz")  , emit: setup_reads_csv, optional: true
+        //tuple val(meta), val("${file_directory}/${meta.id}.fastq.gz")  , emit: setup_reads_csv, optional: true
 
     script:
     def reads_size = reads.size()
 
     // Will crash if single fastq.gz in barcode folder AND filename already == ${meta.id}.fastq.gz
     """
-    if [[ ! -f ${launchDir}/${file_directory}/${meta.id}.fastq.gz ]]; then
+    if [[ ! -f ${file_directory}/${meta.id}.fastq.gz ]]; then
         file_name=${meta.id}.fastq.gz
     else
         count=1
-        while [[ -f ${launchDir}/${file_directory}/${meta.id}_\$count.fastq.gz ]]; do
+        while [[ -f ${file_directory}/${meta.id}_\$count.fastq.gz ]]; do
             let count++
         done
 

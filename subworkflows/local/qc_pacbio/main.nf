@@ -7,8 +7,6 @@
 include { FASTPLONG } from '../../../modules/local/fastplong/main.nf'
 include { MINIMAP2_INDEX } from '../../../modules/local/minimap2/index/main.nf'
 include { MINIMAP2_FILTER_HOST } from '../../../modules/local/minimap2/filter_host/main.nf'
-include { SAMTOOLS_EXTRACT_UNMAPPED } from '../../../modules/local/samtools/extract_unmapped/main.nf'
-include { CONCATENATE_CLEAN_READS as CONCATENATE_PACBIO_READS } from '../../../modules/local/scripts/concatenate_clean_reads/main.nf'
 
 workflow QC_PACBIO {
     take:
@@ -35,7 +33,7 @@ workflow QC_PACBIO {
     
 
     // Trim reads with FastpLong
-    trimmed_pacbio_reads = Channel.empty()
+    trimmed_pacbio_reads = channel.empty()
     if ( !params.skip_pb_fastplong ) {
         FASTPLONG (
             pacbio_reads,
@@ -67,7 +65,7 @@ workflow QC_PACBIO {
     }
 
     // Remove host reads with Minimap2 + Samtools
-    filtered_pacbio_reads = Channel.empty()
+    filtered_pacbio_reads = channel.empty()
     if ( params.host_genome ) {
         minimap2_index_input = host_genome
             .map { meta, genome ->
@@ -79,7 +77,7 @@ workflow QC_PACBIO {
                         pacbio_preset = "map-pb" // (<10% error)
                     }
                 } else {
-                    preset = params.minimap2_pacbio_preset
+                    pacbio_preset = params.minimap2_pacbio_preset
                 }
                 [ meta, genome, pacbio_preset ]
             }
@@ -98,10 +96,6 @@ workflow QC_PACBIO {
             minimap2_filter_input,
             "corrected"
         )
-
-        /*SAMTOOLS_EXTRACT_UNMAPPED (
-            MINIMAP2_HOST_ALIGNMENT.out.alignment_sam
-        )*/
 
         filtered_pacbio_reads = filtered_pacbio_reads.mix ( MINIMAP2_FILTER_HOST.out.filtered )
             .map { meta, reads ->
@@ -138,52 +132,6 @@ workflow QC_PACBIO {
             .collect()
         MULTIQC_OUT(all_toulligqc_out, "post-toulligQC")*/
     //}
-
-/*    concatenated_reads = Channel.empty()
-    original_clean_reads = Channel.empty()
-
-    if (params.assembly_mode == 'coassembly') { 
-        clean_pacbio_reads = filtered_pacbio_reads
-            .map { meta, reads ->
-                def meta_new = [:]
-                //println reads.size()
-                meta_new.id = "allReadsONT"
-                meta_new.sequencer = "ONT"
-                meta_new.corrected = meta.corrected
-                meta_new.filtered = meta.filtered
-                return [ meta_new, reads ]
-            }
-            .groupTuple()
-
-        CONCATENATE_PACBIO_READS(
-            clean_pacbio_reads,
-            ""
-        )
-
-        concatenated_reads = concatenated_reads.mix ( CONCATENATE_PACBIO_READS.out )
-            .map { meta, reads ->
-                def meta_new = meta + [ assembly_group: "all" ]
-                [ meta_new, reads ]
-            }
-        original_clean_reads = original_clean_reads.mix ( clean_pacbio_reads )
-            .map { meta, reads ->
-                def meta_new = meta + [ assembly_group: "all" ]
-                [ meta_new, reads ]
-            }
-
-    } else if ( params.assembly_mode == 'grouped' ) {
-        println "To do"
-    } else if ( params.assembly_mode == 'per_sample' ) {
-        original_clean_reads = filtered_pacbio_reads
-            .map { meta, reads ->
-                def meta_new = meta + [ assembly_group: "self" ]
-                [ meta_new, reads ]
-            }
-            
-    } else {
-        println "Assembly mode <${params.assembly_mode}> invalid, exiting"
-    }
-*/
 
     emit:
     filtered_pacbio_reads

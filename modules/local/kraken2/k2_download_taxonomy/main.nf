@@ -18,9 +18,11 @@ process K2_DOWNLOAD_TAXONOMY {
 
     script:
     def name = "${db_dir}/kraken2_db"
+    def args = task.ext.args ?: ''
 
     """
     k2 download-taxonomy \
-    --db $name
+    --db $name \
+    $args
     """
 }

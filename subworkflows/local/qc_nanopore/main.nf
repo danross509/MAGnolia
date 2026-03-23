@@ -7,8 +7,6 @@ include { MULTIQC as MULTIQC_OUT } from '../../../modules/local/multiqc/main.nf'
 include { FASTPLONG } from '../../../modules/local/fastplong/main.nf'
 include { MINIMAP2_INDEX } from '../../../modules/local/minimap2/index/main.nf'
 include { MINIMAP2_FILTER_HOST } from '../../../modules/local/minimap2/filter_host/main.nf'
-include { SAMTOOLS_EXTRACT_UNMAPPED } from '../../../modules/local/samtools/extract_unmapped/main.nf'
-include { CONCATENATE_CLEAN_READS as CONCATENATE_ONT_READS } from '../../../modules/local/scripts/concatenate_clean_reads/main.nf'
 
 workflow QC_NANOPORE {
     take:
@@ -19,11 +17,9 @@ workflow QC_NANOPORE {
     // Create pre-QC ToulligQC report for input reads;
     // Collect pre-QC ToulligQC output;
     // Summarize with multiqc
-    all_toulligqc_in = Channel.empty()
-    if (!params.skip_toulligqc){
-        TOULLIGQC_IN(
-            nanopore_reads, 
-            "Pre-ToulligQC")
+    //all_toulligqc_in = channel.empty()
+    if ( !params.skip_toulligqc ) {
+        TOULLIGQC_IN ( nanopore_reads )
         /*all_toulligqc_in = TOULLIGQC_IN.out.report_html
             .map { meta, report ->
                 return [ report ]
@@ -33,7 +29,7 @@ workflow QC_NANOPORE {
     }
 
     // Trim reads with FastpLong
-    trimmed_nanopore_reads = Channel.empty()
+    trimmed_nanopore_reads = channel.empty()
     if ( !params.skip_ont_fastplong ) {
         FASTPLONG (
             nanopore_reads,
@@ -65,7 +61,7 @@ workflow QC_NANOPORE {
     }
 
     // Remove host reads with Minimap2 + Samtools
-    filtered_nanopore_reads = Channel.empty()
+    filtered_nanopore_reads = channel.empty()
     if ( params.host_genome ) {
         minimap2_index_input = host_genome
             .map { meta, genome ->
@@ -77,7 +73,7 @@ workflow QC_NANOPORE {
                         nanopore_preset = "map-ont" // (<10% error)
                     }
                 } else {
-                    preset = params.minimap2_nanopore_preset
+                    nanopore_preset = params.minimap2_nanopore_preset
                 }
                 [ meta, genome, nanopore_preset ]
             }
@@ -96,10 +92,6 @@ workflow QC_NANOPORE {
             minimap2_filter_input,
             "corrected"
         )
-
-        /*SAMTOOLS_EXTRACT_UNMAPPED (
-            MINIMAP2_HOST_ALIGNMENT.out.alignment_sam
-        )*/
 
         filtered_nanopore_reads = filtered_nanopore_reads.mix ( MINIMAP2_FILTER_HOST.out.filtered )
             .map { meta, reads ->
@@ -124,11 +116,9 @@ workflow QC_NANOPORE {
     // Create post-QC toulligQC report for input reads;
     // Collect post-QC touliggQC output;
     // Summarize with multiqc
-    all_toulligqc_out = Channel.empty()
-    if (!params.skip_toulligqc){
-        TOULLIGQC_OUT(
-            filtered_nanopore_reads, 
-            "Post-ToulligQC")
+    //all_toulligqc_out = channel.empty()
+    if ( !params.skip_toulligqc ) {
+        TOULLIGQC_OUT ( filtered_nanopore_reads )
         /*all_toulligqc_out = TOULLIGQC_OUT.out.report_html
             .map { meta, report ->
                 return [ report ]
@@ -136,52 +126,6 @@ workflow QC_NANOPORE {
             .collect()
         MULTIQC_OUT(all_toulligqc_out, "post-toulligQC")*/
     }
-
-/*    concatenated_reads = Channel.empty()
-    original_clean_reads = Channel.empty()
-
-    if (params.assembly_mode == 'coassembly') { 
-        clean_nanopore_reads = filtered_nanopore_reads
-            .map { meta, reads ->
-                def meta_new = [:]
-                //println reads.size()
-                meta_new.id = "allReadsONT"
-                meta_new.sequencer = "ONT"
-                meta_new.corrected = meta.corrected
-                meta_new.filtered = meta.filtered
-                return [ meta_new, reads ]
-            }
-            .groupTuple()
-
-        CONCATENATE_ONT_READS(
-            clean_nanopore_reads,
-            ""
-        )
-
-        concatenated_reads = concatenated_reads.mix ( CONCATENATE_ONT_READS.out )
-            .map { meta, reads ->
-                def meta_new = meta + [ assembly_group: "all" ]
-                [ meta_new, reads ]
-            }
-        original_clean_reads = original_clean_reads.mix ( clean_nanopore_reads )
-            .map { meta, reads ->
-                def meta_new = meta + [ assembly_group: "all" ]
-                [ meta_new, reads ]
-            }
-
-    } else if ( params.assembly_mode == 'grouped' ) {
-        println "To do"
-    } else if ( params.assembly_mode == 'per_sample' ) {
-        original_clean_reads = filtered_nanopore_reads
-            .map { meta, reads ->
-                def meta_new = meta + [ assembly_group: "self" ]
-                [ meta_new, reads ]
-            }
-            
-    } else {
-        println "Assembly mode <${params.assembly_mode}> invalid, exiting"
-    }
-*/
 
     emit:
     filtered_nanopore_reads
