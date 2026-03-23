@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Originally written by David Ross for use within __.
 # See git repository (https://github.com/) for full license text.

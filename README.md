@@ -4,9 +4,9 @@
  Once installed, it is designed to be run using two commands:
 
 ``` 
-nextflow run ../setup.nf [--illumina $path] [--nanopore $path] [--pacbio $path] [--corrected] [--coassembly] [--cobinning] [--use_gpu]
+nextflow run setup.nf [--illumina $path] [--nanopore $path] [--pacbio $path] [--corrected] [--coassembly] [--cobinning] [--use_gpu]
 ```
-Where `$path` identifies the directory containing, for each input type:
+Where `$path` identifies the relative path to the directory containing each input type:
 
 ```
 --illumina:     Specify the folder containing illumina (short read) data: *_{R1,R2}.fastq.gz or *_{1,2}.fastq.gz
