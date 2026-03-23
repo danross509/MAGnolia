@@ -840,7 +840,7 @@ workflow {
             ch_cat_global_summary = CAT_SUMMARY.out.combined
         }
         else {*/
-            ch_cat_global_summary = channel.empty()
+            //ch_cat_global_summary = channel.empty()
         //}
 
     /*
