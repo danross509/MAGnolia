@@ -18,6 +18,7 @@ process TAXCONVERTER {
     script:
 
     def prefix = task.ext.prefix ?: "${meta.id}"
+    def args = task.ext.args ?: ''
 
     """
     if [[ ! -d \$CONDA_PREFIX/lib/python3.11/site-packages/data/ ]]; then
@@ -32,7 +33,8 @@ process TAXCONVERTER {
 
     taxconverter kraken2 \\
         -i ${prefix}_pre-conversion.tsv \\
-        -o ${prefix}_k2Converted.tsv
+        -o ${prefix}_k2Converted.tsv \\
+        $args
 
     rm ${prefix}_pre-conversion.tsv
 

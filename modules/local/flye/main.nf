@@ -24,6 +24,8 @@ process FLYE {
     def reads_input = "--${read_type} ${reads}"
     def metaflye = run_metaflye ? "--meta" : ""
     def genome = genome_size ?: ""
+    def args = task.ext.args ?: ''
+    def prefix = task.ext.prefix ?: "${meta.id}"
 
     """
     flye \
@@ -31,15 +33,12 @@ process FLYE {
     --threads $task.cpus \
     $metaflye \
     $genome \
+    $args \
     --out-dir ./
 
-    mv assembly.fasta ${meta.id}_assembly.fa
-    mv assembly_graph.gfa ${meta.id}_assembly_graph.gfa
-    mv assembly_graph.gv ${meta.id}_assembly_graph.gv
-    mv assembly_info.txt ${meta.id}_assembly_info.txt
-
-    #gzip ${meta.id}_assembly.fa
-    #gzip ${meta.id}_assembly_graph.gfa
-    #gzip ${meta.id}_assembly_graph.gv
+    mv assembly.fasta ${prefix}_assembly.fa
+    mv assembly_graph.gfa ${prefix}_assembly_graph.gfa
+    mv assembly_graph.gv ${prefix}_assembly_graph.gv
+    mv assembly_info.txt ${prefix}_assembly_info.txt
     """
 }

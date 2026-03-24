@@ -35,7 +35,6 @@ workflow BINNING_PREPARATION {
                 def meta_new = meta + [ id: meta.bin_group, assembly_group: 'self' ] // Don't change assembly group
                 [ meta_new, contigs ]
             } else { 
-                //println contigs.getExtension()
                 [ meta, contigs ]
             }
         }
@@ -110,20 +109,9 @@ workflow BINNING_PREPARATION {
             }
         }
 
-    //bin_group_contigs.view()
-    //bin_group_reads.view()
-    //bin_group_gfa.view()
-    //bin_group_tax.view()
-    //concatenated_assemblies = Channel.empty()
-
     SEMIBIN_CONCATENATE_FASTA (
         bin_group_contigs
     )
-
-    // Do I need this step?
-    //concatenated_assemblies = concatenated_assemblies.mix ( SEMIBIN_CONCATENATE_FASTA.out.concatenated_fasta.join ( bin_group_reads ))
-
-    //SEMIBIN_CONCATENATE_FASTA.out.concatenated_fasta.view()
 
     // Build minimap2 index for each contigs
     build_index_input = SEMIBIN_CONCATENATE_FASTA.out.concatenated_fasta
@@ -162,11 +150,6 @@ workflow BINNING_PREPARATION {
     MINIMAP2_INDEX (
         build_index_input
     )
-
-    //MINIMAP2_INDEX.out.index.view()
-    /*BOWTIE2_BUILD_INDEX (
-        build_index_input
-    )*/
 
     // FINAL OUTPUT SHOULD BE ONE CONTIG.FA, *_SORTED.BAM OF EACH SAMPLE IN CONTIG.FA
     //      ONE CONTIG + ONE BAM FOR "PER SAMPLE"
@@ -208,9 +191,6 @@ workflow BINNING_PREPARATION {
             [ meta, reads ]
         }
         .groupTuple()
-    
-    //grouped_reads.view()
-
 
     grouped_gfa = bin_group_gfa
         //.view { meta, gfa -> "Before 1st unwrap: meta=${meta}, gfa=${gfa}, gfa.class=${gfa.class}, gfa.size=${gfa.size()}, gfa[0].class=${gfa[0].class}" }
@@ -315,9 +295,6 @@ workflow BINNING_PREPARATION {
     //bowtie2_assembly_multiqc = BOWTIE2_ASSEMBLY_ALIGNMENT.out.log.map { contigs_meta, reads_meta, log -> [ log ] }
     //bowtie2_assembly_multiqc = MINIMAP2_ASSEMBLY_ALIGNMENT.out.log.map { contigs_meta, reads_meta, log -> [ log ] }
 
-
-    //ch_grouped_mappings.view()
-    //split_reads.view()
 
     emit:
     //bowtie2_assembly_multiqc

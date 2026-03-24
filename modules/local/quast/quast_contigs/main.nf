@@ -8,8 +8,6 @@ process QUAST_CONTIGS {
         //'https://depot.galaxyproject.org/singularity/quast:5.0.2--py37pl526hb5aa323_2' :
         //'biocontainers/quast:5.0.2--py37pl526hb5aa323_2' }"
 
-    publishDir "${params.resultsDir}/QUAST/contigs", mode: 'symlink'
-
     input:
     tuple val(meta), path(assembly)
     val min_contig
@@ -37,6 +35,7 @@ process QUAST_CONTIGS {
     def mem_eff = !mem_efficient ? "" : "--memory-efficient"
     def space_eff = !space_efficient ? "" : "--space-efficient"
     def use_blast_db = !blast_db ? "" : "--blast-db $blast_db"
+    def args = task.ext.args ?: ''
 
     """
     metaquast.py \\
@@ -53,6 +52,7 @@ process QUAST_CONTIGS {
         --max-ref-number 0 \\
         -l "${meta.id}_${meta.assembler}" \\
         "${assembly}" \\
+        $args \\
         -o "${meta.id}"
 
     for entry in ${meta.id}/*; do

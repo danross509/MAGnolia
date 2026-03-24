@@ -7,17 +7,15 @@ process CONCATENATE_CLEAN_READS {
     container ""
     conda ""
 
-    publishDir "${params.resultsDir}/CLEAN_READS/${meta.sequencer}", mode: 'symlink'
+    //publishDir "${params.resultsDir}/CLEAN_READS/${meta.sequencer}", mode: 'symlink'
 
     input:
         tuple val(meta), path(reads)
-        //val sample_prep_directory
         val strand
 
 
     output:
-        tuple val(meta), path("${meta.id}${strand}.fastq.gz")                                       , emit: fastq
-        //tuple val(meta), val("${launchDir}/${sample_prep_directory}/${filename}.fastq.gz")  , emit: setup_reads_csv, optional: true
+        tuple val(meta), path("${meta.id}${strand}.fastq.gz")   , emit: fastq
 
     script:
 

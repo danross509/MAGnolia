@@ -17,12 +17,12 @@ workflow CONTIG_COVERAGE {
 
     // Separate reads from contigs
     reads = coverage_input
-        .map { meta, contigs, reads ->
+        .map { meta, _contigs, reads ->
             [ meta, reads.flatten() ]
         }
 
     contigs = coverage_input
-        .map { meta, contigs, reads ->
+        .map { meta, contigs, _reads ->
             [ meta, contigs ]
         }
 

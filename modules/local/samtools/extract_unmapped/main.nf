@@ -7,7 +7,7 @@ process SAMTOOLS_EXTRACT_UNMAPPED {
     container "community.wave.seqera.io/library/samtools:1.21--0d76da7c3cf7751c"
     conda "bioconda::samtools=1.21"
 
-    publishDir "${params.resultsDir}/CLEAN_READS/nanopore", mode: 'symlink'
+    //publishDir "${params.resultsDir}/CLEAN_READS/nanopore", mode: 'symlink'
 
     input:
 
@@ -19,7 +19,7 @@ process SAMTOOLS_EXTRACT_UNMAPPED {
     //path "versions.yml"                     , emit: versions
 
     script:
-    def args = task.ext.args ?: ''
+    //def args = task.ext.args ?: ''
 
     """
     samtools fastq -f 4 \

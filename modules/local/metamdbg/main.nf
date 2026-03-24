@@ -8,8 +8,6 @@ process METAMDBG {
     container ""
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${params.resultsDir}/ASSEMBLY/${meta.id}/metaMDBG", mode: 'symlink'
-
     input:
         tuple val(meta), path(reads)
         val generate_assembly_graph
@@ -27,12 +25,15 @@ process METAMDBG {
     def contigpath = assembly_graph_contigs ? "--contigpath" : ""
     def readpath = assembly_graph_reads ? "--readpath" : ""
     def gfa_k = assembly_graph_k == "max" || assembly_graph_k == "min" || assembly_graph_k.toString().isInteger() ? assembly_graph_k : { error "Invalid assembly_graph_k value: ${assembly_graph_k}. Use 'max', 'min', or an integer." }
-
+    def asm_args = task.ext.asm_args ?: ''
+    def gfa_args = task.ext.asm_args ?: ''
+    def prefix = task.ext.prefix ?: "${meta.id}"
 
     """
     metaMDBG asm \
         $reads_input \
         --threads $task.cpus \
+        $asm_args \
         --out-dir output
 
     if [[ $generate_assembly_graph ]]; then
@@ -69,12 +70,12 @@ process METAMDBG {
         --k \$k_value \
         ${contigpath} \
         ${readpath} \
+        $gfa_args \
         --threads $task.cpus
     fi 
 
-    mv output/contigs.fasta.gz output/${meta.id}_assembly.fa.gz
-    gunzip output/${meta.id}_assembly.fa.gz
-    mv output/assemblyGraph*bps.gfa output/${meta.id}_assembly_graph.gfa
-    #gzip output/${meta.id}_assembly_graph.gfa
+    mv output/contigs.fasta.gz output/${prefix}_assembly.fa.gz
+    gunzip output/${prefix}_assembly.fa.gz
+    mv output/assemblyGraph*bps.gfa output/${prefix}_assembly_graph.gfa
     """
 }

@@ -2,7 +2,6 @@
 
 include { MEGAHIT } from '../../../modules/local/megahit/main.nf'
 include { SPADES as METASPADES } from '../../../modules/local/spades/main.nf'
-//include { METAHIPMER } from '../../../modules/local/hipmer/main.nf'
 include { GATB_MINIA_PIPELINE } from '../../../modules/local/gatb/minia_pipeline/main.nf'
 include { QUAST_CONTIGS } from '../../../modules/local/quast/quast_contigs/main.nf'
 include { CONTIG_COVERAGE } from '../../../subworkflows/local/contig_coverage/main.nf'

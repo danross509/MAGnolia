@@ -66,7 +66,6 @@ include { BAKTA_UPDATE_CONFIG } from './modules/local/bakta/update_config/main.n
 include { DRAM_SETUP as DRAM_IMPORT_CONFIG } from './modules/local/dram/setup/main.nf'
 include { DRAM_SETUP as DRAM_PREPARE_DB } from './modules/local/dram/setup/main.nf'
 include { DRAM_UPDATE_CONFIG } from './modules/local/dram/update_config/main.nf'
-// Check the rest for ext.args
 include { CHECKM2_DATABASEDOWNLOAD } from './modules/nf-core/checkm2/databasedownload/main.nf'
 include { CHECKM2_UPDATE_CONFIG } from './modules/local/checkm2/update_config/main.nf'
 include { UNTAR as CHECKM_UNTAR } from './modules/nf-core/untar/main.nf'
@@ -457,8 +456,6 @@ workflow {
     all_corrected_reads = corrected_reads.mix ( corrected_ont_reads, corrected_pacbio_reads )
     // if this is empty, exit
 
-    //all_corrected_reads.view()
-
     /*******************
         Read taxonomy
      *******************/
@@ -476,7 +473,6 @@ workflow {
     /**************
         Assembly
      **************/
-    // **************    
     concatenated_reads = channel.empty()        // Channel to concatenate fastq files for assembly ('per_sample' will be ungrouped sample fastq's)
     original_clean_reads = channel.empty()    // Channel to group original individual sample fastq's according to assembly file (for use in binning)
     if ( !params.skip_assembly && params.short_reads ) {
@@ -499,7 +495,6 @@ workflow {
         concatenated_long_reads = concatenated_long_reads.mix ( ASSEMBLY_PREP_LONG.out.concatenated_long_reads )
         original_clean_long_reads = original_clean_long_reads.mix ( ASSEMBLY_PREP_LONG.out.original_clean_long_reads )
     }
-    // *****************
     
     final_contigs = channel.empty()
     assembly_graphs = channel.empty()
@@ -547,10 +542,6 @@ workflow {
         }
     }
 
-    //final_contigs.view()
-    //assembly_graphs.view()
-    //reads_post_assembly.view()
-
     /*********************
         Contig taxonomy
      *********************/
@@ -583,20 +574,14 @@ workflow {
         binning_prep_input = binning_prep_input.mix ( final_contigs )
             .join ( assembly_graphs )
             .join ( reads_post_assembly )
-            .join ( tax_4_vamb )
-
-        //binning_prep_input.view()                    
+            .join ( tax_4_vamb )                  
 
         BINNING_PREPARATION ( binning_prep_input )
-
-        //BINNING_PREPARATION.out.grouped_mappings.view()
 
         BINNING (
             BINNING_PREPARATION.out.grouped_mappings,
             hifiasm_bins
         )
-
-        //BINNING.out.bins.view()
 
         refinement_contigs = BINNING_PREPARATION.out.grouped_mappings
             .map { meta, _reads, contigs, _bams, _bais, _gfa, _tax ->
@@ -652,8 +637,6 @@ workflow {
         bins_post_evaluation = bins_post_evaluation.mix ( post_refinement_bins )
 
     }
-
-    //bin_evaluations.view()
 
     /*******************
         Dereplication

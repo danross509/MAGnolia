@@ -6,8 +6,6 @@ process KRAKEN2 {
     container ""
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${params.resultsDir}/KRAKEN2/${file_type}/${meta.id}", mode: 'symlink'
-
     input:
         tuple val(meta), path(input_files)
         path database
@@ -34,6 +32,7 @@ process KRAKEN2 {
     def memory_mapping = mapping ? "--memory-mapping" : ""
     def minimizer_data = minimizer ? "--report-minimizer-data" : ""
     def report_zero_counts = zero_counts ? "--report-zero-counts" : ""
+    def args = task.ext.args ?: ''
 
     """
     k2 classify \
@@ -49,6 +48,7 @@ process KRAKEN2 {
     $report_zero_counts \
     --minimum-hit-groups $min_hits \
     --log ${name}.log \
+    $args \
     $input_files
     """
 }

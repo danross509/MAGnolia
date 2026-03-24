@@ -7,8 +7,6 @@ process HIFIASM_META {
     container ""
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${params.resultsDir}/ASSEMBLY/${meta.id}/Hifiasm_meta", mode: 'symlink'
-
     input:
         tuple val(meta), path(reads)
         val skip_hmbin
@@ -51,7 +49,5 @@ process HIFIASM_META {
     $args \
     ${reads}
     &> ${meta.id}_assembly.log
-
-    #gzip *.gfa
     """
 }

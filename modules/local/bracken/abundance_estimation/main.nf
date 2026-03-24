@@ -7,8 +7,6 @@ process BRACKEN_ABUNDANCE_ESTIMATION {
     container ""
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${params.resultsDir}/KRAKEN2/${file_type}/${meta.id}", mode: 'symlink'
-
     input:
         tuple val(meta), path(input_files)
         path database
@@ -24,6 +22,7 @@ process BRACKEN_ABUNDANCE_ESTIMATION {
 
     script:
     def name = "${meta.id}_${file_type}"
+    def args = task.ext.args ?: ''
 
     """
     bracken \
@@ -32,6 +31,7 @@ process BRACKEN_ABUNDANCE_ESTIMATION {
     -o ${name}.bracken \
     -r $read_len \
     -l $level \
-    -t $threshold
+    -t $threshold \
+    $args
     """
 }
