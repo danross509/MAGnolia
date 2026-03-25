@@ -2,24 +2,17 @@
 
 include { JGISUMMARIZEBAMCONTIGDEPTHS } from '../../../modules/local/metabat2/jgiSummarizeBamContigDepths/main.nf'
 include { CONVERT_DEPTHS } from '../../../modules/nf-core_mag/convert_depths/main.nf'
-include { SEMIBIN2 } from '../../../modules/local/semibin/semibin2/main.nf'
-include { METABAT2 } from '../../../modules/local/metabat2/metabat2/main.nf'
-include { FASTA_BINNING_CONCOCT } from '../../nf-core/fasta_binning_concoct/main.nf'
-include { METABINNER } from '../../../modules/local/metabinner/main.nf'
-include { MAXBIN2 } from '../../../modules/local/maxbin2/main.nf'
-include { ADJUST_MAXBIN2_EXT } from '../../../modules/nf-core_mag/adjust_maxbin2_ext'
-include { COMEBIN_RUNCOMEBIN as COMEBIN } from '../../../modules/nf-core/comebin/runcomebin/main.nf'
-//include { MCDEVOL } from '../../../modules/local/mcdevol/main.nf'
-include { LRBINNER } from '../../../modules/local/lrbinner/main.nf'
 include { VAMB_CONVERT_ABUNDANCE } from '../../../modules/local/vamb/convert_abundance/main.nf'
 include { VAMB_FILTER_TAXONOMY } from '../../../modules/local/scripts/taxvamb_filter_taxonomy/main.nf'
+
+include { SEMIBIN2 } from '../../../modules/local/semibin/semibin2/main.nf'
+include { COMEBIN_RUNCOMEBIN as COMEBIN } from '../../../modules/nf-core/comebin/runcomebin/main.nf'
 include { VAMB_BIN } from '../../../modules/nf-core/vamb/bin/main.nf'
-//include { REPBIN }
-
-include { SPLIT_FASTA } from '../../../modules/nf-core_mag/split_fasta/main.nf'
-include { GUNZIP as GUNZIP_BINS } from '../../../modules/nf-core/gunzip/main.nf'
-include { GUNZIP as GUNZIP_UNBINS } from '../../../modules/nf-core/gunzip/main.nf'
-
+include { METABAT2 } from '../../../modules/local/metabat2/metabat2/main.nf'
+include { METABINNER } from '../../../modules/local/metabinner/main.nf'
+include { MAXBIN2 } from '../../../modules/nf-core/maxbin2/main.nf'
+include { FASTA_BINNING_CONCOCT } from '../../nf-core/fasta_binning_concoct/main.nf'
+include { LRBINNER } from '../../../modules/local/lrbinner/main.nf'
 
 workflow BINNING {
     
@@ -27,16 +20,11 @@ workflow BINNING {
     assembly_alignments
     hifiasm_bins
     
-
     main:
-
     jgi_input_ch = assembly_alignments
         .map { meta, _reads, _contigs, bams, bais, _gfa, _tax ->
             [ meta, bams, bais ]
         }
-
-    //assembly_alignments.view()
-    //jgi_input_ch.view()
 
     JGISUMMARIZEBAMCONTIGDEPTHS (
         jgi_input_ch
@@ -44,16 +32,11 @@ workflow BINNING {
 
     ch_metabat_depths = JGISUMMARIZEBAMCONTIGDEPTHS.out.depth
         .map { meta, depths ->
-            def meta_new = meta + [binner: 'MetaBAT2'] // Change this?
+            def meta_new = meta + [binner: 'MetaBAT2']
             [ meta_new, depths ]
         }
 
-    // Main bins for decompressing for MAG_DEPTHS
     initial_bins = channel.empty()
-    ch_input_splitfasta = channel.empty()
-
-    // Final gzipped bins
-    //binning_results_gzipped_final = Channel.empty()
 
     if ( !params.skip_hmbin ) {
         initial_bins = initial_bins.mix ( hifiasm_bins )
@@ -77,7 +60,6 @@ workflow BINNING {
             )
 
             initial_bins = initial_bins.mix ( SEMIBIN2.out.bins )
-            //binning_results_gzipped_final = binning_results_gzipped_final.mix( SEMIBIN2.out.bins )
 
         } else {
             exit 1, "ERROR: SemiBin2 environment <${params.semibin_environment}> is invalid"
@@ -88,7 +70,7 @@ workflow BINNING {
     if ( !params.skip_comebin ) {
         comebin_input = assembly_alignments
             .map { meta, _reads, contigs, bams, _bais, _gfa, _tax ->
-                def meta_new = meta + [binner: 'COMEbin']
+                def meta_new = meta + [ binner: 'COMEbin' ]
                 [ meta_new, contigs, bams ]
             }
 
@@ -97,8 +79,7 @@ workflow BINNING {
             params.comebin_batch_size 
             )
 
-        initial_bins = initial_bins.mix( COMEBIN.out.bins )
-        //binning_results_gzipped_final = binning_results_gzipped_final.mix( COMEBIN.out.bins )
+        initial_bins = initial_bins.mix ( COMEBIN.out.bins )
 
     }
 
@@ -113,7 +94,7 @@ workflow BINNING {
             [ meta, contigs, depths ]
         }
 
-    // Create Vamb / TaxVamb input       ****** Adjust to include taxonomy, name binner TaxVamb if provided
+    // Create Vamb / TaxVamb input
     if ( !params.skip_vamb ) {
         vamb_input = assembly_alignments
             .map { meta, _reads, contigs, _bams, _bais, _gfa, tax ->
@@ -144,33 +125,13 @@ workflow BINNING {
             )
 
         initial_bins = initial_bins.mix ( VAMB_BIN.out.bins )
-        //binning_results_gzipped_final = binning_results_gzipped_final.mix( VAMB.out.bins )
 
     }
-
-    // Create McDevol input
-    /*if ( !params.skip_mcdevol ) {
-        mcdevol_input = assembly_alignments
-            .map { meta, reads, contigs, bams, bais, gfa, tax ->
-                def meta_new = meta + [binner: 'McDevol']
-                [ meta_new, contigs, bams ]
-            }
-
-        MCDEVOL ( 
-            mcdevol_input
-            )
-
-        //initial_bins = initial_bins.mix( MCDEVOL.out.bins )
-        //binning_results_gzipped_final = binning_results_gzipped_final.mix( MCDEVOL.out.bins )
-
-    }*/
 
     // Bin assembled contigs with MetaBAT2;
     if ( !params.skip_metabat2 ) {
         METABAT2 ( metabat2_input_ch )
         initial_bins = initial_bins.mix ( METABAT2.out.bins )
-        ch_input_splitfasta = ch_input_splitfasta.mix ( METABAT2.out.unbinned )
-        //binning_results_gzipped_final = binning_results_gzipped_final.mix ( METABAT2.out.bins )
     }
 
     if ( !params.skip_metabinner ) {
@@ -180,8 +141,6 @@ workflow BINNING {
                 [ meta_new, contigs, depths ]
             }
 
-        //metabat2_input_ch.view()
-
         METABINNER (
             metabinner_input,
             params.metabinner_dataset_scale,
@@ -189,10 +148,7 @@ workflow BINNING {
             params.metabinner_kmer_length
         )
 
-        //METABINNER.out.bins.view()
-
         initial_bins = initial_bins.mix ( METABINNER.out.bins )
-        //binning_results_gzipped_final = binning_results_gzipped_final.mix ( METABINNER.out.bins )
     }
 
     // nf_core MAG convert_depths for MaxBin2
@@ -204,14 +160,9 @@ workflow BINNING {
                 [ meta_new, contigs, reads, abund ]
             }
 
-    //maxbin2_input_ch.view()
         MAXBIN2 ( maxbin2_input_ch )
 
-        ADJUST_MAXBIN2_EXT ( MAXBIN2.out.bins )
-
-        initial_bins = initial_bins.mix ( ADJUST_MAXBIN2_EXT.out.renamed_bins )
-        ch_input_splitfasta = ch_input_splitfasta.mix ( MAXBIN2.out.unbinned_fasta )
-        //binning_results_gzipped_final = binning_results_gzipped_final.mix ( ADJUST_MAXBIN2_EXT.out.renamed_bins )
+        initial_bins = initial_bins.mix ( MAXBIN2.out.binned_fastas )
     }
 
     // Create CONCOCT input
@@ -233,7 +184,6 @@ workflow BINNING {
             )
 
         initial_bins = initial_bins.mix ( FASTA_BINNING_CONCOCT.out.bins )
-        //binning_results_gzipped_final = binning_results_gzipped_final.mix( FASTA_BINNING_CONCOCT.out.bins )
     }
 
     // Create LRBinner input
@@ -248,52 +198,11 @@ workflow BINNING {
             lrbinner_input
             )
 
-        //initial_bins = initial_bins.mix ( LRBINNER.out.bins )
-        //binning_results_gzipped_final = binning_results_gzipped_final.mix( FASTA_BINNING_CONCOCT.out.bins )
+        initial_bins = initial_bins.mix ( LRBINNER.out.bins )
     }
-
-    // decide which unbinned fasta files to further filter, depending on which binners selected
-    // NOTE: CONCOCT does not produce 'unbins' itself, therefore not included here.
-    /*if ( !params.skip_metabat2 && params.skip_maxbin2 ) {
-        ch_input_splitfasta = METABAT2.out.unbinned
-    } else if ( params.skip_metabat2 && !params.skip_maxbin2 ) {
-        ch_input_splitfasta = MAXBIN2.out.unbinned_fasta
-    } else if ( params.skip_metabat2 && params.skip_maxbin2 ) {
-        ch_input_splitfasta = Channel.empty()
-    } else {
-        ch_input_splitfasta = METABAT2.out.unbinned.mix ( MAXBIN2.out.unbinned_fasta )
-    }*/
-
-//    SPLIT_FASTA ( ch_input_splitfasta )
-    // large unbinned contigs from SPLIT_FASTA for decompressing for MAG_DEPTHS,
-    // first have to separate and re-group due to limitation of GUNZIP module
-//    ch_split_fasta_results_transposed = SPLIT_FASTA.out.unbinned.transpose()
-    //ch_versions = ch_versions.mix(SPLIT_FASTA.out.versions)
-
-    //GUNZIP_BINS ( initial_bins )
-    initial_binning_results = initial_bins
-        .groupTuple(by: 0)
-
-//    GUNZIP_UNBINS ( ch_split_fasta_results_transposed )
-//    ch_splitfasta_results_gunzipped = GUNZIP_UNBINS.out.gunzip
-//        .groupTuple(by: 0)
-
-    //ch_versions = ch_versions.mix(GUNZIP_BINS.out.versions.first())
-    //ch_versions = ch_versions.mix(GUNZIP_UNBINS.out.versions.first())
-
-    //binning_results_gunzipped.view()
-
-    //MAG bins output:
-        // Transposed bins
-        // Add [filename: bin.name] ie. unique name of bin, therefore id_assembler_binner
-        // Join with stats to remove small bins
-        // Final map [meta, bin]
 
     emit:
     bins                                         = initial_bins
-    //bins_gz                                      = binning_results_gzipped_final
-//    unbinned                                     = ch_splitfasta_results_gunzipped
-//    unbinned_gz                                  = SPLIT_FASTA.out.unbinned
     metabat2depths                               = JGISUMMARIZEBAMCONTIGDEPTHS.out.depth
     //versions                                     = ch_versions
 }

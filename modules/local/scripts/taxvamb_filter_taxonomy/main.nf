@@ -17,6 +17,5 @@ process VAMB_FILTER_TAXONOMY {
     script:
     """
     taxvamb_filter_taxonomy.py -f $assembly -t $taxonomy -o ${meta.id}_completedTax.tsv
-    #taxvamb_filter_taxonomy.py -f $assembly -a $abundance_tsv -t $taxonomy -l $minLength -ot ${meta.id}_filteredTax.tsv -oa ${meta.id}_filteredAbundance.tsv -of ${meta.id}_filteredContigs.fa
     """
 }

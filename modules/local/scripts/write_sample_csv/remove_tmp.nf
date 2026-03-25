@@ -6,9 +6,8 @@ process REMOVE_TMP_CSV {
     container ""
     conda "conda-forge::pandas=2.3.2"
 
-    //publishDir "${launchDir}", mode: 'move'
-
     input:
+        val launchDirectory
         val reads_count 
 
     output:
@@ -20,18 +19,18 @@ process REMOVE_TMP_CSV {
     script:
 
     """
-    if [[ ! -f ${launchDir}/samples_tmp/samples_tmp.csv ]]; then
+    if [[ ! -f ${launchDirectory}/samples_tmp/samples_tmp.csv ]]; then
         touch error_no_file.txt
-    elif [[ ! -s ${launchDir}/samples_tmp/samples_tmp.csv ]]; then
+    elif [[ ! -s ${launchDirectory}/samples_tmp/samples_tmp.csv ]]; then
         touch error_file_empty.txt
-        mv ${launchDir}/samples_tmp/samples_tmp.csv ${launchDir}/samples.csv
-        rm -r ${launchDir}/samples_tmp/
+        mv ${launchDirectory}/samples_tmp/samples_tmp.csv ${launchDirectory}/samples.csv
+        rm -r ${launchDirectory}/samples_tmp/
     else
         touch samples_csv_overwrite.txt
-        cd ${launchDir}/samples_tmp
+        cd ${launchDirectory}/samples_tmp
         reorder_samples.py
-        mv samples.csv ${launchDir}/samples.csv
-        rm -r ${launchDir}/samples_tmp/
+        mv samples.csv ${launchDirectory}/samples.csv
+        rm -r ${launchDirectory}/samples_tmp/
     fi
     
     """

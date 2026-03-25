@@ -8,8 +8,6 @@ process SEMIBIN2 {
     container "community.wave.seqera.io/library/pip_semibin:b6a41dbb4d1296c7"
     conda params.use_gpu ? "${moduleDir}/environment_gpu.yml" : "${moduleDir}/environment.yml"
 
-    publishDir "${params.resultsDir}/BINNING/${meta.id}/${meta.assembler}-semibin2", mode: 'symlink'
-
     input:
         tuple val(meta), path(assembly), path(bams)
         val envr
@@ -40,6 +38,7 @@ process SEMIBIN2 {
     $semibin_version $mode \\
     $environment \\
     $sequencing_type \\
+    $args \\
     -i $assembly \\
     -b $bams \\
     -o $output

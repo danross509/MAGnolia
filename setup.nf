@@ -95,12 +95,6 @@ workflow {
                     return [ meta, [ reads_path_1 ]]
                 }
             }
-
-        //short_reads.view()
-
-        //short_sample_count = short_reads.count()
-        //println short_sample_count
-        //write_csv_input = write_csv_input.mix ( short_reads.combine ( short_sample_count ) )
         
         write_csv_input = write_csv_input.mix ( short_reads )
     }
@@ -200,9 +194,6 @@ workflow {
 
         nanopore_reads = nanopore_reads.mix ( nanopore_fastqs, nanopore_concatenated_barcodes )
 
-        //nanopore_sample_count = nanopore_barcodes.count()
-        //write_csv_input = write_csv_input.mix ( nanopore_reads.combine ( nanopore_sample_count ) )
-
         write_csv_input = write_csv_input.mix ( nanopore_reads )         
     }
 
@@ -255,7 +246,7 @@ workflow {
         // To avoid replacing fastq.gz and bam with same sample names
         CONFIRM_SAMPLE_ID_PB (
             pacbio_bams,
-            pacbio_path,
+            "${launchDir}/${pacbio_path}",
             "fastq.gz"
         )
 
@@ -305,8 +296,6 @@ workflow {
                 return [meta, [ path ]]
             }
 
-        //pacbio_sample_count = pacbio_reads.count()
-        //write_csv_input = write_csv_input.mix ( pacbio_reads.combine ( pacbio_sample_count ) )
         pacbio_reads = pacbio_reads.mix ( pacbio_fastqs, pacbio_converted_fastqs )
         write_csv_input = write_csv_input.mix ( pacbio_reads )  
     }
@@ -315,10 +304,11 @@ workflow {
     
 
     // Write csv file of input files
-    CREATE_TMP_CSV ()
+    CREATE_TMP_CSV ("${launchDir}")
 
     // This is a channel of input, adding each file in no particular order
     WRITE_SAMPLES_CSV (
+        "${launchDir}",
         write_csv_input,
         CREATE_TMP_CSV.out
     )
@@ -326,6 +316,7 @@ workflow {
     // Counting the output of WRITE_SAMPLES_CSV ensures the csv is completed before moving
     remove_tmp_input = WRITE_SAMPLES_CSV.out.count()
     REMOVE_TMP_CSV (
+        "${launchDir}",
         remove_tmp_input
     )
 
@@ -348,12 +339,12 @@ workflow {
     use_gpu = params.use_gpu
 
     short_config_count.view()
-    //short_config_paired.view()
     nanopore_config_count.view()
     pacbio_config_count.view()
-    //println config_corrected
 
     WRITE_CONFIG (
+        "${projectDir}",
+        "${launchDir}",
         short_config_count,
         short_config_paired,
         nanopore_config_count,

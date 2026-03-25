@@ -7,8 +7,6 @@ process SEMIBIN_CONCATENATE_FASTA {
     container "community.wave.seqera.io/library/pip_semibin:b6a41dbb4d1296c7"
     conda "${moduleDir}/../semibin2/environment.yml"
 
-    //publishDir "${params.resultsDir}/BINNING/${meta.id}/${meta.assembler}-${semibin_version}", mode: 'symlink'
-
     input:
         tuple val(meta), path(contigs)
 
@@ -17,13 +15,14 @@ process SEMIBIN_CONCATENATE_FASTA {
         //path "versions.yml", emit: versions
 
     script:
-
+    def args = task.ext.args ?: ''
     def extension = !meta.cobinning && contigs.getExtension() == "gz" ? "fa.gz" : "fa"
 
     if ( meta.cobinning ) {
         """
         SemiBin2 concatenate_fasta \
         --input-fasta $contigs \
+        $args \
         -o ./
 
         mv ./concatenated.fa.gz ./${meta.id}_contigs.fa.gz

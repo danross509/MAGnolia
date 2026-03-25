@@ -7,10 +7,8 @@ process WRITE_SAMPLES_CSV {
     container ""
     conda ""
 
-    //publishDir "${launchDir}", mode: 'move'
-
     input:
-        //tuple val(meta), val(reads), val(count)
+        val launchDirectory
         tuple val(meta), val(reads)
         val placeholder
         
@@ -34,7 +32,7 @@ process WRITE_SAMPLES_CSV {
     """
     touch empty_file.txt
 
-    cd ${launchDir}/samples_tmp
+    cd ${launchDirectory}/samples_tmp
     write_samples_csv.py $sampleID -s $sequencer -p $paired_end -c $corrected -a $assembly_group -b $bin_group -1 $reads_1 -2 $reads_2
 
     """

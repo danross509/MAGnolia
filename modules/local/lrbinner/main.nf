@@ -7,8 +7,6 @@ process LRBINNER {
     conda "${moduleDir}/environment.yml"
     container ""
 
-    publishDir "${params.resultsDir}/BINNING/${meta.id}/${meta.assembler}-LRBinner", mode: 'symlink'
-
     input:
     tuple val(meta), path(reads), path(assembly)
     //tuple val(meta), path(assembly), path(bams)
@@ -23,6 +21,7 @@ process LRBINNER {
     def unzip_reads = reads.getExtension() == "gz" ? "gunzip -c $reads > reads_unzipped.fastq" : "cp $reads reads_unzipped.fastq"
     def cuda = params.use_gpu ? "--cuda" : ""
     def resume = task.attempt > 1 ? "--resume" : ""
+    def args = task.ext.args ?: ''
 
     //-i sam_files \\
     """
@@ -36,6 +35,7 @@ process LRBINNER {
         -t $task.cpus \\
         $cuda \\
         --output ./output \\
+        $args \\
         $resume
 
     rm contigs_unzipped.fa

@@ -20,13 +20,10 @@ workflow BIN_REFINEMENT {
     DASTOOL_FASTATOCONTIG2BIN ( initial_bins, "fa" )
 
     // If hmBin is used, modify circular MAGs in fastatocontig2bin to match expected format
-    f2c2b = DASTOOL_FASTATOCONTIG2BIN.out.fastatocontig2bin.branch { 
-        hmbin: it[0]['binner'] == 'hmBin'
-        remaining: it[0]['binner'] != 'hmBin'
-        }
-
-    //f2c2b.hmbin.view()
-    //f2c2b.remaining.view()
+    f2c2b = DASTOOL_FASTATOCONTIG2BIN.out.fastatocontig2bin.branch { meta, _tsv ->
+        hmbin: meta['binner'] == 'hmBin'
+        remaining: meta['binner'] != 'hmBin'
+    }
     
     hmbin_verified_f2c2b = channel.empty()
 
@@ -35,8 +32,6 @@ workflow BIN_REFINEMENT {
 
         hmbin_verified_f2c2b = hmbin_verified_f2c2b.mix ( HMBIN_VERIFY_F2C2B.out )
     }
-
-    //HMBIN_VERIFY_F2C2B.out.view()
 
     // Remove original binner info, group by bin_group
     fastatocontig2bin_grouped = channel.empty()
@@ -53,12 +48,8 @@ workflow BIN_REFINEMENT {
 
     // Run DASTool
     DASTOOL_DASTOOL ( dastool_input, [], [] )
-    //DASTOOL_DASTOOL.out.bins.view()
 
     RENAME_REFINED_BINS ( DASTOOL_DASTOOL.out.bins )
-
-    //RENAME_REFINED_BINS.out.refined_bins.view()
-    //RENAME_REFINED_BINS.out.refined_unbins.view()
 
     refined_bins = RENAME_REFINED_BINS.out.refined_bins
         .map { meta, bins ->

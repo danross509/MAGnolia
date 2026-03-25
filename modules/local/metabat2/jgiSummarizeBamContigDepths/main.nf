@@ -18,7 +18,5 @@ process JGISUMMARIZEBAMCONTIGDEPTHS {
     jgi_summarize_bam_contig_depths \
         --outputDepth ${meta.id}.txt \
         $bam
-
-    #bgzip --threads $task.cpus ${meta.id}.txt
     """
 }

@@ -6,10 +6,8 @@ process CREATE_TMP_CSV {
     container ""
     conda ""
 
-    //publishDir "${launchDir}", mode: 'move'
-
-    //input:
-        //tuple val(meta), val(reads), val(count)
+    input:
+        val launchDirectory
 
     output:
         path "empty_file.txt"
@@ -20,18 +18,18 @@ process CREATE_TMP_CSV {
     """
     touch empty_file.txt
 
-    if [[ -d ${launchDir}/samples_tmp ]]; then
+    if [[ -d ${launchDirectory}/samples_tmp ]]; then
         echo "Warning : removing existing samples_tmp folder"
-        rm -r ${launchDir}/samples_tmp
+        rm -r ${launchDirectory}/samples_tmp
     fi
 
-    mkdir ${launchDir}/samples_tmp
+    mkdir ${launchDirectory}/samples_tmp
 
-    if [[ -f ${launchDir}/samples.csv ]]; then
+    if [[ -f ${launchDirectory}/samples.csv ]]; then
         echo "Warning : existing samples.csv file will be overwritten"
     fi
 
-    cd ${launchDir}/samples_tmp
+    cd ${launchDirectory}/samples_tmp
     create_samples_csv.py
 
     """

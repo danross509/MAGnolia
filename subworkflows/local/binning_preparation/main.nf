@@ -7,17 +7,12 @@
 include { SEMIBIN_CONCATENATE_FASTA } from '../../../modules/local/semibin/concatenate_fasta/main.nf'
 include { TAXVAMB_CONCATENATE_TAXONOMY } from '../../../modules/local/scripts/taxvamb_concatenate_tax/main.nf'
 
-//include { BOWTIE2_BUILD_INDEX } from '../../../modules/local/bowtie2/build_index/main.nf'
-//include { BOWTIE2_ASSEMBLY_ALIGNMENT } from '../../../modules/local/bowtie2/assembly_alignment/main.nf'
-//include { BOWTIE2_ASSEMBLY_MAPPED_SORTED } from '../../../modules/local/bowtie2/assembly_mapped_sorted/main.nf'
-
-include { MINIMAP2_INDEX } from '../../../modules/local/minimap2/index/main.nf'
+include { MINIMAP2_INDEX as MINIMAP2_ASSEMBLY_INDEX } from '../../../modules/local/minimap2/index/main.nf'
 include { MINIMAP2_ASSEMBLY_ALIGNMENT } from '../../../modules/local/minimap2/assembly_alignment/main.nf'
-//include { MINIMAP2_ASSEMBLY_MAPPED_SORTED } from '../../../modules/local/minimap2/assembly_mapped_sorted/main.nf'
 
 workflow BINNING_PREPARATION {
     take:
-    assemblies                 // channel: [ val( meta ), path( contigs ), path (gfa), path([ [grouped], [reads] ]), path(contig taxonomy) ]
+    assemblies      // channel: [ val( meta ), path( contigs ), path (gfa), path([ [grouped], [reads] ]), path(contig taxonomy) ]
 
 
     main:
@@ -147,28 +142,22 @@ workflow BINNING_PREPARATION {
             [ meta, contigs, preset ]
         }
 
-    MINIMAP2_INDEX (
+    MINIMAP2_ASSEMBLY_INDEX (
         build_index_input
     )
 
     // FINAL OUTPUT SHOULD BE ONE CONTIG.FA, *_SORTED.BAM OF EACH SAMPLE IN CONTIG.FA
     //      ONE CONTIG + ONE BAM FOR "PER SAMPLE"
     //      ONE CONTIG + ALL BAMS FOR "COASSEMBLY" (OR FOR EACH "GROUPED ASSEMBLY")
-    //      ONE CONCATENATED CONTIG + ALL BAMS FOR COBINNING (OR FOR EACH "GROUPED BINNING")
-    //          GIVEN SAMPLES WERE INDIVIDUALLY ASSEMBLED
-
-
+    //      ONE CONCATENATED CONTIG + ALL BAMS FOR COBINNING (OR FOR EACH "GROUPED BINNING"), GIVEN SAMPLES WERE INDIVIDUALLY ASSEMBLED
 
     split_reads = bin_group_reads
-        //.view { meta, reads -> "Before 1st unwrap: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
         .map { meta, reads ->
             def readsList = reads as List
             def unwrapped = readsList.size() == 1 && readsList[0] instanceof List ? readsList[0] : readsList
             [meta, unwrapped]
         }
-        //.view { meta, reads -> "After 1st unwrap: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
         .transpose()
-        //.view { meta, reads -> "After transpose: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
         .map { meta, reads ->
             if ( reads instanceof Path ) {
                 [ meta, [ reads ]]
@@ -177,15 +166,13 @@ workflow BINNING_PREPARATION {
                 def unwrapped2 = readsList2.size() == 1 && readsList2[0] instanceof List ? readsList2[0] : readsList2
                 [ meta, unwrapped2 ]
             }
-        }    
-        //.view { meta, reads -> "After 2nd unwrap: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
+        }
         .map { meta, reads ->
             def sampleID = reads[0].getBaseName(2).replaceAll(/_corrected/, '').replaceAll(/_trimmed/, '').replaceAll(/_filtered/, '').replaceAll(/_.$/, '')
-            //def sampleID = reads.getBaseName(2).replaceAll(/_.$/, '')
             [ meta, sampleID, reads ]
         }
 
-    // group mappings for one assembly
+    // Group mappings for one assembly
     grouped_reads = split_reads
         .map { meta, _sampleID, reads ->
             [ meta, reads ]
@@ -193,7 +180,6 @@ workflow BINNING_PREPARATION {
         .groupTuple()
 
     grouped_gfa = bin_group_gfa
-        //.view { meta, gfa -> "Before 1st unwrap: meta=${meta}, gfa=${gfa}, gfa.class=${gfa.class}, gfa.size=${gfa.size()}, gfa[0].class=${gfa[0].class}" }
         .map { meta, gfa ->
             if ( gfa.size() == 1 && gfa[0] instanceof Path ) {
                 [ meta, gfa ]
@@ -205,7 +191,6 @@ workflow BINNING_PREPARATION {
         }
 
     grouped_tax = bin_group_tax
-        //.view { meta, tax -> "Before 1st unwrap: meta=${meta}, tax=${tax}, tax.class=${tax.class}, tax.size=${tax.size()}, tax[0].class=${tax[0].class}" }
         .map { meta, tax ->
             if ( tax.size() == 1 && tax[0] instanceof Path ) {
                 [ meta, tax ]
@@ -215,91 +200,39 @@ workflow BINNING_PREPARATION {
                 [ meta, unwrapped ]
             }
         }
-        //.view { meta, tax -> "After 1st unwrap: meta=${meta}, tax=${tax}, tax.class=${tax.class}, tax.size=${tax.size()}, tax[0].class=${tax[0].class}" }
-        //.view { meta, tax -> "After 1st unwrap: meta=${meta}, tax=${tax}, tax.class=${tax.class}, tax.size=${tax.size()}" }
-        //.view()
-    /*
-        .map { meta, reads ->
-        // Recursively unwrap single-element lists until we get to the actual read data
-        def unwrap = { list ->
-            while (list.size() == 1 && list[0] instanceof List) {
-                list = list[0]
-            }
-            return list
-        }
-        
-        [meta, unwrap(reads)]
-    }
-    ____________________
-        .map { meta, reads ->
-        // Recursively flatten until we have a list of pairs
-        def flattenToPairs
-        flattenToPairs = { list ->
-            if (list.every { it instanceof List && it.size() == 2 && !(it[0] instanceof List) }) {
-                return list  // We have pairs, stop flattening
-            } else if (list.size() == 1 && list[0] instanceof List) {
-                return flattenToPairs(list[0])  // Remove one level of nesting
-            } else {
-                return list
-            }
-        }
-        
-        [meta, flattenToPairs(reads)]
-    }
-    */
-
-    //split_reads.view()
 
     mapping_input = SEMIBIN_CONCATENATE_FASTA.out.concatenated_fasta
-        .join( MINIMAP2_INDEX.out.index )
+        .join( MINIMAP2_ASSEMBLY_INDEX.out.index )
         .combine ( split_reads, by: 0 )
-    //mapping_input = BOWTIE2_BUILD_INDEX.out.assembly_index.combine ( split_reads )
 
-    //mapping_input.view()
-
-    //BOWTIE2_ASSEMBLY_ALIGNMENT( 
-    //    mapping_input
-    //)
     MINIMAP2_ASSEMBLY_ALIGNMENT( 
         mapping_input,
         params.remove_unmapped
     )
-
-    //MINIMAP2_ASSEMBLY_ALIGNMENT.out.mappings.view()
 
     TAXVAMB_CONCATENATE_TAXONOMY (
         grouped_tax
     )
     
     ch_grouped_mappings = channel.empty()
-    //ch_grouped_mappings = ch_grouped_mappings.mix ( BOWTIE2_ASSEMBLY_ALIGNMENT.out.mappings )
     ch_grouped_mappings = ch_grouped_mappings.mix ( MINIMAP2_ASSEMBLY_ALIGNMENT.out.mappings )
         .groupTuple(by: 0)
         .map { meta, contigs, bams, bais -> 
             [ meta, contigs.sort()[0], bams, bais ] 
         }
         .join ( grouped_gfa, by: 0 )
-        //.combine ( split_reads, by: 0 )
         .combine ( grouped_reads, by: 0 )
-        //.view { meta, contigs, bams, bais, gfa, reads -> "Bin prep output before unwrap: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
-        //.map { meta, contigs, bams, bais, gfa, sampleID, reads ->
         .map { meta, contigs, bams, bais, gfa, reads ->
             def readsList = reads as List
             def unwrapped = readsList.size() == 1 && readsList[0] instanceof List ? readsList[0] : readsList
             [ meta, unwrapped, contigs, bams, bais, gfa ]
         }
-        //.view { meta, reads, contigs, bams, bais, gfa -> "Bin prep output: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
         .join ( TAXVAMB_CONCATENATE_TAXONOMY.out.concatenated_tax, by: 0 )
 
-    // multiple symlinks to the same assembly -> use first of sorted list
-    //bowtie2_assembly_multiqc = BOWTIE2_ASSEMBLY_ALIGNMENT.out.log.map { contigs_meta, reads_meta, log -> [ log ] }
-    //bowtie2_assembly_multiqc = MINIMAP2_ASSEMBLY_ALIGNMENT.out.log.map { contigs_meta, reads_meta, log -> [ log ] }
+
 
 
     emit:
-    //bowtie2_assembly_multiqc
-    //bowtie2_version = BOWTIE2_ASSEMBLY_ALIGNMENT.out.versions
-    
     grouped_mappings = ch_grouped_mappings 
 
 

@@ -55,7 +55,7 @@ process VAMB_BIN {
         if [[ -f \$file ]]; then
             filename=\${file##*/}
             basename=\${filename%.fna}
-            mv \$file ${prefix}/bins/${meta.id}_${meta.assembler}_VAMB.\${basename}.fa
+            mv \$file ${prefix}/bins/${meta.id}_${meta.assembler}_${meta.binner}.\${basename}.fa
         fi
     done
 
@@ -69,7 +69,7 @@ process VAMB_BIN {
     if(bams && abundance_tsv) {
         error("ERROR: Both bams and abundance TSV supplied to Vamb! Please only supply one.")
     }
-    def args = task.ext.args ?: ''
+    
     prefix   = task.ext.prefix ?: "${meta.id}"
     """
     mkdir -p ${prefix}/bins

@@ -7,8 +7,6 @@ process METABINNER {
     container ""
     conda "${moduleDir}/environment.yml"
 
-    publishDir "${params.resultsDir}/BINNING/${meta.id}/${meta.assembler}-MetaBinner", mode: 'symlink'
-
     input:
         tuple val(meta), path(assembly), path(depths)
         val scale
@@ -23,6 +21,7 @@ process METABINNER {
     def dataset_scale = scale ?: "large"
     def unzip_contigs = assembly.getExtension() == "gz" ? "gunzip -c $assembly > contigs_unzipped.fa" : "cp $assembly contigs_unzipped.fa"
     def unzip_depths = depths.getExtension() == "gz" ? "gunzip -c $depths > abundance_unzipped.tsv" : "cp $depths abundance_unzipped.tsv"
+    def args = task.ext.args ?: ''
 
     """
     metabinner_path=\$(dirname \$(which run_metabinner.sh))
@@ -45,6 +44,7 @@ process METABINNER {
         -d \${PWD}/coverage_profile.tsv \\
         -k \$kmer_profile \\
         -p \$metabinner_path \\
+        $args \\
         -s $dataset_scale
 
     rm contigs_unzipped.fa
@@ -59,9 +59,6 @@ process METABINNER {
             mv \$file ./bins/${meta.id}_${meta.assembler}_MetaBinner.\${num}.fa
         fi
     done
-
-    #gzip bins/*
-    
     """
     
 }

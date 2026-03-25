@@ -7,8 +7,6 @@ process METABAT2 {
     container "community.wave.seqera.io/library/metabat2:15c68d548f9e9b8f"
     conda "bioconda::metabat2=2.15"
 
-    publishDir "${params.resultsDir}/BINNING/${meta.id}/${meta.assembler}-metabat2", mode: 'symlink'
-
     input:
         tuple val(meta), path(assembly), path(depth)
 
@@ -22,25 +20,20 @@ process METABAT2 {
 
 
     script:
-
-    //depth_file = depth.getBaseName()
     def prefix = task.ext.prefix ?: "${meta.id}_${meta.assembler}_MetaBAT2"
-    //Look into metabat options
+    def args = task.ext.args ?: ''
 
     """
-    #gzip -d -f $depth
-
     metabat2 \
     -i $assembly \
     -a $depth \
     -t $task.cpus \
+    $args \
     --saveCls \
     --unbinned \
     -o ${prefix}
 
     mv ${prefix} ${prefix}.tsv
-    #gzip -cn ${prefix} > ${prefix}.tsv.gz
-    #find . -name "*.fa" -type f | xargs -t -n 1 bgzip
     """
     
 }

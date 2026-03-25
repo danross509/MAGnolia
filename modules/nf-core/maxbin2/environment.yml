@@ -4,5 +4,4 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
-  - bioconda::concoct=1.1.0
-  - conda-forge::setuptools=70
+  - bioconda::maxbin2=2.2.7
