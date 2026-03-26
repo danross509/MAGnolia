@@ -7,8 +7,6 @@ process RENAME_REFINED_BINS {
     conda ""
     container ""
 
-    publishDir "${params.resultsDir}/BINS/refined/${meta.id}-${meta.assembler}/", mode: 'symlink'
-
     input:
     tuple val(meta), path(bins)
 

@@ -610,9 +610,7 @@ workflow {
         }
             
     }
-
-    //*****************
-    // DAStool and drep arguments
+    
     
     /********************
         Bin evaluation

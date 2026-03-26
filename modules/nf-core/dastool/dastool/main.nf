@@ -19,7 +19,8 @@ process DASTOOL_DASTOOL {
     tuple val(meta), path("*_summary.tsv")              , optional: true, emit: summary
     tuple val(meta), path("*_DASTool_contig2bin.tsv")   , optional: true, emit: contig2bin
     tuple val(meta), path("*.eval")                     , optional: true, emit: eval
-    tuple val(meta), path("*_DASTool_bins/*.fa")        , optional: true, emit: bins
+    tuple val(meta), path("*_DASTool_bins/*Refined.fa")        , optional: true, emit: bins
+    tuple val(meta), path("*_DASTool_bins/*_DASToolUnbinned.fa")        , optional: true, emit: unbins
     tuple val(meta), path("*.pdf")                      , optional: true, emit: pdfs
     tuple val(meta), path("*.candidates.faa")           , optional: true, emit: fasta_proteins
     tuple val(meta), path("*.faa")                      , optional: true, emit: candidates_faa
@@ -57,6 +58,17 @@ process DASTOOL_DASTOOL {
         -i $bin_list \\
         -c $clean_contigs \\
         -o $prefix
+
+    for bin in ${prefix}_DASTool_bins/*.fa; do
+        if [[ "\${bin}" == ${prefix}_DASTool_bins/unbinned.fa ]]; then
+            mv ${prefix}_DASTool_bins/unbinned.fa ${prefix}_DASTool_bins/${meta.id}_${meta.assembler}_DASToolUnbinned.fa
+        elif [[ -f \$bin ]]; then
+            filename=\${bin##*/}
+            basename=\${filename%%.*}
+            remainder=\${filename#*.}
+            mv \${bin} ${prefix}_DASTool_bins/\${basename}_Refined.\${remainder}
+        fi
+    done
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

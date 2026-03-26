@@ -1,8 +1,8 @@
 #!/usr/bin/env nextflow
 
 process DASTOOL_FASTATOCONTIG2BIN {
-    //tag "$meta.id"
-    //label 'process_single'
+    tag "$meta.id"
+    label 'process_single'
 
     conda "bioconda::das_tool=1.1.6"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?

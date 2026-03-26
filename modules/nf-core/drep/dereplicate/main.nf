@@ -24,7 +24,6 @@ process DREP_DEREPLICATE {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
     def genome_info = bin_evaluation ? "--genomeInfo ${bin_evaluation}" : ""
     """
     if [[ ! -d drep_work/ ]]; then
@@ -39,7 +38,7 @@ process DREP_DEREPLICATE {
         -p ${task.cpus} \\
         -g fastas_paths.txt \\
         $genome_info \\
-        ${args} \\
+        ${args} 
 
     ## We copy the output files to copies to ensure we don't break an already
     ## existing drep_work/ from an upstream dRep module (e.g. compare)
