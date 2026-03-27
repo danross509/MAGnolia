@@ -31,17 +31,28 @@ OUTPUT_CONFIG = "nextflow.config"
 with open(INPUT_CONFIG, "r", encoding="utf8") as file:
     text = file.read()
 
-# Replace the required parameters
+# Replace the required parameters:
 # Based on read presence / absence
 if int(args.short_count) > 0 :
     text = text.replace("short_reads = false", "short_reads = true")
+    if args.use_gpu == 'true': 
+        text = text.replace("skip_semibin2 = true", "skip_semibin2 = false")
+    else:
+        text = text.replace("skip_maxbin2 = true", "skip_maxbin2 = false")
 if args.short_paired == 'true' :
     text = text.replace("paired_short_reads = false", "paired_short_reads = true")
+
 if int(args.ont_count) > 0 :
     text = text.replace("nanopore_reads = false", "nanopore_reads = true")
     text = text.replace("skip_contig_polishing = true", "skip_contig_polishing = false")
+
 if int(args.pacbio_count) > 0 :
     text = text.replace("pacbio_reads = false", "pacbio_reads = true")
+
+if int(args.ont_count) > 0 or int(args.pacbio_count) > 0 :
+    text = text.replace("skip_lrbinner = true", "skip_lrbinner = false")
+    if args.use_gpu == 'true': 
+        text = text.replace("skip_semibin2 = true", "skip_semibin2 = false")
 
 # Read correctedness
 if args.corrected == 'true':
@@ -58,8 +69,6 @@ if int(args.short_count) > 0 and (int(args.ont_count) > 0 or int(args.pacbio_cou
 
 if args.use_gpu == 'true': 
     text = text.replace("use_gpu = false", "use_gpu = true")
-
-#text = text.replace('${projectDir}/configs/process_labels.config', './configs/process_labels.config')
 
 # Write the file out again
 with open(OUTPUT_CONFIG, "w") as file:

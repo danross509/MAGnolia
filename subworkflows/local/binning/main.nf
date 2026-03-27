@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 include { JGISUMMARIZEBAMCONTIGDEPTHS } from '../../../modules/local/metabat2/jgiSummarizeBamContigDepths/main.nf'
-include { CONVERT_DEPTHS } from '../../../modules/nf-core_mag/convert_depths/main.nf'
+include { JGI_DEPTHS4MAXBIN } from '../../../modules/local/jgi_depths4maxbin/main.nf'
 include { VAMB_CONVERT_ABUNDANCE } from '../../../modules/local/vamb/convert_abundance/main.nf'
 include { VAMB_FILTER_TAXONOMY } from '../../../modules/local/scripts/taxvamb_filter_taxonomy/main.nf'
 
@@ -153,8 +153,8 @@ workflow BINNING {
 
     // nf_core MAG convert_depths for MaxBin2
     if ( !params.skip_maxbin2 ) {
-        CONVERT_DEPTHS ( metabat2_input_ch )
-        maxbin2_input_ch = CONVERT_DEPTHS.out.output
+        JGI_DEPTHS4MAXBIN ( metabat2_input_ch )
+        maxbin2_input_ch = JGI_DEPTHS4MAXBIN.out.output
             .map { meta, contigs, reads, abund ->
                 def meta_new = meta + [ binner: 'MaxBin2' ]
                 [ meta_new, contigs, reads, abund ]
