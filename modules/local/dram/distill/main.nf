@@ -22,13 +22,14 @@ process DRAM_DISTILL {
 
 
     script:
+    def args = task.ext.args ?: ''
 
     """
     python \$CONDA_PREFIX/bin/DRAM.py distill \
         -i $annotations \
         -o DRAM-distill \
         --trna_path $trnas \
-        --rrna_path $rrnas
-
+        --rrna_path $rrnas \
+        $args
     """
 }

@@ -2,23 +2,23 @@
 
 process TOULLIGQC {
     label 'process_low'
-    tag "$meta.id"
+    tag "${meta.id}"
 
     conda "${moduleDir}/environment.yml"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/toulligqc:2.7.1--pyhdfd78af_0':
-        'biocontainers/toulligqc:2.7.1--pyhdfd78af_0' }"
+    container "${workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
+        ? 'https://depot.galaxyproject.org/singularity/toulligqc:2.8.4--pyhdfd78af_0'
+        : 'biocontainers/toulligqc:2.8.4--pyhdfd78af_0'}"
 
     input:
+
     tuple val(meta), path(ontfile)
 
-
     output:
-    tuple val(meta), path("*.data")                   , emit: report_data
-    tuple val(meta), path("*.html")                   , emit: report_html, optional: true
-    tuple val(meta), path("images/*.html")            , emit: plots_html
-    tuple val(meta), path("images/plotly.min.js")     , emit: plotly_js
-    path "versions.yml"                               , emit: versions
+    tuple val(meta), path("*/*.data"), emit: report_data
+    tuple val(meta), path("*/*.html"), emit: report_html, optional: true
+    tuple val(meta), path("*/images/*.html"), emit: plots_html
+    tuple val(meta), path("*/images/plotly.min.js"), emit: plotly_js
+    tuple val("${task.process}"), val('toulligqc'), eval('toulligqc --version'), emit: versions_toulligqc, topic: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -27,44 +27,35 @@ process TOULLIGQC {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
 
-    def input_file = ("$ontfile".endsWith(".fastq") || "$ontfile".endsWith(".fastq.gz") || "$ontfile".endsWith(".fq") || "$ontfile".endsWith(".fq.gz")) ? "--fastq ${ontfile}" :
-        ("$ontfile".endsWith(".txt") || "$ontfile".endsWith(".txt.gz")) ? "--sequencing-summary-source ${ontfile}" :
-        ("$ontfile".endsWith(".bam")) ? "--bam ${ontfile}" : ''
+    def input_file = "${ontfile}".endsWith(".fastq") || "${ontfile}".endsWith(".fastq.gz") || "${ontfile}".endsWith(".fq") || "${ontfile}".endsWith(".fq.gz")
+        ? "--fastq ${ontfile}"
+        : "${ontfile}".endsWith(".txt") || "${ontfile}".endsWith(".txt.gz")
+            ? "--sequencing-summary-source ${ontfile}"
+            : "${ontfile}".endsWith(".bam") ? "--bam ${ontfile}" : ''
 
-    // Script modified to rename and rearrange output files
     """
     toulligqc \\
-        $input_file \\
-        --report-name ${prefix} \\
-        $args
+        ${input_file} \\
+        --output-directory ${prefix} \\
+        ${args}
     
     mv "${prefix}/report.html" "${prefix}_report.html"
     mv "${prefix}/report.data" "${prefix}_report.data"
     mv "${prefix}/images" "images"
     rm -r $prefix
-
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        toulligqc: \$(toulligqc --version)
-    END_VERSIONS
     """
-  
+    // Script modified to rename and rearrange output files
+    
     stub:
-    def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
     mkdir ${prefix}
     mkdir ${prefix}/images
-    touch ${prefix}/${prefix}_report.data
+    touch ${prefix}/report.data
     touch ${prefix}/images/Correlation_between_read_length_and_PHRED_score.html
     touch ${prefix}/images/Distribution_of_read_lengths.html
     touch ${prefix}/images/PHRED_score_density_distribution.html
     touch ${prefix}/images/Read_count_histogram.html
     touch ${prefix}/images/plotly.min.js
-    
-    cat <<-END_VERSIONS > versions.yml
-    "${task.process}":
-        toulligqc: \$(toulligqc --version)
-    END_VERSIONS
     """
 }

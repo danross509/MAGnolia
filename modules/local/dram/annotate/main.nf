@@ -7,8 +7,6 @@ process DRAM_ANNOTATE {
     container ""
     conda "${moduleDir}/../setup/environment.yml"
 
-    publishDir "${params.resultsDir}/BIN_ANNOTATION/${meta.id}/", mode: 'symlink'
-
     input:
         tuple val(meta), path(bins, stageAs: 'bins_input/*')
 
@@ -25,11 +23,12 @@ process DRAM_ANNOTATE {
         //tuple val(meta), versions, emit: versions
 
     script:
+    def args = task.ext.args ?: ''
 
     """
     python \$CONDA_PREFIX/bin/DRAM.py annotate \
         -i 'bins_input/*' \
-        -o DRAM-annotation
-
+        -o DRAM-annotation \
+        $args
     """
 }

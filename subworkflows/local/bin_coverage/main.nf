@@ -27,9 +27,9 @@ workflow BIN_COVERAGE {
             [ meta_new, reads ]
         }
         .groupTuple()
-        .filter { it.size() > 0 }
+        .filter { _meta, reads -> reads.size() > 0 }
         .map { meta, reads ->
-            [ meta, reads.flatten().sort { it.name } ]
+            [ meta, reads.flatten().sort { file -> file.name } ]
         }
 
 
@@ -46,17 +46,10 @@ workflow BIN_COVERAGE {
             }
         }
         .groupTuple()
-        .filter { it.size() > 0 }
+        .filter { _meta, reads -> reads.size() > 0 }
         .map { meta, reads ->
-            [ meta, reads.flatten().sort { it.name } ]
+            [ meta, reads.flatten().sort { file -> file.name } ]
         }
-
-
-
-    //original_reads_input.view()
-    //grouped_reads_input.view()
-    //bins.view()
-
 
     COVERM_GENOME_ORIGINAL ( 
         original_reads_input,             // single channel of fastqs

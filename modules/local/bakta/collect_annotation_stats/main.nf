@@ -21,6 +21,7 @@ process BAKTA_COLLECT_ANNOTATION_STATS {
     """
    bakta_collect-annotation-stats.py \\
         ${jsons} \\
+        ${args} \\
         --prefix ${prefix} \\
         --output .
     """
