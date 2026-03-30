@@ -6,6 +6,7 @@
 # USAGE: ./write_config.py -s $short_reads_count -p $short_reads_paired -n $nanopore_barcodes_count -pb $pacbio_reads_count -d $databases_location -c $reads_corrected
 
 import argparse
+import re
 
 parser = argparse.ArgumentParser(
                     prog='write_config',
@@ -27,11 +28,61 @@ args = parser.parse_args()
 INPUT_CONFIG = args.default_file
 OUTPUT_CONFIG = "nextflow.config"
 
+# Find local max cores
+def get_lscpu_value(key):
+    result = subprocess.check_output(
+        f"lscpu | grep -E '^{key}' | awk '{{print $NF}}'",
+        shell=True
+    ).strip().decode()
+    return int(result)
+
+cpus = get_lscpu_value("CPU\(s\):")
+threads_per_core = get_lscpu_value("Thread\(s\) per core:")
+cores_per_socket = get_lscpu_value("Core\(s\) per socket:")
+sockets = get_lscpu_value("Socket\(s\):")
+expected = threads_per_core * cores_per_socket * sockets
+
+if cpus == expected:
+    if cpus < 4:
+        maxcores = cpus
+    else:
+        maxcores = cpus - 2
+    print(f"Setting the expected maxCores value to {maxcores} cores")
+else:
+    physcores = cores_per_socket * sockets
+    if physcores < 4:
+        maxcores = physcores
+    else:
+        maxcores = physcores - 2
+    print(f"We found a hybrid CPU architecture, therefore will set the expected maxCores value to {maxcores} physical cores")
+
+# Find local max memory
+foundmem = None
+with open("/proc/meminfo") as f:
+    for line in f:
+        if line.startswith("MemTotal:"):
+            kb = int(re.search(r'\d+', line).group())
+            gb = kb / (1024 ** 2)
+            foundmem = int(gb)
+
+if foundmem is None:
+    raise ValueError("maxmem could not be assigned: MemTotal not found in /proc/meminfo")
+else if not isinstance(foundmem, int):
+    raise TypeError(f"maxmem is not an integer: got {type(foundmem).__name__}")
+else:
+    if foundmem < 16:
+        maxmem = int(foundmem * 0.9)
+    else maxmem = int(foundmem - 6)
+    print(f"Setting the expected maxMem value to {maxmem}.GB")
+
 # Read default nextflow.config
 with open(INPUT_CONFIG, "r", encoding="utf8") as file:
     text = file.read()
 
 # Replace the required parameters:
+text = text.replace("maxMem = 124.GB", f"maxMem = {maxmem}.GB")
+text = text.replace("maxCores = 16", f"maxCores = {maxcores}")
+
 # Based on read presence / absence
 if int(args.short_count) > 0 :
     text = text.replace("short_reads = false", "short_reads = true")

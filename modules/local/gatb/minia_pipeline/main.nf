@@ -19,9 +19,10 @@ process GATB_MINIA_PIPELINE {
     script:
     def read_files = meta.paired_end ? "-1 ${reads[0]} -2 ${reads[1]}" : "-s ${reads[0]}"
     def args = task.ext.args ?: ''
+    def klist = params.minia_kmer_sizes ? "----kmer-sizes ${params.minia_kmer_sizes}" : ""
 
     """
-    gatb_minia_pipeline.py $read_files --no-scaffolding --no-error-correction $args --minia \$CONDA_PREFIX/bin/minia
+    gatb_minia_pipeline.py $read_files --no-scaffolding --no-error-correction $klist $args --minia \$CONDA_PREFIX/bin/minia
 
     # Replace assembly_final.contigs.fa symlink with contigs file
     target=\$(readlink -e assembly_final.contigs.fa)
