@@ -25,9 +25,9 @@ workflow BIN_EVALUATION {
         CHECKM2_PREDICT(evaluation_input, checkm2_db_dir)
 
         bin_summary = CHECKM2_PREDICT.out.checkm2_tsv
-        ch_versions = ch_versions.mix(
-            CHECKM2_PREDICT.out.versions.first(),
-        )
+        //ch_versions = ch_versions.mix(
+        //    CHECKM2_PREDICT.out.versions.first(),
+        //)
     } else if ( params.checkm_version == "checkm" ) {
         bins_for_checkmlineagewf = evaluation_input
             .filter { meta, _bins ->

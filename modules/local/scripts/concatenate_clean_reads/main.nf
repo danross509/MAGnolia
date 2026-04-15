@@ -7,8 +7,6 @@ process CONCATENATE_CLEAN_READS {
     container ""
     conda ""
 
-    //publishDir "${params.resultsDir}/CLEAN_READS/${meta.sequencer}", mode: 'symlink'
-
     input:
         tuple val(meta), path(reads)
         val strand

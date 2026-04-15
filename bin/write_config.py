@@ -7,6 +7,7 @@
 
 import argparse
 import re
+import subprocess
 
 parser = argparse.ArgumentParser(
                     prog='write_config',
@@ -67,12 +68,13 @@ with open("/proc/meminfo") as f:
 
 if foundmem is None:
     raise ValueError("maxmem could not be assigned: MemTotal not found in /proc/meminfo")
-else if not isinstance(foundmem, int):
+elif not isinstance(foundmem, int):
     raise TypeError(f"maxmem is not an integer: got {type(foundmem).__name__}")
 else:
     if foundmem < 16:
         maxmem = int(foundmem * 0.9)
-    else maxmem = int(foundmem - 6)
+    else:
+        maxmem = int(foundmem - 6)
     print(f"Setting the expected maxMem value to {maxmem}.GB")
 
 # Read default nextflow.config
