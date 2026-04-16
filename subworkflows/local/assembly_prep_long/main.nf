@@ -1,6 +1,7 @@
 #!/usr/bin/env nextflow
 
 include { CONCATENATE_CLEAN_READS as CONCATENATE_LONG_READS } from '../../../modules/local/scripts/concatenate_clean_reads/main.nf'
+include { RENAME_CLEAN_READS as RENAME_LONG_READS } from '../../../modules/local/scripts/rename_clean_reads/main.nf'
 
 workflow ASSEMBLY_PREP_LONG {
     take:
@@ -52,12 +53,27 @@ workflow ASSEMBLY_PREP_LONG {
         }
         //.view { meta, reads -> "After unwrap: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
 
+    clean_long_reads_coassembly = clean_long_reads
+        .filter { _meta, reads ->
+            reads.size() > 1
+        }
+
+    clean_long_reads_solo = clean_long_reads
+        .filter { _meta, reads ->
+            reads.size() == 1
+        }
+
     CONCATENATE_LONG_READS (
-        clean_long_reads,
+        clean_long_reads_coassembly,
         ""
     )
 
-    concatenated_long_reads = concatenated_long_reads.mix ( CONCATENATE_LONG_READS.out.fastq )
+    RENAME_LONG_READS (
+        clean_long_reads_solo,
+        ""
+    )
+
+    concatenated_long_reads = concatenated_long_reads.mix ( CONCATENATE_LONG_READS.out.fastq, RENAME_LONG_READS.out.fastq )
 
     original_clean_long_reads = original_clean_long_reads.mix ( corrected_ont_reads, corrected_pacbio_reads )
         .map { meta, reads ->

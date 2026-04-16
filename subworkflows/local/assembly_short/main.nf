@@ -30,8 +30,6 @@ workflow ASSEMBLY_SHORT {
                 [ meta_new, reads ]
             }
 
-        //megahit_input_ch.view()
-
         // Run MEGAHIT    
         MEGAHIT (
             megahit_input_ch,
@@ -73,18 +71,7 @@ workflow ASSEMBLY_SHORT {
         assembly_out = assembly_out.mix ( METASPADES.out.scaffolds )
         assembly_graph_out = assembly_graph_out.mix ( METASPADES.out.gfa )
         
-    } /*else if (params.assembler_short_reads == 'hipmer') {
-        hipmer_input_ch = clean_reads
-            .map { meta, reads ->
-                def meta_new = meta + [assembler: 'HipMer']
-                [ meta_new, reads ]
-            }
-        
-        METAHIPMER(
-            hipmer_input_ch,
-            params.hipmer_depths
-        )
-    }*/ else if ( params.assembler_short_reads == 'gatb' ){
+    } else if ( params.assembler_short_reads == 'gatb' ){
         gatb_input_ch = clean_reads
             .map { meta, reads ->
                 def meta_new = meta + [assembler: 'GATB']
@@ -97,8 +84,6 @@ workflow ASSEMBLY_SHORT {
                 [ meta_new, reads ]
             }
 
-        //gatb_input_ch.view()
-
         // Run GATB-minia-pipeline  
         GATB_MINIA_PIPELINE (
             gatb_input_ch
@@ -107,8 +92,6 @@ workflow ASSEMBLY_SHORT {
         assembly_out = assembly_out.mix ( GATB_MINIA_PIPELINE.out.final_contigs )
         assembly_graph_out = assembly_graph_out.mix ( GATB_MINIA_PIPELINE.out.assembly_graph )
     }
-
-    //"SPAdes" for tiara domain classification
 
     if ( !params.skip_quast_contigs ) {
         QUAST_CONTIGS ( 

@@ -13,10 +13,15 @@ workflow FASTA_BINNING_CONCOCT {
     main:
     ch_versions = channel.empty()
 
+    ch_fasta.view()
+    ch_bam.view()
+
     // required to create bedfile due to coverage table
     produce_bedfile = true
 
     CONCOCT_CUTUPFASTA ( ch_fasta, produce_bedfile )
+
+    CONCOCT_CUTUPFASTA.out.bed.view()
 
     ch_cutupfasta_for_concoctcoveragetable = CONCOCT_CUTUPFASTA.out.bed
                                                 .join( ch_bam, failOnMismatch: true )

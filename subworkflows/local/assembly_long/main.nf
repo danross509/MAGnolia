@@ -82,9 +82,6 @@ workflow ASSEMBLY_LONG {
         assembly_graph_out = assembly_graph_out.mix ( HIFIASM_META.out.primary_contig_graph )
         unitigs = unitigs.mix ( HIFIASM_META.out.cleaned_unitig_graph )
 
-
-        //HIFIASM_CREATE_BIN_FILES.out.circular_mags.view()
-
     // Long read assembly with Flye
     } else if (params.assembler_long_reads == 'flye') {
         // Run Flye with "--meta" option?

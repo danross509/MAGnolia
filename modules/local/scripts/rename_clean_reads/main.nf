@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
 
-process CONCATENATE_CLEAN_READS {
+process RENAME_CLEAN_READS {
     tag "$meta.id"
     label 'process_low'
 
@@ -20,7 +20,7 @@ process CONCATENATE_CLEAN_READS {
     def filename = "${meta.id}${strand}"
 
     """
-    cat $reads > ${filename}.fastq.gz
+    ln -s ${reads[0]} ${filename}.fastq.gz
     """
 
 }

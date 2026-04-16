@@ -191,9 +191,6 @@ workflow {
                 checkm_untar_input = [[ id: 'checkm_db' ], file ( params.checkm_download_url, checkIfExists: true )]
 
                 CHECKM_UNTAR ( checkm_untar_input )
-                CHECKM_UNTAR.out.untar.view()
-                //checkm_db_dir = CHECKM_UNTAR.out.untar
-                 //   .map { it[1] }
                 ch_versions = ch_versions.mix ( CHECKM_UNTAR.out.versions )
 
                 CHECKM_UPDATE_CONFIG (
@@ -593,8 +590,6 @@ workflow {
             )
 
             post_refinement_bins = post_refinement_bins.mix ( BIN_REFINEMENT.out.refined_bins )
-
-            BIN_REFINEMENT.out.refined_bins.view()
 
         } else {
             post_refinement_bins = post_refinement_bins.mix ( initial_bins )

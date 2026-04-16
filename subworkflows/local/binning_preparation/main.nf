@@ -4,6 +4,8 @@
  * Binning preparation with Bowtie2
  */
 
+include { RENAME_SOLO_CONTIGS } from '../../../modules/local/scripts/rename_solo_contigs/main.nf'
+
 include { SEMIBIN_CONCATENATE_FASTA } from '../../../modules/local/semibin/concatenate_fasta/main.nf'
 include { TAXVAMB_CONCATENATE_TAXONOMY } from '../../../modules/local/scripts/taxvamb_concatenate_tax/main.nf'
 
@@ -104,12 +106,29 @@ workflow BINNING_PREPARATION {
             }
         }
 
+    contigs_cobinning = bin_group_contigs
+        .filter { meta, _contigs ->
+            meta.cobinning
+        }
+
+    contigs_solo = bin_group_contigs
+        .filter { meta, _contigs ->
+            !meta.cobinning
+        }
+
     SEMIBIN_CONCATENATE_FASTA (
-        bin_group_contigs
+        contigs_cobinning
     )
 
+    RENAME_SOLO_CONTIGS (
+        contigs_solo
+    )
+
+    // Recombine contigs into single channel to pass through the next steps
+    contigs_recombined = SEMIBIN_CONCATENATE_FASTA.out.concatenated_fasta.mix ( RENAME_SOLO_CONTIGS.out.concatenated_fasta )
+
     // Build minimap2 index for each contigs
-    build_index_input = SEMIBIN_CONCATENATE_FASTA.out.concatenated_fasta
+    build_index_input = contigs_recombined
         .map { meta, contigs ->
             def preset = ''
             if ( meta.sequencer == 'Illumina' ) {
@@ -201,7 +220,7 @@ workflow BINNING_PREPARATION {
             }
         }
 
-    mapping_input = SEMIBIN_CONCATENATE_FASTA.out.concatenated_fasta
+    mapping_input = contigs_recombined
         .join( MINIMAP2_ASSEMBLY_INDEX.out.index )
         .combine ( split_reads, by: 0 )
 

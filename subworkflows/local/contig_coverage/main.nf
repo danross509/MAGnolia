@@ -26,10 +26,6 @@ workflow CONTIG_COVERAGE {
             [ meta, contigs ]
         }
 
-    reads.view()
-    contigs.view()
-
-
     COVERM_CONTIG ( 
         reads,                      // single channel of fastqs
         contigs,                    // single channel of contigs

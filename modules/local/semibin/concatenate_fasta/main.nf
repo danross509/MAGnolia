@@ -16,24 +16,14 @@ process SEMIBIN_CONCATENATE_FASTA {
 
     script:
     def args = task.ext.args ?: ''
-    def extension = !meta.cobinning && contigs.getExtension() == "gz" ? "fa.gz" : "fa"
 
-    if ( meta.cobinning ) {
-        """
-        SemiBin2 concatenate_fasta \
-        --input-fasta $contigs \
-        $args \
-        -o ./
+    """
+    SemiBin2 concatenate_fasta \
+    --input-fasta $contigs \
+    $args \
+    -o ./
 
-        mv ./concatenated.fa.gz ./${meta.id}_contigs.fa.gz
-        gunzip ./${meta.id}_contigs.fa.gz
-        """
-    } else {
-        """
-        ln -s ${contigs[0]} ${meta.id}_contigs.${extension}
-        """
-    }
-
-
-
+    mv ./concatenated.fa.gz ./${meta.id}_contigs.fa.gz
+    gunzip ./${meta.id}_contigs.fa.gz
+    """
 }
