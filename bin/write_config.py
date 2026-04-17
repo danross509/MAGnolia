@@ -85,6 +85,9 @@ with open(INPUT_CONFIG, "r", encoding="utf8") as file:
 text = text.replace("maxMem = 124.GB", f"maxMem = {maxmem}.GB")
 text = text.replace("maxCores = 16", f"maxCores = {maxcores}")
 
+if maxmem < 240:
+    text = text.replace("skip_bracken = false", "skip_bracken = true")
+
 # Based on read presence / absence
 if int(args.short_count) > 0 :
     text = text.replace("short_reads = false", "short_reads = true")
