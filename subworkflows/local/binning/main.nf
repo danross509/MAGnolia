@@ -58,7 +58,7 @@ workflow BINNING {
                 params.semibin_environment,
                 params.use_semibin1
             )
-
+            SEMIBIN2.out.bins.view()
             initial_bins = initial_bins.mix ( SEMIBIN2.out.bins )
 
         } else {

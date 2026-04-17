@@ -44,13 +44,16 @@ process SEMIBIN2 {
     -o $output
 
     if [[ -d multi_output ]]; then 
+        count=0
         for bin in multi_output/bins/*; do
             if [[ -f \$bin ]]; then
                 bin_name=\${bin##*_}
-                mv \$bin multi_output/bins/${meta.id}_${meta.assembler}_SemiBin2.\${bin_name}
-                if [[ "\$bin_name" == *.gz ]]; then
-                    gunzip multi_output/bins/${meta.id}_${meta.assembler}_SemiBin2.\${bin_name}
+                bin_suffix=\${bin_name##*.}
+                mv \$bin multi_output/bins/${meta.id}_${meta.assembler}_SemiBin2.\${count}.\${bin_suffix}
+                if [[ "\$bin_suffix" == *.gz ]]; then
+                    gunzip multi_output/bins/${meta.id}_${meta.assembler}_SemiBin2.\${count}.\${bin_suffix}
                 fi
+                ((count=count+1))
             fi
         done
         for folder in multi_output/samples/*; do
