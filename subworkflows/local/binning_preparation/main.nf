@@ -248,9 +248,6 @@ workflow BINNING_PREPARATION {
         }
         .join ( TAXVAMB_CONCATENATE_TAXONOMY.out.concatenated_tax, by: 0 )
 
-
-
-
     emit:
     grouped_mappings = ch_grouped_mappings 
 

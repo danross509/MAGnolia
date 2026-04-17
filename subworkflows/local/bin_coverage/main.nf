@@ -12,11 +12,15 @@ If samples were co-asssembled or co-binned,
 workflow BIN_COVERAGE {
     
     take:
+        bins
         original_reads
         bin_group_reads
-        bins
     
     main:
+
+    //original_reads.view()
+    //bin_group_reads.view()
+    //bins.view()
 
     // Calculate coverage for each final bin on the original input reads
     original_reads_input = original_reads
@@ -31,28 +35,25 @@ workflow BIN_COVERAGE {
         .map { meta, reads ->
             [ meta, reads.flatten().sort { file -> file.name } ]
         }
-
+    //original_reads_input.view()
 
     // If samples have been co-assembled or co-binned, calculate coverage for the concatenated reads
     grouped_reads_input = bin_group_reads
+        .filter { meta, _reads -> meta.coassembly || meta.cobinning }
         .map { meta, reads ->
-            if ( !meta.coassembly && !meta.cobinning ) {
-                []                                          // Do not include reads which have been processed individually
-            } else {
-                def meta_new = [:]
-                meta_new.id = 'grouped_reads'
-                meta_new.paired_end = meta.paired_end
-                [ meta_new, reads ]                         // Include concatenated read groups
-            }
+            def meta_new = [:]
+            meta_new.id = 'grouped_reads'
+            meta_new.paired_end = meta.paired_end
+            [ meta_new, reads ]                         // Include concatenated read groups
         }
         .groupTuple()
         .filter { _meta, reads -> reads.size() > 0 }
         .map { meta, reads ->
             [ meta, reads.flatten().sort { file -> file.name } ]
         }
-
+    grouped_reads_input.view()
     COVERM_GENOME_ORIGINAL ( 
-        original_reads_input,             // single channel of fastqs
+        original_reads_input,       // single channel of fastqs
         bins,                       // single channel of bins
         [],                         // val bam_input
         [],                         // val interleaved

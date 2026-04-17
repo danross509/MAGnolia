@@ -357,21 +357,30 @@ workflow {
             }
         }
 
-    short_reads = channel.empty()
+    /*short_reads = channel.empty()
     short_reads = short_reads.mix ( reads_input )
         .map { meta, reads ->
             if ( meta.sequencer == 'Illumina' ) {
                 return [ meta, reads ]
             } 
-        }
+        }*/
+    short_reads = reads_input
+        .filter { meta, _reads -> meta.sequencer == 'Illumina' }
 
-    nanopore_reads = channel.empty()
+    nanopore_reads = reads_input
+        .filter { meta, _reads -> meta.sequencer == 'ONT' }
+
+    pacbio_reads = reads_input
+        .filter { meta, _reads -> meta.sequencer == 'PacBio' }
+
+    /*nanopore_reads = channel.empty()
     nanopore_reads = nanopore_reads.mix ( reads_input )
         .map { meta, reads ->
             if ( meta.sequencer == 'ONT' ) {
                 return [ meta, reads ]
             } 
         }
+    
 
     pacbio_reads = channel.empty()
     pacbio_reads = pacbio_reads.mix ( reads_input )
@@ -379,7 +388,7 @@ workflow {
             if ( meta.sequencer == 'PacBio' ) {
                 return [ meta, reads ]
             } 
-        }
+        }*/
 
     /*********************
         Quality control
@@ -594,7 +603,6 @@ workflow {
         } else {
             post_refinement_bins = post_refinement_bins.mix ( initial_bins )
         }
-            
     }
     
     
@@ -665,20 +673,20 @@ workflow {
     /******************
         Bin coverage
      ******************/
-    
+    bin_group_reads = channel.empty()
     if ( !params.skip_binning ) {
-        bin_group_reads = BINNING_PREPARATION.out.grouped_mappings
+        bin_group_reads = bin_group_reads.mix ( BINNING_PREPARATION.out.grouped_mappings )
             .map { meta, reads, _contigs, _bams, _bais, _gfa, _tax ->
                 [ meta, reads ]
             }
+    }
 
-        if ( !params.skip_bin_coverage ) {
-            BIN_COVERAGE (
-                all_corrected_reads,        // Calculate coverage for each original read sample...
-                bin_group_reads,            // ... as well as concatenated reads used in each binning instance (if applicable)
-                final_bins                  
-            )
-        }
+    if ( !params.skip_bin_coverage ) {
+        BIN_COVERAGE (
+            final_bins,
+            all_corrected_reads,        // Calculate coverage for each original read sample...
+            bin_group_reads            // ... as well as concatenated reads used in each binning instance (if applicable)                  
+        )
     }
 
     workflow.onComplete = {

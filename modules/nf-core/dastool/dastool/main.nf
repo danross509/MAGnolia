@@ -19,7 +19,7 @@ process DASTOOL_DASTOOL {
     tuple val(meta), path("*_summary.tsv")              , optional: true, emit: summary
     tuple val(meta), path("*_DASTool_contig2bin.tsv")   , optional: true, emit: contig2bin
     tuple val(meta), path("*.eval")                     , optional: true, emit: eval
-    tuple val(meta), path("*_DASTool_bins/*Refined.fa")        , optional: true, emit: bins
+    tuple val(meta), path("*_DASTool_bins/*_Refined.*.fa")        , optional: true, emit: bins
     tuple val(meta), path("*_DASTool_bins/*_DASToolUnbinned.fa")        , optional: true, emit: unbins
     tuple val(meta), path("*.pdf")                      , optional: true, emit: pdfs
     tuple val(meta), path("*.candidates.faa")           , optional: true, emit: fasta_proteins
@@ -35,7 +35,7 @@ process DASTOOL_DASTOOL {
 
     script:
     def args = task.ext.args ?: ''
-    def prefix = task.ext.prefix ?: "${meta.id}"
+    def prefix = task.ext.prefix ?: "${meta.id}_${meta.assembler}"
     def bin_list = bins instanceof List ? bins.join(",") : "$bins"
     def db_dir = db_directory ? "--db_directory $db_directory" : ""
     def clean_contigs = contigs.toString() - ".gz"
@@ -61,7 +61,7 @@ process DASTOOL_DASTOOL {
 
     for bin in ${prefix}_DASTool_bins/*.fa; do
         if [[ "\${bin}" == ${prefix}_DASTool_bins/unbinned.fa ]]; then
-            mv ${prefix}_DASTool_bins/unbinned.fa ${prefix}_DASTool_bins/${meta.id}_${meta.assembler}_DASToolUnbinned.fa
+            mv ${prefix}_DASTool_bins/unbinned.fa ${prefix}_DASTool_bins/${prefix}_DASToolUnbinned.fa
         elif [[ -f \$bin ]]; then
             filename=\${bin##*/}
             basename=\${filename%%.*}

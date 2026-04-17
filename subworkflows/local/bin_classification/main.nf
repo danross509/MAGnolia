@@ -17,8 +17,6 @@ workflow BIN_CLASSIFICATION {
         exit 1 ("gtdb_db must be supplied as a directory")
     }
 
-    bins.view()
-
     GTDBTK_CLASSIFYWF (
         bins,
         gtdbtk_db,

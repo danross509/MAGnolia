@@ -13,9 +13,6 @@ workflow FASTA_BINNING_CONCOCT {
     main:
     ch_versions = channel.empty()
 
-    ch_fasta.view()
-    ch_bam.view()
-
     // required to create bedfile due to coverage table
     produce_bedfile = true
 
