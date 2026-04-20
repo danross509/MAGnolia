@@ -11,8 +11,8 @@ process MULTIQC {
         val runName
 
     output:
-        path "multiqc_report.html"
-        path "multiqc_data"
+        path "multiqc_report*.html"
+        path "multiqc_data*"
 
     script:
     def args = task.ext.args ?: ''
