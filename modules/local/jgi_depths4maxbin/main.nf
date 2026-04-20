@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process JGI_DEPTHS4MAXBIN {
-    tag "${meta.assembler}-${meta.id}"
+    tag "${meta.id}-${meta.assembler}"
 
     conda "conda-forge::python=3.11"
     container ""

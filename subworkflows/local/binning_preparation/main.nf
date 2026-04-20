@@ -5,6 +5,7 @@
  */
 
 include { RENAME_SOLO_CONTIGS } from '../../../modules/local/scripts/rename_solo_contigs/main.nf'
+include { RENAME_SOLO_TAXONOMY } from '../../../modules/local/scripts/rename_solo_taxvamb_taxonomy/main.nf'
 
 include { SEMIBIN_CONCATENATE_FASTA } from '../../../modules/local/semibin/concatenate_fasta/main.nf'
 include { TAXVAMB_CONCATENATE_TAXONOMY } from '../../../modules/local/scripts/taxvamb_concatenate_tax/main.nf'
@@ -229,9 +230,27 @@ workflow BINNING_PREPARATION {
         params.remove_unmapped
     )
 
+    grouped_tax.view()
+    taxonomy_cobinning = grouped_tax
+        .filter { meta, _tax ->
+            meta.cobinning
+        }
+
+    taxonomy_solo = grouped_tax
+        .filter { meta, _tax ->
+            !meta.cobinning
+        }
+
     TAXVAMB_CONCATENATE_TAXONOMY (
-        grouped_tax
+        taxonomy_cobinning
     )
+
+    RENAME_SOLO_TAXONOMY (
+        taxonomy_solo
+    )
+
+    // Recombine taxonomies into single channel to pass through the next steps
+    taxonomy_recombined = TAXVAMB_CONCATENATE_TAXONOMY.out.concatenated_tax.mix ( RENAME_SOLO_TAXONOMY.out.concatenated_tax )
     
     ch_grouped_mappings = channel.empty()
     ch_grouped_mappings = ch_grouped_mappings.mix ( MINIMAP2_ASSEMBLY_ALIGNMENT.out.mappings )
@@ -246,7 +265,7 @@ workflow BINNING_PREPARATION {
             def unwrapped = readsList.size() == 1 && readsList[0] instanceof List ? readsList[0] : readsList
             [ meta, unwrapped, contigs, bams, bais, gfa ]
         }
-        .join ( TAXVAMB_CONCATENATE_TAXONOMY.out.concatenated_tax, by: 0 )
+        .join ( taxonomy_recombined, by: 0 )
 
     emit:
     grouped_mappings = ch_grouped_mappings 

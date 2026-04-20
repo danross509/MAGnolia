@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process DASTOOL_FASTATOCONTIG2BIN {
-    tag "$meta.id"
+    tag "${meta.id}-${meta.assembler}"
     label 'process_single'
 
     conda "bioconda::das_tool=1.1.6"

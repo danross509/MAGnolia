@@ -76,7 +76,7 @@ workflow READ_CONTIG_TAXONOMY {
         )
     }
 
-    if ( stage == "contigs" ) {
+    if ( stage == "contigs" && !params.skip_binning && !params.skip_vamb && !params.skip_taxvamb) {
         TAXCONVERTER ( KRAKEN2.out.output )
 
         tax_4_vamb = tax_4_vamb.mix ( TAXCONVERTER.out.converted )

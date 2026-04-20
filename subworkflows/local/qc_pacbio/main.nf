@@ -14,24 +14,6 @@ workflow QC_PACBIO {
     host_genome
 
     main:
-    // Create pre-QC ToulligQC report for input reads;
-    // Collect pre-QC ToulligQC output;
-    // Summarize with multiqc
-    /*
-    all_toulligqc_in = Channel.empty()
-    if (!params.skip_toulligqc){
-        TOULLIGQC_IN(
-            pacbio_reads, 
-            "Pre-ToulligQC")
-        /*all_toulligqc_in = TOULLIGQC_IN.out.report_html
-            .map { meta, report ->
-                return [ report ]
-            }
-            .collect()
-        MULTIQC_IN(all_toulligqc_in, "pre-toulligQC")*/
-    //}
-    
-
     // Trim reads with FastpLong
     trimmed_pacbio_reads = channel.empty()
     if ( !params.skip_pb_fastplong ) {
@@ -114,24 +96,6 @@ workflow QC_PACBIO {
                 }
             }
     }
-
-
-
-    // Create post-QC toulligQC report for input reads;
-    // Collect post-QC touliggQC output;
-    // Summarize with multiqc
-    /*all_toulligqc_out = Channel.empty()
-    if (!params.skip_toulligqc){
-        TOULLIGQC_OUT(
-            filtered_pacbio_reads, 
-            "Post-ToulligQC")
-        /*all_toulligqc_out = TOULLIGQC_OUT.out.report_html
-            .map { meta, report ->
-                return [ report ]
-            }
-            .collect()
-        MULTIQC_OUT(all_toulligqc_out, "post-toulligQC")*/
-    //}
 
     emit:
     filtered_pacbio_reads

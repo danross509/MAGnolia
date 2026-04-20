@@ -350,7 +350,8 @@ workflow {
         nanopore_config_count,
         pacbio_config_count,
         config_corrected,
-        use_gpu
+        use_gpu,
+        channel.value(workflow.start.format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd")))
     )
 
     workflow.onComplete = {

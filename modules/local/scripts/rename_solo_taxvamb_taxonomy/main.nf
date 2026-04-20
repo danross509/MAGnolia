@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
-process TAXVAMB_CONCATENATE_TAXONOMY {
-    tag "bin_group_${meta.id}-${meta.assembler}"
+process RENAME_SOLO_TAXONOMY {
+    tag "${meta.id}-${meta.assembler}"
     label 'process_single'
 
     container ""
@@ -17,8 +17,6 @@ process TAXVAMB_CONCATENATE_TAXONOMY {
     script:
 
     """
-    concatenate_contig_taxonomies.py \
-    -i $taxonomies \
-    -o ${meta.id}_contigTax.tsv
+    ln -s ${taxonomies[0]} ${meta.id}_contigTax.tsv
     """
 }

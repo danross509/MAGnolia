@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process DASTOOL_DASTOOL {
-    tag "$meta.id"
+    tag "${meta.id}-${meta.assembler}"
     label 'process_medium'
 
     conda "bioconda::das_tool=1.1.6"

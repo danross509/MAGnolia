@@ -1,5 +1,5 @@
 process COMEBIN_RUNCOMEBIN {
-    tag "${meta.assembler}-${meta.id}"
+    tag "${meta.id}-${meta.assembler}"
     label 'process_high'
     label 'process_gpu'
 
