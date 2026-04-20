@@ -14,7 +14,7 @@ workflow BIN_ANNOTATION {
         bakta_db
     
     main:
-
+    bins.view()
     if ( !params.skip_dram ) {
         DRAM_ANNOTATE ( 
             bins

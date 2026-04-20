@@ -43,7 +43,7 @@ workflow BIN_REFINEMENT {
 
     // Join with bin_group contigs
     dastool_input = contigs.join ( fastatocontig2bin_grouped, by: 0 )
- 
+
     // Run DASTool
     DASTOOL_DASTOOL ( dastool_input, [], [] )
 
@@ -60,8 +60,6 @@ workflow BIN_REFINEMENT {
             def meta_new = meta + [binner: 'DASTool', refined: true]
             [meta_new, bins]
         }
-
-    refined_bins.view()
 
     emit:
 

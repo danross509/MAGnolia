@@ -35,7 +35,6 @@ workflow BIN_COVERAGE {
         .map { meta, reads ->
             [ meta, reads.flatten().sort { file -> file.name } ]
         }
-    //original_reads_input.view()
 
     // If samples have been co-assembled or co-binned, calculate coverage for the concatenated reads
     grouped_reads_input = bin_group_reads
@@ -51,7 +50,7 @@ workflow BIN_COVERAGE {
         .map { meta, reads ->
             [ meta, reads.flatten().sort { file -> file.name } ]
         }
-    grouped_reads_input.view()
+
     COVERM_GENOME_ORIGINAL ( 
         original_reads_input,       // single channel of fastqs
         bins,                       // single channel of bins
