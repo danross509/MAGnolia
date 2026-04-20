@@ -82,7 +82,7 @@ workflow {
             exit 1 ( "ERROR: Kraken2 database at ${params.kraken2_db} not found" )
         }
     // If no database is specified but Kraken2 will be used
-    } else if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_kracken2 ) {
+    } else if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy )) {
         println ( "Downloading Kraken2 database at ${db_download_dir}/kraken2_db" )
         K2_DOWNLOAD_TAXONOMY (
             db_download_dir
@@ -108,7 +108,7 @@ workflow {
     }
 
     // If Kraken2 will be used AND if bracken will be run
-    if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_kracken2 && !params.skip_bracken ) {
+    if (( !params.skip_read_taxonomy || !params.skip_contig_taxonomy ) && !params.skip_bracken ) {
         // If there is no bracken build, build it
         println(kraken2_db_dir.toAbsolutePath().toString())
         if ( !params.bracken_build_exists ) {
@@ -357,13 +357,6 @@ workflow {
             }
         }
 
-    /*short_reads = channel.empty()
-    short_reads = short_reads.mix ( reads_input )
-        .map { meta, reads ->
-            if ( meta.sequencer == 'Illumina' ) {
-                return [ meta, reads ]
-            } 
-        }*/
     short_reads = reads_input
         .filter { meta, _reads -> meta.sequencer == 'Illumina' }
 
@@ -372,23 +365,7 @@ workflow {
 
     pacbio_reads = reads_input
         .filter { meta, _reads -> meta.sequencer == 'PacBio' }
-
-    /*nanopore_reads = channel.empty()
-    nanopore_reads = nanopore_reads.mix ( reads_input )
-        .map { meta, reads ->
-            if ( meta.sequencer == 'ONT' ) {
-                return [ meta, reads ]
-            } 
-        }
-    
-
-    pacbio_reads = channel.empty()
-    pacbio_reads = pacbio_reads.mix ( reads_input )
-        .map { meta, reads ->
-            if ( meta.sequencer == 'PacBio' ) {
-                return [ meta, reads ]
-            } 
-        }*/
+        
 
     /*********************
         Quality control
