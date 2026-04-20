@@ -1,5 +1,5 @@
 process MAXBIN2 {
-    tag "$meta.id"
+    tag "${meta.id}-${meta.assembler}"
     label 'process_medium'
 
     conda "${moduleDir}/environment.yml"

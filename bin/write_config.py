@@ -21,6 +21,7 @@ parser.add_argument('-pb', '--pacbio_count')    # Number of PacBio reads
 parser.add_argument('-c', '--corrected')        # Are reads corrected
 parser.add_argument('-f', '--default_file')     # Default config file path
 parser.add_argument('-g', '--use_gpu')          # Use an available GPU
+parser.add_argument('-d', '--startDate')        # Date of setup launch
 parser.add_argument('-v', '--verbose',
                     action='store_true')        # on/off flag
 
@@ -84,6 +85,7 @@ with open(INPUT_CONFIG, "r", encoding="utf8") as file:
 # Replace the required parameters:
 text = text.replace("maxMem = 124.GB", f"maxMem = {maxmem}.GB")
 text = text.replace("maxCores = 16", f"maxCores = {maxcores}")
+text = text.replace("runName = ''", f"runName = '{args.startDate}'")
 
 if maxmem < 240:
     text = text.replace("skip_bracken = false", "skip_bracken = true")

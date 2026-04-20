@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process KRAKEN2 {
-    tag "${meta.id}"
+    tag "${meta.id}-${meta.assembler}"
 
     container ""
     conda "${moduleDir}/environment.yml"

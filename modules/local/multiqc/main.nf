@@ -3,13 +3,12 @@
 process MULTIQC {
     label 'process_single'
 
-    container "community.wave.seqera.io/library/multiqc:1.25.1--dc1968330462e945"
-    conda "bioconda::multiqc=1.32"
-
-    //publishDir "${params.resultsDir}/QC/MultiQC/${step}", mode: 'symlink'
+    container "community.wave.seqera.io/library/multiqc:1.33--ee7739d47738383b"
+    conda "bioconda::multiqc=1.33"
 
     input:
         path all_fastqc
+        val runName
 
     output:
         path "multiqc_report.html"
@@ -21,5 +20,8 @@ process MULTIQC {
     """
     multiqc $all_fastqc \
     $args
+
+    mv multiqc_report.html multiqc_report_${runName}.html
+    mv multiqc_data multiqc_data_${runName}
     """ 
 }

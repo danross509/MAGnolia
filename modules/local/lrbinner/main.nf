@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process LRBINNER {
-    tag "${meta.assembler}-${meta.id}"
+    tag "${meta.id}-${meta.assembler}"
     label 'process_gpu'
 
     conda "${moduleDir}/environment.yml"

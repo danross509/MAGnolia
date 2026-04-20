@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process BRACKEN_ABUNDANCE_ESTIMATION {
-    tag "${meta.id}"
+    tag "${meta.id}-${meta.assembler}"
     label 'process_medium'
 
     container ""

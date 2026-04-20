@@ -10,8 +10,8 @@ process BAKTA_COLLECT_ANNOTATION_STATS {
     input:
     tuple val(meta), path(jsons)
 
-    //output:
-    //tuple val(meta), path("${prefix}.embl"), emit: embl
+    output:
+    tuple val(meta), path("*.tsv")
     //path "versions.yml", emit: versions
 
     script:

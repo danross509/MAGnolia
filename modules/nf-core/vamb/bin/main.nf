@@ -1,5 +1,5 @@
 process VAMB_BIN {
-    tag "$meta.id"
+    tag "${meta.id}-${meta.assembler}"
     label 'process_high'
 
     conda "${moduleDir}/environment.yml"

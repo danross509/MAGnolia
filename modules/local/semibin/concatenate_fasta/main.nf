@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process SEMIBIN_CONCATENATE_FASTA {
-    tag "$meta.id"
+    tag "${meta.assembler}-bin_group_${meta.id}"
     label 'process_low'
 
     container "community.wave.seqera.io/library/pip_semibin:b6a41dbb4d1296c7"

@@ -131,9 +131,11 @@ workflow BINNING {
     // Bin assembled contigs with MetaBAT2;
     if ( !params.skip_metabat2 ) {
         METABAT2 ( metabat2_input_ch )
+
         initial_bins = initial_bins.mix ( METABAT2.out.bins )
     }
 
+    // Create MetaBinner input
     if ( !params.skip_metabinner ) {
         metabinner_input = metabat2_input_ch
             .map { meta, contigs, depths ->
@@ -151,7 +153,7 @@ workflow BINNING {
         initial_bins = initial_bins.mix ( METABINNER.out.bins )
     }
 
-    // nf_core MAG convert_depths for MaxBin2
+    // Create MaxBin2 input
     if ( !params.skip_maxbin2 ) {
         JGI_DEPTHS4MAXBIN ( metabat2_input_ch )
         maxbin2_input_ch = JGI_DEPTHS4MAXBIN.out.output

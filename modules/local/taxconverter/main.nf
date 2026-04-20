@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process TAXCONVERTER {
-    tag "$meta.id"
+    tag "${meta.id}-${meta.assembler}"
     label 'process_low'
 
     conda "${moduleDir}/environment.yml"

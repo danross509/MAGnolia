@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process SEMIBIN2 {
-    tag "${meta.assembler}-${meta.id}"
+    tag "${meta.id}-${meta.assembler}"
     label 'process_high'
     label params.use_gpu ? 'process_gpu' : ''
 

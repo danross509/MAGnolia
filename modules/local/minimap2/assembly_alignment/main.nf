@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process MINIMAP2_ASSEMBLY_ALIGNMENT {
-    tag "${meta.id}_${sampleID}"
+    tag "${meta.id}-${sampleID}"
     label 'process_high'
 
     container "community.wave.seqera.io/library/minimap2:2.28--78db3d0b6e5cb797"

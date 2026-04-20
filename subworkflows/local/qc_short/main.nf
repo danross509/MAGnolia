@@ -23,7 +23,10 @@ workflow QC_SHORT {
     if ( !params.skip_fastqc ) {
         FASTQC_IN ( short_reads )
         all_fastqc_in = FASTQC_IN.out.collect() //.ifEmpty([])
-        MULTIQC_IN ( all_fastqc_in )
+        MULTIQC_IN ( 
+            all_fastqc_in,
+            params.runName
+        )
     }
 
     // Trim adapters and poor quality reads
@@ -173,7 +176,10 @@ workflow QC_SHORT {
     if ( !params.skip_fastqc ) {
         FASTQC_OUT ( host_filtered_reads )
         all_fastqc_out = FASTQC_OUT.out.collect()
-        MULTIQC_OUT ( all_fastqc_out )
+        MULTIQC_OUT (
+            all_fastqc_out,
+            params.runName
+        )
     }
 
     emit:

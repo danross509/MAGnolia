@@ -2,9 +2,7 @@
 
 include { DASTOOL_FASTATOCONTIG2BIN } from '../../../modules/nf-core/dastool/fastatocontig2bin/main.nf'
 include { DASTOOL_DASTOOL } from '../../../modules/nf-core/dastool/dastool/main.nf'
-
 include { HMBIN_VERIFY_F2C2B } from '../../../modules/local/scripts/hifiasm/hmbin_verify_f2c2b.nf'
-//include { RENAME_REFINED_BINS } from '../../../modules/local/scripts/rename_refined_bins/main.nf'
 
 
 workflow BIN_REFINEMENT {
@@ -46,8 +44,6 @@ workflow BIN_REFINEMENT {
 
     // Run DASTool
     DASTOOL_DASTOOL ( dastool_input, [], [] )
-
-    //RENAME_REFINED_BINS ( DASTOOL_DASTOOL.out.bins )
 
     refined_bins = DASTOOL_DASTOOL.out.bins
         .map { meta, bins ->

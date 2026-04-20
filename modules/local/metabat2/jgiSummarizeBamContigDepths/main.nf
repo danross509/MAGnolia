@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process JGISUMMARIZEBAMCONTIGDEPTHS {
-    tag "$meta.id"
+    tag "${meta.id}-${meta.assembler}"
     label 'process_medium'
 
     container "community.wave.seqera.io/library/metabat2:15c68d548f9e9b8f"

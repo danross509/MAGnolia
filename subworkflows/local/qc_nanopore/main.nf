@@ -2,8 +2,6 @@
 
 include { TOULLIGQC as TOULLIGQC_IN } from '../../../modules/nf-core/toulligqc/main.nf'
 include { TOULLIGQC as TOULLIGQC_OUT } from '../../../modules/nf-core/toulligqc/main.nf'
-include { MULTIQC as MULTIQC_IN } from '../../../modules/local/multiqc/main.nf'
-include { MULTIQC as MULTIQC_OUT } from '../../../modules/local/multiqc/main.nf'
 include { FASTPLONG } from '../../../modules/local/fastplong/main.nf'
 include { MINIMAP2_INDEX } from '../../../modules/local/minimap2/index/main.nf'
 include { MINIMAP2_FILTER_HOST } from '../../../modules/local/minimap2/filter_host/main.nf'
@@ -16,16 +14,8 @@ workflow QC_NANOPORE {
     main:
     // Create pre-QC ToulligQC report for input reads;
     // Collect pre-QC ToulligQC output;
-    // Summarize with multiqc
-    //all_toulligqc_in = channel.empty()
     if ( !params.skip_toulligqc ) {
         TOULLIGQC_IN ( nanopore_reads )
-        /*all_toulligqc_in = TOULLIGQC_IN.out.report_html
-            .map { meta, report ->
-                return [ report ]
-            }
-            .collect()
-        MULTIQC_IN(all_toulligqc_in, "pre-toulligQC")*/
     }
 
     // Trim reads with FastpLong
@@ -115,16 +105,8 @@ workflow QC_NANOPORE {
 
     // Create post-QC toulligQC report for input reads;
     // Collect post-QC touliggQC output;
-    // Summarize with multiqc
-    //all_toulligqc_out = channel.empty()
     if ( !params.skip_toulligqc ) {
         TOULLIGQC_OUT ( filtered_nanopore_reads )
-        /*all_toulligqc_out = TOULLIGQC_OUT.out.report_html
-            .map { meta, report ->
-                return [ report ]
-            }
-            .collect()
-        MULTIQC_OUT(all_toulligqc_out, "post-toulligQC")*/
     }
 
     emit:
