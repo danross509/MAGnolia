@@ -9,7 +9,6 @@ process DRAM_ANNOTATE {
 
     input:
         tuple val(meta), path(bins, stageAs: 'bins_input/*')
-        val runName
 
     output:
         tuple val(meta), path("annotate/*annotations.tsv")    , emit: annotations
