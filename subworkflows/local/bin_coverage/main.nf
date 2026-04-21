@@ -17,7 +17,6 @@ workflow BIN_COVERAGE {
         bin_group_reads
     
     main:
-    original_reads.view()
     // Calculate coverage for each final bin on the original input reads
     original_reads_input = original_reads
         .map {meta, reads ->
@@ -27,7 +26,7 @@ workflow BIN_COVERAGE {
             [ meta_new, reads ]
         }
         .groupTuple()
-        .filter { _meta, reads -> reads.size() > 0 }.view()
+        .filter { _meta, reads -> reads.size() > 0 }
         .map { meta, reads ->
             [ meta, reads.flatten().sort { f -> f.toString().split('/')[-1] } ]
         }

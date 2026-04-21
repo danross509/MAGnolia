@@ -11,8 +11,8 @@ process LRBINNER {
     tuple val(meta), path(reads), path(assembly)
     //tuple val(meta), path(assembly), path(bams)
 
-    //output:
-    //tuple val(meta), path("${prefix}/comebin_res_bins/*.fa.gz"), emit: bins
+    output:
+    tuple val(meta), path("*/comebin_res_bins/*.fa.gz"), emit: bins
     //path "versions.yml"                                        , emit: versions
 
     script:
