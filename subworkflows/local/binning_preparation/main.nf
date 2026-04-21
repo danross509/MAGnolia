@@ -230,7 +230,6 @@ workflow BINNING_PREPARATION {
         params.remove_unmapped
     )
 
-    grouped_tax.view()
     taxonomy_cobinning = grouped_tax
         .filter { meta, _tax ->
             meta.cobinning

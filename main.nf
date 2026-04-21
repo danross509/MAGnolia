@@ -35,6 +35,7 @@ include { ASSEMBLY_PREP_SHORT } from './subworkflows/local/assembly_prep_short/m
 include { ASSEMBLY_PREP_LONG } from './subworkflows/local/assembly_prep_long/main.nf'
 include { ASSEMBLY_SHORT } from './subworkflows/local/assembly_short/main.nf'
 include { ASSEMBLY_LONG } from './subworkflows/local/assembly_long/main.nf'
+include { ASSEMBLY_HYBRID } from './subworkflows/local/assembly_hybrid/main.nf'
 include { READ_CONTIG_TAXONOMY as CONTIG_TAXONOMY } from './subworkflows/local/read_contig_taxonomy/main.nf'
 
 include { BINNING_PREPARATION } from './subworkflows/local/binning_preparation/main.nf'
@@ -477,20 +478,21 @@ workflow {
 
     if ( !params.skip_assembly ) {
         if  ( !params.skip_spadeshybrid ) {
-            if ( params.short_reads && (params.nanopore_reads || params.pacbio_reads )) {
-                /*ASSEMBLY_HYBRID (
+            if ( params.short_reads && params.nanopore_reads && params.pacbio_reads ) {
+                error "ERROR: SPAdes hybrid assembly supports only one source of long reads"
+            }
+            else if ( params.short_reads && (params.nanopore_reads || params.pacbio_reads )) {
+                ASSEMBLY_HYBRID (
                     concatenated_reads, 
                     original_clean_reads,
-                    concatenated_long_reads, 
-                    original_clean_long_reads
+                    concatenated_long_reads
                 )
 
                 final_contigs = ASSEMBLY_HYBRID.out.contigs
                 assembly_graphs = assembly_graphs.mix ( ASSEMBLY_HYBRID.out.assembly_graph )
                 reads_post_assembly = reads_post_assembly.mix ( ASSEMBLY_HYBRID.out.reads )
-                */
             } else {
-                exit 1 ("ERROR: Cannot perform hybrid assembly without both short and long reads")
+                error "ERROR: Cannot perform hybrid assembly without both short and long reads"
             }
 
         } else if ( params.short_reads ) {

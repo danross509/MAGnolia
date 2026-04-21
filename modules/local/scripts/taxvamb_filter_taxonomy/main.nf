@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process VAMB_FILTER_TAXONOMY {
-    tag "$meta.id"
+    tag "${meta.id}-${meta.assembler}"
     label 'process_single'
 
     conda ""

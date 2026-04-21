@@ -17,11 +17,7 @@ workflow BIN_COVERAGE {
         bin_group_reads
     
     main:
-
-    //original_reads.view()
-    //bin_group_reads.view()
-    //bins.view()
-
+    original_reads.view()
     // Calculate coverage for each final bin on the original input reads
     original_reads_input = original_reads
         .map {meta, reads ->
@@ -31,9 +27,9 @@ workflow BIN_COVERAGE {
             [ meta_new, reads ]
         }
         .groupTuple()
-        .filter { _meta, reads -> reads.size() > 0 }
+        .filter { _meta, reads -> reads.size() > 0 }.view()
         .map { meta, reads ->
-            [ meta, reads.flatten().sort { file -> file.name } ]
+            [ meta, reads.flatten().sort { f -> f.toString().split('/')[-1] } ]
         }
 
     // If samples have been co-assembled or co-binned, calculate coverage for the concatenated reads
@@ -48,7 +44,7 @@ workflow BIN_COVERAGE {
         .groupTuple()
         .filter { _meta, reads -> reads.size() > 0 }
         .map { meta, reads ->
-            [ meta, reads.flatten().sort { file -> file.name } ]
+            [ meta, reads.flatten().sort { f -> f.toString().split('/')[-1] } ]
         }
 
     COVERM_GENOME_ORIGINAL ( 

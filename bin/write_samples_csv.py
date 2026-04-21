@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-## Originally written by David Ross for use within __
-## See git repository (https://github.com/) for full license text.
+## Originally written by David Ross for use within MAGnolia
 
 # USAGE: ./write_samples_csv.py $sampleID -s $sequencer -p $paired_end -c $corrected -b $bin_group -a $assembly_group -1 $reads_1 -2 $reads_2
 
@@ -29,20 +28,6 @@ parser.add_argument('-v', '--verbose')
 args = parser.parse_args()
 
 # Open sample file, write line 
-'''
-if not os.path.isfile(OUTPUT_CSV):
-    with open(OUTPUT_CSV, "a", encoding="utf8") as sample_file:
-        sample_file.write(f"sampleID,sequencer,paired_end,corrected,assembly_group,bin_group,reads_R1,reads_R2\n")
-
-
-assemblyGroup = ""
-if ( int(args.sample_count) <= 3 ):
-    assemblyGroup = "allReads"
-else:
-    assemblyGroup = args.assembly_group
-'''
-
-# Something to ensure sample doesn't already exist
 
 with open(OUTPUT_CSV, "a", encoding="utf8") as sample_file:
     sample_file.write(f"{args.sampleID},{args.sequencer},{args.paired_end},{args.corrected},{args.assembly_group},{args.bin_group},{args.reads_1},{args.reads_2}\n")

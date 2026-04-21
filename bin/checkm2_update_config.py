@@ -1,7 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-## Originally written by David Ross for use within __
-## See git repository (https://github.com/) for full license text.
+## Originally written by David Ross for use within MAGnolia
 
 # USAGE: ./checkm2_update_config.py -d $checkm2_db_dir -c $config_file
 

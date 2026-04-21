@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys, os, shutil
 from subprocess import call, Popen, PIPE, STDOUT, check_output

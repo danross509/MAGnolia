@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-## Originally written by David Ross for use within __
-## See git repository (https://github.com/) for full license text.
+## Originally written by David Ross for use within MAGnolia
 
 # USAGE: ./write_config.py -s $short_reads_count -p $short_reads_paired -n $nanopore_barcodes_count -pb $pacbio_reads_count -d $databases_location -c $reads_corrected
 

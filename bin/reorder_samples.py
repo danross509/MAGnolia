@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-## Originally written by David Ross for use within __
-## See git repository (https://github.com/) for full license text.
+## Originally written by David Ross for use within MAGnolia
 
 # USAGE: ./reorder_samples.py
 # Used in sample preparation step to reorder the samples in samples_tmp.csv for easier manipulation by the user

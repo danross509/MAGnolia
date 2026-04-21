@@ -47,11 +47,10 @@ workflow ASSEMBLY_PREP_LONG {
             }
         }
         .map { meta, reads ->
-            def readsList = reads as List
-            def unwrapped = readsList.size() == 1 && readsList[0] instanceof List ? readsList[0] : readsList
-            [meta, unwrapped]
+            def readsList = ( reads as List ).flatten()
+            [meta, readsList]
         }
-        //.view { meta, reads -> "After unwrap: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
+        //.view { meta, reads -> "After flatten: meta=${meta}, reads=${reads}, reads.class=${reads.class}, reads.size=${reads.size()}, reads[0].class=${reads[0].class}" }
 
     clean_long_reads_coassembly = clean_long_reads
         .filter { _meta, reads ->

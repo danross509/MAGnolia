@@ -1,7 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-## Originally written by David Ross for use within __
-## See git repository (https://github.com/) for full license text.
+## Originally written by David Ross for use within MAGnolia
 
 # USAGE: ./dram_update_config.py -d ${db_dir}/dram_config.txt -c $config_file
 

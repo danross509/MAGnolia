@@ -46,8 +46,6 @@ workflow BIN_DEREPLICATION {
 
     // How to connect bins back to original meta?
 
-    dereplicated_bins
-
     emit:
 
     dereplicated_bins
