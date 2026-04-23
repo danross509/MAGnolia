@@ -49,14 +49,43 @@ process MAXBIN2 {
         $args \\
         -out $prefix
 
-    # Modified to rename output bins
+    # Modified to rename output files
+
+    for bin in *.fasta; do
+        if [[ -f \$bin ]]; then
+            filename=\${bin##*/}
+            bin_name=\${filename%.fasta}
+            bin_number=\${bin_name##*.}
+            mv \$bin ${meta.id}_${meta.assembler}_MaxBin2.\${bin_number}.fa
+        fi
+    done
+
+    if [[ -f ${prefix}.noclass ]]; then
+        mv ${prefix}.noclass ${meta.id}_${meta.assembler}_MaxBin2.noclass
+    fi 
+
+    if [[ -f ${prefix}.tooshort ]]; then
+        mv ${prefix}.tooshort ${meta.id}_${meta.assembler}_MaxBin2.tooshort
+    fi
+
+    if [[ -f ${prefix}.log ]]; then
+        mv ${prefix}.log ${meta.id}_${meta.assembler}_MaxBin2.log
+    fi
+
+    if [[ -f ${prefix}.marker ]]; then
+        mv ${prefix}.marker ${meta.id}_${meta.assembler}_MaxBin2.marker
+    fi
+
+    if [[ -f ${prefix}.summary ]]; then
+        mv ${prefix}.summary ${meta.id}_${meta.assembler}_MaxBin2.summary
+    fi
+
+    if [[ -f ${prefix}.marker_of_each_bin.tar.gz ]]; then
+        mv ${prefix}.marker_of_each_bin.tar.gz ${meta.id}_${meta.assembler}_MaxBin2.marker_of_each_bin.tar.gz
+    fi
+    
     #gzip *.fasta *.noclass *.tooshort *log *.marker
     gzip *.noclass *.tooshort *log *.marker
-
-    for fasta in *.fasta; do
-        filename=\${fasta%.fasta}
-        mv \$fasta \${filename}.fa
-    done
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

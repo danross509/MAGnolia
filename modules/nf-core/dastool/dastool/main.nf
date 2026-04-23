@@ -61,7 +61,7 @@ process DASTOOL_DASTOOL {
 
     for bin in ${prefix}_DASTool_bins/*.fa; do
         if [[ "\${bin}" == ${prefix}_DASTool_bins/unbinned.fa ]]; then
-            mv ${prefix}_DASTool_bins/unbinned.fa ${prefix}_DASTool_bins/${prefix}_DASToolUnbinned.fa
+            mv \${bin} ${prefix}_DASTool_bins/${prefix}_DASToolUnbinned.fa
         elif [[ -f \$bin ]]; then
             filename=\${bin##*/}
             basename=\${filename%%.*}

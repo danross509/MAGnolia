@@ -53,12 +53,22 @@ process COMEBIN_RUNCOMEBIN {
 
     mv comebin_res ${prefix}
     
-    for bin in ${prefix}/*; do
+    for bin in ${prefix}/comebin_res_bins/*; do
         if [[ -f \$bin ]]; then
             bin_name=\${bin##*/}
-            mv \$bin ${prefix}/${meta.id}_${meta.assembler}_COMEbin.\${bin_name}
+            mv \$bin ${prefix}/comebin_res_bins/${meta.id}_${meta.assembler}_COMEbin.\${bin_name}
             if [[ "\$bin_name" == *.gz ]]; then
-                gunzip ${prefix}/${meta.id}_${meta.assembler}_COMEbin.\${bin_name}
+                gunzip ${prefix}/comebin_res_bins/${meta.id}_${meta.assembler}_COMEbin.\${bin_name}
+            fi
+        fi
+    done
+
+    for file in ${prefix}/*; do
+        if [[ -f \$file ]]; then
+            file_name=\${file##*/}
+            mv \$file ${prefix}/${meta.id}_${meta.assembler}_COMEbin.\${file_name}
+            if [[ "\$file_name" == *.gz ]]; then
+                gunzip ${prefix}/${meta.id}_${meta.assembler}_COMEbin.\${file_name}
             fi
         fi
     done

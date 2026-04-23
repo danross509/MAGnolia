@@ -18,8 +18,6 @@ workflow FASTA_BINNING_CONCOCT {
 
     CONCOCT_CUTUPFASTA ( ch_fasta, produce_bedfile )
 
-    CONCOCT_CUTUPFASTA.out.bed.view()
-
     ch_cutupfasta_for_concoctcoveragetable = CONCOCT_CUTUPFASTA.out.bed
                                                 .join( ch_bam, failOnMismatch: true )
 
