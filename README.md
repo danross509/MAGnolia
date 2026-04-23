@@ -1,4 +1,4 @@
-# MAG_Pipeline
+# MAGnolia
  This pipeline is intended for the recovery of Metagenome-Assembled Genomes (MAGs) using short reads, long reads or a hybrid approach.
 
  Once installed, it is designed to be run using two commands:
