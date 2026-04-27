@@ -39,10 +39,10 @@ process TOULLIGQC {
         --output-directory ${prefix} \\
         ${args}
     
-    mv "${prefix}/report.html" "${prefix}_report.html"
-    mv "${prefix}/report.data" "${prefix}_report.data"
-    mv "${prefix}/images" "images"
-    rm -r $prefix
+    #mv "${prefix}*/report.html" "${prefix}_report.html"
+    #mv "${prefix}*/report.data" "${prefix}_report.data"
+    #mv "${prefix}*/images" "images"
+    #rm -r $prefix
     """
     // Script modified to rename and rearrange output files
     

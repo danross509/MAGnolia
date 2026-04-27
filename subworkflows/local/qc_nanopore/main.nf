@@ -20,7 +20,7 @@ workflow QC_NANOPORE {
 
     // Trim reads with FastpLong
     trimmed_nanopore_reads = channel.empty()
-    if ( !params.skip_ont_fastplong ) {
+    if ( !params.skip_fastplong ) {
         FASTPLONG (
             nanopore_reads,
             params.fplong_disable_quality,
@@ -57,7 +57,7 @@ workflow QC_NANOPORE {
             .map { meta, genome ->
                 def nanopore_preset = ''
                 if ( !params.minimap2_nanopore_preset ) {
-                    if ( !params.skip_ont_fastplong || params.nanopore_hq || params.nanopore_reads_corrected ) {
+                    if ( !params.skip_fastplong || params.nanopore_hq || params.nanopore_reads_corrected ) {
                         nanopore_preset = "lr:hq" // (<1% error)
                     } else {
                         nanopore_preset = "map-ont" // (<10% error)
