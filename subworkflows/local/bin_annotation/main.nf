@@ -6,12 +6,15 @@ include { DRAM_DISTILL } from '../../../modules/local/dram/distill/main.nf'
 include { BAKTA_BAKTA } from '../../../modules/nf-core/bakta/bakta/main.nf'
 include { BAKTA_COLLECT_ANNOTATION_STATS } from '../../../modules/local/bakta/collect_annotation_stats/main.nf'
 
+include { EGGNOGMAPPER_METAGENOME } from '../../../modules/local/eggnogmapper/metagenome/main.nf'
+
 
 workflow BIN_ANNOTATION {
     
     take:
         bins
         bakta_db
+        eggnog_db
     
     main:
 
@@ -58,6 +61,19 @@ workflow BIN_ANNOTATION {
 
         BAKTA_COLLECT_ANNOTATION_STATS (
             bakta_summarize
+        )
+    }
+
+    if ( !params.skip_eggnog ) {
+        eggnog_bins = bins
+
+        EGGNOGMAPPER_METAGENOME (
+            eggnog_bins,
+            eggnog_db,
+            params.eggnog_search,
+            params.eggnog_genepred,
+            params.eggnog_allow_overlaps,
+            params.eggnog_overlap_tol
         )
     }
 

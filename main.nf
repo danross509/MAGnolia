@@ -58,6 +58,8 @@ include { BAKTA_UPDATE_CONFIG } from './modules/local/bakta/update_config/main.n
 include { DRAM_SETUP as DRAM_IMPORT_CONFIG } from './modules/local/dram/setup/main.nf'
 include { DRAM_SETUP as DRAM_PREPARE_DB } from './modules/local/dram/setup/main.nf'
 include { DRAM_UPDATE_CONFIG } from './modules/local/dram/update_config/main.nf'
+include { EGGNOG_DB_DOWNLOAD } from './modules/local/eggnogmapper/db_download/main.nf'
+include { EGGNOG_UPDATE_CONFIG } from './modules/local/eggnogmapper/update_config/main.nf'
 include { CHECKM2_DATABASEDOWNLOAD } from './modules/nf-core/checkm2/databasedownload/main.nf'
 include { CHECKM2_UPDATE_CONFIG } from './modules/local/checkm2/update_config/main.nf'
 include { UNTAR as CHECKM_UNTAR } from './modules/nf-core/untar/main.nf'
@@ -288,6 +290,35 @@ workflow {
             }
         } else {
             bakta_db_dir = []
+        }
+
+        // if eggNOG will be used
+        if ( !params.skip_eggnog ) {
+            // AND If there is an eggNOG directory given
+            if ( params.eggnog_db ) {
+                eggnog_db_dir = file ( params.eggnog_db, checkIfExists: true )
+
+                if ( eggnog_db_dir ) {
+                    println ( "eggNOG database found at ${params.eggnog_db}" )
+                } else {
+                    exit 1 ( "ERROR: eggnog_db path ${params.eggnog_db} does not exist" )
+                }
+
+            // If no eggNOG directory is given
+            } else {
+                println ( "eggNOG database not given, downloading to ${db_download_dir}" )
+
+                EGGNOG_DB_DOWNLOAD ()
+
+                EGGNOG_UPDATE_CONFIG (
+                    EGGNOG_DB_DOWNLOAD.out.directory,
+                    params.eggnog_download_dir
+                )
+
+                eggnog_db_dir = EGGNOG_UPDATE_CONFIG.out.directory
+            }
+        } else {
+            eggnog_db_dir = []
         }
     }
 
@@ -645,7 +676,8 @@ workflow {
     if ( !params.skip_annotation ) {
         BIN_ANNOTATION ( 
             final_bins,
-            bakta_db_dir
+            bakta_db_dir,
+            eggnog_db_dir
         )
     }
 

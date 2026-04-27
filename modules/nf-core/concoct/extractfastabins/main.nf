@@ -32,7 +32,7 @@ process CONCOCT_EXTRACTFASTABINS {
     ## Add prefix to each file to disambiguate one sample's 1.fa, 2.fa from sample2
     for bin in ${prefix}/*.fa; do
         if [[ -f \$bin ]]; then
-            bin_number=\${bin##*/bin.}
+            bin_number=\${bin##*/}
             mv \$bin ${prefix}/${meta.id}_${meta.assembler}_CONCOCT.\${bin_number}
             if [[ "\$bin_number" == *.gz ]]; then
                 gunzip ${prefix}/${meta.id}_${meta.assembler}_CONCOCT.\${bin_number}
