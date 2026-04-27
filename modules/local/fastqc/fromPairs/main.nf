@@ -13,7 +13,7 @@ process FASTQC {
         tuple val(meta), path(reads_fastq)
 
     output:
-        path "*{1,2}_fastqc.{html,zip}"
+        path "*{,1,2}_fastqc.{html,zip}"
 
     script:
     def args = task.ext.args ?: ''

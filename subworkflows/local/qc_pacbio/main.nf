@@ -1,9 +1,9 @@
 #!/usr/bin/env nextflow
 
-//include { TOULLIGQC as TOULLIGQC_IN } from '../../../modules/nf-core/toulligqc/main.nf'
-//include { TOULLIGQC as TOULLIGQC_OUT } from '../../../modules/nf-core/toulligqc/main.nf'
-//include { MULTIQC as MULTIQC_IN } from '../../../modules/local/multiqc/main.nf'
-//include { MULTIQC as MULTIQC_OUT } from '../../../modules/local/multiqc/main.nf'
+include { FASTQC as FASTQC_IN } from '../../../modules/local/fastqc/fromPairs/main.nf'
+include { FASTQC as FASTQC_OUT } from '../../../modules/local/fastqc/fromPairs/main.nf'
+include { MULTIQC as MULTIQC_IN } from '../../../modules/local/multiqc/main.nf'
+include { MULTIQC as MULTIQC_OUT } from '../../../modules/local/multiqc/main.nf'
 include { FASTPLONG } from '../../../modules/local/fastplong/main.nf'
 include { MINIMAP2_INDEX } from '../../../modules/local/minimap2/index/main.nf'
 include { MINIMAP2_FILTER_HOST } from '../../../modules/local/minimap2/filter_host/main.nf'
@@ -14,9 +14,21 @@ workflow QC_PACBIO {
     host_genome
 
     main:
+    // Create pre-QC fastqc report for input reads;
+    // Collect pre-QC fastqc output;
+    // Summarize with multiqc
+    if ( !params.skip_pb_fastqc ) {
+        FASTQC_IN ( pacbio_reads )
+        all_fastqc_in = FASTQC_IN.out.collect() //.ifEmpty([])
+        MULTIQC_IN ( 
+            all_fastqc_in,
+            params.runName
+        )
+    }
+
     // Trim reads with FastpLong
     trimmed_pacbio_reads = channel.empty()
-    if ( !params.skip_pb_fastplong ) {
+    if ( !params.skip_fastplong ) {
         FASTPLONG (
             pacbio_reads,
             params.fplong_disable_quality,
@@ -53,7 +65,7 @@ workflow QC_PACBIO {
             .map { meta, genome ->
                 def pacbio_preset = ''
                 if ( !params.minimap2_pacbio_preset ) {
-                    if ( !params.skip_pb_fastplong || params.pacbio_hifi || params.pacbio_reads_corrected ) {
+                    if ( !params.skip_fastplong || params.pacbio_hifi || params.pacbio_reads_corrected ) {
                         pacbio_preset = "map-hifi" // (<1% error)
                     } else {
                         pacbio_preset = "map-pb" // (<10% error)
@@ -95,6 +107,18 @@ workflow QC_PACBIO {
                     [ meta_new, reads ]
                 }
             }
+    }
+
+    // Create post-QC fastqc report for input reads;
+    // Collect post-QC fastqc output;
+    // Summarize with multiqc
+    if ( !params.skip_pb_fastqc ) {
+        FASTQC_OUT ( filtered_pacbio_reads )
+        all_fastqc_out = FASTQC_OUT.out.collect()
+        MULTIQC_OUT (
+            all_fastqc_out,
+            params.runName
+        )
     }
 
     emit:

@@ -67,12 +67,22 @@ workflow ASSEMBLY_PREP_LONG {
         ""
     )
 
-    RENAME_LONG_READS (
-        clean_long_reads_solo,
-        ""
-    )
+    // Rename will fail if no QC steps performed
+    //if ( !params.skip_qc && ( params.skip_fastplong && !params.host_genome )) {
+    if ( !params.skip_qc ) {
+        if ( !params.skip_fastplong || params.host_genome ) {
+            RENAME_LONG_READS (
+                clean_long_reads_solo,
+                ""
+            )
 
-    concatenated_long_reads = concatenated_long_reads.mix ( CONCATENATE_LONG_READS.out.fastq, RENAME_LONG_READS.out.fastq )
+            concatenated_long_reads = concatenated_long_reads.mix ( CONCATENATE_LONG_READS.out.fastq, RENAME_LONG_READS.out.fastq )
+        } else {
+            concatenated_long_reads = concatenated_long_reads.mix ( CONCATENATE_LONG_READS.out.fastq, clean_long_reads_solo )
+        }
+    } else {
+        concatenated_long_reads = concatenated_long_reads.mix ( CONCATENATE_LONG_READS.out.fastq, clean_long_reads_solo )
+    }
 
     original_clean_long_reads = original_clean_long_reads.mix ( corrected_ont_reads, corrected_pacbio_reads )
         .map { meta, reads ->
