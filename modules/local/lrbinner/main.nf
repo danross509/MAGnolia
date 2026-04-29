@@ -4,7 +4,7 @@ process LRBINNER {
     tag "${meta.id}-${meta.assembler}"
     label 'process_gpu'
 
-    conda "${moduleDir}/environment.yml"
+    conda params.gpu_rtx_50 ? "${moduleDir}/environment_nightly.yml" : "${moduleDir}/environment.yml"
     container ""
 
     input:
@@ -12,7 +12,7 @@ process LRBINNER {
     //tuple val(meta), path(assembly), path(bams)
 
     output:
-    tuple val(meta), path("*/comebin_res_bins/*.fa.gz"), emit: bins
+    tuple val(meta), path("output/bins.txt"), emit: binFile
     //path "versions.yml"                                        , emit: versions
 
     script:

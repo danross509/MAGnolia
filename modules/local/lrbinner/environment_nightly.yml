@@ -1,0 +1,24 @@
+channels:
+  - pytorch-nightly
+  - nvidia
+  - conda-forge
+  - bioconda
+dependencies:
+  - python==3.10
+  - numpy
+  - scipy
+  - seaborn
+  - h5py
+  - hdbscan
+  - gcc
+  - openmp
+  - tqdm
+  - biopython
+  - fraggenescan
+  - hmmer
+  - tabulate
+  - pip
+  - pip:
+    - torch --pre --index-url https://download.pytorch.org/whl/nightly/cu128
+    - torchvision --pre --index-url https://download.pytorch.org/whl/nightly/cu128
+    - torchaudio --pre --index-url https://download.pytorch.org/whl/nightly/cu128

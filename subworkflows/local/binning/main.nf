@@ -13,6 +13,7 @@ include { METABINNER } from '../../../modules/local/metabinner/main.nf'
 include { MAXBIN2 } from '../../../modules/nf-core/maxbin2/main.nf'
 include { FASTA_BINNING_CONCOCT } from '../../nf-core/fasta_binning_concoct/main.nf'
 include { LRBINNER } from '../../../modules/local/lrbinner/main.nf'
+include { LRBINNER_CREATE_BIN_FILES } from '../../../modules/local/scripts/lrbinner_create_bin_files/main.nf'
 
 workflow BINNING {
     
@@ -200,7 +201,16 @@ workflow BINNING {
             lrbinner_input
             )
 
-        initial_bins = initial_bins.mix ( LRBINNER.out.bins )
+        lrbinner_bin_file_input = lrbinner_input.join ( LRBINNER.out.binFile )
+            .map { meta, _reads, contigs, binFile ->
+                [ meta, contigs, binFile ]
+            }
+        
+        LRBINNER_CREATE_BIN_FILES (
+            lrbinner_bin_file_input
+            )
+
+        initial_bins = initial_bins.mix ( LRBINNER_CREATE_BIN_FILES.out.bins )
     }
 
     emit:
