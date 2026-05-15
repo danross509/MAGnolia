@@ -435,6 +435,18 @@ workflow {
         )
 
         corrected_reads = corrected_reads.mix ( QC_SHORT.out.host_filtered_reads )
+
+    } else if ( params.short_reads ) {
+        corrected_reads = corrected_reads.mix ( short_reads )
+            .map { meta, reads ->
+                if ( params.short_reads_corrected ) {
+                    def meta_new = meta + [ corrected: true ]
+                    [ meta_new, reads ] 
+                } else {
+                    def meta_new = meta + [ corrected: false ]
+                    [ meta_new, reads ] 
+                }
+            }
     }
 
     // ONT quality control
@@ -446,6 +458,18 @@ workflow {
         )
         
         corrected_ont_reads = corrected_ont_reads.mix ( QC_NANOPORE.out.filtered_nanopore_reads )
+
+    } else if ( params.nanopore_reads ) {
+        corrected_ont_reads = corrected_ont_reads.mix ( nanopore_reads )
+            .map { meta, reads ->
+                if ( params.nanopore_reads_corrected ) {
+                    def meta_new = meta + [ corrected: true ]
+                    [ meta_new, reads ] 
+                } else {
+                    def meta_new = meta + [ corrected: false ]
+                    [ meta_new, reads ] 
+                }
+            }
     }
 
     // PacBio quality control
@@ -457,6 +481,18 @@ workflow {
         )
 
         corrected_pacbio_reads = corrected_pacbio_reads.mix ( QC_PACBIO.out.filtered_pacbio_reads )
+
+    } else if ( params.pacbio_reads ) {
+        corrected_pacbio_reads = corrected_pacbio_reads.mix ( pacbio_reads )
+            .map { meta, reads ->
+                if ( params.pacbio_reads_corrected ) {
+                    def meta_new = meta + [ corrected: true ]
+                    [ meta_new, reads ] 
+                } else {
+                    def meta_new = meta + [ corrected: false ]
+                    [ meta_new, reads ] 
+                }
+            }
     }
 
     all_corrected_reads = corrected_reads.mix ( corrected_ont_reads, corrected_pacbio_reads )

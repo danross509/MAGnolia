@@ -5,7 +5,7 @@ process EGGNOG_DB_DOWNLOAD {
     label 'process_medium'
 
     container ""
-    conda "${moduleDir}/metagenome/environment.yml"
+    conda "${moduleDir}/../metagenome/environment.yml"
 
     output:
         path "eggnog_db" , emit: directory

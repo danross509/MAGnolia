@@ -92,10 +92,11 @@ if maxmem < 240:
 # Based on read presence / absence
 if int(args.short_count) > 0 :
     text = text.replace("short_reads = false", "short_reads = true")
+    text = text.replace("skip_vamb = true", "skip_vamb = false")
     if args.use_gpu == 'true': 
-        text = text.replace("skip_semibin2 = true", "skip_semibin2 = false")
+        text = text.replace("skip_comebin = true", "skip_comebin = false")
     else:
-        text = text.replace("skip_maxbin2 = true", "skip_maxbin2 = false")
+        text = text.replace("skip_metabat2 = true", "skip_metabat2 = false")
 if args.short_paired == 'true' :
     text = text.replace("paired_short_reads = false", "paired_short_reads = true")
 
@@ -107,9 +108,13 @@ if int(args.pacbio_count) > 0 :
     text = text.replace("pacbio_reads = false", "pacbio_reads = true")
 
 if int(args.ont_count) > 0 or int(args.pacbio_count) > 0 :
-    text = text.replace("skip_lrbinner = true", "skip_lrbinner = false")
+    text = text.replace("skip_maxbin2 = true", "skip_maxbin2 = false")
     if args.use_gpu == 'true': 
         text = text.replace("skip_semibin2 = true", "skip_semibin2 = false")
+        text = text.replace("skip_comebin = true", "skip_comebin = false")
+    else:
+        text = text.replace("skip_vamb = true", "skip_vamb = false")
+        text = text.replace("skip_metabat2 = true", "skip_metabat2 = false")
 
 # Read correctedness
 if args.corrected == 'true':
