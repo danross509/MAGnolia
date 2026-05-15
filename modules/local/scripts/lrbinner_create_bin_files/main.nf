@@ -14,7 +14,7 @@ process LRBINNER_CREATE_BIN_FILES {
         tuple val(meta), path("bins/*.fa"),             emit: bins
 
     script:
-    def prefix = task.ext.prefix ?: "${meta.id}-${meta.assembler}-LRBinner"
+    def prefix = task.ext.prefix ?: "${meta.id}_${meta.assembler}_LRBinner"
 
     """
     if [[ ! -d bins ]]; then

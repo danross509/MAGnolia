@@ -15,7 +15,7 @@ process HIFIASM_CREATE_BIN_FILES {
         tuple val(meta), path("bins/*.fa"),             emit: bins, optional: true
 
     script:
-    def prefix = task.ext.prefix ?: "${meta.id}-${meta.assembler}-hmBin"
+    def prefix = task.ext.prefix ?: "${meta.id}_${meta.assembler}_hmBin"
 
     """
     if [[ ! -d circular_MAGs ]]; then
