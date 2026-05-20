@@ -1,14 +1,34 @@
 # MAGnolia
  This pipeline is intended for the recovery of Metagenome-Assembled Genomes (MAGs) using short reads, long reads or a hybrid approach.
 
- Once installed, it is designed to be run using two commands:
+## Installation
+
+MAGnolia requires a conda environment with Nextflow installed (written in v25.10.4):
+
+```
+conda create -n magnolia bioconda::nextflow
+
+conda activate magnolia
+```
+
+MAGnolia is installed by cloning the github repository:
+```
+git clone https://github.com/danross509/MAGnolia.git
+```
+## Databases
+When first installing MAGnolia on a new server, please ensure you open the database configuration file `./MAGnolia/configs/databases.config` and identify any relevant databases currently installed on the server, to avoid installing duplicates. This file will serve as the default database configuration for all analyses using this installation of MAGnnolia; however, alternate database configuration files may be specified in your nextflow.config file. 
+
+MAGnolia will download any databases required for the analysis, based on the settings in the main configuration file, that are not properly specified in the database configuration. Upon downloading a database, MAGolia will update the databases.config file.
+
+## Running MAGnolia
+MAGnolia uses the launch directory as the default. We recommend creating a new directory for each dataset (see tutorial.md)
+
+It is designed to be run using two commands, where `$PATH` is the path to the cloned repository, and `$path` identifies the path to the directory containing each input type:
 
 ``` 
-nextflow run setup.nf [--illumina $path] [--nanopore $path] [--pacbio $path] [--corrected] [--coassembly] [--cobinning] [--use_gpu]
-```
-Where `$path` identifies the relative path to the directory containing each input type:
+nextflow run $PATH/MAGnolia/setup.nf [--illumina $path] [--nanopore $path] [--pacbio $path] [--corrected] [--coassembly] [--cobinning] [--use_gpu]
 
-```
+Parameters:
 --illumina:     Specify the folder containing illumina (short read) data: *_{R1,R2}.fastq.gz or *_{1,2}.fastq.gz
 
 --nanopore:     Specify the folder containing nanopore data. Barcode subfolders will be concatenated if a corresponding fastq.gz is not found: ${path}/barcode/*.fastq.gz -> ${path}/barcode.fastq.gz
@@ -34,7 +54,7 @@ sampleID    sequencer   paired_end  corrected   assembly_group  bin_group  reads
 -`nextflow.config`: a detailed configuration sheet (in json format), to be reviewed and modified if necessary before running the main script :
 
 ```
-nextflow run ../main.nf [-resume]
+nextflow run $PATH/MAGnolia/main.nf [-resume]
 ```
 Which will by default run Quality Control, Assembly, Binning, Classification, and Annotation on all samples unless otherwise modified in nextflow.config
 
@@ -60,7 +80,7 @@ To assemble and bin each sample on its own, the `assembly_group` and `bin_group`
 
 ## Assembly
 
-____ supports *per sample*, *grouped sample*, and all sample *co-assembly*.
+MAGnolia supports *per sample*, *grouped sample*, and all sample *co-assembly*.
 
 This should be adjusted to suit your analysis in the generated `samples.csv` file.
  
@@ -79,14 +99,14 @@ Only *per assembly* binning is available for *co-assembled* samples.
 ### Grouped sample
 This is the same as *co-assembly*, but with user-specified subgroups. Use unique `assembly_group` names to identify the samples you want assembled together. DO NOT USE `assembly_group` NAMES THAT ARE IDENTICAL TO ANY `sampleID`.
 
-This method will pass multiple *co-assemblies* through _____ in parallel.
+This method will pass multiple *co-assemblies* through MAGnolia in parallel.
 
 Only *per assembly* binning is available for *co-assembled* samples.
 
 
 ## Binning
 
-Likewise, ____ supports *per assembly*, *grouped sample*, and all sample *co-binning*. 
+Likewise, MAGnolia supports *per assembly*, *grouped sample*, and all sample *co-binning*. 
 
 Again, we recommend adjusting this to suit your analysis in the `samples.csv` file.
 
@@ -107,5 +127,5 @@ This method is also available only for *per sample* assembled samples.
 
 This is the same as *co-binning*, but with user-specified subgroups. Use unique `bin_group` names to identify the samples you want binned together. DO NOT USE `bin_group` NAMES THAT ARE IDENTICAL TO ANY `sampleID`.
 
-This method will pass multiple *co-binning* groups through _____ in parallel.
+This method will pass multiple *co-binning* groups through MAGnolia in parallel.
 
