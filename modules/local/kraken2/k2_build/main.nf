@@ -23,6 +23,14 @@ process K2_BUILD {
     def args = task.ext.args ?: ''
 
     """
+    #Replace env/bin/k2 with the fixed version
+    if [[ -f \$CONDA_PREFIX/bin/k2 ]]; then
+        rm \$CONDA_PREFIX/bin/k2
+    fi
+
+    cp ${moduleDir}/k2_fixed \$CONDA_PREFIX/bin/k2
+
+
     k2 build \
     $build \
     --db $db_dir \
