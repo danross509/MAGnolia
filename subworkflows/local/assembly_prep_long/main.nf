@@ -68,7 +68,6 @@ workflow ASSEMBLY_PREP_LONG {
     )
 
     // Rename will fail if no QC steps performed
-    //if ( !params.skip_qc && ( params.skip_fastplong && !params.host_genome )) {
     if ( !params.skip_qc ) {
         if ( !params.skip_fastplong || params.host_genome ) {
             RENAME_LONG_READS (

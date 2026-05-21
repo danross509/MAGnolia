@@ -58,6 +58,17 @@ nextflow run $PATH/MAGnolia/main.nf [-resume]
 ```
 Which will by default run Quality Control, Assembly, Binning, Classification, and Annotation on all samples unless otherwise modified in nextflow.config
 
+### Configuration options
+We recommend reviewing the following parameters found in your nextflow.config file, and modifying them where necessary:
+
+    -maxMem                 # The maximum RAM available for MAGnolia
+    -maxCores               # The maximum number of cores
+    -use_gpu                # Is there a GPU available?
+    -host_genome            # Ifentify a host genome you would like to filter out
+    -min_completeness       # Minimum completeness of final bins, to be used by multiple programs
+    -max_contamination      # Maximum contamination of final bins
+    -drep_sa                # Secondary ANI (%) for dereplication
+
 # Data Input
 ### Short reads
 

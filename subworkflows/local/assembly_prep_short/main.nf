@@ -51,10 +51,15 @@ workflow ASSEMBLY_PREP_SHORT {
         "_1"
     )
 
-    RENAME_SHORT_READS_R1 (
-        clean_reads_1_solo,
-        "_1"
-    )
+    // Rename will fail if no QC steps performed
+    if ( !params.skip_qc ) {
+        if ( !params.skip_fastp || params.host_genome ) {
+            RENAME_SHORT_READS_R1 (
+                clean_reads_1_solo,
+                "_1"
+            )
+        }
+    }
 
     if ( params.paired_short_reads ) {
         clean_reads_2 = clean_reads_2.mix ( corrected_reads )
@@ -96,17 +101,37 @@ workflow ASSEMBLY_PREP_SHORT {
             "_2"
         )
 
-        RENAME_SHORT_READS_R2 (
-            clean_reads_2_solo,
-            "_2"
-        )
-
-        concatenated_reads = concatenated_reads
-            .mix ( CONCATENATE_SHORT_READS_R1.out.fastq.join ( CONCATENATE_SHORT_READS_R2.out.fastq ))
-            .mix ( RENAME_SHORT_READS_R1.out.fastq.join ( RENAME_SHORT_READS_R2.out.fastq ))
-            .map { meta, R1, R2 ->
-                [ meta, [R1, R2] ]
+        // Rename will fail if no QC steps performed
+        if ( !params.skip_qc ) {
+            if ( !params.skip_fastplong || params.host_genome ) {
+                RENAME_SHORT_READS_R2 (
+                    clean_reads_2_solo,
+                    "_2"
+                )
+        
+                concatenated_reads = concatenated_reads
+                    .mix ( CONCATENATE_SHORT_READS_R1.out.fastq.join ( CONCATENATE_SHORT_READS_R2.out.fastq ))
+                    .mix ( RENAME_SHORT_READS_R1.out.fastq.join ( RENAME_SHORT_READS_R2.out.fastq ))
+                    .map { meta, R1, R2 ->
+                        [ meta, [R1, R2].flatten() ]
+                    }
+            } else {
+                concatenated_reads = concatenated_reads
+                    .mix ( CONCATENATE_SHORT_READS_R1.out.fastq.join ( CONCATENATE_SHORT_READS_R2.out.fastq ))
+                    .mix ( clean_reads_1_solo.join ( clean_reads_2_solo ))
+                    .map { meta, R1, R2 ->
+                        [ meta, [R1, R2].flatten() ]
+                    }
             }
+        } else {
+            concatenated_reads = concatenated_reads
+                .mix ( CONCATENATE_SHORT_READS_R1.out.fastq.join ( CONCATENATE_SHORT_READS_R2.out.fastq ))
+                .mix ( clean_reads_1_solo.join ( clean_reads_2_solo ))
+                .map { meta, R1, R2 ->
+                    [ meta, [R1, R2].flatten() ]
+                }
+            concatenated_reads.view()
+        }
 
         original_clean_reads = original_clean_reads.mix ( corrected_reads )
             .map { meta, reads ->
@@ -129,7 +154,16 @@ workflow ASSEMBLY_PREP_SHORT {
             }
 
     } else {
-        concatenated_reads = concatenated_reads.mix ( CONCATENATE_SHORT_READS_R1.out.fastq, RENAME_SHORT_READS_R1.out.fastq )
+        // Rename will be skipped if no QC steps performed
+        if ( !params.skip_qc ) {
+            if ( !params.skip_fastplong || params.host_genome ) {
+                concatenated_reads = concatenated_reads.mix ( CONCATENATE_SHORT_READS_R1.out.fastq, RENAME_SHORT_READS_R1.out.fastq )
+            } else {
+                concatenated_reads = concatenated_reads.mix ( CONCATENATE_SHORT_READS_R1.out.fastq, clean_reads_1_solo )
+            }
+        } else {
+            concatenated_reads = concatenated_reads.mix ( CONCATENATE_SHORT_READS_R1.out.fastq, clean_reads_1_solo )
+        }
 
         original_clean_reads = original_clean_reads.mix ( corrected_reads )
             .map { meta, reads ->
