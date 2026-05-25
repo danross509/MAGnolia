@@ -130,7 +130,6 @@ workflow ASSEMBLY_PREP_SHORT {
                 .map { meta, R1, R2 ->
                     [ meta, [R1, R2].flatten() ]
                 }
-            concatenated_reads.view()
         }
 
         original_clean_reads = original_clean_reads.mix ( corrected_reads )
