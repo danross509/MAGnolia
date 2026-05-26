@@ -8,4 +8,5 @@ testing/
 testing*
 *.pyc
 null/
-*_databases.config
+tilia_databases.config
+rhizo_databases.config
