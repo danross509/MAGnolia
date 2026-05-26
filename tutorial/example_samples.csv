@@ -1,4 +1,4 @@
 sampleID,sequencer,paired_end,corrected,assembly_group,bin_group,reads_R1,reads_R2
-ERR011347,Illumina,True,False,ERR011347,ERR011347,/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/data/ERR011347_1.fastq.gz,/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/data/ERR011347_2.fastq.gz
-ERR011348,Illumina,True,False,ERR011348,ERR011348,/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/data/ERR011348_1.fastq.gz,/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/data/ERR011348_2.fastq.gz
-ERR011349,Illumina,True,False,ERR011349,ERR011349,/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/data/ERR011349_1.fastq.gz,/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/data/ERR011349_2.fastq.gz
+ERR011347,Illumina,True,False,ERR011347,ERR011347,/home/username/magnolia_tutorial/data/ERR011347_1.fastq.gz,/home/username/magnolia_tutorial/data/ERR011347_2.fastq.gz
+ERR011348,Illumina,True,False,ERR011348,ERR011348,/home/username/magnolia_tutorial/data/ERR011348_1.fastq.gz,/home/username/magnolia_tutorial/data/ERR011348_2.fastq.gz
+ERR011349,Illumina,True,False,ERR011349,ERR011349,/home/username/magnolia_tutorial/data/ERR011349_1.fastq.gz,/home/username/magnolia_tutorial/data/ERR011349_2.fastq.gz
