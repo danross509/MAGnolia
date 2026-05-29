@@ -1,0 +1,915 @@
+# Annotated with Bakta
+# Software: v1.11.4
+# Database: v6.0, full
+# DOI: 10.1099/mgen.0.000685
+# URL: github.com/oschwengers/bakta
+#Sequence Id	Type	Start	Stop	Strand	Locus Tag	Gene	Product	DbXrefs
+contig_2	cds	79	939	+	LANIFM_0001		hypothetical protein	PFAM:PF08029.16
+contig_2	cds	936	1427	+	LANIFM_0002		hypothetical protein	PFAM:PF12724.12
+contig_2	cds	1499	1708	-	LANIFM_0003		hypothetical protein	
+contig_3	cds	135	1337	-	LANIFM_0004		hypothetical protein	
+contig_3	cds	1330	1773	-	LANIFM_0005		hypothetical protein	
+contig_5	cds	177	482	-	LANIFM_0006		hypothetical protein	
+contig_5	cds	493	750	-	LANIFM_0007		hypothetical protein	
+contig_5	cds	758	1402	-	LANIFM_0008		hypothetical protein	
+contig_6	cds	23	589	-	LANIFM_0009		hypothetical protein	
+contig_7	cds	901	1806	-	LANIFM_0010		hypothetical protein	PFAM:PF13240.11, PFAM:PF13248.11
+contig_7	cds	1803	2312	-	LANIFM_0011		hypothetical protein	PFAM:PF13240.11
+contig_7	cds	2314	3438	-	LANIFM_0012		hypothetical protein	
+contig_8	cds	450	1640	-	LANIFM_0013		hypothetical protein	
+contig_9	cds	130	540	-	LANIFM_0014		hypothetical protein	
+contig_9	cds	622	1713	-	LANIFM_0015		hypothetical protein	PFAM:PF01336.31, PFAM:PF13742.12
+contig_10	cds	103	648	+	LANIFM_0016		hypothetical protein	PFAM:PF19289.4
+contig_10	cds	645	899	-	LANIFM_0017		hypothetical protein	
+contig_10	cds	908	1369	-	LANIFM_0018		hypothetical protein	PFAM:PF06445.20
+contig_10	cds	1398	2627	-	LANIFM_0019		hypothetical protein	PFAM:PF00994.29, PFAM:PF03454.20
+contig_11	cds	18	1691	+	LANIFM_0020		Heavy metal translocating P-type ATPase	SO:0001217, UniRef:UniRef50_A0A496U3F2
+contig_11	cds	1697	2086	-	LANIFM_0021		hypothetical protein	
+contig_12	cds	24	482	+	LANIFM_0022		hypothetical protein	PFAM:PF01467.32
+contig_12	cds	600	791	+	LANIFM_0023		hypothetical protein	PFAM:PF00037.32, PFAM:PF12837.12
+contig_12	cds	781	1038	-	LANIFM_0024		hypothetical protein	
+contig_13	cds	783	974	+	LANIFM_0025		hypothetical protein	
+contig_14	cds	145	1056	+	LANIFM_0026		hypothetical protein	PFAM:PF00398.26, PFAM:PF02475.23, PFAM:PF05175.20, PFAM:PF08241.18, PFAM:PF13649.12, PFAM:PF13847.12
+contig_14	cds	1063	1644	+	LANIFM_0027		hypothetical protein	PFAM:PF05175.20, PFAM:PF08241.18, PFAM:PF13489.12, PFAM:PF13649.12, PFAM:PF13847.12
+contig_14	cds	1662	2522	-	LANIFM_0028		hypothetical protein	PFAM:PF01678.24
+contig_14	cds	2531	3601	-	LANIFM_0029		hypothetical protein	PFAM:PF00278.28, PFAM:PF02784.22
+contig_15	cds	80	1174	+	LANIFM_0030		Inositol-3-phosphate synthase	SO:0001217, UniRef:UniRef50_Q8NLE6
+contig_16	cds	550	1134	-	LANIFM_0031		hypothetical protein	PFAM:PF21831.1
+contig_16	cds	1139	1834	-	LANIFM_0032		hypothetical protein	
+contig_17	cds	417	1040	-	LANIFM_0033		hypothetical protein	PFAM:PF00440.29
+contig_18	cds	278	1645	-	LANIFM_0034		hypothetical protein	PFAM:PF00809.28, PFAM:PF14251.12
+contig_19	cds	31	372	+	LANIFM_0035		UPF0145 protein SCO3412	SO:0001217, UniRef:UniRef50_Q9X8J2
+contig_19	cds	432	1181	+	LANIFM_0036		hypothetical protein	
+contig_19	cds	1178	1576	-	LANIFM_0037		hypothetical protein	
+contig_19	cds	1581	2099	-	LANIFM_0038		hypothetical protein	PFAM:PF01381.28
+contig_20	cds	47	1084	+	LANIFM_0039		hypothetical protein	PFAM:PF00070.33, PFAM:PF07992.20
+contig_20	cds	1087	2133	-	LANIFM_0040		hypothetical protein	
+contig_20	cds	2140	3102	-	LANIFM_0041		hypothetical protein	
+contig_21	tRNA	300	384	+	LANIFM_0042	trnS	tRNA-Ser(gga)	SO:0000269
+contig_21	cds	580	1023	+	LANIFM_0043		hypothetical protein	
+contig_23	cds	88	1221	-	LANIFM_0044		ABC transporter ATP-binding protein	SO:0001217, UniRef:UniRef50_UPI00256EFEE5
+contig_24	cds	125	919	-	LANIFM_0045		hypothetical protein	
+contig_25	cds	50	1339	+	LANIFM_0046		RNA helicase	SO:0001217, UniRef:UniRef50_A0A0P7YFH7
+contig_25	cds	1340	2143	-	LANIFM_0047		hypothetical protein	PFAM:PF01047.28, PFAM:PF13412.12, PFAM:PF13463.12
+contig_25	cds	2199	3620	-	LANIFM_0048		hypothetical protein	PFAM:PF01368.27, PFAM:PF02272.25, PFAM:PF21763.2
+contig_25	cds	3617	3886	-	LANIFM_0049		hypothetical protein	
+contig_25	cds	3905	4999	-	LANIFM_0050		UDP-galactopyranose mutase	SO:0001217, UniRef:UniRef50_A0A7S6UFQ3
+contig_26	cds	68	226	+	LANIFM_0051		hypothetical protein	
+contig_26	cds	223	1089	-	LANIFM_0052		hypothetical protein	
+contig_27	cds	1000	1287	-	LANIFM_0053		hypothetical protein	
+contig_27	cds	1299	1565	-	LANIFM_0054		hypothetical protein	
+contig_28	cds	357	1046	+	LANIFM_0055		hypothetical protein	PFAM:PF09079.17, PFAM:PF22606.2, PFAM:PF22703.2
+contig_28	cds	1034	1216	-	LANIFM_0056		hypothetical protein	PFAM:PF00185.30
+contig_29	cds	170	478	-	LANIFM_0057		hypothetical protein	
+contig_30	cds	310	1014	-	LANIFM_0058		hypothetical protein	PFAM:PF04055.27, PFAM:PF13353.11
+contig_30	cds	1014	1760	-	LANIFM_0059		hypothetical protein	PFAM:PF00155.27, PFAM:PF00266.25
+contig_31	cds	148	516	-	LANIFM_0060	nifU	NIF system FeS cluster assembly NifU N-terminal domain-containing protein	SO:0001217, UniRef:UniRef50_A0A0K8JIH9
+contig_31	cds	532	1719	-	LANIFM_0061	iscS	Cysteine desulfurase IscS	SO:0001217, UniRef:UniRef50_A5I4Z9
+contig_32	cds	69	395	+	LANIFM_0062		hypothetical protein	
+contig_32	cds	405	962	+	LANIFM_0063		hypothetical protein	PFAM:PF10469.15
+contig_33	cds	59	2605	+	LANIFM_0064		hypothetical protein	PFAM:PF01935.23, PFAM:PF05872.18, PFAM:PF12846.13
+contig_35	cds	124	1344	+	LANIFM_0065		hypothetical protein	
+contig_36	cds	268	654	+	LANIFM_0066		hypothetical protein	
+contig_36	cds	671	946	-	LANIFM_0067		hypothetical protein	
+contig_38	cds	250	1206	+	LANIFM_0068		hypothetical protein	PFAM:PF00725.27, PFAM:PF02737.24
+contig_38	cds	1422	2546	+	LANIFM_0069		hypothetical protein	PFAM:PF00004.35, PFAM:PF05496.18, PFAM:PF07724.20, PFAM:PF23900.1, PFAM:PF23902.1
+contig_38	cds	2560	3024	-	LANIFM_0070		hypothetical protein	PFAM:PF00745.25
+contig_39	cds	463	1041	+	LANIFM_0071		hypothetical protein	PFAM:PF02223.23, PFAM:PF13521.12
+contig_40	cds	429	962	+	LANIFM_0072		hypothetical protein	
+contig_40	cds	924	1268	-	LANIFM_0073		hypothetical protein	PFAM:PF02785.25
+contig_41	cds	38	2110	-	LANIFM_0074		hypothetical protein	PFAM:PF07503.17, PFAM:PF17788.7, PFAM:PF22521.2
+contig_42	cds	206	475	-	LANIFM_0075		hypothetical protein	
+contig_42	cds	620	1264	-	LANIFM_0076		hypothetical protein	
+contig_43	cds	176	472	+	LANIFM_0077		hypothetical protein	
+contig_43	cds	484	1632	+	LANIFM_0078		hypothetical protein	PFAM:PF04432.18, PFAM:PF13534.11
+contig_43	cds	1649	2050	+	LANIFM_0079		F420-non-reducing hydrogenase iron-sulfur subunit	SO:0001217, UniRef:UniRef50_A0A916CBX2
+contig_43	cds	2066	3304	+	LANIFM_0080		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12798.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13484.11, PFAM:PF13534.11, PFAM:PF14697.11
+contig_45	cds	1011	1676	-	LANIFM_0081		hypothetical protein	
+contig_46	cds	861	1181	-	LANIFM_0082		Methionine--tRNA ligase subunit beta	SO:0001217, UniRef:UniRef50_A0AA42Z1J6
+contig_47	cds	27	674	+	LANIFM_0083		hypothetical protein	PFAM:PF04991.19
+contig_47	cds	662	1111	-	LANIFM_0084		hypothetical protein	
+contig_49	cds	40	1629	-	LANIFM_0085		hypothetical protein	PFAM:PF00702.32, PFAM:PF08282.18
+contig_49	cds	1642	2154	-	LANIFM_0086		hypothetical protein	PFAM:PF00352.27
+contig_50	cds	113	544	+	LANIFM_0087		hypothetical protein	
+contig_50	cds	541	2037	-	LANIFM_0088		hypothetical protein	PFAM:PF00037.32, PFAM:PF00478.31, PFAM:PF01070.24, PFAM:PF01645.23, PFAM:PF03060.21, PFAM:PF04898.20, PFAM:PF12838.12
+contig_50	cds	2057	2611	-	LANIFM_0089		hypothetical protein	
+contig_51	cds	27	881	+	LANIFM_0090		hypothetical protein	
+contig_52	cds	9	1718	+	LANIFM_0091		hypothetical protein	PFAM:PF00920.27, PFAM:PF24877.1
+contig_52	cds	1724	2998	+	LANIFM_0092		Histidinol dehydrogenase	SO:0001217, UniRef:UniRef50_Q3AD53
+contig_53	cds	242	2140	-	LANIFM_0093		hypothetical protein	PFAM:PF00037.32, PFAM:PF02775.26, PFAM:PF12837.12, PFAM:PF13237.11
+contig_56	cds	127	273	-	LANIFM_0094		hypothetical protein	
+contig_57	cds	60	374	+	LANIFM_0095		hypothetical protein	
+contig_57	cds	750	863	-	LANIFM_0096		hypothetical protein	
+contig_58	cds	860	1207	-	LANIFM_0097		hypothetical protein	PFAM:PF00155.27
+contig_59	cds	196	384	+	LANIFM_0098		hypothetical protein	
+contig_59	cds	610	867	+	LANIFM_0099		hypothetical protein	
+contig_59	cds	979	1173	+	LANIFM_0100		hypothetical protein	
+contig_60	cds	33	551	+	LANIFM_0101		hypothetical protein	PFAM:PF00440.29
+contig_61	cds	53	1096	+	LANIFM_0102		hypothetical protein	
+contig_61	cds	1108	1326	+	LANIFM_0103		hypothetical protein	
+contig_61	cds	1372	2379	-	LANIFM_0104		hypothetical protein	PFAM:PF00448.28, PFAM:PF01656.29, PFAM:PF02374.21, PFAM:PF13614.12
+contig_64	cds	80	1003	+	LANIFM_0105		hypothetical protein	PFAM:PF00155.27
+contig_64	cds	984	1769	-	LANIFM_0106		hypothetical protein	PFAM:PF01625.27, PFAM:PF01641.26
+contig_65	cds	150	896	+	LANIFM_0107		hypothetical protein	
+contig_65	cds	900	1325	+	LANIFM_0108		hypothetical protein	
+contig_65	cds	1317	2069	-	LANIFM_0109		hypothetical protein	PFAM:PF01702.25
+contig_65	cds	2258	3283	+	LANIFM_0110		hypothetical protein	PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13534.11
+contig_66	cds	20	1201	-	LANIFM_0111		hypothetical protein	PFAM:PF01266.30, PFAM:PF07992.20, PFAM:PF13450.12, PFAM:PF22578.2
+contig_66	cds	1214	1381	-	LANIFM_0112		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13237.11, PFAM:PF13484.11, PFAM:PF13534.11
+contig_66	cds	1475	1615	-	LANIFM_0113		hypothetical protein	
+contig_67	cds	149	973	-	LANIFM_0114		hypothetical protein	PFAM:PF01207.24, PFAM:PF05690.20
+contig_67	cds	1038	1199	-	LANIFM_0115		hypothetical protein	
+contig_67	cds	1269	1736	-	LANIFM_0116		Cyclic pyranopterin monophosphate synthase	SO:0001217, UniRef:UniRef50_A0A5E6M517
+contig_67	cds	1747	2961	-	LANIFM_0117		hypothetical protein	PFAM:PF21238.2, PFAM:PF22023.1
+contig_67	cds	2958	4052	-	LANIFM_0118		hypothetical protein	PFAM:PF00448.28, PFAM:PF02978.25
+contig_68	cds	15	887	+	LANIFM_0119		hypothetical protein	
+contig_68	cds	971	1240	-	LANIFM_0120		hypothetical protein	
+contig_69	cds	249	1580	-	LANIFM_0121		hypothetical protein	PFAM:PF02241.23, PFAM:PF02783.20
+contig_70	cds	31	336	+	LANIFM_0122		hypothetical protein	
+contig_70	cds	339	1361	+	LANIFM_0123		hypothetical protein	
+contig_70	cds	1383	1949	-	LANIFM_0124		hypothetical protein	
+contig_70	cds	2123	2212	+	LANIFM_0125		hypothetical protein	PFAM:PF23545.1
+contig_71	cds	15	977	+	LANIFM_0126		hypothetical protein	PFAM:PF00288.32, PFAM:PF08544.19
+contig_72	cds	37	546	+	LANIFM_0127		hypothetical protein	PFAM:PF01035.26, PFAM:PF02870.21
+contig_72	cds	529	1275	-	LANIFM_0128		hypothetical protein	PFAM:PF01261.30
+contig_72	cds	1285	3150	-	LANIFM_0129		hypothetical protein	PFAM:PF00437.27, PFAM:PF01850.27
+contig_72	cds	3137	3535	-	LANIFM_0130		Phosphoribosyl-AMP cyclohydrolase	SO:0001217, UniRef:UniRef50_P62386
+contig_72	cds	3539	4834	-	LANIFM_0131		hypothetical protein	PFAM:PF00587.30, PFAM:PF01409.25, PFAM:PF03129.25, PFAM:PF13393.11
+contig_73	cds	25	597	+	LANIFM_0132		hypothetical protein	PFAM:PF00117.34, PFAM:PF07722.19
+contig_73	cds	590	856	+	LANIFM_0133		hypothetical protein	
+contig_73	cds	875	1801	+	LANIFM_0134		hypothetical protein	PFAM:PF00764.25, PFAM:PF00958.27, PFAM:PF02540.23
+contig_73	cds	1889	3064	+	LANIFM_0135		hypothetical protein	
+contig_74	cds	46	1293	+	LANIFM_0136		3-isopropylmalate dehydratase large subunit	SO:0001217, UniRef:UniRef50_A0A353BIY3
+contig_74	cds	1298	1780	+	LANIFM_0137		3-isopropylmalate dehydratase small subunit	SO:0001217, UniRef:UniRef50_Q726X3
+contig_74	cds	1752	2762	+	LANIFM_0138		Homoisocitrate dehydrogenase	SO:0001217, UniRef:UniRef50_A0A162MY64
+contig_74	cds	2767	2940	-	LANIFM_0139		hypothetical protein	
+contig_76	cds	813	1049	-	LANIFM_0140		hypothetical protein	PFAM:PF01750.23
+contig_77	cds	10	282	+	LANIFM_0141		hypothetical protein	
+contig_77	cds	305	841	+	LANIFM_0142		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI00241CCA45, UniRef:UniRef90_UPI00241CCA45
+contig_77	cds	843	1007	+	LANIFM_0143		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI00241FD7DA, UniRef:UniRef90_UPI00241FD7DA
+contig_77	cds	1082	1306	+	LANIFM_0144		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI00241D95C9, UniRef:UniRef90_UPI00241D95C9
+contig_77	cds	1411	1884	+	LANIFM_0145		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI0020576620, UniRef:UniRef90_UPI0020576620
+contig_78	cds	155	838	+	LANIFM_0146		hypothetical protein	PFAM:PF12706.13
+contig_78	cds	839	1933	-	LANIFM_0147		Chorismate synthase	SO:0001217, UniRef:UniRef50_Q3Z993
+contig_79	cds	45	161	+	LANIFM_0148		hypothetical protein	
+contig_79	cds	207	2087	+	LANIFM_0149		hypothetical protein	
+contig_79	cds	2235	3383	+	LANIFM_0150	dnaJ	Chaperone protein DnaJ	SO:0001217, UniRef:UniRef50_C0ZB49
+contig_80	cds	406	1728	-	LANIFM_0151		hypothetical protein	
+contig_81	cds	22	1443	-	LANIFM_0152		hypothetical protein	
+contig_82	cds	181	1338	-	LANIFM_0153		hypothetical protein	PFAM:PF00155.27, PFAM:PF00266.25, PFAM:PF00282.25, PFAM:PF01041.23
+contig_82	cds	1390	3672	-	LANIFM_0154		hypothetical protein	PFAM:PF00391.29, PFAM:PF02896.24
+contig_82	cds	3865	4347	-	LANIFM_0155		hypothetical protein	PFAM:PF00252.24
+contig_82	cds	4536	5285	-	LANIFM_0156		Carnitine transport ATP-binding protein OpuCA	SO:0001217, UniRef:UniRef50_A0A6N3ET10
+contig_83	cds	28	894	+	LANIFM_0157		TIGR00300 family protein	SO:0001217, UniRef:UniRef50_A0A7C7DG75
+contig_84	cds	20	613	+	LANIFM_0158		hypothetical protein	PFAM:PF01207.24, PFAM:PF05690.20
+contig_84	cds	621	1082	+	LANIFM_0159		hypothetical protein	PFAM:PF01467.32
+contig_85	cds	136	1056	-	LANIFM_0160		hypothetical protein	PFAM:PF00482.28
+contig_86	cds	442	1422	-	LANIFM_0161		hypothetical protein	PFAM:PF00152.25, PFAM:PF01409.25
+contig_87	cds	12	503	+	LANIFM_0162		L(+)-tartrate dehydratase subunit beta	SO:0001217, UniRef:UniRef50_A0A1G9HC30
+contig_87	cds	512	1243	-	LANIFM_0163		hypothetical protein	PFAM:PF00254.34, PFAM:PF18046.7, PFAM:PF22199.2
+contig_88	cds	5	661	+	LANIFM_0164		hypothetical protein	
+contig_89	cds	27	905	+	LANIFM_0165		Branched-chain-amino-acid aminotransferase	SO:0001217, UniRef:UniRef50_A9WE76
+contig_90	cds	41	751	-	LANIFM_0166		uroporphyrinogen-III C-methyltransferase	SO:0001217, UniRef:UniRef50_A0A972SI56
+contig_90	cds	761	1186	-	LANIFM_0167		hypothetical protein	PFAM:PF13507.12
+contig_92	cds	18	446	+	LANIFM_0168		hypothetical protein	
+contig_92	cds	453	1817	-	LANIFM_0169		hypothetical protein	PFAM:PF00408.26, PFAM:PF02878.22, PFAM:PF02879.22, PFAM:PF02880.22
+contig_92	cds	1962	2357	-	LANIFM_0170		hypothetical protein	PFAM:PF01336.31, PFAM:PF13742.12
+contig_94	cds	484	1569	-	LANIFM_0171		hypothetical protein	
+contig_95	cds	13	741	+	LANIFM_0172		hypothetical protein	PFAM:PF00924.24, PFAM:PF21088.2
+contig_95	cds	710	1663	+	LANIFM_0173		hypothetical protein	
+contig_95	cds	1696	1974	-	LANIFM_0174		hypothetical protein	
+contig_95	cds	1979	2968	-	LANIFM_0175		hypothetical protein	PFAM:PF00561.26
+contig_95	cds	3023	3805	+	LANIFM_0176		hypothetical protein	PFAM:PF01939.22, PFAM:PF21003.3
+contig_95	cds	3802	4281	-	LANIFM_0177		hypothetical protein	
+contig_96	cds	117	485	+	LANIFM_0178		hypothetical protein	
+contig_96	cds	485	1180	+	LANIFM_0179		hypothetical protein	
+contig_96	cds	1187	1858	+	LANIFM_0180		hypothetical protein	
+contig_96	cds	1866	2081	+	LANIFM_0181		hypothetical protein	
+contig_97	cds	1742	4021	-	LANIFM_0182		hypothetical protein	
+contig_99	cds	15	833	+	LANIFM_0183		Uracil permease	SO:0001217, UniRef:UniRef50_A0A061NPX2
+contig_99	cds	826	1452	+	LANIFM_0184		Uracil phosphoribosyltransferase	SO:0001217, UniRef:UniRef50_B8E009
+contig_100	cds	685	1887	-	LANIFM_0185		hypothetical protein	PFAM:PF02754.22, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13534.11
+contig_102	cds	439	2058	+	LANIFM_0186		hypothetical protein	
+contig_103	cds	267	1424	-	LANIFM_0187		hypothetical protein	PFAM:PF01979.26
+contig_104	cds	256	1083	-	LANIFM_0188		hypothetical protein	
+contig_104	tRNA	1269	1340	-	LANIFM_0189	trnV	tRNA-Val(tac)	SO:0000273
+contig_104	cds	1400	2542	-	LANIFM_0190		hypothetical protein	PFAM:PF01435.24, PFAM:PF13240.11, PFAM:PF13248.11, PFAM:PF17032.10, PFAM:PF18912.6
+contig_106	cds	111	872	+	LANIFM_0191		hypothetical protein	PFAM:PF01026.27
+contig_106	cds	869	1093	-	LANIFM_0192		hypothetical protein	
+contig_107	cds	305	1207	-	LANIFM_0193		hypothetical protein	PFAM:PF00037.32, PFAM:PF00732.25, PFAM:PF05199.19
+contig_108	cds	44	1345	+	LANIFM_0194		Phenylacetate-coenzyme A ligase	SO:0001217, UniRef:UniRef50_H6SJ73
+contig_108	cds	1356	1787	+	LANIFM_0195		hypothetical protein	PFAM:PF01842.31, PFAM:PF19571.5, PFAM:PF22629.2
+contig_108	cds	1806	1922	-	LANIFM_0196		hypothetical protein	
+contig_109	cds	382	1023	-	LANIFM_0197		hypothetical protein	PFAM:PF08353.15
+contig_110	cds	238	948	-	LANIFM_0198		hypothetical protein	
+contig_110	cds	959	1678	-	LANIFM_0199		hypothetical protein	PFAM:PF04446.17, PFAM:PF14413.11
+contig_111	cds	769	1581	+	LANIFM_0200		hypothetical protein	
+contig_111	cds	1578	1808	-	LANIFM_0201		hypothetical protein	
+contig_112	cds	636	1595	-	LANIFM_0202		hypothetical protein	PFAM:PF01435.24, PFAM:PF13202.12
+contig_113	cds	123	1058	+	LANIFM_0203		hypothetical protein	
+contig_113	cds	1063	1503	+	LANIFM_0204		hypothetical protein	
+contig_113	cds	1507	2589	+	LANIFM_0205		hypothetical protein	PFAM:PF04055.27
+contig_113	cds	2576	3082	-	LANIFM_0206		hypothetical protein	PFAM:PF02475.23, PFAM:PF05175.20
+contig_114	cds	22	180	+	LANIFM_0207		hypothetical protein	
+contig_114	cds	249	839	+	LANIFM_0208		hypothetical protein	PFAM:PF00011.27
+contig_114	cds	871	1032	-	LANIFM_0209		hypothetical protein	
+contig_115	cds	196	915	-	LANIFM_0210		hypothetical protein	
+contig_116	cds	23	1000	-	LANIFM_0211		hypothetical protein	PFAM:PF02875.26, PFAM:PF08245.18
+contig_118	cds	63	623	+	LANIFM_0212		hypothetical protein	PFAM:PF00177.27
+contig_118	cds	1652	1912	-	LANIFM_0213		hypothetical protein	
+contig_119	cds	472	648	+	LANIFM_0214		hypothetical protein	
+contig_119	cds	669	1337	-	LANIFM_0215		hypothetical protein	PFAM:PF00149.33
+contig_120	cds	31	1509	+	LANIFM_0216		hypothetical protein	PFAM:PF00562.33, PFAM:PF04560.25
+contig_121	cds	143	1108	+	LANIFM_0217		hypothetical protein	PFAM:PF00296.26
+contig_121	cds	1137	1751	-	LANIFM_0218		hypothetical protein	
+contig_122	cds	178	1125	-	LANIFM_0219		hypothetical protein	
+contig_123	cds	1508	1732	-	LANIFM_0220		hypothetical protein	
+contig_124	cds	265	1083	-	LANIFM_0221		hypothetical protein	
+contig_124	cds	1224	2654	-	LANIFM_0222		hypothetical protein	PFAM:PF00005.33, PFAM:PF13304.12
+contig_126	cds	185	340	-	LANIFM_0223		hypothetical protein	
+contig_126	cds	625	1098	-	LANIFM_0224		hypothetical protein	
+contig_127	cds	181	951	-	LANIFM_0225		hypothetical protein	
+contig_127	cds	965	2464	-	LANIFM_0226		hypothetical protein	
+contig_128	cds	246	425	+	LANIFM_0227		hypothetical protein	
+contig_128	cds	482	1567	-	LANIFM_0228		hypothetical protein	
+contig_129	cds	416	994	-	LANIFM_0229		Imidazoleglycerol-phosphate dehydratase	SO:0001217, UniRef:UniRef50_Q6ANL7
+contig_130	cds	149	1198	-	LANIFM_0230		hypothetical protein	PFAM:PF01118.30, PFAM:PF02774.23
+contig_130	cds	1208	2029	-	LANIFM_0231		4-hydroxy-tetrahydrodipicolinate reductase	SO:0001217, UniRef:UniRef50_Q6AR64
+contig_130	cds	2043	2507	-	LANIFM_0232		hypothetical protein	PFAM:PF00701.28
+contig_131	cds	469	1554	-	LANIFM_0233		hypothetical protein	PFAM:PF09587.15
+contig_131	cds	1544	2956	-	LANIFM_0234		hypothetical protein	PFAM:PF00448.28, PFAM:PF02881.24, PFAM:PF13604.12
+contig_131	cds	3074	3514	-	LANIFM_0235		hypothetical protein	PFAM:PF02996.22
+contig_131	cds	3525	3749	-	LANIFM_0236		hypothetical protein	PFAM:PF01775.22
+contig_131	cds	3771	4442	-	LANIFM_0237		hypothetical protein	
+contig_132	cds	103	774	+	LANIFM_0238		hypothetical protein	PFAM:PF05598.16
+contig_133	cds	318	686	+	LANIFM_0239		hypothetical protein	
+contig_133	cds	702	1394	-	LANIFM_0240		hypothetical protein	
+contig_133	cds	1409	1891	-	LANIFM_0241		hypothetical protein	PFAM:PF09183.16
+contig_134	cds	10	645	-	LANIFM_0242		hypothetical protein	PFAM:PF00571.33
+contig_134	cds	658	1098	-	LANIFM_0243		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12798.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13484.11, PFAM:PF14697.11
+contig_135	cds	42	1208	-	LANIFM_0244		hypothetical protein	
+contig_138	cds	674	1477	-	LANIFM_0245		hypothetical protein	
+contig_139	cds	755	2086	-	LANIFM_0246		hypothetical protein	PFAM:PF00571.33, PFAM:PF01595.25, PFAM:PF03471.22
+contig_139	cds	2118	2330	-	LANIFM_0247		hypothetical protein	PFAM:PF09082.15
+contig_139	cds	2400	3569	-	LANIFM_0248		hypothetical protein	
+contig_139	cds	3628	4320	-	LANIFM_0249		hypothetical protein	
+contig_139	cds	4380	4895	+	LANIFM_0250		hypothetical protein	
+contig_140	cds	48	1277	+	LANIFM_0251		hypothetical protein	
+contig_141	cds	308	1480	+	LANIFM_0252		hypothetical protein	PFAM:PF01070.24, PFAM:PF01645.23
+contig_142	cds	225	1196	+	LANIFM_0253		hypothetical protein	
+contig_142	cds	1181	1693	-	LANIFM_0254		hypothetical protein	
+contig_143	cds	77	943	-	LANIFM_0255		hypothetical protein	PFAM:PF01937.24
+contig_143	cds	944	1147	-	LANIFM_0256		hypothetical protein	PFAM:PF02597.26
+contig_143	cds	1152	2069	-	LANIFM_0257		hypothetical protein	PFAM:PF03054.22, PFAM:PF22082.2
+contig_143	cds	2078	3235	-	LANIFM_0258		hypothetical protein	
+contig_143	cds	3249	3608	-	LANIFM_0259		hypothetical protein	
+contig_144	cds	172	1227	-	LANIFM_0260		hypothetical protein	PFAM:PF00408.26, PFAM:PF02878.22, PFAM:PF02879.22, PFAM:PF02880.22
+contig_145	cds	18	1190	+	LANIFM_0261		hypothetical protein	PFAM:PF00149.33, PFAM:PF12850.12
+contig_145	cds	1435	1596	-	LANIFM_0262		hypothetical protein	
+contig_146	cds	667	942	-	LANIFM_0263		hypothetical protein	
+contig_147	cds	102	455	+	LANIFM_0264		hypothetical protein	
+contig_147	cds	445	735	+	LANIFM_0265		hypothetical protein	
+contig_147	cds	728	2269	-	LANIFM_0266		hypothetical protein	PFAM:PF00205.28, PFAM:PF02775.26, PFAM:PF02776.23
+contig_147	cds	2270	2725	-	LANIFM_0267		hypothetical protein	PFAM:PF00692.24, PFAM:PF22769.1
+contig_148	cds	48	491	+	LANIFM_0268		hypothetical protein	
+contig_149	cds	766	1398	-	LANIFM_0269		Delta-aminolevulinic acid dehydratase	SO:0001217, UniRef:UniRef50_A0A7X9BM84
+contig_151	cds	16	576	+	LANIFM_0270		hypothetical protein	PFAM:PF13692.12
+contig_151	cds	576	1445	+	LANIFM_0271		hypothetical protein	PFAM:PF00288.32, PFAM:PF08544.19
+contig_152	cds	1717	3093	-	LANIFM_0272		hypothetical protein	PFAM:PF00384.28
+contig_152	cds	3083	3652	-	LANIFM_0273		hypothetical protein	PFAM:PF01568.27
+contig_152	cds	3664	3894	-	LANIFM_0274		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13484.11, PFAM:PF14697.11
+contig_152	cds	3903	5000	-	LANIFM_0275		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12798.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13484.11, PFAM:PF13534.11, PFAM:PF14697.11, PFAM:PF17179.9
+contig_152	cds	5003	5452	-	LANIFM_0276		hypothetical protein	PFAM:PF00037.32, PFAM:PF01381.28, PFAM:PF12838.12, PFAM:PF14697.11
+contig_153	cds	376	1170	-	LANIFM_0277		hypothetical protein	PFAM:PF01791.15
+contig_153	cds	1312	1554	-	LANIFM_0278		hypothetical protein	
+contig_154	cds	19	957	-	LANIFM_0279		hypothetical protein	PFAM:PF08489.16, PFAM:PF22641.2
+contig_154	cds	966	1382	-	LANIFM_0280		hypothetical protein	PFAM:PF00885.24
+contig_156	cds	123	281	+	LANIFM_0281		hypothetical protein	
+contig_156	cds	294	1028	+	LANIFM_0282		hypothetical protein	
+contig_156	cds	1044	1586	+	LANIFM_0283		hypothetical protein	PFAM:PF00406.28, PFAM:PF13207.12, PFAM:PF13238.12, PFAM:PF13671.12
+contig_156	cds	1589	1879	-	LANIFM_0284		hypothetical protein	PFAM:PF01902.24
+contig_157	cds	53	451	+	LANIFM_0285		hypothetical protein	
+contig_157	cds	579	1100	-	LANIFM_0286		hypothetical protein	
+contig_159	cds	23	802	+	LANIFM_0287		hypothetical protein	PFAM:PF00384.28, PFAM:PF01568.27
+contig_159	cds	809	2014	+	LANIFM_0288		hypothetical protein	PFAM:PF04432.18
+contig_160	cds	44	601	-	LANIFM_0289		AMMECR1 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1F5FJM4
+contig_160	cds	620	1927	-	LANIFM_0290		hypothetical protein	PFAM:PF01523.21, PFAM:PF19289.4, PFAM:PF19290.4
+contig_161	cds	216	977	+	LANIFM_0291		hypothetical protein	PFAM:PF00731.26
+contig_161	cds	979	1548	+	LANIFM_0292		hypothetical protein	PFAM:PF13508.13, PFAM:PF13673.13
+contig_161	cds	1551	1841	-	LANIFM_0293		hypothetical protein	
+contig_161	cds	1842	2642	-	LANIFM_0294		hypothetical protein	PFAM:PF00571.33
+contig_161	cds	2658	4010	-	LANIFM_0295		hypothetical protein	PFAM:PF02637.23, PFAM:PF02934.20
+contig_162	cds	107	883	-	LANIFM_0296		hypothetical protein	PFAM:PF09376.16
+contig_163	cds	6	857	+	LANIFM_0297		hypothetical protein	PFAM:PF02369.22, PFAM:PF16640.11
+contig_164	cds	1346	2269	-	LANIFM_0298		Carbamoyl phosphate synthase small chain	SO:0001217, UniRef:UniRef50_Q1MPN3
+contig_166	cds	674	1198	-	LANIFM_0299		hypothetical protein	PFAM:PF09869.16, PFAM:PF23100.1
+contig_168	cds	48	1397	+	LANIFM_0300		hypothetical protein	
+contig_169	cds	35	670	+	LANIFM_0301		hypothetical protein	
+contig_169	cds	673	1746	+	LANIFM_0302		hypothetical protein	PFAM:PF14450.12
+contig_170	cds	48	1511	+	LANIFM_0303		hypothetical protein	PFAM:PF00749.27, PFAM:PF03950.23, PFAM:PF20974.2
+contig_172	cds	77	709	+	LANIFM_0304		hypothetical protein	PFAM:PF00705.23, PFAM:PF02747.20
+contig_173	cds	149	355	-	LANIFM_0305		Large ribosomal subunit protein uL29	SO:0001217, UniRef:UniRef50_A0A9E5Y480
+contig_173	cds	394	1146	-	LANIFM_0306		hypothetical protein	PFAM:PF00189.25, PFAM:PF07650.23
+contig_173	cds	1146	1610	-	LANIFM_0307		hypothetical protein	PFAM:PF00237.24
+contig_173	cds	1623	2033	-	LANIFM_0308		hypothetical protein	PFAM:PF00203.26
+contig_173	cds	2049	2774	-	LANIFM_0309		hypothetical protein	PFAM:PF00181.29, PFAM:PF03947.24
+contig_173	cds	2787	3047	-	LANIFM_0310		hypothetical protein	
+contig_173	cds	3072	3836	-	LANIFM_0311		hypothetical protein	
+contig_173	cds	3839	4849	-	LANIFM_0312		hypothetical protein	
+contig_174	cds	42	296	-	LANIFM_0313		hypothetical protein	
+contig_175	cds	1749	2348	-	LANIFM_0314		hypothetical protein	
+contig_176	cds	260	1171	-	LANIFM_0315		hypothetical protein	PFAM:PF04389.22
+contig_177	cds	372	1430	-	LANIFM_0316		hypothetical protein	PFAM:PF00005.33, PFAM:PF13304.12
+contig_179	cds	322	1074	+	LANIFM_0317		uroporphyrinogen-III C-methyltransferase	SO:0001217, UniRef:UniRef50_A0A7C3L1P3
+contig_179	cds	1078	1713	-	LANIFM_0318		hypothetical protein	PFAM:PF01717.24
+contig_180	cds	448	1092	-	LANIFM_0319		hypothetical protein	
+contig_183	cds	346	2664	-	LANIFM_0320		hypothetical protein	PFAM:PF03477.21
+contig_183	cds	2847	5600	-	LANIFM_0321		hypothetical protein	PFAM:PF03833.19, PFAM:PF22912.2, PFAM:PF24844.1, PFAM:PF24846.1
+contig_184	cds	93	278	+	LANIFM_0322		hypothetical protein	
+contig_185	cds	111	1049	-	LANIFM_0323		hypothetical protein	
+contig_185	cds	1062	1307	-	LANIFM_0324		hypothetical protein	
+contig_185	cds	1320	1526	-	LANIFM_0325		hypothetical protein	
+contig_185	cds	1539	2255	-	LANIFM_0326		hypothetical protein	
+contig_185	cds	2256	2585	-	LANIFM_0327		hypothetical protein	
+contig_186	cds	590	721	+	LANIFM_0328		hypothetical protein	
+contig_186	cds	850	1740	-	LANIFM_0329		hypothetical protein	PFAM:PF01913.23, PFAM:PF02741.20
+contig_187	cds	184	528	+	LANIFM_0330		hypothetical protein	
+contig_188	cds	201	764	-	LANIFM_0331		hypothetical protein	PFAM:PF00398.26, PFAM:PF01170.24, PFAM:PF02475.23, PFAM:PF05175.20, PFAM:PF08241.18, PFAM:PF12847.13, PFAM:PF13649.12, PFAM:PF13847.12
+contig_188	cds	765	878	-	LANIFM_0332		hypothetical protein	
+contig_189	cds	846	1100	-	LANIFM_0333		hypothetical protein	
+contig_192	cds	8	418	+	LANIFM_0334		hypothetical protein	PFAM:PF00571.33
+contig_192	cds	501	1319	+	LANIFM_0335		hypothetical protein	PFAM:PF00571.33
+contig_192	cds	1412	2218	+	LANIFM_0336		Prephenate dehydratase	SO:0001217, UniRef:UniRef50_Q8RB13
+contig_192	cds	2280	2951	+	LANIFM_0337		hypothetical protein	
+contig_192	cds	2973	3542	+	LANIFM_0338		hypothetical protein	PFAM:PF18933.6
+contig_192	cds	3572	4078	+	LANIFM_0339		hypothetical protein	PFAM:PF02441.25
+contig_193	cds	224	898	-	LANIFM_0340		Molybdenum transport system permease	SO:0001217, UniRef:UniRef50_A0A143XFH1
+contig_193	cds	947	1723	-	LANIFM_0341		Molybdate ABC transporter substrate-binding protein	SO:0001217, UniRef:UniRef50_A0A6L5YPS2
+contig_194	cds	28	1173	-	LANIFM_0342		hypothetical protein	PFAM:PF02926.22, PFAM:PF03054.22, PFAM:PF06508.19, PFAM:PF22025.1
+contig_195	cds	1288	1851	-	LANIFM_0343		hypothetical protein	
+contig_196	cds	19	177	+	LANIFM_0344		hypothetical protein	
+contig_196	cds	256	585	-	LANIFM_0345		hypothetical protein	PFAM:PF02311.25, PFAM:PF07883.17
+contig_196	cds	587	919	-	LANIFM_0346		Hydroxylamine reductase	SO:0001217, UniRef:UniRef50_A0A162TKM9
+contig_197	cds	28	756	-	LANIFM_0347		Sugar fermentation stimulation -like protein	SO:0001217, UniRef:UniRef50_Q97MP8
+contig_197	cds	758	1846	-	LANIFM_0348		hypothetical protein	PFAM:PF01256.23, PFAM:PF03853.21
+contig_198	cds	25	456	+	LANIFM_0349		hypothetical protein	
+contig_198	cds	458	691	+	LANIFM_0350		hypothetical protein	PFAM:PF13244.11
+contig_199	ncRNA	240	520	-	LANIFM_0351	RNaseP_arch	Archaeal RNase P	RFAM:RF00373, SO:0000386
+contig_199	tRNA	536	610	-	LANIFM_0352	trnfM	tRNA-fMet(cat)	SO:0000266
+contig_199	cds	705	1094	-	LANIFM_0353		hypothetical protein	
+contig_200	cds	21	578	+	LANIFM_0354		hypothetical protein	
+contig_200	tRNA	685	768	+	LANIFM_0355	trnL	tRNA-Leu(gag)	SO:0000264
+contig_200	cds	800	1105	+	LANIFM_0356		hypothetical protein	PFAM:PF02594.21
+contig_200	cds	1184	2035	+	LANIFM_0357		UTP--glucose-1-phosphate uridylyltransferase	SO:0001217, UniRef:UniRef50_Q05852
+contig_202	cds	2197	2403	+	LANIFM_0358		hypothetical protein	
+contig_203	cds	39	386	+	LANIFM_0359		hypothetical protein	PFAM:PF00037.32
+contig_203	cds	401	1009	+	LANIFM_0360		hypothetical protein	PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13534.11
+contig_203	cds	993	1931	+	LANIFM_0361		hypothetical protein	PFAM:PF02754.22
+contig_204	cds	69	1313	+	LANIFM_0362		hypothetical protein	PFAM:PF01979.26, PFAM:PF07969.17
+contig_204	cds	1359	2600	-	LANIFM_0363		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12798.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13484.11, PFAM:PF13534.11, PFAM:PF14697.11
+contig_204	cds	2617	4041	-	LANIFM_0364		hypothetical protein	
+contig_204	cds	4043	4969	-	LANIFM_0365		hypothetical protein	PFAM:PF01058.29
+contig_204	cds	4985	5410	-	LANIFM_0366		F420-non-reducing hydrogenase iron-sulfur subunit	SO:0001217, UniRef:UniRef50_A0A916HS97
+contig_204	cds	5729	6964	-	LANIFM_0367		SUF system FeS cluster assembly SufBD core domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1F8MQ93
+contig_204	cds	6945	7574	-	LANIFM_0368	sufC	FeS assembly ATPase SufC	SO:0001217, UniRef:UniRef50_K4LSY3
+contig_205	cds	117	755	+	LANIFM_0369		hypothetical protein	PFAM:PF18998.6
+contig_206	cds	30	947	+	LANIFM_0370		hypothetical protein	PFAM:PF00155.27, PFAM:PF00266.25, PFAM:PF01041.23, PFAM:PF01053.26
+contig_206	cds	965	2152	-	LANIFM_0371		hypothetical protein	PFAM:PF00561.26, PFAM:PF00571.33
+contig_207	cds	395	649	+	LANIFM_0372		hypothetical protein	
+contig_207	cds	674	1150	+	LANIFM_0373		tRNA(adenine(34)) deaminase	SO:0001217, UniRef:UniRef50_A0A6N8J6I0
+contig_207	cds	1147	1818	-	LANIFM_0374		hypothetical protein	PFAM:PF19269.4
+contig_208	cds	1482	1592	+	LANIFM_0375		hypothetical protein	PFAM:PF01881.21
+contig_208	cds	1632	1907	-	LANIFM_0376		hypothetical protein	
+contig_209	cds	96	230	+	LANIFM_0377		hypothetical protein	
+contig_209	cds	309	854	-	LANIFM_0378		Rubrerythrin	SO:0001217, UniRef:UniRef50_P24931
+contig_209	cds	986	1687	+	LANIFM_0379		hypothetical protein	PFAM:PF13240.11
+contig_209	cds	1916	2680	+	LANIFM_0380		Short-chain dehydrogenase/reductase SDR	SO:0001217, UniRef:UniRef50_R7BQZ8
+contig_210	cds	624	1337	-	LANIFM_0381		hypothetical protein	
+contig_211	cds	132	626	+	LANIFM_0382		J domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1Y4A1A8
+contig_211	cds	684	1040	+	LANIFM_0383		hypothetical protein	
+contig_212	cds	218	841	+	LANIFM_0384		hypothetical protein	PFAM:PF09851.14
+contig_212	cds	853	1680	-	LANIFM_0385		hypothetical protein	PFAM:PF00587.30
+contig_213	cds	152	1192	-	LANIFM_0386		hypothetical protein	PFAM:PF04765.19
+contig_215	tRNA	733	805	+	LANIFM_0387	trnN	tRNA-Asn(gtt)	SO:0000257
+contig_215	tRNA	811	884	+	LANIFM_0388	trnI	tRNA-Ile2(cat)	SO:0000263
+contig_215	tRNA	910	984	+	LANIFM_0389	trnE	tRNA-Glu(ttc)	SO:0000259
+contig_215	tRNA	1041	1123	+	LANIFM_0390	trnL	tRNA-Leu(tag)	SO:0000264
+contig_215	tRNA	1152	1227	+	LANIFM_0391	trnH	tRNA-His(gtg)	SO:0000262
+contig_215	cds	1261	1668	+	LANIFM_0392		hypothetical protein	
+contig_216	cds	143	628	-	LANIFM_0393		hypothetical protein	
+contig_216	cds	640	855	-	LANIFM_0394		hypothetical protein	
+contig_217	cds	220	612	+	LANIFM_0395		hypothetical protein	
+contig_217	cds	683	1264	-	LANIFM_0396		hypothetical protein	
+contig_218	cds	159	713	+	LANIFM_0397		hypothetical protein	
+contig_220	cds	1	297	+	LANIFM_0398		hypothetical protein	
+contig_220	cds	539	925	-	LANIFM_0399		hypothetical protein	PFAM:PF01638.23
+contig_220	cds	1006	1851	+	LANIFM_0400		hypothetical protein	
+contig_221	cds	41	250	+	LANIFM_0401		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13237.11, PFAM:PF13484.11
+contig_221	cds	262	1389	+	LANIFM_0402		hypothetical protein	PFAM:PF02780.25, PFAM:PF17147.9
+contig_221	cds	1390	2262	+	LANIFM_0403		hypothetical protein	PFAM:PF02775.26
+contig_221	cds	2276	2818	+	LANIFM_0404		2-oxoacid:ferredoxin oxidoreductase subunit gamma	SO:0001217, UniRef:UniRef50_A0A523THS3
+contig_222	cds	12	665	-	LANIFM_0405		hypothetical protein	
+contig_222	cds	672	1871	-	LANIFM_0406		hypothetical protein	
+contig_222	cds	1878	2135	-	LANIFM_0407		hypothetical protein	
+contig_223	cds	21	713	+	LANIFM_0408		hypothetical protein	
+contig_225	cds	221	361	+	LANIFM_0409		hypothetical protein	
+contig_225	cds	373	1305	-	LANIFM_0410		hypothetical protein	PFAM:PF00382.24, PFAM:PF08271.17
+contig_225	cds	1353	1640	-	LANIFM_0411		hypothetical protein	PFAM:PF04410.20
+contig_226	cds	148	1548	-	LANIFM_0412		hypothetical protein	PFAM:PF01163.29, PFAM:PF22521.2
+contig_227	cds	18	782	+	LANIFM_0413		hypothetical protein	PFAM:PF00742.24
+contig_227	cds	810	2042	+	LANIFM_0414		hypothetical protein	
+contig_227	cds	2168	3532	+	LANIFM_0415	norM	putative multidrug resistance protein NorM	SO:0001217, UniRef:UniRef50_T0UIN7
+contig_228	cds	20	430	+	LANIFM_0416		hypothetical protein	
+contig_228	cds	617	1687	+	LANIFM_0417		NADP-dependent isopropanol dehydrogenase	SO:0001217, UniRef:UniRef50_P14941
+contig_229	cds	15	1103	+	LANIFM_0418		Ammonium transporter	SO:0001217, UniRef:UniRef50_O66515
+contig_230	cds	887	1717	+	LANIFM_0419		hypothetical protein	PFAM:PF01729.25, PFAM:PF02749.22
+contig_231	cds	651	1238	-	LANIFM_0420		hypothetical protein	PFAM:PF00117.34, PFAM:PF01174.25, PFAM:PF07685.20
+contig_232	cds	12	731	+	LANIFM_0421		hypothetical protein	
+contig_232	cds	694	888	+	LANIFM_0422		hypothetical protein	
+contig_233	cds	72	236	+	LANIFM_0423		hypothetical protein	
+contig_233	cds	238	1026	+	LANIFM_0424		hypothetical protein	PFAM:PF01138.27, PFAM:PF03725.20
+contig_236	cds	118	483	-	LANIFM_0425		hypothetical protein	PFAM:PF00828.25
+contig_236	cds	483	1169	-	LANIFM_0426		hypothetical protein	PFAM:PF01000.31, PFAM:PF01193.29
+contig_237	cds	574	1554	-	LANIFM_0427		hypothetical protein	
+contig_238	cds	65	1024	-	LANIFM_0428		hypothetical protein	PFAM:PF00557.29, PFAM:PF01321.24
+contig_239	cds	46	846	+	LANIFM_0429		hypothetical protein	PFAM:PF00587.30, PFAM:PF03129.25, PFAM:PF09180.16
+contig_239	cds	857	1531	+	LANIFM_0430		hypothetical protein	PFAM:PF12804.13
+contig_242	cds	834	1349	-	LANIFM_0431		Albonoursin synthase	SO:0001217, UniRef:UniRef50_A0A136WGY7
+contig_243	cds	284	1468	-	LANIFM_0432		hypothetical protein	
+contig_244	cds	242	787	-	LANIFM_0433		hypothetical protein	PFAM:PF00004.35, PFAM:PF13238.12
+contig_244	cds	799	1893	-	LANIFM_0434		hypothetical protein	PFAM:PF00025.27, PFAM:PF02421.24, PFAM:PF02824.27
+contig_244	cds	1951	2076	-	LANIFM_0435		hypothetical protein	
+contig_245	cds	8	754	-	LANIFM_0436		hypothetical protein	
+contig_245	cds	792	1520	-	LANIFM_0437		hypothetical protein	
+contig_246	cds	859	1077	-	LANIFM_0438		hypothetical protein	
+contig_248	tRNA	28	101	-	LANIFM_0439	trnR	tRNA-Arg(tcg)	SO:0001036
+contig_248	cds	112	1131	-	LANIFM_0440		hypothetical protein	
+contig_248	cds	1143	1457	-	LANIFM_0441		hypothetical protein	PFAM:PF01096.23, PFAM:PF02150.21
+contig_248	cds	1554	1691	-	LANIFM_0442		hypothetical protein	
+contig_249	cds	91	192	+	LANIFM_0443		hypothetical protein	
+contig_249	cds	189	1943	+	LANIFM_0444		V-type ATP synthase alpha chain	SO:0001217, UniRef:UniRef50_A5I557
+contig_250	cds	94	1056	-	LANIFM_0445		hypothetical protein	PFAM:PF00535.33, PFAM:PF13641.12
+contig_250	cds	1049	2143	-	LANIFM_0446		hypothetical protein	
+contig_250	cds	2146	3906	-	LANIFM_0447		hypothetical protein	PFAM:PF00005.33
+contig_250	cds	3921	4646	-	LANIFM_0448		hypothetical protein	PFAM:PF01061.29
+contig_251	cds	31	1431	+	LANIFM_0449		Sodium:solute symporter family protein	SO:0001217, UniRef:UniRef50_A0A7C1HTU5
+contig_252	cds	55	1038	+	LANIFM_0450		hypothetical protein	
+contig_253	cds	22	1569	+	LANIFM_0451		hypothetical protein	PFAM:PF04055.27
+contig_253	cds	1639	1944	-	LANIFM_0452		hypothetical protein	
+contig_255	cds	646	1035	-	LANIFM_0453		S-methyl-5-thioribose-1-phosphate isomerase	SO:0001217, UniRef:UniRef50_A0A2A5D6P5
+contig_256	cds	1103	1864	-	LANIFM_0454		hypothetical protein	PFAM:PF02240.21
+contig_256	cds	1867	2466	-	LANIFM_0455		hypothetical protein	
+contig_256	cds	2468	2689	-	LANIFM_0456		hypothetical protein	
+contig_257	cds	245	1186	+	LANIFM_0457		hypothetical protein	
+contig_258	cds	1	336	-	LANIFM_0458		hypothetical protein	
+contig_258	cds	333	1205	-	LANIFM_0459		hypothetical protein	PFAM:PF00361.26
+contig_259	cds	44	403	+	LANIFM_0460		hypothetical protein	
+contig_260	cds	32	949	+	LANIFM_0461		Isocitrate/homoisocitrate dehydrogenase	SO:0001217, UniRef:UniRef50_Q5SIJ1
+contig_260	cds	950	2428	+	LANIFM_0462		hypothetical protein	PFAM:PF13193.12
+contig_261	cds	388	711	-	LANIFM_0463		hypothetical protein	
+contig_261	cds	713	1282	-	LANIFM_0464		hypothetical protein	PFAM:PF03358.20
+contig_261	cds	1341	2099	-	LANIFM_0465		hypothetical protein	PFAM:PF01048.26
+contig_261	cds	2106	3554	-	LANIFM_0466		hypothetical protein	
+contig_261	cds	3793	4113	-	LANIFM_0467		hypothetical protein	
+contig_262	cds	139	1098	-	LANIFM_0468		hypothetical protein	
+contig_262	cds	1104	2147	-	LANIFM_0469		hypothetical protein	
+contig_263	cds	82	867	-	LANIFM_0470		hypothetical protein	
+contig_263	cds	907	2451	-	LANIFM_0471		hypothetical protein	
+contig_263	cds	2530	3117	+	LANIFM_0472		hypothetical protein	PFAM:PF03358.20
+contig_264	cds	233	1039	-	LANIFM_0473		hypothetical protein	PFAM:PF00175.26, PFAM:PF10418.14
+contig_264	cds	1043	1627	-	LANIFM_0474		hypothetical protein	PFAM:PF01180.27, PFAM:PF01207.24, PFAM:PF03060.21
+contig_265	tRNA	335	408	-	LANIFM_0475	trnR	tRNA-Arg(cct)	SO:0001036
+contig_265	tRNA	470	543	-	LANIFM_0476	trnR	tRNA-Arg(tct)	SO:0001036
+contig_265	cds	658	1170	-	LANIFM_0477		hypothetical protein	PFAM:PF03413.25
+contig_266	cds	110	238	+	LANIFM_0478		hypothetical protein	
+contig_267	cds	41	211	+	LANIFM_0479		hypothetical protein	
+contig_267	cds	203	790	-	LANIFM_0480		hypothetical protein	PFAM:PF00596.26
+contig_267	cds	843	2480	-	LANIFM_0481		hypothetical protein	PFAM:PF00149.33
+contig_268	cds	39	332	+	LANIFM_0482		hypothetical protein	PFAM:PF01979.26, PFAM:PF07969.17
+contig_268	cds	335	1564	-	LANIFM_0483		hypothetical protein	PFAM:PF02910.25
+contig_270	cds	389	523	+	LANIFM_0484		hypothetical protein	
+contig_270	cds	587	940	-	LANIFM_0485		hypothetical protein	
+contig_270	cds	949	1347	-	LANIFM_0486		hypothetical protein	PFAM:PF00238.24
+contig_270	cds	1353	1670	-	LANIFM_0487		hypothetical protein	PFAM:PF00366.26
+contig_270	cds	1684	1962	-	LANIFM_0488		hypothetical protein	
+contig_271	cds	17	571	+	LANIFM_0489		hypothetical protein	PFAM:PF02249.22
+contig_271	cds	824	1702	+	LANIFM_0490		hypothetical protein	
+contig_272	cds	650	3034	-	LANIFM_0491		hypothetical protein	PFAM:PF02272.25, PFAM:PF07973.19
+contig_273	cds	46	903	-	LANIFM_0492		hypothetical protein	
+contig_273	cds	968	1537	+	LANIFM_0493		hypothetical protein	PFAM:PF02887.21
+contig_273	cds	1610	2551	-	LANIFM_0494		hypothetical protein	
+contig_274	cds	93	428	+	LANIFM_0495		hypothetical protein	PFAM:PF01047.28, PFAM:PF13412.12, PFAM:PF13463.12
+contig_274	cds	545	1798	+	LANIFM_0496		hypothetical protein	
+contig_274	cds	1795	2748	-	LANIFM_0497		hypothetical protein	
+contig_275	cds	771	1331	-	LANIFM_0498		hypothetical protein	
+contig_275	cds	1347	2588	-	LANIFM_0499		(pseudo) Methanogenesis marker 5 protein	SO:0001217, UniRef:UniRef50_A0AA96V0M9, UniRef:UniRef90_A0A9D1XQU7
+contig_275	cds	2591	3034	-	LANIFM_0500		hypothetical protein	
+contig_275	cds	3039	3515	-	LANIFM_0501		hypothetical protein	
+contig_275	cds	3493	3921	-	LANIFM_0502		hypothetical protein	
+contig_276	cds	430	807	-	LANIFM_0503		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI002FC70784
+contig_276	cds	792	1097	-	LANIFM_0504		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI001EFBF369
+contig_276	cds	1287	2015	-	LANIFM_0505		hypothetical protein	
+contig_276	cds	2218	2469	-	LANIFM_0506		hypothetical protein	
+contig_276	cds	2475	2969	-	LANIFM_0507		hypothetical protein	
+contig_276	cds	3204	3356	-	LANIFM_0508		hypothetical protein	
+contig_276	cds	3381	3986	-	LANIFM_0509		hypothetical protein	
+contig_276	cds	4224	4553	-	LANIFM_0510		hypothetical protein	PFAM:PF22337.1
+contig_276	cds	4758	4886	-	LANIFM_0511		hypothetical protein	
+contig_276	cds	5208	5435	+	LANIFM_0512		(pseudo) hypothetical protein	SO:0001217, UniRef:UniRef50_UPI00241C267B, UniRef:UniRef90_UPI00241C267B
+contig_276	cds	5873	6001	-	LANIFM_0513		hypothetical protein	
+contig_276	cds	6071	7006	-	LANIFM_0514		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI00241C6770
+contig_276	cds	7040	7219	+	LANIFM_0515		hypothetical protein	
+contig_276	cds	7364	7780	+	LANIFM_0516		hypothetical protein	
+contig_276	cds	7591	8649	-	LANIFM_0517		hypothetical protein	
+contig_276	cds	8704	8907	-	LANIFM_0518		hypothetical protein	
+contig_276	cds	9373	9864	-	LANIFM_0519		hypothetical protein	PFAM:PF22337.1
+contig_276	cds	9867	10985	-	LANIFM_0520		hypothetical protein	
+contig_276	cds	11127	11228	-	LANIFM_0521		hypothetical protein	
+contig_276	cds	13410	14162	-	LANIFM_0522		hypothetical protein	
+contig_276	cds	14676	15137	-	LANIFM_0523		(pseudo) hypothetical protein	SO:0001217, UniRef:UniRef50_UPI00204E6A6E, UniRef:UniRef90_UPI00204E6A6E
+contig_276	cds	15324	15473	-	LANIFM_0524		hypothetical protein	
+contig_276	cds	16047	16157	-	LANIFM_0525		hypothetical protein	
+contig_277	cds	1125	1343	+	LANIFM_0526		hypothetical protein	
+contig_278	cds	709	888	+	LANIFM_0527		hypothetical protein	
+contig_279	cds	176	2014	-	LANIFM_0528		hypothetical protein	PFAM:PF01513.26, PFAM:PF20143.4
+contig_279	cds	2018	2479	-	LANIFM_0529		hypothetical protein	
+contig_280	cds	391	570	-	LANIFM_0530		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13237.11, PFAM:PF13484.11
+contig_280	tRNA	734	816	+	LANIFM_0531	trnL	tRNA-Leu(taa)	SO:0000264
+contig_280	tRNA	852	924	+	LANIFM_0532	trnT	tRNA-Thr(ggt)	SO:0000270
+contig_280	cds	976	1536	-	LANIFM_0533		hypothetical protein	
+contig_280	cds	1529	2167	-	LANIFM_0534		hypothetical protein	
+contig_280	cds	2216	2911	-	LANIFM_0535		hypothetical protein	
+contig_280	cds	2912	3151	-	LANIFM_0536		hypothetical protein	
+contig_281	cds	131	1477	-	LANIFM_0537		hypothetical protein	PFAM:PF01071.24, PFAM:PF02142.27, PFAM:PF02222.28, PFAM:PF02786.22
+contig_284	cds	47	1399	-	LANIFM_0538		hypothetical protein	PFAM:PF00206.25, PFAM:PF10397.14
+contig_285	cds	67	1926	-	LANIFM_0539		hypothetical protein	PFAM:PF00493.29, PFAM:PF01078.27, PFAM:PF07728.20, PFAM:PF17207.9, PFAM:PF17855.7, PFAM:PF21120.3
+contig_286	cds	81	1355	-	LANIFM_0540		hypothetical protein	PFAM:PF13635.12
+contig_287	cds	49	525	+	LANIFM_0541		ABC transporter ATP-binding protein	SO:0001217, UniRef:UniRef50_A0A4Q3S670
+contig_287	cds	494	994	+	LANIFM_0542		ABC transporter ATP-binding protein	SO:0001217, UniRef:UniRef50_A0A9D1YRB7
+contig_288	cds	38	1096	+	LANIFM_0543		hypothetical protein	
+contig_289	cds	853	1449	-	LANIFM_0544		hypothetical protein	
+contig_291	cds	117	461	+	LANIFM_0545		hypothetical protein	PFAM:PF00633.29
+contig_291	cds	466	822	+	LANIFM_0546		hypothetical protein	PFAM:PF00903.31, PFAM:PF22677.2
+contig_291	cds	833	1267	-	LANIFM_0547		Peptidyl-prolyl cis-trans isomerase	SO:0001217, UniRef:UniRef50_Q7UP01
+contig_291	cds	1342	1713	+	LANIFM_0548		Bifunctional succinylornithine transaminase/acetylornithine transaminase	SO:0001217, UniRef:UniRef50_A0A484Z4X6
+contig_291	cds	1753	2508	+	LANIFM_0549		hypothetical protein	PFAM:PF00202.27
+contig_291	cds	2505	2939	-	LANIFM_0550		hypothetical protein	PFAM:PF00293.34, PFAM:PF14815.12
+contig_292	cds	484	873	+	LANIFM_0551		hypothetical protein	
+contig_292	cds	842	2197	-	LANIFM_0552		hypothetical protein	PFAM:PF00037.32, PFAM:PF14574.11
+contig_293	cds	19	1107	-	LANIFM_0553		hypothetical protein	
+contig_293	cds	1216	1731	-	LANIFM_0554		hypothetical protein	PFAM:PF01974.23, PFAM:PF02778.19
+contig_294	cds	22	1125	+	LANIFM_0555		hypothetical protein	
+contig_296	cds	251	1129	-	LANIFM_0556		hypothetical protein	
+contig_296	cds	1139	1627	-	LANIFM_0557		hypothetical protein	PFAM:PF16363.11
+contig_297	cds	78	254	+	LANIFM_0558		hypothetical protein	PFAM:PF06093.19
+contig_297	cds	266	775	+	LANIFM_0559		hypothetical protein	
+contig_297	cds	789	1097	+	LANIFM_0560		hypothetical protein	
+contig_297	cds	1108	1263	+	LANIFM_0561		hypothetical protein	PFAM:PF01599.25
+contig_299	cds	494	1795	+	LANIFM_0562		hypothetical protein	PFAM:PF00587.30, PFAM:PF03129.25
+contig_300	cds	122	988	-	LANIFM_0563		hypothetical protein	
+contig_301	cds	575	850	+	LANIFM_0564		hypothetical protein	
+contig_302	cds	153	1202	-	LANIFM_0565		Ferrous iron transport protein B	SO:0001217, UniRef:UniRef50_A0A7C1WQ28
+contig_303	cds	54	1343	-	LANIFM_0566		ABC transporter substrate-binding protein	SO:0001217, UniRef:UniRef50_A0A0J1G5W1, UniRef:UniRef90_UPI00033A82B9
+contig_304	cds	185	2722	-	LANIFM_0567		hypothetical protein	PFAM:PF02663.19
+contig_305	cds	909	2303	-	LANIFM_0568		hypothetical protein	PFAM:PF00496.27
+contig_307	cds	3	311	+	LANIFM_0569		hypothetical protein	
+contig_307	cds	301	1302	-	LANIFM_0570		hypothetical protein	PFAM:PF04055.27
+contig_307	cds	1292	1789	-	LANIFM_0571		hypothetical protein	PFAM:PF02769.27
+contig_308	cds	49	654	+	LANIFM_0572		Methyltransferase type 11 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1W9MVY9
+contig_309	cds	89	316	+	LANIFM_0573		hypothetical protein	
+contig_309	cds	319	501	+	LANIFM_0574		hypothetical protein	
+contig_309	cds	611	2272	-	LANIFM_0575		hypothetical protein	PFAM:PF01409.25, PFAM:PF03484.21, PFAM:PF17759.6
+contig_310	cds	45	512	+	LANIFM_0576		hypothetical protein	PFAM:PF21800.4, PFAM:PF22891.2
+contig_310	cds	810	2510	+	LANIFM_0577		hypothetical protein	PFAM:PF02518.31, PFAM:PF09239.17
+contig_310	cds	2524	3624	+	LANIFM_0578		hypothetical protein	PFAM:PF04406.19, PFAM:PF20768.2, PFAM:PF21180.3
+contig_311	cds	823	1206	-	LANIFM_0579		hypothetical protein	PFAM:PF00156.33
+contig_312	cds	477	1175	-	LANIFM_0580		hypothetical protein	PFAM:PF04055.27, PFAM:PF13353.11
+contig_313	cds	64	510	+	LANIFM_0581		hypothetical protein	PFAM:PF07883.17
+contig_313	cds	530	2200	+	LANIFM_0582		Acetyl-coenzyme A synthetase	SO:0001217, UniRef:UniRef50_K5ZS30
+contig_313	cds	2209	2448	+	LANIFM_0583		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12838.12, PFAM:PF13237.11
+contig_313	cds	2441	3553	+	LANIFM_0584		hypothetical protein	PFAM:PF17147.9
+contig_313	cds	3566	5026	+	LANIFM_0585		hypothetical protein	PFAM:PF01558.24, PFAM:PF02775.26
+contig_314	cds	217	711	-	LANIFM_0586		hypothetical protein	PFAM:PF00258.30, PFAM:PF03358.20, PFAM:PF12682.12, PFAM:PF12724.12
+contig_314	cds	763	978	-	LANIFM_0587		Asd/ArgC dimerization domain-containing protein	SO:0001217, UniRef:UniRef50_A0AAU3HU30
+contig_315	cds	18	344	+	LANIFM_0588		hypothetical protein	
+contig_315	cds	348	1415	-	LANIFM_0589		hypothetical protein	
+contig_315	cds	1412	1873	-	LANIFM_0590		hypothetical protein	
+contig_316	cds	36	521	-	LANIFM_0591		hypothetical protein	PFAM:PF00565.23
+contig_316	cds	563	1246	-	LANIFM_0592		hypothetical protein	PFAM:PF12705.13
+contig_316	cds	1740	2045	-	LANIFM_0593		hypothetical protein	
+contig_317	cds	29	1387	+	LANIFM_0594		Glutamine synthetase	SO:0001217, UniRef:UniRef50_A0A3D0YX28
+contig_319	cds	78	1328	+	LANIFM_0595		hypothetical protein	PFAM:PF00670.27, PFAM:PF02826.25, PFAM:PF05221.23
+contig_319	cds	1369	2019	+	LANIFM_0596		hypothetical protein	PFAM:PF09892.16
+contig_319	cds	2016	2999	-	LANIFM_0597		hypothetical protein	
+contig_319	cds	3012	3575	-	LANIFM_0598		hypothetical protein	PFAM:PF01947.21, PFAM:PF04345.18, PFAM:PF07702.18
+contig_319	cds	3583	4836	-	LANIFM_0599		hypothetical protein	
+contig_319	cds	4846	5802	-	LANIFM_0600		hypothetical protein	PFAM:PF00682.25, PFAM:PF22617.1
+contig_321	cds	54	581	-	LANIFM_0601		hypothetical protein	PFAM:PF00484.24
+contig_321	cds	578	1069	-	LANIFM_0602		Acetolactate synthase small subunit	SO:0001217, UniRef:UniRef50_A0A7X8APS6
+contig_321	cds	1079	1837	-	LANIFM_0603		hypothetical protein	PFAM:PF02775.26
+contig_322	cds	883	1629	-	LANIFM_0604		hypothetical protein	
+contig_324	tRNA	243	315	-	LANIFM_0605	trnF	tRNA-Phe(gaa)	SO:0000267
+contig_324	tRNA	319	390	-	LANIFM_0606	trnV	tRNA-Val(gac)	SO:0000273
+contig_324	cds	521	721	-	LANIFM_0607		hypothetical protein	PFAM:PF00125.30, PFAM:PF00808.29, PFAM:PF02969.23, PFAM:PF15630.12
+contig_324	cds	921	2111	-	LANIFM_0608		hypothetical protein	PFAM:PF01938.26, PFAM:PF04055.27
+contig_324	cds	2206	2832	-	LANIFM_0609		hypothetical protein	
+contig_324	cds	2858	3343	-	LANIFM_0610		3-isopropylmalate dehydratase small subunit	SO:0001217, UniRef:UniRef50_Q97EE1
+contig_324	cds	3353	4075	-	LANIFM_0611		hypothetical protein	PFAM:PF08544.19
+contig_325	cds	299	1189	-	LANIFM_0612		hypothetical protein	PFAM:PF01913.23, PFAM:PF02741.20
+contig_325	cds	1274	2272	-	LANIFM_0613		Phosphatidylglycerol lysyltransferase	SO:0001217, UniRef:UniRef50_A0A3B9Z9H3
+contig_325	cds	2534	2971	-	LANIFM_0614		hypothetical protein	
+contig_326	cds	49	537	-	LANIFM_0615		hypothetical protein	PFAM:PF08617.15
+contig_326	cds	547	1425	-	LANIFM_0616		hypothetical protein	PFAM:PF00682.25, PFAM:PF08502.15, PFAM:PF22617.1
+contig_327	cds	26	484	+	LANIFM_0617		hypothetical protein	PFAM:PF00885.24
+contig_328	cds	79	513	+	LANIFM_0618		hypothetical protein	
+contig_328	cds	533	1006	+	LANIFM_0619		hypothetical protein	PFAM:PF01750.23
+contig_328	cds	1006	1836	+	LANIFM_0620		hypothetical protein	PFAM:PF00037.32, PFAM:PF01058.29, PFAM:PF12838.12, PFAM:PF13237.11
+contig_328	cds	1849	2706	+	LANIFM_0621		hypothetical protein	PFAM:PF04432.18
+contig_329	cds	290	511	-	LANIFM_0622		hypothetical protein	
+contig_329	cds	511	1029	-	LANIFM_0623		hypothetical protein	PFAM:PF02224.24, PFAM:PF13189.12, PFAM:PF13207.12, PFAM:PF13238.12
+contig_330	cds	291	1502	-	LANIFM_0624		hypothetical protein	PFAM:PF04998.22
+contig_330	cds	1511	2296	-	LANIFM_0625		hypothetical protein	PFAM:PF04998.22, PFAM:PF05000.22
+contig_331	cds	51	1331	+	LANIFM_0626		hypothetical protein	PFAM:PF00009.33, PFAM:PF03143.23, PFAM:PF03144.31, PFAM:PF22594.2
+contig_332	tRNA	155	228	+	LANIFM_0627	trnT	tRNA-Thr(tgt)	SO:0000270
+contig_332	tRNA	364	438	+	LANIFM_0628	trnP	tRNA-Pro(tgg)	SO:0000268
+contig_332	tRNA	448	521	+	LANIFM_0629	trnY	tRNA-Tyr(gta)	SO:0000272
+contig_332	tRNA	666	737	+	LANIFM_0630	trnD	tRNA-Asp(gtc)	SO:0000256
+contig_332	tRNA	763	836	+	LANIFM_0631	trnK	tRNA-Lys(ttt)	SO:0000265
+contig_333	cds	75	839	+	LANIFM_0632		hypothetical protein	PFAM:PF18182.6
+contig_333	cds	869	1579	+	LANIFM_0633		hypothetical protein	PFAM:PF01207.24
+contig_334	cds	13	1323	+	LANIFM_0634		hypothetical protein	PFAM:PF03144.31, PFAM:PF11987.13, PFAM:PF14578.12
+contig_334	cds	1365	1751	+	LANIFM_0635		hypothetical protein	
+contig_335	cds	103	687	-	LANIFM_0636		hypothetical protein	
+contig_335	cds	693	1049	-	LANIFM_0637		hypothetical protein	
+contig_335	cds	1073	1510	-	LANIFM_0638		hypothetical protein	
+contig_336	cds	13	666	-	LANIFM_0639		hypothetical protein	
+contig_336	cds	676	1350	-	LANIFM_0640		hypothetical protein	
+contig_337	cds	94	504	+	LANIFM_0641		hypothetical protein	PFAM:PF12706.13, PFAM:PF13483.12
+contig_337	cds	501	1490	-	LANIFM_0642		hypothetical protein	PFAM:PF05670.18
+contig_338	cds	57	392	+	LANIFM_0643		RagB/SusD domain-containing protein	SO:0001217, UniRef:UniRef50_W4V017
+contig_340	cds	31	723	-	LANIFM_0644		hypothetical protein	PFAM:PF00005.33, PFAM:PF13304.12
+contig_341	cds	21	725	+	LANIFM_0645		hypothetical protein	PFAM:PF01876.22
+contig_341	cds	715	1077	+	LANIFM_0646		hypothetical protein	
+contig_342	cds	819	1064	-	LANIFM_0647		hypothetical protein	
+contig_343	cds	171	554	+	LANIFM_0648		hypothetical protein	
+contig_344	cds	2	436	-	LANIFM_0649		hypothetical protein	
+contig_344	cds	480	908	-	LANIFM_0650		hypothetical protein	
+contig_344	cds	1054	1431	+	LANIFM_0651		hypothetical protein	
+contig_344	cds	1572	2552	-	LANIFM_0652		hypothetical protein	
+contig_345	cds	84	1328	-	LANIFM_0653		hypothetical protein	PFAM:PF00113.28, PFAM:PF03952.21, PFAM:PF13378.12
+contig_346	cds	9	1154	-	LANIFM_0654		hypothetical protein	PFAM:PF09887.15
+contig_347	cds	230	1063	+	LANIFM_0655		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12798.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13370.11, PFAM:PF13459.11, PFAM:PF13484.11, PFAM:PF13534.11, PFAM:PF14697.11
+contig_347	cds	1064	1549	+	LANIFM_0656		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13370.11, PFAM:PF13484.11, PFAM:PF13534.11, PFAM:PF14697.11, PFAM:PF17179.9
+contig_347	cds	1560	2006	+	LANIFM_0657		hypothetical protein	PFAM:PF01058.29
+contig_347	cds	2025	3152	+	LANIFM_0658		hypothetical protein	
+contig_348	cds	17	601	+	LANIFM_0659		dCTP deaminase, dUMP-forming	SO:0001217, UniRef:UniRef50_B8DYK8
+contig_350	cds	24	407	+	LANIFM_0660		UDP-N-acetyl-D-mannosamine dehydrogenase	SO:0001217, UniRef:UniRef50_A0A7Z7VXS3
+contig_350	cds	397	1572	-	LANIFM_0661		DUF2264 domain-containing protein	SO:0001217, UniRef:UniRef50_K5ZEP7
+contig_351	cds	12	1469	+	LANIFM_0662		hypothetical protein	PFAM:PF13692.12
+contig_352	cds	5	109	+	LANIFM_0663		hypothetical protein	PFAM:PF00137.26
+contig_352	cds	123	749	+	LANIFM_0664		hypothetical protein	
+contig_352	cds	1090	1320	-	LANIFM_0665		hypothetical protein	
+contig_353	cds	38	1138	+	LANIFM_0666		hypothetical protein	PFAM:PF12705.13
+contig_354	cds	69	857	-	LANIFM_0667		Formate/nitrite transporter family protein	SO:0001217, UniRef:UniRef50_A0A7V9KEM3
+contig_356	cds	91	2070	-	LANIFM_0668		hypothetical protein	PFAM:PF00004.35, PFAM:PF00158.32, PFAM:PF00493.29, PFAM:PF01078.27, PFAM:PF05362.19, PFAM:PF07728.20, PFAM:PF13541.12, PFAM:PF13654.12, PFAM:PF14532.12, PFAM:PF20436.4
+contig_357	cds	60	320	+	LANIFM_0669		orotate phosphoribosyltransferase	SO:0001217, UniRef:UniRef50_UPI00271B1B9E
+contig_357	cds	365	871	-	LANIFM_0670		Molybdenum cofactor biosynthesis protein B	SO:0001217, UniRef:UniRef50_B2VBW6
+contig_357	cds	889	1179	-	LANIFM_0671		hypothetical protein	
+contig_358	cds	158	1390	-	LANIFM_0672		hypothetical protein	
+contig_359	cds	74	790	-	LANIFM_0673		hypothetical protein	
+contig_361	cds	52	852	+	LANIFM_0674		hypothetical protein	PFAM:PF02540.23, PFAM:PF03054.22
+contig_361	cds	852	3707	+	LANIFM_0675		hypothetical protein	PFAM:PF00133.28, PFAM:PF01406.26, PFAM:PF08264.19, PFAM:PF13603.12
+contig_362	cds	202	423	+	LANIFM_0676		hypothetical protein	
+contig_362	cds	420	1247	-	LANIFM_0677		hypothetical protein	PFAM:PF00206.25, PFAM:PF14698.11
+contig_364	cds	73	1020	+	LANIFM_0678		hypothetical protein	
+contig_364	cds	1032	1475	+	LANIFM_0679		hypothetical protein	
+contig_364	cds	1559	1735	+	LANIFM_0680		hypothetical protein	
+contig_364	cds	1744	1980	-	LANIFM_0681		hypothetical protein	PFAM:PF02824.27
+contig_365	cds	201	950	-	LANIFM_0682		hypothetical protein	PFAM:PF07179.17
+contig_365	cds	979	1407	-	LANIFM_0683		hypothetical protein	PFAM:PF04021.17
+contig_365	cds	1409	2278	-	LANIFM_0684		hypothetical protein	
+contig_365	cds	2364	3644	-	LANIFM_0685		CTP synthase	SO:0001217, UniRef:UniRef50_Q5SIA8
+contig_366	cds	239	460	+	LANIFM_0686		hypothetical protein	
+contig_366	cds	435	1097	-	LANIFM_0687		2-amino-4-deoxychorismate dehydrogenase	SO:0001217, UniRef:UniRef50_A0A162RUT0
+contig_366	cds	1094	1864	-	LANIFM_0688		hypothetical protein	PFAM:PF00549.24, PFAM:PF08442.15
+contig_367	cds	65	349	-	LANIFM_0689		hypothetical protein	
+contig_368	cds	117	515	-	LANIFM_0690		hypothetical protein	
+contig_368	cds	728	1282	+	LANIFM_0691		hypothetical protein	
+contig_368	cds	1313	1738	+	LANIFM_0692		hypothetical protein	
+contig_369	cds	114	731	+	LANIFM_0693		hypothetical protein	PFAM:PF08542.16
+contig_369	cds	741	2219	+	LANIFM_0694		hypothetical protein	PFAM:PF00004.35, PFAM:PF03215.21, PFAM:PF05496.18, PFAM:PF07728.20, PFAM:PF21960.2
+contig_369	cds	2205	2630	-	LANIFM_0695		hypothetical protein	
+contig_371	cds	2	385	+	LANIFM_0696		hypothetical protein	PFAM:PF00410.24
+contig_371	cds	394	930	+	LANIFM_0697		hypothetical protein	PFAM:PF00347.28
+contig_371	cds	946	1275	+	LANIFM_0698		hypothetical protein	
+contig_371	cds	1402	1848	+	LANIFM_0699		hypothetical protein	
+contig_371	cds	1860	2441	+	LANIFM_0700		hypothetical protein	
+contig_371	cds	2444	3085	+	LANIFM_0701		hypothetical protein	PFAM:PF00333.26, PFAM:PF03719.21
+contig_371	cds	3099	3557	+	LANIFM_0702		hypothetical protein	PFAM:PF00327.25
+contig_372	cds	207	686	-	LANIFM_0703		hypothetical protein	PFAM:PF11576.13
+contig_372	cds	696	1694	-	LANIFM_0704		hypothetical protein	PFAM:PF04055.27, PFAM:PF06968.18
+contig_372	cds	1845	2858	-	LANIFM_0705		hypothetical protein	PFAM:PF22616.2
+contig_374	cds	69	1136	-	LANIFM_0706		hypothetical protein	PFAM:PF13635.12
+contig_375	cds	74	217	+	LANIFM_0707		hypothetical protein	
+contig_375	tRNA	273	346	+	LANIFM_0708	trnG	tRNA-Gly(gcc)	SO:0000260
+contig_375	tRNA	352	425	+	LANIFM_0709	trnG	tRNA-Gly(tcc)	SO:0000260
+contig_376	cds	20	859	+	LANIFM_0710	pdxS	Pyridoxal 5'-phosphate synthase subunit PdxS	SO:0001217, UniRef:UniRef50_P37527
+contig_377	cds	96	851	-	LANIFM_0711		hypothetical protein	PFAM:PF00899.27
+contig_377	cds	861	1739	-	LANIFM_0712		hypothetical protein	PFAM:PF00248.27, PFAM:PF13534.11
+contig_378	cds	164	997	+	LANIFM_0713		hypothetical protein	PFAM:PF06973.17
+contig_378	cds	1000	1407	-	LANIFM_0714		hypothetical protein	
+contig_378	cds	1420	1788	-	LANIFM_0715		hypothetical protein	
+contig_378	cds	1794	2261	-	LANIFM_0716		hypothetical protein	PFAM:PF12682.12
+contig_378	cds	2272	4722	-	LANIFM_0717		hypothetical protein	PFAM:PF00270.35, PFAM:PF00271.37, PFAM:PF19306.5, PFAM:PF22590.2
+contig_379	cds	790	2940	-	LANIFM_0718		hypothetical protein	PFAM:PF01396.24
+contig_380	cds	84	1469	+	LANIFM_0719		hypothetical protein	PFAM:PF12176.13
+contig_380	cds	1488	2315	+	LANIFM_0720		hypothetical protein	PFAM:PF02310.24, PFAM:PF02607.22
+contig_381	cds	255	1172	-	LANIFM_0721		hypothetical protein	PFAM:PF00482.28
+contig_381	cds	1180	2511	-	LANIFM_0722		hypothetical protein	PFAM:PF00437.27
+contig_382	cds	28	942	+	LANIFM_0723		hypothetical protein	PFAM:PF01916.23
+contig_382	cds	980	1510	+	LANIFM_0724		hypothetical protein	
+contig_383	cds	113	559	+	LANIFM_0725		hypothetical protein	
+contig_383	cds	556	756	-	LANIFM_0726		hypothetical protein	
+contig_383	cds	758	1960	-	LANIFM_0727		hydroxymethylglutaryl-CoA reductase (NADPH)	SO:0001217, UniRef:UniRef50_A0A1J4RUI8
+contig_383	cds	1961	2821	-	LANIFM_0728		Succinate--CoA ligase [ADP-forming] subunit alpha	SO:0001217, UniRef:UniRef50_Q51567
+contig_383	cds	2837	3562	-	LANIFM_0729		hypothetical protein	
+contig_384	cds	61	1173	-	LANIFM_0730		hypothetical protein	PFAM:PF06347.19, PFAM:PF08239.17
+contig_385	cds	80	1015	-	LANIFM_0731		hypothetical protein	PFAM:PF06745.19, PFAM:PF08423.17, PFAM:PF12826.13, PFAM:PF13481.12, PFAM:PF14520.12
+contig_385	cds	1046	2386	-	LANIFM_0732		hypothetical protein	PFAM:PF01336.31, PFAM:PF16900.11, PFAM:PF17244.8
+contig_386	cds	1137	2471	-	LANIFM_0733		hypothetical protein	PFAM:PF01368.27, PFAM:PF02272.25, PFAM:PF21763.2
+contig_386	cds	2461	2859	-	LANIFM_0734		hypothetical protein	PFAM:PF00312.27, PFAM:PF08069.17
+contig_386	cds	2916	3464	-	LANIFM_0735		hypothetical protein	PFAM:PF01725.21
+contig_387	cds	10	924	+	LANIFM_0736		hypothetical protein	PFAM:PF00294.29
+contig_387	cds	1111	2409	+	LANIFM_0737		Phosphomethylpyrimidine synthase	SO:0001217, UniRef:UniRef50_Q39RJ6
+contig_388	cds	1032	2285	-	LANIFM_0738		hypothetical protein	PFAM:PF00004.35, PFAM:PF07724.20, PFAM:PF07728.20, PFAM:PF16450.11, PFAM:PF17862.7
+contig_389	cds	162	1031	+	LANIFM_0739		hypothetical protein	PFAM:PF00710.25, PFAM:PF17763.6
+contig_389	cds	1044	2909	+	LANIFM_0740		hypothetical protein	PFAM:PF02637.23, PFAM:PF02934.20, PFAM:PF02938.19, PFAM:PF09424.15
+contig_390	cds	263	1645	-	LANIFM_0741		hypothetical protein	PFAM:PF08245.18
+contig_391	cds	790	2154	-	LANIFM_0742		hypothetical protein	PFAM:PF00753.33, PFAM:PF07521.17, PFAM:PF12706.13, PFAM:PF22505.1
+contig_391	cds	2161	3207	-	LANIFM_0743		Isopentenyl-diphosphate delta-isomerase	SO:0001217, UniRef:UniRef50_Q8YNH4
+contig_392	cds	101	1120	-	LANIFM_0744		hypothetical protein	PFAM:PF00586.29, PFAM:PF02769.27
+contig_393	cds	184	468	+	LANIFM_0745		hypothetical protein	PFAM:PF01883.24
+contig_393	tRNA	559	633	+	LANIFM_0746	trnI	tRNA-Ile(gat)	SO:0000263
+contig_394	cds	274	1005	-	LANIFM_0747		hypothetical protein	PFAM:PF02475.23, PFAM:PF08241.18, PFAM:PF08242.18, PFAM:PF13489.12, PFAM:PF13649.12, PFAM:PF13847.12
+contig_394	cds	1065	1331	-	LANIFM_0748		hypothetical protein	
+contig_394	cds	1406	2566	-	LANIFM_0749		hypothetical protein	PFAM:PF00108.29, PFAM:PF00109.32, PFAM:PF02803.24, PFAM:PF22691.2
+contig_394	cds	2639	2812	+	LANIFM_0750		hypothetical protein	
+contig_395	cds	51	2198	-	LANIFM_0751		S1 motif domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1H2RL22
+contig_398	cds	139	753	+	LANIFM_0752		hypothetical protein	PFAM:PF00227.31
+contig_400	cds	64	786	+	LANIFM_0753		hypothetical protein	PFAM:PF01379.25, PFAM:PF03900.20
+contig_400	cds	801	1757	+	LANIFM_0754		hypothetical protein	PFAM:PF01408.29, PFAM:PF02894.22, PFAM:PF03446.21, PFAM:PF03447.22, PFAM:PF22725.1
+contig_400	cds	1767	2372	+	LANIFM_0755		hypothetical protein	PFAM:PF00156.33
+contig_400	cds	2442	2891	-	LANIFM_0756		hypothetical protein	
+contig_401	cds	97	969	+	LANIFM_0757		hypothetical protein	PFAM:PF07755.17, PFAM:PF17396.8
+contig_402	cds	49	1233	+	LANIFM_0758		Tryptophan synthase beta chain	SO:0001217, UniRef:UniRef50_P07345
+contig_402	cds	1226	1999	+	LANIFM_0759		Tryptophan synthase alpha chain	SO:0001217, UniRef:UniRef50_A0A4Q7P3Z0
+contig_402	cds	2485	2949	-	LANIFM_0760		hypothetical protein	
+contig_403	cds	379	807	+	LANIFM_0761		hypothetical protein	
+contig_403	cds	900	1601	-	LANIFM_0762		hypothetical protein	PFAM:PF01172.24, PFAM:PF09377.16, PFAM:PF20268.4
+contig_403	cds	1629	2099	-	LANIFM_0763		hypothetical protein	PFAM:PF00227.31
+contig_404	cds	139	1218	+	LANIFM_0764		hypothetical protein	PFAM:PF01409.25, PFAM:PF17759.6
+contig_404	cds	1219	1992	+	LANIFM_0765		hypothetical protein	PFAM:PF03372.29
+contig_404	cds	1987	2688	-	LANIFM_0766		hypothetical protein	PFAM:PF00702.32, PFAM:PF13242.12
+contig_404	cds	2727	3410	-	LANIFM_0767		hypothetical protein	
+contig_405	cds	10	480	+	LANIFM_0768		hypothetical protein	
+contig_405	cds	480	962	+	LANIFM_0769		hypothetical protein	PFAM:PF00298.24, PFAM:PF03946.19
+contig_405	cds	1149	1787	+	LANIFM_0770		hypothetical protein	PFAM:PF00687.26
+contig_405	cds	1787	2794	+	LANIFM_0771		hypothetical protein	PFAM:PF17777.6
+contig_406	cds	108	512	-	LANIFM_0772		hypothetical protein	PFAM:PF06271.18
+contig_406	cds	525	1544	-	LANIFM_0773		hypothetical protein	PFAM:PF00586.29, PFAM:PF02769.27
+contig_407	cds	72	1187	+	LANIFM_0774		hypothetical protein	PFAM:PF01380.27
+contig_408	cds	69	1883	+	LANIFM_0775		hypothetical protein	PFAM:PF00702.32
+contig_408	cds	2043	2477	+	LANIFM_0776		hypothetical protein	
+contig_408	cds	2485	3672	-	LANIFM_0777		hypothetical protein	
+contig_408	cds	3689	4288	-	LANIFM_0778		hypothetical protein	
+contig_408	cds	4353	5015	-	LANIFM_0779		hypothetical protein	
+contig_409	cds	43	420	+	LANIFM_0780		hypothetical protein	
+contig_409	cds	439	1107	+	LANIFM_0781		hypothetical protein	
+contig_411	cds	315	734	+	LANIFM_0782		hypothetical protein	
+contig_412	cds	101	1090	+	LANIFM_0783		hypothetical protein	PFAM:PF00156.33, PFAM:PF13537.11
+contig_413	cds	37	312	+	LANIFM_0784		hypothetical protein	
+contig_413	cds	334	1014	+	LANIFM_0785		hypothetical protein	PFAM:PF03446.21
+contig_414	cds	270	1076	-	LANIFM_0786		hypothetical protein	
+contig_415	cds	19	1329	-	LANIFM_0787		hypothetical protein	PFAM:PF02153.23, PFAM:PF03446.21, PFAM:PF20463.3
+contig_416	cds	37	333	+	LANIFM_0788		hypothetical protein	
+contig_416	cds	380	1186	+	LANIFM_0789		hypothetical protein	PFAM:PF00285.26
+contig_416	cds	1192	1698	+	LANIFM_0790		FMN reductase (NAD(P)H)	SO:0001217, UniRef:UniRef50_A0A4Y7S0L4
+contig_418	ncRNA-region	1	122	+			(5' truncated) FMN riboswitch aptamer (RFN element)	RFAM:RF00050, SO:0000035
+contig_418	cds	176	856	+	LANIFM_0791		hypothetical protein	
+contig_418	cds	857	1282	-	LANIFM_0792		hypothetical protein	
+contig_418	cds	1283	2803	-	LANIFM_0793		hypothetical protein	PFAM:PF00117.34, PFAM:PF01174.25, PFAM:PF01656.29, PFAM:PF01965.30, PFAM:PF07685.20, PFAM:PF13500.12
+contig_418	cds	3226	3402	-	LANIFM_0794		hypothetical protein	PFAM:PF01425.27
+contig_419	cds	1164	1925	+	LANIFM_0795		hypothetical protein	PFAM:PF01022.26
+contig_419	cds	1928	2632	-	LANIFM_0796		hypothetical protein	PFAM:PF00590.25
+contig_420	cds	107	1324	+	LANIFM_0797		hypothetical protein	PFAM:PF00994.29, PFAM:PF03454.20
+contig_420	cds	1341	2486	+	LANIFM_0798		hypothetical protein	
+contig_423	cds	918	1217	-	LANIFM_0799		hypothetical protein	
+contig_423	cds	1220	1930	-	LANIFM_0800		hypothetical protein	PFAM:PF00156.33, PFAM:PF13793.12, PFAM:PF14572.12
+contig_424	cds	343	780	+	LANIFM_0801		hypothetical protein	
+contig_425	cds	223	615	+	LANIFM_0802		hypothetical protein	
+contig_425	cds	647	1339	-	LANIFM_0803		hypothetical protein	PFAM:PF01895.24
+contig_425	cds	1349	2098	-	LANIFM_0804	pstB	Phosphate import ATP-binding protein PstB 1	SO:0001217, UniRef:UniRef50_P46342
+contig_425	cds	2102	2950	-	LANIFM_0805	pstA	Phosphate transport system permease protein PstA	SO:0001217, UniRef:UniRef50_A0A971D5Y8
+contig_425	cds	2947	3735	-	LANIFM_0806		Phosphate transport system permease protein	SO:0001217, UniRef:UniRef50_A0A7X8MB62
+contig_426	cds	127	498	+	LANIFM_0807		hypothetical protein	PFAM:PF01248.31
+contig_426	cds	531	737	+	LANIFM_0808		hypothetical protein	
+contig_426	cds	752	913	+	LANIFM_0809		hypothetical protein	PFAM:PF01246.26, PFAM:PF06467.20
+contig_426	cds	910	1362	+	LANIFM_0810		Nucleoside diphosphate kinase	SO:0001217, UniRef:UniRef50_Q5KXU2
+contig_427	cds	55	504	-	LANIFM_0811		hypothetical protein	
+contig_427	cds	580	2460	-	LANIFM_0812		hypothetical protein	PFAM:PF13549.11, PFAM:PF13607.11, PFAM:PF19045.5
+contig_428	cds	415	936	-	LANIFM_0813		[ribosomal protein uS5]-alanine N-acetyltransferase	SO:0001217, UniRef:UniRef50_D7GVB2
+contig_428	cds	958	1929	+	LANIFM_0814		ADP-ribosylglycohydrolase	SO:0001217, UniRef:UniRef50_A0A1I2M4C7
+contig_429	cds	984	1757	-	LANIFM_0815		hypothetical protein	
+contig_430	cds	265	948	-	LANIFM_0816		BACON domain-containing protein	SO:0001217, UniRef:UniRef50_A0AAE7V349, UniRef:UniRef90_A0AAE7V349
+contig_431	cds	776	1024	-	LANIFM_0817		hypothetical protein	
+contig_432	cds	20	622	+	LANIFM_0818		hypothetical protein	PFAM:PF00892.27
+contig_432	cds	612	1385	-	LANIFM_0819		hypothetical protein	PFAM:PF01163.29
+contig_432	cds	1424	1768	-	LANIFM_0820		hypothetical protein	PFAM:PF01176.25
+contig_433	cds	3	671	+	LANIFM_0821		hypothetical protein	PFAM:PF00121.24, PFAM:PF05690.20
+contig_433	cds	720	1949	+	LANIFM_0822		hypothetical protein	PFAM:PF00162.24
+contig_433	cds	1950	2576	-	LANIFM_0823		Thiamine-phosphate synthase	SO:0001217, UniRef:UniRef50_A6TMN5
+contig_433	cds	2573	3313	-	LANIFM_0824		hypothetical protein	PFAM:PF02110.20
+contig_434	cds	125	1168	+	LANIFM_0825		hypothetical protein	PFAM:PF00037.32, PFAM:PF02589.21, PFAM:PF12800.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13534.11
+contig_434	cds	1165	1809	-	LANIFM_0826		Glycosyltransferase	SO:0001217, UniRef:UniRef50_A0A930ARD3
+contig_436	cds	158	1315	+	LANIFM_0827		hypothetical protein	
+contig_439	cds	816	1040	-	LANIFM_0828		hypothetical protein	
+contig_440	cds	103	354	+	LANIFM_0829		hypothetical protein	
+contig_440	cds	421	684	+	LANIFM_0830		hypothetical protein	
+contig_440	cds	745	1122	+	LANIFM_0831		hypothetical protein	
+contig_441	cds	891	1121	+	LANIFM_0832		hypothetical protein	
+contig_442	cds	141	530	+	LANIFM_0833		hypothetical protein	PFAM:PF01989.22
+contig_442	cds	545	1768	+	LANIFM_0834		hypothetical protein	PFAM:PF01979.26, PFAM:PF07969.17
+contig_442	cds	1851	2039	-	LANIFM_0835		hypothetical protein	
+contig_443	cds	19	1935	+	LANIFM_0836		hypothetical protein	PFAM:PF00702.32, PFAM:PF08282.18
+contig_444	cds	303	569	+	LANIFM_0837		hypothetical protein	
+contig_444	cds	671	1279	-	LANIFM_0838		hypothetical protein	PFAM:PF13240.11
+contig_445	cds	195	947	+	LANIFM_0839		hypothetical protein	
+contig_445	cds	1035	1955	+	LANIFM_0840		hypothetical protein	
+contig_446	cds	22	303	+	LANIFM_0841		hypothetical protein	
+contig_448	cds	46	1062	+	LANIFM_0842		hypothetical protein	PFAM:PF01113.26, PFAM:PF02800.25, PFAM:PF02826.25
+contig_449	cds	272	1495	+	LANIFM_0843		hypothetical protein	
+contig_450	cds	37	1683	+	LANIFM_0844		hypothetical protein	PFAM:PF00005.33, PFAM:PF00037.32, PFAM:PF02463.25, PFAM:PF03215.21, PFAM:PF13304.12
+contig_450	cds	1680	2057	-	LANIFM_0845		hypothetical protein	PFAM:PF08859.16
+contig_450	cds	2062	2817	-	LANIFM_0846		hypothetical protein	PFAM:PF00037.32
+contig_450	cds	2820	3662	-	LANIFM_0847		hypothetical protein	PFAM:PF00155.27
+contig_451	cds	61	747	+	LANIFM_0848		hypothetical protein	PFAM:PF00005.33, PFAM:PF13304.12
+contig_452	cds	49	846	-	LANIFM_0849		hypothetical protein	PFAM:PF00575.29
+contig_452	cds	926	1105	-	LANIFM_0850		hypothetical protein	
+contig_452	cds	1116	1394	-	LANIFM_0851		hypothetical protein	
+contig_453	cds	28	276	+	LANIFM_0852		hypothetical protein	
+contig_453	cds	298	1572	+	LANIFM_0853		Phosphomethylpyrimidine synthase	SO:0001217, UniRef:UniRef50_A8ZVP4
+contig_453	cds	1573	3228	+	LANIFM_0854		hypothetical protein	PFAM:PF01068.26
+contig_453	cds	3222	3629	-	LANIFM_0855		hypothetical protein	
+contig_454	cds	74	1204	-	LANIFM_0856		hypothetical protein	PFAM:PF01977.22, PFAM:PF20696.2
+contig_455	cds	419	1423	-	LANIFM_0857		dTDP-glucose 4,6-dehydratase	SO:0001217, UniRef:UniRef50_A0A229UJJ7
+contig_455	cds	1434	1991	-	LANIFM_0858		dTDP-4-dehydrorhamnose 3,5-epimerase	SO:0001217, UniRef:UniRef50_A0A7D7IGL1
+contig_455	cds	1993	2739	-	LANIFM_0859		Glucose-1-phosphate thymidylyltransferase	SO:0001217, UniRef:UniRef50_P55257
+contig_457	cds	663	1013	-	LANIFM_0860		hypothetical protein	
+contig_458	cds	731	2128	-	LANIFM_0861		hypothetical protein	PFAM:PF03972.19, PFAM:PF19305.4
+contig_458	cds	2193	2684	-	LANIFM_0862		hypothetical protein	
+contig_459	cds	51	296	-	LANIFM_0863		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12837.12, PFAM:PF12838.12
+contig_459	cds	310	813	-	LANIFM_0864		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13237.11, PFAM:PF13247.11
+contig_459	cds	827	1693	-	LANIFM_0865		hypothetical protein	PFAM:PF02775.26
+contig_459	cds	1696	2841	-	LANIFM_0866		hypothetical protein	PFAM:PF02780.25, PFAM:PF17147.9
+contig_459	cds	2853	3095	-	LANIFM_0867	porD	Pyruvate synthase subunit PorD	SO:0001217, UniRef:UniRef50_A0A285GZ84
+contig_460	cds	170	1048	+	LANIFM_0868		Bro-N domain-containing protein	SO:0001217, UniRef:UniRef50_D5V724
+contig_460	cds	1127	3319	-	LANIFM_0869		hypothetical protein	PFAM:PF00004.35, PFAM:PF00158.32, PFAM:PF00910.28, PFAM:PF01078.27, PFAM:PF02359.24, PFAM:PF02933.23, PFAM:PF05496.18, PFAM:PF06068.19, PFAM:PF06414.18, PFAM:PF07724.20, PFAM:PF07726.17, PFAM:PF07728.20, PFAM:PF13191.12, PFAM:PF13401.12, PFAM:PF13521.12, PFAM:PF13671.12, PFAM:PF17862.7, PFAM:PF20720.3, PFAM:PF23902.1, PFAM:PF24883.1
+contig_461	cds	22	588	+	LANIFM_0870		hypothetical protein	PFAM:PF02080.26
+contig_461	cds	591	1088	+	LANIFM_0871		Albonoursin synthase	SO:0001217, UniRef:UniRef50_A0A136WGY7
+contig_462	cds	152	1486	-	LANIFM_0872		Glutamate dehydrogenase	SO:0001217, UniRef:UniRef50_Q5QVZ2
+contig_463	cds	24	953	+	LANIFM_0873		hypothetical protein	PFAM:PF07479.19, PFAM:PF20618.3
+contig_464	cds	149	850	-	LANIFM_0874		hypothetical protein	PFAM:PF00037.32, PFAM:PF02441.25, PFAM:PF12797.12, PFAM:PF12837.12, PFAM:PF12838.12
+contig_464	cds	856	1683	-	LANIFM_0875		hypothetical protein	PFAM:PF00464.25
+contig_465	cds	327	692	-	LANIFM_0876		hypothetical protein	
+contig_466	cds	1197	1433	-	LANIFM_0877		hypothetical protein	
+contig_468	cds	997	1782	-	LANIFM_0878		Ornithine carbamoyltransferase	SO:0001217, UniRef:UniRef50_Q9ZB62
+contig_469	cds	69	1343	+	LANIFM_0879		hypothetical protein	
+contig_469	cds	1333	1779	+	LANIFM_0880		hypothetical protein	PFAM:PF01047.28, PFAM:PF13412.12, PFAM:PF13463.12, PFAM:PF13601.12, PFAM:PF13730.12, PFAM:PF22381.2
+contig_469	cds	1795	3384	-	LANIFM_0881		hypothetical protein	PFAM:PF03485.21, PFAM:PF05746.21
+contig_470	cds	1175	1771	-	LANIFM_0882	hisH	Imidazole glycerol phosphate synthase subunit HisH	SO:0001217, UniRef:UniRef50_A0A173Z7D3
+contig_470	cds	1776	2693	-	LANIFM_0883		hypothetical protein	PFAM:PF00148.24
+contig_472	cds	216	929	+	LANIFM_0884		hypothetical protein	
+contig_472	cds	932	1297	-	LANIFM_0885		hypothetical protein	
+contig_473	cds	237	581	+	LANIFM_0886		hypothetical protein	
+contig_473	cds	1391	2425	+	LANIFM_0887		hypothetical protein	
+contig_473	cds	2427	3086	+	LANIFM_0888		hypothetical protein	PFAM:PF13263.12
+contig_473	cds	3109	3387	-	LANIFM_0889		hypothetical protein	
+contig_473	cds	3460	4995	-	LANIFM_0890		hypothetical protein	PFAM:PF00682.25, PFAM:PF08502.15, PFAM:PF22617.1
+contig_476	cds	484	1197	-	LANIFM_0891		hypothetical protein	PFAM:PF14810.12
+contig_477	cds	607	1683	-	LANIFM_0892		hypothetical protein	PFAM:PF00590.25
+contig_477	cds	1693	2187	-	LANIFM_0893		hypothetical protein	
+contig_478	cds	255	785	+	LANIFM_0894		hypothetical protein	PFAM:PF00149.33, PFAM:PF12850.12
+contig_478	cds	789	1406	+	LANIFM_0895		hypothetical protein	
+contig_478	cds	1419	1802	-	LANIFM_0896		hypothetical protein	
+contig_479	cds	338	1810	-	LANIFM_0897		hypothetical protein	PFAM:PF00364.28, PFAM:PF00682.25, PFAM:PF02436.23, PFAM:PF13533.12
+contig_480	cds	109	372	+	LANIFM_0898		Putative zinc ribbon domain-containing protein	SO:0001217, UniRef:UniRef50_W6RTC6
+contig_480	cds	376	1494	-	LANIFM_0899		hypothetical protein	PFAM:PF13191.12, PFAM:PF22703.2
+contig_480	cds	1523	2152	-	LANIFM_0900		hypothetical protein	
+contig_482	cds	20	934	-	LANIFM_0901		hypothetical protein	PFAM:PF14810.12, PFAM:PF17884.7
+contig_482	cds	937	1431	-	LANIFM_0902		HD domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1G1GSR3
+contig_482	cds	1438	1788	-	LANIFM_0903		hypothetical protein	
+contig_483	cds	3	1421	+	LANIFM_0904		Anthranilate synthase component 1	SO:0001217, UniRef:UniRef50_I5ASV0
+contig_483	cds	1418	1999	+	LANIFM_0905		Anthranilate synthase component II	SO:0001217, UniRef:UniRef50_L7VRG7
+contig_483	cds	2000	3007	+	LANIFM_0906		Anthranilate phosphoribosyltransferase	SO:0001217, UniRef:UniRef50_Q88WI3
+contig_483	cds	3012	3788	+	LANIFM_0907		Indole-3-glycerol phosphate synthase	SO:0001217, UniRef:UniRef50_E7GBB1
+contig_484	cds	678	1307	-	LANIFM_0908		hypothetical protein	

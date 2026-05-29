@@ -1,0 +1,13 @@
+user_genome	is_ani_classification	class_tree_mapped	classification_rule
+ERR011347_MEGAHIT_TaxVamb_dRep.43	True	2	Rule 7
+ERR011348_MEGAHIT_MetaBinner_dRep.1	True	2	Rule 7
+ERR011348_MEGAHIT_MetaBinner_dRep.6_sub	True	2	Rule 7
+ERR011348_MEGAHIT_TaxVamb_dRep.10	True	3	Rule 7
+ERR011348_MEGAHIT_TaxVamb_dRep.15_sub	True	2	Rule 7
+ERR011348_MEGAHIT_TaxVamb_dRep.16	True	8	Rule 7
+ERR011348_MEGAHIT_TaxVamb_dRep.21	True	2	Rule 7
+ERR011348_MEGAHIT_TaxVamb_dRep.44	True	2	Rule 7
+ERR011348_MEGAHIT_TaxVamb_dRep.5	True	3	Rule 7
+ERR011348_MEGAHIT_TaxVamb_dRep.6_sub	True	2	Rule 7
+ERR011349_MEGAHIT_TaxVamb_dRep.1	True	2	Rule 7
+ERR011349_MEGAHIT_TaxVamb_dRep.2	True	2	Rule 7

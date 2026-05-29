@@ -1,0 +1,72 @@
+/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/conda/env-09fa064dad237af13d4e01487014dd7a/bin/quast.py -t 1 --rna-finding --min-identity 90.0 ERR011349_assembly.fa -o /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420/ERR011349 --labels ERR011349_MEGAHIT
+
+Version: 5.3.0
+
+System information:
+  OS: Linux-6.8.0-87-generic-x86_64-with-glibc2.35 (linux_64)
+  Python version: 3.13.13
+  CPUs number: 16
+
+Started: 2026-05-25 15:42:36
+
+Logging to /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420/ERR011349/quast.log
+NOTICE: Output directory already exists and looks like a QUAST output dir. Existing results can be reused (e.g. previously generated alignments)!
+
+CWD: /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420
+Main parameters: 
+  MODE: meta, threads: 1, min contig length: 500, min alignment length: 65, min alignment IDY: 90.0, \
+  ambiguity: one, min local misassembly length: 200, min extensive misassembly length: 1000
+
+Contigs:
+  Pre-processing...
+  ERR011349_assembly.fa ==> ERR011349_MEGAHIT
+
+2026-05-25 15:42:37
+Running Basic statistics processor...
+  Contig files: 
+    ERR011349_MEGAHIT
+  Calculating N50 and L50...
+    ERR011349_MEGAHIT, N50 = 1374, L50 = 1409, auN = 6891.9, Total length = 11376299, GC % = 35.19, # N's per 100 kbp =  0.00
+  Drawing Nx plot...
+    saved to /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420/ERR011349/basic_stats/Nx_plot.pdf
+  Drawing cumulative plot...
+    saved to /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420/ERR011349/basic_stats/cumulative_plot.pdf
+  Drawing GC content plot...
+    saved to /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420/ERR011349/basic_stats/GC_content_plot.pdf
+  Drawing ERR011349_MEGAHIT GC content plot...
+    saved to /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420/ERR011349/basic_stats/ERR011349_MEGAHIT_GC_content_plot.pdf
+Done.
+
+NOTICE: Genes are not predicted by default. Use --gene-finding or --glimmer option to enable it.
+
+2026-05-25 15:42:38
+Running Barrnap...
+Logging to /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420/ERR011349/predicted_genes/barrnap.log...
+/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/conda/env-09fa064dad237af13d4e01487014dd7a/lib/python3.13/site-packages/quast_libs/barrnap/bin/barrnap \
+--quiet -k bac --threads 1 ERR011349/quast_corrected_input/ERR011349_MEGAHIT.fa > \
+ERR011349/predicted_genes/ERR011349_MEGAHIT.rna.gff 2>> ERR011349/predicted_genes/barrnap.log
+    Ribosomal RNA genes = 3
+    Predicted genes (GFF): /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420/ERR011349/predicted_genes/ERR011349_MEGAHIT.rna.gff
+Done.
+
+2026-05-25 15:42:49
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+  1 of 2: Creating PDF with all tables and plots...
+  2 of 2: Creating Icarus viewers...
+Done
+
+2026-05-25 15:42:49
+RESULTS:
+  Text versions of total report are saved to /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420/ERR011349/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420/ERR011349/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  HTML version (interactive tables and plots) is saved to /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420/ERR011349/report.html
+  PDF version (tables and plots) is saved to /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420/ERR011349/report.pdf
+  Icarus (contig browser) is saved to /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420/ERR011349/icarus.html
+  Log is saved to /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/56/5ee5a2e9cbcb4f7d1dfa9b3424e420/ERR011349/quast.log
+
+Finished: 2026-05-25 15:42:49
+Elapsed time: 0:00:13.232576
+NOTICEs: 2; WARNINGs: 0; non-fatal ERRORs: 0
+
+Thank you for using QUAST!

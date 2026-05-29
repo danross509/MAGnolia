@@ -1,0 +1,24 @@
+Assembly	ERR011347_MEGAHIT
+# contigs (>= 0 bp)	97434
+# contigs (>= 1000 bp)	8987
+# contigs (>= 5000 bp)	335
+# contigs (>= 10000 bp)	57
+# contigs (>= 25000 bp)	5
+# contigs (>= 50000 bp)	1
+Total length (>= 0 bp)	54246335
+Total length (>= 1000 bp)	17753102
+Total length (>= 5000 bp)	2795260
+Total length (>= 10000 bp)	975445
+Total length (>= 25000 bp)	246716
+Total length (>= 50000 bp)	94011
+# contigs	30148
+Largest contig	94011
+Total length	32005571
+GC (%)	38.45
+N50	1120
+N90	569
+auN	2487.6
+L50	7331
+L90	24138
+# N's per 100 kbp	0.00
+# predicted rRNA genes	4 + 4 part

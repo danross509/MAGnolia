@@ -1,0 +1,67 @@
+The following files have been reduced in size for this tutorial output due to file size restrictions on Github uploads.
+
+QC/
+    ERR011347/fastp/
+                    ERR011347_trimmed_1.fastq.gz
+                    ERR011347_trimmed_2.fastq.gz
+                    ERR011347_trimmed_se.fastq.gz
+    ERR011348/fastp/
+                    ERR011348_trimmed_1.fastq.gz
+                    ERR011348_trimmed_2.fastq.gz
+                    ERR011348_trimmed_se.fastq.gz
+    ERR011349/fastp/
+                    ERR011349_trimmed_1.fastq.gz
+                    ERR011349_trimmed_2.fastq.gz
+                    ERR011349_trimmed_se.fastq.gz
+
+CLEAN_READS/
+            ERR011347/
+                    ERR011347_corrected_1.fastq.gz
+                    ERR011347_corrected_2.fastq.gz
+            ERR011348/
+                    ERR011348_corrected_1.fastq.gz
+                    ERR011348_corrected_2.fastq.gz
+            ERR011349/
+                    ERR011349_corrected_1.fastq.gz
+                    ERR011349_corrected_2.fastq.gz
+
+KRAKEN2/reads/
+            ERR011347/ERR011347_reads.krak2.gz
+            ERR011348/ERR011348_reads.krak2.gz
+            ERR011349/ERR011349_reads.krak2.gz
+
+CONTIGS/
+        ERR011347/megahit/intermediate_contigs/
+                                        k21.contigs.fa
+                                        k21.local.fa
+                                        k29.contigs.fa
+                                        k29.local.fa
+                                        k39.contigs.fa
+                                        k39.local.fa
+        ERR011348/megahit/intermediate_contigs/
+                                        k21.contigs.fa
+                                        k21.local.fa
+                                        k29.contigs.fa
+                                        k29.local.fa
+                                        k39.contigs.fa
+                                        k39.local.fa
+        ERR011349/megahit/intermediate_contigs/
+                                        k21.contigs.fa
+                                        k21.local.fa
+                                        k29.contigs.fa
+                                        k29.local.fa
+                                        k39.contigs.fa
+                                        k39.local.fa
+
+BINS/initial/
+        ERR011347-MEGAHIT/minimap2_output/
+                                        ERR011347_ERR011347.sorted.bam
+                                        ERR011347-map-ont.mmi
+        ERR011348-MEGAHIT/minimap2_output/
+                                        ERR011348_ERR011348.sorted.bam
+                                        ERR011348-map-ont.mmi
+        ERR011349-MEGAHIT/minimap2_output/
+                                        ERR011349_ERR011349.sorted.bam
+                                        ERR011349-map-ont.mmi
+
+BIN_CLASSIFICATION/tutorial/gtdb-tk/dereplicated_bins/align/dereplicated_bins.bac120.msa.fasta.gz

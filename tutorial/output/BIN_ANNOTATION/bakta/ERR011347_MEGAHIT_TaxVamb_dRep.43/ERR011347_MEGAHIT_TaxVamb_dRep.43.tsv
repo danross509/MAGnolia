@@ -1,0 +1,1073 @@
+# Annotated with Bakta
+# Software: v1.11.4
+# Database: v6.0, full
+# DOI: 10.1099/mgen.0.000685
+# URL: github.com/oschwengers/bakta
+#Sequence Id	Type	Start	Stop	Strand	Locus Tag	Gene	Product	DbXrefs
+contig_1	cds	876	1130	-	BEFGOD_00001		hypothetical protein	
+contig_3	cds	407	964	+	BEFGOD_00002		hypothetical protein	
+contig_4	cds	5	1894	+	BEFGOD_00003		hypothetical protein	PFAM:PF00005.33, PFAM:PF02463.25, PFAM:PF17755.6
+contig_5	cds	153	968	+	BEFGOD_00004		hypothetical protein	
+contig_5	cds	962	1672	+	BEFGOD_00005		RNA polymerase sigma-E factor	SO:0001217, UniRef:UniRef50_P06222
+contig_5	cds	1774	2556	+	BEFGOD_00006		RNA polymerase sigma-G factor	SO:0001217, UniRef:UniRef50_P19940
+contig_5	cds	2618	3151	+	BEFGOD_00007		hypothetical protein	PFAM:PF01520.23
+contig_5	cds	3173	3403	+	BEFGOD_00008		PRC-barrel domain-containing protein	SO:0001217, UniRef:UniRef50_K8DZX8
+contig_6	cds	104	442	+	BEFGOD_00009		FtsX-like permease family protein	SO:0001217, UniRef:UniRef50_UPI002F3E5170
+contig_6	cds	526	1044	+	BEFGOD_00010		hypothetical protein	PFAM:PF02915.23
+contig_7	cds	525	1337	-	BEFGOD_00011		hypothetical protein	PFAM:PF02826.25, PFAM:PF16924.11
+contig_7	cds	1520	2560	+	BEFGOD_00012		hypothetical protein	
+contig_8	cds	551	1120	-	BEFGOD_00013		Thymidine kinase	SO:0001217, UniRef:UniRef50_A0A970VMN3
+contig_8	cds	1230	1505	-	BEFGOD_00014		Polymerase beta nucleotidyltransferase domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1F3DMT2
+contig_8	cds	1548	2387	-	BEFGOD_00015		Bro-N domain-containing protein	SO:0001217, UniRef:UniRef50_F3B0N5
+contig_9	cds	10	657	+	BEFGOD_00016		hypothetical protein	
+contig_9	cds	863	997	-	BEFGOD_00017		hypothetical protein	
+contig_10	cds	158	625	+	BEFGOD_00018		hypothetical protein	
+contig_10	cds	699	1286	+	BEFGOD_00019		hypothetical protein	PFAM:PF00963.24
+contig_12	cds	155	2482	-	BEFGOD_00020		hypothetical protein	
+contig_12	cds	2501	3229	-	BEFGOD_00021	yacO	Putative TrmH family tRNA/rRNA methyltransferase YacO	SO:0001217, UniRef:UniRef50_Q06753
+contig_12	cds	3595	3765	-	BEFGOD_00022		hypothetical protein	
+contig_13	cds	661	1488	+	BEFGOD_00023		ABC transporter domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1Q6K4S4
+contig_13	cds	1518	2120	+	BEFGOD_00024		Bro-N domain-containing protein	SO:0001217, UniRef:UniRef50_R7HHN7
+contig_13	cds	2135	2821	+	BEFGOD_00025		hypothetical protein	PFAM:PF00117.34, PFAM:PF07722.19, SO:0001217, UniRef:UniRef50_A0A352MV29
+contig_13	cds	2831	3391	+	BEFGOD_00026		Nitroreductase	SO:0001217, UniRef:UniRef50_A9KHQ7
+contig_13	cds	3393	4286	+	BEFGOD_00027		Transglutaminase-like domain-containing protein	SO:0001217, UniRef:UniRef50_A0A650EPK1
+contig_13	cds	4334	4696	-	BEFGOD_00028	tnpV	TnpV protein	SO:0001217, UniRef:UniRef50_A0A1Q6LG58
+contig_13	cds	4871	6259	+	BEFGOD_00029		Mobilization protein	SO:0001217, UniRef:UniRef50_A0A3D1PLM9, UniRef:UniRef90_A0A3D1PLM9
+contig_13	cds	6278	6574	+	BEFGOD_00030	fliT	Flagellar protein FliT	SO:0001217, UniRef:UniRef50_A0A9E1AZ91, UniRef:UniRef90_A0A9E1AZ91
+contig_14	cds	65	1600	+	BEFGOD_00031		DNA topoisomerase (ATP-hydrolyzing)	SO:0001217, UniRef:UniRef50_R5Y0V4
+contig_14	cds	1639	1872	-	BEFGOD_00032		hypothetical protein	
+contig_15	cds	65	1003	+	BEFGOD_00033		hypothetical protein	PFAM:PF02421.24, PFAM:PF03193.22
+contig_15	cds	1104	1793	+	BEFGOD_00034		hypothetical protein	
+contig_16	cds	37	408	+	BEFGOD_00035		Large ribosomal subunit protein uL4	SO:0001217, UniRef:UniRef50_N4WTU3
+contig_16	cds	408	773	+	BEFGOD_00036		Large ribosomal subunit protein uL23	SO:0001217, UniRef:UniRef50_A3DJH4
+contig_17	cds	36	1001	+	BEFGOD_00037		DNA primase	SO:0001217, UniRef:UniRef50_A0A930WY54, UniRef:UniRef90_A0AAE7RTL6
+contig_18	cds	85	483	+	BEFGOD_00038		hypothetical protein	
+contig_18	cds	493	873	+	BEFGOD_00039		hypothetical protein	
+contig_19	cds	39	434	-	BEFGOD_00040		hypothetical protein	
+contig_19	cds	692	1006	+	BEFGOD_00041		hypothetical protein	SO:0001217, UniRef:UniRef50_A0A1Q6KCL4
+contig_19	cds	1175	1462	+	BEFGOD_00042		Aspartyl/glutamyl-tRNA(Asn/Gln) amidotransferase subunit C	SO:0001217, UniRef:UniRef50_M8DE99
+contig_19	cds	1473	2933	+	BEFGOD_00043		Glutamyl-tRNA(Gln) amidotransferase subunit A	SO:0001217, UniRef:UniRef50_Q2RPH4
+contig_20	cds	1992	2417	-	BEFGOD_00044		hypothetical protein	
+contig_21	cds	713	1273	-	BEFGOD_00045		hypothetical protein	PFAM:PF00574.28
+contig_21	cds	1569	2288	-	BEFGOD_00046		hypothetical protein	
+contig_22	cds	94	1449	+	BEFGOD_00047		hypothetical protein	
+contig_22	cds	1462	1866	+	BEFGOD_00048		hypothetical protein	PFAM:PF01648.25
+contig_23	cds	380	1045	+	BEFGOD_00049		Single-stranded DNA binding protein	SO:0001217, UniRef:UniRef50_A5I6N6
+contig_23	cds	1078	1596	-	BEFGOD_00050		hypothetical protein	PFAM:PF01551.29
+contig_23	cds	1843	3036	-	BEFGOD_00051		AAA domain-containing protein	SO:0001217, UniRef:UniRef50_B5CKT5
+contig_23	cds	3443	4717	-	BEFGOD_00052		hypothetical protein	
+contig_24	cds	132	689	-	BEFGOD_00053		Elongation factor P	SO:0001217, UniRef:UniRef50_Q8G818
+contig_24	cds	705	1052	-	BEFGOD_00054		Large ribosomal subunit protein bL20	SO:0001217, UniRef:UniRef50_Q9RSW7
+contig_24	cds	1081	1278	-	BEFGOD_00055		Large ribosomal subunit protein bL35	SO:0001217, UniRef:UniRef50_P66269
+contig_24	cds	1301	1822	-	BEFGOD_00056		Translation initiation factor IF-3	SO:0001217, UniRef:UniRef50_R7LTX9
+contig_25	cds	81	1052	-	BEFGOD_00057		radical SAM/SPASM domain-containing protein	SO:0001217, UniRef:UniRef50_UPI00243011F3, UniRef:UniRef90_UPI00243011F3
+contig_25	cds	1111	1860	-	BEFGOD_00058		hypothetical protein	RefSeq:WP_278936366.1, SO:0001217, UniParc:UPI0024325B13, UniRef:UniRef100_UPI0024325B13, UniRef:UniRef50_UPI0024325B13, UniRef:UniRef90_UPI0024325B13
+contig_25	cds	1857	2906	-	BEFGOD_00059		radical SAM/SPASM domain-containing protein	RefSeq:WP_278935412.1, SO:0001217, UniParc:UPI00242E213E, UniRef:UniRef100_UPI00242E213E, UniRef:UniRef50_UPI00210E2557, UniRef:UniRef90_UPI00242E213E
+contig_25	cds	2919	3758	-	BEFGOD_00060		hypothetical protein	RefSeq:WP_278935413.1, SO:0001217, UniParc:UPI00242CE133, UniRef:UniRef100_UPI00242CE133, UniRef:UniRef50_UPI00242CE133, UniRef:UniRef90_UPI00242CE133
+contig_26	cds	259	999	+	BEFGOD_00061		hypothetical protein	PFAM:PF00753.33, PFAM:PF12706.13
+contig_27	cds	121	1140	+	BEFGOD_00062		hypothetical protein	PFAM:PF02824.27, PFAM:PF13291.12, PFAM:PF19296.4
+contig_28	cds	356	913	+	BEFGOD_00063		hypothetical protein	
+contig_28	cds	1067	1210	+	BEFGOD_00064		hypothetical protein	
+contig_28	cds	1224	1934	+	BEFGOD_00065		Uridylate kinase	SO:0001217, UniRef:UniRef50_A0A933CBL8
+contig_28	cds	1947	2651	+	BEFGOD_00066		hypothetical protein	PFAM:PF03703.20
+contig_29	cds	431	901	+	BEFGOD_00067		hypothetical protein	SO:0001217, UniRef:UniRef50_A0A3D1PJQ8
+contig_29	cds	921	1436	+	BEFGOD_00068		hypothetical protein	
+contig_30	cds	120	1457	+	BEFGOD_00069		Archaeal ATPase	KEGG:K07133, RefSeq:WP_227359260.1, SO:0001217, UniParc:UPI001D0AA9EC, UniRef:UniRef100_UPI001D0AA9EC, UniRef:UniRef50_I4M2Y2, UniRef:UniRef90_A0A1C5R7R5
+contig_31	cds	1093	2310	-	BEFGOD_00070		hypothetical protein	PFAM:PF00557.29
+contig_31	cds	2312	3343	-	BEFGOD_00071		Acetate kinase	SO:0001217, UniRef:UniRef50_O52594
+contig_32	cds	149	382	+	BEFGOD_00072		hypothetical protein	PFAM:PF01841.26
+contig_34	cds	1035	1751	-	BEFGOD_00073		hypothetical protein	
+contig_34	cds	1773	2897	-	BEFGOD_00074		hypothetical protein	PFAM:PF13614.12
+contig_34	cds	2863	4632	-	BEFGOD_00075		hypothetical protein	PFAM:PF01935.23, PFAM:PF05707.18, PFAM:PF12846.13
+contig_34	cds	4622	4831	-	BEFGOD_00076		hypothetical protein	
+contig_34	cds	5322	5495	+	BEFGOD_00077		hypothetical protein	
+contig_34	cds	5497	5952	+	BEFGOD_00078		hypothetical protein	
+contig_34	cds	5945	6400	+	BEFGOD_00079		hypothetical protein	
+contig_34	cds	6378	6626	-	BEFGOD_00080		hypothetical protein	
+contig_34	cds	6723	7571	-	BEFGOD_00081		hypothetical protein	PFAM:PF05193.26
+contig_35	cds	1162	1599	+	BEFGOD_00082		hypothetical protein	
+contig_36	cds	659	1015	+	BEFGOD_00083		hypothetical protein	
+contig_36	cds	1127	2629	+	BEFGOD_00084		hypothetical protein	
+contig_36	cds	2707	3990	+	BEFGOD_00085		Tyrosinase copper-binding domain-containing protein	SO:0001217, UniRef:UniRef50_D4JB39
+contig_36	cds	4043	4792	+	BEFGOD_00086		hypothetical protein	
+contig_36	cds	4832	5578	-	BEFGOD_00087		hypothetical protein	PFAM:PF02650.20, PFAM:PF14527.11
+contig_36	cds	5557	7293	-	BEFGOD_00088		hypothetical protein	PFAM:PF05175.20, PFAM:PF12847.13, PFAM:PF13847.12
+contig_37	cds	1	810	+	BEFGOD_00089		Bro-N domain-containing protein	SO:0001217, UniRef:UniRef50_R5IWN5
+contig_37	cds	994	1572	+	BEFGOD_00090		hypothetical protein	PFAM:PF06250.17
+contig_38	cds	4	372	+	BEFGOD_00091		hypothetical protein	
+contig_39	cds	360	1145	-	BEFGOD_00092		hypothetical protein	
+contig_40	cds	110	1546	+	BEFGOD_00093		Restriction endonuclease type IV Mrr domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1H6J2W0
+contig_40	cds	1570	4344	+	BEFGOD_00094		site-specific DNA-methyltransferase (adenine-specific)	SO:0001217, UniRef:UniRef50_A0A1T4Q9I1
+contig_40	cds	4350	6131	+	BEFGOD_00095		hypothetical protein	PFAM:PF03235.19
+contig_40	cds	6172	6420	+	BEFGOD_00096		hypothetical protein	PFAM:PF24749.2, SO:0001217, UniRef:UniRef50_A0A943PRY5
+contig_40	cds	6444	6782	+	BEFGOD_00097		hypothetical protein	
+contig_40	cds	7014	7910	+	BEFGOD_00098		hypothetical protein	
+contig_40	cds	7995	8285	-	BEFGOD_00099		Plasmodium RESA N-terminal domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1Q6QYF9
+contig_40	cds	8857	9570	+	BEFGOD_00100		CRISPR-associated endoribonuclease Cas6	SO:0001217, UniRef:UniRef50_A0A943JKP5
+contig_40	cds	9581	11446	+	BEFGOD_00101		hypothetical protein	PFAM:PF09706.15
+contig_40	cds	11448	12359	+	BEFGOD_00102		Type I-B CRISPR-associated protein Cas7/Cst2/DevR	SO:0001217, UniRef:UniRef50_A0A6N3B0L6
+contig_40	cds	12377	13024	+	BEFGOD_00103		CRISPR-associated protein, Cas5t family	SO:0001217, UniRef:UniRef50_I7LKY3
+contig_42	cds	118	750	-	BEFGOD_00104		hypothetical protein	
+contig_42	cds	764	1357	-	BEFGOD_00105		hypothetical protein	PFAM:PF00488.27
+contig_43	cds	13	558	+	BEFGOD_00106		hypothetical protein	
+contig_43	cds	847	1164	+	BEFGOD_00107		DUF3899 domain-containing protein	RefSeq:WP_118257869.1, SO:0001217, UniParc:UPI000E534BB0, UniRef:UniRef100_A0A414ZJP9, UniRef:UniRef50_A0A174YW10, UniRef:UniRef90_A0A414ZJP9
+contig_44	cds	305	2716	-	BEFGOD_00108		hypothetical protein	PFAM:PF05362.19, PFAM:PF13654.12, PFAM:PF20436.4, PFAM:PF20437.3
+contig_45	cds	59	901	-	BEFGOD_00109		hypothetical protein	
+contig_45	cds	905	1240	-	BEFGOD_00110		hypothetical protein	
+contig_45	cds	1224	2285	-	BEFGOD_00111		hypothetical protein	PFAM:PF10412.15
+contig_46	cds	20	856	+	BEFGOD_00112		hypothetical protein	PFAM:PF00271.37, PFAM:PF03461.20
+contig_47	cds	25	630	+	BEFGOD_00113		hypothetical protein	
+contig_47	cds	753	1448	-	BEFGOD_00114		hypothetical protein	
+contig_48	cds	90	365	+	BEFGOD_00115		hypothetical protein	
+contig_48	cds	362	850	+	BEFGOD_00116		Ribosomal RNA large subunit methyltransferase H	SO:0001217, UniRef:UniRef50_A0A410PRF3
+contig_48	cds	876	1115	+	BEFGOD_00117		hypothetical protein	PFAM:PF04014.23
+contig_48	cds	1275	1721	+	BEFGOD_00118		hypothetical protein	
+contig_49	cds	855	1733	-	BEFGOD_00119		Peptide O-xylosyltransferase	SO:0001217, UniRef:UniRef50_A0A143Y2C8
+contig_49	cds	1735	2118	-	BEFGOD_00120		hypothetical protein	
+contig_50	cds	358	1383	+	BEFGOD_00121		hypothetical protein	
+contig_50	cds	1549	2556	+	BEFGOD_00122		hypothetical protein	PFAM:PF00044.30, PFAM:PF02800.25
+contig_51	cds	5	199	+	BEFGOD_00123		Ferredoxin thioredoxin reductase catalytic beta chain	SO:0001217, UniRef:UniRef50_R5LIQ8
+contig_51	cds	196	528	-	BEFGOD_00124		hypothetical protein	
+contig_51	cds	592	909	-	BEFGOD_00125	gerQ	Spore coat protein GerQ	SO:0001217, UniRef:UniRef50_A0A1Q6KC41
+contig_52	cds	18	398	-	BEFGOD_00126		hypothetical protein	
+contig_52	cds	395	1039	-	BEFGOD_00127		hypothetical protein	PFAM:PF04239.17
+contig_53	cds	4	789	+	BEFGOD_00128		hypothetical protein	PFAM:PF00271.37, PFAM:PF18074.6
+contig_53	cds	876	2498	+	BEFGOD_00129		MBL fold metallo-hydrolase	SO:0001217, UniRef:UniRef50_A0AA51MVW1
+contig_55	cds	141	3077	+	BEFGOD_00130		hypothetical protein	PFAM:PF00133.28, PFAM:PF08264.19
+contig_56	cds	94	1338	+	BEFGOD_00131		hypothetical protein	PFAM:PF00359.27, PFAM:PF00874.25
+contig_57	cds	12	1172	+	BEFGOD_00132		DNA topoisomerase I	SO:0001217, UniRef:UniRef50_A0A829R5R9
+contig_57	cds	1326	1487	+	BEFGOD_00133		hypothetical protein	
+contig_57	cds	1506	2072	+	BEFGOD_00134		hypothetical protein	
+contig_57	cds	2176	3492	+	BEFGOD_00135		Methylenetetrahydrofolate--tRNA-(uracil-5-)-methyltransferase TrmFO	SO:0001217, UniRef:UniRef50_Q38WZ1
+contig_57	cds	3501	4418	+	BEFGOD_00136		hypothetical protein	PFAM:PF06144.19, PFAM:PF21694.2
+contig_58	cds	66	677	+	BEFGOD_00137		hypothetical protein	
+contig_58	cds	691	1068	+	BEFGOD_00138		hypothetical protein	
+contig_59	cds	124	387	+	BEFGOD_00139		hypothetical protein	
+contig_60	cds	80	514	+	BEFGOD_00140		hypothetical protein	
+contig_60	cds	517	1311	+	BEFGOD_00141		Glycosyltransferase family 2 protein	RefSeq:WP_256187848.1, SO:0001217, UniParc:UPI00210DECEE, UniRef:UniRef100_UPI00210DECEE, UniRef:UniRef50_D4RX58, UniRef:UniRef90_A0AA91HL35
+contig_61	cds	25	954	-	BEFGOD_00142		DUF5688 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A173TJG2, UniRef:UniRef90_A0A173TJG2
+contig_61	cds	1360	1635	-	BEFGOD_00143		hypothetical protein	SO:0001217, UniRef:UniRef50_A0A173TLA0
+contig_62	cds	280	963	-	BEFGOD_00144		Putative colanic biosynthesis UDP-glucose lipid carrier transferase	RefSeq:WP_118306157.1, SO:0001217, UniParc:UPI000E47173A, UniRef:UniRef100_A0AA91C7J4, UniRef:UniRef50_R6AB68, UniRef:UniRef90_A0A1C5N0F0
+contig_62	cds	976	1581	-	BEFGOD_00145		hypothetical protein	PFAM:PF02784.22
+contig_63	cds	910	2499	-	BEFGOD_00146		MBOAT family protein	SO:0001217, UniRef:UniRef50_U5F8I6
+contig_63	cds	2512	2739	-	BEFGOD_00147		D-alanine--poly(Phosphoribitol) ligase subunit 2	SO:0001217, UniRef:UniRef50_A0A7U9X4V2
+contig_63	cds	2739	4253	-	BEFGOD_00148		D-alanine--poly(Phosphoribitol) ligase subunit 1	SO:0001217, UniRef:UniRef50_A0A173SF59
+contig_63	cds	4362	5636	-	BEFGOD_00149		hypothetical protein	PFAM:PF00702.32, PFAM:PF01928.26
+contig_63	cds	5698	6153	-	BEFGOD_00150		hypothetical protein	
+contig_63	cds	6153	6797	-	BEFGOD_00151		hypothetical protein	PFAM:PF17289.8
+contig_63	cds	6801	7268	-	BEFGOD_00152		hypothetical protein	
+contig_64	cds	318	629	+	BEFGOD_00153		UPF0122 protein NT01CX_2214	SO:0001217, UniRef:UniRef50_A0Q0Y5
+contig_65	cds	2	982	+	BEFGOD_00154		DUF3644 domain-containing protein	RefSeq:WP_256187469.1, SO:0001217, UniParc:UPI002108E653, UniRef:UniRef100_UPI002108E653, UniRef:UniRef50_A0A917A4D6, UniRef:UniRef90_UPI002108E653
+contig_66	cds	461	1930	-	BEFGOD_00155		hypothetical protein	
+contig_66	cds	2154	2438	-	BEFGOD_00156		hypothetical protein	
+contig_67	cds	240	956	+	BEFGOD_00157		hypothetical protein	PFAM:PF03486.20
+contig_67	cds	989	2212	+	BEFGOD_00158		hypothetical protein	PFAM:PF00089.32, PFAM:PF00595.29, PFAM:PF13180.12, PFAM:PF13365.12, PFAM:PF17820.7
+contig_68	cds	402	638	+	BEFGOD_00159		hypothetical protein	
+contig_69	cds	357	827	-	BEFGOD_00160		hypothetical protein	
+contig_69	cds	811	1158	-	BEFGOD_00161		hypothetical protein	
+contig_70	cds	26	478	-	BEFGOD_00162		hypothetical protein	SO:0001217, UniParc:UPI0003365685, UniRef:UniRef100_A0A3D1PLR6, UniRef:UniRef50_A0A3D1PLR6, UniRef:UniRef90_A0A3D1PLR6
+contig_70	cds	915	1217	+	BEFGOD_00163		hypothetical protein	SO:0001217, UniParc:UPI00033DD196, UniRef:UniRef100_A0A3D1PLM3, UniRef:UniRef50_A0A3D1PLM3, UniRef:UniRef90_A0A3D1PLM3
+contig_70	cds	1766	2242	+	BEFGOD_00164		hypothetical protein	PFAM:PF13420.13, PFAM:PF13508.13, PFAM:PF13673.13
+contig_71	cds	84	368	+	BEFGOD_00165		Helix-turn-helix domain-containing protein	SO:0001217, UniRef:UniRef50_A0A373HQ77, UniRef:UniRef90_A0AAW4VTS0
+contig_72	cds	463	1488	+	BEFGOD_00166		S-adenosylmethionine:tRNA ribosyltransferase-isomerase	SO:0001217, UniRef:UniRef50_Q891Z9
+contig_73	cds	84	932	+	BEFGOD_00167		hypothetical protein	
+contig_74	cds	88	723	+	BEFGOD_00168		hypothetical protein	RefSeq:WP_173782447.1, SO:0001217, UniParc:UPI000969358E, UniRef:UniRef100_A0A1Q6M597, UniRef:UniRef50_R9IVZ2, UniRef:UniRef90_A0A1Q6M597
+contig_75	cds	587	1189	+	BEFGOD_00169		HTH tetR-type domain-containing protein	SO:0001217, UniRef:UniRef50_A0A3D0Y2G6
+contig_76	cds	49	414	+	BEFGOD_00170		hypothetical protein	PFAM:PF04397.21
+contig_76	cds	458	631	-	BEFGOD_00171		hypothetical protein	
+contig_77	cds	154	966	+	BEFGOD_00172		hypothetical protein	PFAM:PF00404.24, PFAM:PF00963.24
+contig_78	cds	805	1254	-	BEFGOD_00173		hypothetical protein	
+contig_78	cds	1420	1785	-	BEFGOD_00174		hypothetical protein	
+contig_80	cds	89	4546	+	BEFGOD_00175		DNA polymerase III PolC-type	SO:0001217, UniRef:UniRef50_A0A0J1ILQ4
+contig_82	cds	206	409	-	BEFGOD_00176		SpoVT-AbrB domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1Q6LAN8
+contig_83	cds	1292	1834	-	BEFGOD_00177		hypothetical protein	
+contig_83	cds	1840	2517	-	BEFGOD_00178		hypothetical protein	
+contig_84	cds	76	354	+	BEFGOD_00179		Small ribosomal subunit protein uS19	SO:0001217, UniRef:UniRef50_Q5SHP2
+contig_84	cds	385	741	+	BEFGOD_00180		Large ribosomal subunit protein uL22	SO:0001217, UniRef:UniRef50_C4Z2T5
+contig_84	cds	763	1419	+	BEFGOD_00181		Small ribosomal subunit protein uS3	SO:0001217, UniRef:UniRef50_Q3A9S2
+contig_84	cds	1422	1853	+	BEFGOD_00182		Large ribosomal subunit protein uL16	SO:0001217, UniRef:UniRef50_A3DJH9
+contig_84	cds	1854	2057	+	BEFGOD_00183		Large ribosomal subunit protein uL29	SO:0001217, UniRef:UniRef50_A6TWH4
+contig_84	cds	2075	2329	+	BEFGOD_00184		Small ribosomal subunit protein uS17	SO:0001217, UniRef:UniRef50_Q83ER7
+contig_84	cds	2368	2736	+	BEFGOD_00185		Large ribosomal subunit protein uL14	SO:0001217, UniRef:UniRef50_Q5SHP8
+contig_84	cds	2755	3075	+	BEFGOD_00186		Large ribosomal subunit protein uL24	SO:0001217, UniRef:UniRef50_A0LIK1
+contig_84	cds	3091	3636	+	BEFGOD_00187		Large ribosomal subunit protein uL5	SO:0001217, UniRef:UniRef50_Q8DS25
+contig_84	cds	3649	3834	+	BEFGOD_00188		Small ribosomal subunit protein uS14B	SO:0001217, UniRef:UniRef50_P12878
+contig_84	cds	3852	4247	+	BEFGOD_00189		Small ribosomal subunit protein uS8	SO:0001217, UniRef:UniRef50_Q0AII2
+contig_84	cds	4281	4817	+	BEFGOD_00190		Large ribosomal subunit protein uL6	SO:0001217, UniRef:UniRef50_P9WH81
+contig_84	cds	4854	5213	+	BEFGOD_00191		Large ribosomal subunit protein uL18	SO:0001217, UniRef:UniRef50_A0A1F4V9T6
+contig_84	cds	5232	5771	+	BEFGOD_00192		Small ribosomal subunit protein uS5	SO:0001217, UniRef:UniRef50_A0A7V1D725
+contig_85	cds	351	1643	+	BEFGOD_00193		hypothetical protein	PFAM:PF00587.30, PFAM:PF02403.27
+contig_85	cds	1643	2218	+	BEFGOD_00194	engB	putative GTP-binding protein EngB	SO:0001217, UniRef:UniRef50_A0A943PUU7
+contig_86	cds	84	746	+	BEFGOD_00195		hypothetical protein	PFAM:PF00533.33, PFAM:PF12738.14, PFAM:PF12826.13, PFAM:PF14520.12, PFAM:PF16589.12
+contig_86	cds	776	1261	+	BEFGOD_00196		hypothetical protein	
+contig_87	cds	92	505	+	BEFGOD_00197		Small basic protein	SO:0001217, UniRef:UniRef50_A0A0P8W7K7
+contig_87	cds	1057	2091	+	BEFGOD_00198		DUF1016 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A3B8SSC8
+contig_87	cds	2084	2551	+	BEFGOD_00199	yhcG	YhcG N-terminal domain-containing protein	SO:0001217, UniRef:UniRef50_R0CDQ9
+contig_87	cds	2548	2844	+	BEFGOD_00200	yhcG	YhcG PDDEXK nuclease domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1G8AQC4
+contig_87	cds	2958	3074	+	BEFGOD_00201		hypothetical protein	
+contig_88	cds	475	813	+	BEFGOD_00202	padR	PadR family transcriptional regulator	COG:COG1695, COG:K, RefSeq:WP_117575406.1, SO:0001217, UniParc:UPI000821E8FF, UniRef:UniRef100_A0AAW4VKQ6, UniRef:UniRef50_A0A1I0DAG5, UniRef:UniRef90_A0A2T3FJH9
+contig_89	cds	19	510	+	BEFGOD_00203		hypothetical protein	PFAM:PF10502.14
+contig_89	cds	526	1362	+	BEFGOD_00204		hypothetical protein	PFAM:PF00004.35, PFAM:PF13177.12
+contig_89	cds	1372	2202	+	BEFGOD_00205		PSP1 C-terminal domain-containing protein	SO:0001217, UniRef:UniRef50_G5GKZ6
+contig_89	cds	2241	2414	+	BEFGOD_00206		Ferredoxin-1	SO:0001217, UniRef:UniRef50_P00204
+contig_90	cds	45	1082	+	BEFGOD_00207		hypothetical protein	PFAM:PF04055.27, PFAM:PF18693.7
+contig_91	cds	107	2131	+	BEFGOD_00208		hypothetical protein	PFAM:PF00004.35, PFAM:PF01434.24, PFAM:PF05621.17, PFAM:PF13191.12, PFAM:PF17871.7
+contig_92	cds	21	701	+	BEFGOD_00209		hypothetical protein	PFAM:PF13635.12
+contig_92	cds	714	1901	+	BEFGOD_00210		hypothetical protein	
+contig_92	cds	1915	2091	+	BEFGOD_00211		hypothetical protein	
+contig_92	cds	2104	2694	+	BEFGOD_00212		hypothetical protein	
+contig_92	cds	2842	3465	-	BEFGOD_00213		hypothetical protein	
+contig_93	cds	356	1279	+	BEFGOD_00214		hypothetical protein	PFAM:PF15935.10, PFAM:PF19034.5
+contig_93	cds	1304	1657	+	BEFGOD_00215	rnlA	Antitoxin to bacterial toxin RNase LS or RnlA	SO:0001217, UniRef:UniRef50_A0A373HME2, UniRef:UniRef90_A0A1C5P967
+contig_93	cds	1726	1923	+	BEFGOD_00216		DpnD/PcfM-like C-terminal domain-containing protein	RefSeq:WP_147579869.1, SO:0001217, UniParc:UPI0008219BCA, UniRef:UniRef100_A0A1C5PA53, UniRef:UniRef50_A0A2T3FVN3, UniRef:UniRef90_A0A2T3FVN3
+contig_93	cds	2063	2401	+	BEFGOD_00217		Bacterial mobilisation protein (MobC)	RefSeq:WP_230312851.1, SO:0001217, UniParc:UPI001E484E8D, UniRef:UniRef100_UPI001E484E8D, UniRef:UniRef50_A0A1C5P8Y2, UniRef:UniRef90_A0A1C5V1Z4
+contig_94	cds	27	413	+	BEFGOD_00218		hypothetical protein	PFAM:PF21778.2
+contig_94	cds	610	2910	+	BEFGOD_00219		ATP-dependent DNA helicase	SO:0001217, UniRef:UniRef50_F4LVV3
+contig_94	cds	2957	3661	+	BEFGOD_00220		hypothetical protein	
+contig_95	cds	118	1152	+	BEFGOD_00221		hypothetical protein	
+contig_95	cds	1152	1670	+	BEFGOD_00222		hypothetical protein	
+contig_96	cds	189	548	-	BEFGOD_00223		hypothetical protein	
+contig_96	cds	739	1008	+	BEFGOD_00224		hypothetical protein	
+contig_96	cds	1136	2668	+	BEFGOD_00225		hypothetical protein	
+contig_97	cds	111	473	+	BEFGOD_00226		hypothetical protein	PFAM:PF00912.28
+contig_97	cds	546	1724	+	BEFGOD_00227		hypothetical protein	
+contig_97	cds	1737	2423	+	BEFGOD_00228		Thymidylate kinase	SO:0001217, UniRef:UniRef50_A0A1V4IMD3
+contig_97	cds	2519	3040	+	BEFGOD_00229		hypothetical protein	PFAM:PF00300.27
+contig_97	cds	3221	3475	+	BEFGOD_00230		Small ribosomal subunit protein bS20	SO:0001217, UniRef:UniRef50_Q97JK0
+contig_98	cds	209	838	-	BEFGOD_00231		hypothetical protein	PFAM:PF01471.23
+contig_99	cds	23	1018	+	BEFGOD_00232		hypothetical protein	PFAM:PF13635.12
+contig_99	cds	1151	1261	-	BEFGOD_00233		hypothetical protein	
+contig_99	cds	1383	1913	+	BEFGOD_00234		hypothetical protein	
+contig_99	cds	1910	2512	+	BEFGOD_00235		Catalase	SO:0001217, UniRef:UniRef50_A0A1Q6LHD0
+contig_99	cds	2559	3611	-	BEFGOD_00236		hypothetical protein	PFAM:PF01061.29
+contig_100	cds	35	457	+	BEFGOD_00237		hypothetical protein	RefSeq:WP_256187551.1, SO:0001217, UniParc:UPI0008215E01, UniRef:UniRef100_A0A1C6G9P2, UniRef:UniRef50_X8IPP6, UniRef:UniRef90_A0A1C6G9P2
+contig_100	cds	497	811	+	BEFGOD_00238		hypothetical protein	SO:0001217, UniParc:UPI0008228553, UniRef:UniRef100_A0A1C6GAI3, UniRef:UniRef50_A0A1C6GAI3, UniRef:UniRef90_A0A1C6GAI3
+contig_100	cds	817	1515	+	BEFGOD_00239		hypothetical protein	RefSeq:WP_256187553.1, SO:0001217, UniParc:UPI000822BA8D, UniRef:UniRef100_A0A1C6G9T8, UniRef:UniRef50_A0A1C6G9T8, UniRef:UniRef90_A0A1C6G9T8
+contig_100	cds	1509	1679	+	BEFGOD_00240		hypothetical protein	SO:0001217, UniParc:UPI0008225BD0, UniRef:UniRef100_A0A1C6GAC7, UniRef:UniRef50_A0A1C6GAC7, UniRef:UniRef90_A0A1C6GAC7
+contig_101	cds	106	642	-	BEFGOD_00241		hypothetical protein	PFAM:PF01713.27
+contig_101	cds	719	1027	+	BEFGOD_00242		hypothetical protein	
+contig_102	cds	111	818	-	BEFGOD_00243		SMODS and SLOG-associating 2TM effector domain-containing protein	SO:0001217, UniRef:UniRef50_A0A2T3FZF9, UniRef:UniRef90_UPI002E79F842
+contig_102	cds	820	2112	-	BEFGOD_00244		hypothetical protein	SO:0001217, UniRef:UniRef50_A0A2T3FZG4, UniRef:UniRef90_A0A2T3FZG4
+contig_104	cds	11	388	+	BEFGOD_00245		hypothetical protein	
+contig_104	cds	481	819	+	BEFGOD_00246		hypothetical protein	
+contig_104	cds	830	1471	+	BEFGOD_00247		hypothetical protein	
+contig_104	cds	1517	1663	+	BEFGOD_00248		hypothetical protein	
+contig_105	cds	118	2901	-	BEFGOD_00249		Isoleucine--tRNA ligase	SO:0001217, UniRef:UniRef50_Q67Q27
+contig_105	cds	3356	3703	-	BEFGOD_00250		hypothetical protein	
+contig_105	cds	3711	4739	-	BEFGOD_00251		hypothetical protein	
+contig_106	cds	249	1220	-	BEFGOD_00252		hypothetical protein	
+contig_107	cds	196	489	+	BEFGOD_00253		hypothetical protein	
+contig_107	cds	634	855	-	BEFGOD_00254		HTH cro/C1-type domain-containing protein	SO:0001217, UniRef:UniRef50_F7JVD3
+contig_108	cds	189	779	+	BEFGOD_00255		hypothetical protein	
+contig_108	cds	958	1242	+	BEFGOD_00256		hypothetical protein	
+contig_108	cds	1366	1839	+	BEFGOD_00257		hypothetical protein	PFAM:PF03703.20
+contig_108	cds	1829	3223	+	BEFGOD_00258		hypothetical protein	PFAM:PF03703.20
+contig_108	cds	3465	5006	+	BEFGOD_00259		hypothetical protein	PFAM:PF01476.26, PFAM:PF12673.12
+contig_108	cds	5008	5697	+	BEFGOD_00260		hypothetical protein	
+contig_108	cds	5799	6098	+	BEFGOD_00261	csoR	CsoR family transcriptional regulator	SO:0001217, UniRef:UniRef50_A0A3B8SN02
+contig_109	cds	32	805	-	BEFGOD_00262		hypothetical protein	
+contig_110	cds	126	758	+	BEFGOD_00263		Superoxide dismutase	SO:0001217, UniRef:UniRef50_A0A0F0C880
+contig_110	cds	761	1153	-	BEFGOD_00264		hypothetical protein	
+contig_110	cds	1155	2018	-	BEFGOD_00265		Arsenic efflux protein	SO:0001217, UniRef:UniRef50_A0A1G5FK88
+contig_111	cds	397	1362	-	BEFGOD_00266		ATPase BadF/BadG/BcrA/BcrD type domain-containing protein	SO:0001217, UniRef:UniRef50_Q24ZY2
+contig_111	cds	1352	1492	-	BEFGOD_00267		hypothetical protein	
+contig_112	cds	206	604	-	BEFGOD_00268		hypothetical protein	
+contig_112	cds	811	2097	+	BEFGOD_00269		Trigger factor	SO:0001217, UniRef:UniRef50_A9KSW9
+contig_113	cds	582	1358	+	BEFGOD_00270		hypothetical protein	
+contig_114	cds	712	1491	-	BEFGOD_00271		hypothetical protein	
+contig_115	cds	513	1721	-	BEFGOD_00272		hypothetical protein	PFAM:PF01266.30, PFAM:PF07992.20, PFAM:PF13450.12
+contig_116	cds	209	400	+	BEFGOD_00273		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI0025DFAAA6
+contig_116	cds	603	1502	+	BEFGOD_00274		Carbon-nitrogen hydrolase family protein	SO:0001217, UniRef:UniRef50_A0A3D1PJH9
+contig_116	cds	1686	2216	+	BEFGOD_00275		Peptide deformylase	SO:0001217, UniRef:UniRef50_A0A1Q6K677
+contig_116	cds	2292	3731	+	BEFGOD_00276		Inosine/uridine-preferring nucleoside hydrolase domain-containing protein	SO:0001217, UniRef:UniRef50_R7LQB2
+contig_116	cds	3830	4369	+	BEFGOD_00277		Methylated-DNA--protein-cysteine methyltransferase	SO:0001217, UniRef:UniRef50_A0A316NTJ1
+contig_116	cds	4366	4908	+	BEFGOD_00278		DNA-3-methyladenine glycosylase I	SO:0001217, UniRef:UniRef50_R6MBI0
+contig_116	cds	4918	5481	+	BEFGOD_00279		GNAT family N-acetyltransferase	SO:0001217, UniRef:UniRef50_A0A943G3V4
+contig_116	cds	5523	6206	+	BEFGOD_00280		Histidine phosphatase family protein	SO:0001217, UniRef:UniRef50_A0A1Q6M3P1
+contig_116	cds	6332	6583	+	BEFGOD_00281		hypothetical protein	
+contig_116	cds	6687	7091	+	BEFGOD_00282		Acetyltransferase GNAT family	SO:0001217, UniRef:UniRef50_R7HDM6
+contig_116	cds	7088	7231	+	BEFGOD_00283		hypothetical protein	
+contig_116	cds	7286	7663	+	BEFGOD_00284		hypothetical protein	
+contig_116	cds	7696	7992	+	BEFGOD_00285		hypothetical protein	PFAM:PF00266.25
+contig_116	cds	8118	8348	+	BEFGOD_00286		hypothetical protein	
+contig_116	cds	8327	9178	+	BEFGOD_00287	ttcA	tRNA 2-thiocytidine(32) synthetase TtcA	KEGG:K14058, SO:0001217, UniRef:UniRef50_A0A644YYQ0, UniRef:UniRef90_A0A1Q6L8A5
+contig_116	cds	9171	10085	+	BEFGOD_00288		hypothetical protein	PFAM:PF01725.21, PFAM:PF03091.20
+contig_116	cds	10328	10462	+	BEFGOD_00289		hypothetical protein	
+contig_117	cds	1173	1298	-	BEFGOD_00290		ABC transporter ATP-binding protein	SO:0001217, UniRef:UniRef50_U4R3P0
+contig_118	cds	45	332	+	BEFGOD_00291		hypothetical protein	PFAM:PF10431.15
+contig_118	cds	498	1016	+	BEFGOD_00292		hypothetical protein	PFAM:PF13240.11, PFAM:PF13248.11, PFAM:PF17032.10
+contig_118	cds	1179	1841	+	BEFGOD_00293		Stage 0 sporulation A-like protein	SO:0001217, UniRef:UniRef50_V8BRK9
+contig_118	cds	1838	2857	+	BEFGOD_00294		histidine kinase	SO:0001217, UniRef:UniRef50_A5Z5S8
+contig_119	cds	16	648	+	BEFGOD_00295		hypothetical protein	PFAM:PF01380.27
+contig_120	cds	79	1011	+	BEFGOD_00296		PD-(D/E)XK motif protein	RefSeq:WP_347942969.1, SO:0001217, UniParc:UPI003265B2C9, UniRef:UniRef100_UPI003265B2C9, UniRef:UniRef50_UPI003265B2C9, UniRef:UniRef90_UPI003265B2C9
+contig_121	cds	51	167	+	BEFGOD_00297		hypothetical protein	
+contig_121	cds	187	939	-	BEFGOD_00298		Replication initiation protein	SO:0001217, UniRef:UniRef50_R9IEU4, UniRef:UniRef90_A0A373MQ39
+contig_121	cds	1529	1747	-	BEFGOD_00299	copG	CopG family transcriptional regulator	RefSeq:WP_173841906.1, SO:0001217, UniParc:UPI00156D8C43, UniRef:UniRef100_UPI00156D8C43, UniRef:UniRef50_A0AAE3F4D0, UniRef:UniRef90_A0AAE3F4D0
+contig_122	cds	139	612	+	BEFGOD_00300		DUF443 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A374AG81
+contig_123	cds	6	1817	+	BEFGOD_00301		hypothetical protein	PFAM:PF11974.14, PFAM:PF13620.12, PFAM:PF17210.9, PFAM:PF17802.7
+contig_124	cds	487	1587	-	BEFGOD_00302		hypothetical protein	
+contig_124	cds	1571	2056	-	BEFGOD_00303		Ribose 5-phosphate isomerase B	SO:0001217, UniRef:UniRef50_A0A1G6IH70
+contig_124	cds	2060	2527	-	BEFGOD_00304		Low molecular weight protein arginine phosphatase	SO:0001217, UniRef:UniRef50_A0A927T1Z4
+contig_124	cds	2608	2895	-	BEFGOD_00305		hypothetical protein	
+contig_125	cds	14	757	+	BEFGOD_00306		hypothetical protein	
+contig_125	cds	758	1495	+	BEFGOD_00307	fabG	3-oxoacyl-ACP reductase FabG	SO:0001217, UniRef:UniRef50_A0A7G9B316
+contig_125	cds	1585	1827	-	BEFGOD_00308		hypothetical protein	
+contig_125	cds	1914	3083	-	BEFGOD_00309		hypothetical protein	PFAM:PF07670.19
+contig_126	cds	165	1508	-	BEFGOD_00310		hypothetical protein	PFAM:PF11974.14, PFAM:PF13620.12, PFAM:PF13860.12, PFAM:PF17210.9, PFAM:PF17802.7
+contig_128	cds	445	900	-	BEFGOD_00311		hypothetical protein	PFAM:PF01047.28, PFAM:PF13463.12, PFAM:PF22381.2
+contig_129	cds	360	671	+	BEFGOD_00312		hypothetical protein	
+contig_132	cds	19	1104	+	BEFGOD_00313		ATPase	SO:0001217, UniRef:UniRef50_A0A1Q6M554
+contig_132	cds	1197	1409	+	BEFGOD_00314		hypothetical protein	
+contig_132	cds	1624	3450	+	BEFGOD_00315		hypothetical protein	PFAM:PF00753.33, PFAM:PF12706.13
+contig_133	cds	531	830	-	BEFGOD_00316		hypothetical protein	
+contig_133	cds	1009	1671	+	BEFGOD_00317		ABC transporter permease	SO:0001217, UniRef:UniRef50_U2N746
+contig_133	cds	1733	3589	-	BEFGOD_00318		Cd(2+)-exporting ATPase	SO:0001217, UniRef:UniRef50_A0A970V5G9
+contig_133	cds	3593	3883	-	BEFGOD_00319		HTH arsR-type domain-containing protein	SO:0001217, UniRef:UniRef50_A0A0R3K2Q7
+contig_133	cds	4107	5369	-	BEFGOD_00320		Glycosyl transferase	SO:0001217, UniRef:UniRef50_A0A350W6H1
+contig_133	cds	5485	6516	-	BEFGOD_00321		hypothetical protein	
+contig_133	cds	6530	7144	-	BEFGOD_00322		hypothetical protein	PFAM:PF02973.23
+contig_135	cds	98	2638	-	BEFGOD_00323		hypothetical protein	PFAM:PF00404.24, PFAM:PF02368.24, PFAM:PF08239.17, PFAM:PF21461.3
+contig_137	cds	471	1256	-	BEFGOD_00324		Metallophosphoesterase	SO:0001217, UniRef:UniRef50_R7LR53
+contig_137	cds	1277	2029	-	BEFGOD_00325		Putative oxidoreductase	SO:0001217, UniRef:UniRef50_A0A136WHL9
+contig_138	cds	119	976	+	BEFGOD_00326		hypothetical protein	PFAM:PF12784.13
+contig_138	cds	1277	1798	+	BEFGOD_00327		hypothetical protein	
+contig_138	cds	2034	2921	+	BEFGOD_00328		hypothetical protein	PFAM:PF01551.29
+contig_138	cds	3007	3267	+	BEFGOD_00329		Sporulation transcriptional regulator SpoIIID	SO:0001217, UniRef:UniRef50_R7QV04
+contig_139	cds	153	371	+	BEFGOD_00330		hypothetical protein	
+contig_139	cds	1430	1867	-	BEFGOD_00331		ATPase	SO:0001217, UniRef:UniRef50_G8LXT0
+contig_141	cds	3	1019	+	BEFGOD_00332		Protein kinase domain-containing protein	SO:0001217, UniRef:UniRef50_A0A350MLB0
+contig_141	cds	1036	1146	+	BEFGOD_00333		hypothetical protein	
+contig_142	cds	826	1740	-	BEFGOD_00334		hypothetical protein	PFAM:PF00905.27, PFAM:PF03793.24
+contig_143	cds	149	1009	+	BEFGOD_00335		hypothetical protein	PFAM:PF13412.12
+contig_143	cds	1111	1584	-	BEFGOD_00336		hypothetical protein	RefSeq:WP_295573723.1, SO:0001217, UniParc:UPI000821D879, UniRef:UniRef100_A0A1C5T5C0, UniRef:UniRef50_A0A1C5T5C0, UniRef:UniRef90_A0A1C5T5C0
+contig_145	cds	15	905	+	BEFGOD_00337		hypothetical protein	
+contig_145	cds	992	1378	+	BEFGOD_00338		hypothetical protein	
+contig_147	cds	118	339	+	BEFGOD_00339		hypothetical protein	
+contig_147	cds	1008	2555	-	BEFGOD_00340		Ribonuclease Y	SO:0001217, UniRef:UniRef50_Q97I38
+contig_147	cds	2794	3339	-	BEFGOD_00341		SpoVT-AbrB domain-containing protein	SO:0001217, UniRef:UniRef50_A0A0D0FRZ5
+contig_147	cds	3570	5543	-	BEFGOD_00342		hypothetical protein	PFAM:PF07693.20
+contig_147	cds	5697	6083	+	BEFGOD_00343		hypothetical protein	
+contig_147	cds	6097	8304	-	BEFGOD_00344		hypothetical protein	PFAM:PF02562.22, PFAM:PF05127.20, PFAM:PF13086.12, PFAM:PF13245.12, PFAM:PF13401.12, PFAM:PF13538.12, PFAM:PF13604.12, PFAM:PF14490.11, PFAM:PF18335.7, PFAM:PF23139.1
+contig_148	cds	690	881	+	BEFGOD_00345		hypothetical protein	
+contig_149	cds	151	792	+	BEFGOD_00346		hypothetical protein	
+contig_149	cds	1180	2511	-	BEFGOD_00347		hypothetical protein	PFAM:PF14501.12, PFAM:PF14689.11
+contig_149	cds	2543	3217	-	BEFGOD_00348		hypothetical protein	PFAM:PF00072.30, PFAM:PF04397.21
+contig_149	cds	3386	3724	+	BEFGOD_00349		hypothetical protein	
+contig_150	cds	62	610	+	BEFGOD_00350		hypothetical protein	PFAM:PF00639.27, PFAM:PF13145.12, PFAM:PF13616.12
+contig_150	cds	614	1081	+	BEFGOD_00351		hypothetical protein	PFAM:PF08032.17, PFAM:PF22435.1
+contig_150	cds	1103	1402	+	BEFGOD_00352		hypothetical protein	
+contig_150	cds	1599	1799	+	BEFGOD_00353		DUF378 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1G5EM92
+contig_151	cds	260	709	+	BEFGOD_00354		hypothetical protein	
+contig_151	cds	1022	2305	+	BEFGOD_00355		hypothetical protein	PFAM:PF13175.12, PFAM:PF13304.12
+contig_151	cds	2307	3047	+	BEFGOD_00356		hypothetical protein	
+contig_151	cds	3066	3278	+	BEFGOD_00357		hypothetical protein	
+contig_151	cds	3283	4068	+	BEFGOD_00358		hypothetical protein	
+contig_152	cds	151	1581	-	BEFGOD_00359		hypothetical protein	PFAM:PF00512.31, PFAM:PF02518.31
+contig_153	cds	58	1902	+	BEFGOD_00360		DNA-directed DNA polymerase	SO:0001217, UniRef:UniRef50_R6QFG3
+contig_154	cds	194	352	-	BEFGOD_00361		hypothetical protein	
+contig_155	cds	59	925	-	BEFGOD_00362		SIR2 family protein	RefSeq:WP_256187425.1, SO:0001217, UniParc:UPI00210A4E6D, UniRef:UniRef100_UPI00210A4E6D, UniRef:UniRef50_UPI00242EA9AB, UniRef:UniRef90_UPI000E40FADB
+contig_156	cds	1190	2659	-	BEFGOD_00363		CTP synthase	SO:0001217, UniRef:UniRef50_Q97F61
+contig_159	cds	732	1481	-	BEFGOD_00364		Purine nucleoside phosphorylase DeoD-type	SO:0001217, UniRef:UniRef50_A0A1C5V1M1
+contig_160	cds	1749	2123	-	BEFGOD_00365		hypothetical protein	
+contig_160	cds	2125	3186	-	BEFGOD_00366		Peptide chain release factor 1	SO:0001217, UniRef:UniRef50_O51214
+contig_160	cds	3297	3593	-	BEFGOD_00367		hypothetical protein	
+contig_161	cds	48	1028	+	BEFGOD_00368		tRNA-dihydrouridine synthase	SO:0001217, UniRef:UniRef50_A0AA45WYV2
+contig_161	cds	1143	1637	-	BEFGOD_00369		hypothetical protein	
+contig_161	cds	1815	2624	+	BEFGOD_00370		hypothetical protein	PFAM:PF17774.7
+contig_161	cds	2638	3954	+	BEFGOD_00371		hypothetical protein	PFAM:PF04055.27
+contig_161	cds	3999	5114	+	BEFGOD_00372		hypothetical protein	PFAM:PF09587.15
+contig_161	cds	5963	6121	+	BEFGOD_00373		hypothetical protein	
+contig_162	cds	66	548	+	BEFGOD_00374		hypothetical protein	PFAM:PF00196.25
+contig_162	cds	571	1713	-	BEFGOD_00375		ATP-binding protein	SO:0001217, UniRef:UniRef50_A0A3D1RL39
+contig_162	cds	1718	1966	-	BEFGOD_00376		hypothetical protein	
+contig_162	cds	1950	3227	-	BEFGOD_00377		Histidine kinase N-terminal 7TM region domain-containing protein	SO:0001217, UniRef:UniRef50_A0A354MC77
+contig_162	cds	3431	3736	-	BEFGOD_00378		Transposase IS200-like domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1Y4QUJ5
+contig_162	cds	4390	4617	-	BEFGOD_00379		hypothetical protein	
+contig_163	cds	25	198	+	BEFGOD_00380		hypothetical protein	
+contig_163	cds	201	1091	+	BEFGOD_00381		hypothetical protein	PFAM:PF02687.27, PFAM:PF18075.7
+contig_163	cds	1101	2342	+	BEFGOD_00382		hypothetical protein	PFAM:PF01551.29, PFAM:PF24568.1
+contig_164	cds	23	289	+	BEFGOD_00383		hypothetical protein	
+contig_164	cds	764	1450	-	BEFGOD_00384		hypothetical protein	
+contig_164	cds	1559	2299	-	BEFGOD_00385		hypothetical protein	
+contig_165	cds	97	474	+	BEFGOD_00386		Chaperonin	SO:0001217, UniParc:UPI001C76C1DE, UniRef:UniRef100_A0AAE7RY10, UniRef:UniRef50_R5BIT6, UniRef:UniRef90_A0AAE7RY10
+contig_165	cds	617	889	+	BEFGOD_00387		hypothetical protein	SO:0001217, UniRef:UniRef50_A0AAE7V202, UniRef:UniRef90_A0AAE7V202
+contig_165	cds	837	1298	+	BEFGOD_00388		Capsid protein	SO:0001217, UniRef:UniRef50_A0A7M1RWI7, UniRef:UniRef90_A0A7M1RWI7
+contig_165	cds	1291	1674	+	BEFGOD_00389		Transcriptional regulator	SO:0001217, UniRef:UniRef50_R5BRJ4, UniRef:UniRef90_A0A7M1RVP8
+contig_165	cds	1655	2044	+	BEFGOD_00390		hypothetical protein	SO:0001217, UniRef:UniRef50_A0A7M1RWQ3
+contig_165	cds	2206	2664	+	BEFGOD_00391		hypothetical protein	SO:0001217, UniRef:UniRef50_A0AAE7RXP0, UniRef:UniRef90_A0AAE7RWB8
+contig_165	cds	2613	2972	+	BEFGOD_00392		dATP/dGTP diphosphohydrolase N-terminal domain-containing protein	SO:0001217, UniParc:UPI0018A5ABF4, UniRef:UniRef100_A0A7M1RXX5, UniRef:UniRef50_A0A7M1RWA6, UniRef:UniRef90_A0AAE7RV52
+contig_165	cds	3059	3559	+	BEFGOD_00393		dUTP diphosphatase	SO:0001217, UniRef:UniRef50_A0AAE7V4F4, UniRef:UniRef90_A0AAE7V4F4
+contig_165	cds	3664	4005	+	BEFGOD_00394		4Fe-4S ferredoxin-type domain-containing protein	SO:0001217, UniRef:UniRef50_A0AAE7RWM6
+contig_166	cds	114	626	+	BEFGOD_00395	clpX	ATP-dependent Clp protease ATP-binding subunit ClpX	SO:0001217, UniRef:UniRef50_A0A3C1A521
+contig_166	cds	682	1821	-	BEFGOD_00396		hypothetical protein	
+contig_166	cds	1895	2578	+	BEFGOD_00397		hypothetical protein	
+contig_166	cds	2709	3119	-	BEFGOD_00398		hypothetical protein	
+contig_166	cds	3316	3624	+	BEFGOD_00399		hypothetical protein	PFAM:PF01476.26
+contig_166	cds	3709	5034	+	BEFGOD_00400		hypothetical protein	PFAM:PF04101.22
+contig_166	cds	5072	6022	-	BEFGOD_00401	xerC	Recombinase XerC	SO:0001217, UniRef:UniRef50_A0A1Q6KJX4
+contig_167	cds	569	1576	+	BEFGOD_00402		Cell filamentation protein Fic	SO:0001217, UniRef:UniRef50_A0A366HZ35, UniRef:UniRef90_R6H3A2
+contig_168	cds	310	906	-	BEFGOD_00403		hypothetical protein	
+contig_168	cds	932	2047	-	BEFGOD_00404		Peptide chain release factor 2	SO:0001217, UniRef:UniRef50_A0A1C6E1T8
+contig_168	cds	2051	2653	-	BEFGOD_00405		RNA pseudouridine synthase	SO:0001217, UniRef:UniRef50_A0A353HBG0
+contig_169	cds	46	516	+	BEFGOD_00406		Chaperonin GroEL	SO:0001217, UniRef:UniRef50_A0A523VKG0
+contig_169	cds	543	962	-	BEFGOD_00407		hypothetical protein	
+contig_169	cds	990	1244	-	BEFGOD_00408		DUF4190 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1C6BRZ9
+contig_169	cds	1394	1789	+	BEFGOD_00409		Mini-ribonuclease 3	SO:0001217, UniRef:UniRef50_Q18CD4
+contig_169	cds	1802	2314	+	BEFGOD_00410		hypothetical protein	
+contig_169	cds	2486	2731	-	BEFGOD_00411		Spore coat protein	SO:0001217, UniRef:UniRef50_A7GBL5
+contig_169	cds	2744	2926	-	BEFGOD_00412		hypothetical protein	
+contig_169	cds	3025	3147	-	BEFGOD_00413		hypothetical protein	
+contig_170	cds	86	1078	+	BEFGOD_00414		Transcription termination factor Rho	SO:0001217, UniRef:UniRef50_A0A959ASP7
+contig_170	cds	1146	2792	+	BEFGOD_00415		hypothetical protein	PFAM:PF00485.24
+contig_171	cds	16	666	+	BEFGOD_00416		hypothetical protein	
+contig_172	cds	537	1037	-	BEFGOD_00417		hypothetical protein	PFAM:PF01782.24, PFAM:PF05239.21, PFAM:PF24986.1
+contig_172	cds	1039	1281	-	BEFGOD_00418	khpA	RNA-binding protein KhpA	SO:0001217, UniRef:UniRef50_A0A1F5ZML3
+contig_172	cds	1292	1534	-	BEFGOD_00419		Small ribosomal subunit protein bS16	SO:0001217, UniRef:UniRef50_A0A2W1B373
+contig_172	cds	1580	2515	-	BEFGOD_00420		SRP54-type proteins GTP-binding domain-containing protein	SO:0001217, UniRef:UniRef50_A0A4P5T3E0
+contig_173	cds	7	1305	+	BEFGOD_00421		Plasmid recombination enzyme	SO:0001217, UniRef:UniRef50_A0A1Q6LG43, UniRef:UniRef90_A0A1Q6LG43
+contig_173	cds	1295	1471	+	BEFGOD_00422		hypothetical protein	
+contig_174	cds	153	1121	+	BEFGOD_00423		hypothetical protein	PFAM:PF02558.23, PFAM:PF07479.19, PFAM:PF20618.3
+contig_174	cds	1121	1720	+	BEFGOD_00424		tRNA 5-hydroxyuridine methyltransferase	SO:0001217, UniRef:UniRef50_A0A1Q6JT29
+contig_175	cds	33	416	+	BEFGOD_00425		hypothetical protein	
+contig_176	cds	350	478	+	BEFGOD_00426		hypothetical protein	PFAM:PF08955.15
+contig_176	cds	481	954	+	BEFGOD_00427		hypothetical protein	
+contig_176	cds	996	3374	-	BEFGOD_00428	clpC	ATP-dependent Clp protease ATP-binding subunit ClpC	SO:0001217, UniRef:UniRef50_L7VUV5
+contig_177	cds	727	1275	-	BEFGOD_00429		Ribosome-recycling factor	SO:0001217, UniRef:UniRef50_Q044C7
+contig_178	cds	386	1528	+	BEFGOD_00430		hypothetical protein	PFAM:PF02463.25
+contig_178	cds	1685	2068	+	BEFGOD_00431		hypothetical protein	
+contig_179	tRNA	59	148	+	BEFGOD_00432	trnS	tRNA-Ser(gct)	SO:0000269
+contig_179	cds	470	805	+	BEFGOD_00433		hypothetical protein	
+contig_180	cds	236	673	+	BEFGOD_00434		Alkaline shock protein 23	SO:0001217, UniRef:UniRef50_A0A1M4M6M8
+contig_180	cds	729	1265	+	BEFGOD_00435		hypothetical protein	
+contig_180	cds	1272	1541	+	BEFGOD_00436		hypothetical protein	
+contig_180	cds	1550	1954	+	BEFGOD_00437	nusB	Transcription antitermination protein NusB	SO:0001217, UniRef:UniRef50_A0A1M6BMS0
+contig_180	cds	1969	3159	+	BEFGOD_00438		Exodeoxyribonuclease 7 large subunit	SO:0001217, UniRef:UniRef50_A0A7V6G2E0
+contig_180	cds	3172	3399	+	BEFGOD_00439		Exodeoxyribonuclease 7 small subunit	SO:0001217, UniRef:UniRef50_A0A7X1GYC2
+contig_180	cds	3439	3633	+	BEFGOD_00440		hypothetical protein	
+contig_180	cds	3663	4037	-	BEFGOD_00441		hypothetical protein	
+contig_180	cds	4136	4414	-	BEFGOD_00442		hypothetical protein	PFAM:PF01510.30
+contig_182	cds	644	829	-	BEFGOD_00443		hypothetical protein	
+contig_182	cds	1047	1250	+	BEFGOD_00444		Large ribosomal subunit protein bL31	SO:0001217, UniRef:UniRef50_A5HY31
+contig_183	cds	301	765	+	BEFGOD_00445		TspO/MBR family protein	SO:0001217, UniRef:UniRef50_F7KUG6
+contig_183	cds	808	1422	-	BEFGOD_00446		hypothetical protein	
+contig_183	cds	1419	2327	-	BEFGOD_00447		hypothetical protein	
+contig_183	cds	2666	3643	+	BEFGOD_00448		Fido domain-containing protein	SO:0001217, UniRef:UniRef50_R7M8E9
+contig_183	cds	3773	5107	-	BEFGOD_00449		hypothetical protein	
+contig_183	cds	5100	5939	-	BEFGOD_00450		hypothetical protein	
+contig_184	cds	337	897	-	BEFGOD_00451		hypothetical protein	RefSeq:WP_195933107.1, SO:0001217, UniParc:UPI0018AB6467, UniRef:UniRef100_UPI0018AB6467, UniRef:UniRef50_UPI000E50B788, UniRef:UniRef90_UPI000E50B788
+contig_184	cds	1310	1846	-	BEFGOD_00452		hypothetical protein	RefSeq:WP_195933106.1, SO:0001217, UniParc:UPI0018A974E7, UniRef:UniRef100_UPI0018A974E7, UniRef:UniRef50_UPI0018A974E7, UniRef:UniRef90_UPI0018A974E7
+contig_184	cds	1853	2137	-	BEFGOD_00453		hypothetical protein	RefSeq:WP_118632934.1, SO:0001217, UniParc:UPI000E4BB8C5, UniRef:UniRef100_UPI000E4BB8C5, UniRef:UniRef50_UPI000E4BB8C5, UniRef:UniRef90_UPI000E4BB8C5
+contig_184	cds	2138	2662	-	BEFGOD_00454		hypothetical protein	
+contig_185	cds	416	982	-	BEFGOD_00455		hypothetical protein	
+contig_185	cds	1097	1411	-	BEFGOD_00456		hypothetical protein	
+contig_186	cds	361	1191	-	BEFGOD_00457		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI00267552F9, UniRef:UniRef90_UPI00267552F9
+contig_186	cds	1283	1420	-	BEFGOD_00458	tnpV	TnpV protein	SO:0001217, UniRef:UniRef50_D7GTN1
+contig_187	cds	8	322	+	BEFGOD_00459		hypothetical protein	PFAM:PF00625.27
+contig_187	cds	406	645	+	BEFGOD_00460		hypothetical protein	
+contig_187	cds	716	1966	+	BEFGOD_00461		Alpha-monoglucosyldiacylglycerol synthase	SO:0001217, UniRef:UniRef50_A0A6N2S7C2
+contig_187	cds	2012	2551	-	BEFGOD_00462		hypothetical protein	PFAM:PF03729.18
+contig_188	cds	28	678	+	BEFGOD_00463		hypothetical protein	PFAM:PF00071.28, PFAM:PF02421.24, PFAM:PF03193.22
+contig_188	cds	659	2143	+	BEFGOD_00464		hypothetical protein	PFAM:PF00834.25, PFAM:PF08713.17
+contig_189	cds	281	727	+	BEFGOD_00465		hypothetical protein	
+contig_189	cds	1119	1928	-	BEFGOD_00466		hypothetical protein	
+contig_189	cds	2074	2328	-	BEFGOD_00467		hypothetical protein	
+contig_190	cds	92	1684	-	BEFGOD_00468		ABC transport system ATP-binding protein	SO:0001217, UniRef:UniRef50_R5Y8E8
+contig_190	cds	1819	2013	-	BEFGOD_00469		hypothetical protein	
+contig_190	cds	2149	2706	+	BEFGOD_00470		Large-conductance mechanosensitive channel	SO:0001217, UniRef:UniRef50_C0Z921
+contig_191	cds	580	1092	-	BEFGOD_00471		hypothetical protein	
+contig_192	cds	140	319	+	BEFGOD_00472		hypothetical protein	RefSeq:WP_008392350.1, SO:0001217, UniParc:UPI0001653B76, UniRef:UniRef100_UPI0001653B76, UniRef:UniRef50_A0AAQ3PXA0, UniRef:UniRef90_A0AAQ3PXA0
+contig_192	cds	398	1057	+	BEFGOD_00473	pdaC	Deacetylase PdaC domain-containing protein	SO:0001217, UniRef:UniRef50_A0A174MRJ1, UniRef:UniRef90_A0A174MRJ1
+contig_193	cds	1316	1927	-	BEFGOD_00474		hypothetical protein	
+contig_194	cds	884	1348	-	BEFGOD_00475		hypothetical protein	PFAM:PF13302.13, PFAM:PF13420.13, PFAM:PF13508.13, PFAM:PF13673.13
+contig_194	cds	1335	2054	-	BEFGOD_00476		hypothetical protein	
+contig_194	cds	2059	2556	-	BEFGOD_00477		hypothetical protein	PFAM:PF02367.23
+contig_195	cds	121	342	+	BEFGOD_00478		hypothetical protein	
+contig_195	cds	400	831	+	BEFGOD_00479		hypothetical protein	PFAM:PF00117.34, PFAM:PF07722.19
+contig_195	cds	815	2074	+	BEFGOD_00480		oligosaccharide flippase family protein	SO:0001217, UniRef:UniRef50_UPI002572D577
+contig_196	cds	452	1441	+	BEFGOD_00481		WD40 repeat domain-containing protein	RefSeq:WP_317989194.1, SO:0001217, UniParc:UPI000822024B, UniRef:UniRef100_A0A1C5WAI8, UniRef:UniRef50_A0A373HWC2, UniRef:UniRef90_A0A1C5WAI8
+contig_197	cds	319	975	-	BEFGOD_00482		hypothetical protein	PFAM:PF01424.28, PFAM:PF13083.13, PFAM:PF14804.11
+contig_197	cds	975	1814	-	BEFGOD_00483		hypothetical protein	
+contig_197	cds	1829	2080	-	BEFGOD_00484		Putative membrane protein insertion efficiency factor	SO:0001217, UniRef:UniRef50_A0A960RYN5
+contig_197	cds	2073	2432	-	BEFGOD_00485		hypothetical protein	
+contig_197	cds	2496	2630	-	BEFGOD_00486		Large ribosomal subunit protein bL34	SO:0001217, UniRef:UniRef50_P66248
+contig_198	cds	237	1448	+	BEFGOD_00487		hypothetical protein	PFAM:PF01841.26
+contig_199	cds	43	693	+	BEFGOD_00488		Transketolase	EC:2.2.1.1, KEGG:K00615, SO:0001217, UniRef:UniRef50_A0AA86XU42, UniRef:UniRef90_A0AAW4VUU1
+contig_199	cds	760	1638	+	BEFGOD_00489		Transketolase-like pyrimidine-binding domain-containing protein	SO:0001217, UniRef:UniRef50_A0AAW4VVZ8, UniRef:UniRef90_A0AAW4VVZ8
+contig_199	cds	1625	2896	+	BEFGOD_00490		Aspartate aminotransferase family protein	SO:0001217, UniRef:UniRef50_A0AAW4W154, UniRef:UniRef90_A0AAW4W154
+contig_199	cds	2889	3881	+	BEFGOD_00491		Nucleoside-diphosphate kinase	RefSeq:WP_227279921.1, SO:0001217, UniParc:UPI001D0B220C, UniRef:UniRef100_A0AAW4VV02, UniRef:UniRef50_A0AAW4VV02, UniRef:UniRef90_A0AAW4VV02
+contig_200	cds	350	1072	+	BEFGOD_00492		hypothetical protein	PFAM:PF00753.33, PFAM:PF12706.13
+contig_200	cds	1486	2289	+	BEFGOD_00493		Methyltransferase domain-containing protein	SO:0001217, UniRef:UniRef50_A0A3D2MGJ3
+contig_200	cds	2310	2906	+	BEFGOD_00494		Peptidase C39-like domain-containing protein	SO:0001217, UniRef:UniRef50_A0A3D1PPW5
+contig_201	cds	188	739	-	BEFGOD_00495		GIY-YIG nuclease family protein	SO:0001217, UniRef:UniRef50_UPI00110748E0, UniRef:UniRef90_UPI00110748E0
+contig_201	cds	839	1111	-	BEFGOD_00496		Phage protein	SO:0001217, UniRef:UniRef50_A0A943QLX2, UniRef:UniRef90_UPI00206E6A74
+contig_202	cds	822	1406	-	BEFGOD_00497		hypothetical protein	
+contig_202	cds	1536	1871	-	BEFGOD_00498		hypothetical protein	
+contig_202	cds	2074	3336	+	BEFGOD_00499		hypothetical protein	
+contig_202	cds	3450	3632	-	BEFGOD_00500		hypothetical protein	
+contig_202	cds	3713	3808	-	BEFGOD_00501		hypothetical protein	
+contig_202	cds	3866	4885	-	BEFGOD_00502		Bro-N domain-containing protein	SO:0001217, UniRef:UniRef50_B0RZN6
+contig_202	cds	4905	5369	-	BEFGOD_00503		hypothetical protein	
+contig_204	cds	214	561	+	BEFGOD_00504		hypothetical protein	
+contig_204	cds	586	864	+	BEFGOD_00505		hypothetical protein	
+contig_205	cds	532	1041	-	BEFGOD_00506		hypothetical protein	
+contig_205	cds	1197	1529	+	BEFGOD_00507		DNA methyltransferase	SO:0001217, UniRef:UniRef50_A0A417S021
+contig_206	cds	1	1002	+	BEFGOD_00508		histidine kinase	SO:0001217, UniRef:UniRef50_A0A173UUQ0, UniRef:UniRef90_E3USV6
+contig_206	cds	1205	1858	-	BEFGOD_00509	araC	Transcriptional regulator, AraC family	SO:0001217, UniRef:UniRef50_D4RZU1
+contig_207	cds	79	1317	+	BEFGOD_00510		hypothetical protein	PFAM:PF07973.19
+contig_208	cds	366	569	+	BEFGOD_00511		Phage exported protein	SO:0001217, UniRef:UniRef50_A0A374BVP9
+contig_208	cds	632	1360	+	BEFGOD_00512		hypothetical protein	PFAM:PF01551.29, PFAM:PF08239.17
+contig_208	cds	1424	1684	+	BEFGOD_00513		hypothetical protein	
+contig_208	cds	1731	2327	+	BEFGOD_00514		hypothetical protein	PFAM:PF00633.29, PFAM:PF01330.27, PFAM:PF07499.19, PFAM:PF14520.12
+contig_210	cds	543	926	-	BEFGOD_00515		hypothetical protein	
+contig_211	cds	85	1116	+	BEFGOD_00516		hypothetical protein	PFAM:PF05725.18, PFAM:PF12799.13, PFAM:PF13306.12, PFAM:PF13855.12
+contig_211	cds	1228	2130	+	BEFGOD_00517		hypothetical protein	PFAM:PF00448.28, PFAM:PF01656.29, PFAM:PF02881.24, PFAM:PF13401.12, PFAM:PF13604.12, PFAM:PF13614.12
+contig_212	cds	46	1338	+	BEFGOD_00518		Phosphoglucosamine mutase	SO:0001217, UniRef:UniRef50_A0A136WIQ0
+contig_213	cds	7	570	+	BEFGOD_00519		hypothetical protein	
+contig_213	cds	593	1837	-	BEFGOD_00520		Tyrosine--tRNA ligase	SO:0001217, UniRef:UniRef50_A5I748
+contig_213	cds	2007	2543	+	BEFGOD_00521		hypothetical protein	PFAM:PF00702.32, PFAM:PF08282.18, PFAM:PF13242.12
+contig_213	cds	2543	3286	+	BEFGOD_00522		hypothetical protein	
+contig_213	cds	3286	4020	+	BEFGOD_00523		hypothetical protein	
+contig_214	cds	502	2103	+	BEFGOD_00524		hypothetical protein	
+contig_215	cds	23	1099	+	BEFGOD_00525		tRNA-2-methylthio-N(6)-dimethylallyladenosine synthase	SO:0001217, UniRef:UniRef50_A6LWI1
+contig_216	cds	14	697	+	BEFGOD_00526		hypothetical protein	
+contig_217	cds	255	563	+	BEFGOD_00527		hypothetical protein	
+contig_217	cds	577	2046	+	BEFGOD_00528		site-specific DNA-methyltransferase (adenine-specific)	SO:0001217, UniRef:UniRef50_V6Z374
+contig_218	cds	434	1222	-	BEFGOD_00529		cysteine desulfurase	SO:0001217, UniRef:UniRef50_A0A523W8E3
+contig_219	cds	47	904	+	BEFGOD_00530		hypothetical protein	
+contig_219	cds	1046	2671	+	BEFGOD_00531	recN	DNA repair protein RecN	SO:0001217, UniRef:UniRef50_A0A3D1PMZ8
+contig_219	cds	2728	3609	+	BEFGOD_00532		Radical SAM domain protein	SO:0001217, UniRef:UniRef50_R7LQX5
+contig_219	cds	3634	5109	+	BEFGOD_00533		DNA methylase	SO:0001217, UniRef:UniRef50_A0A848AVC7
+contig_219	cds	5102	5524	+	BEFGOD_00534		YolD-like protein	SO:0001217, UniRef:UniRef50_A0A174HMT3
+contig_219	cds	5795	6382	-	BEFGOD_00535		Peroxiredoxin 2	SO:0001217, UniRef:UniRef50_Q8R844
+contig_219	cds	6336	6515	-	BEFGOD_00536		hypothetical protein	PFAM:PF00578.27
+contig_220	cds	15	1178	+	BEFGOD_00537		hypothetical protein	PFAM:PF01551.29, PFAM:PF24568.1
+contig_221	cds	64	609	+	BEFGOD_00538		hypothetical protein	
+contig_221	cds	657	1847	-	BEFGOD_00539		hypothetical protein	PFAM:PF01380.27
+contig_222	cds	120	1718	-	BEFGOD_00540		hypothetical protein	
+contig_222	cds	1729	2118	-	BEFGOD_00541		hypothetical protein	
+contig_222	cds	2150	4330	-	BEFGOD_00542		hypothetical protein	
+contig_222	cds	4358	5641	-	BEFGOD_00543		hypothetical protein	
+contig_223	cds	87	530	+	BEFGOD_00544		hypothetical protein	
+contig_223	cds	624	914	+	BEFGOD_00545		DUF1294 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1S8TXP2
+contig_223	cds	915	1535	-	BEFGOD_00546		hypothetical protein	PFAM:PF05746.21
+contig_224	cds	244	393	+	BEFGOD_00547		Radical SAM family uncharacterized protein	RefSeq:WP_022415785.1, SO:0001217, UniParc:UPI000334BEA0, UniRef:UniRef100_A0A173TTU1, UniRef:UniRef50_A0A173TTU1, UniRef:UniRef90_A0A173TTU1
+contig_226	cds	54	440	+	BEFGOD_00548		hypothetical protein	PFAM:PF01061.29
+contig_226	cds	583	873	-	BEFGOD_00549		dUTP diphosphatase	SO:0001217, UniRef:UniRef50_A0A970VWT0
+contig_227	cds	654	1022	-	BEFGOD_00550		hypothetical protein	
+contig_228	cds	1	741	+	BEFGOD_00551		hypothetical protein	PFAM:PF17147.9
+contig_228	cds	742	1692	+	BEFGOD_00552		hypothetical protein	PFAM:PF02775.26
+contig_228	cds	1777	1986	-	BEFGOD_00553		hypothetical protein	
+contig_228	cds	2076	2615	-	BEFGOD_00554		hypothetical protein	
+contig_228	cds	2794	3462	-	BEFGOD_00555		hypothetical protein	PFAM:PF00515.34, PFAM:PF07719.23, PFAM:PF13181.12, PFAM:PF13414.12
+contig_228	cds	3459	4418	-	BEFGOD_00556		hypothetical protein	PFAM:PF00092.34, PFAM:PF13519.12
+contig_228	cds	4415	4744	-	BEFGOD_00557		hypothetical protein	
+contig_229	cds	1119	1409	-	BEFGOD_00558		Endoribonuclease EndoA	SO:0001217, UniRef:UniRef50_E9RSN2
+contig_230	cds	324	584	+	BEFGOD_00559		hypothetical protein	
+contig_231	cds	24	437	+	BEFGOD_00560		hypothetical protein	PFAM:PF19279.4
+contig_231	cds	461	1588	+	BEFGOD_00561		Metal-dependent phosphohydrolase HD sub domain	SO:0001217, UniRef:UniRef50_R7HJF0
+contig_232	cds	8	1822	+	BEFGOD_00562		MATE family efflux transporter	SO:0001217, UniRef:UniRef50_A0A1Q6JUU8
+contig_233	cds	200	949	-	BEFGOD_00563		Triosephosphate isomerase	SO:0001217, UniRef:UniRef50_Q8R966
+contig_233	cds	1334	1828	-	BEFGOD_00564		hypothetical protein	
+contig_234	cds	399	1538	+	BEFGOD_00565		hypothetical protein	PFAM:PF00133.28, PFAM:PF01588.26, PFAM:PF08264.19, PFAM:PF19303.5
+contig_235	cds	201	1175	-	BEFGOD_00566		Transposase	SO:0001217, UniRef:UniRef50_A0A134AHG1
+contig_236	cds	174	428	+	BEFGOD_00567		terminase large subunit	SO:0001217, UniRef:UniRef50_W7S1F0, UniRef:UniRef90_UPI002ED151C9
+contig_237	cds	347	1039	+	BEFGOD_00568		hypothetical protein	PFAM:PF13306.12, PFAM:PF13855.12
+contig_238	cds	338	2194	-	BEFGOD_00569		PTS glucose transporter subunit IIA	EC:2.7.1.-, KEGG:K02757, RefSeq:WP_147579937.1, SO:0001217, UniParc:UPI0008215DB3, UniRef:UniRef100_A0AA91C8J4, UniRef:UniRef50_E7GBR7, UniRef:UniRef90_A0AA91C8J4
+contig_238	cds	2283	3122	-	BEFGOD_00570	licT	BglG family transcription antiterminator LicT	GO:0003723, GO:0006355, KEGG:K03488, SO:0001217, UniRef:UniRef50_E7GBR6, UniRef:UniRef90_A0AA91C8M2
+contig_239	cds	116	562	+	BEFGOD_00571		Large ribosomal subunit protein bL9	SO:0001217, UniRef:UniRef50_A3DHN0
+contig_239	cds	571	1914	+	BEFGOD_00572		Replicative DNA helicase	SO:0001217, UniRef:UniRef50_A0A3P2RKE6
+contig_239	cds	1911	2939	+	BEFGOD_00573		hypothetical protein	
+contig_240	cds	12	1673	+	BEFGOD_00574		hypothetical protein	PFAM:PF13361.12, PFAM:PF13538.12
+contig_240	cds	1747	1980	-	BEFGOD_00575		hypothetical protein	
+contig_241	cds	564	1481	-	BEFGOD_00576		Antirestriction protein	SO:0001217, UniRef:UniRef50_A0A174LNG9, UniRef:UniRef90_A0A174LNG9
+contig_241	cds	1664	1840	-	BEFGOD_00577		hypothetical protein	
+contig_242	cds	363	722	-	BEFGOD_00578		hypothetical protein	
+contig_242	cds	749	1162	-	BEFGOD_00579		Putative pre-16S rRNA nuclease	SO:0001217, UniRef:UniRef50_A3DBR5
+contig_242	cds	1169	1414	-	BEFGOD_00580		UPF0297 protein Cthe_0151	SO:0001217, UniRef:UniRef50_A3DBR3
+contig_242	cds	1479	2552	-	BEFGOD_00581		hypothetical protein	PFAM:PF00990.26
+contig_242	cds	2580	4379	-	BEFGOD_00582		hypothetical protein	
+contig_243	cds	729	1067	+	BEFGOD_00583		hypothetical protein	
+contig_243	cds	1565	2596	-	BEFGOD_00584		hypothetical protein	PFAM:PF00072.30
+contig_243	cds	2709	2966	-	BEFGOD_00585		hypothetical protein	
+contig_243	cds	3438	4247	-	BEFGOD_00586		Undecaprenyl-diphosphatase	SO:0001217, UniRef:UniRef50_B9MKR9
+contig_243	cds	4247	5506	-	BEFGOD_00587		hypothetical protein	
+contig_243	cds	5526	5747	-	BEFGOD_00588		hypothetical protein	PFAM:PF09992.14
+contig_244	cds	603	1226	-	BEFGOD_00589		hypothetical protein	
+contig_246	cds	4	567	+	BEFGOD_00590		hypothetical protein	
+contig_246	cds	564	1943	+	BEFGOD_00591		hypothetical protein	PFAM:PF14620.12, PFAM:PF20769.2
+contig_246	cds	2039	2980	+	BEFGOD_00592		Magnesium transporter	SO:0001217, UniRef:UniRef50_A0A1M6ITC8
+contig_246	cds	3136	3546	+	BEFGOD_00593		hypothetical protein	
+contig_246	cds	3591	3728	-	BEFGOD_00594		hypothetical protein	
+contig_247	cds	492	1019	-	BEFGOD_00595		hypothetical protein	
+contig_247	cds	1042	1641	-	BEFGOD_00596		hypothetical protein	
+contig_248	cds	124	798	-	BEFGOD_00597		Endonuclease III	SO:0001217, UniRef:UniRef50_A0A352MVH7, UniRef:UniRef90_A0A352MVH7
+contig_249	cds	33	725	-	BEFGOD_00598		hypothetical protein	
+contig_249	cds	715	2166	-	BEFGOD_00599		Endonuclease GajA/Old nuclease/RecF-like AAA domain-containing protein	SO:0001217, UniRef:UniRef50_A0A176U910
+contig_249	cds	2302	3279	-	BEFGOD_00600		HipA-like C-terminal domain-containing protein	SO:0001217, UniRef:UniRef50_E8LFX3, UniRef:UniRef90_UPI002E8E6040
+contig_251	cds	234	734	+	BEFGOD_00601		hypothetical protein	PFAM:PF02576.22, PFAM:PF17384.8
+contig_252	cds	54	1130	-	BEFGOD_00602	mnmA	tRNA-specific 2-thiouridylase MnmA	SO:0001217, UniRef:UniRef50_R7M972
+contig_252	cds	1227	2366	-	BEFGOD_00603	iscS	Cysteine desulfurase IscS	SO:0001217, UniRef:UniRef50_A0A0H3J427
+contig_252	cds	2516	2977	+	BEFGOD_00604		Stage V sporulation protein AC	SO:0001217, UniRef:UniRef50_A0A0M2U0L6
+contig_253	cds	34	1143	+	BEFGOD_00605		hypothetical protein	
+contig_253	cds	1151	2974	+	BEFGOD_00606		hypothetical protein	PFAM:PF06202.20
+contig_254	tRNA	1	70	+	BEFGOD_00607	trnT	tRNA-Thr(tgt)	SO:0000270
+contig_254	cds	233	1087	-	BEFGOD_00608		Ribosomal RNA small subunit methyltransferase A	SO:0001217, UniRef:UniRef50_G5GJB3
+contig_254	cds	1159	2373	-	BEFGOD_00609		hypothetical protein	PFAM:PF01464.25, PFAM:PF03990.20, PFAM:PF07501.17
+contig_254	cds	2444	3121	+	BEFGOD_00610		hypothetical protein	
+contig_254	cds	3096	3452	+	BEFGOD_00611		hypothetical protein	
+contig_255	cds	32	268	+	BEFGOD_00612		hypothetical protein	PFAM:PF13306.12
+contig_255	cds	445	603	+	BEFGOD_00613		hypothetical protein	
+contig_256	cds	299	1042	-	BEFGOD_00614		hypothetical protein	
+contig_256	cds	1209	2147	-	BEFGOD_00615		Bactoprenol glucosyl transferase-like protein from prophage CPS-53	SO:0001217, UniRef:UniRef50_A0A174NEJ2
+contig_256	cds	2170	3126	-	BEFGOD_00616		Penicillin-binding protein 2	SO:0001217, UniRef:UniRef50_R7M5S4
+contig_257	cds	127	486	+	BEFGOD_00617		hypothetical protein	
+contig_258	cds	58	738	+	BEFGOD_00618		hypothetical protein	PFAM:PF00004.35, PFAM:PF05491.19, PFAM:PF05496.18, PFAM:PF17864.7
+contig_258	cds	753	998	+	BEFGOD_00619		DUF1653 domain-containing protein	SO:0001217, UniRef:UniRef50_H3NW96
+contig_259	cds	776	2551	-	BEFGOD_00620		hypothetical protein	
+contig_259	cds	2565	3323	-	BEFGOD_00621		ABC transporter domain-containing protein	SO:0001217, UniRef:UniRef50_G5GFL0
+contig_259	cds	3326	3631	-	BEFGOD_00622		hypothetical protein	PFAM:PF01061.29
+contig_260	cds	266	712	+	BEFGOD_00623		hypothetical protein	
+contig_260	cds	755	1021	+	BEFGOD_00624		Large ribosomal subunit protein bL27	SO:0001217, UniRef:UniRef50_Q8EPP8
+contig_260	cds	1143	2771	-	BEFGOD_00625		hypothetical protein	PFAM:PF00753.33, PFAM:PF07521.17, PFAM:PF10996.14, PFAM:PF12706.13, PFAM:PF16661.11
+contig_261	cds	101	367	+	BEFGOD_00626		hypothetical protein	
+contig_261	cds	400	1413	+	BEFGOD_00627	mreB	Cell shape-determining protein MreB	SO:0001217, UniRef:UniRef50_Q01465
+contig_261	cds	1426	2271	+	BEFGOD_00628		hypothetical protein	PFAM:PF04085.20
+contig_261	cds	2285	2803	+	BEFGOD_00629		hypothetical protein	
+contig_262	cds	528	3023	+	BEFGOD_00630		hypothetical protein	
+contig_263	cds	38	328	+	BEFGOD_00631		hypothetical protein	
+contig_263	cds	395	2461	-	BEFGOD_00632	recG	ATP-dependent DNA helicase RecG	SO:0001217, UniRef:UniRef50_K0B1V8
+contig_263	cds	2577	2783	-	BEFGOD_00633		hypothetical protein	
+contig_264	cds	1364	1858	-	BEFGOD_00634		hypothetical protein	PFAM:PF04999.18
+contig_264	cds	1878	2861	-	BEFGOD_00635		Ribosomal RNA small subunit methyltransferase H	SO:0001217, UniRef:UniRef50_B0K8J9
+contig_264	cds	2942	3373	-	BEFGOD_00636	mraZ	Transcriptional regulator MraZ	SO:0001217, UniRef:UniRef50_Q8Y5L6
+contig_265	cds	775	1293	+	BEFGOD_00637		hypothetical protein	RefSeq:WP_347942966.1, SO:0001217, UniParc:UPI0032635CE3, UniRef:UniRef100_UPI0032635CE3, UniRef:UniRef50_UPI0032635CE3, UniRef:UniRef90_UPI0032635CE3
+contig_265	cds	1846	2463	-	BEFGOD_00638		Fido domain-containing protein	SO:0001217, UniRef:UniRef50_C7XMU8
+contig_266	cds	46	546	-	BEFGOD_00639		hypothetical protein	PFAM:PF00293.34
+contig_266	cds	600	1043	-	BEFGOD_00640		hypothetical protein	
+contig_266	cds	1140	1763	-	BEFGOD_00641		VTT domain-containing protein	SO:0001217, UniRef:UniRef50_R5LI61
+contig_267	cds	59	853	+	BEFGOD_00642		hypothetical protein	
+contig_268	cds	102	224	+	BEFGOD_00643		hypothetical protein	PFAM:PF03481.19
+contig_268	cds	416	1108	+	BEFGOD_00644		hypothetical protein	PFAM:PF04446.17
+contig_268	cds	1220	1837	+	BEFGOD_00645		hypothetical protein	
+contig_268	cds	1943	2563	+	BEFGOD_00646		hypothetical protein	PFAM:PF00406.28, PFAM:PF05191.20, PFAM:PF13207.12, PFAM:PF13238.12
+contig_268	cds	2582	3352	+	BEFGOD_00647		Methionine aminopeptidase	SO:0001217, UniRef:UniRef50_A0A2D8US79
+contig_268	cds	3425	5383	-	BEFGOD_00648		Magnesium-transporting ATPase, P-type 1	SO:0001217, UniRef:UniRef50_A0A3D4DHG9
+contig_269	cds	1324	2139	-	BEFGOD_00649		hypothetical protein	
+contig_269	cds	2139	2855	-	BEFGOD_00650		hypothetical protein	
+contig_269	cds	2880	3515	-	BEFGOD_00651		hypothetical protein	
+contig_270	cds	19	186	+	BEFGOD_00652		hypothetical protein	
+contig_271	cds	240	584	-	BEFGOD_00653		Nucleotidyltransferase domain	SO:0001217, UniParc:UPI00082082B2, UniRef:UniRef100_A0A1C6GBR2, UniRef:UniRef50_A0A1C5NQ72, UniRef:UniRef90_A0A1C6GBR2
+contig_271	cds	688	1200	-	BEFGOD_00654		Type III toxin-antitoxin system ToxN/AbiQ family toxin	KEGG:K19167, RefSeq:WP_256187748.1, SO:0001217, UniParc:UPI000822D25B, UniRef:UniRef100_A0A1C6GC17, UniRef:UniRef50_A0A1C6GC17, UniRef:UniRef90_A0A1C6GC17
+contig_271	cds	1438	1860	-	BEFGOD_00655		hypothetical protein	SO:0001217, UniParc:UPI000820643B, UniRef:UniRef100_A0A1C6GBP8, UniRef:UniRef50_R9LTQ1, UniRef:UniRef90_A0A1C6GBP8
+contig_271	cds	1929	2129	-	BEFGOD_00656		hypothetical protein	SO:0001217, UniParc:UPI000820EDCF, UniRef:UniRef100_A0A1C6GBT8, UniRef:UniRef50_A0A1C6GBT8, UniRef:UniRef90_A0A1C6GBT8
+contig_271	cds	2131	2622	-	BEFGOD_00657		hypothetical protein	SO:0001217, UniParc:UPI000820B741, UniRef:UniRef100_A0A1C6GBU5, UniRef:UniRef50_A0A1C6GBU5, UniRef:UniRef90_A0A1C6GBU5
+contig_272	cds	1112	1231	-	BEFGOD_00658		hypothetical protein	PFAM:PF00166.26
+contig_273	cds	1955	2101	-	BEFGOD_00659		hypothetical protein	
+contig_274	cds	313	915	-	BEFGOD_00660		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI001D07C171, UniRef:UniRef90_UPI001D07C171
+contig_274	cds	912	1232	-	BEFGOD_00661		hypothetical protein	RefSeq:WP_118593581.1, SO:0001217, UniParc:UPI000E4DD167, UniRef:UniRef100_UPI000E4DD167, UniRef:UniRef50_A0A317UHL3, UniRef:UniRef90_UPI000E4DD167
+contig_275	cds	55	807	+	BEFGOD_00662		Tyrosine-protein phosphatase	RefSeq:WP_175301920.1, SO:0001217, UniParc:UPI000820885D, UniRef:UniRef100_A0AA91C916, UniRef:UniRef50_A0A1C5PMC2, UniRef:UniRef90_A0A1C5PMC2
+contig_276	cds	208	1011	+	BEFGOD_00663		hypothetical protein	
+contig_276	cds	1023	2387	+	BEFGOD_00664		Glycine--tRNA ligase	SO:0001217, UniRef:UniRef50_A0A1G0WMF9
+contig_276	cds	2401	2508	+	BEFGOD_00665		hypothetical protein	
+contig_277	cds	171	788	+	BEFGOD_00666		hypothetical protein	
+contig_277	cds	772	1713	+	BEFGOD_00667		Putative hydrolase (Metallo-beta-lactamase superfamily)	SO:0001217, UniRef:UniRef50_L0ILH0
+contig_277	cds	1723	1935	+	BEFGOD_00668		Pyruvate kinase	SO:0001217, UniRef:UniRef50_A0PXA2
+contig_277	cds	2001	2696	+	BEFGOD_00669		RNA polymerase sigma-K factor	SO:0001217, UniRef:UniRef50_P12254
+contig_278	cds	284	865	+	BEFGOD_00670		hypothetical protein	PFAM:PF00633.29, PFAM:PF10531.15, PFAM:PF12836.13, PFAM:PF14520.12, PFAM:PF22461.2
+contig_278	cds	894	1526	+	BEFGOD_00671		hypothetical protein	
+contig_278	cds	1553	2563	-	BEFGOD_00672		hypothetical protein	PFAM:PF00072.30, PFAM:PF13487.12
+contig_279	cds	887	1090	-	BEFGOD_00673		DNA-binding protein	RefSeq:WP_256186532.1, SO:0001217, UniParc:UPI00210A0E47, UniRef:UniRef100_UPI00210A0E47, UniRef:UniRef50_A0A7X2T362, UniRef:UniRef90_UPI00210A0E47
+contig_279	cds	1223	1606	-	BEFGOD_00674		mRNA interferase	RefSeq:WP_256186533.1, SO:0001217, UniParc:UPI00210A1E5B, UniRef:UniRef100_UPI00210A1E5B, UniRef:UniRef50_A0A1I0HRK6, UniRef:UniRef90_A0AA91C4Y0
+contig_279	ncRNA-region	1744	1803	-			pemK RNA	RFAM:RF02913, SO:0005836
+contig_279	cds	2026	2442	-	BEFGOD_00675		Sigma-70 family RNA polymerase sigma factor	RefSeq:WP_256186534.1, SO:0001217, UniParc:UPI00210E0C44, UniRef:UniRef100_UPI00210E0C44, UniRef:UniRef50_A0A7G9GIJ2, UniRef:UniRef90_A0AA91C4R3
+contig_280	cds	44	199	+	BEFGOD_00676		hypothetical protein	
+contig_280	cds	202	1314	+	BEFGOD_00677		ABC3 transporter permease protein domain-containing protein	RefSeq:WP_118377642.1, SO:0001217, UniParc:UPI000E540353, UniRef:UniRef100_A0A6L8S4T1, UniRef:UniRef50_A0A430AM23, UniRef:UniRef90_A0A6L8S4T1
+contig_282	cds	51	494	+	BEFGOD_00678		serine acetyltransferase	SO:0001217, UniRef:UniRef50_A0A087DZ21, UniRef:UniRef90_UPI002E764E31
+contig_283	cds	60	263	-	BEFGOD_00679		hypothetical protein	RefSeq:WP_287057174.1, SO:0001217, UniParc:UPI00132385EA, UniRef:UniRef100_UPI00132385EA, UniRef:UniRef50_UPI00210AC538, UniRef:UniRef90_UPI00307FBB84
+contig_283	cds	281	472	-	BEFGOD_00680		hypothetical protein	
+contig_283	cds	839	991	-	BEFGOD_00681		hypothetical protein	
+contig_284	cds	476	1309	+	BEFGOD_00682		hypothetical protein	
+contig_284	cds	1450	1962	-	BEFGOD_00683		hypothetical protein	
+contig_285	cds	213	1154	+	BEFGOD_00684		hypothetical protein	PFAM:PF00226.36, PFAM:PF01556.23
+contig_285	cds	1174	1992	-	BEFGOD_00685		hypothetical protein	PFAM:PF00753.33, PFAM:PF12706.13
+contig_285	cds	2165	3178	-	BEFGOD_00686		hypothetical protein	PFAM:PF00308.24, PFAM:PF01695.23
+contig_285	cds	3190	4152	-	BEFGOD_00687		hypothetical protein	
+contig_285	cds	4233	4511	-	BEFGOD_00688		hypothetical protein	
+contig_286	sorf	34	99	+	BEFGOD_00689	rpsK	30S ribosomal protein S11	GO:0003735, GO:0005840, GO:0006412, KEGG:K02948, SO:0001217, UniParc:UPI000E855E0F, UniRef:UniRef100_A0A932M937, UniRef:UniRef50_Q1IS96, UniRef:UniRef90_A0A932M937
+contig_286	cds	118	747	+	BEFGOD_00690		Small ribosomal subunit protein uS4	SO:0001217, UniRef:UniRef50_B9M6F3
+contig_286	cds	812	1759	+	BEFGOD_00691		DNA-directed RNA polymerase subunit alpha	SO:0001217, UniRef:UniRef50_Q97EK6
+contig_286	cds	1779	2303	+	BEFGOD_00692		Large ribosomal subunit protein bL17	SO:0001217, UniRef:UniRef50_A3DJK2
+contig_286	cds	2418	3209	+	BEFGOD_00693		hypothetical protein	
+contig_286	cds	3243	4325	-	BEFGOD_00694		hypothetical protein	
+contig_287	cds	95	646	+	BEFGOD_00695		(pseudo) Beta sliding clamp	EC:2.7.7.7, KEGG:K02338, SO:0001217, UniRef:UniRef50_A0A173THA9, UniRef:UniRef90_A0A173THA9
+contig_290	cds	990	1154	-	BEFGOD_00696		hypothetical protein	
+contig_291	cds	214	1551	+	BEFGOD_00697		AAA family ATPase	KEGG:K07133, SO:0001217, UniRef:UniRef50_S0IVH9, UniRef:UniRef90_A0A3D1PL94
+contig_293	cds	95	3850	-	BEFGOD_00698		hypothetical protein	PFAM:PF02810.21
+contig_294	cds	386	1213	-	BEFGOD_00699		hypothetical protein	PFAM:PF05114.20
+contig_294	cds	1224	2363	-	BEFGOD_00700		Phosphomannomutase	SO:0001217, UniRef:UniRef50_A0A1Q6QVQ7
+contig_295	cds	279	947	+	BEFGOD_00701		hypothetical protein	PFAM:PF22521.2
+contig_295	cds	965	1483	+	BEFGOD_00702		hypothetical protein	
+contig_295	cds	1499	2203	+	BEFGOD_00703		Calcineurin-like phosphoesterase domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1Q6LDD9
+contig_296	cds	1035	2099	-	BEFGOD_00704		SUF system FeS cluster assembly SufBD core domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1Q6LB84
+contig_296	cds	2099	3499	-	BEFGOD_00705	sufB	Fe-S cluster assembly protein SufB	SO:0001217, UniRef:UniRef50_A0A3G9KAX6
+contig_296	cds	3499	4251	-	BEFGOD_00706		ABC transporter ATP-binding protein	SO:0001217, UniRef:UniRef50_A0A7G1G2J9
+contig_297	cds	11	2125	-	BEFGOD_00707	marR	MarR family transcriptional regulator	RefSeq:WP_008705139.1, SO:0001217, UniParc:UPI0001AFDD9A, UniRef:UniRef100_A0A174FE36, UniRef:UniRef50_A0A839K2T8, UniRef:UniRef90_A0A174FE36
+contig_297	cds	2134	2550	-	BEFGOD_00708		hypothetical protein	
+contig_298	cds	341	979	+	BEFGOD_00709		hypothetical protein	PFAM:PF00805.28, PFAM:PF13576.12, PFAM:PF13599.12
+contig_299	cds	64	1929	+	BEFGOD_00710		hypothetical protein	PFAM:PF00092.34, PFAM:PF13519.12, PFAM:PF13768.12
+contig_299	cds	1971	2246	-	BEFGOD_00711		hypothetical protein	
+contig_299	cds	2243	2560	-	BEFGOD_00712		hypothetical protein	
+contig_300	cds	42	1559	+	BEFGOD_00713		Glutamate--tRNA ligase	SO:0001217, UniRef:UniRef50_A0A351SRD9
+contig_300	cds	1753	3192	+	BEFGOD_00714		hypothetical protein	PFAM:PF12799.13, PFAM:PF13306.12, PFAM:PF13855.12, PFAM:PF23952.1
+contig_300	cds	3452	3997	-	BEFGOD_00715		hypothetical protein	
+contig_301	cds	66	452	+	BEFGOD_00716		hypothetical protein	PFAM:PF04397.21
+contig_301	cds	455	1675	+	BEFGOD_00717		hypothetical protein	RefSeq:WP_227279912.1, SO:0001217, UniParc:UPI001D09C8E5, UniRef:UniRef100_A0AAW4VTJ5, UniRef:UniRef50_A0AAW4VTJ5, UniRef:UniRef90_A0AAW4VTJ5
+contig_301	cds	1662	2174	+	BEFGOD_00718		Accessory gene regulator B family protein	KEGG:K07813, SO:0001217, UniRef:UniRef50_A0AAW4VVW5, UniRef:UniRef90_A0AAW4VVW5
+contig_301	cds	2475	3254	+	BEFGOD_00719		hypothetical protein	SO:0001217, UniRef:UniRef50_A0AAW4VPT6, UniRef:UniRef90_A0AAW4VPT6
+contig_302	cds	111	1370	+	BEFGOD_00720		hypothetical protein	PFAM:PF18975.6
+contig_303	cds	813	1451	-	BEFGOD_00721		hypothetical protein	
+contig_304	cds	29	457	+	BEFGOD_00722		hypothetical protein	PFAM:PF00571.33
+contig_305	cds	410	1003	-	BEFGOD_00723		Elongation factor Ts	SO:0001217, UniRef:UniRef50_P43895
+contig_306	cds	498	650	-	BEFGOD_00724		hypothetical protein	
+contig_306	cds	749	1102	-	BEFGOD_00725		NTP pyrophosphohydrolase MazG-like domain-containing protein	SO:0001217, UniRef:UniRef50_Q8RHQ4
+contig_306	cds	1134	1490	-	BEFGOD_00726		hypothetical protein	PFAM:PF01230.28
+contig_307	cds	67	657	+	BEFGOD_00727		hypothetical protein	
+contig_308	cds	70	264	+	BEFGOD_00728		hypothetical protein	
+contig_308	cds	277	2898	+	BEFGOD_00729		Valine--tRNA ligase	SO:0001217, UniRef:UniRef50_Q891R5
+contig_309	cds	105	986	+	BEFGOD_00730		hypothetical protein	PFAM:PF19279.4
+contig_310	cds	459	1178	+	BEFGOD_00731		Phosphoribosylaminoimidazolesuccinocarboxamide synthase	SO:0001217, UniRef:UniRef50_A0A1Q6L517, UniRef:UniRef90_A0A1Q6L517
+contig_310	cds	1132	1407	+	BEFGOD_00732		type II toxin-antitoxin system death-on-curing family toxin	SO:0001217, UniRef:UniRef50_UPI00138B12D5
+contig_310	cds	1425	1565	+	BEFGOD_00733		hypothetical protein	
+contig_311	cds	327	857	+	BEFGOD_00734		hypothetical protein	
+contig_311	cds	925	1242	+	BEFGOD_00735		hypothetical protein	
+contig_311	cds	1279	1770	+	BEFGOD_00736		hypothetical protein	
+contig_311	cds	1748	3256	+	BEFGOD_00737		hypothetical protein	PFAM:PF10412.15
+contig_311	cds	3370	4107	+	BEFGOD_00738		hypothetical protein	
+contig_311	ncRNA	4129	4219	+	BEFGOD_00739	Bacteria_small_SRP	Bacterial small signal recognition particle RNA	RFAM:RF00169, SO:0000655
+contig_311	cds	4236	5810	+	BEFGOD_00740		hypothetical protein	PFAM:PF00004.35, PFAM:PF13177.12, PFAM:PF22608.2
+contig_311	cds	5864	6193	+	BEFGOD_00741		Nucleoid-associated protein TTE0040	SO:0001217, UniRef:UniRef50_Q8RDI5
+contig_311	cds	6203	6796	+	BEFGOD_00742	recR	Recombination protein RecR	SO:0001217, UniRef:UniRef50_P24277
+contig_311	cds	6953	7720	+	BEFGOD_00743		Glutamate racemase 2	SO:0001217, UniRef:UniRef50_O05412
+contig_311	cds	7959	8669	+	BEFGOD_00744		Stage 0 sporulation A-like protein	SO:0001217, UniRef:UniRef50_F4LV57
+contig_311	cds	8690	10081	+	BEFGOD_00745		hypothetical protein	PFAM:PF00512.31, PFAM:PF02518.31
+contig_313	cds	12	182	-	BEFGOD_00746		hypothetical protein	
+contig_313	cds	398	934	+	BEFGOD_00747		hypothetical protein	
+contig_316	cds	159	491	+	BEFGOD_00748		hypothetical protein	
+contig_316	cds	638	1306	+	BEFGOD_00749		hypothetical protein	
+contig_316	cds	1328	1555	+	BEFGOD_00750		hypothetical protein	
+contig_316	cds	1515	1682	+	BEFGOD_00751		hypothetical protein	
+contig_317	cds	1692	2390	-	BEFGOD_00752		hypothetical protein	PFAM:PF00132.30, PFAM:PF14602.12, PFAM:PF24894.1, PFAM:PF25084.1
+contig_318	cds	15	281	+	BEFGOD_00753		hypothetical protein	PFAM:PF18723.6
+contig_318	cds	488	1342	-	BEFGOD_00754		hypothetical protein	PFAM:PF00730.31
+contig_319	cds	479	1105	+	BEFGOD_00755		putative Zn-dependent hydrolases of the beta-lactamase fold	SO:0001217, UniRef:UniRef50_R6RAF7
+contig_320	cds	154	849	-	BEFGOD_00756		Pseudouridine synthase	SO:0001217, UniRef:UniRef50_A0A097ARI5
+contig_320	cds	938	1867	-	BEFGOD_00757		Pseudouridine synthase	SO:0001217, UniRef:UniRef50_A0A929L7I6
+contig_320	cds	1876	2604	-	BEFGOD_00758		hypothetical protein	
+contig_321	cds	52	390	+	BEFGOD_00759		hypothetical protein	
+contig_322	cds	93	536	+	BEFGOD_00760		hypothetical protein	
+contig_322	cds	539	1774	-	BEFGOD_00761		hypothetical protein	
+contig_322	cds	1785	2732	-	BEFGOD_00762		tRNA dimethylallyltransferase	SO:0001217, UniRef:UniRef50_Q81JG8
+contig_322	cds	2734	4170	-	BEFGOD_00763		hypothetical protein	PFAM:PF08676.16
+contig_323	cds	331	1248	+	BEFGOD_00764		hypothetical protein	SO:0001217, UniRef:UniRef50_A0A3D4DIT2
+contig_323	cds	1341	2138	-	BEFGOD_00765		DNA-binding protein	SO:0001217, UniRef:UniRef50_A0A1Y3SG55, UniRef:UniRef90_A0A3D5Z8W3
+contig_323	cds	2305	3771	-	BEFGOD_00766		hypothetical protein	
+contig_323	cds	4140	4787	-	BEFGOD_00767		Anthranilate synthase component II	SO:0001217, UniRef:UniRef50_R7LPV1
+contig_323	cds	5029	5400	-	BEFGOD_00768		hypothetical protein	
+contig_323	cds	5633	6469	-	BEFGOD_00769		4Fe-4S ferredoxin-type domain-containing protein	SO:0001217, UniRef:UniRef50_G8LU83
+contig_323	cds	6672	6986	+	BEFGOD_00770		hypothetical protein	
+contig_323	cds	7207	7332	+	BEFGOD_00771		hypothetical protein	PFAM:PF00301.25
+contig_324	cds	106	480	+	BEFGOD_00772		hypothetical protein	PFAM:PF05155.20
+contig_324	cds	482	1450	+	BEFGOD_00773		hypothetical protein	
+contig_324	cds	1447	2130	+	BEFGOD_00774		hypothetical protein	
+contig_324	cds	2501	2659	+	BEFGOD_00775		hypothetical protein	
+contig_324	cds	2713	2886	+	BEFGOD_00776		hypothetical protein	
+contig_325	cds	163	714	-	BEFGOD_00777		hypothetical protein	
+contig_325	cds	781	1896	-	BEFGOD_00778		hypothetical protein	
+contig_325	cds	1909	2169	-	BEFGOD_00779		hypothetical protein	
+contig_326	cds	360	1835	-	BEFGOD_00780		hypothetical protein	
+contig_326	cds	1855	3090	-	BEFGOD_00781		hypothetical protein	
+contig_326	cds	3115	4401	-	BEFGOD_00782		hypothetical protein	PFAM:PF00404.24
+contig_326	cds	4446	4865	-	BEFGOD_00783		hypothetical protein	
+contig_326	cds	4885	5298	-	BEFGOD_00784		hypothetical protein	
+contig_326	cds	5334	6317	-	BEFGOD_00785		hypothetical protein	PFAM:PF00404.24
+contig_327	cds	161	1783	+	BEFGOD_00786		hypothetical protein	PFAM:PF00563.25
+contig_328	cds	101	778	+	BEFGOD_00787		hypothetical protein	PFAM:PF00733.27
+contig_328	cds	912	1646	+	BEFGOD_00788		hypothetical protein	
+contig_328	cds	1676	1984	-	BEFGOD_00789		hypothetical protein	PFAM:PF04977.20
+contig_328	cds	1989	2486	-	BEFGOD_00790		hypothetical protein	
+contig_328	cds	2501	2902	-	BEFGOD_00791		hypothetical protein	
+contig_328	cds	2914	3834	-	BEFGOD_00792		UvrABC system protein B	SO:0001217, UniRef:UniRef50_A0A7Y1SSP0
+contig_329	cds	276	1004	-	BEFGOD_00793		hypothetical protein	PFAM:PF12684.13
+contig_330	cds	331	903	+	BEFGOD_00794		hypothetical protein	PFAM:PF07670.19
+contig_330	cds	912	1436	+	BEFGOD_00795		hypothetical protein	PFAM:PF07670.19
+contig_331	cds	124	675	+	BEFGOD_00796		MYM-type domain-containing protein	SO:0001217, UniRef:UniRef50_A0A7M1RSU6
+contig_332	cds	281	1564	-	BEFGOD_00797		Nucleotidyltransferase family protein	RefSeq:WP_227279928.1, SO:0001217, UniParc:UPI001D09B3B2, UniRef:UniRef100_A0AAW4VY23, UniRef:UniRef50_A0AAW4VY23, UniRef:UniRef90_A0AAW4VY23
+contig_332	cds	1561	2376	-	BEFGOD_00798		Metallo-beta-lactamase domain-containing protein	EC:3.1.4.55, KEGG:K06167, RefSeq:WP_227279927.1, SO:0001217, UniParc:UPI001D0BB11A, UniRef:UniRef100_A0AAW4VTL0, UniRef:UniRef50_A0AAW4VTL0, UniRef:UniRef90_A0AAW4VTL0
+contig_332	cds	2395	2817	-	BEFGOD_00799		hypothetical protein	PFAM:PF02786.22, PFAM:PF08443.16
+contig_333	cds	72	431	+	BEFGOD_00800		hypothetical protein	
+contig_333	cds	565	828	+	BEFGOD_00801		Putative septation protein SpoVG	SO:0001217, UniRef:UniRef50_Q0SM67
+contig_334	cds	1387	1866	-	BEFGOD_00802	greA	Transcription elongation factor GreA	SO:0001217, UniRef:UniRef50_A9KIP3
+contig_334	cds	1939	2817	-	BEFGOD_00803		hypothetical protein	
+contig_335	cds	109	531	+	BEFGOD_00804		hypothetical protein	
+contig_335	cds	546	1016	-	BEFGOD_00805	ytfJ	Sporulation protein YtfJ	SO:0001217, UniRef:UniRef50_A0A7C6QWN3
+contig_335	cds	958	1653	-	BEFGOD_00806		hypothetical protein	
+contig_336	cds	625	1182	-	BEFGOD_00807		hypothetical protein	
+contig_337	cds	13	891	-	BEFGOD_00808		4-hydroxy-tetrahydrodipicolinate synthase	SO:0001217, UniRef:UniRef50_Q891S3
+contig_338	cds	12	1934	+	BEFGOD_00809		Zinc ribbon domain-containing protein	SO:0001217, UniRef:UniRef50_A0A3B8SVQ0
+contig_338	cds	1962	3704	+	BEFGOD_00810		Radical SAM additional 4Fe4S-binding domain protein	SO:0001217, UniRef:UniRef50_R5MT21
+contig_338	cds	3701	4066	+	BEFGOD_00811		hypothetical protein	SO:0001217, UniRef:UniRef50_A0A7G9FX54
+contig_338	cds	4078	5091	+	BEFGOD_00812		Zinc-ribbon domain-containing protein	SO:0001217, UniRef:UniRef50_R6HS72
+contig_338	cds	5625	6221	+	BEFGOD_00813		Nucleotidase	SO:0001217, UniRef:UniRef50_R7LMG9
+contig_338	cds	6458	6697	+	BEFGOD_00814		hypothetical protein	
+contig_338	cds	6699	6851	+	BEFGOD_00815		hypothetical protein	
+contig_338	cds	7391	9070	+	BEFGOD_00816		hypothetical protein	PFAM:PF06821.19, PFAM:PF20247.3
+contig_340	cds	2255	2476	+	BEFGOD_00817		hypothetical protein	
+contig_340	cds	2768	2992	+	BEFGOD_00818		hypothetical protein	
+contig_340	cds	3149	3412	+	BEFGOD_00819		hypothetical protein	
+contig_341	cds	7	1605	+	BEFGOD_00820		Cation-transporting ATPase	SO:0001217, UniRef:UniRef50_A0A381I9B2
+contig_341	cds	1621	2226	-	BEFGOD_00821		hypothetical protein	PFAM:PF16916.10
+contig_342	cds	500	856	-	BEFGOD_00822		Ribosome-binding factor A	SO:0001217, UniRef:UniRef50_A0A927Y1Y8
+contig_342	cds	860	1120	-	BEFGOD_00823		hypothetical protein	PFAM:PF03144.31
+contig_343	cds	913	1254	-	BEFGOD_00824		Ribose operon repressor	SO:0001217, UniParc:UPI0008208902, UniRef:UniRef100_A0AA91C7E1, UniRef:UniRef50_A0A1C5PN59, UniRef:UniRef90_A0A1C5PN59
+contig_344	cds	9	206	-	BEFGOD_00825		hypothetical protein	
+contig_344	cds	193	297	-	BEFGOD_00826		hypothetical protein	
+contig_344	cds	476	1522	+	BEFGOD_00827	rlmN	putative dual-specificity RNA methyltransferase RlmN	SO:0001217, UniRef:UniRef50_A0A367GES6
+contig_344	cds	1580	2314	+	BEFGOD_00828		hypothetical protein	
+contig_345	cds	394	2193	-	BEFGOD_00829		hypothetical protein	PFAM:PF01807.25, PFAM:PF08275.17, PFAM:PF10410.14, PFAM:PF13362.12, PFAM:PF13662.12
+contig_345	cds	2213	3442	-	BEFGOD_00830		hypothetical protein	
+contig_345	cds	3487	4296	-	BEFGOD_00831		Nucleotidyltransferase family protein	SO:0001217, UniRef:UniRef50_A0A9D5S193
+contig_345	cds	4379	5296	-	BEFGOD_00832		hypothetical protein	
+contig_345	cds	5532	5765	-	BEFGOD_00833		hypothetical protein	
+contig_345	cds	5916	6200	-	BEFGOD_00834		CRISPR-associated endoribonuclease Cas2	SO:0001217, UniRef:UniRef50_Q8RED2
+contig_345	cds	6206	7198	-	BEFGOD_00835		CRISPR-associated endonuclease Cas1	SO:0001217, UniRef:UniRef50_A0A7W1WNP7
+contig_345	cds	7342	7695	-	BEFGOD_00836		DUF83 domain-containing protein	SO:0001217, UniRef:UniRef50_D0GJL1
+contig_346	cds	265	1158	+	BEFGOD_00837		hypothetical protein	PFAM:PF00679.30, PFAM:PF21018.2
+contig_346	cds	1309	1470	+	BEFGOD_00838		hypothetical protein	
+contig_347	cds	127	330	+	BEFGOD_00839		hypothetical protein	
+contig_347	cds	758	2365	+	BEFGOD_00840		hypothetical protein	PFAM:PF07554.19, PFAM:PF16738.10
+contig_347	cds	2509	3990	+	BEFGOD_00841		Stage IV sporulation protein A	SO:0001217, UniRef:UniRef50_A0A3D2AB18
+contig_348	cds	70	1203	+	BEFGOD_00842	aepY	phosphonopyruvate decarboxylase	EC:4.1.1.82, GO:0032923, GO:0033980, KEGG:K09459, RefSeq:WP_227279925.1, SO:0001217, UniParc:UPI001D09CC4A, UniRef:UniRef100_A0AAW4VPV1, UniRef:UniRef50_A0AAW4VPV1, UniRef:UniRef90_A0AAW4VPV1
+contig_349	cds	1967	2833	-	BEFGOD_00843		DUF4428 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A3D1RJ57
+contig_349	cds	2908	3930	-	BEFGOD_00844		DUF4367 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A3D1RI32
+contig_350	cds	8	847	+	BEFGOD_00845		hypothetical protein	PFAM:PF00004.35, PFAM:PF00005.33
+contig_350	cds	1079	1516	+	BEFGOD_00846		hypothetical protein	
+contig_351	cds	474	1061	+	BEFGOD_00847		hypothetical protein	
+contig_352	cds	1939	2436	+	BEFGOD_00848		hypothetical protein	PFAM:PF21537.2
+contig_352	cds	2560	3744	+	BEFGOD_00849		hypothetical protein	PFAM:PF07282.18
+contig_352	cds	4153	5499	-	BEFGOD_00850		hypothetical protein	PFAM:PF00482.28
+contig_353	cds	31	522	+	BEFGOD_00851		Peptide deformylase	SO:0001217, UniRef:UniRef50_Q2RK25
+contig_354	cds	1	618	+	BEFGOD_00852		hypothetical protein	PFAM:PF00464.25
+contig_354	cds	629	1936	+	BEFGOD_00853		Glucose-6-phosphate isomerase	SO:0001217, UniRef:UniRef50_P81181
+contig_355	cds	566	1150	-	BEFGOD_00854		hypothetical protein	
+contig_356	cds	32	631	+	BEFGOD_00855		hypothetical protein	
+contig_356	cds	634	933	+	BEFGOD_00856		hypothetical protein	
+contig_357	cds	1038	1589	-	BEFGOD_00857		hypothetical protein	
+contig_357	cds	1660	2211	-	BEFGOD_00858		N-acetyltransferase domain-containing protein	SO:0001217, UniRef:UniRef50_F3APJ3
+contig_357	cds	2406	2780	-	BEFGOD_00859		hypothetical protein	PFAM:PF13306.12
+contig_358	cds	9	998	-	BEFGOD_00860		hypothetical protein	
+contig_359	ncRNA-region	950	1180	-			T-box leader	RFAM:RF00230, SO:0000140
+contig_359	cds	1263	1832	-	BEFGOD_00861		HTH tetR-type domain-containing protein	SO:0001217, UniRef:UniRef50_A0A3D1PL74
+contig_361	cds	37	225	+	BEFGOD_00862		Large ribosomal subunit protein bL28	SO:0001217, UniRef:UniRef50_A0A4Q2EF55
+contig_361	cds	258	1424	-	BEFGOD_00863		PNPLA domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1Q6JV35
+contig_361	cds	1596	2030	-	BEFGOD_00864		hypothetical protein	
+contig_363	cds	46	1266	+	BEFGOD_00865		Oligosaccharide flippase family protein	SO:0001217, UniRef:UniRef50_A0A6L8TE43, UniRef:UniRef90_A0A6L8TE43
+contig_364	cds	256	1260	+	BEFGOD_00866		Aspartyl/glutamyl-tRNA(Asn/Gln) amidotransferase subunit B	SO:0001217, UniRef:UniRef50_Q72AV5
+contig_364	cds	1278	1775	+	BEFGOD_00867		hypothetical protein	
+contig_365	cds	740	922	-	BEFGOD_00868		hypothetical protein	
+contig_366	cds	185	397	+	BEFGOD_00869		hypothetical protein	RefSeq:WP_317990272.1, SO:0001217, UniParc:UPI0008219EAA, UniRef:UniRef100_A0A1C5L2L7, UniRef:UniRef50_A0A1C5L2L7, UniRef:UniRef90_A0A1C5L2L7
+contig_366	cds	654	1109	-	BEFGOD_00870		HipA-like C-terminal domain	SO:0001217, UniRef:UniRef50_A0A1C5L2L9, UniRef:UniRef90_A0A1C5L2L9
+contig_366	cds	1436	1780	+	BEFGOD_00871		DUF2116 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A373HM43, UniRef:UniRef90_A0A373HM43
+contig_367	cds	46	843	+	BEFGOD_00872		hypothetical protein	PFAM:PF02875.26, PFAM:PF08245.18
+contig_367	cds	853	1887	+	BEFGOD_00873		D-alanine--D-alanine ligase	SO:0001217, UniRef:UniRef50_A0A143XNE5
+contig_368	cds	74	670	+	BEFGOD_00874		hypothetical protein	
+contig_369	cds	194	1051	-	BEFGOD_00875		HipA-like C-terminal domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1Q6L3W5
+contig_369	cds	1068	1955	-	BEFGOD_00876		hypothetical protein	
+contig_370	cds	89	436	+	BEFGOD_00877		hypothetical protein	PFAM:PF03129.25
+contig_371	cds	2	445	+	BEFGOD_00878		hypothetical protein	
+contig_371	cds	627	1853	+	BEFGOD_00879		hypothetical protein	
+contig_372	cds	44	3040	+	BEFGOD_00880		hypothetical protein	PFAM:PF12705.13, PFAM:PF21445.3
+contig_373	cds	147	410	+	BEFGOD_00881		Stage V sporulation protein S	SO:0001217, UniRef:UniRef50_Q8R9W5
+contig_374	cds	69	431	+	BEFGOD_00882		hypothetical protein	PFAM:PF00293.34
+contig_374	cds	453	1061	+	BEFGOD_00883		Non-canonical purine NTP pyrophosphatase	SO:0001217, UniRef:UniRef50_A0A1Q6L823
+contig_375	cds	1251	1490	-	BEFGOD_00884		hypothetical protein	
+contig_376	cds	134	583	+	BEFGOD_00885		hypothetical protein	
+contig_377	cds	809	1081	+	BEFGOD_00886		hypothetical protein	
+contig_379	cds	7	597	+	BEFGOD_00887		hypothetical protein	RefSeq:WP_237985691.1, SO:0001217, UniParc:UPI000F0C5823, UniRef:UniRef100_A0A3G2C848, UniRef:UniRef50_A0A3G2C848, UniRef:UniRef90_A0A3G2C848
+contig_379	cds	689	1396	+	BEFGOD_00888		hypothetical protein	SO:0001217, UniRef:UniRef50_A0A3G2C898, UniRef:UniRef90_A0A3G2C898
+contig_380	cds	116	814	+	BEFGOD_00889		hypothetical protein	PFAM:PF00009.33, PFAM:PF07650.23
+contig_380	cds	896	1060	+	BEFGOD_00890		hypothetical protein	
+contig_380	cds	1026	1742	+	BEFGOD_00891		hypothetical protein	PFAM:PF11967.14
+contig_381	cds	191	751	-	BEFGOD_00892		Flavin reductase like domain-containing protein	SO:0001217, UniRef:UniRef50_F3B4C2
+contig_381	cds	767	1372	-	BEFGOD_00893		hypothetical protein	
+contig_381	cds	1433	2494	-	BEFGOD_00894		Lipid II:glycine glycyltransferase	SO:0001217, UniRef:UniRef50_A0A6N3EBP4
+contig_381	cds	2503	3222	-	BEFGOD_00895		hypothetical protein	PFAM:PF01406.26, PFAM:PF09190.17, PFAM:PF23493.1
+contig_382	cds	130	459	+	BEFGOD_00896		hypothetical protein	
+contig_382	cds	472	756	+	BEFGOD_00897		hypothetical protein	
+contig_382	cds	763	972	+	BEFGOD_00898		hypothetical protein	
+contig_382	cds	997	1443	-	BEFGOD_00899		SsrA-binding protein	SO:0001217, UniRef:UniRef50_A0A397S671
+contig_382	cds	1466	2896	-	BEFGOD_00900		hypothetical protein	PFAM:PF19864.4
+contig_382	cds	2907	4400	-	BEFGOD_00901		hypothetical protein	
+contig_382	cds	4489	5352	-	BEFGOD_00902		hypothetical protein	
+contig_382	cds	5369	6388	-	BEFGOD_00903		hypothetical protein	
+contig_382	cds	6597	7043	-	BEFGOD_00904		hypothetical protein	PFAM:PF07943.18
+contig_383	cds	2516	2749	+	BEFGOD_00905		hypothetical protein	
+contig_383	cds	2715	3512	-	BEFGOD_00906		SDR family NAD(P)-dependent oxidoreductase	SO:0001217, UniRef:UniRef50_A0A7X7BFK7
+contig_384	cds	250	2301	-	BEFGOD_00907		hypothetical protein	PFAM:PF06165.17, PFAM:PF17167.10
+contig_384	cds	2306	3802	-	BEFGOD_00908		hypothetical protein	PFAM:PF06165.17
+contig_385	cds	93	518	+	BEFGOD_00909		Polyamine-transporting ATPase	SO:0001217, UniRef:UniRef50_R6S459
+contig_385	cds	518	1249	+	BEFGOD_00910		Transport permease protein	SO:0001217, UniRef:UniRef50_R6Q565
+contig_386	cds	91	492	+	BEFGOD_00911		hypothetical protein	PFAM:PF00753.33
+contig_386	cds	501	1163	+	BEFGOD_00912		Uracil-DNA glycosylase	SO:0001217, UniRef:UniRef50_A0A0R2K2W6
+contig_387	cds	69	449	+	BEFGOD_00913		hypothetical protein	
+contig_387	cds	481	1533	-	BEFGOD_00914		hypothetical protein	
+contig_387	cds	1559	1819	-	BEFGOD_00915		hypothetical protein	
+contig_387	cds	1826	2242	-	BEFGOD_00916		hypothetical protein	
+contig_388	cds	163	627	-	BEFGOD_00917		Anti-sigma F factor	SO:0001217, UniRef:UniRef50_O32727
+contig_388	cds	627	932	-	BEFGOD_00918		hypothetical protein	PFAM:PF01740.26
+contig_388	cds	1061	1864	-	BEFGOD_00919		hypothetical protein	
+contig_388	cds	2073	2807	-	BEFGOD_00920		hypothetical protein	PFAM:PF04203.18
+contig_389	cds	702	1127	-	BEFGOD_00921		Helicase conserved C-terminal domain	SO:0001217, UniRef:UniRef50_A0A2P6FC69
+contig_390	cds	98	313	-	BEFGOD_00922		hypothetical protein	
+contig_390	cds	698	1765	-	BEFGOD_00923		IS30 family transposase	SO:0001217, UniRef:UniRef50_UPI0026EE7FD4
+contig_390	cds	1813	1944	-	BEFGOD_00924		Transposase IS30-like HTH domain-containing protein	SO:0001217, UniRef:UniRef50_R7FGH7, UniRef:UniRef90_R7FGH7
+contig_390	cds	2354	3547	+	BEFGOD_00925		radical SAM/SPASM domain-containing protein	SO:0001217, UniRef:UniRef50_UPI001CF042FD
+contig_390	cds	3549	4370	+	BEFGOD_00926		hypothetical protein	
+contig_390	cds	4348	5061	+	BEFGOD_00927		hypothetical protein	
+contig_390	cds	5549	5851	+	BEFGOD_00928		Histidine phosphatase family protein	SO:0001217, UniRef:UniRef50_A0A929S6V8
+contig_390	cds	5805	6167	+	BEFGOD_00929		hypothetical protein	PFAM:PF00300.27
+contig_390	cds	6196	6708	-	BEFGOD_00930		hypothetical protein	PFAM:PF01558.24
+contig_390	cds	6701	8242	-	BEFGOD_00931		hypothetical protein	PFAM:PF00037.32, PFAM:PF02775.26
+contig_391	cds	392	793	-	BEFGOD_00932		PTS sugar transporter subunit IIA	RefSeq:WP_032090479.1, SO:0001217, UniParc:UPI0005098277, UniRef:UniRef100_A0AA91HHU3, UniRef:UniRef50_A0AA91HHU3, UniRef:UniRef90_A0AA91HHU3
+contig_392	cds	144	674	-	BEFGOD_00933	nusG	Transcription termination/antitermination protein NusG	SO:0001217, UniRef:UniRef50_A0A7X9AME9
+contig_392	cds	709	906	-	BEFGOD_00934		hypothetical protein	
+contig_392	cds	924	1073	-	BEFGOD_00935		Large ribosomal subunit protein bL33B	SO:0001217, UniRef:UniRef50_P59627
+contig_393	cds	776	1294	-	BEFGOD_00936		Uridine kinase	RefSeq:WP_227279160.1, SO:0001217, UniParc:UPI001D0BD266, UniRef:UniRef100_A0AAW4VRQ7, UniRef:UniRef50_A0A174GL13, UniRef:UniRef90_A0A2T3G512
+contig_394	cds	118	567	+	BEFGOD_00937		SCP domain-containing protein	SO:0001217, UniRef:UniRef50_A0A2N5H2B4
+contig_394	cds	564	1232	-	BEFGOD_00938		hypothetical protein	PFAM:PF01734.28
+contig_395	cds	490	735	-	BEFGOD_00939		hypothetical protein	
+contig_395	cds	751	1194	-	BEFGOD_00940		hypothetical protein	
+contig_396	cds	79	912	-	BEFGOD_00941		DUF1963 domain-containing protein	RefSeq:WP_256187514.1, SO:0001217, UniParc:UPI00210AAFC1, UniRef:UniRef100_UPI00210AAFC1, UniRef:UniRef50_A0A2T3FX88, UniRef:UniRef90_A0A2T3FX88
+contig_398	cds	23	646	-	BEFGOD_00942		hypothetical protein	
+contig_398	cds	898	1182	+	BEFGOD_00943		Small ribosomal subunit protein bS6	SO:0001217, UniRef:UniRef50_A0A9D2K6M0
+contig_398	cds	1217	1645	+	BEFGOD_00944		Single-stranded DNA-binding protein	SO:0001217, UniRef:UniRef50_E4QDA5
+contig_398	cds	1676	1936	+	BEFGOD_00945		Small ribosomal subunit protein bS18	SO:0001217, UniRef:UniRef50_B0TE71
+contig_399	cds	18	764	+	BEFGOD_00946		hypothetical protein	
+contig_400	cds	181	759	-	BEFGOD_00947		hypothetical protein	
+contig_401	cds	16	2397	+	BEFGOD_00948		hypothetical protein	PFAM:PF05738.19, PFAM:PF06458.18, PFAM:PF17210.9, PFAM:PF17802.7
+contig_402	cds	11	1264	+	BEFGOD_00949		hypothetical protein	PFAM:PF05193.26
+contig_403	cds	16	1158	+	BEFGOD_00950		hypothetical protein	PFAM:PF08459.17, PFAM:PF22920.2
+contig_403	cds	1218	1442	+	BEFGOD_00951		hypothetical protein	
+contig_403	cds	1564	2979	+	BEFGOD_00952		UDP-N-acetylmuramoylalanine--D-glutamate ligase	SO:0001217, UniRef:UniRef50_R7RUZ2
+contig_404	cds	456	1064	-	BEFGOD_00953		hypothetical protein	
+contig_405	cds	101	1120	+	BEFGOD_00954		hypothetical protein	PFAM:PF00009.33, PFAM:PF02421.24, PFAM:PF03193.22, PFAM:PF10662.15
+contig_406	cds	49	180	+	BEFGOD_00955		hypothetical protein	
+contig_406	cds	231	1175	+	BEFGOD_00956		Class II fructose-1,6-bisphosphate aldolase	SO:0001217, UniRef:UniRef50_A0A7X9AH36
+contig_407	cds	103	231	+	BEFGOD_00957		hypothetical protein	
+contig_407	cds	266	445	-	BEFGOD_00958		hypothetical protein	
+contig_407	cds	596	1084	-	BEFGOD_00959		hypothetical protein	PFAM:PF13102.12
+contig_407	cds	1188	2129	+	BEFGOD_00960		Fic family protein	SO:0001217, UniRef:UniRef50_A0A8J8MHQ4
+contig_407	cds	2141	2383	+	BEFGOD_00961		hypothetical protein	SO:0001217, UniRef:UniRef50_A0A3D1RGQ3, UniRef:UniRef90_A0A3D1RGQ3
+contig_408	cds	581	988	-	BEFGOD_00962		Glycerol-3-phosphate cytidylyltransferase	SO:0001217, UniRef:UniRef50_A0A0B8RDK0
+contig_408	cds	990	2345	-	BEFGOD_00963		hypothetical protein	
+contig_409	cds	131	667	-	BEFGOD_00964		hypothetical protein	
+contig_411	cds	383	937	+	BEFGOD_00965		hypothetical protein	PFAM:PF01467.32
+contig_411	cds	981	1412	+	BEFGOD_00966		hypothetical protein	PFAM:PF22751.1
+contig_412	cds	330	1202	-	BEFGOD_00967		Acyltransferase 3 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A414REF9, UniRef:UniRef90_A0A414REF9
+contig_413	cds	19	972	-	BEFGOD_00968		Methionyl-tRNA formyltransferase	SO:0001217, UniRef:UniRef50_A0A929SM25
+contig_413	cds	1096	1887	+	BEFGOD_00969		hypothetical protein	
+contig_414	cds	101	793	+	BEFGOD_00970		2,3-bisphosphoglycerate-dependent phosphoglycerate mutase	SO:0001217, UniRef:UniRef50_Q8RFG9
+contig_414	cds	915	1169	+	BEFGOD_00971		hypothetical protein	SO:0001217, UniRef:UniRef50_R7LN42
+contig_415	cds	859	1311	+	BEFGOD_00972		hypothetical protein	PFAM:PF01957.25
+contig_415	cds	1323	2267	+	BEFGOD_00973	hflC	Modulator of FtsH protease HflC	SO:0001217, UniRef:UniRef50_A0A9X7P6F9
+contig_416	cds	881	1342	-	BEFGOD_00974		hypothetical protein	PFAM:PF04101.22
+contig_416	cds	1342	1806	-	BEFGOD_00975		UDP-N-acetylglucosamine--N-pyrophosphoryl-undecaprenol N-acetylglucosamine transferase	SO:0001217, UniRef:UniRef50_A0A1V4SSX2
+contig_416	cds	1803	2870	-	BEFGOD_00976		hypothetical protein	PFAM:PF04055.27
+contig_416	cds	2851	3549	-	BEFGOD_00977		hypothetical protein	PFAM:PF00035.32
+contig_416	cds	3757	4083	+	BEFGOD_00978		hypothetical protein	
+contig_416	cds	4121	4363	-	BEFGOD_00979		Acyl carrier protein	SO:0001217, UniRef:UniRef50_A7HZZ5
+contig_416	cds	4552	5460	-	BEFGOD_00980		hypothetical protein	PFAM:PF00009.33, PFAM:PF03143.23, PFAM:PF03144.31
+contig_417	cds	416	1477	-	BEFGOD_00981		Mechanosensitive ion channel protein	SO:0001217, UniRef:UniRef50_A0A1Q6LGT6
+contig_417	cds	1494	2018	-	BEFGOD_00982		hypothetical protein	PFAM:PF00085.26, PFAM:PF00578.27, PFAM:PF08534.16, PFAM:PF13905.12
+contig_418	cds	7	300	+	BEFGOD_00983		hypothetical protein	
+contig_418	cds	320	1450	+	BEFGOD_00984		hypothetical protein	
+contig_419	cds	2	277	+	BEFGOD_00985		hypothetical protein	PFAM:PF01026.27
+contig_419	cds	306	632	-	BEFGOD_00986		hypothetical protein	PFAM:PF01381.28
+contig_419	cds	836	1720	+	BEFGOD_00987		hypothetical protein	
+contig_419	cds	1722	2375	+	BEFGOD_00988		ABC-transporter type IV	SO:0001217, UniRef:UniRef50_A0A0J1G1N6
+contig_419	cds	2428	2946	+	BEFGOD_00989		Small multi-drug export protein	SO:0001217, UniRef:UniRef50_G5GGV9
+contig_419	cds	3004	3132	+	BEFGOD_00990		hypothetical protein	
+contig_419	cds	3140	3391	+	BEFGOD_00991		hypothetical protein	
+contig_420	cds	564	1118	-	BEFGOD_00992		HTH-type transcriptional regulator MT1864/Rv1816-like C-terminal domain-containing protein	RefSeq:WP_227279167.1, SO:0001217, UniParc:UPI001D09F765, UniRef:UniRef100_A0AAW4VJD1, UniRef:UniRef50_A0A7I8E461, UniRef:UniRef90_A0A1C5MFP1
+contig_421	cds	59	538	-	BEFGOD_00993		hypothetical protein	
+contig_421	cds	722	868	-	BEFGOD_00994		hypothetical protein	
+contig_421	cds	1334	1528	-	BEFGOD_00995		hypothetical protein	
+contig_422	cds	1706	1846	-	BEFGOD_00996		hypothetical protein	
+contig_423	cds	82	1200	+	BEFGOD_00997		Beta sliding clamp	SO:0001217, UniRef:UniRef50_A0A3D1RI12
+contig_423	cds	1279	2352	+	BEFGOD_00998		hypothetical protein	PFAM:PF02463.25, PFAM:PF13476.12
+contig_424	cds	20	1573	+	BEFGOD_00999		Ribonuclease J	SO:0001217, UniRef:UniRef50_A0A238ZPK9
+contig_425	cds	122	1315	+	BEFGOD_01000		glycosyltransferase family 4 protein	RefSeq:WP_256187691.1, SO:0001217, UniParc:UPI00210D0D66, UniRef:UniRef100_UPI00210D0D66, UniRef:UniRef50_UPI00210D0D66, UniRef:UniRef90_UPI00210D0D66
+contig_426	cds	738	1256	-	BEFGOD_01001		hypothetical protein	
+contig_427	cds	509	865	-	BEFGOD_01002		hypothetical protein	
+contig_428	cds	730	945	+	BEFGOD_01003		hypothetical protein	
+contig_428	cds	945	1598	+	BEFGOD_01004		Endonuclease III	SO:0001217, UniRef:UniRef50_A0A8T3UCN2
+contig_428	cds	1610	1828	-	BEFGOD_01005		hypothetical protein	
+contig_429	cds	66	407	+	BEFGOD_01006		hypothetical protein	
+contig_430	cds	1228	2052	-	BEFGOD_01007		hypothetical protein	
+contig_430	cds	2074	2943	-	BEFGOD_01008		hypothetical protein	
+contig_431	cds	23	421	+	BEFGOD_01009		UDP-glucose 4-epimerase	SO:0001217, UniRef:UniRef50_A0A9D2DW98
+contig_431	cds	547	681	+	BEFGOD_01010		hypothetical protein	
+contig_433	cds	198	542	-	BEFGOD_01011		ATPase	SO:0001217, UniRef:UniRef50_A0A352VE67
+contig_433	cds	542	1117	-	BEFGOD_01012		ATPase	SO:0001217, UniRef:UniRef50_A0A6B7HIS2
+contig_433	cds	1315	2817	+	BEFGOD_01013		hypothetical protein	
+contig_434	cds	172	1479	-	BEFGOD_01014		hypothetical protein	
+contig_436	cds	578	958	-	BEFGOD_01015		hypothetical protein	
+contig_438	cds	82	633	-	BEFGOD_01016		hypothetical protein	
+contig_438	cds	709	1143	-	BEFGOD_01017		hypothetical protein	
+contig_438	cds	1343	1984	-	BEFGOD_01018	carD	CarD family transcriptional regulator	SO:0001217, UniRef:UniRef50_A0A2W4KV61
+contig_438	cds	2025	3092	-	BEFGOD_01019	disA	DNA integrity scanning protein DisA	SO:0001217, UniRef:UniRef50_P37573
+contig_438	cds	3092	4192	-	BEFGOD_01020	radA	DNA repair protein RadA	SO:0001217, UniRef:UniRef50_A0A4Q1ZT13
+contig_439	cds	246	1046	+	BEFGOD_01021		hypothetical protein	PFAM:PF06750.18
+contig_439	cds	1039	1512	+	BEFGOD_01022		hypothetical protein	
+contig_439	cds	1509	1724	+	BEFGOD_01023		hypothetical protein	
+contig_439	cds	1739	3376	+	BEFGOD_01024		Bacterial type II secretion system protein E domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1Q6JWU3
+contig_439	cds	3634	3921	-	BEFGOD_01025		hypothetical protein	
+contig_440	cds	127	531	+	BEFGOD_01026		Cytidine deaminase	SO:0001217, UniRef:UniRef50_A0A3E3K3Z0
+contig_441	cds	111	509	-	BEFGOD_01027		hypothetical protein	
+contig_441	cds	615	992	-	BEFGOD_01028		hypothetical protein	
+contig_442	cds	24	359	+	BEFGOD_01029		hypothetical protein	
+contig_442	cds	483	1748	-	BEFGOD_01030	hflX	GTPase HflX	SO:0001217, UniRef:UniRef50_A0A920DBI8
+contig_442	cds	1843	2037	-	BEFGOD_01031	ywbE	Uncharacterized protein YwbE	SO:0001217, UniRef:UniRef50_P39588
+contig_442	cds	2751	3401	-	BEFGOD_01032		hypothetical protein	PFAM:PF17802.7
+contig_443	cds	133	996	+	BEFGOD_01033		hypothetical protein	PFAM:PF05175.20, PFAM:PF08123.19
+contig_443	cds	1197	1712	+	BEFGOD_01034		Bacterial inner membrane protein	SO:0001217, UniRef:UniRef50_A0A3D1PMG8, UniRef:UniRef90_R7LN54
+contig_444	cds	1205	1969	-	BEFGOD_01035		hypothetical protein	PFAM:PF02272.25, PFAM:PF17768.7
+contig_445	cds	672	1037	-	BEFGOD_01036		SpoVA protein	SO:0001217, UniRef:UniRef50_A0A140L0Y1
+contig_446	cds	39	245	+	BEFGOD_01037		hypothetical protein	
+contig_446	cds	263	1249	-	BEFGOD_01038		hypothetical protein	
+contig_446	cds	1471	1674	+	BEFGOD_01039		Helix-turn-helix domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1Q6JUB0
+contig_446	cds	1692	2099	+	BEFGOD_01040		hypothetical protein	
+contig_446	cds	2241	2405	+	BEFGOD_01041		hypothetical protein	
+contig_447	cds	207	341	+	BEFGOD_01042		hypothetical protein	
+contig_447	cds	520	1662	+	BEFGOD_01043		hypothetical protein	
+contig_447	cds	1850	2230	+	BEFGOD_01044		hypothetical protein	
+contig_447	cds	2248	2787	+	BEFGOD_01045		Rubrerythrin family protein	SO:0001217, UniRef:UniRef50_A0A8J6LW70
+contig_448	cds	138	1577	-	BEFGOD_01046		hypothetical protein	PFAM:PF00563.25, PFAM:PF00990.26
+contig_448	cds	1599	2405	-	BEFGOD_01047		hypothetical protein	PFAM:PF00133.28, PFAM:PF08264.19
+contig_449	cds	149	361	+	BEFGOD_01048		hypothetical protein	PFAM:PF06969.22
+contig_449	cds	507	3263	+	BEFGOD_01049		hypothetical protein	PFAM:PF01367.25, PFAM:PF02739.22, PFAM:PF22619.2
+contig_449	cds	3312	3875	+	BEFGOD_01050		Soluble lytic murein transglycosylase	SO:0001217, UniRef:UniRef50_B0TES1
+contig_449	cds	3889	4659	+	BEFGOD_01051		hypothetical protein	
+contig_450	cds	90	680	+	BEFGOD_01052		hypothetical protein	PFAM:PF00702.32
+contig_450	cds	672	899	-	BEFGOD_01053		hypothetical protein	
+contig_452	cds	57	1289	+	BEFGOD_01054		hypothetical protein	
+contig_453	cds	55	1452	+	BEFGOD_01055		CRISPR-associated helicase Cas3'	SO:0001217, UniRef:UniRef50_UPI0025CF5E29
+contig_453	cds	1430	1966	+	BEFGOD_01056		hypothetical protein	
+contig_454	cds	201	587	+	BEFGOD_01057		hypothetical protein	
+contig_454	cds	645	992	-	BEFGOD_01058		hypothetical protein	
+contig_454	cds	1178	1630	+	BEFGOD_01059		Signal peptidase I	SO:0001217, UniRef:UniRef50_A0A3D2MB95
+contig_454	cds	1722	1973	+	BEFGOD_01060		hypothetical protein	
+contig_456	cds	80	1096	+	BEFGOD_01061		GTPase Obg	SO:0001217, UniRef:UniRef50_P20964
+contig_456	cds	1279	1620	-	BEFGOD_01062		hypothetical protein	
+contig_457	cds	21	284	+	BEFGOD_01063		hypothetical protein	
+contig_457	cds	395	1147	+	BEFGOD_01064		hypothetical protein	PFAM:PF00565.23
+contig_457	cds	1581	1814	+	BEFGOD_01065		hypothetical protein	

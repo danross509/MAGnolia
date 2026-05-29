@@ -1,0 +1,1412 @@
+# Annotated with Bakta
+# Software: v1.11.4
+# Database: v6.0, full
+# DOI: 10.1099/mgen.0.000685
+# URL: github.com/oschwengers/bakta
+#Sequence Id	Type	Start	Stop	Strand	Locus Tag	Gene	Product	DbXrefs
+contig_1	cds	5	286	+	MFADOM_00001		hypothetical protein	
+contig_1	cds	487	1641	+	MFADOM_00002		cysteine-S-conjugate beta-lyase	SO:0001217, UniRef:UniRef50_E6K1N8
+contig_1	cds	1622	2407	-	MFADOM_00003		hypothetical protein	PFAM:PF01625.27, PFAM:PF01641.26
+contig_1	cds	2490	2669	+	MFADOM_00004		hypothetical protein	
+contig_1	cds	2680	2955	+	MFADOM_00005		hypothetical protein	
+contig_1	cds	2950	3222	-	MFADOM_00006		hypothetical protein	
+contig_3	cds	195	317	+	MFADOM_00007		hypothetical protein	
+contig_4	cds	305	976	+	MFADOM_00008		hypothetical protein	PFAM:PF05598.16
+contig_4	cds	1088	1471	+	MFADOM_00009		hypothetical protein	
+contig_4	cds	1505	1705	+	MFADOM_00010		hypothetical protein	PFAM:PF13751.12
+contig_4	cds	1935	2348	+	MFADOM_00011		hypothetical protein	
+contig_4	cds	2335	2526	-	MFADOM_00012		hypothetical protein	
+contig_5	cds	550	1023	-	MFADOM_00013		hypothetical protein	
+contig_6	cds	393	677	-	MFADOM_00014		hypothetical protein	
+contig_6	cds	711	1061	-	MFADOM_00015		hypothetical protein	PFAM:PF01920.25
+contig_6	cds	1124	1390	-	MFADOM_00016		hypothetical protein	
+contig_6	cds	1387	1869	-	MFADOM_00017		hypothetical protein	
+contig_6	cds	2056	2325	-	MFADOM_00018		hypothetical protein	
+contig_6	cds	2532	3149	-	MFADOM_00019		hypothetical protein	PFAM:PF00478.31, PFAM:PF01070.24, PFAM:PF01207.24, PFAM:PF01645.23
+contig_7	cds	523	1737	+	MFADOM_00020		Archaeal ATPase	SO:0001217, UniRef:UniRef50_A0A1C5QPH8
+contig_7	cds	1914	3056	-	MFADOM_00021		hypothetical protein	PFAM:PF00266.25
+contig_7	cds	3169	3843	+	MFADOM_00022		hypothetical protein	
+contig_8	cds	1536	2315	+	MFADOM_00023		hypothetical protein	PFAM:PF01061.29
+contig_9	cds	29	208	+	MFADOM_00024		hypothetical protein	
+contig_9	cds	265	1350	-	MFADOM_00025		hypothetical protein	
+contig_10	cds	56	814	+	MFADOM_00026		hypothetical protein	PFAM:PF00587.30
+contig_11	cds	21	803	+	MFADOM_00027		hypothetical protein	
+contig_11	cds	860	1510	+	MFADOM_00028		hypothetical protein	PFAM:PF02080.26, PFAM:PF02254.24, PFAM:PF13241.12
+contig_11	cds	1512	2120	-	MFADOM_00029		hypothetical protein	PFAM:PF00753.33
+contig_11	cds	2381	2788	-	MFADOM_00030		hypothetical protein	
+contig_11	tRNA	2822	2897	-	MFADOM_00031	trnH	tRNA-His(gtg)	SO:0000262
+contig_11	tRNA	2926	3008	-	MFADOM_00032	trnL	tRNA-Leu(tag)	SO:0000264
+contig_12	cds	450	977	+	MFADOM_00033		hypothetical protein	PFAM:PF13240.11
+contig_12	cds	967	1404	-	MFADOM_00034		hypothetical protein	PFAM:PF13420.13, PFAM:PF13508.13, PFAM:PF13673.13
+contig_12	cds	1481	1867	+	MFADOM_00035		hypothetical protein	PFAM:PF03686.19
+contig_12	cds	1953	2447	-	MFADOM_00036		hypothetical protein	
+contig_12	cds	2514	2792	-	MFADOM_00037		hypothetical protein	
+contig_13	cds	97	1125	-	MFADOM_00038		hypothetical protein	PFAM:PF00009.33, PFAM:PF03144.31, PFAM:PF09173.17
+contig_14	cds	131	838	+	MFADOM_00039		hypothetical protein	
+contig_15	cds	172	888	-	MFADOM_00040		hypothetical protein	
+contig_15	cds	1019	1693	+	MFADOM_00041		hypothetical protein	
+contig_16	cds	98	319	-	MFADOM_00042		hypothetical protein	
+contig_17	cds	247	1203	+	MFADOM_00043		Glycosyltransferase 2-like domain-containing protein	SO:0001217, UniRef:UniRef50_G1WL89
+contig_17	cds	1200	1871	-	MFADOM_00044		hypothetical protein	PFAM:PF00037.32, PFAM:PF02589.21, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13534.11
+contig_18	cds	245	1084	-	MFADOM_00045		hypothetical protein	
+contig_18	cds	1158	1781	-	MFADOM_00046		hypothetical protein	
+contig_18	cds	1827	2900	-	MFADOM_00047		hypothetical protein	PFAM:PF14450.12
+contig_18	cds	2903	3538	-	MFADOM_00048		hypothetical protein	
+contig_18	cds	3883	4581	+	MFADOM_00049		hypothetical protein	
+contig_18	cds	4626	5798	+	MFADOM_00050		hypothetical protein	
+contig_18	cds	5837	6559	+	MFADOM_00051		hypothetical protein	PFAM:PF04203.18
+contig_18	cds	6563	6931	+	MFADOM_00052		hypothetical protein	
+contig_18	cds	7173	7559	-	MFADOM_00053		hypothetical protein	PFAM:PF01638.23
+contig_18	cds	7640	8485	+	MFADOM_00054		hypothetical protein	
+contig_19	cds	196	435	+	MFADOM_00055		hypothetical protein	
+contig_19	cds	677	1498	-	MFADOM_00056		hypothetical protein	PFAM:PF00037.32, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13237.11
+contig_19	cds	1495	2133	-	MFADOM_00057		hypothetical protein	
+contig_20	cds	128	850	+	MFADOM_00058		hypothetical protein	
+contig_20	cds	1109	1306	+	MFADOM_00059		hypothetical protein	PFAM:PF00125.30, PFAM:PF00808.29, PFAM:PF02969.23, PFAM:PF15630.12
+contig_21	cds	9	257	+	MFADOM_00060		hypothetical protein	
+contig_21	cds	546	1310	-	MFADOM_00061		Short-chain dehydrogenase/reductase SDR	SO:0001217, UniRef:UniRef50_R7BQZ8
+contig_22	cds	67	354	+	MFADOM_00062		hypothetical protein	
+contig_22	cds	338	1435	+	MFADOM_00063		hypothetical protein	
+contig_24	cds	48	311	-	MFADOM_00064		hypothetical protein	
+contig_24	cds	765	1100	-	MFADOM_00065		hypothetical protein	
+contig_25	cds	216	1511	-	MFADOM_00066		hypothetical protein	PFAM:PF00587.30, PFAM:PF01409.25, PFAM:PF03129.25, PFAM:PF13393.11
+contig_25	cds	1630	2436	-	MFADOM_00067		hypothetical protein	
+contig_25	cds	2492	3337	+	MFADOM_00068		hypothetical protein	PFAM:PF08501.16, PFAM:PF18317.6
+contig_25	cds	3347	4030	+	MFADOM_00069		hypothetical protein	
+contig_25	cds	4016	5494	-	MFADOM_00070		hypothetical protein	PFAM:PF00004.35, PFAM:PF03215.21, PFAM:PF05496.18, PFAM:PF07728.20, PFAM:PF21960.2
+contig_25	cds	5504	5620	-	MFADOM_00071		hypothetical protein	PFAM:PF08542.16
+contig_27	cds	41	541	+	MFADOM_00072		hypothetical protein	PFAM:PF01336.31, PFAM:PF23783.1
+contig_27	cds	1103	1357	-	MFADOM_00073		hypothetical protein	
+contig_28	cds	170	403	+	MFADOM_00074		hypothetical protein	
+contig_28	cds	387	1202	-	MFADOM_00075		hypothetical protein	
+contig_29	cds	318	959	-	MFADOM_00076		hypothetical protein	
+contig_29	cds	994	1398	-	MFADOM_00077		hypothetical protein	PFAM:PF06271.18
+contig_30	cds	328	1119	+	MFADOM_00078		hypothetical protein	PFAM:PF04055.27
+contig_30	cds	1148	1414	-	MFADOM_00079		hypothetical protein	
+contig_31	cds	352	1347	+	MFADOM_00080		UDP-N-acetylglucosamine 4,6-dehydratase (inverting)	SO:0001217, UniRef:UniRef50_Q5QKR8
+contig_31	cds	1348	2499	+	MFADOM_00081		UDP-4-amino-4, 6-dideoxy-N-acetyl-beta-L-altrosamine transaminase	SO:0001217, UniRef:UniRef50_A0A9C8C546
+contig_31	cds	2504	3334	+	MFADOM_00082		hypothetical protein	
+contig_31	cds	3331	4728	+	MFADOM_00083		hypothetical protein	PFAM:PF04101.22, PFAM:PF13302.13, PFAM:PF13420.13, PFAM:PF13508.13, PFAM:PF13673.13
+contig_31	cds	4732	5781	+	MFADOM_00084		Pseudaminic acid synthase	SO:0001217, UniRef:UniRef50_E4TXC5
+contig_31	cds	5827	6792	+	MFADOM_00085		hypothetical protein	PFAM:PF02558.23, PFAM:PF02737.24, PFAM:PF03446.21, PFAM:PF07479.19, PFAM:PF20618.3
+contig_33	cds	826	1032	+	MFADOM_00086		hypothetical protein	
+contig_33	cds	1602	2000	-	MFADOM_00087		hypothetical protein	
+contig_34	cds	29	193	+	MFADOM_00088		hypothetical protein	
+contig_34	cds	180	2045	+	MFADOM_00089		hypothetical protein	PFAM:PF00437.27, PFAM:PF01850.27
+contig_34	cds	2055	2801	+	MFADOM_00090		hypothetical protein	PFAM:PF01261.30
+contig_34	cds	2784	3293	-	MFADOM_00091		hypothetical protein	PFAM:PF01035.26, PFAM:PF02870.21
+contig_34	ncRNA-region	3326	3396	+			Fluoride riboswitch aptamer (crcB RNA motif)	RFAM:RF01734, SO:0000035
+contig_34	cds	3423	3830	+	MFADOM_00092		hypothetical protein	PFAM:PF00999.27
+contig_34	cds	3853	4554	+	MFADOM_00093		hypothetical protein	PFAM:PF00999.27
+contig_34	cds	4578	5522	-	MFADOM_00094		hypothetical protein	PFAM:PF00633.29, PFAM:PF02732.21, PFAM:PF12826.13, PFAM:PF14520.12
+contig_35	cds	138	1196	-	MFADOM_00095		hypothetical protein	PFAM:PF01757.29
+contig_35	cds	1408	2631	+	MFADOM_00096		hypothetical protein	
+contig_36	cds	277	546	-	MFADOM_00097		hypothetical protein	
+contig_36	cds	565	1098	-	MFADOM_00098		hypothetical protein	
+contig_37	cds	146	313	+	MFADOM_00099		hypothetical protein	
+contig_37	cds	410	607	+	MFADOM_00100		hypothetical protein	
+contig_37	cds	790	1752	-	MFADOM_00101		hypothetical protein	
+contig_38	cds	52	570	-	MFADOM_00102		hypothetical protein	PFAM:PF02224.24, PFAM:PF13189.12, PFAM:PF13207.12, PFAM:PF13238.12
+contig_38	cds	570	836	-	MFADOM_00103		hypothetical protein	
+contig_38	cds	954	1166	-	MFADOM_00104		hypothetical protein	
+contig_39	cds	118	603	-	MFADOM_00105		hypothetical protein	
+contig_39	cds	615	830	-	MFADOM_00106		hypothetical protein	
+contig_39	cds	1048	1203	-	MFADOM_00107		hypothetical protein	
+contig_40	cds	279	1061	+	MFADOM_00108		hypothetical protein	PFAM:PF00384.28
+contig_41	cds	766	1266	-	MFADOM_00109		hypothetical protein	PFAM:PF01903.22
+contig_41	cds	1309	1845	-	MFADOM_00110		hypothetical protein	PFAM:PF01903.22
+contig_42	cds	374	1603	+	MFADOM_00111		hypothetical protein	PFAM:PF00994.29, PFAM:PF03454.20
+contig_42	cds	1632	2093	+	MFADOM_00112		hypothetical protein	PFAM:PF06445.20
+contig_42	cds	2102	2356	+	MFADOM_00113		hypothetical protein	
+contig_42	cds	2353	2481	-	MFADOM_00114		hypothetical protein	PFAM:PF19289.4
+contig_43	cds	15	284	+	MFADOM_00115		hypothetical protein	PFAM:PF00999.27
+contig_43	cds	286	1431	+	MFADOM_00116		hypothetical protein	PFAM:PF02926.22, PFAM:PF03054.22, PFAM:PF06508.19, PFAM:PF22025.1
+contig_43	cds	2483	2686	-	MFADOM_00117		hypothetical protein	
+contig_44	cds	4	567	+	MFADOM_00118		hypothetical protein	PFAM:PF22616.2
+contig_45	cds	128	2461	+	MFADOM_00119		hypothetical protein	PFAM:PF00535.33, PFAM:PF13641.12
+contig_45	cds	2508	2600	+	MFADOM_00120		hypothetical protein	
+contig_45	cds	2616	3032	+	MFADOM_00121		hypothetical protein	PFAM:PF00885.24
+contig_46	cds	169	915	-	MFADOM_00122		hypothetical protein	
+contig_47	cds	54	359	+	MFADOM_00123		hypothetical protein	
+contig_47	cds	356	688	-	MFADOM_00124		hypothetical protein	
+contig_47	cds	792	2144	+	MFADOM_00125		hypothetical protein	PFAM:PF02637.23, PFAM:PF02934.20
+contig_49	cds	306	1175	-	MFADOM_00126		hypothetical protein	PFAM:PF02249.22
+contig_50	cds	62	373	+	MFADOM_00127		hypothetical protein	PFAM:PF01938.26
+contig_50	cds	573	773	+	MFADOM_00128		hypothetical protein	PFAM:PF00125.30, PFAM:PF00808.29, PFAM:PF02969.23, PFAM:PF15630.12
+contig_50	tRNA	904	975	+	MFADOM_00129	trnV	tRNA-Val(gac)	SO:0000273
+contig_50	tRNA	979	1051	+	MFADOM_00130	trnF	tRNA-Phe(gaa)	SO:0000267
+contig_51	cds	79	267	+	MFADOM_00131		hypothetical protein	
+contig_51	cds	513	923	+	MFADOM_00132		hypothetical protein	
+contig_52	cds	79	768	+	MFADOM_00133		hypothetical protein	PFAM:PF01937.24
+contig_52	cds	777	1238	+	MFADOM_00134		hypothetical protein	PFAM:PF00085.26, PFAM:PF13098.12, PFAM:PF13192.12, PFAM:PF13899.12
+contig_52	cds	1248	1859	+	MFADOM_00135		hypothetical protein	PFAM:PF02683.22
+contig_52	cds	1856	2590	+	MFADOM_00136		hypothetical protein	
+contig_52	cds	2580	3068	-	MFADOM_00137		hypothetical protein	
+contig_53	cds	9	203	+	MFADOM_00138		hypothetical protein	
+contig_53	cds	213	770	+	MFADOM_00139		hypothetical protein	PFAM:PF10469.15
+contig_53	cds	775	2145	+	MFADOM_00140		hypothetical protein	PFAM:PF01909.29, PFAM:PF09249.16, PFAM:PF18144.7, PFAM:PF21133.2
+contig_53	cds	2613	2792	-	MFADOM_00141		hypothetical protein	
+contig_53	cds	3045	3224	-	MFADOM_00142		hypothetical protein	
+contig_54	cds	771	1541	+	MFADOM_00143		hypothetical protein	
+contig_55	cds	191	400	+	MFADOM_00144		hypothetical protein	
+contig_55	cds	472	963	-	MFADOM_00145		hypothetical protein	PFAM:PF12724.12
+contig_55	cds	960	1820	-	MFADOM_00146		hypothetical protein	PFAM:PF08029.16
+contig_55	cds	2037	2246	+	MFADOM_00147		hypothetical protein	PFAM:PF00125.30, PFAM:PF00808.29, PFAM:PF02969.23
+contig_55	cds	2288	3595	+	MFADOM_00148		hypothetical protein	PFAM:PF01979.26, PFAM:PF07969.17
+contig_55	cds	3598	4590	-	MFADOM_00149		hypothetical protein	PFAM:PF02910.25
+contig_56	cds	18	740	+	MFADOM_00150		hypothetical protein	PFAM:PF16581.11
+contig_56	cds	729	2078	-	MFADOM_00151		hypothetical protein	
+contig_57	cds	170	946	+	MFADOM_00152		Indole-3-glycerol phosphate synthase	SO:0001217, UniRef:UniRef50_E7GBB1
+contig_58	cds	27	179	+	MFADOM_00153		hypothetical protein	
+contig_59	cds	224	397	+	MFADOM_00154		hypothetical protein	PFAM:PF08271.17
+contig_59	cds	422	583	+	MFADOM_00155		hypothetical protein	
+contig_59	cds	765	965	-	MFADOM_00156		Exodeoxyribonuclease 7 small subunit	SO:0001217, UniRef:UniRef50_R5J2E8
+contig_59	cds	982	1728	-	MFADOM_00157		hypothetical protein	
+contig_60	cds	8	1636	+	MFADOM_00158		hypothetical protein	PFAM:PF01702.25, PFAM:PF14810.12, PFAM:PF17884.7
+contig_61	cds	178	384	+	MFADOM_00159		hypothetical protein	
+contig_62	cds	855	1613	-	MFADOM_00160		hypothetical protein	
+contig_63	cds	648	1208	-	MFADOM_00161		hypothetical protein	
+contig_63	cds	1224	1331	-	MFADOM_00162		hypothetical protein	
+contig_64	cds	167	592	+	MFADOM_00163		hypothetical protein	
+contig_64	cds	721	1458	-	MFADOM_00164		hypothetical protein	
+contig_64	cds	1451	2365	-	MFADOM_00165		hypothetical protein	
+contig_64	cds	2371	4368	-	MFADOM_00166		site-specific DNA-methyltransferase (adenine-specific)	SO:0001217, UniRef:UniRef50_A0A101IN16
+contig_64	cds	4432	5220	-	MFADOM_00167		hypothetical protein	
+contig_65	cds	94	504	-	MFADOM_00168		Bacterial Pleckstrin-like y domain-containing protein	SO:0001217, UniRef:UniRef50_W6SET5
+contig_66	cds	87	371	+	MFADOM_00169		hypothetical protein	
+contig_66	cds	364	1566	+	MFADOM_00170		hypothetical protein	
+contig_67	cds	46	759	+	MFADOM_00171		hypothetical protein	PFAM:PF02397.22
+contig_67	cds	914	3295	+	MFADOM_00172		hypothetical protein	PFAM:PF01336.31, PFAM:PF13742.12, PFAM:PF16900.11, PFAM:PF17244.8, PFAM:PF21473.3, PFAM:PF24903.1
+contig_67	cds	3326	4261	+	MFADOM_00173		hypothetical protein	PFAM:PF06745.19, PFAM:PF08423.17, PFAM:PF12826.13, PFAM:PF13481.12, PFAM:PF14520.12
+contig_67	cds	4576	5481	+	MFADOM_00174		hypothetical protein	
+contig_69	cds	12	449	+	MFADOM_00175		hypothetical protein	
+contig_69	cds	653	1648	-	MFADOM_00176		hypothetical protein	PFAM:PF13086.12, PFAM:PF13087.12
+contig_71	cds	7	468	+	MFADOM_00177		hypothetical protein	
+contig_71	cds	469	894	+	MFADOM_00178		hypothetical protein	
+contig_71	cds	895	1575	-	MFADOM_00179		hypothetical protein	
+contig_71	ncRNA-region	1629	1761	-			FMN riboswitch aptamer (RFN element)	RFAM:RF00050, SO:0000035
+contig_71	cds	1811	2185	-	MFADOM_00180		hypothetical protein	PFAM:PF01982.22
+contig_72	cds	402	1031	-	MFADOM_00181		hypothetical protein	PFAM:PF16640.11
+contig_73	cds	127	708	+	MFADOM_00182		hypothetical protein	
+contig_73	cds	725	1054	+	MFADOM_00183		hypothetical protein	
+contig_74	cds	1093	1656	-	MFADOM_00184		hypothetical protein	
+contig_75	cds	11	1468	+	MFADOM_00185		hypothetical protein	
+contig_75	cds	1628	2239	+	MFADOM_00186		hypothetical protein	
+contig_77	cds	23	1045	+	MFADOM_00187		O-acetyl-L-homoserine sulfhydrolase / O-acetyl-L-serine sulfhydrolase	SO:0001217, UniRef:UniRef50_A0A212LVL2
+contig_77	cds	1063	1872	-	MFADOM_00188		hypothetical protein	PFAM:PF00571.33
+contig_78	cds	159	1106	+	MFADOM_00189		Cysteine synthase	SO:0001217, UniRef:UniRef50_A0A9E9C628
+contig_78	cds	1196	1909	+	MFADOM_00190		hypothetical protein	PFAM:PF00132.30
+contig_78	cds	1919	2302	+	MFADOM_00191		hypothetical protein	PFAM:PF01381.28
+contig_78	tRNA	2356	2427	+	MFADOM_00192	trnC	tRNA-Cys(gca)	SO:0000258
+contig_80	cds	202	675	-	MFADOM_00193		hypothetical protein	PFAM:PF01047.28, PFAM:PF13463.12, PFAM:PF22381.2
+contig_80	cds	833	1102	-	MFADOM_00194		hypothetical protein	PFAM:PF00736.24
+contig_80	cds	1127	1288	-	MFADOM_00195		hypothetical protein	PFAM:PF07754.17
+contig_80	cds	1289	1861	-	MFADOM_00196		hypothetical protein	
+contig_80	cds	2013	2195	-	MFADOM_00197		hypothetical protein	
+contig_81	cds	45	677	+	MFADOM_00198		hypothetical protein	
+contig_81	cds	677	1336	+	MFADOM_00199		hypothetical protein	
+contig_82	cds	17	745	+	MFADOM_00200		FMN-binding glutamate synthase family protein	SO:0001217, UniRef:UniRef50_UPI00272AF73F
+contig_82	cds	960	1541	+	MFADOM_00201		(S)-2-hydroxypropylphosphonic acid epoxidase	SO:0001217, UniRef:UniRef50_A0A1Q2HMK7
+contig_82	cds	2410	2709	-	MFADOM_00202		hypothetical protein	
+contig_83	cds	24	296	+	MFADOM_00203		hypothetical protein	
+contig_83	cds	274	1086	-	MFADOM_00204		hypothetical protein	
+contig_84	cds	78	911	-	MFADOM_00205		hypothetical protein	
+contig_84	cds	924	1847	-	MFADOM_00206		Branched-chain-amino-acid aminotransferase	SO:0001217, UniRef:UniRef50_A0A537X7K9
+contig_85	cds	10	1203	+	MFADOM_00207		hypothetical protein	
+contig_88	cds	7	801	+	MFADOM_00208		hypothetical protein	
+contig_88	cds	978	1367	+	MFADOM_00209		hypothetical protein	PFAM:PF01989.22
+contig_88	cds	1382	2605	+	MFADOM_00210		hypothetical protein	PFAM:PF01979.26, PFAM:PF07969.17
+contig_88	cds	2688	2876	-	MFADOM_00211		hypothetical protein	
+contig_89	cds	106	978	+	MFADOM_00212		hypothetical protein	
+contig_90	cds	706	1215	-	MFADOM_00213		hypothetical protein	PFAM:PF13240.11
+contig_91	cds	1126	2436	-	MFADOM_00214		hypothetical protein	PFAM:PF01071.24, PFAM:PF02843.22, PFAM:PF02844.21
+contig_91	cds	2587	2733	-	MFADOM_00215		hypothetical protein	
+contig_92	cds	200	658	-	MFADOM_00216		hypothetical protein	PFAM:PF01467.32
+contig_92	cds	783	4121	-	MFADOM_00217		hypothetical protein	PFAM:PF01841.26, PFAM:PF02369.22, PFAM:PF09134.16, PFAM:PF09373.15, PFAM:PF11774.14, PFAM:PF13620.12, PFAM:PF16640.11, PFAM:PF17789.7, PFAM:PF24025.1
+contig_92	cds	4655	6199	+	MFADOM_00218		hypothetical protein	PFAM:PF04055.27, PFAM:PF19864.4
+contig_92	cds	6258	7370	+	MFADOM_00219		hypothetical protein	PFAM:PF00155.27, PFAM:PF00266.25, PFAM:PF01041.23, PFAM:PF01053.26
+contig_92	cds	7374	8279	+	MFADOM_00220		hypothetical protein	PFAM:PF16916.10
+contig_93	cds	98	352	+	MFADOM_00221		hypothetical protein	
+contig_94	cds	847	1095	-	MFADOM_00222		hypothetical protein	
+contig_95	cds	8	223	+	MFADOM_00223		hypothetical protein	
+contig_95	cds	540	1838	+	MFADOM_00224		O-acetyl-L-homoserine sulfhydrylase 1	SO:0001217, UniRef:UniRef50_Q5SK88
+contig_95	cds	1870	3057	+	MFADOM_00225	iscS	Cysteine desulfurase IscS	SO:0001217, UniRef:UniRef50_A5I4Z9
+contig_95	cds	3073	3441	+	MFADOM_00226	nifU	NIF system FeS cluster assembly NifU N-terminal domain-containing protein	SO:0001217, UniRef:UniRef50_A0A0K8JIH9
+contig_96	cds	485	1189	+	MFADOM_00227		hypothetical protein	
+contig_97	cds	147	554	-	MFADOM_00228		hypothetical protein	
+contig_97	cds	660	1502	-	MFADOM_00229		hypothetical protein	PFAM:PF00493.29, PFAM:PF17855.7, PFAM:PF21120.3
+contig_98	cds	474	1691	+	MFADOM_00230		hypothetical protein	
+contig_98	cds	1711	2184	+	MFADOM_00231		hypothetical protein	PFAM:PF01750.23
+contig_98	cds	2184	3014	+	MFADOM_00232		hypothetical protein	PFAM:PF00037.32, PFAM:PF01058.29, PFAM:PF12838.12, PFAM:PF13237.11
+contig_100	cds	172	468	+	MFADOM_00233		hypothetical protein	PFAM:PF03992.22
+contig_100	cds	663	959	+	MFADOM_00234		hypothetical protein	
+contig_100	cds	970	1314	+	MFADOM_00235		hypothetical protein	
+contig_101	cds	742	921	+	MFADOM_00236		hypothetical protein	
+contig_101	cds	1453	1653	+	MFADOM_00237		hypothetical protein	
+contig_102	cds	180	1292	+	MFADOM_00238		hypothetical protein	PFAM:PF21436.2
+contig_104	cds	90	383	+	MFADOM_00239		hypothetical protein	PFAM:PF01558.24
+contig_104	cds	409	651	+	MFADOM_00240	porD	Pyruvate synthase subunit PorD	SO:0001217, UniRef:UniRef50_A0A285GZ84
+contig_104	cds	663	1808	+	MFADOM_00241		hypothetical protein	PFAM:PF02780.25, PFAM:PF17147.9
+contig_105	cds	515	751	+	MFADOM_00242		hypothetical protein	
+contig_106	cds	91	396	+	MFADOM_00243		hypothetical protein	PFAM:PF08979.16
+contig_106	cds	405	1349	+	MFADOM_00244		hypothetical protein	PFAM:PF01717.24
+contig_106	cds	1353	2105	-	MFADOM_00245		uroporphyrinogen-III C-methyltransferase	SO:0001217, UniRef:UniRef50_A0A7C3L1P3
+contig_107	cds	217	1158	+	MFADOM_00246		hypothetical protein	
+contig_107	cds	1158	2024	+	MFADOM_00247		hypothetical protein	
+contig_107	cds	2021	2650	-	MFADOM_00248		hypothetical protein	
+contig_108	cds	441	701	-	MFADOM_00249		hypothetical protein	
+contig_109	cds	46	369	+	MFADOM_00250		hypothetical protein	
+contig_109	cds	375	845	+	MFADOM_00251		hypothetical protein	PFAM:PF00196.25, PFAM:PF01978.25, PFAM:PF02796.21, PFAM:PF08281.18, PFAM:PF12840.13, PFAM:PF13384.12, PFAM:PF13518.12
+contig_109	cds	1106	1234	+	MFADOM_00252		hypothetical protein	
+contig_109	cds	1634	2509	-	MFADOM_00253		hypothetical protein	
+contig_110	cds	12	1226	+	MFADOM_00254		hypothetical protein	PFAM:PF01588.26, PFAM:PF19303.5
+contig_111	cds	655	765	+	MFADOM_00255		hypothetical protein	PFAM:PF01881.21
+contig_111	cds	805	1080	-	MFADOM_00256		hypothetical protein	
+contig_113	cds	2	889	+	MFADOM_00257		hypothetical protein	PFAM:PF01061.29, PFAM:PF12679.13
+contig_115	cds	147	482	+	MFADOM_00258		hypothetical protein	
+contig_115	cds	475	753	+	MFADOM_00259		hypothetical protein	
+contig_115	cds	750	1223	+	MFADOM_00260		hypothetical protein	
+contig_115	cds	1233	1481	+	MFADOM_00261		hypothetical protein	
+contig_115	cds	1492	2907	+	MFADOM_00262		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12798.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13370.11, PFAM:PF13459.11, PFAM:PF13484.11, PFAM:PF13534.11, PFAM:PF13746.11, PFAM:PF14697.11
+contig_116	cds	1085	1396	-	MFADOM_00263		hypothetical protein	PFAM:PF08241.18
+contig_117	cds	67	804	+	MFADOM_00264		hypothetical protein	PFAM:PF03464.20, PFAM:PF03465.20
+contig_117	cds	952	1194	-	MFADOM_00265		hypothetical protein	
+contig_117	cds	1229	1516	-	MFADOM_00266		hypothetical protein	
+contig_118	cds	358	1611	-	MFADOM_00267		hypothetical protein	
+contig_118	cds	1621	2037	-	MFADOM_00268		hypothetical protein	PFAM:PF22617.1
+contig_119	cds	316	657	-	MFADOM_00269		UPF0145 protein SCO3412	SO:0001217, UniRef:UniRef50_Q9X8J2
+contig_120	cds	538	1497	+	MFADOM_00270		hypothetical protein	
+contig_120	cds	1501	1710	+	MFADOM_00271		hypothetical protein	
+contig_120	cds	2004	3389	+	MFADOM_00272		hypothetical protein	PFAM:PF12176.13
+contig_120	cds	3408	4235	+	MFADOM_00273		hypothetical protein	PFAM:PF02310.24, PFAM:PF02607.22
+contig_121	cds	111	1421	-	MFADOM_00274		hypothetical protein	PFAM:PF02153.23, PFAM:PF03446.21, PFAM:PF20463.3
+contig_122	cds	17	238	+	MFADOM_00275		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13484.11, PFAM:PF14697.11
+contig_122	cds	243	1289	+	MFADOM_00276		hypothetical protein	
+contig_123	cds	119	1276	+	MFADOM_00277		hypothetical protein	PFAM:PF00070.33, PFAM:PF02852.28, PFAM:PF07992.20
+contig_124	cds	53	922	-	MFADOM_00278		hypothetical protein	
+contig_124	cds	1008	1364	-	MFADOM_00279		hypothetical protein	PFAM:PF00117.34, PFAM:PF07722.19
+contig_125	cds	131	415	+	MFADOM_00280		hypothetical protein	
+contig_125	cds	418	1182	+	MFADOM_00281		hypothetical protein	
+contig_125	cds	1207	1467	+	MFADOM_00282		hypothetical protein	
+contig_125	cds	1480	2205	+	MFADOM_00283		hypothetical protein	PFAM:PF00181.29, PFAM:PF03947.24
+contig_125	cds	2221	2631	+	MFADOM_00284		hypothetical protein	PFAM:PF00203.26
+contig_125	cds	2644	3108	+	MFADOM_00285		hypothetical protein	PFAM:PF00237.24
+contig_125	cds	3108	3860	+	MFADOM_00286		hypothetical protein	PFAM:PF00189.25, PFAM:PF07650.23
+contig_125	cds	3899	4105	+	MFADOM_00287		Large ribosomal subunit protein uL29	SO:0001217, UniRef:UniRef50_A0A9E5Y480
+contig_125	cds	4106	4447	+	MFADOM_00288		hypothetical protein	PFAM:PF01253.27
+contig_125	cds	4521	4799	+	MFADOM_00289		hypothetical protein	
+contig_125	cds	4813	5130	+	MFADOM_00290		hypothetical protein	PFAM:PF00366.26
+contig_126	cds	228	1211	+	MFADOM_00291		hypothetical protein	
+contig_127	cds	15	755	+	MFADOM_00292		hypothetical protein	PFAM:PF22090.1
+contig_127	cds	986	1264	+	MFADOM_00293		hypothetical protein	
+contig_127	cds	1275	1454	+	MFADOM_00294		hypothetical protein	
+contig_129	cds	879	1052	+	MFADOM_00295		hypothetical protein	
+contig_130	cds	258	1007	-	MFADOM_00296		hypothetical protein	PFAM:PF07179.17
+contig_131	cds	8	889	-	MFADOM_00297		hypothetical protein	PFAM:PF00679.30, PFAM:PF03764.24
+contig_132	cds	637	1641	-	MFADOM_00298		hypothetical protein	PFAM:PF02272.25, PFAM:PF21763.2
+contig_134	cds	111	308	+	MFADOM_00299		Complexin-2	SO:0001217, UniRef:UniRef50_A0A1Y4IU51
+contig_134	cds	292	525	+	MFADOM_00300		UDP-N-acetylglucosamine kinase	SO:0001217, UniRef:UniRef50_A0A1G6HPI1
+contig_134	cds	522	866	+	MFADOM_00301		Putative ABC-type ATPase	SO:0001217, UniRef:UniRef50_A0A840SG34
+contig_134	cds	1145	1480	+	MFADOM_00302		hypothetical protein	
+contig_134	cds	1521	2669	+	MFADOM_00303		hypothetical protein	PFAM:PF13635.12
+contig_134	cds	2700	4352	-	MFADOM_00304		hypothetical protein	PFAM:PF03109.22
+contig_134	cds	4391	6316	-	MFADOM_00305		hypothetical protein	PFAM:PF00488.27
+contig_134	cds	6398	6874	-	MFADOM_00306		hypothetical protein	
+contig_135	cds	40	384	+	MFADOM_00307		hypothetical protein	PFAM:PF00142.24
+contig_136	cds	407	967	-	MFADOM_00308		hypothetical protein	PFAM:PF01420.25
+contig_136	cds	987	1298	-	MFADOM_00309		hypothetical protein	
+contig_136	cds	1739	2059	+	MFADOM_00310		hypothetical protein	
+contig_136	cds	2207	2710	+	MFADOM_00311		hypothetical protein	
+contig_136	cds	2715	2849	+	MFADOM_00312		hypothetical protein	
+contig_137	cds	586	1386	-	MFADOM_00313		hypothetical protein	PFAM:PF02540.23, PFAM:PF03054.22
+contig_137	cds	1532	2539	+	MFADOM_00314		hypothetical protein	PFAM:PF00448.28, PFAM:PF01656.29, PFAM:PF02374.21, PFAM:PF13614.12
+contig_138	cds	85	630	-	MFADOM_00315		Rubrerythrin	SO:0001217, UniRef:UniRef50_P24931
+contig_139	cds	180	938	+	MFADOM_00316		hypothetical protein	PFAM:PF00091.31, PFAM:PF12327.13
+contig_139	cds	1090	1230	+	MFADOM_00317		hypothetical protein	
+contig_139	cds	3418	3561	-	MFADOM_00318		hypothetical protein	
+contig_140	cds	216	446	+	MFADOM_00319		Ferrous iron transporter FeoA-like domain-containing protein	SO:0001217, UniRef:UniRef50_E7GAJ9
+contig_140	cds	482	682	+	MFADOM_00320		hypothetical protein	
+contig_140	cds	672	968	-	MFADOM_00321		hypothetical protein	
+contig_141	cds	109	867	+	MFADOM_00322		hypothetical protein	
+contig_141	cds	892	1368	+	MFADOM_00323		tRNA(adenine(34)) deaminase	SO:0001217, UniRef:UniRef50_A0A6N8J6I0
+contig_141	cds	1365	2036	-	MFADOM_00324		hypothetical protein	PFAM:PF19269.4
+contig_142	cds	38	433	+	MFADOM_00325		hypothetical protein	
+contig_142	cds	434	724	+	MFADOM_00326		hypothetical protein	
+contig_142	cds	727	1251	-	MFADOM_00327		hypothetical protein	PFAM:PF13508.13, PFAM:PF13673.13
+contig_143	cds	45	593	-	MFADOM_00328		hypothetical protein	
+contig_143	cds	667	1506	-	MFADOM_00329		hypothetical protein	PFAM:PF17789.7
+contig_144	cds	793	1545	+	MFADOM_00330		hypothetical protein	PFAM:PF00227.31
+contig_145	cds	83	814	+	MFADOM_00331		PEP/pyruvate-binding domain-containing protein	SO:0001217, UniRef:UniRef50_UPI001F2CD18B
+contig_145	cds	883	1116	+	MFADOM_00332		hypothetical protein	PFAM:PF05239.21
+contig_146	cds	340	999	-	MFADOM_00333		hypothetical protein	PFAM:PF00036.39, PFAM:PF13202.12, PFAM:PF13405.12, PFAM:PF13499.12
+contig_146	cds	1154	1414	-	MFADOM_00334	mntP	Manganese efflux pump MntP	SO:0001217, UniRef:UniRef50_A0A1F9WGU8
+contig_147	cds	30	1835	+	MFADOM_00335		hypothetical protein	PFAM:PF01345.24, PFAM:PF07705.17, PFAM:PF20806.3, PFAM:PF24346.1, PFAM:PF24595.1
+contig_147	cds	2098	2541	+	MFADOM_00336		hypothetical protein	
+contig_147	cds	2553	3134	-	MFADOM_00337		hypothetical protein	PFAM:PF03367.19, PFAM:PF22794.1
+contig_147	cds	3127	3729	-	MFADOM_00338		hypothetical protein	
+contig_148	cds	18	1340	+	MFADOM_00339		hypothetical protein	PFAM:PF01656.29, PFAM:PF07685.20, PFAM:PF13500.12
+contig_148	cds	1315	1902	-	MFADOM_00340		hypothetical protein	PFAM:PF08241.18, PFAM:PF13649.12, PFAM:PF13847.12
+contig_149	cds	147	1385	+	MFADOM_00341		hypothetical protein	PFAM:PF00535.33
+contig_150	cds	21	245	+	MFADOM_00342		hypothetical protein	
+contig_152	cds	3	944	+	MFADOM_00343		hypothetical protein	
+contig_153	cds	116	799	-	MFADOM_00344		hypothetical protein	
+contig_153	cds	1022	1369	+	MFADOM_00345		hypothetical protein	
+contig_154	cds	289	1497	+	MFADOM_00346		DUF2264 domain-containing protein	SO:0001217, UniRef:UniRef50_K5ZEP7
+contig_154	cds	1823	2998	+	MFADOM_00347		DUF2264 domain-containing protein	SO:0001217, UniRef:UniRef50_K5ZEP7
+contig_155	cds	41	625	+	MFADOM_00348		Ribitol-5-phosphate cytidylyltransferase 2	SO:0001217, UniRef:UniRef50_Q2G2C4
+contig_155	cds	618	1637	+	MFADOM_00349		Ribulose-5-phosphate reductase	SO:0001217, UniRef:UniRef50_A0A143XUA5
+contig_155	cds	1637	1738	+	MFADOM_00350		hypothetical protein	
+contig_156	cds	112	654	-	MFADOM_00351		hypothetical protein	PFAM:PF00406.28, PFAM:PF13207.12, PFAM:PF13238.12, PFAM:PF13671.12
+contig_156	cds	670	1404	-	MFADOM_00352		hypothetical protein	
+contig_156	cds	1417	1800	-	MFADOM_00353		hypothetical protein	
+contig_156	cds	2151	3206	+	MFADOM_00354		hypothetical protein	PFAM:PF13482.12
+contig_158	cds	335	622	+	MFADOM_00355		hypothetical protein	
+contig_158	cds	775	1563	-	MFADOM_00356		hypothetical protein	
+contig_158	cds	1582	1758	-	MFADOM_00357		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13237.11, PFAM:PF13484.11
+contig_158	tRNA	1925	2007	+	MFADOM_00358	trnL	tRNA-Leu(taa)	SO:0000264
+contig_158	tRNA	2043	2115	+	MFADOM_00359	trnT	tRNA-Thr(ggt)	SO:0000270
+contig_159	cds	918	1400	+	MFADOM_00360		hypothetical protein	PFAM:PF01381.28
+contig_159	cds	1401	1835	-	MFADOM_00361		hypothetical protein	
+contig_160	cds	28	1152	+	MFADOM_00362		hypothetical protein	
+contig_161	cds	45	731	+	MFADOM_00363		hypothetical protein	
+contig_161	cds	706	1368	-	MFADOM_00364		2-amino-4-deoxychorismate dehydrogenase	SO:0001217, UniRef:UniRef50_A0A162RUT0
+contig_161	cds	1365	2006	-	MFADOM_00365		hypothetical protein	PFAM:PF00549.24
+contig_162	cds	73	420	+	MFADOM_00366		tryptophan synthase	SO:0001217, UniRef:UniRef50_A0A960B0L1
+contig_162	cds	1063	1839	+	MFADOM_00367	parA	Chromosome partitioning protein ParA	SO:0001217, UniRef:UniRef50_A0A2P2E7C2
+contig_164	cds	19	984	+	MFADOM_00368		hypothetical protein	PFAM:PF00004.35, PFAM:PF17862.7
+contig_164	cds	1063	1941	-	MFADOM_00369		Bro-N domain-containing protein	SO:0001217, UniRef:UniRef50_D5V724
+contig_165	cds	123	710	+	MFADOM_00370		hypothetical protein	
+contig_165	cds	703	1665	+	MFADOM_00371		hypothetical protein	PFAM:PF00535.33, PFAM:PF13641.12
+contig_165	cds	1671	2636	+	MFADOM_00372		Family 2 glycosyl transferase	SO:0001217, UniRef:UniRef50_J7SBV9
+contig_165	cds	2652	3509	+	MFADOM_00373		Glycosyltransferase family 2 protein	SO:0001217, UniRef:UniRef50_A0AA95KTA8
+contig_165	cds	3789	3959	-	MFADOM_00374		hypothetical protein	
+contig_166	cds	527	1318	+	MFADOM_00375		Endo-1,4-beta-xylanase Z	SO:0001217, UniRef:UniRef50_A0A7U9T7T4
+contig_167	cds	711	803	+	MFADOM_00376		hypothetical protein	
+contig_167	cds	775	1008	+	MFADOM_00377		hypothetical protein	
+contig_168	cds	122	1183	+	MFADOM_00378		hypothetical protein	PFAM:PF00215.30
+contig_168	cds	1234	1512	+	MFADOM_00379		Putative zinc ribbon domain-containing protein	SO:0001217, UniRef:UniRef50_A0A7C6FQJ7
+contig_168	cds	1509	2294	-	MFADOM_00380		hypothetical protein	
+contig_168	cds	2334	3878	-	MFADOM_00381		hypothetical protein	
+contig_169	cds	28	237	+	MFADOM_00382		hypothetical protein	
+contig_169	cds	258	1202	-	MFADOM_00383		hypothetical protein	PFAM:PF08797.16
+contig_170	cds	808	1251	-	MFADOM_00384		hypothetical protein	
+contig_170	cds	1256	1732	-	MFADOM_00385		hypothetical protein	
+contig_170	cds	1710	3251	-	MFADOM_00386		hypothetical protein	
+contig_171	cds	446	1654	-	MFADOM_00387		hypothetical protein	PFAM:PF03486.20, PFAM:PF07992.20
+contig_171	cds	1667	2986	-	MFADOM_00388		hypothetical protein	PFAM:PF00152.25, PFAM:PF01336.31, PFAM:PF01409.25
+contig_172	cds	116	1036	-	MFADOM_00389		hypothetical protein	
+contig_172	cds	1085	1600	-	MFADOM_00390		hypothetical protein	
+contig_172	cds	1660	2352	+	MFADOM_00391		hypothetical protein	
+contig_172	cds	2402	3580	+	MFADOM_00392		hypothetical protein	
+contig_172	cds	3650	3862	+	MFADOM_00393		hypothetical protein	PFAM:PF09082.15
+contig_172	cds	3894	5225	+	MFADOM_00394		hypothetical protein	PFAM:PF00571.33, PFAM:PF01595.25, PFAM:PF03471.22
+contig_172	cds	5222	6163	+	MFADOM_00395		Sodium/calcium exchanger membrane region domain-containing protein	SO:0001217, UniRef:UniRef50_V9H470
+contig_172	cds	6131	6997	-	MFADOM_00396		hypothetical protein	
+contig_172	cds	7052	7357	+	MFADOM_00397		Thiamine-binding protein domain-containing protein	SO:0001217, UniRef:UniRef50_B0S3G7
+contig_173	cds	11	355	+	MFADOM_00398		hypothetical protein	PFAM:PF00408.26
+contig_173	cds	362	1234	-	MFADOM_00399		hypothetical protein	
+contig_173	cds	1227	1358	-	MFADOM_00400		hypothetical protein	
+contig_174	cds	1560	2378	-	MFADOM_00401		hypothetical protein	
+contig_174	cds	2519	3136	-	MFADOM_00402		hypothetical protein	PFAM:PF00005.33
+contig_175	cds	140	1423	-	MFADOM_00403		hypothetical protein	PFAM:PF00278.28, PFAM:PF02784.22
+contig_175	cds	1512	2030	-	MFADOM_00404		hypothetical protein	PFAM:PF01757.29
+contig_176	cds	248	676	+	MFADOM_00405		hypothetical protein	
+contig_176	cds	679	1005	-	MFADOM_00406		hypothetical protein	
+contig_176	cds	1295	1939	+	MFADOM_00407		hypothetical protein	
+contig_177	cds	2	217	+	MFADOM_00408		hypothetical protein	
+contig_177	cds	303	824	+	MFADOM_00409		hypothetical protein	
+contig_177	cds	831	1325	+	MFADOM_00410		HD domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1G1GSR3
+contig_178	cds	208	966	+	MFADOM_00411		hypothetical protein	PFAM:PF00037.32, PFAM:PF12724.12, PFAM:PF12797.12, PFAM:PF12838.12, PFAM:PF13237.11, PFAM:PF14697.11
+contig_178	cds	972	1322	-	MFADOM_00412		hypothetical protein	
+contig_178	cds	1504	2175	+	MFADOM_00413		hypothetical protein	PFAM:PF00035.32
+contig_180	cds	377	1414	-	MFADOM_00414		hypothetical protein	PFAM:PF01170.24, PFAM:PF01555.25, PFAM:PF02926.22
+contig_180	cds	1444	2493	-	MFADOM_00415		hypothetical protein	PFAM:PF03703.20
+contig_180	cds	2622	2843	-	MFADOM_00416		hypothetical protein	PFAM:PF17862.7
+contig_181	cds	245	685	-	MFADOM_00417		hypothetical protein	
+contig_183	cds	125	265	+	MFADOM_00418		hypothetical protein	
+contig_183	cds	255	1631	+	MFADOM_00419		hypothetical protein	PFAM:PF00384.28
+contig_184	cds	337	1044	+	MFADOM_00420		hypothetical protein	PFAM:PF00702.32, PFAM:PF08282.18
+contig_184	cds	1204	1638	+	MFADOM_00421		hypothetical protein	
+contig_184	cds	1646	2833	-	MFADOM_00422		hypothetical protein	
+contig_184	cds	2850	3449	-	MFADOM_00423		hypothetical protein	
+contig_184	cds	3514	4284	-	MFADOM_00424		hypothetical protein	
+contig_184	cds	4285	4461	-	MFADOM_00425		hypothetical protein	
+contig_185	cds	24	368	+	MFADOM_00426		hypothetical protein	
+contig_185	cds	355	1092	-	MFADOM_00427		hypothetical protein	PFAM:PF02475.23, PFAM:PF05175.20, PFAM:PF25133.1
+contig_185	cds	1521	1796	-	MFADOM_00428		hypothetical protein	
+contig_186	cds	90	830	-	MFADOM_00429		hypothetical protein	
+contig_188	cds	1101	2402	+	MFADOM_00430		Phenylacetate-coenzyme A ligase	SO:0001217, UniRef:UniRef50_H6SJ73
+contig_188	cds	2413	2844	+	MFADOM_00431		hypothetical protein	PFAM:PF01842.31, PFAM:PF19571.5, PFAM:PF22629.2
+contig_188	cds	2863	3186	-	MFADOM_00432		hypothetical protein	
+contig_188	cds	3213	3491	-	MFADOM_00433		hypothetical protein	
+contig_188	cds	3549	4133	-	MFADOM_00434		hypothetical protein	PFAM:PF01558.24
+contig_188	cds	4136	4723	-	MFADOM_00435		hypothetical protein	PFAM:PF00037.32, PFAM:PF02775.26, PFAM:PF12797.12, PFAM:PF12837.12, PFAM:PF13237.11
+contig_189	cds	460	1608	+	MFADOM_00436	dnaJ	Chaperone protein DnaJ	SO:0001217, UniRef:UniRef50_C0ZB49
+contig_190	cds	52	873	+	MFADOM_00437		hypothetical protein	
+contig_190	cds	870	1388	-	MFADOM_00438		hypothetical protein	
+contig_190	cds	1490	2464	+	MFADOM_00439		hypothetical protein	
+contig_190	cds	2470	2727	+	MFADOM_00440		hypothetical protein	
+contig_190	cds	2722	2919	-	MFADOM_00441		hypothetical protein	PFAM:PF02223.23
+contig_191	cds	3	155	+	MFADOM_00442		hypothetical protein	
+contig_191	cds	173	1153	-	MFADOM_00443		hypothetical protein	
+contig_192	cds	128	496	-	MFADOM_00444		hypothetical protein	PFAM:PF13240.11
+contig_192	cds	503	1033	-	MFADOM_00445		hypothetical protein	PFAM:PF00881.29
+contig_192	cds	1038	1559	-	MFADOM_00446		[ribosomal protein uS5]-alanine N-acetyltransferase	SO:0001217, UniRef:UniRef50_D7GVB2
+contig_192	cds	1581	2552	+	MFADOM_00447		ADP-ribosylglycohydrolase	SO:0001217, UniRef:UniRef50_A0A1I2M4C7
+contig_193	cds	1082	2248	+	MFADOM_00448		hypothetical protein	
+contig_193	cds	2695	3171	+	MFADOM_00449		hypothetical protein	PFAM:PF01037.27, PFAM:PF13404.12, PFAM:PF13412.12
+contig_194	cds	841	2655	-	MFADOM_00450		hypothetical protein	
+contig_194	cds	2758	2934	-	MFADOM_00451		hypothetical protein	
+contig_194	cds	3017	3310	-	MFADOM_00452		hypothetical protein	
+contig_194	cds	3373	3504	-	MFADOM_00453		hypothetical protein	
+contig_194	cds	4163	4807	-	MFADOM_00454		hypothetical protein	PFAM:PF09373.15
+contig_194	cds	5193	9284	+	MFADOM_00455		hypothetical protein	
+contig_194	cds	9436	12669	-	MFADOM_00456		hypothetical protein	PFAM:PF13401.12, PFAM:PF24883.1
+contig_194	cds	12903	13307	-	MFADOM_00457		hypothetical protein	
+contig_194	cds	13957	14271	-	MFADOM_00458		hypothetical protein	
+contig_194	cds	14256	14522	-	MFADOM_00459		hypothetical protein	
+contig_194	cds	14649	18218	-	MFADOM_00460		hypothetical protein	
+contig_194	cds	18279	19127	-	MFADOM_00461		hypothetical protein	
+contig_195	cds	35	682	+	MFADOM_00462		hypothetical protein	
+contig_195	cds	712	1035	-	MFADOM_00463		hypothetical protein	
+contig_197	cds	91	231	+	MFADOM_00464		hypothetical protein	
+contig_197	cds	211	363	-	MFADOM_00465		hypothetical protein	
+contig_197	cds	514	1209	-	MFADOM_00466		hypothetical protein	
+contig_197	cds	1235	2263	-	MFADOM_00467		hypothetical protein	PFAM:PF00006.31, PFAM:PF22919.1
+contig_198	cds	15	839	-	MFADOM_00468		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12798.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13484.11, PFAM:PF13534.11, PFAM:PF14697.11
+contig_198	cds	907	1218	-	MFADOM_00469		hypothetical protein	PFAM:PF00294.29
+contig_199	cds	57	830	+	MFADOM_00470		hypothetical protein	PFAM:PF01163.29
+contig_199	cds	820	1719	-	MFADOM_00471		hypothetical protein	PFAM:PF00892.27
+contig_199	cds	1857	2480	+	MFADOM_00472		hypothetical protein	PFAM:PF00013.35, PFAM:PF21800.4, PFAM:PF22891.2
+contig_200	cds	8	226	+	MFADOM_00473		DUF4143 domain-containing protein	SO:0001217, UniRef:UniRef50_G6C3M5
+contig_200	cds	534	1484	-	MFADOM_00474		choloylglycine hydrolase	SO:0001217, UniRef:UniRef50_Q5DWB7
+contig_200	cds	1575	2333	-	MFADOM_00475		hypothetical protein	PFAM:PF00155.27, PFAM:PF00266.25, PFAM:PF00282.25
+contig_201	cds	1018	1206	-	MFADOM_00476		hypothetical protein	
+contig_201	cds	1243	1425	-	MFADOM_00477		hypothetical protein	
+contig_202	cds	1553	1948	-	MFADOM_00478		hypothetical protein	PFAM:PF01061.29
+contig_203	cds	71	586	+	MFADOM_00479		hypothetical protein	
+contig_203	cds	588	917	+	MFADOM_00480		hypothetical protein	PFAM:PF02311.25, PFAM:PF07883.17
+contig_203	cds	996	1814	-	MFADOM_00481		hypothetical protein	PFAM:PF00398.26, PFAM:PF05175.20, PFAM:PF08241.18, PFAM:PF08242.18, PFAM:PF13489.12, PFAM:PF13649.12, PFAM:PF13847.12
+contig_203	cds	1843	2922	-	MFADOM_00482		hypothetical protein	PFAM:PF07719.23, PFAM:PF09976.15, PFAM:PF10300.15, PFAM:PF13174.12, PFAM:PF13181.12, PFAM:PF13428.12, PFAM:PF14559.12
+contig_203	cds	2938	3138	-	MFADOM_00483		hypothetical protein	
+contig_204	cds	1422	2999	-	MFADOM_00484		hypothetical protein	
+contig_204	cds	3025	3876	-	MFADOM_00485		hypothetical protein	
+contig_205	cds	79	453	+	MFADOM_00486		hypothetical protein	PFAM:PF01729.25
+contig_205	cds	457	1119	+	MFADOM_00487		hypothetical protein	PFAM:PF00398.26, PFAM:PF00891.24, PFAM:PF05175.20, PFAM:PF08241.18, PFAM:PF08242.18, PFAM:PF13489.12, PFAM:PF13649.12, PFAM:PF13847.12
+contig_205	cds	1193	2275	+	MFADOM_00488		Carbamoyl phosphate synthase small chain	SO:0001217, UniRef:UniRef50_Q1MPN3
+contig_207	cds	13	168	+	MFADOM_00489		hypothetical protein	
+contig_207	cds	170	430	-	MFADOM_00490		hypothetical protein	
+contig_207	cds	431	838	-	MFADOM_00491		hypothetical protein	
+contig_208	cds	76	438	-	MFADOM_00492		hypothetical protein	
+contig_208	cds	1300	2661	-	MFADOM_00493		hypothetical protein	
+contig_209	cds	35	1195	+	MFADOM_00494		hypothetical protein	
+contig_209	cds	1265	1870	-	MFADOM_00495		hypothetical protein	PFAM:PF00156.33
+contig_209	cds	1880	2836	-	MFADOM_00496		hypothetical protein	PFAM:PF01408.29, PFAM:PF02894.22, PFAM:PF03446.21, PFAM:PF03447.22, PFAM:PF22725.1
+contig_209	cds	2851	3720	-	MFADOM_00497		hypothetical protein	PFAM:PF01379.25, PFAM:PF03900.20
+contig_209	cds	3864	5279	-	MFADOM_00498		hypothetical protein	PFAM:PF08245.18
+contig_209	cds	5279	7117	-	MFADOM_00499		hypothetical protein	PFAM:PF01513.26, PFAM:PF20143.4
+contig_209	cds	7121	7582	-	MFADOM_00500		hypothetical protein	
+contig_209	cds	7756	8145	+	MFADOM_00501		hypothetical protein	PFAM:PF01287.26, PFAM:PF21485.3
+contig_209	cds	8173	9048	+	MFADOM_00502		hypothetical protein	PFAM:PF00491.26
+contig_210	cds	10	387	+	MFADOM_00503		hypothetical protein	PFAM:PF03725.20
+contig_210	cds	384	998	-	MFADOM_00504		hypothetical protein	PFAM:PF12804.13
+contig_210	cds	1010	1765	-	MFADOM_00505		hypothetical protein	
+contig_210	cds	1787	2113	-	MFADOM_00506		hypothetical protein	
+contig_211	cds	66	287	+	MFADOM_00507		hypothetical protein	
+contig_211	cds	476	790	+	MFADOM_00508		hypothetical protein	
+contig_211	cds	890	1372	+	MFADOM_00509		hypothetical protein	
+contig_212	cds	74	970	-	MFADOM_00510		hypothetical protein	PFAM:PF00013.35, PFAM:PF14382.12, PFAM:PF15985.11, PFAM:PF21262.3, PFAM:PF21266.3, PFAM:PF22625.2
+contig_213	tRNA	25	98	-	MFADOM_00511	trnG	tRNA-Gly(gcc)	SO:0000260
+contig_213	cds	154	1581	-	MFADOM_00512		hypothetical protein	
+contig_213	cds	1631	2023	-	MFADOM_00513		hypothetical protein	
+contig_214	cds	817	1410	-	MFADOM_00514		hypothetical protein	PFAM:PF02369.22, PFAM:PF17789.7
+contig_215	cds	158	1069	-	MFADOM_00515		hypothetical protein	PFAM:PF00702.32, PFAM:PF08282.18
+contig_216	cds	114	1538	-	MFADOM_00516		hypothetical protein	
+contig_217	cds	262	519	+	MFADOM_00517		hypothetical protein	
+contig_217	cds	779	1096	-	MFADOM_00518		hypothetical protein	
+contig_217	cds	1093	2247	-	MFADOM_00519		hypothetical protein	
+contig_217	cds	2259	2885	-	MFADOM_00520		hypothetical protein	
+contig_218	cds	30	536	+	MFADOM_00521		ABC transporter permease	SO:0001217, UniRef:UniRef50_A0A353GTS5
+contig_218	cds	557	1393	+	MFADOM_00522	ycjP	Inner membrane ABC transporter permease protein ycjP	RefSeq:WP_008705227.1, SO:0001217, UniParc:UPI0001AFDE91, UniRef:UniRef100_UPI0001AFDE91, UniRef:UniRef50_A0A0J9CAU9, UniRef:UniRef90_A0A174S8V0
+contig_219	cds	10	579	+	MFADOM_00523		hypothetical protein	PFAM:PF09239.17
+contig_219	cds	922	1200	-	MFADOM_00524		hypothetical protein	
+contig_220	cds	1022	3301	-	MFADOM_00525		hypothetical protein	PFAM:PF22912.2, PFAM:PF24844.1, PFAM:PF24846.1
+contig_221	cds	19	399	+	MFADOM_00526		hypothetical protein	
+contig_221	cds	413	916	+	MFADOM_00527		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13237.11, PFAM:PF13247.11
+contig_221	cds	930	1175	+	MFADOM_00528		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12837.12, PFAM:PF12838.12
+contig_221	cds	1307	1612	-	MFADOM_00529		hypothetical protein	
+contig_222	cds	511	861	-	MFADOM_00530		hypothetical protein	PFAM:PF19026.7
+contig_223	cds	509	742	+	MFADOM_00531		hypothetical protein	
+contig_224	cds	339	569	-	MFADOM_00532		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13484.11, PFAM:PF14697.11
+contig_224	cds	578	1387	-	MFADOM_00533		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12798.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13484.11, PFAM:PF13534.11, PFAM:PF14697.11
+contig_225	cds	13	240	+	MFADOM_00534		hypothetical protein	PFAM:PF00701.28
+contig_225	cds	254	1075	+	MFADOM_00535		4-hydroxy-tetrahydrodipicolinate reductase	SO:0001217, UniRef:UniRef50_Q6AR64
+contig_226	cds	383	808	-	MFADOM_00536		hypothetical protein	PFAM:PF00164.32
+contig_226	cds	1141	1359	-	MFADOM_00537		hypothetical protein	
+contig_227	cds	345	674	+	MFADOM_00538		hypothetical protein	
+contig_228	cds	272	739	-	MFADOM_00539		hypothetical protein	
+contig_229	cds	184	1680	-	MFADOM_00540		hypothetical protein	PFAM:PF00037.32, PFAM:PF00478.31, PFAM:PF01070.24, PFAM:PF01645.23, PFAM:PF03060.21, PFAM:PF04898.20, PFAM:PF12838.12
+contig_229	cds	1700	2011	-	MFADOM_00541		hypothetical protein	
+contig_230	cds	17	1612	+	MFADOM_00542		Acetolactate synthase	SO:0001217, UniRef:UniRef50_A0A2V7PZS0
+contig_230	cds	1622	2113	+	MFADOM_00543		Acetolactate synthase small subunit	SO:0001217, UniRef:UniRef50_A0A7X8APS6
+contig_231	cds	11	562	+	MFADOM_00544		hypothetical protein	PFAM:PF00037.32, PFAM:PF12837.12, PFAM:PF13237.11
+contig_231	cds	587	1060	-	MFADOM_00545		hypothetical protein	
+contig_232	cds	125	556	-	MFADOM_00546		hypothetical protein	PFAM:PF13240.11
+contig_232	cds	605	1027	-	MFADOM_00547		hypothetical protein	
+contig_232	cds	1056	1652	-	MFADOM_00548		hypothetical protein	
+contig_233	cds	131	2737	+	MFADOM_00549		hypothetical protein	PFAM:PF02663.19
+contig_233	cds	2810	3295	+	MFADOM_00550		hypothetical protein	
+contig_234	cds	16	966	+	MFADOM_00551		hypothetical protein	
+contig_235	cds	20	802	+	MFADOM_00552		hypothetical protein	PFAM:PF00206.25, PFAM:PF14698.11
+contig_235	cds	799	1020	-	MFADOM_00553		hypothetical protein	
+contig_237	cds	750	2315	-	MFADOM_00554		fimbrillin family protein	SO:0001217, UniRef:UniRef50_UPI00195C9BA8
+contig_238	cds	261	467	-	MFADOM_00555		hypothetical protein	
+contig_238	cds	617	1084	-	MFADOM_00556		hypothetical protein	
+contig_239	cds	3175	3435	-	MFADOM_00557		hypothetical protein	
+contig_240	cds	949	1284	-	MFADOM_00558		hypothetical protein	PFAM:PF00294.29
+contig_241	cds	511	1107	-	MFADOM_00559		hypothetical protein	
+contig_241	cds	1160	1354	-	MFADOM_00560		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13237.11
+contig_241	cds	1378	2622	-	MFADOM_00561		hypothetical protein	PFAM:PF00113.28, PFAM:PF03952.21, PFAM:PF13378.12
+contig_241	cds	2762	2944	-	MFADOM_00562		hypothetical protein	
+contig_241	cds	3029	3199	-	MFADOM_00563		hypothetical protein	PFAM:PF01194.22
+contig_241	cds	3251	3652	-	MFADOM_00564		hypothetical protein	
+contig_241	cds	3671	4093	-	MFADOM_00565		hypothetical protein	
+contig_241	cds	4112	4477	-	MFADOM_00566		hypothetical protein	PFAM:PF00828.25
+contig_241	cds	4477	5301	-	MFADOM_00567		hypothetical protein	PFAM:PF01000.31, PFAM:PF01193.29
+contig_242	cds	373	1452	+	MFADOM_00568		hypothetical protein	
+contig_244	cds	259	783	-	MFADOM_00569		hypothetical protein	PFAM:PF09869.16, PFAM:PF23100.1
+contig_244	cds	780	1046	-	MFADOM_00570		hypothetical protein	
+contig_244	cds	1314	1406	-	MFADOM_00571		hypothetical protein	
+contig_245	cds	861	1061	+	MFADOM_00572		hypothetical protein	
+contig_246	cds	86	1000	-	MFADOM_00573		hypothetical protein	PFAM:PF01916.23
+contig_246	cds	1022	1924	-	MFADOM_00574		hypothetical protein	PFAM:PF00571.33, PFAM:PF02082.26, PFAM:PF03444.21, PFAM:PF08279.18
+contig_246	cds	2110	3414	-	MFADOM_00575		UDP-glucose 6-dehydrogenase	SO:0001217, UniRef:UniRef50_A0A4U8UEP1
+contig_247	cds	1395	1679	-	MFADOM_00576		hypothetical protein	
+contig_248	cds	257	1693	+	MFADOM_00577		hypothetical protein	PFAM:PF02875.26, PFAM:PF08245.18
+contig_249	cds	254	895	+	MFADOM_00578		hypothetical protein	PFAM:PF01041.23
+contig_249	cds	879	1367	-	MFADOM_00579		hypothetical protein	PFAM:PF08617.15
+contig_249	cds	1377	2963	-	MFADOM_00580		hypothetical protein	PFAM:PF00682.25, PFAM:PF08502.15, PFAM:PF22617.1
+contig_250	cds	221	469	+	MFADOM_00581		hypothetical protein	
+contig_250	cds	814	1017	-	MFADOM_00582		hypothetical protein	
+contig_251	cds	1421	2620	+	MFADOM_00583		hypothetical protein	PFAM:PF00037.32, PFAM:PF00732.25, PFAM:PF01266.30, PFAM:PF05199.19, PFAM:PF07992.20, PFAM:PF13450.12
+contig_251	cds	2649	3128	-	MFADOM_00584		hypothetical protein	PFAM:PF01948.23, PFAM:PF02748.20
+contig_251	cds	3132	3626	-	MFADOM_00585		hypothetical protein	PFAM:PF00258.30, PFAM:PF03358.20, PFAM:PF12682.12, PFAM:PF12724.12
+contig_251	cds	3678	3893	-	MFADOM_00586		Asd/ArgC dimerization domain-containing protein	SO:0001217, UniRef:UniRef50_A0AAU3HU30
+contig_252	cds	652	1629	-	MFADOM_00587		Adenosylhomocysteinase	SO:0001217, UniRef:UniRef50_A0A938B765
+contig_253	cds	688	1224	-	MFADOM_00588		hypothetical protein	
+contig_253	cds	1217	1945	-	MFADOM_00589		hypothetical protein	
+contig_253	cds	1947	2294	-	MFADOM_00590		hypothetical protein	PFAM:PF01381.28, PFAM:PF12844.13, PFAM:PF13443.12, PFAM:PF13560.12
+contig_253	cds	2829	4115	-	MFADOM_00591		hypothetical protein	PFAM:PF13635.12
+contig_253	cds	4334	4996	-	MFADOM_00592		hypothetical protein	
+contig_253	cds	5729	6628	-	MFADOM_00593		hypothetical protein	PFAM:PF00643.29
+contig_253	cds	6653	7138	-	MFADOM_00594		hypothetical protein	
+contig_254	cds	117	317	-	MFADOM_00595		hypothetical protein	
+contig_254	cds	447	1298	-	MFADOM_00596		UTP--glucose-1-phosphate uridylyltransferase	SO:0001217, UniRef:UniRef50_Q05852
+contig_254	cds	1377	1682	-	MFADOM_00597		hypothetical protein	PFAM:PF02594.21
+contig_254	tRNA	1714	1797	-	MFADOM_00598	trnL	tRNA-Leu(gag)	SO:0000264
+contig_254	cds	1904	4429	-	MFADOM_00599		hypothetical protein	PFAM:PF00535.33
+contig_254	cds	4631	5119	+	MFADOM_00600		hypothetical protein	
+contig_254	cds	5136	5948	-	MFADOM_00601		hypothetical protein	PFAM:PF00132.30
+contig_254	cds	5963	6568	-	MFADOM_00602		Methyltransferase type 11 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1W9MVY9
+contig_254	cds	6681	6881	-	MFADOM_00603		hypothetical protein	
+contig_254	cds	6909	7100	-	MFADOM_00604		hypothetical protein	
+contig_255	cds	621	782	-	MFADOM_00605		hypothetical protein	
+contig_255	cds	852	1319	-	MFADOM_00606		Cyclic pyranopterin monophosphate synthase	SO:0001217, UniRef:UniRef50_A0A5E6M517
+contig_255	cds	1330	2544	-	MFADOM_00607		hypothetical protein	PFAM:PF21238.2, PFAM:PF22023.1
+contig_255	cds	2541	3041	-	MFADOM_00608		hypothetical protein	PFAM:PF02978.25
+contig_256	cds	235	387	+	MFADOM_00609		hypothetical protein	
+contig_257	cds	108	413	+	MFADOM_00610		Aspartate-semialdehyde dehydrogenase	SO:0001217, UniRef:UniRef50_A0A0G1WS09
+contig_258	cds	291	674	+	MFADOM_00611		hypothetical protein	
+contig_258	cds	747	1013	+	MFADOM_00612		hypothetical protein	
+contig_260	cds	111	833	+	MFADOM_00613		NAD-dependent protein deacetylase	SO:0001217, UniRef:UniRef50_Q97MB4
+contig_260	cds	950	1678	-	MFADOM_00614		Sugar fermentation stimulation -like protein	SO:0001217, UniRef:UniRef50_Q97MP8
+contig_261	cds	312	1229	-	MFADOM_00615		hypothetical protein	PFAM:PF00310.26, PFAM:PF13522.11, PFAM:PF13537.11
+contig_261	cds	1217	1636	-	MFADOM_00616		hypothetical protein	PFAM:PF01174.25
+contig_262	cds	372	731	-	MFADOM_00617		hypothetical protein	
+contig_263	cds	2	205	+	MFADOM_00618		hypothetical protein	
+contig_263	cds	1071	2063	+	MFADOM_00619		hypothetical protein	PFAM:PF01450.25, PFAM:PF02826.25, PFAM:PF03446.21
+contig_263	cds	2129	3133	+	MFADOM_00620		hypothetical protein	
+contig_263	cds	3134	3331	-	MFADOM_00621		hypothetical protein	PFAM:PF01423.28, PFAM:PF02237.23
+contig_263	cds	3442	3585	+	MFADOM_00622		hypothetical protein	
+contig_263	cds	3587	4363	-	MFADOM_00623		hypothetical protein	PFAM:PF01975.23
+contig_263	cds	4485	5393	+	MFADOM_00624		hypothetical protein	PFAM:PF22722.2
+contig_263	cds	5374	6471	-	MFADOM_00625		hypothetical protein	
+contig_263	cds	6477	7271	-	MFADOM_00626		hypothetical protein	PFAM:PF07685.20
+contig_263	cds	7396	7566	+	MFADOM_00627		hypothetical protein	
+contig_264	cds	1049	1837	-	MFADOM_00628		Formate/nitrite transporter family protein	SO:0001217, UniRef:UniRef50_A0A7V9KEM3
+contig_264	cds	2404	2703	-	MFADOM_00629		hypothetical protein	
+contig_264	cds	2833	3339	+	MFADOM_00630		hypothetical protein	
+contig_264	cds	3411	3989	-	MFADOM_00631		hypothetical protein	PFAM:PF01258.23, PFAM:PF02663.19
+contig_264	cds	3999	4304	-	MFADOM_00632		ABC transporter ATP-binding protein	SO:0001217, UniRef:UniRef50_UPI002C0A84B9
+contig_265	cds	380	559	+	MFADOM_00633		hypothetical protein	
+contig_265	cds	1003	1455	-	MFADOM_00634		hypothetical protein	
+contig_266	cds	111	365	+	MFADOM_00635		hypothetical protein	
+contig_266	cds	1202	1912	-	MFADOM_00636		uroporphyrinogen-III C-methyltransferase	SO:0001217, UniRef:UniRef50_A0A972SI56
+contig_266	cds	1922	2566	-	MFADOM_00637	purQ	Phosphoribosylformylglycinamidine synthase subunit PurQ	SO:0001217, UniRef:UniRef50_Q7NL01
+contig_266	cds	2579	2845	-	MFADOM_00638		hypothetical protein	
+contig_267	cds	52	618	+	MFADOM_00639		hypothetical protein	
+contig_268	cds	224	601	-	MFADOM_00640		hypothetical protein	
+contig_268	cds	706	1635	+	MFADOM_00641		hypothetical protein	PFAM:PF04321.23, PFAM:PF13460.12, PFAM:PF16363.11
+contig_268	cds	1647	2021	-	MFADOM_00642		hypothetical protein	
+contig_268	cds	2257	2808	+	MFADOM_00643		hypothetical protein	PFAM:PF01381.28, PFAM:PF07883.17, PFAM:PF12844.13
+contig_269	cds	254	1150	-	MFADOM_00644		hypothetical protein	PFAM:PF00156.33, PFAM:PF13793.12, PFAM:PF14572.12
+contig_270	cds	98	439	+	MFADOM_00645		hypothetical protein	
+contig_271	cds	182	2008	+	MFADOM_00646		hypothetical protein	PFAM:PF00587.30, PFAM:PF03129.25, PFAM:PF08915.16
+contig_272	cds	467	733	-	MFADOM_00647		hypothetical protein	
+contig_272	cds	726	1298	-	MFADOM_00648		hypothetical protein	PFAM:PF00117.34, PFAM:PF07722.19
+contig_273	cds	83	343	-	MFADOM_00649		hypothetical protein	
+contig_273	cds	355	1359	+	MFADOM_00650		hypothetical protein	
+contig_273	cds	1428	2000	+	MFADOM_00651		hypothetical protein	PFAM:PF10447.15, PFAM:PF14382.12
+contig_273	cds	2012	2302	+	MFADOM_00652		hypothetical protein	PFAM:PF01193.29, PFAM:PF13656.11
+contig_274	cds	96	1148	+	MFADOM_00653		Carbamoyl phosphate synthase large subunit	SO:0001217, UniRef:UniRef50_A0A534SIF7
+contig_274	cds	1151	1909	-	MFADOM_00654		hypothetical protein	
+contig_274	cds	1952	3109	+	MFADOM_00655		hypothetical protein	PFAM:PF01979.26
+contig_274	cds	3152	3577	+	MFADOM_00656		hypothetical protein	PFAM:PF00582.32
+contig_274	cds	3633	4472	+	MFADOM_00657		hypothetical protein	PFAM:PF00571.33
+contig_274	cds	4484	4948	+	MFADOM_00658		hypothetical protein	
+contig_274	cds	4951	5961	-	MFADOM_00659		hypothetical protein	PFAM:PF02540.23, PFAM:PF06508.19
+contig_274	cds	5958	6248	-	MFADOM_00660		hypothetical protein	
+contig_275	cds	312	491	+	MFADOM_00661		hypothetical protein	
+contig_275	cds	725	1195	+	MFADOM_00662		hypothetical protein	
+contig_275	cds	1195	1677	+	MFADOM_00663		hypothetical protein	PFAM:PF00298.24, PFAM:PF03946.19
+contig_276	cds	15	890	+	MFADOM_00664		hypothetical protein	PFAM:PF02558.23, PFAM:PF08546.17
+contig_276	cds	887	1222	-	MFADOM_00665		hypothetical protein	
+contig_277	cds	204	887	-	MFADOM_00666		hypothetical protein	PFAM:PF12705.13
+contig_277	cds	1381	1686	-	MFADOM_00667		hypothetical protein	
+contig_278	cds	75	320	-	MFADOM_00668		hypothetical protein	
+contig_278	cds	990	1205	-	MFADOM_00669		hypothetical protein	
+contig_278	cds	1476	1664	-	MFADOM_00670		hypothetical protein	
+contig_279	cds	95	475	+	MFADOM_00671		hypothetical protein	PFAM:PF08544.19
+contig_279	cds	472	1278	+	MFADOM_00672		hypothetical protein	
+contig_279	cds	1330	1509	-	MFADOM_00673		hypothetical protein	
+contig_280	cds	277	1047	-	MFADOM_00674		Peptidase family U32	SO:0001217, UniRef:UniRef50_A0A1H9E331
+contig_283	cds	123	1679	-	MFADOM_00675		hypothetical protein	
+contig_284	cds	2575	2727	-	MFADOM_00676		hypothetical protein	
+contig_285	cds	106	363	+	MFADOM_00677		hypothetical protein	
+contig_286	cds	121	336	+	MFADOM_00678		hypothetical protein	
+contig_286	cds	722	1330	+	MFADOM_00679		hypothetical protein	PFAM:PF13240.11
+contig_286	cds	1432	1698	-	MFADOM_00680		hypothetical protein	
+contig_287	cds	184	1692	+	MFADOM_00681		hypothetical protein	PFAM:PF17788.7, PFAM:PF22521.2
+contig_287	cds	1732	2316	-	MFADOM_00682		hypothetical protein	PFAM:PF01022.26
+contig_287	cds	2557	3117	+	MFADOM_00683		hypothetical protein	
+contig_288	cds	69	272	-	MFADOM_00684		hypothetical protein	PFAM:PF02597.26
+contig_288	cds	277	1194	-	MFADOM_00685		hypothetical protein	PFAM:PF03054.22, PFAM:PF22082.2
+contig_288	cds	1203	2360	-	MFADOM_00686		hypothetical protein	
+contig_288	cds	2374	3231	-	MFADOM_00687		hypothetical protein	PFAM:PF00004.35, PFAM:PF00158.32, PFAM:PF05496.18, PFAM:PF07724.20, PFAM:PF07726.17, PFAM:PF07728.20
+contig_288	cds	3305	4909	-	MFADOM_00688		hypothetical protein	PFAM:PF00809.28, PFAM:PF14251.12
+contig_289	cds	28	471	+	MFADOM_00689		hypothetical protein	PFAM:PF00958.27
+contig_289	cds	559	1734	+	MFADOM_00690		hypothetical protein	
+contig_290	cds	907	1284	+	MFADOM_00691		hypothetical protein	
+contig_290	cds	1340	2299	+	MFADOM_00692		hypothetical protein	PFAM:PF01435.24, PFAM:PF13202.12
+contig_291	cds	221	427	+	MFADOM_00693		hypothetical protein	
+contig_291	cds	627	1637	+	MFADOM_00694		hypothetical protein	PFAM:PF02369.22, PFAM:PF17789.7
+contig_291	cds	1722	1856	-	MFADOM_00695		hypothetical protein	
+contig_292	cds	32	1048	+	MFADOM_00696		ABC-type glycine betaine transport system substrate-binding domain-containing protein	SO:0001217, UniRef:UniRef50_R9JYJ4
+contig_292	cds	1058	1807	+	MFADOM_00697		Carnitine transport ATP-binding protein OpuCA	SO:0001217, UniRef:UniRef50_A0A6N3ET10
+contig_292	cds	1996	2478	+	MFADOM_00698		hypothetical protein	PFAM:PF00252.24
+contig_292	cds	3543	3839	-	MFADOM_00699		hypothetical protein	
+contig_293	cds	19	291	+	MFADOM_00700		hypothetical protein	
+contig_293	cds	499	1551	+	MFADOM_00701		Phosphatidylglycerol lysyltransferase	SO:0001217, UniRef:UniRef50_A0A3B9Z9H3
+contig_294	cds	580	2331	-	MFADOM_00702		hypothetical protein	PFAM:PF00633.29, PFAM:PF01541.30, PFAM:PF08459.17, PFAM:PF12826.13, PFAM:PF14520.12, PFAM:PF22920.2
+contig_294	cds	2341	2685	-	MFADOM_00703		hypothetical protein	
+contig_295	cds	1421	1807	+	MFADOM_00704		hypothetical protein	
+contig_295	cds	1824	2543	-	MFADOM_00705		hypothetical protein	PFAM:PF08241.18, PFAM:PF08242.18, PFAM:PF13489.12, PFAM:PF13649.12, PFAM:PF13847.12
+contig_295	cds	2724	3767	+	MFADOM_00706		hypothetical protein	PFAM:PF04991.19
+contig_295	cds	4223	4384	-	MFADOM_00707		hypothetical protein	
+contig_297	cds	29	472	+	MFADOM_00708		hypothetical protein	PFAM:PF02463.25
+contig_297	cds	516	917	-	MFADOM_00709		hypothetical protein	
+contig_299	cds	115	540	+	MFADOM_00710		hypothetical protein	
+contig_299	cds	562	1698	+	MFADOM_00711		hypothetical protein	PFAM:PF00515.34, PFAM:PF01239.28, PFAM:PF03704.23, PFAM:PF04266.20, PFAM:PF07719.23, PFAM:PF12895.13, PFAM:PF13174.12, PFAM:PF13176.12, PFAM:PF13181.12, PFAM:PF13371.12, PFAM:PF13374.12, PFAM:PF13414.12, PFAM:PF13424.12, PFAM:PF13428.12, PFAM:PF13431.12, PFAM:PF13432.12, PFAM:PF14559.12, PFAM:PF14853.12, PFAM:PF25064.1
+contig_300	cds	71	1276	+	MFADOM_00712		hypothetical protein	PFAM:PF13635.12
+contig_300	cds	1395	1793	+	MFADOM_00713		Transcriptional regulator	SO:0001217, UniRef:UniRef50_A0A0N0RFQ3
+contig_301	cds	275	1291	+	MFADOM_00714		hypothetical protein	PFAM:PF01113.26, PFAM:PF02800.25, PFAM:PF02826.25
+contig_302	cds	360	1133	-	MFADOM_00715		hypothetical protein	
+contig_302	cds	1141	1308	-	MFADOM_00716		hypothetical protein	
+contig_303	cds	13	639	+	MFADOM_00717		hypothetical protein	
+contig_303	cds	653	1681	-	MFADOM_00718		hypothetical protein	
+contig_303	cds	1709	2728	-	MFADOM_00719		hypothetical protein	PFAM:PF00586.29, PFAM:PF02769.27
+contig_303	cds	2819	3313	-	MFADOM_00720		hypothetical protein	PFAM:PF07521.17, PFAM:PF10996.14
+contig_304	cds	1032	3851	-	MFADOM_00721		hypothetical protein	
+contig_305	cds	53	601	+	MFADOM_00722		hypothetical protein	
+contig_305	cds	631	1044	-	MFADOM_00723		hypothetical protein	
+contig_306	tRNA	414	487	+	MFADOM_00724	trnR	tRNA-Arg(tct)	SO:0001036
+contig_306	tRNA	549	622	+	MFADOM_00725	trnR	tRNA-Arg(cct)	SO:0001036
+contig_306	cds	726	1082	+	MFADOM_00726		HTH arsR-type domain-containing protein	SO:0001217, UniRef:UniRef50_S0KAY9
+contig_307	cds	11	361	+	MFADOM_00727		hypothetical protein	PFAM:PF04023.20
+contig_307	cds	453	968	+	MFADOM_00728		hypothetical protein	PFAM:PF01974.23, PFAM:PF02778.19
+contig_308	cds	868	1113	-	MFADOM_00729		hypothetical protein	
+contig_308	cds	1126	1332	-	MFADOM_00730		hypothetical protein	
+contig_308	cds	1345	1578	-	MFADOM_00731		hypothetical protein	
+contig_309	cds	285	1736	+	MFADOM_00732		RNA-binding transcriptional accessory protein	SO:0001217, UniRef:UniRef50_A0A355BJK7
+contig_309	cds	1865	2791	-	MFADOM_00733		Undecaprenyl-phosphate 4-deoxy-4-formamido-L-arabinose transferase	SO:0001217, UniRef:UniRef50_A0A448P2L1
+contig_309	cds	3324	4634	+	MFADOM_00734		hypothetical protein	
+contig_309	cds	4749	5177	+	MFADOM_00735		hypothetical protein	PFAM:PF04138.20
+contig_311	cds	364	1134	+	MFADOM_00736		Phosphosulfolactate synthase	SO:0001217, UniRef:UniRef50_A0A6N4A8N1
+contig_312	cds	68	484	+	MFADOM_00737		hypothetical protein	PFAM:PF02769.27
+contig_312	cds	497	1714	+	MFADOM_00738		hypothetical protein	PFAM:PF00994.29, PFAM:PF03454.20
+contig_312	cds	1731	2876	+	MFADOM_00739		hypothetical protein	
+contig_312	cds	3207	3605	-	MFADOM_00740		hypothetical protein	
+contig_312	cds	3746	3865	+	MFADOM_00741		hypothetical protein	
+contig_312	cds	3884	4297	-	MFADOM_00742		hypothetical protein	PFAM:PF00210.30, PFAM:PF02915.23
+contig_312	cds	4346	5572	-	MFADOM_00743		hypothetical protein	PFAM:PF00258.30, PFAM:PF00753.33, PFAM:PF19583.5
+contig_313	cds	47	538	+	MFADOM_00744		Phosphoglycerate mutase	SO:0001217, UniRef:UniRef50_A0A1E3X3W8
+contig_313	cds	693	950	-	MFADOM_00745		hypothetical protein	
+contig_314	cds	588	1298	-	MFADOM_00746		hypothetical protein	PFAM:PF00730.31
+contig_315	cds	544	1335	-	MFADOM_00747		hypothetical protein	PFAM:PF00535.33
+contig_316	cds	200	424	+	MFADOM_00748		hypothetical protein	PFAM:PF01775.22
+contig_316	cds	435	875	+	MFADOM_00749		hypothetical protein	PFAM:PF02996.22
+contig_316	cds	1216	1608	+	MFADOM_00750		hypothetical protein	
+contig_317	cds	14	427	+	MFADOM_00751		hypothetical protein	PFAM:PF02775.26
+contig_317	cds	439	1608	-	MFADOM_00752		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12838.12
+contig_318	cds	164	373	+	MFADOM_00753		hypothetical protein	
+contig_320	cds	993	2126	-	MFADOM_00754		hypothetical protein	
+contig_320	cds	2139	2372	-	MFADOM_00755		hypothetical protein	
+contig_321	cds	5	460	+	MFADOM_00756		hypothetical protein	
+contig_321	cds	467	1666	+	MFADOM_00757		hypothetical protein	
+contig_322	cds	25	675	+	MFADOM_00758		hypothetical protein	PFAM:PF01048.26
+contig_322	cds	734	1303	+	MFADOM_00759		hypothetical protein	PFAM:PF03358.20
+contig_322	cds	1305	1628	+	MFADOM_00760		hypothetical protein	
+contig_322	tRNA	2100	2172	+	MFADOM_00761	trnT	tRNA-Thr(cgt)	SO:0000270
+contig_323	cds	7	198	+	MFADOM_00762		hypothetical protein	
+contig_323	cds	292	942	+	MFADOM_00763		hypothetical protein	PFAM:PF00515.34, PFAM:PF07719.23, PFAM:PF13181.12, PFAM:PF13428.12, PFAM:PF13431.12, PFAM:PF14559.12
+contig_323	cds	887	976	+	MFADOM_00764		hypothetical protein	
+contig_323	cds	1188	1460	+	MFADOM_00765		hypothetical protein	
+contig_323	tRNA	1574	1647	+	MFADOM_00766	trnT	tRNA-Thr(tgt)	SO:0000270
+contig_323	tRNA	1783	1857	+	MFADOM_00767	trnP	tRNA-Pro(tgg)	SO:0000268
+contig_325	cds	21	416	+	MFADOM_00768		hypothetical protein	
+contig_326	cds	19	891	+	MFADOM_00769		Uracil permease	SO:0001217, UniRef:UniRef50_A0A061NPX2
+contig_326	cds	884	1510	+	MFADOM_00770		Uracil phosphoribosyltransferase	SO:0001217, UniRef:UniRef50_B8E009
+contig_326	cds	1577	2365	-	MFADOM_00771		hypothetical protein	
+contig_326	cds	2387	3742	-	MFADOM_00772		hypothetical protein	
+contig_326	cds	3908	4492	+	MFADOM_00773		dCTP deaminase, dUMP-forming	SO:0001217, UniRef:UniRef50_B8DYK8
+contig_327	cds	361	1677	-	MFADOM_00774		hypothetical protein	
+contig_327	cds	1797	2390	-	MFADOM_00775		Sarcosine/dimethylglycine N-methyltransferase	SO:0001217, UniRef:UniRef50_A0A174FVW0
+contig_328	cds	256	945	-	MFADOM_00776		hypothetical protein	
+contig_329	cds	266	451	+	MFADOM_00777		hypothetical protein	PFAM:PF04021.17
+contig_329	cds	444	1007	-	MFADOM_00778		hypothetical protein	
+contig_329	cds	980	1582	-	MFADOM_00779		hypothetical protein	
+contig_330	cds	57	479	+	MFADOM_00780		hypothetical protein	PFAM:PF00348.22
+contig_330	cds	744	2261	+	MFADOM_00781		hypothetical protein	
+contig_330	cds	2239	3024	-	MFADOM_00782		hypothetical protein	PFAM:PF01978.25
+contig_331	cds	256	552	+	MFADOM_00783		hypothetical protein	
+contig_331	cds	2310	2591	-	MFADOM_00784		hypothetical protein	
+contig_332	cds	115	354	+	MFADOM_00785		hypothetical protein	
+contig_333	cds	262	1389	-	MFADOM_00786		hypothetical protein	
+contig_333	cds	1408	1854	-	MFADOM_00787		hypothetical protein	PFAM:PF01058.29
+contig_333	cds	1865	2122	-	MFADOM_00788		hypothetical protein	
+contig_334	cds	58	879	+	MFADOM_00789		hypothetical protein	
+contig_334	cds	881	1585	+	MFADOM_00790		hypothetical protein	PFAM:PF00702.32, PFAM:PF08282.18
+contig_335	cds	41	334	+	MFADOM_00791		hypothetical protein	
+contig_335	cds	501	698	+	MFADOM_00792		hypothetical protein	
+contig_335	cds	695	955	+	MFADOM_00793		hypothetical protein	
+contig_335	cds	1116	1442	-	MFADOM_00794		hypothetical protein	
+contig_335	cds	1489	1863	-	MFADOM_00795		hypothetical protein	
+contig_335	cds	2165	2971	+	MFADOM_00796		hypothetical protein	
+contig_335	cds	3469	3648	+	MFADOM_00797		hypothetical protein	
+contig_335	cds	3776	4168	+	MFADOM_00798		hypothetical protein	
+contig_335	cds	4224	4499	+	MFADOM_00799		hypothetical protein	
+contig_335	cds	4558	4914	+	MFADOM_00800		hypothetical protein	
+contig_336	cds	115	1200	+	MFADOM_00801		hypothetical protein	
+contig_336	cds	1197	2276	+	MFADOM_00802		hypothetical protein	PFAM:PF08323.17, PFAM:PF13439.12, PFAM:PF13477.12, PFAM:PF13579.12, PFAM:PF13692.12
+contig_337	cds	344	499	+	MFADOM_00803		hypothetical protein	
+contig_337	cds	684	1607	+	MFADOM_00804		hypothetical protein	
+contig_337	cds	1611	2036	+	MFADOM_00805		hypothetical protein	
+contig_337	cds	2028	2780	-	MFADOM_00806		hypothetical protein	PFAM:PF01702.25
+contig_337	cds	2969	3994	+	MFADOM_00807		hypothetical protein	PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13534.11
+contig_338	cds	59	247	-	MFADOM_00808		hypothetical protein	
+contig_338	cds	437	712	-	MFADOM_00809		hypothetical protein	
+contig_338	cds	716	874	-	MFADOM_00810		hypothetical protein	
+contig_339	cds	757	909	-	MFADOM_00811		hypothetical protein	
+contig_340	cds	352	663	-	MFADOM_00812		hypothetical protein	
+contig_341	cds	219	1160	-	MFADOM_00813		hypothetical protein	PFAM:PF01381.28
+contig_342	cds	52	351	+	MFADOM_00814		hypothetical protein	
+contig_342	cds	362	829	+	MFADOM_00815		hypothetical protein	PFAM:PF12682.12
+contig_342	cds	835	1203	+	MFADOM_00816		hypothetical protein	
+contig_342	cds	1216	1623	+	MFADOM_00817		hypothetical protein	
+contig_342	cds	1626	2168	-	MFADOM_00818		hypothetical protein	PFAM:PF06973.17
+contig_343	cds	52	1071	+	MFADOM_00819		hypothetical protein	
+contig_344	cds	171	1880	-	MFADOM_00820		hypothetical protein	
+contig_346	cds	138	524	-	MFADOM_00821		hypothetical protein	
+contig_346	cds	566	1237	-	MFADOM_00822		hypothetical protein	PFAM:PF11987.13, PFAM:PF14578.12
+contig_347	cds	185	460	+	MFADOM_00823		hypothetical protein	
+contig_347	cds	530	1018	+	MFADOM_00824		hypothetical protein	
+contig_347	cds	1464	2384	+	MFADOM_00825		hypothetical protein	
+contig_348	cds	69	278	+	MFADOM_00826		hypothetical protein	
+contig_348	cds	718	1017	-	MFADOM_00827		hypothetical protein	
+contig_349	cds	6	233	+	MFADOM_00828		hypothetical protein	
+contig_349	cds	257	613	+	MFADOM_00829		hypothetical protein	
+contig_349	cds	619	1203	+	MFADOM_00830		hypothetical protein	
+contig_349	cds	1225	1380	+	MFADOM_00831		hypothetical protein	
+contig_349	cds	1393	1638	+	MFADOM_00832		hypothetical protein	
+contig_351	cds	99	368	+	MFADOM_00833		Aminotransferase class III-fold pyridoxal phosphate-dependent enzyme	SO:0001217, UniRef:UniRef50_A0A7X1LB55
+contig_351	cds	365	799	-	MFADOM_00834		hypothetical protein	PFAM:PF00293.34, PFAM:PF14815.12
+contig_354	cds	262	585	-	MFADOM_00835		UPF0145 protein	SO:0001217, UniRef:UniRef50_Q8VMY3
+contig_354	cds	595	786	-	MFADOM_00836		hypothetical protein	
+contig_354	cds	802	1056	-	MFADOM_00837		hypothetical protein	PFAM:PF01026.27
+contig_355	cds	63	284	+	MFADOM_00838		hypothetical protein	PFAM:PF02741.20
+contig_356	cds	69	260	+	MFADOM_00839		hypothetical protein	
+contig_356	cds	389	799	+	MFADOM_00840		hypothetical protein	
+contig_356	cds	842	1396	+	MFADOM_00841		hypothetical protein	
+contig_357	cds	47	508	+	MFADOM_00842		hypothetical protein	
+contig_357	cds	673	1173	-	MFADOM_00843		ABC transporter ATP-binding protein	SO:0001217, UniRef:UniRef50_A0A9D1YRB7
+contig_357	cds	1142	1618	-	MFADOM_00844		ABC transporter ATP-binding protein	SO:0001217, UniRef:UniRef50_A0A4Q3S670
+contig_357	cds	1899	2615	-	MFADOM_00845		hypothetical protein	
+contig_358	cds	551	997	-	MFADOM_00846		hypothetical protein	
+contig_359	cds	52	285	+	MFADOM_00847		hypothetical protein	PFAM:PF01191.24
+contig_360	cds	113	817	+	MFADOM_00848		hypothetical protein	PFAM:PF00155.27, PFAM:PF03841.19, PFAM:PF22583.2
+contig_360	cds	807	1724	-	MFADOM_00849		hypothetical protein	PFAM:PF02237.23, PFAM:PF03099.24
+contig_360	cds	1741	2373	-	MFADOM_00850		hypothetical protein	PFAM:PF02785.25, PFAM:PF02786.22
+contig_361	cds	434	1138	+	MFADOM_00851		hypothetical protein	PFAM:PF00590.25
+contig_362	cds	8	277	+	MFADOM_00852		hypothetical protein	
+contig_362	cds	461	2374	-	MFADOM_00853		hypothetical protein	PFAM:PF13175.12, PFAM:PF13304.12
+contig_362	cds	2418	2789	-	MFADOM_00854		hypothetical protein	
+contig_362	cds	2803	3399	-	MFADOM_00855		hypothetical protein	
+contig_362	cds	3459	3701	-	MFADOM_00856		hypothetical protein	
+contig_362	cds	3778	5238	-	MFADOM_00857		hypothetical protein	PFAM:PF13086.12, PFAM:PF13087.12, PFAM:PF13245.12, PFAM:PF13604.12
+contig_364	cds	585	1388	-	MFADOM_00858		hypothetical protein	
+contig_364	cds	1381	7026	-	MFADOM_00859		hypothetical protein	PFAM:PF01841.26, PFAM:PF02369.22, PFAM:PF13620.12, PFAM:PF16640.11, PFAM:PF17789.7
+contig_364	cds	7683	9032	+	MFADOM_00860		hypothetical protein	PFAM:PF08245.18, PFAM:PF08353.15
+contig_364	cds	9029	9760	+	MFADOM_00861	gatD	Lipid II isoglutaminyl synthase (glutamine-hydrolyzing) subunit GatD	SO:0001217, UniRef:UniRef50_D9TFB0
+contig_364	cds	9888	10622	+	MFADOM_00862		hypothetical protein	PFAM:PF00705.23, PFAM:PF02747.20
+contig_365	cds	522	1103	+	MFADOM_00863		hypothetical protein	
+contig_365	cds	1174	1806	-	MFADOM_00864	lemA	LemA family protein	SO:0001217, UniRef:UniRef50_F7UX26
+contig_366	cds	57	1079	+	MFADOM_00865		hypothetical protein	PFAM:PF13193.12
+contig_366	cds	1088	1327	+	MFADOM_00866		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12838.12, PFAM:PF13237.11
+contig_367	cds	1057	2136	+	MFADOM_00867		hypothetical protein	
+contig_368	cds	70	735	+	MFADOM_00868		hypothetical protein	PFAM:PF00133.28, PFAM:PF01406.26, PFAM:PF09190.17
+contig_368	cds	744	1268	-	MFADOM_00869		hypothetical protein	PFAM:PF02525.22, PFAM:PF03358.20
+contig_368	cds	1704	1862	-	MFADOM_00870		hypothetical protein	
+contig_368	cds	2412	2627	-	MFADOM_00871		hypothetical protein	
+contig_369	cds	5	1603	+	MFADOM_00872		hypothetical protein	
+contig_369	cds	1630	2088	-	MFADOM_00873		hypothetical protein	
+contig_369	cds	2098	3765	-	MFADOM_00874		hypothetical protein	PFAM:PF00749.27, PFAM:PF03950.23, PFAM:PF20974.2
+contig_369	cds	3896	4900	+	MFADOM_00875		hypothetical protein	PFAM:PF00515.34, PFAM:PF07719.23, PFAM:PF12895.13, PFAM:PF13174.12, PFAM:PF13176.12, PFAM:PF13181.12, PFAM:PF13374.12, PFAM:PF13424.12, PFAM:PF13428.12, PFAM:PF13431.12, PFAM:PF13432.12, PFAM:PF14559.12, PFAM:PF14853.12
+contig_370	cds	965	1222	-	MFADOM_00876		hypothetical protein	
+contig_371	cds	1034	1345	+	MFADOM_00877		hypothetical protein	
+contig_371	cds	1326	1649	+	MFADOM_00878		hypothetical protein	
+contig_372	cds	396	1346	+	MFADOM_00879		hypothetical protein	
+contig_372	cds	1564	2013	-	MFADOM_00880		hypothetical protein	
+contig_373	cds	13	468	-	MFADOM_00881		hypothetical protein	PFAM:PF00692.24, PFAM:PF22769.1
+contig_373	cds	536	724	+	MFADOM_00882		hypothetical protein	PFAM:PF01361.26
+contig_373	cds	739	1065	-	MFADOM_00883		hypothetical protein	
+contig_373	cds	1075	3945	-	MFADOM_00884		DEAD/DEAH box helicase	SO:0001217, UniRef:UniRef50_A0AAE4FGW0
+contig_373	cds	3951	4337	-	MFADOM_00885		8-oxo-dGTP diphosphatase	SO:0001217, UniRef:UniRef50_A0A1A7NV99
+contig_373	cds	4421	6265	-	MFADOM_00886		hypothetical protein	PFAM:PF04411.18, PFAM:PF09823.15
+contig_373	cds	6278	8062	-	MFADOM_00887		hypothetical protein	
+contig_373	cds	8539	8973	-	MFADOM_00888		hypothetical protein	
+contig_373	cds	9017	9370	-	MFADOM_00889		hypothetical protein	
+contig_374	cds	591	1307	+	MFADOM_00890		hypothetical protein	
+contig_376	cds	244	1338	+	MFADOM_00891		hypothetical protein	
+contig_376	cds	1478	1723	-	MFADOM_00892		hypothetical protein	
+contig_376	cds	1720	2286	-	MFADOM_00893		hypothetical protein	
+contig_376	cds	2346	2927	+	MFADOM_00894		hypothetical protein	
+contig_376	cds	2967	3671	+	MFADOM_00895		hypothetical protein	PFAM:PF05707.18, PFAM:PF06745.19, PFAM:PF08423.17, PFAM:PF13479.12, PFAM:PF13481.12
+contig_376	cds	3737	4924	+	MFADOM_00896		hypothetical protein	PFAM:PF00155.27, PFAM:PF00266.25
+contig_376	cds	4927	5682	+	MFADOM_00897		hypothetical protein	PFAM:PF00037.32
+contig_376	cds	5687	6064	+	MFADOM_00898		hypothetical protein	PFAM:PF08859.16
+contig_376	cds	6061	6570	-	MFADOM_00899		hypothetical protein	PFAM:PF00005.33
+contig_377	tRNA	898	969	-	MFADOM_00900	trnQ	tRNA-Gln(ttg)	SO:0000261
+contig_377	cds	1039	1401	-	MFADOM_00901		hypothetical protein	
+contig_377	cds	1470	1583	-	MFADOM_00902		hypothetical protein	
+contig_378	cds	28	1188	+	MFADOM_00903		Glycerol-3-phosphate cytidylyltransferase	SO:0001217, UniRef:UniRef50_A0A1C5XT86
+contig_378	cds	1217	2068	-	MFADOM_00904		hypothetical protein	PFAM:PF04991.19
+contig_378	cds	2264	2986	+	MFADOM_00905		hypothetical protein	PFAM:PF12804.13
+contig_378	cds	2983	4278	+	MFADOM_00906		phosphoenolpyruvate mutase	SO:0001217, UniRef:UniRef50_A0A414LVM4
+contig_378	cds	4292	5422	+	MFADOM_00907		hypothetical protein	PFAM:PF02775.26, PFAM:PF02776.23
+contig_378	cds	5432	6550	+	MFADOM_00908		hypothetical protein	PFAM:PF00465.25, PFAM:PF25137.1
+contig_378	cds	6577	7551	+	MFADOM_00909		hypothetical protein	
+contig_379	cds	12	575	+	MFADOM_00910		hypothetical protein	
+contig_379	cds	593	2218	-	MFADOM_00911		Cd(2+)-exporting ATPase	SO:0001217, UniRef:UniRef50_A0A3D1SFK1
+contig_380	cds	35	1015	+	MFADOM_00912		hypothetical protein	PFAM:PF00682.25, PFAM:PF08502.15, PFAM:PF22617.1
+contig_380	cds	1088	1366	+	MFADOM_00913		hypothetical protein	
+contig_380	cds	1389	2048	-	MFADOM_00914		hypothetical protein	PFAM:PF13263.12
+contig_380	cds	2050	3084	-	MFADOM_00915		hypothetical protein	
+contig_381	cds	1341	1466	-	MFADOM_00916		hypothetical protein	
+contig_382	cds	630	839	-	MFADOM_00917		hypothetical protein	
+contig_382	cds	864	1157	-	MFADOM_00918		hypothetical protein	
+contig_383	cds	26	1051	+	MFADOM_00919		hypothetical protein	
+contig_383	cds	1214	1693	+	MFADOM_00920		hypothetical protein	PFAM:PF01047.28, PFAM:PF01638.23, PFAM:PF13463.12, PFAM:PF13601.12, PFAM:PF22381.2
+contig_383	cds	1686	3071	+	MFADOM_00921		hypothetical protein	
+contig_385	cds	7	258	+	MFADOM_00922		hypothetical protein	
+contig_385	cds	261	848	-	MFADOM_00923		hypothetical protein	PFAM:PF07992.20
+contig_386	cds	2845	3051	+	MFADOM_00924		hypothetical protein	
+contig_387	cds	146	2926	-	MFADOM_00925		hypothetical protein	PFAM:PF02369.22, PFAM:PF05688.17, PFAM:PF09134.16, PFAM:PF13620.12, PFAM:PF16640.11, PFAM:PF17789.7, PFAM:PF24025.1
+contig_388	cds	525	1769	+	MFADOM_00926		hypothetical protein	PFAM:PF01979.26, PFAM:PF07969.17
+contig_388	cds	1815	2345	-	MFADOM_00927		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12798.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13183.11, PFAM:PF13237.11, PFAM:PF13484.11, PFAM:PF13534.11, PFAM:PF14697.11
+contig_389	cds	10	1035	+	MFADOM_00928		Dihydroxy-acid dehydratase	SO:0001217, UniRef:UniRef50_A0A2H5X8B3
+contig_390	cds	18	1058	+	MFADOM_00929		hypothetical protein	PFAM:PF01842.31, PFAM:PF02826.25, PFAM:PF19304.4
+contig_390	cds	1257	1385	-	MFADOM_00930		hypothetical protein	
+contig_390	cds	1620	1964	+	MFADOM_00931		hypothetical protein	
+contig_390	cds	2047	2757	-	MFADOM_00932		hypothetical protein	
+contig_390	cds	2768	2995	-	MFADOM_00933		hypothetical protein	
+contig_391	cds	408	962	-	MFADOM_00934		hypothetical protein	PFAM:PF04055.27
+contig_392	cds	84	314	+	MFADOM_00935	thiC	Thiamine biosynthesis protein ThiC	SO:0001217, UniRef:UniRef50_A0A971KV05
+contig_393	cds	608	1294	-	MFADOM_00936		hypothetical protein	
+contig_394	cds	132	1052	+	MFADOM_00937		hypothetical protein	PFAM:PF00398.26, PFAM:PF02475.23, PFAM:PF05175.20, PFAM:PF08241.18, PFAM:PF13649.12, PFAM:PF13847.12
+contig_394	cds	1059	1640	+	MFADOM_00938		hypothetical protein	PFAM:PF05175.20, PFAM:PF08241.18, PFAM:PF13489.12, PFAM:PF13649.12, PFAM:PF13847.12
+contig_395	cds	4	414	+	MFADOM_00939		hypothetical protein	
+contig_395	cds	419	859	+	MFADOM_00940		hypothetical protein	
+contig_396	cds	70	390	+	MFADOM_00941		hypothetical protein	PFAM:PF20979.2
+contig_396	cds	459	1229	-	MFADOM_00942		hypothetical protein	
+contig_396	cds	1243	2070	-	MFADOM_00943		hypothetical protein	
+contig_397	cds	453	1028	+	MFADOM_00944		hypothetical protein	PFAM:PF13420.13, PFAM:PF13508.13, PFAM:PF13673.13
+contig_398	cds	37	843	+	MFADOM_00945		hypothetical protein	
+contig_398	cds	840	1277	+	MFADOM_00946		hypothetical protein	
+contig_399	cds	60	1046	+	MFADOM_00947		hypothetical protein	
+contig_399	cds	1241	2257	+	MFADOM_00948		hypothetical protein	
+contig_400	cds	1355	1789	-	MFADOM_00949		hypothetical protein	
+contig_400	cds	1800	2546	-	MFADOM_00950		hypothetical protein	
+contig_400	cds	2584	3312	-	MFADOM_00951		hypothetical protein	
+contig_400	cds	3316	3519	-	MFADOM_00952		hypothetical protein	PFAM:PF01381.28, PFAM:PF12844.13, PFAM:PF13413.12, PFAM:PF13443.12, PFAM:PF13560.12
+contig_401	cds	53	517	+	MFADOM_00953		hypothetical protein	PFAM:PF00248.27, PFAM:PF13183.11, PFAM:PF13534.11
+contig_402	cds	1198	1506	-	MFADOM_00954		hypothetical protein	
+contig_402	cds	1512	2093	-	MFADOM_00955		Glutamine--fructose-6-phosphate aminotransferase [isomerizing]	SO:0001217, UniRef:UniRef50_A0A444J2P1
+contig_403	cds	11	946	+	MFADOM_00956		hypothetical protein	
+contig_403	cds	968	1201	-	MFADOM_00957		hypothetical protein	
+contig_405	cds	667	1263	-	MFADOM_00958	hisH	Imidazole glycerol phosphate synthase subunit HisH	SO:0001217, UniRef:UniRef50_A0A173Z7D3
+contig_405	cds	1268	2185	-	MFADOM_00959		hypothetical protein	PFAM:PF00148.24
+contig_406	cds	6	797	+	MFADOM_00960		hypothetical protein	PFAM:PF00206.25, PFAM:PF10397.14
+contig_406	cds	831	1682	+	MFADOM_00961		hypothetical protein	
+contig_406	cds	1688	1954	-	MFADOM_00962		Cu2+-exporting ATPase	SO:0001217, UniRef:UniRef50_A0A7V0SE67
+contig_407	cds	70	204	-	MFADOM_00963		hypothetical protein	
+contig_407	cds	269	736	+	MFADOM_00964		hypothetical protein	
+contig_407	cds	733	1245	+	MFADOM_00965		hypothetical protein	PFAM:PF00281.24, PFAM:PF00673.26
+contig_407	cds	1418	1810	+	MFADOM_00966		hypothetical protein	PFAM:PF00410.24
+contig_407	cds	1819	2355	+	MFADOM_00967		hypothetical protein	PFAM:PF00347.28
+contig_407	cds	2371	2700	+	MFADOM_00968		hypothetical protein	
+contig_407	cds	2827	3273	+	MFADOM_00969		hypothetical protein	
+contig_407	cds	3285	3866	+	MFADOM_00970		hypothetical protein	
+contig_407	cds	3869	4510	+	MFADOM_00971		hypothetical protein	PFAM:PF00333.26, PFAM:PF03719.21
+contig_407	cds	4524	4982	+	MFADOM_00972		hypothetical protein	PFAM:PF00327.25
+contig_408	cds	16	408	+	MFADOM_00973		hypothetical protein	
+contig_408	cds	741	1433	+	MFADOM_00974		hypothetical protein	PFAM:PF03459.23
+contig_408	cds	1696	2274	+	MFADOM_00975		Imidazoleglycerol-phosphate dehydratase	SO:0001217, UniRef:UniRef50_Q6ANL7
+contig_408	cds	2275	2910	+	MFADOM_00976		hypothetical protein	
+contig_408	cds	2984	3811	-	MFADOM_00977		hypothetical protein	
+contig_408	tRNA	3997	4068	-	MFADOM_00978	trnV	tRNA-Val(tac)	SO:0000273
+contig_410	cds	51	1079	+	MFADOM_00979		hypothetical protein	PFAM:PF00557.29, PFAM:PF01321.24
+contig_411	cds	160	609	-	MFADOM_00980		hypothetical protein	PFAM:PF00037.32, PFAM:PF01381.28, PFAM:PF12838.12, PFAM:PF14697.11
+contig_411	cds	1009	2058	+	MFADOM_00981		hypothetical protein	PFAM:PF03205.20
+contig_411	cds	2063	2992	+	MFADOM_00982		hypothetical protein	PFAM:PF04055.27, PFAM:PF06463.18, PFAM:PF13353.11
+contig_411	cds	3069	4274	-	MFADOM_00983		hypothetical protein	PFAM:PF04432.18
+contig_411	cds	4281	5321	-	MFADOM_00984		hypothetical protein	PFAM:PF00384.28, PFAM:PF01568.27
+contig_412	cds	38	814	+	MFADOM_00985		hypothetical protein	PFAM:PF00437.27
+contig_412	cds	822	1739	+	MFADOM_00986		hypothetical protein	PFAM:PF00482.28
+contig_413	cds	527	673	+	MFADOM_00987		hypothetical protein	
+contig_413	cds	869	1621	+	MFADOM_00988		hypothetical protein	PFAM:PF01884.23
+contig_414	cds	345	1256	-	MFADOM_00989		hypothetical protein	PFAM:PF01180.27, PFAM:PF01207.24, PFAM:PF03060.21
+contig_414	cds	1316	1873	-	MFADOM_00990		hypothetical protein	
+contig_414	cds	2008	3171	+	MFADOM_00991		hypothetical protein	
+contig_414	cds	3175	3816	+	MFADOM_00992		hypothetical protein	PFAM:PF01269.23
+contig_414	cds	4149	4763	-	MFADOM_00993		hypothetical protein	PFAM:PF04127.22
+contig_414	cds	4797	5303	-	MFADOM_00994		hypothetical protein	PFAM:PF02441.25
+contig_414	cds	5333	5902	-	MFADOM_00995		hypothetical protein	PFAM:PF18933.6
+contig_414	cds	5924	6595	-	MFADOM_00996		hypothetical protein	
+contig_414	cds	6657	6974	-	MFADOM_00997		hypothetical protein	PFAM:PF01842.31
+contig_415	cds	336	1394	-	MFADOM_00998		hypothetical protein	PFAM:PF00005.33, PFAM:PF13304.12
+contig_415	cds	1378	1812	-	MFADOM_00999		hypothetical protein	PFAM:PF03551.20
+contig_415	cds	1917	2636	+	MFADOM_01000		hypothetical protein	PFAM:PF01261.30
+contig_415	cds	2617	3411	-	MFADOM_01001		hypothetical protein	PFAM:PF00702.32, PFAM:PF08282.18
+contig_415	cds	3841	5211	+	MFADOM_01002		hypothetical protein	PFAM:PF01425.27
+contig_416	cds	625	1899	-	MFADOM_01003		Phosphomethylpyrimidine synthase	SO:0001217, UniRef:UniRef50_A8ZVP4
+contig_416	cds	1921	2169	-	MFADOM_01004		hypothetical protein	
+contig_417	cds	26	1408	-	MFADOM_01005		hypothetical protein	
+contig_418	cds	540	959	-	MFADOM_01006		hypothetical protein	PFAM:PF00582.32
+contig_418	cds	1225	1422	-	MFADOM_01007		hypothetical protein	PFAM:PF00208.27
+contig_420	cds	160	1260	-	MFADOM_01008		hypothetical protein	PFAM:PF00155.27, PFAM:PF00266.25, PFAM:PF01041.23, PFAM:PF01053.26
+contig_420	cds	1270	1746	-	MFADOM_01009		Acetyltransferase	SO:0001217, UniRef:UniRef50_A0A0Q1CBZ6
+contig_420	cds	1751	3049	-	MFADOM_01010		hypothetical protein	PFAM:PF00132.30, PFAM:PF12804.13, PFAM:PF24894.1
+contig_420	cds	3175	3726	-	MFADOM_01011		hypothetical protein	PFAM:PF00408.26, PFAM:PF02880.22
+contig_421	cds	505	2655	-	MFADOM_01012		hypothetical protein	PFAM:PF01396.24
+contig_421	cds	2826	2975	-	MFADOM_01013		hypothetical protein	
+contig_421	cds	3031	4242	-	MFADOM_01014		hypothetical protein	PFAM:PF08282.18
+contig_422	cds	49	309	+	MFADOM_01015		orotate phosphoribosyltransferase	SO:0001217, UniRef:UniRef50_UPI00271B1B9E
+contig_422	cds	354	860	-	MFADOM_01016		Molybdenum cofactor biosynthesis protein B	SO:0001217, UniRef:UniRef50_B2VBW6
+contig_422	cds	878	1168	-	MFADOM_01017		hypothetical protein	
+contig_422	cds	1165	1974	-	MFADOM_01018		hypothetical protein	
+contig_422	cds	1980	2768	-	MFADOM_01019		hypothetical protein	PFAM:PF01022.26
+contig_423	cds	986	1234	+	MFADOM_01020		hypothetical protein	
+contig_423	cds	1346	1897	-	MFADOM_01021		hypothetical protein	PFAM:PF01416.25
+contig_424	cds	158	388	-	MFADOM_01022		hypothetical protein	
+contig_424	cds	419	703	-	MFADOM_01023		hypothetical protein	
+contig_424	cds	809	1009	-	MFADOM_01024		hypothetical protein	
+contig_425	cds	11	184	+	MFADOM_01025	trpE	TrpE	SO:0001217, UniRef:UniRef50_A0A940V4A9
+contig_425	cds	181	762	+	MFADOM_01026		Anthranilate synthase component II	SO:0001217, UniRef:UniRef50_L7VRG7
+contig_426	cds	8	370	+	MFADOM_01027		hypothetical protein	
+contig_426	cds	390	1430	+	MFADOM_01028		hypothetical protein	PFAM:PF05050.19
+contig_426	cds	1477	1581	+	MFADOM_01029		hypothetical protein	PFAM:PF00535.33
+contig_427	cds	3	371	+	MFADOM_01030		hypothetical protein	
+contig_427	cds	365	1003	-	MFADOM_01031		hypothetical protein	
+contig_429	cds	1059	1301	+	MFADOM_01032		hypothetical protein	
+contig_429	cds	3429	3638	+	MFADOM_01033		hypothetical protein	
+contig_430	cds	29	172	+	MFADOM_01034		hypothetical protein	
+contig_430	cds	182	667	+	MFADOM_01035		3-isopropylmalate dehydratase small subunit	SO:0001217, UniRef:UniRef50_Q97EE1
+contig_430	cds	693	1319	+	MFADOM_01036		hypothetical protein	
+contig_431	cds	60	620	+	MFADOM_01037		hypothetical protein	PFAM:PF13241.12
+contig_431	cds	610	1809	+	MFADOM_01038		hypothetical protein	PFAM:PF00745.25, PFAM:PF05201.20, PFAM:PF13241.12
+contig_431	cds	1823	2191	-	MFADOM_01039		hypothetical protein	PFAM:PF00004.35, PFAM:PF23902.1
+contig_432	cds	14	253	+	MFADOM_01040		hypothetical protein	PFAM:PF00285.26
+contig_432	cds	259	765	+	MFADOM_01041		FMN reductase (NAD(P)H)	SO:0001217, UniRef:UniRef50_A0A4Y7S0L4
+contig_432	cds	772	1110	+	MFADOM_01042		hypothetical protein	
+contig_432	cds	1113	1448	-	MFADOM_01043		hypothetical protein	
+contig_432	cds	1518	1865	+	MFADOM_01044		hypothetical protein	
+contig_432	cds	2141	2455	+	MFADOM_01045		hypothetical protein	
+contig_433	cds	38	283	+	MFADOM_01046		Ferritin-like diiron domain-containing protein	SO:0001217, UniRef:UniRef50_K1YE39
+contig_433	cds	306	743	-	MFADOM_01047		ACT domain-containing protein	SO:0001217, UniRef:UniRef50_A0A140L197
+contig_433	cds	754	2055	-	MFADOM_01048		Phenylacetate-coenzyme A ligase	SO:0001217, UniRef:UniRef50_H6SJ73
+contig_433	cds	2245	3330	-	MFADOM_01049		hypothetical protein	
+contig_434	cds	860	1348	-	MFADOM_01050		hypothetical protein	
+contig_435	cds	499	1113	+	MFADOM_01051		hypothetical protein	PFAM:PF05175.20, PFAM:PF08241.18, PFAM:PF13649.12, PFAM:PF13847.12
+contig_435	cds	1332	2159	+	MFADOM_01052		hypothetical protein	
+contig_435	cds	2643	3059	-	MFADOM_01053		hypothetical protein	
+contig_436	cds	207	740	+	MFADOM_01054		DNA cytosine methyltransferase	SO:0001217, UniRef:UniRef50_UPI00358F9334
+contig_436	cds	782	1672	-	MFADOM_01055		hypothetical protein	PFAM:PF08797.16
+contig_436	cds	1848	2534	+	MFADOM_01056		hypothetical protein	PFAM:PF24460.1
+contig_437	cds	67	1494	-	MFADOM_01057		hypothetical protein	PFAM:PF08245.18
+contig_438	cds	83	349	+	MFADOM_01058		hypothetical protein	
+contig_438	cds	361	699	+	MFADOM_01059		Nitrogen regulatory protein P-II	SO:0001217, UniRef:UniRef50_A0A2Z4UHA8
+contig_438	cds	731	1345	-	MFADOM_01060		hypothetical protein	PFAM:PF00717.28, PFAM:PF10502.14
+contig_439	cds	111	1268	+	MFADOM_01061		hypothetical protein	PFAM:PF01409.25, PFAM:PF03484.21, PFAM:PF17759.6
+contig_439	cds	1378	1560	-	MFADOM_01062		hypothetical protein	
+contig_439	cds	1563	1976	-	MFADOM_01063		hypothetical protein	
+contig_439	cds	2097	3551	-	MFADOM_01064		hypothetical protein	PFAM:PF13635.12
+contig_439	cds	3800	4210	-	MFADOM_01065		hypothetical protein	
+contig_440	cds	415	537	-	MFADOM_01066		hypothetical protein	
+contig_441	cds	732	1688	-	MFADOM_01067		hypothetical protein	PFAM:PF00725.27, PFAM:PF02737.24
+contig_441	cds	1810	2880	+	MFADOM_01068		hypothetical protein	PFAM:PF00149.33
+contig_442	cds	50	256	-	MFADOM_01069		hypothetical protein	
+contig_443	cds	35	265	+	MFADOM_01070		hypothetical protein	PFAM:PF21570.3
+contig_444	cds	66	605	-	MFADOM_01071		hypothetical protein	PFAM:PF13649.12
+contig_444	cds	592	1446	-	MFADOM_01072		hypothetical protein	PFAM:PF00288.32
+contig_444	cds	1473	2660	-	MFADOM_01073		Archaeal ATPase	SO:0001217, UniRef:UniRef50_A0A1C5QPH8
+contig_444	cds	2887	3393	-	MFADOM_01074		hypothetical protein	PFAM:PF12682.12
+contig_445	cds	44	442	+	MFADOM_01075		hypothetical protein	
+contig_445	cds	455	877	-	MFADOM_01076		hypothetical protein	
+contig_445	cds	1139	1702	-	MFADOM_01077		hypothetical protein	
+contig_446	cds	7	573	+	MFADOM_01078		hypothetical protein	
+contig_446	cds	566	2035	-	MFADOM_01079		hypothetical protein	
+contig_446	cds	2044	3552	-	MFADOM_01080		hypothetical protein	
+contig_446	cds	3583	3738	-	MFADOM_01081		hypothetical protein	
+contig_447	cds	189	809	-	MFADOM_01082		hypothetical protein	
+contig_448	cds	70	435	-	MFADOM_01083		hypothetical protein	PFAM:PF13240.11, PFAM:PF13248.11
+contig_448	cds	624	1181	-	MFADOM_01084		hypothetical protein	
+contig_449	cds	228	368	+	MFADOM_01085		hypothetical protein	
+contig_449	cds	400	1092	-	MFADOM_01086		hypothetical protein	PFAM:PF01895.24
+contig_449	cds	1102	1851	-	MFADOM_01087	pstB	Phosphate import ATP-binding protein PstB 1	SO:0001217, UniRef:UniRef50_P46342
+contig_449	cds	1855	2703	-	MFADOM_01088	pstA	Phosphate transport system permease protein PstA	SO:0001217, UniRef:UniRef50_A0A971D5Y8
+contig_449	cds	2700	3575	-	MFADOM_01089		Phosphate transport system permease protein	SO:0001217, UniRef:UniRef50_A0A7X8MB62
+contig_449	cds	3591	4400	-	MFADOM_01090		Phosphate-binding protein	SO:0001217, UniRef:UniRef50_A0A847WJN5
+contig_449	cds	4564	5445	-	MFADOM_01091		hypothetical protein	PFAM:PF01047.28, PFAM:PF01895.24, PFAM:PF13412.12
+contig_449	cds	5451	6254	-	MFADOM_01092		hypothetical protein	
+contig_449	cds	6352	6501	-	MFADOM_01093		hypothetical protein	
+contig_450	cds	70	507	+	MFADOM_01094		hypothetical protein	
+contig_450	cds	802	999	-	MFADOM_01095		hypothetical protein	
+contig_450	cds	992	1192	-	MFADOM_01096		hypothetical protein	PFAM:PF01817.26
+contig_451	cds	330	722	-	MFADOM_01097		hypothetical protein	PFAM:PF09218.15
+contig_451	cds	727	1032	-	MFADOM_01098		hypothetical protein	
+contig_451	cds	1043	1300	-	MFADOM_01099		hypothetical protein	
+contig_451	cds	1308	1859	-	MFADOM_01100		hypothetical protein	
+contig_452	cds	129	344	+	MFADOM_01101		hypothetical protein	
+contig_453	cds	739	1017	-	MFADOM_01102		hypothetical protein	
+contig_453	cds	1036	1302	-	MFADOM_01103		hypothetical protein	
+contig_453	cds	1842	3380	-	MFADOM_01104		hypothetical protein	PFAM:PF13692.12
+contig_453	cds	3418	4527	+	MFADOM_01105		hypothetical protein	PFAM:PF00535.33
+contig_453	cds	4532	6073	-	MFADOM_01106		hypothetical protein	
+contig_453	cds	6188	8758	-	MFADOM_01107		hypothetical protein	PFAM:PF04765.19, PFAM:PF13524.12, PFAM:PF13692.12
+contig_453	cds	8763	10301	-	MFADOM_01108		hypothetical protein	PFAM:PF00535.33
+contig_453	cds	10308	11723	-	MFADOM_01109		hypothetical protein	PFAM:PF00535.33, PFAM:PF13641.12
+contig_453	cds	11720	12859	-	MFADOM_01110		hypothetical protein	PFAM:PF00535.33, PFAM:PF13641.12
+contig_453	cds	12869	13873	-	MFADOM_01111		dTDP-glucose 4,6-dehydratase	SO:0001217, UniRef:UniRef50_A0A229UJJ7
+contig_453	cds	13884	14441	-	MFADOM_01112		dTDP-4-dehydrorhamnose 3,5-epimerase	SO:0001217, UniRef:UniRef50_A0A7D7IGL1
+contig_453	cds	14443	15216	-	MFADOM_01113		Glucose-1-phosphate thymidylyltransferase	SO:0001217, UniRef:UniRef50_Q9HU22
+contig_454	cds	188	337	+	MFADOM_01114		hypothetical protein	
+contig_454	cds	899	1192	-	MFADOM_01115		hypothetical protein	
+contig_454	cds	1203	1652	-	MFADOM_01116		hypothetical protein	PFAM:PF01047.28, PFAM:PF01638.23, PFAM:PF13412.12, PFAM:PF13463.12, PFAM:PF13601.12
+contig_454	cds	2179	2466	+	MFADOM_01117		hypothetical protein	PFAM:PF14947.12
+contig_454	cds	2536	3510	-	MFADOM_01118		hypothetical protein	PFAM:PF13240.11
+contig_455	cds	133	537	+	MFADOM_01119		hypothetical protein	PFAM:PF00687.26
+contig_456	cds	310	762	-	MFADOM_01120		Nucleoside diphosphate kinase	SO:0001217, UniRef:UniRef50_Q5KXU2
+contig_456	cds	759	920	-	MFADOM_01121		hypothetical protein	PFAM:PF01246.26, PFAM:PF06467.20
+contig_456	cds	935	1075	-	MFADOM_01122		hypothetical protein	
+contig_458	cds	12	275	+	MFADOM_01123		hypothetical protein	
+contig_458	cds	397	990	-	MFADOM_01124		hypothetical protein	
+contig_458	cds	987	1247	-	MFADOM_01125		hypothetical protein	
+contig_458	cds	1240	1509	-	MFADOM_01126		hypothetical protein	
+contig_458	cds	1519	1770	-	MFADOM_01127		hypothetical protein	
+contig_459	cds	881	1315	+	MFADOM_01128		Peptidyl-prolyl cis-trans isomerase	SO:0001217, UniRef:UniRef50_Q7UP01
+contig_459	cds	1326	1682	-	MFADOM_01129		hypothetical protein	PFAM:PF00903.31, PFAM:PF22677.2
+contig_459	cds	1687	2622	-	MFADOM_01130		hypothetical protein	PFAM:PF00730.31
+contig_459	cds	2619	2858	-	MFADOM_01131		hypothetical protein	
+contig_460	cds	468	1373	+	MFADOM_01132		hypothetical protein	
+contig_460	cds	1373	3514	+	MFADOM_01133		hypothetical protein	PFAM:PF02503.22, PFAM:PF13089.11, PFAM:PF13090.12, PFAM:PF13091.12, PFAM:PF17941.7
+contig_461	cds	27	206	+	MFADOM_01134		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13237.11
+contig_461	cds	341	691	+	MFADOM_01135		hypothetical protein	
+contig_461	cds	916	1176	-	MFADOM_01136		hypothetical protein	
+contig_462	cds	991	1233	-	MFADOM_01137		hypothetical protein	PFAM:PF21180.3
+contig_463	cds	19	798	+	MFADOM_01138		hypothetical protein	
+contig_464	cds	1838	4351	-	MFADOM_01139		hypothetical protein	
+contig_464	cds	4583	6061	-	MFADOM_01140		hypothetical protein	
+contig_464	cds	6240	6818	+	MFADOM_01141		hypothetical protein	PFAM:PF02223.23, PFAM:PF13521.12
+contig_464	cds	6823	7374	+	MFADOM_01142		hypothetical protein	
+contig_464	cds	7371	8375	-	MFADOM_01143		hypothetical protein	PFAM:PF01208.23
+contig_464	cds	8384	9301	-	MFADOM_01144		hypothetical protein	PFAM:PF00037.32, PFAM:PF12838.12, PFAM:PF14574.11
+contig_465	cds	12	1376	+	MFADOM_01145		hypothetical protein	PFAM:PF10559.14
+contig_466	cds	47	868	-	MFADOM_01146	fliY	L-cystine-binding protein FliY	SO:0001217, UniRef:UniRef50_A0A5K1IIU9
+contig_466	cds	1047	1253	-	MFADOM_01147		hypothetical protein	
+contig_467	cds	315	569	-	MFADOM_01148		hypothetical protein	
+contig_467	cds	579	1313	-	MFADOM_01149		hypothetical protein	
+contig_468	cds	669	1418	+	MFADOM_01150		hypothetical protein	
+contig_468	cds	1427	1606	-	MFADOM_01151		hypothetical protein	
+contig_469	cds	87	515	+	MFADOM_01152		hypothetical protein	
+contig_469	cds	642	1358	+	MFADOM_01153		hypothetical protein	PFAM:PF04307.19
+contig_469	cds	1390	2337	-	MFADOM_01154		Arsenic resistance protein	SO:0001217, UniRef:UniRef50_A0A0B5AP30
+contig_469	cds	2668	2982	+	MFADOM_01155		hypothetical protein	
+contig_469	cds	3023	3286	+	MFADOM_01156		hypothetical protein	
+contig_469	cds	3286	3717	+	MFADOM_01157		hypothetical protein	
+contig_469	cds	3719	3952	+	MFADOM_01158		hypothetical protein	PFAM:PF13244.11
+contig_469	cds	3952	4338	+	MFADOM_01159		hypothetical protein	
+contig_470	cds	542	3814	-	MFADOM_01160		hypothetical protein	PFAM:PF00133.28, PFAM:PF01406.26, PFAM:PF08264.19, PFAM:PF19302.4
+contig_470	cds	3977	5182	-	MFADOM_01161		hypothetical protein	
+contig_470	cds	5343	5696	+	MFADOM_01162		hypothetical protein	
+contig_470	cds	5693	6394	-	MFADOM_01163		hypothetical protein	PFAM:PF00037.32, PFAM:PF02441.25, PFAM:PF12797.12, PFAM:PF12837.12, PFAM:PF12838.12
+contig_470	cds	6400	7668	-	MFADOM_01164		hypothetical protein	PFAM:PF00155.27, PFAM:PF00464.25
+contig_471	cds	3	779	+	MFADOM_01165		hypothetical protein	PFAM:PF00155.27
+contig_471	cds	789	1484	+	MFADOM_01166		hypothetical protein	
+contig_471	cds	1489	2073	+	MFADOM_01167		hypothetical protein	PFAM:PF21831.1
+contig_471	cds	2084	2668	+	MFADOM_01168		hypothetical protein	
+contig_472	cds	18	215	+	MFADOM_01169		hypothetical protein	
+contig_472	cds	224	673	-	MFADOM_01170		hypothetical protein	
+contig_472	cds	679	1551	-	MFADOM_01171		hypothetical protein	PFAM:PF07755.17, PFAM:PF17396.8
+contig_473	cds	628	1218	-	MFADOM_01172		hypothetical protein	
+contig_474	cds	435	686	-	MFADOM_01173		hypothetical protein	
+contig_474	cds	768	1022	-	MFADOM_01174		hypothetical protein	
+contig_476	cds	317	955	-	MFADOM_01175		hypothetical protein	
+contig_476	cds	1004	1699	-	MFADOM_01176		hypothetical protein	
+contig_476	cds	1700	2485	-	MFADOM_01177		hypothetical protein	
+contig_476	cds	2490	2912	-	MFADOM_01178		hypothetical protein	PFAM:PF11576.13
+contig_477	cds	669	1400	+	MFADOM_01179		hypothetical protein	PFAM:PF00254.34, PFAM:PF18046.7, PFAM:PF22199.2
+contig_477	cds	1409	1900	-	MFADOM_01180		L(+)-tartrate dehydratase subunit beta	SO:0001217, UniRef:UniRef50_A0A1G9HC30
+contig_477	cds	2144	2353	+	MFADOM_01181		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13237.11, PFAM:PF13484.11
+contig_478	cds	234	347	+	MFADOM_01182		hypothetical protein	
+contig_478	cds	498	641	+	MFADOM_01183		hypothetical protein	
+contig_479	cds	242	787	-	MFADOM_01184		hypothetical protein	PFAM:PF00004.35, PFAM:PF13238.12
+contig_479	cds	799	1335	-	MFADOM_01185		hypothetical protein	PFAM:PF02824.27
+contig_480	cds	261	1034	-	MFADOM_01186		hypothetical protein	
+contig_480	cds	1484	1633	-	MFADOM_01187		hypothetical protein	
+contig_480	cds	1623	1799	-	MFADOM_01188		hypothetical protein	
+contig_480	cds	1995	3017	+	MFADOM_01189		hypothetical protein	PFAM:PF00535.33, PFAM:PF13641.12
+contig_480	cds	3148	3471	+	MFADOM_01190		hypothetical protein	
+contig_480	cds	3452	3829	+	MFADOM_01191		hypothetical protein	
+contig_480	cds	3925	4158	-	MFADOM_01192		DUF3781 domain-containing protein	SO:0001217, UniRef:UniRef50_M1MR37
+contig_480	cds	4374	4484	-	MFADOM_01193		hypothetical protein	
+contig_480	cds	4672	4866	-	MFADOM_01194		hypothetical protein	
+contig_480	cds	4829	5548	-	MFADOM_01195		hypothetical protein	
+contig_481	cds	103	771	+	MFADOM_01196		hypothetical protein	PFAM:PF02754.22
+contig_481	cds	725	991	-	MFADOM_01197		hypothetical protein	
+contig_483	cds	239	1171	+	MFADOM_01198		hypothetical protein	PFAM:PF03477.21
+contig_484	cds	778	2019	-	MFADOM_01199		hypothetical protein	PFAM:PF04055.27, PFAM:PF13353.11
+contig_485	cds	1028	1942	-	MFADOM_01200		hypothetical protein	PFAM:PF00294.29
+contig_485	cds	2089	2958	-	MFADOM_01201		hypothetical protein	PFAM:PF00126.33
+contig_486	cds	971	1675	-	MFADOM_01202		hypothetical protein	PFAM:PF03372.29
+contig_486	cds	1980	2987	+	MFADOM_01203		hypothetical protein	PFAM:PF00350.29, PFAM:PF02421.24, PFAM:PF03193.22, PFAM:PF04548.22, PFAM:PF17835.6
+contig_486	cds	3056	3646	+	MFADOM_01204		hypothetical protein	PFAM:PF00011.27
+contig_486	cds	3678	4685	-	MFADOM_01205		hypothetical protein	PFAM:PF01380.27
+contig_486	cds	4800	5426	+	MFADOM_01206		hypothetical protein	PFAM:PF04289.18, PFAM:PF20766.2
+contig_487	cds	155	463	-	MFADOM_01207		hypothetical protein	
+contig_487	cds	477	986	-	MFADOM_01208		hypothetical protein	
+contig_487	cds	998	1174	-	MFADOM_01209		hypothetical protein	PFAM:PF06093.19
+contig_487	cds	1171	1737	-	MFADOM_01210		hypothetical protein	PFAM:PF00575.29, PFAM:PF03876.22
+contig_487	cds	1748	2275	-	MFADOM_01211		hypothetical protein	PFAM:PF00719.24
+contig_487	cds	2323	2580	-	MFADOM_01212		hypothetical protein	PFAM:PF18477.7
+contig_488	cds	24	395	-	MFADOM_01213		hypothetical protein	
+contig_488	cds	493	963	-	MFADOM_01214		hypothetical protein	PFAM:PF13240.11, PFAM:PF13248.11
+contig_488	cds	969	1352	-	MFADOM_01215		hypothetical protein	
+contig_489	cds	795	1223	-	MFADOM_01216		hypothetical protein	
+contig_490	cds	1413	2123	-	MFADOM_01217		hypothetical protein	PFAM:PF01207.24
+contig_490	cds	2153	2917	-	MFADOM_01218		hypothetical protein	PFAM:PF18182.6
+contig_490	cds	2935	3144	-	MFADOM_01219		hypothetical protein	
+contig_491	cds	1212	1367	+	MFADOM_01220		hypothetical protein	
+contig_492	cds	220	966	-	MFADOM_01221		hypothetical protein	PFAM:PF00515.34, PFAM:PF07719.23, PFAM:PF13181.12, PFAM:PF13374.12, PFAM:PF13414.12, PFAM:PF13424.12, PFAM:PF13428.12, PFAM:PF13431.12, PFAM:PF13432.12, PFAM:PF14559.12
+contig_493	ncRNA	4863	5143	-	MFADOM_01222	RNaseP_arch	Archaeal RNase P	RFAM:RF00373, SO:0000386
+contig_493	tRNA	5159	5233	-	MFADOM_01223	trnfM	tRNA-fMet(cat)	SO:0000266
+contig_493	cds	5328	5852	-	MFADOM_01224		hypothetical protein	
+contig_493	cds	5862	6110	-	MFADOM_01225		hypothetical protein	
+contig_494	cds	151	1614	+	MFADOM_01226		hypothetical protein	PFAM:PF02369.22, PFAM:PF13620.12, PFAM:PF17789.7
+contig_495	cds	368	577	+	MFADOM_01227		hypothetical protein	PFAM:PF04021.17
+contig_495	cds	579	752	+	MFADOM_01228		hypothetical protein	
+contig_496	cds	66	254	+	MFADOM_01229		Cobalt-precorrin-8X methylmutase	SO:0001217, UniRef:UniRef50_A0A2X4WH98
+contig_496	cds	264	1535	+	MFADOM_01230		Glutamate-1-semialdehyde 2,1-aminomutase	SO:0001217, UniRef:UniRef50_Q3ACS9
+contig_496	cds	1672	2094	+	MFADOM_01231		hypothetical protein	PFAM:PF10502.14
+contig_496	cds	2110	3837	+	MFADOM_01232		hypothetical protein	PFAM:PF03485.21, PFAM:PF05746.21
+contig_496	cds	3853	4299	-	MFADOM_01233		hypothetical protein	PFAM:PF01047.28, PFAM:PF13412.12, PFAM:PF13463.12, PFAM:PF13601.12, PFAM:PF13730.12, PFAM:PF22381.2
+contig_496	cds	4289	5659	-	MFADOM_01234		hypothetical protein	
+contig_496	cds	6009	6470	+	MFADOM_01235		hypothetical protein	
+contig_497	cds	8	490	+	MFADOM_01236		hypothetical protein	
+contig_497	cds	497	2638	+	MFADOM_01237		hypothetical protein	
+contig_497	cds	2640	3278	+	MFADOM_01238		hypothetical protein	PFAM:PF00590.25
+contig_497	cds	3407	6574	+	MFADOM_01239		hypothetical protein	
+contig_499	cds	183	1349	+	MFADOM_01240		hypothetical protein	PFAM:PF00248.27, PFAM:PF13534.11
+contig_499	cds	1359	2114	+	MFADOM_01241		hypothetical protein	PFAM:PF00899.27
+contig_500	cds	425	1717	+	MFADOM_01242		hypothetical protein	
+contig_500	cds	1755	2645	-	MFADOM_01243		hypothetical protein	
+contig_501	cds	64	1041	+	MFADOM_01244		Glutamine synthetase	SO:0001217, UniRef:UniRef50_A0A7T4X051
+contig_501	cds	1130	2809	+	MFADOM_01245		hypothetical protein	PFAM:PF01995.21, PFAM:PF08461.16
+contig_501	cds	2815	3105	-	MFADOM_01246		hypothetical protein	
+contig_501	cds	3215	3520	-	MFADOM_01247		hypothetical protein	
+contig_501	cds	3699	4565	-	MFADOM_01248		hypothetical protein	
+contig_501	cds	4580	5179	-	MFADOM_01249		hypothetical protein	PFAM:PF07969.17
+contig_502	cds	29	931	+	MFADOM_01250		hypothetical protein	
+contig_502	cds	921	1769	+	MFADOM_01251		ABC transmembrane type-1 domain-containing protein	SO:0001217, UniRef:UniRef50_R9MB22
+contig_502	cds	1744	1965	-	MFADOM_01252		hypothetical protein	
+contig_503	cds	253	792	+	MFADOM_01253		hypothetical protein	PFAM:PF01928.26
+contig_504	cds	151	903	+	MFADOM_01254		hypothetical protein	PFAM:PF09376.16
+contig_504	cds	922	2433	+	MFADOM_01255		hypothetical protein	PFAM:PF01935.23, PFAM:PF05872.18, PFAM:PF09378.16, PFAM:PF10412.15
+contig_504	cds	2563	3786	+	MFADOM_01256		hypothetical protein	PFAM:PF00149.33, PFAM:PF12850.12
+contig_504	cds	4031	4192	-	MFADOM_01257		hypothetical protein	
+contig_505	cds	94	390	-	MFADOM_01258		hypothetical protein	
+contig_505	cds	421	699	-	MFADOM_01259		hypothetical protein	PFAM:PF05239.21
+contig_505	cds	815	2479	+	MFADOM_01260		hypothetical protein	PFAM:PF04055.27, PFAM:PF23613.1
+contig_506	cds	611	1357	+	MFADOM_01261		hypothetical protein	
+contig_506	cds	1433	2869	-	MFADOM_01262		UvrABC system protein B	SO:0001217, UniRef:UniRef50_A0A921DX71
+contig_507	cds	79	411	+	MFADOM_01263		hypothetical protein	
+contig_507	cds	491	1093	-	MFADOM_01264		hypothetical protein	PFAM:PF01895.24, PFAM:PF02080.26
+contig_507	cds	1105	2181	-	MFADOM_01265		hypothetical protein	PFAM:PF00590.25
+contig_507	cds	2191	2685	-	MFADOM_01266		hypothetical protein	
+contig_507	cds	2870	4507	+	MFADOM_01267		hypothetical protein	PFAM:PF00149.33
+contig_507	cds	4560	5147	+	MFADOM_01268		hypothetical protein	PFAM:PF00596.26
+contig_507	cds	5139	5309	-	MFADOM_01269		hypothetical protein	
+contig_508	cds	305	1714	+	MFADOM_01270		hypothetical protein	PFAM:PF00587.30, PFAM:PF03129.25, PFAM:PF09180.16
+contig_508	cds	1725	2399	+	MFADOM_01271		hypothetical protein	PFAM:PF12804.13
+contig_509	cds	74	772	+	MFADOM_01272		hypothetical protein	
+contig_510	cds	19	402	+	MFADOM_01273		hypothetical protein	PFAM:PF12706.13, PFAM:PF13483.12
+contig_510	cds	399	2405	-	MFADOM_01274		hypothetical protein	PFAM:PF05670.18
+contig_510	cds	2494	2766	+	MFADOM_01275		hypothetical protein	
+contig_510	cds	2761	4581	-	MFADOM_01276		hypothetical protein	
+contig_510	cds	4760	5734	+	MFADOM_01277		hypothetical protein	PFAM:PF00165.29, PFAM:PF12833.13
+contig_511	cds	121	669	-	MFADOM_01278		putative UbiX-like flavin prenyltransferase	SO:0001217, UniRef:UniRef50_A0A076N388
+contig_511	cds	679	1611	-	MFADOM_01279		hypothetical protein	
+contig_512	cds	95	361	+	MFADOM_01280		hypothetical protein	PFAM:PF05239.21
+contig_512	cds	529	1287	+	MFADOM_01281		ABC transporter domain-containing protein	SO:0001217, UniRef:UniRef50_G1UVS1
+contig_512	cds	1268	2503	+	MFADOM_01282		SUF system FeS cluster assembly SufBD core domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1F8MQ93
+contig_513	cds	39	629	+	MFADOM_01283		hypothetical protein	PFAM:PF00702.32, PFAM:PF13242.12
+contig_513	cds	624	1142	-	MFADOM_01284		hypothetical protein	PFAM:PF03372.29
+contig_515	cds	3	350	+	MFADOM_01285		hypothetical protein	
+contig_515	cds	384	1220	+	MFADOM_01286		hypothetical protein	
+contig_516	cds	11	949	+	MFADOM_01287		hypothetical protein	PFAM:PF00364.28, PFAM:PF02436.23, PFAM:PF13533.12
+contig_516	cds	1105	1596	-	MFADOM_01288		HD domain-containing protein	SO:0001217, UniRef:UniRef50_C4Z0R6
+contig_516	cds	1589	2272	-	MFADOM_01289		hypothetical protein	PFAM:PF00733.27, PFAM:PF06508.19
+contig_516	cds	2262	2513	-	MFADOM_01290		hypothetical protein	
+contig_517	cds	210	755	-	MFADOM_01291		hypothetical protein	
+contig_517	cds	1041	1202	+	MFADOM_01292		hypothetical protein	
+contig_518	cds	69	290	+	MFADOM_01293		hypothetical protein	
+contig_518	cds	325	744	+	MFADOM_01294		hypothetical protein	PFAM:PF03061.28, PFAM:PF13279.12
+contig_518	cds	745	1230	-	MFADOM_01295		hypothetical protein	PFAM:PF01980.22
+contig_518	cds	1365	1574	-	MFADOM_01296		Mop domain-containing protein	SO:0001217, UniRef:UniRef50_A0A4P6K5Q7
+contig_519	cds	225	956	+	MFADOM_01297		hypothetical protein	PFAM:PF22703.2
+contig_519	cds	960	1223	-	MFADOM_01298		Putative zinc ribbon domain-containing protein	SO:0001217, UniRef:UniRef50_W6RTC6
+contig_519	cds	1328	1507	-	MFADOM_01299		hypothetical protein	
+contig_519	cds	1601	2023	+	MFADOM_01300		hypothetical protein	PFAM:PF01951.21
+contig_519	cds	2060	2380	+	MFADOM_01301		hypothetical protein	
+contig_520	cds	425	1396	-	MFADOM_01302		hypothetical protein	PFAM:PF02289.21
+contig_520	cds	1443	1940	-	MFADOM_01303		Albonoursin synthase	SO:0001217, UniRef:UniRef50_A0A136WGY7
+contig_520	cds	1943	2509	-	MFADOM_01304		hypothetical protein	PFAM:PF02080.26
+contig_521	cds	601	876	+	MFADOM_01305		HypC/HybG/HupF family hydrogenase formation chaperone	SO:0001217, UniRef:UniRef50_A0A3D2WVZ6
+contig_521	cds	870	1373	-	MFADOM_01306		hypothetical protein	
+contig_522	cds	132	485	+	MFADOM_01307		hypothetical protein	
+contig_522	cds	942	1304	+	MFADOM_01308		hypothetical protein	
+contig_523	cds	7	213	+	MFADOM_01309		hypothetical protein	PFAM:PF18462.6
+contig_523	cds	210	1004	-	MFADOM_01310		hypothetical protein	
+contig_523	cds	1144	2217	-	MFADOM_01311		hypothetical protein	
+contig_523	cds	2369	2962	+	MFADOM_01312		hypothetical protein	
+contig_523	cds	2975	3496	+	MFADOM_01313		hypothetical protein	PFAM:PF01242.24
+contig_523	cds	3499	4197	+	MFADOM_01314		hypothetical protein	PFAM:PF04055.27, PFAM:PF13353.11
+contig_523	cds	4280	5218	+	MFADOM_01315		hypothetical protein	PFAM:PF00571.33
+contig_523	cds	5301	6119	+	MFADOM_01316		hypothetical protein	PFAM:PF00571.33
+contig_524	cds	1115	1402	+	MFADOM_01317		hypothetical protein	PFAM:PF14947.12
+contig_525	cds	112	1131	-	MFADOM_01318		hypothetical protein	PFAM:PF01890.21, PFAM:PF11760.13
+contig_525	cds	1128	2171	-	MFADOM_01319		hypothetical protein	
+contig_525	cds	2234	2719	+	MFADOM_01320		hypothetical protein	
+contig_525	cds	3657	4808	+	MFADOM_01321		hypothetical protein	PFAM:PF00004.35, PFAM:PF09079.17, PFAM:PF13191.12, PFAM:PF13401.12, PFAM:PF22606.2, PFAM:PF22703.2
+contig_525	cds	4796	5251	-	MFADOM_01322		hypothetical protein	PFAM:PF00185.30
+contig_526	cds	6	245	+	MFADOM_01323		hypothetical protein	
+contig_526	cds	247	990	+	MFADOM_01324		hypothetical protein	PFAM:PF00924.24, PFAM:PF21088.2
+contig_526	cds	959	1912	+	MFADOM_01325		hypothetical protein	
+contig_526	cds	1945	2223	-	MFADOM_01326		hypothetical protein	
+contig_526	cds	2228	2530	-	MFADOM_01327		hypothetical protein	
+contig_527	cds	21	194	+	MFADOM_01328		hypothetical protein	
+contig_527	cds	230	1312	+	MFADOM_01329		hypothetical protein	
+contig_528	cds	668	1450	+	MFADOM_01330		hypothetical protein	PFAM:PF01939.22, PFAM:PF21003.3
+contig_528	cds	1447	1926	-	MFADOM_01331		hypothetical protein	
+contig_528	cds	2024	2722	+	MFADOM_01332		hypothetical protein	PFAM:PF18933.6
+contig_528	cds	2768	3592	+	MFADOM_01333		Omega-amidase Nit	SO:0001217, UniRef:UniRef50_K4LCP6
+contig_528	cds	3579	4430	-	MFADOM_01334		hypothetical protein	PFAM:PF00514.29, PFAM:PF02985.28, PFAM:PF03130.22, PFAM:PF13513.12, PFAM:PF13646.12
+contig_530	cds	74	490	-	MFADOM_01335		hypothetical protein	PFAM:PF01750.23
+contig_530	cds	556	1323	-	MFADOM_01336		hypothetical protein	PFAM:PF00398.26, PFAM:PF05175.20, PFAM:PF08241.18, PFAM:PF13649.12, PFAM:PF13847.12
+contig_530	cds	1338	1637	-	MFADOM_01337		hypothetical protein	PFAM:PF08753.17
+contig_531	cds	155	1771	+	MFADOM_01338		hypothetical protein	PFAM:PF00133.28, PFAM:PF08264.19
+contig_531	cds	2425	2835	-	MFADOM_01339		hypothetical protein	PFAM:PF13847.12
+contig_533	cds	647	1690	-	MFADOM_01340		Multifunctional fusion protein	SO:0001217, UniRef:UniRef50_F5Y9R7
+contig_533	cds	1727	2164	-	MFADOM_01341		hypothetical protein	
+contig_534	cds	1165	1398	-	MFADOM_01342		hypothetical protein	
+contig_536	cds	22	774	+	MFADOM_01343		hypothetical protein	PFAM:PF08245.18
+contig_536	cds	860	2044	+	MFADOM_01344		hypothetical protein	
+contig_537	cds	103	822	+	MFADOM_01345		hypothetical protein	PFAM:PF04055.27
+contig_537	cds	812	2074	-	MFADOM_01346		hypothetical protein	
+contig_537	cds	2077	3333	-	MFADOM_01347		hypothetical protein	PFAM:PF01977.22, PFAM:PF20695.2, PFAM:PF20696.2
+contig_537	cds	3343	4362	-	MFADOM_01348		hypothetical protein	PFAM:PF00731.26
+contig_538	cds	318	644	-	MFADOM_01349		hypothetical protein	
+contig_538	cds	735	1256	-	MFADOM_01350		L(+)-tartrate dehydratase subunit beta	SO:0001217, UniRef:UniRef50_A0A448HJ19
+contig_538	cds	1443	2888	-	MFADOM_01351		ABC transporter domain-containing protein	SO:0001217, UniRef:UniRef50_R8W1Y7
+contig_538	cds	2881	3306	-	MFADOM_01352		hypothetical protein	
+contig_539	cds	171	638	-	MFADOM_01353		hypothetical protein	
+contig_539	cds	1028	1240	-	MFADOM_01354		hypothetical protein	
+contig_541	cds	43	420	+	MFADOM_01355		hypothetical protein	
+contig_541	cds	404	637	+	MFADOM_01356		hypothetical protein	
+contig_541	cds	1154	1645	-	MFADOM_01357		hypothetical protein	PFAM:PF00515.34, PFAM:PF07719.23, PFAM:PF12895.13, PFAM:PF13174.12, PFAM:PF13181.12, PFAM:PF13424.12, PFAM:PF13428.12, PFAM:PF13432.12
+contig_542	cds	367	654	-	MFADOM_01358		hypothetical protein	PFAM:PF01893.21
+contig_542	cds	792	1571	-	MFADOM_01359		hypothetical protein	PFAM:PF03446.21, PFAM:PF14748.11
+contig_543	cds	216	1163	+	MFADOM_01360		hypothetical protein	
+contig_543	cds	1175	1618	+	MFADOM_01361		hypothetical protein	
+contig_543	cds	1702	1878	+	MFADOM_01362		hypothetical protein	
+contig_543	cds	1887	3077	-	MFADOM_01363		hypothetical protein	PFAM:PF02421.24, PFAM:PF02824.27, PFAM:PF08438.16
+contig_545	cds	475	642	-	MFADOM_01364		hypothetical protein	PFAM:PF00037.32, PFAM:PF12797.12, PFAM:PF12800.12, PFAM:PF12837.12, PFAM:PF12838.12, PFAM:PF13237.11, PFAM:PF13484.11, PFAM:PF13534.11
+contig_545	cds	736	1161	-	MFADOM_01365		hypothetical protein	PFAM:PF00582.32
+contig_545	cds	1162	2349	-	MFADOM_01366		hypothetical protein	PFAM:PF00005.33, PFAM:PF13304.12
+contig_546	cds	417	878	-	MFADOM_01367		hypothetical protein	
+contig_546	cds	1032	2639	+	MFADOM_01368		hypothetical protein	PFAM:PF01163.29, PFAM:PF22521.2
+contig_546	cds	2944	4218	-	MFADOM_01369		hypothetical protein	PFAM:PF13635.12
+contig_546	cds	4926	5474	+	MFADOM_01370		hypothetical protein	PFAM:PF01725.21
+contig_546	cds	5531	5929	+	MFADOM_01371		hypothetical protein	PFAM:PF00312.27, PFAM:PF08069.17
+contig_547	cds	721	1482	-	MFADOM_01372		hypothetical protein	PFAM:PF02240.21
+contig_547	cds	1485	1721	-	MFADOM_01373		hypothetical protein	
+contig_549	cds	862	1344	-	MFADOM_01374		3-isopropylmalate dehydratase small subunit	SO:0001217, UniRef:UniRef50_Q726X3
+contig_549	cds	1349	2170	-	MFADOM_01375		hypothetical protein	
+contig_550	cds	918	1595	-	MFADOM_01376		hypothetical protein	PFAM:PF17147.9
+contig_551	cds	7	705	-	MFADOM_01377		hypothetical protein	PFAM:PF00303.24
+contig_552	cds	71	448	+	MFADOM_01378		hypothetical protein	
+contig_552	cds	452	784	+	MFADOM_01379		hypothetical protein	
+contig_552	cds	827	1087	-	MFADOM_01380		Metal-sensitive transcriptional repressor	SO:0001217, UniRef:UniRef50_S3CFU3
+contig_553	cds	675	1295	+	MFADOM_01381		hypothetical protein	
+contig_554	cds	887	1828	-	MFADOM_01382		hypothetical protein	
+contig_554	cds	1887	2171	-	MFADOM_01383		hypothetical protein	
+contig_554	cds	2337	2450	-	MFADOM_01384		hypothetical protein	
+contig_554	cds	2690	3013	-	MFADOM_01385		hypothetical protein	PFAM:PF13193.12
+contig_555	cds	383	2650	-	MFADOM_01386		hypothetical protein	PFAM:PF02687.27
+contig_555	cds	2655	3359	-	MFADOM_01387		ABC transporter domain-containing protein	SO:0001217, UniRef:UniRef50_R2RX92
+contig_555	cds	3553	4290	+	MFADOM_01388		hypothetical protein	PFAM:PF01207.24, PFAM:PF05690.20
+contig_555	cds	4298	4759	+	MFADOM_01389		hypothetical protein	PFAM:PF01467.32
+contig_556	cds	254	601	-	MFADOM_01390		hypothetical protein	
+contig_556	cds	617	1339	-	MFADOM_01391		hypothetical protein	PFAM:PF00535.33, PFAM:PF13641.12
+contig_556	cds	1353	1811	-	MFADOM_01392		hypothetical protein	PFAM:PF00885.24
+contig_557	cds	77	379	-	MFADOM_01393		hypothetical protein	PFAM:PF00348.22
+contig_557	cds	381	1340	-	MFADOM_01394		hypothetical protein	PFAM:PF07521.17, PFAM:PF22505.1
+contig_558	cds	113	646	+	MFADOM_01395		hypothetical protein	PFAM:PF04991.19
+contig_558	cds	634	1929	-	MFADOM_01396		hypothetical protein	
+contig_558	cds	1933	2316	-	MFADOM_01397		hypothetical protein	
+contig_559	cds	657	1061	-	MFADOM_01398		hypothetical protein	
+contig_560	cds	62	1069	+	MFADOM_01399		hypothetical protein	
+contig_560	cds	1043	1447	-	MFADOM_01400		GIY-YIG domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1F4C6Y5
+contig_560	cds	1590	5366	+	MFADOM_01401		hypothetical protein	PFAM:PF02369.22, PFAM:PF16640.11, PFAM:PF17789.7
+contig_561	cds	514	735	+	MFADOM_01402		hypothetical protein	
+contig_561	cds	1169	1852	-	MFADOM_01403		ABC-type polar amino acid transport system, ATPase component	SO:0001217, UniRef:UniRef50_A0A0M6WZM0
+contig_561	cds	1864	2475	-	MFADOM_01404		ABC transmembrane type-1 domain-containing protein	SO:0001217, UniRef:UniRef50_F7KSM3

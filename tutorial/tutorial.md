@@ -83,10 +83,13 @@ dRep (to avoid installing CheckM if skipping bin_evaluation)
 ```
 
 ### MAGnolia main workflow
-Once the setup is complete, again ensuring you have your Nextflow (`magnolia`) environment activated, and you are in the tutorial directory containing `samples.csv` and `nextflow.config`, run the main workflow:
+Once the setup is complete, again ensuring you have your Nextflow (`magnolia`) environment activated, and you are in the `magnolia_tutorial` directory containing `samples.csv` and `nextflow.config`, run the main workflow:
 ```
 nextflow run ../MAGnolia/main.nf [--resume]
 ```
 The `--resume` parameter is not necessary, however in case there is an error or you need to restart MAGnolia, is will ensure you are not rerunning programs that have already finished.
 
-The results will be published in the tutorial directory.
+The results will be published in the `magnolia_tutorial` directory.
+
+### Results
+For reference, we have provided the results of this demo analysis (excluding the Nextflow `work` directory) in the folder `MAGnolia/tutorial/output/`. Please note that several files have been truncated to accomodate Github's file size limit, as indicated in `MAGnolia/output/truncated_files.txt`.

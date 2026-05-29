@@ -1,0 +1,930 @@
+# Annotated with Bakta
+# Software: v1.11.4
+# Database: v6.0, full
+# DOI: 10.1099/mgen.0.000685
+# URL: github.com/oschwengers/bakta
+#Sequence Id	Type	Start	Stop	Strand	Locus Tag	Gene	Product	DbXrefs
+contig_1	cds	29	313	-	NBGELD_0001		DUF202 domain-containing protein	RefSeq:WP_055072652.1, SO:0001217, UniParc:UPI0006C62295, UniRef:UniRef100_A0A173SGH1, UniRef:UniRef50_A0A1Q9JS58, UniRef:UniRef90_D4MVX2
+contig_1	cds	329	1165	-	NBGELD_0002	manZ	PTS system mannose-specific EIID component	COG:COG3716, COG:G, RefSeq:WP_009265455.1, SO:0001217, UniParc:UPI0001F02648, UniRef:UniRef100_A0A374AW54, UniRef:UniRef50_A0A0F3H9W7, UniRef:UniRef90_A0A1C5X3C0
+contig_1	cds	1167	2021	-	NBGELD_0003	manY	PTS sorbose transporter subunit IIC	COG:COG3715, COG:G, RefSeq:WP_008390531.1, SO:0001217, UniParc:UPI0001653295, UniRef:UniRef100_D4MVX0, UniRef:UniRef50_A0NHI9, UniRef:UniRef90_D4MVX0
+contig_1	cds	2048	2545	-	NBGELD_0004	agaB	PTS sugar transporter subunit IIB	COG:COG3444, COG:G, RefSeq:WP_009265456.1, SO:0001217, UniParc:UPI0001F02649, UniRef:UniRef100_A0A417JPI3, UniRef:UniRef50_A0A2A7MEG4, UniRef:UniRef90_D4MVW9
+contig_1	cds	2566	3000	-	NBGELD_0005	manX	EIIAB-Man	COG:COG2893, COG:G, RefSeq:WP_008390535.1, SO:0001217, UniParc:UPI0001653271, UniRef:UniRef100_D4MVW8, UniRef:UniRef50_D4MVW8, UniRef:UniRef90_D4MVW8
+contig_1	cds	3163	3783	-	NBGELD_0006		hypothetical protein	
+contig_3	cds	62	1078	+	NBGELD_0007		Excinuclease ABC subunit C	SO:0001217, UniRef:UniRef50_A0A3A9E688
+contig_4	cds	35	475	+	NBGELD_0008		ATP synthase subunit C	SO:0001217, UniRef:UniRef50_A0A084JHW3, UniRef:UniRef90_D4MTU2
+contig_4	cds	493	801	+	NBGELD_0009	ntpF	Archaeal/vacuolar-type H+-ATPase subunit F	COG:C, COG:COG1436, RefSeq:WP_022375611.1, SO:0001217, UniParc:UPI0003412D8B, UniRef:UniRef100_A0A374AJS9, UniRef:UniRef50_L7VMG3, UniRef:UniRef90_D4MTU3
+contig_4	cds	829	1416	+	NBGELD_0010	ntpE	V-type ATP synthase subunit E	COG:C, COG:COG1390, SO:0001217, UniRef:UniRef50_A0A1Y4TWC4, UniRef:UniRef90_A0A374AM57
+contig_5	cds	40	1239	+	NBGELD_0011	nlpD	ABC transporter ATP-binding protein	COG:COG0739, COG:M, SO:0001217, UniRef:UniRef50_A0A916VDL8, UniRef:UniRef90_A0A1Q2C7P8
+contig_5	cds	1272	2411	+	NBGELD_0012	ctpA	putative CtpA-like serine protease	COG:COG0793, COG:O, SO:0001217, UniRef:UniRef50_A0A173TCH3, UniRef:UniRef90_A0A173TCH3
+contig_6	cds	271	756	+	NBGELD_0013		hypothetical protein	
+contig_6	cds	746	1114	-	NBGELD_0014		hypothetical protein	
+contig_7	cds	46	438	+	NBGELD_0015		M18 family aminopeptidase	SO:0001217, UniRef:UniRef50_A0A1Q6Q5S0
+contig_7	cds	581	946	-	NBGELD_0016	gloA	Aldoketomutase	COG:COG0346, COG:Q, RefSeq:WP_209291288.1, SO:0001217, UniParc:UPI001ADDDC52, UniRef:UniRef100_A0AAQ3GP57, UniRef:UniRef50_D4H6U0, UniRef:UniRef90_A0A1C5ZD80
+contig_9	cds	53	802	+	NBGELD_0017		N-acetylhexosamine 1-kinase	SO:0001217, UniRef:UniRef50_A0A0D0SDN8
+contig_10	cds	55	900	+	NBGELD_0018		hypothetical protein	PFAM:PF03147.19, PFAM:PF17759.6
+contig_11	cds	382	1395	-	NBGELD_0019	srlE	Glucitol/sorbitol-specific phosphotransferase enzyme IIB component	COG:COG3732, COG:G, RefSeq:WP_173782733.1, SO:0001217, UniParc:UPI00156F08A3, UniRef:UniRef100_A0AAQ3GMW3, UniRef:UniRef50_O32522, UniRef:UniRef90_A0A174KUH8
+contig_11	cds	1430	1693	-	NBGELD_0020		Glucitol/sorbitol permease IIC component	SO:0001217, UniRef:UniRef50_A0A6D2G6B6
+contig_12	cds	102	1187	+	NBGELD_0021	amyA	Alpha-amylase family glycosyl hydrolase	COG:COG0366, COG:G, SO:0001217, UniRef:UniRef50_C4Z0S9, UniRef:UniRef90_D4MVR9
+contig_12	cds	1257	2804	+	NBGELD_0022	rny	ribonuclease Y	COG:COG1418, COG:JR, GO:0003723, GO:0006402, GO:0016020, RefSeq:WP_008390622.1, SO:0001217, UniParc:UPI000165348E, UniRef:UniRef100_A0A174R599, UniRef:UniRef50_Q81A17, UniRef:UniRef90_A0A1Q9JRW2
+contig_12	cds	2883	3413	+	NBGELD_0023	mutT	ADP-ribose pyrophosphatase	COG:COG0494, COG:V, RefSeq:WP_008390621.1, SO:0001217, UniParc:UPI00016534A6, UniRef:UniRef100_D4MVS0, UniRef:UniRef50_D4MVS0, UniRef:UniRef90_D4MVS0
+contig_14	cds	139	522	+	NBGELD_0024		Glyoxalase	RefSeq:WP_055067362.1, SO:0001217, UniParc:UPI0006BFA8DE, UniRef:UniRef100_A0A0M6WGC8, UniRef:UniRef50_G5GJL5, UniRef:UniRef90_A0A0M6WGC8
+contig_14	cds	622	819	+	NBGELD_0025		hypothetical protein	RefSeq:WP_155175866.1, SO:0001217, UniParc:UPI000A4F856B, UniRef:UniRef100_A0A0M6WHH7, UniRef:UniRef50_A0A0M6WHH7, UniRef:UniRef90_A0A0M6WHH7
+contig_14	cds	869	1144	-	NBGELD_0026		hypothetical protein	PFAM:PF01841.26
+contig_15	cds	399	587	-	NBGELD_0027		hypothetical protein	RefSeq:WP_022091448.1, SO:0001217, UniParc:UPI0002E7639C, UniRef:UniRef100_A0A417JU09, UniRef:UniRef50_A0A417JU09, UniRef:UniRef90_A0A417JU09
+contig_15	cds	710	1243	+	NBGELD_0028		DUF4364 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1Q9JVH4, UniRef:UniRef90_A0A1C5YUT4
+contig_15	cds	1244	1564	-	NBGELD_0029	yihA	(pseudo) ribosome biogenesis GTP-binding protein YihA/YsxC	COG:COG0218, COG:D, GO:0003924, GO:0005525, GO:0005737, GO:0042254, GO:0043022, SO:0001217, UniRef:UniRef50_A9KHA0, UniRef:UniRef90_A0AAQ3JJT5
+contig_15	cds	1613	1846	-	NBGELD_0030	yihA	(pseudo) ribosome biogenesis GTP-binding protein YihA/YsxC	GO:0003924, GO:0005525, GO:0005737, GO:0042254, GO:0043022, SO:0001217, UniRef:UniRef50_A0A3C1A558, UniRef:UniRef90_A0A0J1G8P1
+contig_15	cds	1905	2771	-	NBGELD_0031		endopeptidase La	SO:0001217, UniRef:UniRef50_R7IP54
+contig_16	cds	1354	1473	-	NBGELD_0032		hypothetical protein	
+contig_17	cds	112	1440	-	NBGELD_0033	celF	Maltose-6'-phosphate glucosidase	COG:COG1486, COG:G, EC:3.2.1.122, KEGG:K01232, RefSeq:WP_077326453.1, SO:0001217, UniParc:UPI0009801C8F, UniRef:UniRef100_A0A417V8R7, UniRef:UniRef50_D4K8S3, UniRef:UniRef90_A0A173T7L3
+contig_19	cds	551	1609	-	NBGELD_0034	pilT	Twitching mobility protein	COG:COG2805, COG:NU, KEGG:K02669, RefSeq:WP_055159724.1, SO:0001217, UniParc:UPI0006BFF716, UniRef:UniRef100_A0A417K2I8, UniRef:UniRef50_G9WYG4, UniRef:UniRef90_A0A173SSL7
+contig_19	cds	1621	2106	-	NBGELD_0035		DUF4829 domain-containing protein	RefSeq:WP_055159725.1, SO:0001217, UniParc:UPI0006C1B234, UniRef:UniRef100_A0A174MI23, UniRef:UniRef50_A0A174MI23, UniRef:UniRef90_A0A174MI23
+contig_19	cds	2093	2533	-	NBGELD_0036		Type II secretion system protein	RefSeq:WP_009265933.1, SO:0001217, UniParc:UPI0001F02771, UniRef:UniRef100_A0A173UT63, UniRef:UniRef50_D4MU38, UniRef:UniRef90_D4MU38
+contig_21	cds	106	342	-	NBGELD_0037	secE	preprotein translocase subunit SecE	SO:0001217, UniRef:UniRef50_A0A317UBZ6, UniRef:UniRef90_UPI001D06441E
+contig_21	cds	355	1671	-	NBGELD_0038	secY	preprotein translocase subunit SecY	GO:0015031, GO:0016020, GO:0043952, SO:0001217, UniRef:UniRef50_A0A317UF28, UniRef:UniRef90_UPI001D07FDE1
+contig_21	cds	1697	2503	-	NBGELD_0039		hypothetical protein	SO:0001217, UniRef:UniRef50_A0A317UB22, UniRef:UniRef90_UPI001D079A57
+contig_21	cds	2475	2615	-	NBGELD_0040		hypothetical protein	
+contig_22	cds	38	808	+	NBGELD_0041	rpoD	Sigma-70 domain-containing protein	COG:COG0568, COG:K, RefSeq:WP_008393671.1, SO:0001217, UniParc:UPI0001656738, UniRef:UniRef100_D4MWR2, UniRef:UniRef50_A0A916VDB7, UniRef:UniRef90_D4MWR2
+contig_23	cds	673	1092	-	NBGELD_0042		hypothetical protein	PFAM:PF16363.11
+contig_24	cds	12	377	+	NBGELD_0043		hypothetical protein	
+contig_24	cds	380	1324	+	NBGELD_0044	yfdV	AEC family transporter	COG:COG0679, COG:R, KEGG:K13936, SO:0001217, UniRef:UniRef50_R0CAD0, UniRef:UniRef90_D4MZD1
+contig_24	cds	1325	1513	-	NBGELD_0045		hypothetical protein	
+contig_25	cds	6	545	+	NBGELD_0046	apt	xanthine phosphoribosyltransferase	COG:COG0503, COG:F, EC:2.4.2.22, GO:0016763, GO:0043101, GO:0046110, SO:0001217, UniRef:UniRef50_E3HBJ3, UniRef:UniRef90_D4MU46
+contig_28	cds	14	1252	-	NBGELD_0047	uvrD	(pseudo) DNA 3'-5' helicase	COG:COG0210, COG:L, SO:0001217, UniRef:UniRef50_A0A1Q9K542, UniRef:UniRef90_A0A374AMT6
+contig_28	cds	1292	1876	-	NBGELD_0048		UvrD-like helicase ATP-binding domain-containing protein	SO:0001217, UniRef:UniRef50_E9RT14
+contig_28	cds	1869	2171	-	NBGELD_0049		hypothetical protein	PFAM:PF19269.4
+contig_29	cds	117	809	-	NBGELD_0050		HTH cro/C1-type domain-containing protein	RefSeq:WP_055303158.1, SO:0001217, UniParc:UPI0006BFE611, UniRef:UniRef100_A0A6N9JX90, UniRef:UniRef50_A0A1Y4U1L7, UniRef:UniRef90_A0A564T2P8
+contig_30	cds	490	843	+	NBGELD_0051	ylxM	YlxM family DNA-binding protein	COG:COG2739, COG:K, GO:0048500, KEGG:K09787, RefSeq:WP_008392932.1, SO:0001217, UniParc:UPI0001658303, UniRef:UniRef100_D4MX31, UniRef:UniRef50_A0A943BGN1, UniRef:UniRef90_D4MX31
+contig_32	cds	185	1093	+	NBGELD_0052	nadA	quinolinate synthase NadA	COG:COG0379, COG:H, EC:2.5.1.72, GO:0008987, GO:0009435, GO:0051539, KEGG:K03517, RefSeq:WP_008393442.1, SO:0001217, UniParc:UPI0001654FBD, UniRef:UniRef100_D4MYE2, UniRef:UniRef50_Q8R6C9, UniRef:UniRef90_D4MYE2
+contig_33	tRNA	849	922	-	NBGELD_0053	trnR	tRNA-Arg(acg)	SO:0001036
+contig_33	tRNA	973	1047	-	NBGELD_0054	trnL	tRNA-Leu(taa)	SO:0000264
+contig_34	cds	8	514	-	NBGELD_0055	whiA	(pseudo) DNA-binding protein WhiA	COG:COG1481, COG:K, GO:0003677, GO:0043937, SO:0001217, UniRef:UniRef50_A9KSS5, UniRef:UniRef90_D4MUA2
+contig_34	cds	518	1372	-	NBGELD_0056	rapZ	RNase adapter RapZ	COG:COG1660, COG:T, GO:0005524, KEGG:K06958, RefSeq:WP_009202776.1, SO:0001217, UniParc:UPI0001F027F7, UniRef:UniRef100_A0A173S6I7, UniRef:UniRef50_B2A700, UniRef:UniRef90_D4MUA1
+contig_34	cds	1388	2296	-	NBGELD_0057	murB	UDP-N-acetylmuramate dehydrogenase	COG:COG0812, COG:M, EC:1.3.1.98, GO:0008762, GO:0071949, RefSeq:WP_009265956.1, SO:0001217, UniParc:UPI0001F027F8, UniRef:UniRef100_A0A415YHU8, UniRef:UniRef50_A0A0X1U856, UniRef:UniRef90_D4MUA0
+contig_34	cds	2366	3301	-	NBGELD_0058	nagC	Glucokinase	COG:COG1940, COG:GK, RefSeq:WP_009265957.1, SO:0001217, UniParc:UPI0001F027F9, UniRef:UniRef100_A0A415YHT6, UniRef:UniRef50_D4MU99, UniRef:UniRef90_D4MU99
+contig_36	cds	186	743	+	NBGELD_0059		hypothetical protein	
+contig_36	cds	784	1671	+	NBGELD_0060	tadE	Pilus assembly protein	COG:COG4961, COG:W, RefSeq:WP_244090739.1, SO:0001217, UniParc:UPI001FC7EB6F, UniRef:UniRef100_UPI001FC7EB6F, UniRef:UniRef50_A0A173R454, UniRef:UniRef90_A0A173R454
+contig_37	cds	35	1369	-	NBGELD_0061	norM	Staphylococcal virulence regulator protein A	COG:COG0534, COG:V, RefSeq:WP_008392180.1, SO:0001217, UniParc:UPI0001657725, UniRef:UniRef100_A0A9E0D301, UniRef:UniRef50_A0A4P8I7Y5, UniRef:UniRef90_A0A174TH65
+contig_39	cds	331	804	-	NBGELD_0062		Dihydroxy-acid dehydratase	SO:0001217, UniRef:UniRef50_T0V7W4
+contig_40	cds	115	720	+	NBGELD_0063	ruvA	Holliday junction branch migration protein RuvA	COG:COG0632, COG:L, EC:3.6.4.12, GO:0003678, GO:0006281, GO:0006310, GO:0009378, GO:0009379, RefSeq:WP_009263937.1, SO:0001217, UniParc:UPI0001F02191, UniRef:UniRef100_A0A374AQW6, UniRef:UniRef50_A0A374AVN0, UniRef:UniRef90_A0A173SAE3
+contig_40	cds	734	1738	+	NBGELD_0064	ruvB	Holliday junction branch migration DNA helicase RuvB	COG:COG2255, COG:L, EC:3.6.4.12, GO:0003677, GO:0005524, GO:0006281, GO:0006310, GO:0009378, RefSeq:WP_008392602.1, SO:0001217, UniParc:UPI00016543CE, UniRef:UniRef100_D4MZI9, UniRef:UniRef50_O32055, UniRef:UniRef90_A0A374AR24
+contig_41	cds	18	257	+	NBGELD_0065		hypothetical protein	PFAM:PF09148.16
+contig_41	cds	260	1411	+	NBGELD_0066	kdpD	histidine kinase	COG:COG2205, COG:T, RefSeq:WP_173782572.1, SO:0001217, UniParc:UPI0015706CDD, UniRef:UniRef100_UPI0015706CDD, UniRef:UniRef50_D4MY81, UniRef:UniRef90_D4MY81
+contig_41	cds	1408	2121	+	NBGELD_0067	ompR	Stage 0 sporulation A-like protein	COG:COG0745, COG:TK, KEGG:K07667, SO:0001217, UniRef:UniRef50_D4MY82, UniRef:UniRef90_D4MY82
+contig_42	cds	499	891	+	NBGELD_0068		hypothetical protein	
+contig_42	cds	740	2377	-	NBGELD_0069	mdlB	Iron import ATP-binding/permease protein IrtA	COG:COG1132, COG:V, SO:0001217, UniRef:UniRef50_F4LJY5, UniRef:UniRef90_A0A173TEB7
+contig_44	cds	770	1450	+	NBGELD_0070	yczE	YitT family protein	COG:COG2364, COG:S, KEGG:K07149, SO:0001217, UniParc:UPI0002F0F1BD, UniRef:UniRef100_A0A174GFT1, UniRef:UniRef50_A0A916QBG8, UniRef:UniRef90_A0A417V8R2
+contig_44	cds	1530	2273	-	NBGELD_0071	ykwD	Uncharacterized protein with SCP/PR1 domains	COG:COG2340, COG:DR, SO:0001217, UniRef:UniRef50_D4MU32, UniRef:UniRef90_D4MU32
+contig_45	cds	73	801	+	NBGELD_0072		3-deoxy-7-phosphoheptulonate synthase	SO:0001217, UniRef:UniRef50_A0A348ZJV5
+contig_46	cds	60	1724	-	NBGELD_0073	rnjA	Ribonuclease J	COG:COG0595, COG:J, RefSeq:WP_009264372.1, SO:0001217, UniParc:UPI0001F02233, UniRef:UniRef100_A0A417JJF6, UniRef:UniRef50_A0A1F2PJ26, UniRef:UniRef90_A0A173UKG5
+contig_47	cds	203	700	-	NBGELD_0074		PD-(D/E)XK nuclease domain-containing protein	SO:0001217, UniRef:UniRef50_UPI0026803468
+contig_47	cds	688	960	-	NBGELD_0075		hypothetical protein	
+contig_50	cds	218	529	+	NBGELD_0076		ATPase	RefSeq:WP_022375607.1, SO:0001217, UniParc:UPI0003372F09, UniRef:UniRef100_A0A374AM81, UniRef:UniRef50_A0A374AM81, UniRef:UniRef90_A0A374AM81
+contig_53	cds	5	559	+	NBGELD_0077		hypothetical protein	PFAM:PF00497.25
+contig_53	cds	654	1262	+	NBGELD_0078	hisM	Amino acid ABC transporter membrane protein, PAAT family (TC 3-A1-3-)	COG:COG0765, COG:E, SO:0001217, UniRef:UniRef50_D4MTT8, UniRef:UniRef90_D4MTT8
+contig_54	cds	32	265	+	NBGELD_0079		hypothetical protein	SO:0001217, UniRef:UniRef50_D4N0T4, UniRef:UniRef90_D4N0T4
+contig_54	cds	280	1806	+	NBGELD_0080	dinP	DNA methylase	COG:COG0389, COG:L, SO:0001217, UniRef:UniRef50_A0A087D777, UniRef:UniRef90_A0A174U6T1
+contig_56	cds	390	887	-	NBGELD_0081		hypothetical protein	
+contig_58	cds	19	306	+	NBGELD_0082		hypothetical protein	
+contig_58	cds	398	844	+	NBGELD_0083	yqeY	GatB/YqeY domain-containing protein	COG:COG1610, COG:R, KEGG:K09117, RefSeq:WP_008393170.1, SO:0001217, UniParc:UPI0001654ACD, UniRef:UniRef100_D4MXB8, UniRef:UniRef50_A0A7U9R809, UniRef:UniRef90_D4MXB8
+contig_58	cds	841	1374	+	NBGELD_0084	pncA	nicotinamidase	COG:COG1335, COG:HR, EC:3.5.1.-, EC:3.5.1.19, KEGG:K08281, RefSeq:WP_118352573.1, SO:0001217, UniParc:UPI000E4B1B87, UniRef:UniRef100_A0A417V282, UniRef:UniRef50_S0JI11, UniRef:UniRef90_A0A173R6K1
+contig_61	cds	105	473	+	NBGELD_0085		hypothetical protein	
+contig_61	cds	517	1824	+	NBGELD_0086	nhaC	Malate-2H(+)/Na(+)-lactate antiporter	COG:C, COG:COG1757, RefSeq:WP_009264876.1, SO:0001217, UniParc:UPI0001F02364, UniRef:UniRef100_A0A415YGT4, UniRef:UniRef50_H1PXE6, UniRef:UniRef90_A0A173QZD2
+contig_62	cds	99	497	+	NBGELD_0087		hypothetical protein	
+contig_63	cds	147	611	+	NBGELD_0088		hypothetical protein	
+contig_63	cds	712	1224	-	NBGELD_0089		hypothetical protein	
+contig_64	cds	65	601	-	NBGELD_0090		hypothetical protein	
+contig_65	cds	26	952	+	NBGELD_0091	clpX	ATP-dependent Clp protease ATP-binding subunit ClpX	SO:0001217, UniRef:UniRef50_A0A3A9E829
+contig_65	cds	1058	1153	-	NBGELD_0092		hypothetical protein	
+contig_66	cds	557	1249	-	NBGELD_0093	iscU	NifU-like protein involved in Fe-S cluster formation	COG:COG0822, COG:O, RefSeq:WP_008392877.1, SO:0001217, UniParc:UPI0001657667, UniRef:UniRef100_A0A374AM34, UniRef:UniRef50_Q6LS00, UniRef:UniRef90_D4LEN8
+contig_67	cds	212	766	-	NBGELD_0094		Flavoredoxin	RefSeq:WP_044922392.1, SO:0001217, UniParc:UPI0005D16DF9, UniRef:UniRef100_A0A1C5R4J1, UniRef:UniRef50_G4Q5S3, UniRef:UniRef90_A0A174KE65
+contig_67	cds	787	1290	-	NBGELD_0095		Flavodoxin-like domain-containing protein	RefSeq:WP_110102395.1, SO:0001217, UniParc:UPI000D73ED72, UniRef:UniRef100_A0A317UJM9, UniRef:UniRef50_A6BG85, UniRef:UniRef90_A6BG85
+contig_69	cds	263	1024	+	NBGELD_0096	hisF	Imidazole glycerol phosphate synthase subunit HisF	COG:COG0107, COG:E, RefSeq:WP_008391653.1, SO:0001217, UniParc:UPI000165382B, UniRef:UniRef100_A0A417JT24, UniRef:UniRef50_O34727, UniRef:UniRef90_D4MZ02
+contig_70	cds	249	977	+	NBGELD_0097	hydG	Iron-only hydrogenase maturation rSAM protein HydG	SO:0001217, UniRef:UniRef50_R7QV84
+contig_71	cds	63	992	+	NBGELD_0098		GH32 C-terminal domain-containing protein	SO:0001217, UniRef:UniRef50_UPI00313FE3B5
+contig_72	cds	288	1022	+	NBGELD_0099	spoIIQ2	Septal ring factor	COG:COG5821, COG:D, SO:0001217, UniRef:UniRef50_A0A173SDT2, UniRef:UniRef90_A0A173RBS1
+contig_76	cds	87	563	-	NBGELD_0100		hypothetical protein	
+contig_76	cds	627	1235	-	NBGELD_0101		hypothetical protein	
+contig_78	cds	332	862	+	NBGELD_0102	hpf	ribosome hibernation-promoting factor, HPF/YfiA family	COG:COG1544, COG:J, GO:0005840, GO:0045182, KEGG:K05808, SO:0001217, UniRef:UniRef50_A0A1S1V4M7, UniRef:UniRef90_D4MYN1
+contig_79	cds	28	1308	+	NBGELD_0103	gltP	Dicarboxylate/amino acid:cation symporter	COG:C, COG:COG1301, SO:0001217, UniRef:UniRef50_A9KPA9, UniRef:UniRef90_D4MY58
+contig_80	cds	37	378	+	NBGELD_0104		Molybdopterin biosynthesis enzyme	SO:0001217, UniRef:UniRef50_J9GFV2
+contig_80	cds	381	740	+	NBGELD_0105	modE	DNA-binding transcriptional regulator ModE	COG:COG2005, COG:K, KEGG:K02019, SO:0001217, UniRef:UniRef50_D4N0A8, UniRef:UniRef90_D4N0A8
+contig_80	cds	747	983	+	NBGELD_0106		Putative Se/S carrier protein-like domain-containing protein	RefSeq:WP_077327424.1, SO:0001217, UniParc:UPI0009806EDE, UniRef:UniRef100_A0A1Q2CAG1, UniRef:UniRef50_U2QSS3, UniRef:UniRef90_E5VK79
+contig_81	cds	45	236	+	NBGELD_0107		hypothetical protein	
+contig_81	cds	329	637	+	NBGELD_0108	rplU	50S ribosomal protein L21	COG:COG0261, COG:J, GO:0003723, GO:0003735, GO:0005840, GO:0006412, KEGG:K02888, RefSeq:WP_009263894.1, SO:0001217, UniParc:UPI0001CE6900, UniRef:UniRef100_A0A374APK3, UniRef:UniRef50_Q9K8J5, UniRef:UniRef90_A0A1Q9JR45
+contig_81	cds	656	982	+	NBGELD_0109	ysxB	Ribosomal processing cysteine protease Prp	COG:COG2868, COG:S, KEGG:K07584, RefSeq:WP_008391484.1, SO:0001217, UniParc:UPI0001657331, UniRef:UniRef100_A0A174KRL4, UniRef:UniRef50_A0A1Q9K0U2, UniRef:UniRef90_A0A174KRL4
+contig_81	cds	988	1269	+	NBGELD_0110	rpmA	50S ribosomal protein L27	GO:0000315, GO:0003735, GO:0006412, GO:0022625, KEGG:K02899, SO:0001217, UniRef:UniRef50_P05657, UniRef:UniRef90_A0A1I5BQ40
+contig_83	cds	95	478	+	NBGELD_0111		Hydroxylamine reductase	SO:0001217, UniRef:UniRef50_A0A162TKM9
+contig_83	cds	661	1176	+	NBGELD_0112		XRE family transcriptional regulator	SO:0001217, UniRef:UniRef50_G2SM71, UniRef:UniRef90_A5ZSG5
+contig_83	cds	1230	1646	-	NBGELD_0113		LXG domain-containing protein	SO:0001217, UniRef:UniRef50_U2PTK0, UniRef:UniRef90_U2PTK0
+contig_84	cds	129	554	+	NBGELD_0114	rplK	50S ribosomal protein L11	COG:COG0080, COG:J, GO:0003735, GO:0005840, GO:0006412, KEGG:K02867, RefSeq:WP_008393891.1, SO:0001217, UniParc:UPI0001656BC4, UniRef:UniRef100_D4MUG1, UniRef:UniRef50_P62432, UniRef:UniRef90_D4MUG1
+contig_84	cds	618	1310	+	NBGELD_0115	rplA	50S ribosomal protein L1	COG:COG0081, COG:J, GO:0003723, GO:0003735, GO:0006412, GO:0015934, KEGG:K02863, RefSeq:WP_055159790.1, SO:0001217, UniParc:UPI0006C0B430, UniRef:UniRef100_A0A173SWE4, UniRef:UniRef50_Q5M2K0, UniRef:UniRef90_D4MUG2
+contig_85	cds	15	767	+	NBGELD_0116	fba	Fructose-bisphosphate aldolase	COG:COG0191, COG:G, EC:4.1.2.13, KEGG:K01624, SO:0001217, UniRef:UniRef50_D4MU09, UniRef:UniRef90_D4MU09
+contig_85	cds	846	1733	+	NBGELD_0117	nagC	Glucokinase	COG:COG1940, COG:GK, SO:0001217, UniRef:UniRef50_R9LPB9, UniRef:UniRef90_A0A174MI93
+contig_86	cds	346	1566	-	NBGELD_0118	thrC	threonine synthase	COG:COG0498, COG:E, EC:4.2.3.1, GO:0004795, GO:0009088, KEGG:K01733, SO:0001217, UniRef:UniRef50_A0A1F2W0U3, UniRef:UniRef90_A0A174QZC8
+contig_88	cds	109	837	+	NBGELD_0119		ABC transporter substrate-binding protein	SO:0001217, UniRef:UniRef50_A0A7C6SPW8
+contig_90	cds	609	869	-	NBGELD_0120	minE	cell division topological specificity factor MinE	COG:COG0851, COG:D, GO:0032955, GO:0051301, RefSeq:WP_022375128.1, SO:0001217, UniParc:UPI00033B9551, UniRef:UniRef100_A0A374ASL4, UniRef:UniRef50_C4Z090, UniRef:UniRef90_D4MYV2
+contig_90	cds	884	1255	-	NBGELD_0121	minD	Septum site-determining protein MinD	SO:0001217, UniRef:UniRef50_K2DR15
+contig_91	cds	51	896	+	NBGELD_0122		ABC transporter substrate-binding protein	SO:0001217, UniRef:UniRef50_UPI000E53E50A
+contig_92	cds	45	221	+	NBGELD_0123		hypothetical protein	
+contig_92	cds	224	859	+	NBGELD_0124		Major tail protein	RefSeq:WP_346995404.1, SO:0001217, UniParc:UPI003219D32E, UniRef:UniRef100_UPI003219D32E, UniRef:UniRef50_A0A7U9NG37, UniRef:UniRef90_A0A416WA56
+contig_93	cds	178	1512	+	NBGELD_0125	gdhA	NADP-specific glutamate dehydrogenase	COG:COG0334, COG:E, EC:1.4.1.4, GO:0006520, GO:0016639, RefSeq:WP_008393150.1, SO:0001217, UniParc:UPI0001654A96, UniRef:UniRef100_D4MXD7, UniRef:UniRef50_Q5QVZ2, UniRef:UniRef90_D4MXD7
+contig_94	cds	14	967	+	NBGELD_0126		Sugar ABC transporter ATP-binding protein	SO:0001217, UniRef:UniRef50_A0A1Q6Q0D2
+contig_94	cds	970	2010	+	NBGELD_0127	araH	Inner membrane ABC transporter permease protein ytfT	COG:COG1172, COG:G, RefSeq:WP_118627920.1, SO:0001217, UniParc:UPI000E515D96, UniRef:UniRef100_UPI000E515D96, UniRef:UniRef50_R9KDM9, UniRef:UniRef90_D4MZB5
+contig_94	cds	2010	3056	+	NBGELD_0128	yjfF	Inner membrane ABC transporter permease protein yjfF	RefSeq:WP_008391963.1, SO:0001217, UniParc:UPI00016543F4, UniRef:UniRef100_D4MZB6, UniRef:UniRef50_R9KLH2, UniRef:UniRef90_D4MZB6
+contig_96	cds	44	259	+	NBGELD_0129		hypothetical protein	PFAM:PF00085.26
+contig_96	cds	261	2051	+	NBGELD_0130	abc-f	ribosomal protection-like ABC-F family protein	COG:COG0488, COG:R, GO:0003677, GO:0005524, GO:0016887, SO:0001217, UniRef:UniRef50_C0CP80, UniRef:UniRef90_D4MUQ4
+contig_99	cds	417	1205	-	NBGELD_0131	fixA	Electron transfer flavoprotein small subunit	COG:C, COG:COG2086, KEGG:K26115, RefSeq:WP_215719445.1, SO:0001217, UniParc:UPI001C033202, UniRef:UniRef100_UPI001C033202, UniRef:UniRef50_H6LBB0, UniRef:UniRef90_D4MUZ7
+contig_101	cds	306	950	+	NBGELD_0132	tetR	Regulatory protein TetR	SO:0001217, UniRef:UniRef50_A0A1Y3UGP9, UniRef:UniRef90_R7CFH4
+contig_103	cds	696	1784	-	NBGELD_0133		Aldehyde oxidase/xanthine dehydrogenase a/b hammerhead domain-containing protein	SO:0001217, UniRef:UniRef50_G5IEG5
+contig_103	cds	1781	2254	-	NBGELD_0134	cutS	(2Fe-2S)-binding protein	COG:C, COG:COG2080, RefSeq:WP_008392385.1, SO:0001217, UniParc:UPI0001653B7D, UniRef:UniRef100_D4MU43, UniRef:UniRef50_A0A0C7R4V9, UniRef:UniRef90_D4MU43
+contig_103	cds	2257	2520	-	NBGELD_0135		hypothetical protein	PFAM:PF03450.22
+contig_104	cds	166	732	+	NBGELD_0136		hypothetical protein	PFAM:PF00041.27, PFAM:PF07550.17
+contig_106	cds	137	1312	+	NBGELD_0137		hypothetical protein	PFAM:PF01228.26
+contig_107	cds	277	726	-	NBGELD_0138		Thioesterase superfamily protein	RefSeq:WP_015530672.1, SO:0001217, UniParc:UPI0001CE5F6D, UniRef:UniRef100_A0A415YA59, UniRef:UniRef50_A0A7X5I4W7, UniRef:UniRef90_E5VJ36
+contig_107	cds	1185	1640	+	NBGELD_0139	ycdZ	Inner membrane protein ycdZ	RefSeq:WP_008394006.1, SO:0001217, UniParc:UPI0001656C57, UniRef:UniRef100_D4MUM5, UniRef:UniRef50_A0A174JXK8, UniRef:UniRef90_A0A174JXK8
+contig_107	cds	1688	2896	+	NBGELD_0140	gltD	dihydrouracil dehydrogenase (NAD(+))	COG:COG0493, COG:ER, RefSeq:WP_008394005.1, SO:0001217, UniParc:UPI0001656ADF, UniRef:UniRef100_D4MUM4, UniRef:UniRef50_A0A7S7EX81, UniRef:UniRef90_D4MUM4
+contig_107	cds	2913	4169	+	NBGELD_0141	preA	NAD-dependent dihydropyrimidine dehydrogenase subunit PreA	COG:C, COG:COG1144, EC:1.3.1.1, GO:0006210, GO:0006212, GO:0017113, SO:0001217, UniRef:UniRef50_Q8ZNL7, UniRef:UniRef90_D4MUM3
+contig_108	cds	69	1046	-	NBGELD_0142	fixB	Electron transfer flavoprotein large subunit	COG:C, COG:COG2025, KEGG:K03522, SO:0001217, UniRef:UniRef50_A0A0K1F451, UniRef:UniRef90_D4MUW2
+contig_109	cds	295	1077	-	NBGELD_0143	phnP	MBL fold metallo-hydrolase	COG:COG1235, COG:P, RefSeq:WP_212385009.1, SO:0001217, UniParc:UPI001BAD615D, UniRef:UniRef100_UPI001BAD615D, UniRef:UniRef50_A0A1G5GKT2, UniRef:UniRef90_A0A374AUL3
+contig_110	cds	6	575	+	NBGELD_0144		hypothetical protein	PFAM:PF02080.26, PFAM:PF02254.24
+contig_110	cds	598	1371	+	NBGELD_0145	spoU	Putative TrmH family tRNA/rRNA methyltransferase	COG:COG0566, COG:J, RefSeq:WP_287800640.1, SO:0001217, UniParc:UPI000ED3CFBF, UniRef:UniRef100_UPI000ED3CFBF, UniRef:UniRef50_R9K6K4, UniRef:UniRef90_A0A173S4Z5
+contig_110	cds	1372	1803	+	NBGELD_0146	ybbJ	NfeD-like C-terminal domain-containing protein	COG:COG1585, COG:O, RefSeq:WP_149883667.1, SO:0001217, UniParc:UPI0009629CD0, UniRef:UniRef100_UPI0009629CD0, UniRef:UniRef50_A0A1Y4B0X6, UniRef:UniRef90_A0A6N2UUN0
+contig_111	cds	95	736	+	NBGELD_0147	adk	adenylate kinase	COG:COG0563, COG:F, EC:2.7.4.3, GO:0005524, GO:0006139, GO:0016776, GO:0019205, RefSeq:WP_009264113.1, SO:0001217, UniParc:UPI0001F02577, UniRef:UniRef100_D4MYI2, UniRef:UniRef50_A5I7I5, UniRef:UniRef90_D4MYI2
+contig_111	cds	747	1502	+	NBGELD_0148	map	type I methionyl aminopeptidase	COG:COG0024, COG:J, EC:3.4.11.18, GO:0006508, GO:0070006, KEGG:K01265, RefSeq:WP_008393378.1, SO:0001217, UniParc:UPI0001654F4F, UniRef:UniRef100_D4MYI3, UniRef:UniRef50_D4MYI3, UniRef:UniRef90_D4MYI3
+contig_111	cds	1513	1731	+	NBGELD_0149	infA	translation initiation factor IF-1	COG:COG0361, COG:J, GO:0003743, GO:0006413, KEGG:K02518, RefSeq:WP_008393377.1, SO:0001217, UniParc:UPI0001654FC0, UniRef:UniRef100_A0A374AU45, UniRef:UniRef50_P0A3K4, UniRef:UniRef90_A0A4P8IGV8
+contig_112	cds	62	1309	+	NBGELD_0150	bglC	Aryl-phospho-beta-D-glucosidase BglC	COG:COG2723, COG:G, SO:0001217, UniRef:UniRef50_P42403, UniRef:UniRef90_D4MZ70
+contig_113	cds	8	1270	+	NBGELD_0151		Stage 0 sporulation A-like protein	SO:0001217, UniRef:UniRef50_A0A417V4G7, UniRef:UniRef90_A0A417V4G7
+contig_114	cds	92	1564	+	NBGELD_0152		Primosomal protein N'	SO:0001217, UniRef:UniRef50_A0A7U9XA96
+contig_115	cds	30	173	+	NBGELD_0153		hypothetical protein	PFAM:PF08282.18
+contig_115	cds	167	1432	+	NBGELD_0154	folC	tetrahydrofolate synthase	COG:COG0285, COG:H, RefSeq:WP_022091987.1, SO:0001217, UniParc:UPI000335BCEB, UniRef:UniRef100_A0A174BJE4, UniRef:UniRef50_A0A174U6E3, UniRef:UniRef90_A0A174U6E3
+contig_116	cds	123	371	+	NBGELD_0155	spoIIID	sporulation transcriptional regulator SpoIIID	COG:COG5830, COG:DK, GO:0030436, GO:0140110, KEGG:K06283, RefSeq:WP_070097253.1, SO:0001217, UniParc:UPI0002DC71F5, UniRef:UniRef100_A0A174AB26, UniRef:UniRef50_R7QV04, UniRef:UniRef90_A0A174AB26
+contig_117	cds	368	1015	-	NBGELD_0156		1-phosphofructokinase family hexose kinase	SO:0001217, UniRef:UniRef50_UPI001034E915
+contig_118	cds	18	464	+	NBGELD_0157		PHP domain-containing protein	RefSeq:WP_244090810.1, SO:0001217, UniParc:UPI001FC7FF89, UniRef:UniRef100_UPI001FC7FF89, UniRef:UniRef50_E5VJJ7, UniRef:UniRef90_E5VJJ7
+contig_118	cds	572	1966	-	NBGELD_0158		Ribulose-1,5-biphosphate synthetase	COG:COG2509, COG:R, KEGG:K07137, SO:0001217, UniRef:UniRef50_A0A0F0CNF7, UniRef:UniRef90_D4MVE1
+contig_118	cds	1969	2481	-	NBGELD_0159		N-acetyltransferase domain-containing protein	RefSeq:WP_044925235.1, SO:0001217, UniParc:UPI0005D15998, UniRef:UniRef100_A0A6N2R7U7, UniRef:UniRef50_D4MVE0, UniRef:UniRef90_D4MVE0
+contig_119	cds	24	230	+	NBGELD_0160		Methylglyoxal synthase	SO:0001217, UniRef:UniRef50_A0A970A878
+contig_119	cds	293	1237	+	NBGELD_0161	dacC	D-alanyl-D-alanine carboxypeptidase dacB	COG:COG1686, COG:M, SO:0001217, UniRef:UniRef50_A0A4P8IKS0, UniRef:UniRef90_A0A174MC28
+contig_120	ncRNA-region	713	897	-			glmS glucosamine-6-phosphate activated ribozyme aptamer	RFAM:RF00234, SO:0005836
+contig_121	cds	105	1607	-	NBGELD_0162	rho	transcription termination factor Rho	EC:3.6.4.-, GO:0003723, GO:0005524, GO:0006353, GO:0008186, KEGG:K03628, RefSeq:WP_117831175.1, SO:0001217, UniParc:UPI000E4D5076, UniRef:UniRef100_A0A844KQB8, UniRef:UniRef50_A0A7U9MX92, UniRef:UniRef90_A0A0M6WVE5
+contig_121	cds	1832	2983	+	NBGELD_0163		Malate dehydrogenase	SO:0001217, UniRef:UniRef50_A0A0D0SK31, UniRef:UniRef90_A0A0M6WDW1
+contig_121	cds	2973	3890	+	NBGELD_0164		TIGR01212 family radical SAM protein	GO:0051536, GO:1904047, KEGG:K07139, RefSeq:WP_055068500.1, SO:0001217, UniParc:UPI0006CABB11, UniRef:UniRef100_A0A351R3X7, UniRef:UniRef50_F2NSX5, UniRef:UniRef90_A0A173SCA2
+contig_121	cds	3883	4398	+	NBGELD_0165		DUF4364 domain-containing protein	RefSeq:WP_022046426.1, SO:0001217, UniParc:UPI000336A4C3, UniRef:UniRef100_A0A0M6WVG6, UniRef:UniRef50_G2SXB9, UniRef:UniRef90_A0A0M6WVG6
+contig_121	cds	4407	4976	-	NBGELD_0166		Flavin reductase family protein	RefSeq:WP_055068499.1, SO:0001217, UniParc:UPI0006C550AB, UniRef:UniRef100_A0A0M6WV22, UniRef:UniRef50_F3B4C2, UniRef:UniRef90_A0A0M6WV22
+contig_121	cds	5018	6490	-	NBGELD_0167		UDP-N-acetylmuramoyl-L-alanyl-D-glutamate--2,6-diaminopimelate ligase	EC:6.3.2.13, GO:0005524, GO:0008360, GO:0009058, GO:0016874, GO:0051301, KEGG:K01928, RefSeq:WP_055068498.1, SO:0001217, UniParc:UPI0006C295F0, UniRef:UniRef100_A0A0M6WVD6, UniRef:UniRef50_A0A0M6WVD6, UniRef:UniRef90_A0A0M6WVD6
+contig_121	cds	6491	7327	-	NBGELD_0168	dapF	diaminopimelate epimerase	EC:5.1.1.7, GO:0008837, GO:0009089, KEGG:K01778, RefSeq:WP_155177392.1, SO:0001217, UniParc:UPI0012BC54B1, UniRef:UniRef100_A0A844KT03, UniRef:UniRef50_C4Z900, UniRef:UniRef90_A0A0M6WY23
+contig_122	cds	473	1999	+	NBGELD_0169	umuC	UmuC domain-containing protein	KEGG:K03502, SO:0001217, UniRef:UniRef50_A0A417U409, UniRef:UniRef90_R0CUY1
+contig_122	cds	2044	2478	+	NBGELD_0170		YolD-like protein	SO:0001217, UniRef:UniRef50_R0B9M6, UniRef:UniRef90_A0A844KGT2
+contig_122	cds	2498	2728	+	NBGELD_0171		HicB-like antitoxin of toxin-antitoxin system domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1Y4TV71
+contig_123	cds	86	982	+	NBGELD_0172		ABC transporter	SO:0001217, UniRef:UniRef50_A0A1H9EZ99
+contig_124	cds	155	1108	-	NBGELD_0173	purR	Degradation activator	COG:COG1609, COG:K, SO:0001217, UniRef:UniRef50_A0A174J4U8, UniRef:UniRef90_A0A174J4U8
+contig_125	cds	3	590	-	NBGELD_0174	ntpE	V-type ATP synthase subunit E	COG:C, COG:COG1390, SO:0001217, UniRef:UniRef50_A0A1Y4TWC4, UniRef:UniRef90_A0A374AM57
+contig_125	cds	618	926	-	NBGELD_0175	ntpF	Archaeal/vacuolar-type H+-ATPase subunit F	COG:C, COG:COG1436, RefSeq:WP_055232819.1, SO:0001217, UniParc:UPI0006C13B82, UniRef:UniRef100_A0AAQ3JID3, UniRef:UniRef50_L7VMG3, UniRef:UniRef90_D4MTU3
+contig_125	cds	944	1378	-	NBGELD_0176		ATP synthase subunit C	RefSeq:WP_008392267.1, SO:0001217, UniParc:UPI0001653A19, UniRef:UniRef100_D4MTU2, UniRef:UniRef50_A0A084JHW3, UniRef:UniRef90_D4MTU2
+contig_125	cds	1391	2344	-	NBGELD_0177		hypothetical protein	
+contig_126	cds	51	458	+	NBGELD_0178	marR	MarR family	COG:COG1846, COG:K, SO:0001217, UniRef:UniRef50_D4MTY0, UniRef:UniRef90_D4MTY0
+contig_127	cds	110	757	+	NBGELD_0179		hypothetical protein	PFAM:PF01895.24
+contig_128	ncRNA-region	41	128	-			c-di-GMP-I riboswitch aptamer	RFAM:RF01051, SO:0000035
+contig_128	cds	258	1301	-	NBGELD_0180	fixB	Electron transfer flavoprotein large subunit	COG:C, COG:COG2025, KEGG:K03522, SO:0001217, UniParc:UPI000336D4F4, UniRef:UniRef100_A0A174KU14, UniRef:UniRef50_P53578, UniRef:UniRef90_A0A174KU14
+contig_129	cds	106	471	+	NBGELD_0181		hypothetical protein	
+contig_130	cds	266	2596	-	NBGELD_0182	recD	ATP-dependent RecD2 DNA helicase	COG:COG0507, COG:L, SO:0001217, UniRef:UniRef50_A0A1S9BVE7, UniRef:UniRef90_A0A173TT46
+contig_130	cds	2622	3632	-	NBGELD_0183	mreB	Cell shape-determining protein MreB	COG:COG1077, COG:DZ, RefSeq:WP_008393923.1, SO:0001217, UniParc:UPI0001656B3B, UniRef:UniRef100_D4MUI8, UniRef:UniRef50_P0A9X4, UniRef:UniRef90_D4MUI8
+contig_131	cds	209	463	+	NBGELD_0184		NlpC/P60 domain-containing protein	SO:0001217, UniParc:UPI0001F02938, UniRef:UniRef100_A0A415YHK6, UniRef:UniRef50_A0A415YHK6, UniRef:UniRef90_A0A415YHK6
+contig_132	cds	97	786	+	NBGELD_0185		hypothetical protein	PFAM:PF00490.27
+contig_135	cds	10	1083	+	NBGELD_0186	carE	Caffeyl-CoA reductase-Etf complex subunit CarE	SO:0001217, UniRef:UniRef50_A0A653AS87
+contig_136	cds	56	925	+	NBGELD_0187		hypothetical protein	PFAM:PF02772.21, PFAM:PF02773.21
+contig_136	cds	964	2511	+	NBGELD_0188	guaA	glutamine-hydrolyzing GMP synthase	COG:COG0519, COG:F, EC:6.3.5.2, GO:0003922, GO:0005524, GO:0006177, GO:0016462, KEGG:K01951, RefSeq:WP_009204112.1, SO:0001217, UniParc:UPI0001F02959, UniRef:UniRef100_A0A173QWB4, UniRef:UniRef50_A3DCD4, UniRef:UniRef90_B0G675
+contig_137	cds	197	1642	+	NBGELD_0189	nar1	Ferredoxin	COG:C, COG:COG4624, SO:0001217, UniRef:UniRef50_F7V5R7, UniRef:UniRef90_D4MYK4
+contig_138	cds	127	828	-	NBGELD_0190	lolD	Lipoprotein-releasing system ATP-binding protein LolD	COG:COG1136, COG:M, SO:0001217, UniRef:UniRef50_A0A098Z685, UniRef:UniRef90_A0A174R4X6
+contig_139	cds	42	860	-	NBGELD_0191	rhaT	Uncharacterized inner membrane transporter yicL	COG:COG0697, COG:GER, RefSeq:WP_244090772.1, SO:0001217, UniParc:UPI001FC8B4A8, UniRef:UniRef100_UPI001FC8B4A8, UniRef:UniRef50_A0A1Q9JTX2, UniRef:UniRef90_A0A173STH2
+contig_139	cds	893	1198	-	NBGELD_0192		hypothetical protein	PFAM:PF13558.12
+contig_140	cds	154	771	-	NBGELD_0193		DUF4194 domain-containing protein	RefSeq:WP_371278858.1, SO:0001217, UniParc:UPI0035298F30, UniRef:UniRef100_UPI0035298F30, UniRef:UniRef50_A0A173SR98, UniRef:UniRef90_A0A173SR98
+contig_140	cds	792	1178	-	NBGELD_0194		hypothetical protein	
+contig_141	cds	107	691	+	NBGELD_0195		Fic family protein	SO:0001217, UniRef:UniRef50_UPI0021E0C4F5
+contig_141	ncRNA-region	780	1031	+			T-box leader	RFAM:RF00230, SO:0000140
+contig_142	cds	268	966	-	NBGELD_0196		hypothetical protein	PFAM:PF02913.24
+contig_143	cds	168	1223	-	NBGELD_0197	thiC	phosphomethylpyrimidine synthase ThiC	COG:COG0422, COG:H, EC:4.1.99.17, GO:0009228, GO:0051536, KEGG:K03147, SO:0001217, UniRef:UniRef50_Q9PI55, UniRef:UniRef90_D4MUG7
+contig_144	cds	135	293	+	NBGELD_0198		hypothetical protein	
+contig_144	ncRNA-region	369	486	+			FMN riboswitch aptamer (RFN element)	RFAM:RF00050, SO:0000035
+contig_146	cds	123	692	-	NBGELD_0199	ubiX	Flavin prenyltransferase UbiX	COG:COG0163, COG:H, EC:2.5.1.129, KEGG:K03186, RefSeq:WP_009264989.1, SO:0001217, UniParc:UPI0001F0251F, UniRef:UniRef100_E5VKP5, UniRef:UniRef50_A0A174FAK4, UniRef:UniRef90_A0A174UG11
+contig_146	cds	730	2193	-	NBGELD_0200	ubiD	Phenolic acid decarboxylase subunit C	COG:COG0043, COG:H, EC:4.1.1.59, KEGG:K22958, RefSeq:WP_009264990.1, SO:0001217, UniParc:UPI0001F02520, UniRef:UniRef100_A0A173UBS1, UniRef:UniRef50_F9US27, UniRef:UniRef90_A0A173S216
+contig_147	cds	226	1521	-	NBGELD_0201	murA	UDP-N-acetylglucosamine 1-carboxyvinyltransferase	COG:COG0766, COG:M, EC:2.5.1.7, GO:0008760, GO:0019277, KEGG:K00790, SO:0001217, UniRef:UniRef50_A9KL77, UniRef:UniRef90_A0A173R3S1
+contig_148	cds	33	998	+	NBGELD_0202	tnpB	putative transposase IS891/IS1136/IS1341 domain-containing protein	COG:COG0675, COG:X, RefSeq:WP_051040955.1, SO:0001217, UniParc:UPI000687D061, UniRef:UniRef100_UPI0022DEB9DB, UniRef:UniRef50_A0A1Q2C8U8, UniRef:UniRef90_A0A1Q2CB48
+contig_148	cds	1099	1251	+	NBGELD_0203		hypothetical protein	RefSeq:WP_226797333.1, SO:0001217, UniParc:UPI000A621463, UniRef:UniRef100_A0AAQ3JLM3, UniRef:UniRef50_E5VPJ7, UniRef:UniRef90_E5VPJ7
+contig_149	cds	51	701	+	NBGELD_0204	fabG	3-oxoacyl-[acyl-carrier-protein] reductase	COG:COG1028, COG:I, EC:1.1.1.100, GO:0004316, GO:0006633, GO:0051287, SO:0001217, UniRef:UniRef50_A0A0M6WV69, UniRef:UniRef90_D4MYF2
+contig_150	cds	742	906	-	NBGELD_0205		(pseudo) hypothetical protein	SO:0001217, UniRef:UniRef50_D4MWJ2, UniRef:UniRef90_D4MWJ2
+contig_151	cds	65	544	-	NBGELD_0206		hypothetical protein	
+contig_152	cds	573	977	-	NBGELD_0207		hypothetical protein	
+contig_153	cds	3243	4067	-	NBGELD_0208	fba	Fructose-bisphosphate aldolase	COG:COG0191, COG:G, EC:4.1.2.13, KEGG:K01624, SO:0001217, UniRef:UniRef50_D4MTV7, UniRef:UniRef90_D4MTV7
+contig_153	cds	4131	5387	-	NBGELD_0209	tdh	Sorbitol dehydrogenase	COG:COG1063, COG:ER, EC:1.1.1.-, KEGG:K19956, SO:0001217, UniRef:UniRef50_A0A098C1N9, UniRef:UniRef90_A0A174S677
+contig_154	cds	28	1218	+	NBGELD_0210	radA	DNA repair protein RadA	COG:COG1066, COG:L, GO:0003684, GO:0005524, GO:0006281, SO:0001217, UniRef:UniRef50_A5GDK5, UniRef:UniRef90_D4MZ47
+contig_155	cds	256	1140	-	NBGELD_0211		ABC transporter permease	COG:COG4905, COG:S, RefSeq:WP_044924514.1, SO:0001217, UniParc:UPI0005D235F0, UniRef:UniRef100_A0AAQ3JHY9, UniRef:UniRef50_A0A943BGG2, UniRef:UniRef90_A0A417K432
+contig_155	cds	1165	3567	-	NBGELD_0212	rqcU	endonuclease MutS2	COG:COG1193, COG:J, GO:0004519, GO:0006259, GO:0016887, GO:0030983, GO:0045910, KEGG:K07456, RefSeq:WP_022091487.1, SO:0001217, UniParc:UPI000336A6EB, UniRef:UniRef100_A0A173R2Z9, UniRef:UniRef50_A9KR74, UniRef:UniRef90_D4MY28
+contig_158	cds	521	1177	-	NBGELD_0213	trmN6	putative O-methyltransferase	COG:COG4123, COG:J, SO:0001217, UniRef:UniRef50_A0A0U5NL65, UniRef:UniRef90_D4N1M1
+contig_159	cds	238	1788	+	NBGELD_0214	lldP	L-lactate permease	COG:C, COG:COG1620, KEGG:K03303, RefSeq:WP_008394106.1, SO:0001217, UniParc:UPI0001656B27, UniRef:UniRef100_D4MUV8, UniRef:UniRef50_A0A356PBQ3, UniRef:UniRef90_D4MUV8
+contig_160	cds	1083	2345	-	NBGELD_0215	allB	dihydroorotase	COG:COG0044, COG:F, EC:3.5.2.3, GO:0004151, GO:0006221, GO:0046872, RefSeq:WP_172675692.1, SO:0001217, UniParc:UPI0002E6F195, UniRef:UniRef100_D4MW55, UniRef:UniRef50_Q18C47, UniRef:UniRef90_D4MW55
+contig_160	cds	2369	2815	-	NBGELD_0216		DUF4367 domain-containing protein	RefSeq:WP_008393281.1, SO:0001217, UniParc:UPI00016555BA, UniRef:UniRef100_D4MW54, UniRef:UniRef50_A0A1Q9JSF8, UniRef:UniRef90_D4MW54
+contig_162	cds	438	1667	-	NBGELD_0217	ntpB	V-type ATP synthase beta chain	COG:C, COG:COG1156, SO:0001217, UniRef:UniRef50_Q971B6, UniRef:UniRef90_D4MTU4
+contig_162	cds	1839	3266	-	NBGELD_0218	ntpA	V-type ATP synthase alpha chain	COG:C, COG:COG1155, EC:7.1.2.2, EC:7.2.2.1, KEGG:K02117, SO:0001217, UniRef:UniRef50_Q891P1, UniRef:UniRef90_A0A173SJP2
+contig_163	cds	196	1503	+	NBGELD_0219		Major facilitator superfamily (MFS) profile domain-containing protein	RefSeq:WP_173774633.1, SO:0001217, UniParc:UPI00156DA24C, UniRef:UniRef100_A0AAQ3JJ44, UniRef:UniRef50_A0A1Q2C5J9, UniRef:UniRef90_A0A1Q2C5J9
+contig_163	cds	1532	2308	+	NBGELD_0220		Acid sugar phosphatase	SO:0001217, UniRef:UniRef50_A0A173ZCB4, UniRef:UniRef90_A0A173TPD8
+contig_164	cds	7	636	+	NBGELD_0221		hypothetical protein	
+contig_164	cds	629	1480	+	NBGELD_0222	prmC	peptide chain release factor N(5)-glutamine methyltransferase	COG:COG2890, COG:J, EC:2.1.1.297, GO:0006412, GO:0008757, GO:0018364, RefSeq:WP_173756683.1, SO:0001217, UniParc:UPI001570F26E, UniRef:UniRef100_UPI001570F26E, UniRef:UniRef50_D4MVW1, UniRef:UniRef90_D4MVW1
+contig_165	cds	29	856	+	NBGELD_0223		hypothetical protein	PFAM:PF02368.24, PFAM:PF17963.7
+contig_166	cds	299	820	+	NBGELD_0224	eCF-S	ECF transporter S component	COG:COG4720, COG:H, RefSeq:WP_077326349.1, SO:0001217, UniParc:UPI0009808223, UniRef:UniRef100_A0A417V4E2, UniRef:UniRef50_C0CND2, UniRef:UniRef90_D4MTR1
+contig_167	cds	20	937	+	NBGELD_0225		ATP-binding protein	SO:0001217, UniRef:UniRef50_C4Z2N9, UniRef:UniRef90_A0A417V9T9
+contig_167	cds	1109	2164	-	NBGELD_0226	ugpQ	GP-PDE domain-containing protein	COG:COG0584, COG:I, RefSeq:WP_209291379.1, SO:0001217, UniParc:UPI001ADDAA8D, UniRef:UniRef100_UPI001ADDAA8D, UniRef:UniRef50_A0A374B0C2, UniRef:UniRef90_E5VNF3
+contig_168	cds	233	556	+	NBGELD_0227		hypothetical protein	
+contig_168	cds	553	1320	+	NBGELD_0228		ABC transporter substrate-binding protein	RefSeq:WP_070103569.1, SO:0001217, UniParc:UPI0006C34FAB, UniRef:UniRef100_A0A173RLR4, UniRef:UniRef50_A0A1C5RCZ8, UniRef:UniRef90_A0A173RLR4
+contig_168	cds	1309	1623	-	NBGELD_0229		hypothetical protein	PFAM:PF14808.11
+contig_169	cds	83	370	+	NBGELD_0230		hypothetical protein	
+contig_169	cds	399	1097	-	NBGELD_0231		hypothetical protein	PFAM:PF00753.33
+contig_171	cds	188	1168	-	NBGELD_0232	pykF	Pyruvate kinase	COG:COG0469, COG:G, EC:2.7.1.40, KEGG:K00873, SO:0001217, UniRef:UniRef50_A0A1C5W1M4, UniRef:UniRef90_A0A174RYY3
+contig_171	cds	1264	1884	-	NBGELD_0233	mmcQ	Methylated-DNA--protein-cysteine methyltransferase, constitutive	COG:COG2315, COG:K, KEGG:K07443, RefSeq:WP_022091571.1, SO:0001217, UniParc:UPI0002F9FD2E, UniRef:UniRef100_E5VJV6, UniRef:UniRef50_E0S0T2, UniRef:UniRef90_A0A1C6CJ25
+contig_171	cds	2021	2470	-	NBGELD_0234		Transposase	SO:0001217, UniRef:UniRef50_E5VJV7
+contig_172	cds	204	1442	-	NBGELD_0235	amtB	Ammonium transporter	COG:COG0004, COG:P, SO:0001217, UniRef:UniRef50_Q3AFY9, UniRef:UniRef90_D4MY84
+contig_173	cds	151	1128	+	NBGELD_0236		PBSX family phage terminase large subunit	SO:0001217, UniRef:UniRef50_UPI0031B6117F
+contig_174	cds	34	597	+	NBGELD_0237		hypothetical protein	PFAM:PF02272.25
+contig_174	cds	601	1044	+	NBGELD_0238	rplI	50S ribosomal protein L9	COG:COG0359, COG:J, GO:0003735, GO:0005840, GO:0006412, KEGG:K02939, RefSeq:WP_008392251.1, SO:0001217, UniParc:UPI0001653A53, UniRef:UniRef100_D4MTT3, UniRef:UniRef50_C4Z4Q1, UniRef:UniRef90_D4MTT3
+contig_175	cds	344	1648	+	NBGELD_0239	deoA	pyrimidine-nucleoside phosphorylase	COG:COG0213, COG:F, EC:2.4.2.2, GO:0006213, GO:0016154, SO:0001217, UniRef:UniRef50_A0A1N7IN58, UniRef:UniRef90_A0A1Q2C6B6
+contig_176	cds	122	2365	+	NBGELD_0240		Haloacid dehalogenase superfamily, subfamily IA, variant 1 with third motif having Dx(3-4)D or Dx(3-4)E	EC:2.7.8.36, KEGG:K15915, SO:0001217, UniRef:UniRef50_D4MVY2, UniRef:UniRef90_D4MVY2
+contig_176	cds	2358	3026	+	NBGELD_0241	epsM	Acetyltransferase EpsM	RefSeq:WP_226816200.1, SO:0001217, UniParc:UPI0006C49B85, UniRef:UniRef100_A0A374AH99, UniRef:UniRef50_A0A6N2TTI1, UniRef:UniRef90_A0A6N2TTI1
+contig_177	cds	21	494	+	NBGELD_0242		O-methyltransferase family protein	SO:0001217, UniRef:UniRef50_J9GMH9
+contig_178	cds	70	864	-	NBGELD_0243	metN	Methionine import ATP-binding protein MetN	RefSeq:WP_008394120.1, SO:0001217, UniParc:UPI0001656AE9, UniRef:UniRef100_A0A374AZD7, UniRef:UniRef50_Q0B039, UniRef:UniRef90_A0A1C6D5V9
+contig_178	cds	881	1774	-	NBGELD_0244		ABC transporter permease	COG:COG4120, COG:R, RefSeq:WP_008394118.1, SO:0001217, UniParc:UPI0001656D12, UniRef:UniRef100_UPI0001656D12, UniRef:UniRef50_G0EI47, UniRef:UniRef90_D4MUX6
+contig_179	cds	500	847	-	NBGELD_0245		PAS domain-containing protein	SO:0001217, UniRef:UniRef50_E5VIR3, UniRef:UniRef90_E5VKD1
+contig_179	ncRNA-region	1081	1171	-			c-di-GMP-I riboswitch aptamer	RFAM:RF01051, SO:0000035
+contig_181	cds	391	888	-	NBGELD_0246	trmL	Putative tRNA (cytidine(34)-2'-O)-methyltransferase	COG:COG0219, COG:J, EC:2.1.1.207, KEGG:K03216, SO:0001217, UniRef:UniRef50_D4MY40, UniRef:UniRef90_D4MY40
+contig_181	cds	907	1098	-	NBGELD_0247		hypothetical protein	
+contig_182	cds	114	854	-	NBGELD_0248		P-type Cu(+) transporter	RefSeq:WP_055066851.1, SO:0001217, UniParc:UPI0006C5F618, UniRef:UniRef100_A0A0M6WAC9, UniRef:UniRef50_A0A1H3YHF9, UniRef:UniRef90_A0A0M6WAC9
+contig_182	cds	1043	2776	-	NBGELD_0249	mdlB	ABC transporter ATP-binding protein	COG:COG1132, COG:V, SO:0001217, UniRef:UniRef50_G1VJJ1, UniRef:UniRef90_G1VJJ1
+contig_182	cds	2778	3239	-	NBGELD_0250		ABC transporter domain-containing protein	SO:0001217, UniRef:UniRef50_R5GLC0
+contig_185	cds	52	852	+	NBGELD_0251		hypothetical protein	
+contig_186	cds	43	399	-	NBGELD_0252		Transposase	SO:0001217, UniRef:UniRef50_A0A173RN27, UniRef:UniRef90_A0A173RN27
+contig_187	cds	20	625	+	NBGELD_0253		hypothetical protein	
+contig_187	cds	634	1329	+	NBGELD_0254	tsaA	tRNA (N6-threonylcarbamoyladenosine(37)-N6)-methyltransferase TrmO	EC:2.1.1.-, GO:0005737, GO:0006400, GO:0008757, KEGG:K22900, RefSeq:WP_138347205.1, SO:0001217, UniParc:UPI0011063A81, UniRef:UniRef100_UPI0011063A81, UniRef:UniRef50_A0A096B4S0, UniRef:UniRef90_A0A844KN82
+contig_187	cds	1417	1941	+	NBGELD_0255		adenine phosphoribosyltransferase	EC:2.4.2.7, GO:0003999, GO:0006168, GO:0009116, KEGG:K00759, RefSeq:WP_022046312.1, SO:0001217, UniParc:UPI00033525BD, UniRef:UniRef100_A0A0M6WXS0, UniRef:UniRef50_Q1G9R7, UniRef:UniRef90_A0A0M6WXS0
+contig_187	cds	2001	3041	+	NBGELD_0256		Stage V sporulation protein AD	KEGG:K06406, RefSeq:WP_227248841.1, SO:0001217, UniParc:UPI001B5697EE, UniRef:UniRef100_UPI001B5697EE, UniRef:UniRef50_A0A6S6RB62, UniRef:UniRef90_A0A173S0R4
+contig_187	cds	3046	3405	+	NBGELD_0257		Stage V sporulation protein AE	KEGG:K06407, SO:0001217, UniRef:UniRef50_F7JRI2, UniRef:UniRef90_A0A0M6X0B3
+contig_187	cds	3489	3866	+	NBGELD_0258		Lipoprotein	RefSeq:WP_195287606.1, SO:0001217, UniParc:UPI00096859FD, UniRef:UniRef100_UPI00096859FD, UniRef:UniRef50_A0A0M6WY13, UniRef:UniRef90_A0A0M6WY13
+contig_187	cds	3879	4361	+	NBGELD_0259		Membrane-associated phospholipid phosphatase	RefSeq:WP_195275566.1, SO:0001217, UniParc:UPI001897F675, UniRef:UniRef100_UPI001897F675, UniRef:UniRef50_A0A0M6X0N1, UniRef:UniRef90_A0A0M6X0N1
+contig_187	cds	4681	5829	+	NBGELD_0260	orfB	Transposase, IS605 OrfB family	SO:0001217, UniRef:UniRef50_A0A6L8T7L9, UniRef:UniRef90_A0A173S2E8
+contig_187	cds	5962	6837	-	NBGELD_0261	araC	AraC family transcriptional regulator	KEGG:K18954, RefSeq:WP_022045194.1, SO:0001217, UniParc:UPI00033B4C87, UniRef:UniRef100_A0A0M6WZB6, UniRef:UniRef50_A0A0M6WZB6, UniRef:UniRef90_A0A0M6WZB6
+contig_188	cds	29	883	+	NBGELD_0262		hypothetical protein	PFAM:PF02806.24
+contig_189	cds	99	992	-	NBGELD_0263		proline--tRNA ligase	SO:0001217, UniRef:UniRef50_A0A7U9MVP1
+contig_191	cds	66	473	+	NBGELD_0264		hypothetical protein	PFAM:PF00359.27
+contig_191	cds	497	2374	+	NBGELD_0265	mtlA2	Mannitol-specific phosphotransferase enzyme IIA component	COG:COG4668, COG:G, EC:2.7.1.197, KEGG:K02800, SO:0001217, UniRef:UniRef50_B0MBD8, UniRef:UniRef90_A0A173U4T5
+contig_192	cds	168	1427	-	NBGELD_0266		IS110 family transposase	GO:0004803, RefSeq:WP_117945314.1, SO:0001217, UniParc:UPI000E5149F7, UniRef:UniRef100_A0A374ADJ5, UniRef:UniRef50_A0A7U9SZ83, UniRef:UniRef90_A0A7U9NB74
+contig_193	cds	61	1530	+	NBGELD_0267		Molybdopterin-dependent oxidoreductase	SO:0001217, UniRef:UniRef50_A0A9D1Y7K9
+contig_194	cds	93	959	-	NBGELD_0268	purC	phosphoribosylaminoimidazolesuccinocarboxamide synthase	COG:COG0152, COG:F, EC:6.3.2.6, GO:0004639, GO:0006164, SO:0001217, UniRef:UniRef50_A0A800DHI1, UniRef:UniRef90_A0A916Q3I8
+contig_195	cds	170	706	-	NBGELD_0269	rplQ	50S ribosomal protein L17	COG:COG0203, COG:J, GO:0003735, GO:0005840, GO:0006412, SO:0001217, UniRef:UniRef50_C4Z2V8, UniRef:UniRef90_D4MYI9
+contig_195	cds	773	1729	-	NBGELD_0270	rpoA	DNA-directed RNA polymerase subunit alpha	COG:COG0202, COG:K, EC:2.7.7.6, GO:0003677, GO:0003899, GO:0006351, GO:0046983, SO:0001217, UniRef:UniRef50_P66709, UniRef:UniRef90_A0A1Q9JUR8
+contig_196	cds	16	297	+	NBGELD_0271		hypothetical protein	
+contig_196	cds	300	944	+	NBGELD_0272	gntR	GntR family transcriptional regulator	RefSeq:WP_044925012.1, SO:0001217, UniParc:UPI0005D2579A, UniRef:UniRef100_A0A417K411, UniRef:UniRef50_A0A174BLB2, UniRef:UniRef90_A0A417K411
+contig_197	cds	81	710	+	NBGELD_0273	rplC	50S ribosomal protein L3	COG:COG0087, COG:J, GO:0003735, GO:0005840, GO:0006412, RefSeq:WP_008393406.1, SO:0001217, UniParc:UPI0001654FBB, UniRef:UniRef100_A0A374ARX5, UniRef:UniRef50_Q2FW06, UniRef:UniRef90_A0A1Q9JUN6
+contig_197	cds	740	1360	+	NBGELD_0274	rplD	50S ribosomal protein L4	COG:COG0088, COG:J, GO:0003735, GO:0006412, GO:0022625, RefSeq:WP_008393405.1, SO:0001217, UniParc:UPI00016550DC, UniRef:UniRef100_A0A374ARY2, UniRef:UniRef50_A9KJJ3, UniRef:UniRef90_A0A1Q9JUQ0
+contig_197	cds	1360	1659	+	NBGELD_0275	rplW	50S ribosomal protein L23	COG:COG0089, COG:J, GO:0003735, GO:0005840, GO:0006412, RefSeq:WP_008393404.1, SO:0001217, UniParc:UPI0001654EF6, UniRef:UniRef100_A0A374ATZ5, UniRef:UniRef50_Q839G2, UniRef:UniRef90_A0A1Q9JUU7
+contig_197	cds	1749	2594	+	NBGELD_0276	rplB	50S ribosomal protein L2	COG:COG0090, COG:J, GO:0003723, GO:0003735, GO:0006412, GO:0015934, GO:0016740, KEGG:K02886, RefSeq:WP_015530291.1, SO:0001217, UniParc:UPI0001CE570C, UniRef:UniRef100_A0A374AU67, UniRef:UniRef50_P94270, UniRef:UniRef90_A0A1Q9K342
+contig_197	cds	2611	2892	+	NBGELD_0277	rpsS	30S ribosomal protein S19	COG:COG0185, COG:J, GO:0003735, GO:0006412, GO:0015935, RefSeq:WP_008393401.1, SO:0001217, UniParc:UPI0001655153, UniRef:UniRef100_A0A374ARY0, UniRef:UniRef50_P21476, UniRef:UniRef90_G2T5M9
+contig_197	cds	2920	3309	+	NBGELD_0278	rplV	50S ribosomal protein L22	COG:COG0091, COG:J, GO:0003735, GO:0006412, GO:0015934, KEGG:K02890, SO:0001217, UniRef:UniRef50_C4Z2T5, UniRef:UniRef90_D4MYH0
+contig_197	cds	3326	3976	+	NBGELD_0279	rpsC	30S ribosomal protein S3	COG:COG0092, COG:J, GO:0003735, GO:0006412, KEGG:K02982, RefSeq:WP_008393399.1, SO:0001217, UniParc:UPI0001655185, UniRef:UniRef100_D4MYH1, UniRef:UniRef50_B5YG41, UniRef:UniRef90_D4MYH1
+contig_197	cds	3976	4413	+	NBGELD_0280	rplP	50S ribosomal protein L16	COG:COG0197, COG:J, GO:0003735, GO:0006412, GO:0019843, KEGG:K02878, RefSeq:WP_008393397.1, SO:0001217, UniParc:UPI00016550A4, UniRef:UniRef100_A0A374AUC0, UniRef:UniRef50_A3DJH9, UniRef:UniRef90_A0A1Q9K3C8
+contig_197	cds	4403	4606	+	NBGELD_0281	rpmC	50S ribosomal protein L29	COG:COG0255, COG:J, GO:0003735, GO:0005840, GO:0006412, RefSeq:WP_055197622.1, SO:0001217, UniParc:UPI0006C08EA7, UniRef:UniRef100_A0A374AU19, UniRef:UniRef50_A9KJI6, UniRef:UniRef90_A0A4P8II18
+contig_197	cds	4634	4888	+	NBGELD_0282	rpsQ	30S ribosomal protein S17	COG:COG0186, COG:J, GO:0003735, GO:0005840, GO:0006412, RefSeq:WP_008393395.1, SO:0001217, UniParc:UPI0001654F93, UniRef:UniRef100_A0A174F7J0, UniRef:UniRef50_Q5WLQ3, UniRef:UniRef90_A0A174CTC6
+contig_197	cds	4919	5287	+	NBGELD_0283	rplN	50S ribosomal protein L14	COG:COG0093, COG:J, GO:0003735, GO:0006412, GO:0015934, GO:0022625, GO:0070180, KEGG:K02874, RefSeq:WP_009264114.1, SO:0001217, UniParc:UPI0001CE570D, UniRef:UniRef100_A0A1Q9JUP5, UniRef:UniRef50_P56039, UniRef:UniRef90_C4Z2U0
+contig_197	cds	5300	5611	+	NBGELD_0284	rplX	50S ribosomal protein L24	COG:COG0198, COG:J, GO:0003735, GO:0005840, GO:0006412, RefSeq:WP_008393393.1, SO:0001217, UniParc:UPI0001654FCF, UniRef:UniRef100_A0A174F7Q8, UniRef:UniRef50_C4Z2U1, UniRef:UniRef90_A0A1Q9JUR1
+contig_197	cds	5634	6173	+	NBGELD_0285	rplE	50S ribosomal protein L5	COG:COG0094, COG:J, GO:0003735, GO:0005840, GO:0006412, KEGG:K02931, RefSeq:WP_008393391.1, SO:0001217, UniParc:UPI0001654ECA, UniRef:UniRef100_A0A374ATX6, UniRef:UniRef50_P73308, UniRef:UniRef90_A0A1Q9JUV5
+contig_197	cds	6188	6373	+	NBGELD_0286	rpsN	type Z 30S ribosomal protein S14	COG:COG0199, COG:J, GO:0003735, GO:0005840, GO:0006412, KEGG:K02954, RefSeq:WP_008393389.1, SO:0001217, UniParc:UPI0001654E7A, UniRef:UniRef100_A0A1Q9JUT8, UniRef:UniRef50_P12878, UniRef:UniRef90_A0A1Q9JUT8
+contig_198	cds	28	789	+	NBGELD_0287		hypothetical protein	PFAM:PF00006.31, PFAM:PF00306.32
+contig_200	cds	246	1151	+	NBGELD_0288	nfo	deoxyribonuclease IV	COG:COG0648, COG:L, EC:3.1.21.2, GO:0003677, GO:0006281, GO:0008270, RefSeq:WP_009265540.1, SO:0001217, UniParc:UPI0001CE5C14, UniRef:UniRef100_D4MW41, UniRef:UniRef50_P54476, UniRef:UniRef90_D4MW41
+contig_201	cds	298	846	-	NBGELD_0289		hypothetical protein	PFAM:PF04203.18
+contig_202	cds	4	117	+	NBGELD_0290		Acyl-CoA dehydrogenase/oxidase C-terminal domain-containing protein	SO:0001217, UniRef:UniRef50_A0A7K0C1F9
+contig_202	cds	139	1320	+	NBGELD_0291	caiB	Formyl-coenzyme A transferase	COG:COG1804, COG:I, RefSeq:WP_008393996.1, SO:0001217, UniParc:UPI0001656B76, UniRef:UniRef100_D4MUL5, UniRef:UniRef50_A0A136WDE5, UniRef:UniRef90_D4MUL5
+contig_203	cds	325	1596	-	NBGELD_0292	lysM	LysM domain	COG:COG1388, COG:M, SO:0001217, UniRef:UniRef50_A0A4P8IHM1, UniRef:UniRef90_D4MU78
+contig_204	cds	19	942	+	NBGELD_0293	hisC	histidinol-phosphate transaminase	COG:COG0079, COG:E, EC:2.6.1.9, GO:0000105, GO:0004400, SO:0001217, UniRef:UniRef50_Q88P86, UniRef:UniRef90_A0A174R0Y0
+contig_205	cds	272	1150	-	NBGELD_0294	pdxS	pyridoxal 5'-phosphate synthase lyase subunit PdxS	COG:COG0214, COG:H, EC:4.3.3.6, GO:0003824, GO:0042823, KEGG:K06215, SO:0001217, UniRef:UniRef50_Q5L3Y2, UniRef:UniRef90_A0A7G9FKM5
+contig_206	cds	169	1020	-	NBGELD_0295	rpfG	(pseudo) Cyclic di-GMP phosphodiesterase response regulator RpfG	SO:0001217, UniRef:UniRef50_A0A174M7W2, UniRef:UniRef50_UPI00041AF734, UniRef:UniRef90_A0A174M7W2
+contig_207	cds	209	1285	+	NBGELD_0296		Transposase	SO:0001217, UniRef:UniRef50_R9K7Q4, UniRef:UniRef90_A0AAQ3GR21
+contig_207	cds	1331	1504	+	NBGELD_0297		hypothetical protein	RefSeq:WP_008391843.1, SO:0001217, UniParc:UPI00016586B0, UniRef:UniRef100_E5VHY3, UniRef:UniRef50_A0A0E2HFF3, UniRef:UniRef90_E5VHY3
+contig_207	cds	1629	2030	-	NBGELD_0298	wzb	Arsenate reductase	COG:COG0394, COG:T, RefSeq:WP_008392763.1, SO:0001217, UniParc:UPI00016556D2, UniRef:UniRef100_A0A1Q2C8K9, UniRef:UniRef50_A0A174WF56, UniRef:UniRef90_A0A7U6QKB7
+contig_207	cds	2027	2305	-	NBGELD_0299		Sodium Bile acid symporter family protein	SO:0001217, UniRef:UniRef50_A0A1V5YS45
+contig_209	cds	1126	1218	-	NBGELD_0300		hypothetical protein	
+contig_210	cds	172	303	-	NBGELD_0301		hypothetical protein	SO:0001217, UniParc:UPI0006C4785C, UniRef:UniRef100_A0A173TW23, UniRef:UniRef50_A0A173TW23, UniRef:UniRef90_A0A173TW23
+contig_210	cds	459	1265	-	NBGELD_0302		hypothetical protein	
+contig_211	ncRNA-region	1484	1573	-			Glycine riboswitch aptamer	RFAM:RF00504, SO:0000035
+contig_214	cds	113	496	+	NBGELD_0303		hypothetical protein	
+contig_215	ncRNA-region	61	302	+			T-box leader	RFAM:RF00230, SO:0000140
+contig_216	cds	59	1336	-	NBGELD_0304	ulaA	Ascorbate-specific PTS system EIIC component	COG:COG3037, COG:G, SO:0001217, UniRef:UniRef50_D4MUT5, UniRef:UniRef90_D4MUT5
+contig_218	cds	10	1122	+	NBGELD_0305		hypothetical protein	PFAM:PF02368.24, PFAM:PF20578.4
+contig_218	cds	1079	1393	+	NBGELD_0306		hypothetical protein	RefSeq:WP_173782628.1, SO:0001217, UniParc:UPI00156D4251, UniRef:UniRef100_UPI00156D4251, UniRef:UniRef50_UPI00156D4251, UniRef:UniRef90_UPI00156D4251
+contig_219	cds	25	222	+	NBGELD_0307	spoIIIAC	stage III sporulation protein AC	COG:COG5824, COG:D, GO:0030436, RefSeq:WP_008391038.1, SO:0001217, UniParc:UPI0001657357, UniRef:UniRef100_A0A374AHE5, UniRef:UniRef50_A0A916VBX4, UniRef:UniRef90_A0A916VBX4
+contig_219	cds	244	633	+	NBGELD_0308	spoIIIAD	Stage III sporulation protein AC/AD protein family	COG:COG5825, COG:D, KEGG:K06393, SO:0001217, UniRef:UniRef50_D4N0G5, UniRef:UniRef90_D4N0G5
+contig_221	cds	104	799	+	NBGELD_0309	ycjU	HAD family phosphatase	COG:COG0637, COG:G, SO:0001217, UniRef:UniRef50_A0A174MLH0, UniRef:UniRef90_A0A174MLH0
+contig_221	cds	811	999	+	NBGELD_0310		DUF6472 domain-containing protein	RefSeq:WP_008392367.1, SO:0001217, UniParc:UPI0001653B57, UniRef:UniRef100_A0A374AWE2, UniRef:UniRef50_F7V2U7, UniRef:UniRef90_A0A374AWE2
+contig_222	cds	38	976	+	NBGELD_0311	yiiM	Molybdenum cofactor synthesis domain	COG:COG2258, COG:FV, RefSeq:WP_195465518.1, SO:0001217, UniParc:UPI0018991E9E, UniRef:UniRef100_UPI0018991E9E, UniRef:UniRef50_D4N0A3, UniRef:UniRef90_D4N0A3
+contig_223	cds	253	675	+	NBGELD_0312		hypothetical protein	
+contig_224	cds	77	241	+	NBGELD_0313		hypothetical protein	
+contig_226	cds	32	493	+	NBGELD_0314		hypothetical protein	
+contig_226	cds	497	2086	+	NBGELD_0315	ySH1	MBL fold metallo-hydrolase	COG:COG1236, COG:J, KEGG:K07576, RefSeq:WP_009265474.1, SO:0001217, UniParc:UPI0001F026BC, UniRef:UniRef100_E5VMN4, UniRef:UniRef50_A0A096B793, UniRef:UniRef90_A0A173SHD9
+contig_226	cds	2089	2823	+	NBGELD_0316	rsuA	Pseudouridine synthase	COG:COG1187, COG:J, RefSeq:WP_009265473.1, SO:0001217, UniParc:UPI0001CE58C6, UniRef:UniRef100_D4MVV1, UniRef:UniRef50_R5U1G2, UniRef:UniRef90_D4MVV1
+contig_228	cds	166	615	+	NBGELD_0317	iscR	AsnC family transcriptional regulator	COG:COG1959, COG:K, KEGG:K17472, RefSeq:WP_008391664.1, SO:0001217, UniParc:UPI00016536D6, UniRef:UniRef100_A0A174DFC0, UniRef:UniRef50_A0A829NIJ8, UniRef:UniRef90_A0A174DFC0
+contig_229	cds	216	1253	-	NBGELD_0318	tdh	Alcohol dehydrogenase	COG:COG1063, COG:ER, SO:0001217, UniRef:UniRef50_A0A0K8JHR7, UniRef:UniRef90_A0A174KZT6
+contig_230	cds	15	1040	-	NBGELD_0319	purM	Phosphoribosylformylglycinamidine cyclo-ligase	COG:COG0150, COG:F, RefSeq:WP_009203055.1, SO:0001217, UniParc:UPI0001F023E7, UniRef:UniRef100_A0A173TWB3, UniRef:UniRef50_Q8Y6C3, UniRef:UniRef90_D4N1D2
+contig_231	cds	1037	2914	-	NBGELD_0320		UDP-glucose 4-epimerase	RefSeq:WP_055196533.1, SO:0001217, UniParc:UPI0006C24D12, UniRef:UniRef100_A0A374AIK5, UniRef:UniRef50_A0A143Y119, UniRef:UniRef90_A0A174SKK1
+contig_231	cds	3129	3833	-	NBGELD_0321		Adenylosuccinate lyase	SO:0001217, UniRef:UniRef50_A0A7C2KJB6
+contig_232	cds	905	1753	-	NBGELD_0322	nhaC	Na+/H+ antiporter NhaC family protein	SO:0001217, UniRef:UniRef50_UPI002587CCD6
+contig_233	cds	170	1099	+	NBGELD_0323	cysK	cysteine synthase A	COG:COG0031, COG:E, EC:2.5.1.47, GO:0004124, GO:0006535, SO:0001217, UniRef:UniRef50_P71128, UniRef:UniRef90_D4MWV4
+contig_234	cds	147	299	+	NBGELD_0324		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI0015F2F233
+contig_234	cds	318	845	+	NBGELD_0325		Sigma-70 family RNA polymerase sigma factor	SO:0001217, UniRef:UniRef50_A0AAE3JTV4, UniRef:UniRef90_A0AAE3JTV4
+contig_235	ncRNA-region	1114	1366	-			T-box leader	RFAM:RF00230, SO:0000140
+contig_236	cds	195	1199	+	NBGELD_0326		hypothetical protein	PFAM:PF01609.27, PFAM:PF13751.12
+contig_236	cds	1412	1555	-	NBGELD_0327		hypothetical protein	
+contig_237	cds	391	846	-	NBGELD_0328		hypothetical protein	
+contig_238	cds	977	1357	-	NBGELD_0329		hypothetical protein	
+contig_239	cds	47	313	-	NBGELD_0330		Phage protein	RefSeq:WP_022374756.1, SO:0001217, UniParc:UPI00033C5B7D, UniRef:UniRef100_A0A374ACS4, UniRef:UniRef50_A0A1G4W2F9, UniRef:UniRef90_A0A374ACS4
+contig_239	cds	396	1403	-	NBGELD_0331		hypothetical protein	
+contig_240	cds	199	1047	-	NBGELD_0332	rpiR	RpiR family transcriptional regulator	COG:COG1737, COG:K, SO:0001217, UniRef:UniRef50_D4MYS2, UniRef:UniRef90_D4MYS2
+contig_240	cds	1059	1487	-	NBGELD_0333		hypothetical protein	
+contig_241	cds	67	372	-	NBGELD_0334		Aspartate ammonia-lyase	SO:0001217, UniParc:UPI0006788D83, UniRef:UniRef100_A0A173UG98, UniRef:UniRef50_A0A173UG98, UniRef:UniRef90_A0A173UG98
+contig_241	cds	385	681	-	NBGELD_0335		lyase family protein	SO:0001217, UniRef:UniRef50_UPI00284825DA
+contig_241	cds	739	948	-	NBGELD_0336		hypothetical protein	
+contig_242	cds	785	1096	-	NBGELD_0337		hypothetical protein	PFAM:PF07501.17
+contig_243	cds	280	567	+	NBGELD_0338	rpsF	30S ribosomal protein S6	COG:COG0360, COG:J, GO:0000314, GO:0003735, GO:0006412, GO:0022627, KEGG:K02990, RefSeq:WP_009203185.1, SO:0001217, UniParc:UPI0001CE6C57, UniRef:UniRef100_D4MTS9, UniRef:UniRef50_D9R1Y0, UniRef:UniRef90_D4MTS9
+contig_243	cds	589	1032	+	NBGELD_0339	ssb	Single-stranded DNA-binding protein	COG:COG0629, COG:L, RefSeq:WP_008392248.1, SO:0001217, UniParc:UPI0001653AD7, UniRef:UniRef100_D4MTT0, UniRef:UniRef50_A0A136WI26, UniRef:UniRef90_D4MTT0
+contig_244	cds	1324	1956	-	NBGELD_0340		Multidrug ABC transporter ATP-binding protein	SO:0001217, UniRef:UniRef50_A0A3D3WBZ0
+contig_245	cds	190	477	+	NBGELD_0341		hypothetical protein	PFAM:PF08241.18
+contig_245	cds	529	1125	-	NBGELD_0342	spoIIR	stage II sporulation protein R	COG:COG5822, COG:D, GO:0030436, KEGG:K06387, SO:0001217, UniRef:UniRef50_A0A374B096, UniRef:UniRef90_A0A417V4K1
+contig_245	ncRNA-region	1261	1343	+			ZMP/ZTP riboswitch aptamer (pfl RNA motif)	RFAM:RF01750, SO:0000035
+contig_246	cds	4	888	-	NBGELD_0343	rpiB	ribose 5-phosphate isomerase B	COG:COG0698, COG:G, EC:5.3.1.6, GO:0004751, GO:0009052, KEGG:K01808, SO:0001217, UniRef:UniRef50_A0A374AV20, UniRef:UniRef90_A0A417JKS7
+contig_246	cds	902	1051	-	NBGELD_0344		hypothetical protein	PFAM:PF03481.19
+contig_247	cds	5	823	-	NBGELD_0345	proC	pyrroline-5-carboxylate reductase	COG:COG0345, COG:E, EC:1.5.1.2, GO:0004735, GO:0006561, KEGG:K00286, SO:0001217, UniRef:UniRef50_F7V8P8, UniRef:UniRef90_A0A1C5XI06
+contig_247	cds	848	1039	-	NBGELD_0346		hypothetical protein	
+contig_249	cds	33	917	+	NBGELD_0347	accD	acetyl-CoA carboxylase, carboxyltransferase subunit beta	EC:6.4.1.2, GO:0003989, GO:0006633, GO:0009317, SO:0001217, UniRef:UniRef50_A0PXC5, UniRef:UniRef90_D4MYF7
+contig_251	cds	72	467	+	NBGELD_0348	fur	Fe2+/Zn2+ uptake regulation proteins	COG:COG0735, COG:P, RefSeq:WP_008394150.1, SO:0001217, UniParc:UPI0001656CE4, UniRef:UniRef100_D4MV00, UniRef:UniRef50_F7V2C1, UniRef:UniRef90_D4MV00
+contig_251	cds	600	1145	+	NBGELD_0349	yotD	NADH peroxidase	COG:C, COG:COG1592, KEGG:K19824, RefSeq:WP_008394151.1, SO:0001217, UniParc:UPI0001656C18, UniRef:UniRef100_D4MV01, UniRef:UniRef50_A0A2A7MG57, UniRef:UniRef90_D4MV01
+contig_252	cds	373	1095	-	NBGELD_0350	panC	pantoate--beta-alanine ligase	COG:COG0414, COG:H, EC:6.3.2.1, GO:0004592, GO:0015940, KEGG:K01918, SO:0001217, UniRef:UniRef50_Q97F38, UniRef:UniRef90_D4MUY0
+contig_255	cds	24	281	+	NBGELD_0351		hypothetical protein	PFAM:PF02801.28, SO:0001217, UniRef:UniRef50_UPI00272A9021
+contig_255	cds	299	742	+	NBGELD_0352	accB	acetyl-CoA carboxylase biotin carboxyl carrier protein	COG:COG0511, COG:I, EC:6.4.1.2, GO:0003989, GO:0006633, GO:0009317, RefSeq:WP_009203700.1, SO:0001217, UniParc:UPI0001CE5709, UniRef:UniRef100_D4MYF4, UniRef:UniRef50_D4MYF4, UniRef:UniRef90_D4MYF4
+contig_256	cds	15	1319	+	NBGELD_0353	hisD	Histidinol dehydrogenase	COG:COG0141, COG:E, EC:1.1.1.23, KEGG:K00013, RefSeq:WP_009264306.1, SO:0001217, UniParc:UPI0001F0211D, UniRef:UniRef100_A0A374AHD0, UniRef:UniRef50_Q3AD53, UniRef:UniRef90_A0A174Q488
+contig_256	cds	1324	1911	+	NBGELD_0354	hisB	imidazoleglycerol-phosphate dehydratase HisB	COG:COG0131, COG:E, EC:4.2.1.19, GO:0000105, GO:0004424, RefSeq:WP_173723278.1, SO:0001217, UniParc:UPI000EEC6084, UniRef:UniRef100_UPI000EEC6084, UniRef:UniRef50_Q6ANL7, UniRef:UniRef90_D4MZZ6
+contig_257	cds	256	738	-	NBGELD_0355	atpF	F0F1 ATP synthase subunit B	COG:C, COG:COG0711, EC:7.1.2.2, GO:0015078, GO:0015986, GO:0045263, RefSeq:WP_055231670.1, SO:0001217, UniParc:UPI0006C5F24E, UniRef:UniRef100_A0A9E0CZD6, UniRef:UniRef50_A0A173TPW3, UniRef:UniRef90_A0A173TPW3
+contig_257	cds	757	975	-	NBGELD_0356	atpE	ATP synthase F0 subunit C	COG:C, COG:COG0636, EC:7.1.2.2, GO:0015078, GO:0015986, GO:0045263, RefSeq:WP_008393988.1, SO:0001217, UniParc:UPI0001656B6F, UniRef:UniRef100_A0A374AFV7, UniRef:UniRef50_B9MS73, UniRef:UniRef90_A0A374AFV7
+contig_257	cds	1031	1525	-	NBGELD_0357		ATP synthase subunit a	SO:0001217, UniRef:UniRef50_Q8RC20
+contig_258	cds	119	349	+	NBGELD_0358		hypothetical protein	PFAM:PF06738.18, PFAM:PF12821.13
+contig_259	cds	75	359	+	NBGELD_0359		hypothetical protein	
+contig_259	cds	458	1438	+	NBGELD_0360	rbsK	Deoxyribokinase	COG:COG0524, COG:G, EC:2.7.1.15, KEGG:K00852, RefSeq:WP_022091430.1, SO:0001217, UniParc:UPI00033554E6, UniRef:UniRef100_A0A417UW23, UniRef:UniRef50_A0A174NBH1, UniRef:UniRef90_A0A174NBH1
+contig_259	cds	1485	1655	-	NBGELD_0361	nuoI	Ferredoxin	COG:C, COG:COG1143, RefSeq:WP_008393929.1, SO:0001217, UniParc:UPI0001656B1E, UniRef:UniRef100_A0A374AGR1, UniRef:UniRef50_P00195, UniRef:UniRef90_A0A1Q9JUA3
+contig_259	cds	1922	2128	+	NBGELD_0362		DUF1858 domain-containing protein	RefSeq:WP_009264587.1, SO:0001217, UniParc:UPI0001CE5F5A, UniRef:UniRef100_D4MUJ3, UniRef:UniRef50_C4Z4P8, UniRef:UniRef90_D4MUJ3
+contig_260	cds	154	906	+	NBGELD_0363		Succinate dehydrogenase/fumarate reductase, flavoprotein subunit	SO:0001217, UniRef:UniRef50_D4LSK4
+contig_266	cds	271	1044	+	NBGELD_0364	tatD	Hydrolase, TatD family	COG:COG0084, COG:N, EC:3.1.21.-, KEGG:K03424, RefSeq:WP_008392226.1, SO:0001217, UniParc:UPI0001653AC8, UniRef:UniRef100_D4MTR7, UniRef:UniRef50_A0A174KK32, UniRef:UniRef90_D4MTR7
+contig_267	cds	243	743	-	NBGELD_0365		hypothetical protein	
+contig_268	cds	7	150	+	NBGELD_0366		hypothetical protein	
+contig_268	cds	126	623	-	NBGELD_0367	rimL	Acetyltransferases	COG:COG1670, COG:JO, SO:0001217, UniRef:UniRef50_L7VN62, UniRef:UniRef90_D4N0E2
+contig_268	tRNA	737	809	+	NBGELD_0368	trnR	tRNA-Arg(ccg)	SO:0001036
+contig_269	cds	162	398	-	NBGELD_0369		Chorion class high-cysteine HCB protein 13	RefSeq:WP_009263905.1, SO:0001217, UniParc:UPI0001CE68F9, UniRef:UniRef100_D4MZM4, UniRef:UniRef50_A0A3A8UZ22, UniRef:UniRef90_A0A1C5ZC62
+contig_269	cds	541	1368	+	NBGELD_0370	thiM	hydroxyethylthiazole kinase	COG:COG2145, COG:H, EC:2.7.1.50, GO:0004417, GO:0009228, KEGG:K00878, RefSeq:WP_044929677.1, SO:0001217, UniParc:UPI000304C938, UniRef:UniRef100_A0A415Y5S0, UniRef:UniRef50_A0A417V6N4, UniRef:UniRef90_A0A417V6N4
+contig_270	cds	49	666	+	NBGELD_0371		hypothetical protein	
+contig_270	cds	739	1011	+	NBGELD_0372		Transcriptional regulator	RefSeq:WP_008393145.1, SO:0001217, UniParc:UPI0001654ABC, UniRef:UniRef100_D4MXE1, UniRef:UniRef50_B0MHU1, UniRef:UniRef90_A0A417K4D1
+contig_270	cds	1135	1638	+	NBGELD_0373	cpaA	A24 family peptidase	COG:COG4960, COG:W, RefSeq:WP_173782545.1, SO:0001217, UniParc:UPI00157081E5, UniRef:UniRef100_UPI00157081E5, UniRef:UniRef50_A0A174CW43, UniRef:UniRef90_A0A174CW43
+contig_270	cds	1635	2483	+	NBGELD_0374		hypothetical protein	RefSeq:WP_009204125.1, SO:0001217, UniParc:UPI0002A24D27, UniRef:UniRef100_A0A174Q251, UniRef:UniRef50_D4MXE3, UniRef:UniRef90_D4MXE3
+contig_270	cds	2474	3712	+	NBGELD_0375	cpaF	CpaF family protein	COG:COG4962, COG:W, EC:7.4.2.8, KEGG:K02283, RefSeq:WP_022091661.1, SO:0001217, UniParc:UPI0002F11A39, UniRef:UniRef100_A0A173R536, UniRef:UniRef50_A0A829NVW8, UniRef:UniRef90_A0A173R536
+contig_270	cds	3651	4409	+	NBGELD_0376	tadB	Type II secretion system protein GspF domain-containing protein	COG:COG4965, COG:W, RefSeq:WP_173782546.1, SO:0001217, UniParc:UPI000ED21D9B, UniRef:UniRef100_A0AAQ3JI76, UniRef:UniRef50_A0A1Q9JTJ2, UniRef:UniRef90_E5VLL7
+contig_271	cds	266	2098	+	NBGELD_0377	nuoF	Glutamate synthase [NADPH] small chain	COG:C, COG:COG1894, SO:0001217, UniRef:UniRef50_A0A1Y4RU48, UniRef:UniRef90_D4MV65
+contig_271	cds	2092	3804	+	NBGELD_0378	nar1	Hydrogenases, Fe-only	COG:C, COG:COG4624, RefSeq:WP_173782915.1, SO:0001217, UniParc:UPI001570A2DD, UniRef:UniRef100_A0AAQ3JJ43, UniRef:UniRef50_A0A6N8I0Q8, UniRef:UniRef90_D4MV66
+contig_271	cds	3887	4462	-	NBGELD_0379	oxdD	glucose-6-phosphate isomerase	COG:COG2140, COG:G, EC:5.3.1.9, KEGG:K06859, RefSeq:WP_009265269.1, SO:0001217, UniParc:UPI0001F02272, UniRef:UniRef100_E5VLS4, UniRef:UniRef50_A0JVX1, UniRef:UniRef90_D4MV67
+contig_272	cds	17	718	+	NBGELD_0380		hypothetical protein	
+contig_273	cds	429	848	-	NBGELD_0381		HIT family protein	RefSeq:WP_173728541.1, SO:0001217, UniParc:UPI0015715A58, UniRef:UniRef100_UPI0015715A58, UniRef:UniRef50_A0A391PI31, UniRef:UniRef90_UPI0015715A58
+contig_276	cds	108	632	-	NBGELD_0382		hypothetical protein	RefSeq:WP_149883588.1, SO:0001217, UniParc:UPI0006C65756, UniRef:UniRef100_A0A173URF1, UniRef:UniRef50_A0A173URF1, UniRef:UniRef90_A0A173URF1
+contig_276	cds	689	1594	-	NBGELD_0383		30S ribosomal protein S1	RefSeq:WP_044923707.1, SO:0001217, UniParc:UPI0005D298A9, UniRef:UniRef100_UPI0005D298A9, UniRef:UniRef50_A0A173UUE2, UniRef:UniRef90_A0A173UUE2
+contig_277	cds	18	554	+	NBGELD_0384	mutS	DNA mismatch repair protein MutS	SO:0001217, UniRef:UniRef50_A0A3D3RK72, UniRef:UniRef90_E5VL49
+contig_279	cds	3	554	+	NBGELD_0385		4-hydroxy-3-methylbut-2-en-1-yl diphosphate synthase (Flavodoxin)	SO:0001217, UniRef:UniRef50_A0A7U9SP26
+contig_280	cds	61	1950	-	NBGELD_0386	mdlB	ABC-type multidrug transport system, ATPase and permease components	COG:COG1132, COG:V, SO:0001217, UniRef:UniRef50_A0A174EFD4, UniRef:UniRef90_D4MY57
+contig_280	cds	1943	2038	-	NBGELD_0387		hypothetical protein	
+contig_281	cds	516	959	+	NBGELD_0388		hypothetical protein	
+contig_282	cds	548	1270	-	NBGELD_0389	mngR	GntR family transcriptional regulator	COG:COG2188, COG:K, SO:0001217, UniRef:UniRef50_R3WLE6, UniRef:UniRef90_D4MV69
+contig_283	cds	43	1494	+	NBGELD_0390	guaB	IMP dehydrogenase	COG:COG0517, COG:T, EC:1.1.1.205, GO:0003938, GO:0006164, KEGG:K00088, SO:0001217, UniRef:UniRef50_I3ZKH4, UniRef:UniRef90_D4MZ60
+contig_284	cds	970	1332	-	NBGELD_0391	rplL	50S ribosomal protein L7/L12	COG:COG0222, COG:J, GO:0003735, GO:0005840, GO:0006412, RefSeq:WP_008393894.1, SO:0001217, UniParc:UPI0001656BFC, UniRef:UniRef100_A0A374AYG8, UniRef:UniRef50_P02394, UniRef:UniRef90_A0A4P8ILG1
+contig_284	cds	1376	1879	-	NBGELD_0392	rplJ	50S ribosomal protein L10	COG:COG0244, COG:J, GO:0003735, GO:0006412, GO:0015934, KEGG:K02864, SO:0001217, UniRef:UniRef50_D9R3T6, UniRef:UniRef90_D4MUG3
+contig_286	cds	171	893	+	NBGELD_0393	rpsB	30S ribosomal protein S2	COG:COG0052, COG:J, GO:0003735, GO:0006412, GO:0015935, RefSeq:WP_009264260.1, SO:0001217, UniParc:UPI0001CE5554, UniRef:UniRef100_D4N023, UniRef:UniRef50_Q30PK5, UniRef:UniRef90_D4N023
+contig_287	cds	26	631	+	NBGELD_0394		hypothetical protein	PFAM:PF00999.27
+contig_287	cds	695	1633	+	NBGELD_0395	eutE	Ectoine utilization protein EutE	COG:COG3608, COG:R, RefSeq:WP_008392505.1, SO:0001217, UniParc:UPI00016538E3, UniRef:UniRef100_D4MZ36, UniRef:UniRef50_A0A4P8ICV1, UniRef:UniRef90_D4MZ36
+contig_288	cds	413	1432	+	NBGELD_0396	pheS	phenylalanine--tRNA ligase subunit alpha	COG:COG0016, COG:J, EC:6.1.1.20, GO:0000166, GO:0004826, GO:0005524, GO:0005737, GO:0006432, KEGG:K01889, RefSeq:WP_147604350.1, SO:0001217, UniParc:UPI000821A2FF, UniRef:UniRef100_A0A1C5W741, UniRef:UniRef50_A6TNP8, UniRef:UniRef90_D4N1H3
+contig_289	cds	56	610	+	NBGELD_0397		hypothetical protein	PFAM:PF02806.24
+contig_290	cds	607	1362	-	NBGELD_0398		hypothetical protein	
+contig_292	cds	294	599	+	NBGELD_0399		hypothetical protein	
+contig_293	cds	97	276	+	NBGELD_0400		hypothetical protein	
+contig_293	cds	290	1237	+	NBGELD_0401	rnfD	Ion-translocating oxidoreductase complex subunit D	COG:C, COG:COG4658, RefSeq:WP_008391309.1, SO:0001217, UniParc:UPI0001657232, UniRef:UniRef100_D4N012, UniRef:UniRef50_A0A829Z945, UniRef:UniRef90_D4N012
+contig_294	cds	413	1027	-	NBGELD_0402		alpha-galactosidase	SO:0001217, UniRef:UniRef50_A0A9D2DT26, UniRef:UniRef90_UPI002598E79D
+contig_295	cds	211	1908	-	NBGELD_0403		Isopentenyl-diphosphate delta-isomerase	COG:COG3044, COG:R, RefSeq:WP_173782735.1, SO:0001217, UniParc:UPI00156FC601, UniRef:UniRef100_UPI00156FC601, UniRef:UniRef50_F7JKQ1, UniRef:UniRef90_A0A417V8R6
+contig_296	cds	3	1103	+	NBGELD_0404		Amino acid carrier protein	SO:0001217, UniRef:UniRef50_R7BH88
+contig_296	cds	1138	1830	-	NBGELD_0405		MATE family efflux transporter	SO:0001217, UniRef:UniRef50_UPI001E48BA6C
+contig_297	cds	27	395	+	NBGELD_0406		hypothetical protein	PFAM:PF00448.28
+contig_298	cds	528	1610	-	NBGELD_0407		2-hydroxyglutaryl-CoA dehydratase	SO:0001217, UniRef:UniRef50_A0A396QRF5
+contig_299	cds	29	694	+	NBGELD_0408		hypothetical protein	PFAM:PF00358.26
+contig_299	tRNA	768	840	+	NBGELD_0409	trnG	tRNA-Gly(gcc)	SO:0000260
+contig_301	cds	609	2333	-	NBGELD_0410	nagE	EIIBC-Tre	COG:COG2190, COG:G, SO:0001217, UniRef:UniRef50_A0A837BSN8, UniRef:UniRef90_D4MVA2
+contig_302	cds	91	363	+	NBGELD_0411		SpoVA/SpoVAEb family sporulation membrane protein	SO:0001217, UniRef:UniRef50_A0A7C7DL48
+contig_302	cds	360	1373	+	NBGELD_0412	spoVAD	Stage V sporulation protein AD	COG:COG5837, COG:DE, KEGG:K06406, SO:0001217, UniRef:UniRef50_A0A6S6RB62, UniRef:UniRef90_D4N198
+contig_302	cds	1376	1732	+	NBGELD_0413	spoVAEB	Stage V sporulation protein AE	COG:COG5839, COG:DE, KEGG:K06407, RefSeq:WP_008392146.1, SO:0001217, UniParc:UPI000165933C, UniRef:UniRef100_D4N199, UniRef:UniRef50_F7JRI2, UniRef:UniRef90_D4N199
+contig_303	cds	646	1983	-	NBGELD_0414	trkG	Ktr system potassium uptake protein B	COG:COG0168, COG:P, SO:0001217, UniRef:UniRef50_F3AK67, UniRef:UniRef90_A0A173R2V6
+contig_304	cds	27	389	+	NBGELD_0415		DNA topoisomerase (ATP-hydrolyzing)	SO:0001217, UniRef:UniRef50_A0A7C2GI69
+contig_304	cds	404	2887	+	NBGELD_0416	gyrA	DNA gyrase subunit A	COG:COG0188, COG:L, EC:5.6.2.2, GO:0003677, GO:0003916, GO:0003918, GO:0005524, GO:0006259, GO:0006265, RefSeq:WP_008392974.1, SO:0001217, UniParc:UPI0001652EE7, UniRef:UniRef100_D4MX54, UniRef:UniRef50_A0A174GCP3, UniRef:UniRef90_D4MX54
+contig_305	cds	157	933	-	NBGELD_0417	yjjP	Threonine/serine exporter-like N-terminal domain-containing protein	COG:C, COG:COG2966, RefSeq:WP_009203266.1, SO:0001217, UniParc:UPI0001F02684, UniRef:UniRef100_A0A174JX45, UniRef:UniRef50_B0MHJ4, UniRef:UniRef90_A0A6N2SQA9
+contig_305	cds	984	1142	-	NBGELD_0418		hypothetical protein	
+contig_306	cds	480	704	-	NBGELD_0419	yozG	Transcriptional regulator	COG:COG3655, COG:K, SO:0001217, UniRef:UniRef50_R9MCE8, UniRef:UniRef90_A0A374AQ91
+contig_306	cds	719	1261	-	NBGELD_0420		hypothetical protein	
+contig_308	cds	552	983	-	NBGELD_0421		TOBE domain-containing protein	SO:0001217, UniRef:UniRef50_UPI00259565BC, UniRef:UniRef90_UPI00259565BC
+contig_309	cds	46	210	+	NBGELD_0422		Diaminopimelate decarboxylase	SO:0001217, UniRef:UniRef50_A0A3D0HMU1
+contig_309	cds	378	1046	+	NBGELD_0423	sdaAB	L-serine ammonia-lyase, iron-sulfur-dependent subunit beta	COG:COG1760, COG:E, EC:4.3.1.17, GO:0003941, GO:0006094, GO:0006565, SO:0001217, UniRef:UniRef50_A0A173RSJ0, UniRef:UniRef90_A0A173R4L0
+contig_309	cds	1050	1913	+	NBGELD_0424	sdaAA	L-serine ammonia-lyase, iron-sulfur-dependent, subunit alpha	COG:COG1760, COG:E, EC:4.3.1.17, GO:0003941, GO:0006094, GO:0006565, KEGG:K01752, RefSeq:WP_173783065.1, SO:0001217, UniParc:UPI00156DC2BB, UniRef:UniRef100_UPI00156DC2BB, UniRef:UniRef50_A0A173RT91, UniRef:UniRef90_D4MY97
+contig_309	cds	1941	2672	+	NBGELD_0425	cutC	PF03932 family protein CutC	COG:COG3142, COG:P, KEGG:K06201, RefSeq:WP_009202848.1, SO:0001217, UniParc:UPI0002A19C9D, UniRef:UniRef100_A0A174SH32, UniRef:UniRef50_D4MY98, UniRef:UniRef90_D4MY98
+contig_310	cds	11	379	+	NBGELD_0426	merR	MerR family transcriptional regulator	SO:0001217, UniRef:UniRef50_A0A317UEE1, UniRef:UniRef90_A0AAQ3GN16
+contig_310	cds	342	1517	+	NBGELD_0427	tnpB	IS605 OrfB family transposase	COG:COG0675, COG:X, SO:0001217, UniRef:UniRef50_E3PWE7, UniRef:UniRef90_E5VPH2
+contig_311	cds	104	970	-	NBGELD_0428		hypothetical protein	PFAM:PF04552.19, PFAM:PF04963.19
+contig_312	cds	353	976	-	NBGELD_0429	acrR	HTH tetR-type domain-containing protein	COG:COG1309, COG:K, SO:0001217, UniRef:UniRef50_R9MGK1, UniRef:UniRef90_G1VJJ3
+contig_313	cds	55	633	+	NBGELD_0430		hypothetical protein	
+contig_313	cds	949	1473	-	NBGELD_0431		hypothetical protein	
+contig_314	cds	940	1425	+	NBGELD_0432	ppiB	Peptidyl-prolyl cis-trans isomerase	COG:COG0652, COG:O, SO:0001217, UniRef:UniRef50_R9LCJ4, UniRef:UniRef90_D4MYA5
+contig_315	cds	298	1137	-	NBGELD_0433	aRA1	Uncharacterized oxidoreductase MSMEG_2408	COG:COG0656, COG:Q, RefSeq:WP_008393853.1, SO:0001217, UniParc:UPI0001656BC2, UniRef:UniRef100_A0A844GCT6, UniRef:UniRef50_R9LZJ9, UniRef:UniRef90_A0A173VQE9
+contig_315	cds	1142	1696	-	NBGELD_0434	wbbJ	Putative acetyltransferase SA2342	COG:COG0110, COG:R, EC:2.3.1.79, KEGG:K00661, RefSeq:WP_226799606.1, SO:0001217, UniParc:UPI000319C957, UniRef:UniRef100_C0EW52, UniRef:UniRef50_A0A173TEN9, UniRef:UniRef90_A0A173TEN9
+contig_315	cds	1708	2214	-	NBGELD_0435	fldA	Flavodoxin-like domain-containing protein	COG:C, COG:COG0716, SO:0001217, UniRef:UniRef50_D9SW75, UniRef:UniRef90_C0EW51
+contig_315	cds	2220	2603	-	NBGELD_0436	soxR	HTH-type transcriptional regulator AdhR	COG:COG0789, COG:K, KEGG:K21745, RefSeq:WP_009203852.1, SO:0001217, UniParc:UPI0002A347C4, UniRef:UniRef100_A0A412EZE9, UniRef:UniRef50_C7XQI4, UniRef:UniRef90_A0A173TD08
+contig_315	cds	2620	3117	-	NBGELD_0437	fldA	Flavodoxin-like domain-containing protein	COG:C, COG:COG0716, RefSeq:WP_296028703.1, SO:0001217, UniParc:UPI0002F52B39, UniRef:UniRef100_C0EW49, UniRef:UniRef50_C0EW49, UniRef:UniRef90_C0EW49
+contig_316	cds	197	736	+	NBGELD_0438		DUF4316 domain-containing protein	SO:0001217, UniRef:UniRef50_K1RRM2
+contig_316	cds	740	1684	+	NBGELD_0439		DUF4316 domain-containing protein	SO:0001217, UniRef:UniRef50_R9JGV3, UniRef:UniRef90_UPI001D01179A
+contig_316	cds	1687	1893	+	NBGELD_0440		Conjugal transfer protein	RefSeq:WP_015529203.1, SO:0001217, UniParc:UPI0001CD9A6E, UniRef:UniRef100_C7H731, UniRef:UniRef50_M2PMG5, UniRef:UniRef90_C7H731
+contig_318	cds	60	1382	-	NBGELD_0441	yjjB	Threonine/serine exporter family protein	COG:C, COG:COG3610, RefSeq:WP_009203672.1, SO:0001217, UniParc:UPI0002A2DDD5, UniRef:UniRef100_A0AAQ3PSP8, UniRef:UniRef50_Q74IW4, UniRef:UniRef90_E5VHG0
+contig_318	cds	1388	1618	-	NBGELD_0442		hypothetical protein	
+contig_319	cds	71	262	+	NBGELD_0443		(d)CMP kinase	SO:0001217, UniRef:UniRef50_A0A9W6CDJ2
+contig_319	cds	296	880	+	NBGELD_0444		4-hydroxy-3-methylbut-2-enyl diphosphate reductase	SO:0001217, UniRef:UniRef50_A0A7U9SXX0
+contig_320	cds	23	769	+	NBGELD_0445		Putative ribosome biogenesis GTPase Der	SO:0001217, UniRef:UniRef50_D3APS5
+contig_321	cds	141	1055	-	NBGELD_0446		Transposase zinc-binding domain-containing protein	SO:0001217, UniRef:UniRef50_R9K7Q4
+contig_322	cds	28	396	+	NBGELD_0447		hypothetical protein	PFAM:PF01695.23
+contig_323	cds	41	1105	+	NBGELD_0448	yifB	YifB family Mg chelatase-like AAA ATPase	SO:0001217, UniRef:UniRef50_UPI003565876B, UniRef:UniRef90_UPI002591EE72
+contig_326	cds	1	1071	+	NBGELD_0449		hypothetical protein	PFAM:PF00165.29, PFAM:PF12833.13, PFAM:PF17853.6
+contig_327	cds	101	421	+	NBGELD_0450		hypothetical protein	
+contig_328	cds	29	697	+	NBGELD_0451		PTS transporter subunit EIIC	KEGG:K02761, SO:0001217, UniRef:UniRef50_A0NHW7, UniRef:UniRef90_UPI001D0966CA
+contig_328	cds	763	1068	+	NBGELD_0452		Lichenan-specific phosphotransferase enzyme IIB component	RefSeq:WP_008394309.1, SO:0001217, UniParc:UPI0001656C58, UniRef:UniRef100_D4MVD0, UniRef:UniRef50_A0A6N3F6S7, UniRef:UniRef90_D4MVD0
+contig_328	cds	1072	1383	+	NBGELD_0453		Oligo-beta-mannoside-specific phosphotransferase enzyme IIA component	RefSeq:WP_008394310.1, SO:0001217, UniParc:UPI0001656BD0, UniRef:UniRef100_D4MVD1, UniRef:UniRef50_D4MVD1, UniRef:UniRef90_D4MVD1
+contig_328	cds	1414	2307	+	NBGELD_0454		Glucokinase	RefSeq:WP_008394311.1, SO:0001217, UniParc:UPI0001656B99, UniRef:UniRef100_D4MVD2, UniRef:UniRef50_R9LPB9, UniRef:UniRef90_D4MVD2
+contig_329	cds	518	1462	-	NBGELD_0455		sugar kinase	SO:0001217, UniRef:UniRef50_F4BP90, UniRef:UniRef90_UPI00156E298C
+contig_329	cds	1481	2461	-	NBGELD_0456		bifunctional 4-hydroxy-2-oxoglutarate aldolase/2-dehydro-3-deoxy-phosphogluconate aldolase	EC:4.1.2.14, EC:4.1.3.42, KEGG:K01625, RefSeq:WP_173728536.1, SO:0001217, UniParc:UPI00156EC868, UniRef:UniRef100_UPI00156EC868, UniRef:UniRef50_E9SDK2, UniRef:UniRef90_UPI00156F4D4B
+contig_329	cds	2472	3425	-	NBGELD_0457		C-terminal binding protein	RefSeq:WP_173726126.1, SO:0001217, UniParc:UPI00156E64CE, UniRef:UniRef100_UPI00156E64CE, UniRef:UniRef50_E8LN06, UniRef:UniRef90_UPI00156E64CE
+contig_330	cds	327	1667	-	NBGELD_0458		Uncharacterized protein conserved in bacteria	COG:COG3976, COG:R, SO:0001217, UniRef:UniRef50_A0A374AGV8, UniRef:UniRef90_D4MX87
+contig_331	cds	136	465	+	NBGELD_0459		hypothetical protein	PFAM:PF06738.18
+contig_331	cds	466	918	+	NBGELD_0460	yjjB	Uncharacterized conserved protein	COG:C, COG:COG3610, RefSeq:WP_009204338.1, SO:0001217, UniParc:UPI0001F026D1, UniRef:UniRef100_A0A173SXU2, UniRef:UniRef50_A0A1Q9JRF7, UniRef:UniRef90_D4MYT2
+contig_333	cds	155	754	-	NBGELD_0461	ubiG	Class I SAM-dependent methyltransferase	COG:COG2227, COG:H, RefSeq:WP_209302116.1, SO:0001217, UniParc:UPI001ADD7418, UniRef:UniRef100_UPI001ADD7418, UniRef:UniRef50_R5U4K0, UniRef:UniRef90_D4N0J9
+contig_334	cds	325	1428	+	NBGELD_0462	purR	Arabinose metabolism transcriptional repressor	COG:COG1609, COG:K, RefSeq:WP_044925062.1, SO:0001217, UniParc:UPI0005D145E2, UniRef:UniRef100_A0A417V7I1, UniRef:UniRef50_R9KM77, UniRef:UniRef90_A0A173RX14
+contig_336	cds	110	559	-	NBGELD_0463	yjhB	NUDIX hydrolase	COG:COG1051, COG:F, RefSeq:WP_008392597.1, SO:0001217, UniParc:UPI00016543E0, UniRef:UniRef100_A0A374AR32, UniRef:UniRef50_S0JI33, UniRef:UniRef90_A0A374AR32
+contig_336	cds	685	2166	-	NBGELD_0464		Penicillin-binding protein 2	SO:0001217, UniRef:UniRef50_A0A1Q9JRD2, UniRef:UniRef90_A0A374ANR8
+contig_337	cds	365	1540	-	NBGELD_0465		IS110 family transposase	COG:COG3547, COG:X, GO:0004803, SO:0001217, UniRef:UniRef50_A0A7U9RDR9, UniRef:UniRef90_U2PJW0
+contig_338	cds	150	485	+	NBGELD_0466		hypothetical protein	PFAM:PF02810.21
+contig_338	cds	500	1621	+	NBGELD_0467	prfB	peptide chain release factor 2	COG:COG1186, COG:J, GO:0005737, GO:0006415, GO:0016149, KEGG:K02836, RefSeq:WP_173761112.1, SO:0001217, UniParc:UPI00156E02FC, UniRef:UniRef100_UPI00156E02FC, UniRef:UniRef50_A0A1C7IF91, UniRef:UniRef90_D4MYN3
+contig_339	cds	1145	1306	-	NBGELD_0468		hypothetical protein	
+contig_340	cds	2	547	+	NBGELD_0469		L-arabinose isomerase	SO:0001217, UniRef:UniRef50_A0A7U9SGH8
+contig_342	cds	101	553	+	NBGELD_0470		hypothetical protein	
+contig_343	cds	186	1475	+	NBGELD_0471	uxaA	UxaA family hydrolase	EC:4.2.1.7, KEGG:K01685, SO:0001217, UniRef:UniRef50_A0A174IXA6, UniRef:UniRef90_UPI00156E6697
+contig_343	cds	1544	3031	+	NBGELD_0472		tagaturonate reductase	RefSeq:WP_173760295.1, SO:0001217, UniParc:UPI00156DF55A, UniRef:UniRef100_UPI00156DF55A, UniRef:UniRef50_R9KS58, UniRef:UniRef90_UPI00156DF55A
+contig_343	cds	3089	3727	+	NBGELD_0473		bifunctional 4-hydroxy-2-oxoglutarate aldolase/2-dehydro-3-deoxy-phosphogluconate aldolase	EC:4.1.2.14, EC:4.1.3.42, KEGG:K01625, SO:0001217, UniRef:UniRef50_A0A173R7U2, UniRef:UniRef90_UPI0015709D92
+contig_344	cds	234	1598	-	NBGELD_0474		UPF0210 protein CL2_31130	COG:COG2848, COG:D, KEGG:K09157, RefSeq:WP_173776601.1, SO:0001217, UniParc:UPI00156F5B39, UniRef:UniRef100_UPI00156F5B39, UniRef:UniRef50_Q97ST4, UniRef:UniRef90_D4MWV7
+contig_345	cds	222	1493	+	NBGELD_0475		SLC13/DASS family transporter	SO:0001217, UniRef:UniRef50_F3B4M1, UniRef:UniRef90_A0A417K444
+contig_345	cds	1545	2444	+	NBGELD_0476	ttdA	L(+)-tartrate dehydratase subunit alpha	COG:C, COG:COG1951, EC:4.2.1.32, GO:0008730, KEGG:K03779, RefSeq:WP_044925016.1, SO:0001217, UniParc:UPI0005D1772F, UniRef:UniRef100_A0A417K404, UniRef:UniRef50_A0A935PLP7, UniRef:UniRef90_A0A0U5NWU6
+contig_346	cds	807	1250	-	NBGELD_0477	rplO	50S ribosomal protein L15	GO:0003735, GO:0006412, GO:0015934, KEGG:K02876, SO:0001217, UniRef:UniRef50_Q18CH7, UniRef:UniRef90_A0A916QC54
+contig_346	cds	1278	1460	-	NBGELD_0478	rpmD	50S ribosomal protein L30	COG:COG1841, COG:J, GO:0003735, GO:0006412, GO:0015934, RefSeq:WP_008393384.1, SO:0001217, UniParc:UPI0001654EFA, UniRef:UniRef100_A0A374AU16, UniRef:UniRef50_U2Q0R2, UniRef:UniRef90_U2Q0R2
+contig_346	cds	1474	1983	-	NBGELD_0479	rpsE	30S ribosomal protein S5	COG:COG0098, COG:J, GO:0003735, GO:0006412, GO:0015935, KEGG:K02988, RefSeq:WP_008393385.1, SO:0001217, UniParc:UPI0001654E90, UniRef:UniRef100_A0A374AUB0, UniRef:UniRef50_B3E847, UniRef:UniRef90_A0A4P8IKQ9
+contig_346	cds	1998	2366	-	NBGELD_0480	rplR	50S ribosomal protein L18	COG:COG0256, COG:J, GO:0003735, GO:0005840, GO:0006412, RefSeq:WP_008393386.1, SO:0001217, UniParc:UPI0001654DEF, UniRef:UniRef100_A0A374ARX3, UniRef:UniRef50_Q03ED2, UniRef:UniRef90_A0A1Q9JUR4
+contig_346	cds	2381	2923	-	NBGELD_0481	rplF	50S ribosomal protein L6	COG:COG0097, COG:J, GO:0003735, GO:0005840, GO:0006412, GO:0019843, SO:0001217, UniParc:UPI000E4A72B9, UniRef:UniRef100_A0A374AV65, UniRef:UniRef50_B8I7Z4, UniRef:UniRef90_D4MYH6
+contig_347	cds	20	820	+	NBGELD_0482		hypothetical protein	PFAM:PF01228.26
+contig_348	cds	2	958	+	NBGELD_0483	dAK1	PTS-dependent dihydroxyacetone kinase, dihydroxyacetone-binding subunit dhaK	COG:COG2376, COG:G, EC:2.7.1.121, KEGG:K05878, SO:0001217, UniRef:UniRef50_D4MXK5, UniRef:UniRef90_A0A173TTD3
+contig_351	cds	120	1241	+	NBGELD_0484	ffh	signal recognition particle protein	COG:COG0541, COG:U, EC:3.6.5.4, GO:0003924, GO:0005048, GO:0005525, GO:0009306, GO:0048501, KEGG:K03106, SO:0001217, UniRef:UniRef50_F2I6A8, UniRef:UniRef90_D4MX32
+contig_352	cds	735	950	-	NBGELD_0485		hypothetical protein	
+contig_353	tRNA	41	115	+	NBGELD_0486	trnP	tRNA-Pro(tgg)	SO:0000268
+contig_353	tRNA	122	192	+	NBGELD_0487	trnG	tRNA-Gly(tcc)	SO:0000260
+contig_354	cds	465	1049	-	NBGELD_0488	rdgB	XTP/dITP diphosphatase	COG:COG0127, COG:F, EC:3.6.1.66, GO:0009143, GO:0047429, KEGG:K01519, RefSeq:WP_008392692.1, SO:0001217, UniParc:UPI0001655636, UniRef:UniRef100_D4MWB2, UniRef:UniRef50_A0A3E3K434, UniRef:UniRef90_D4MWB2
+contig_354	cds	1049	1840	-	NBGELD_0489		hypothetical protein	PFAM:PF01170.24, PFAM:PF02926.22, PFAM:PF05175.20
+contig_355	cds	4	1608	+	NBGELD_0490	cydD	Putative multidrug export ATP-binding/permease protein SAV1866	COG:CO, COG:COG4988, SO:0001217, UniRef:UniRef50_G9WQ22, UniRef:UniRef90_A0A173SG74
+contig_356	cds	4	912	+	NBGELD_0491		Cell surface protein Shp haem-binding domain-containing protein	KEGG:K25119, RefSeq:WP_173756264.1, SO:0001217, UniParc:UPI00156D9B0E, UniRef:UniRef100_UPI00156D9B0E, UniRef:UniRef50_A0A1Q9JTS2, UniRef:UniRef90_E5VIV1
+contig_356	cds	884	1921	+	NBGELD_0492	isdE	heme ABC transporter substrate-binding protein IsdE	COG:COG0614, COG:P, GO:0015886, GO:0016020, GO:0020037, SO:0001217, UniParc:UPI0006C62CAB, UniRef:UniRef100_A0A173RDX1, UniRef:UniRef50_A0A3P5XYU0, UniRef:UniRef90_A0A173SET7
+contig_357	cds	508	1077	-	NBGELD_0493		(pseudo) glutamate-5-semialdehyde dehydrogenase	EC:1.2.1.41, GO:0004350, GO:0006561, GO:0016620, KEGG:K00147, SO:0001217, UniRef:UniRef50_C4Z075, UniRef:UniRef90_A0A0M6WNH5
+contig_357	cds	1105	1770	-	NBGELD_0494		Glutamate-5-semialdehyde dehydrogenase	SO:0001217, UniRef:UniRef50_A0A971MHS0
+contig_357	cds	1773	2360	-	NBGELD_0495		5-formyltetrahydrofolate cyclo-ligase	EC:6.3.3.2, GO:0006730, GO:0030272, RefSeq:WP_173021877.1, SO:0001217, UniParc:UPI001563E24B, UniRef:UniRef100_A0A844KJ78, UniRef:UniRef50_A0A0M6WMA9, UniRef:UniRef90_A0A0M6WMA9
+contig_357	cds	2335	2559	-	NBGELD_0496		UPF0291 protein ERS852420_00529	RefSeq:WP_022046603.1, SO:0001217, UniParc:UPI0003380159, UniRef:UniRef100_A0A173RFE7, UniRef:UniRef50_R9JHH1, UniRef:UniRef90_A0A173RFE7
+contig_357	cds	2559	3398	-	NBGELD_0497		Glutamate 5-kinase	RefSeq:WP_055067872.1, SO:0001217, UniParc:UPI0006C35C5A, UniRef:UniRef100_A0A0M6WMC2, UniRef:UniRef50_Q896G3, UniRef:UniRef90_A0A0M6WMC2
+contig_359	cds	1216	2250	-	NBGELD_0498		S1 motif domain-containing protein	SO:0001217, UniRef:UniRef50_C0CI71
+contig_360	cds	48	1040	+	NBGELD_0499		hypothetical protein	PFAM:PF00082.27
+contig_361	cds	32	514	+	NBGELD_0500		tRNA dimethylallyltransferase	SO:0001217, UniRef:UniRef50_R6MXI6
+contig_362	cds	784	1635	-	NBGELD_0501		4Fe-4S ferredoxin-type domain-containing protein	SO:0001217, UniRef:UniRef50_A0A391P8X3
+contig_362	cds	1625	2755	-	NBGELD_0502		FAD-dependent oxidoreductase	RefSeq:WP_173782865.1, SO:0001217, UniParc:UPI00156F419E, UniRef:UniRef100_A0AAQ3JGT0, UniRef:UniRef50_A0A432HQE3, UniRef:UniRef90_A0A943C6R7
+contig_363	cds	25	228	+	NBGELD_0503		hypothetical protein	PFAM:PF13306.12
+contig_364	cds	581	988	-	NBGELD_0504	purE	N5-carboxyaminoimidazole ribonucleotide mutase	COG:COG0041, COG:F, SO:0001217, UniRef:UniRef50_A0A1J5NHT7, UniRef:UniRef90_D4N1D1
+contig_365	cds	72	254	+	NBGELD_0505		hypothetical protein	
+contig_365	cds	290	406	+	NBGELD_0506		hypothetical protein	
+contig_366	ncRNA-region	845	950	-			TPP riboswitch aptamer (THI element)	RFAM:RF00059, SO:0000035
+contig_367	cds	104	1972	+	NBGELD_0507	recQ	DNA helicase RecQ	COG:COG0514, COG:L, EC:5.6.2.4, GO:0003678, GO:0006310, GO:0009432, SO:0001217, UniRef:UniRef50_A0A174PYB5, UniRef:UniRef90_A0A374ARM7
+contig_368	cds	295	2271	-	NBGELD_0508	kdpD	histidine kinase	COG:COG2205, COG:T, SO:0001217, UniRef:UniRef50_D4MY64, UniRef:UniRef90_D4MY64
+contig_368	cds	2335	2469	-	NBGELD_0509		hypothetical protein	RefSeq:WP_009204217.1, SO:0001217, UniParc:UPI0002A3671D, UniRef:UniRef100_A0A174UQN7, UniRef:UniRef50_A0A174UQN7, UniRef:UniRef90_A0A174UQN7
+contig_369	cds	77	1366	-	NBGELD_0510	prfC	peptide chain release factor 3	COG:COG4108, COG:J, GO:0003924, GO:0006415, KEGG:K02837, SO:0001217, UniRef:UniRef50_B0C6Z1, UniRef:UniRef90_D4MW26
+contig_370	cds	18	1178	-	NBGELD_0511		FAD-dependent oxidoreductase	SO:0001217, UniRef:UniRef50_A0A919I209, UniRef:UniRef90_UPI0025939C0B
+contig_371	cds	4	471	+	NBGELD_0512	ribE	6,7-dimethyl-8-ribityllumazine synthase	COG:COG0054, COG:H, EC:2.5.1.78, GO:0000906, GO:0009349, KEGG:K00794, RefSeq:WP_055196598.1, SO:0001217, UniParc:UPI0006C598B0, UniRef:UniRef100_A0A374AGJ3, UniRef:UniRef50_B5E854, UniRef:UniRef90_D4MVF0
+contig_371	cds	503	2068	+	NBGELD_0513	xylB	Autoinducer 2 kinase LsrK	COG:COG1070, COG:G, RefSeq:WP_022091523.1, SO:0001217, UniParc:UPI00033B378F, UniRef:UniRef100_A0A173T948, UniRef:UniRef50_I9NWT2, UniRef:UniRef90_A0A173YM91
+contig_371	cds	2202	2930	+	NBGELD_0514	sIR2	NAD-dependent protein deacylase	COG:COG0846, COG:O, EC:2.3.1.286, GO:0034979, GO:0051287, GO:0070403, RefSeq:WP_040343827.1, SO:0001217, UniParc:UPI00034DB380, UniRef:UniRef100_A0A173R9T6, UniRef:UniRef50_Q6A5T5, UniRef:UniRef90_A0A173R9T6
+contig_372	cds	276	1202	-	NBGELD_0515	spoIIIAA	stage III sporulation protein AA	COG:COG3854, COG:D, GO:0030436, KEGG:K06390, RefSeq:WP_288754579.1, SO:0001217, UniParc:UPI002597F3F4, UniRef:UniRef100_A0A417V027, UniRef:UniRef50_A0A6N2RE36, UniRef:UniRef90_A0A6N2RE36
+contig_373	cds	3188	3637	+	NBGELD_0516		hypothetical protein	
+contig_373	cds	3473	3964	-	NBGELD_0517		hypothetical protein	PFAM:PF09479.16
+contig_374	cds	113	1963	+	NBGELD_0518		Multifunctional fusion protein	SO:0001217, UniRef:UniRef50_A0A174SZZ5
+contig_375	cds	10	360	+	NBGELD_0519		hypothetical protein	
+contig_375	cds	364	870	+	NBGELD_0520	paaY	Carbonic anhydrases/acetyltransferases, isoleucine patch superfamily	COG:COG0663, COG:R, RefSeq:WP_022374254.1, SO:0001217, UniParc:UPI00033B71E5, UniRef:UniRef100_UPI00033B71E5, UniRef:UniRef50_D4MV99, UniRef:UniRef90_D4MV99
+contig_376	cds	395	1114	-	NBGELD_0521	pTC1	Stp1/IreP family PP2C-type Ser/Thr phosphatase	COG:COG0631, COG:T, EC:3.1.3.16, GO:0004722, GO:0006470, KEGG:K20074, SO:0001217, UniRef:UniRef50_A0A173RDC3, UniRef:UniRef90_D4MV94
+contig_377	cds	179	664	-	NBGELD_0522	mug	DNA-deoxyinosine glycosylase	COG:COG3663, COG:L, EC:3.2.2.15, GO:0006285, GO:0033958, RefSeq:WP_009265539.1, SO:0001217, UniParc:UPI0001F02872, UniRef:UniRef100_A0A417JIM9, UniRef:UniRef50_F7JP82, UniRef:UniRef90_A0A417JIM9
+contig_379	cds	216	662	+	NBGELD_0523	ibpA	Hsp20-like protein	COG:COG0071, COG:O, SO:0001217, UniParc:UPI0001CE6C44, UniRef:UniRef100_A0A374AJV3, UniRef:UniRef50_C4Z625, UniRef:UniRef90_E5VHL9
+contig_381	cds	28	243	+	NBGELD_0524		hypothetical protein	
+contig_382	cds	54	992	+	NBGELD_0525		Aconitase/3-isopropylmalate dehydratase large subunit alpha/beta/alpha domain-containing protein	SO:0001217, UniRef:UniRef50_B7APG1
+contig_382	cds	1013	1504	+	NBGELD_0526	leuD	3-isopropylmalate dehydratase small subunit	COG:COG0066, COG:E, RefSeq:WP_008392101.1, SO:0001217, UniParc:UPI00016593B3, UniRef:UniRef100_D4N160, UniRef:UniRef50_C4Z1K1, UniRef:UniRef90_D4N160
+contig_383	cds	46	1758	-	NBGELD_0527		hypothetical protein	PFAM:PF00488.27, PFAM:PF05190.23, PFAM:PF05192.23
+contig_384	cds	655	1047	+	NBGELD_0528		Thioesterase family protein	COG:COG5496, COG:R, RefSeq:WP_022091035.1, SO:0001217, UniParc:UPI000339D025, UniRef:UniRef100_A0A173SLA0, UniRef:UniRef50_A0A143ZSI1, UniRef:UniRef90_A0A173SLA0
+contig_384	cds	1111	1380	-	NBGELD_0529		hypothetical protein	
+contig_385	cds	157	1548	-	NBGELD_0530	gltA	NADPH-dependent glutamate synthase	COG:COG0493, COG:ER, EC:1.4.1.13, GO:0004355, GO:0006537, SO:0001217, UniRef:UniRef50_D4MZ58, UniRef:UniRef90_D4MZ58
+contig_385	cds	1552	2007	-	NBGELD_0531		Dihydroorotate dehydrogenase B (NAD(+)), electron transfer subunit	SO:0001217, UniRef:UniRef50_A0A645D6D0
+contig_385	cds	2014	2373	-	NBGELD_0532	mcr1	(pseudo) Dihydrdoorotate oxidase B, electron transfer subunit	COG:COG0543, COG:HC, SO:0001217, UniRef:UniRef50_A0A173TV88, UniRef:UniRef90_A0A173TV88
+contig_386	cds	23	688	+	NBGELD_0533		hypothetical protein	PFAM:PF00285.26
+contig_386	cds	894	1553	-	NBGELD_0534		hypothetical protein	PFAM:PF08282.18
+contig_387	cds	41	319	+	NBGELD_0535		hypothetical protein	PFAM:PF01144.29
+contig_387	cds	321	980	+	NBGELD_0536	atoA	Butyryl-CoA:acetoacetate CoA-transferase beta subunit	COG:COG2057, COG:I, RefSeq:WP_008390818.1, SO:0001217, UniParc:UPI000165714B, UniRef:UniRef100_D4N0U0, UniRef:UniRef50_P23673, UniRef:UniRef90_D4N0U0
+contig_387	cds	1063	1239	-	NBGELD_0537		hypothetical protein	
+contig_388	cds	15	479	+	NBGELD_0538	acrR	putative dihydroxyacetone kinase regulator	COG:COG1309, COG:K, SO:0001217, UniRef:UniRef50_S0JEV3, UniRef:UniRef90_A0A173R154
+contig_391	cds	135	1265	-	NBGELD_0539		Ig-like domain-containing protein	SO:0001217, UniRef:UniRef50_UPI0005D1F23B
+contig_392	cds	932	1432	-	NBGELD_0540	carE	Caffeyl-CoA reductase-Etf complex subunit CarE	SO:0001217, UniRef:UniRef50_A0A645AHY0
+contig_393	cds	124	999	-	NBGELD_0541	lysR	HTH-type transcriptional activator CmpR	COG:COG0583, COG:K, RefSeq:WP_173782568.1, SO:0001217, UniParc:UPI00156DC31D, UniRef:UniRef100_A0AAQ3JI31, UniRef:UniRef50_N2A6I3, UniRef:UniRef90_D4MY69
+contig_393	cds	1172	2395	+	NBGELD_0542	gltP	Na(+)/serine-threonine symporter	COG:C, COG:COG1301, RefSeq:WP_008392174.1, SO:0001217, UniParc:UPI00016576E7, UniRef:UniRef100_D4MY68, UniRef:UniRef50_N1ZYD4, UniRef:UniRef90_A0A174UQB5
+contig_393	cds	2399	3067	+	NBGELD_0543	sdaAB	L-serine ammonia-lyase, iron-sulfur-dependent subunit beta	COG:COG1760, COG:E, EC:4.3.1.17, GO:0003941, GO:0006094, GO:0006565, KEGG:K01752, RefSeq:WP_288755071.1, SO:0001217, UniParc:UPI00259260E0, UniRef:UniRef100_UPI00259260E0, UniRef:UniRef50_A0A174EHP2, UniRef:UniRef90_D4MY67
+contig_393	cds	3086	3955	+	NBGELD_0544	sdaAA	L-serine ammonia-lyase, iron-sulfur-dependent, subunit alpha	COG:COG1760, COG:E, EC:4.3.1.17, GO:0003941, GO:0006094, GO:0006565, KEGG:K01752, SO:0001217, UniRef:UniRef50_A0A9D2H914, UniRef:UniRef90_A0A174UM53
+contig_394	cds	749	1096	-	NBGELD_0545		hypothetical protein	SO:0001217, UniRef:UniRef50_A0A317U7B8, UniRef:UniRef90_UPI001D063F2B
+contig_395	cds	479	865	-	NBGELD_0546		dTDP-4-dehydrorhamnose reductase	SO:0001217, UniRef:UniRef50_A0A2X0RAU6
+contig_396	cds	642	1118	-	NBGELD_0547	agaB	Sorbose-specific phosphotransferase enzyme IIB component	COG:COG3444, COG:G, EC:2.7.1.203, KEGG:K17465, RefSeq:WP_044924471.1, SO:0001217, UniParc:UPI0005D1F911, UniRef:UniRef100_A0A415YK38, UniRef:UniRef50_A0A173R2L8, UniRef:UniRef90_A0A173R2L8
+contig_397	cds	526	1284	-	NBGELD_0548	fixA	Electron transfer flavoprotein small subunit	COG:C, COG:COG2086, KEGG:K03521, SO:0001217, UniRef:UniRef50_A0A174U1X9, UniRef:UniRef90_A0A174U1X9
+contig_398	cds	11	259	+	NBGELD_0549		hypothetical protein	PFAM:PF21018.2
+contig_398	cds	399	1034	+	NBGELD_0550	ssb	single-stranded DNA-binding protein	COG:COG0629, COG:L, SO:0001217, UniRef:UniRef50_A5I6N6, UniRef:UniRef90_D4MZG0
+contig_398	cds	1116	1604	+	NBGELD_0551	btuR	Cob(I)yrinic acid a c-diamide adenosyltransferase	COG:COG2109, COG:H, EC:2.5.1.17, KEGG:K19221, RefSeq:WP_008392031.1, SO:0001217, UniParc:UPI00016543B6, UniRef:UniRef100_D4MZG1, UniRef:UniRef50_D4MZG1, UniRef:UniRef90_D4MZG1
+contig_399	ncRNA-region	777	859	+			ZMP/ZTP riboswitch aptamer (pfl RNA motif)	RFAM:RF01750, SO:0000035
+contig_401	cds	278	1558	-	NBGELD_0552	tig	trigger factor	COG:COG0544, COG:O, EC:5.2.1.8, GO:0003755, GO:0005854, GO:0015031, GO:0051082, GO:0051083, SO:0001217, UniRef:UniRef50_C4ZGF3, UniRef:UniRef90_A0A173RZ69
+contig_403	cds	329	1288	+	NBGELD_0553		Competence-specific nuclease	KEGG:K15051, SO:0001217, UniRef:UniRef50_A0A173RNN4, UniRef:UniRef90_A0A173RNN4
+contig_404	cds	16	1416	-	NBGELD_0554		AAA+ ATPase domain-containing protein	SO:0001217, UniRef:UniRef50_E3EK15
+contig_405	cds	46	588	+	NBGELD_0555		Methylmalonyl-CoA carboxyltransferase 12S subunit	SO:0001217, UniRef:UniRef50_A0A7U9RUG8
+contig_405	cds	603	941	+	NBGELD_0556		Oxaloacetate decarboxylase, gamma chain	KEGG:K23352, RefSeq:WP_118471758.1, SO:0001217, UniParc:UPI000E53DEA5, UniRef:UniRef100_A0A417K3Z7, UniRef:UniRef50_A0A417K3Z7, UniRef:UniRef90_A0A417K3Z7
+contig_405	cds	958	1320	+	NBGELD_0557		hypothetical protein	PFAM:PF00364.28, PFAM:PF13533.12
+contig_405	cds	1347	2471	+	NBGELD_0558		Sodium ion-translocating decarboxylase subunit beta	EC:7.2.4.1, KEGG:K20509, RefSeq:WP_044925005.1, SO:0001217, UniParc:UPI0005D21A21, UniRef:UniRef100_A0AAQ3JHY3, UniRef:UniRef50_G4QLT3, UniRef:UniRef90_A0A417K3Z0
+contig_405	cds	2488	3894	+	NBGELD_0559		oxaloacetate decarboxylase subunit alpha	EC:4.1.1.112, GO:0003824, RefSeq:WP_044925003.1, SO:0001217, UniParc:UPI0005D1B17E, UniRef:UniRef100_A0A417K448, UniRef:UniRef50_A0A0M6WK66, UniRef:UniRef90_A0AAQ3JI17
+contig_406	cds	66	569	+	NBGELD_0560		DUF2520 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A916QBU4
+contig_408	cds	152	1516	-	NBGELD_0561	murD	UDP-N-acetylmuramoyl-L-alanine--D-glutamate ligase	COG:COG0771, COG:M, EC:6.3.2.9, GO:0005524, GO:0005737, GO:0008360, GO:0008764, GO:0009252, GO:0051301, KEGG:K01925, RefSeq:WP_009204461.1, SO:0001217, UniParc:UPI0001F02226, UniRef:UniRef100_A0A174TWN2, UniRef:UniRef50_A9KLU2, UniRef:UniRef90_D4MZF6
+contig_408	cds	1530	1760	-	NBGELD_0562		hypothetical protein	
+contig_410	cds	1304	1978	+	NBGELD_0563	fixK	Transcriptional regulator FixK	COG:COG0664, COG:T, RefSeq:WP_055073237.1, SO:0001217, UniParc:UPI0006C6B04A, UniRef:UniRef100_A0A173U613, UniRef:UniRef50_R6CDU6, UniRef:UniRef90_A0A173U613
+contig_410	cds	2008	3369	+	NBGELD_0564	norM	putative multidrug resistance protein NorM	COG:COG0534, COG:V, RefSeq:WP_215718693.1, SO:0001217, UniParc:UPI001C01E107, UniRef:UniRef100_UPI001C01E107, UniRef:UniRef50_A0A174SME5, UniRef:UniRef90_A0A174N2S2
+contig_411	cds	264	1343	+	NBGELD_0565		DNA-directed RNA polymerase	SO:0001217, UniRef:UniRef50_C0B5S4
+contig_411	cds	1377	4976	+	NBGELD_0566	rpoC	DNA-directed RNA polymerase subunit beta'	COG:COG0086, COG:K, EC:2.7.7.6, GO:0003677, GO:0003899, GO:0006351, SO:0001217, UniRef:UniRef50_P37871, UniRef:UniRef90_D4MUH4
+contig_412	cds	336	530	-	NBGELD_0567		hypothetical protein	
+contig_412	cds	588	746	-	NBGELD_0568		hypothetical protein	
+contig_412	cds	743	1078	-	NBGELD_0569		Pseudouridine synthase RsuA/RluA-like domain-containing protein	SO:0001217, UniRef:UniRef50_R7QW64
+contig_414	cds	100	690	-	NBGELD_0570	dpaB	dipicolinate synthase subunit B	COG:COG5843, COG:DE, GO:0003824, SO:0001217, UniRef:UniRef50_A0A3R6JVJ6, UniRef:UniRef90_A0A173RYU4
+contig_414	cds	674	1513	-	NBGELD_0571	dpsA	dipicolinate synthase subunit DpsA	COG:COG5842, COG:DE, KEGG:K06410, SO:0001217, UniRef:UniRef50_A0A916VC02, UniRef:UniRef90_A0A173RXU1
+contig_415	cds	89	562	+	NBGELD_0572		Entericidin EcnA/B family protein	RefSeq:WP_055073404.1, SO:0001217, UniParc:UPI0006BF701C, UniRef:UniRef100_A0A415Y4Y9, UniRef:UniRef50_D4M1E8, UniRef:UniRef90_D4MZV7
+contig_415	cds	617	952	-	NBGELD_0573		Nucleotidyltransferase substrate binding protein, HI0074 family	SO:0001217, UniRef:UniRef50_C4Z7R8, UniRef:UniRef90_D4MZV6
+contig_416	cds	614	1126	-	NBGELD_0574	ybeY	rRNA maturation RNase YbeY	COG:COG0319, COG:J, GO:0004540, GO:0042254, GO:0046872, RefSeq:WP_009204293.1, SO:0001217, UniParc:UPI0001F02921, UniRef:UniRef100_A0A173TYH6, UniRef:UniRef50_A0A0K9NG25, UniRef:UniRef90_D4N003
+contig_417	cds	592	1128	-	NBGELD_0575		hypothetical protein	PFAM:PF00365.25
+contig_418	cds	22	1131	+	NBGELD_0576		hypothetical protein	PFAM:PF08676.16
+contig_418	cds	1157	1534	+	NBGELD_0577	cdd	cytidine deaminase	COG:COG0295, COG:F, EC:3.5.4.5, GO:0004126, GO:0005737, GO:0008270, GO:0008655, GO:0009972, KEGG:K01489, RefSeq:WP_009203003.1, SO:0001217, UniParc:UPI0002A463DE, UniRef:UniRef100_A0A173T1E8, UniRef:UniRef50_H2AZ50, UniRef:UniRef90_A0A174ME63
+contig_419	cds	1172	1423	-	NBGELD_0578		hypothetical protein	PFAM:PF00231.24
+contig_420	cds	48	1118	+	NBGELD_0579		hypothetical protein	PFAM:PF11734.13
+contig_422	cds	9	356	+	NBGELD_0580		hypothetical protein	PFAM:PF10418.14
+contig_423	cds	41	1795	+	NBGELD_0581	ppk1	polyphosphate kinase 1	EC:2.7.4.1, GO:0006799, GO:0008976, GO:0009358, KEGG:K00937, SO:0001217, UniRef:UniRef50_A0A3A8YUI9, UniRef:UniRef90_A0A174SN99
+contig_423	cds	1955	2338	+	NBGELD_0582		OB-fold nucleic acid binding domain-containing protein	SO:0001217, UniRef:UniRef50_UPI002ED409AE
+contig_424	cds	824	1117	-	NBGELD_0583	gatC	Asp-tRNA(Asn)/Glu-tRNA(Gln) amidotransferase subunit GatC	COG:COG0721, COG:J, GO:0006424, GO:0006450, GO:0030956, GO:0050567, RefSeq:WP_008394280.1, SO:0001217, UniParc:UPI0001656B32, UniRef:UniRef100_D4MVA5, UniRef:UniRef50_A0A373LVJ0, UniRef:UniRef90_D4MVA5
+contig_424	cds	1243	1647	-	NBGELD_0584		Zinc ribbon domain-containing protein	SO:0001217, UniRef:UniRef50_A0A415W7U8, UniRef:UniRef90_A0A417UU93
+contig_424	cds	1794	1925	-	NBGELD_0585		hypothetical protein	
+contig_425	cds	196	1581	+	NBGELD_0586	murC	UDP-N-acetylmuramate--L-alanine ligase	COG:COG0773, COG:M, EC:6.3.2.8, GO:0008763, GO:0009252, KEGG:K01924, RefSeq:WP_022092088.1, SO:0001217, UniParc:UPI000334A8A6, UniRef:UniRef100_A0A415YHZ9, UniRef:UniRef50_Q181B7, UniRef:UniRef90_A0A374AJZ8
+contig_426	cds	91	519	+	NBGELD_0587		hypothetical protein	
+contig_427	cds	35	895	+	NBGELD_0588		Aspartate aminotransferase family protein	SO:0001217, UniRef:UniRef50_A0A3D0DL61
+contig_428	cds	17	853	+	NBGELD_0589		ATP-dependent 6-phosphofructokinase	SO:0001217, UniRef:UniRef50_A0A940QI69
+contig_429	cds	46	249	+	NBGELD_0590		hypothetical protein	
+contig_429	cds	606	731	+	NBGELD_0591		hypothetical protein	
+contig_430	cds	57	2096	+	NBGELD_0592	ftsH	ATP-dependent zinc metalloprotease FtsH	COG:COG0465, COG:O, GO:0004222, GO:0006508, GO:0016020, GO:0016887, GO:0051301, RefSeq:WP_009204334.1, SO:0001217, UniParc:UPI0002A461B6, UniRef:UniRef100_UPI0002A461B6, UniRef:UniRef50_N2AC30, UniRef:UniRef90_A0A174T8E8
+contig_430	cds	2245	3045	-	NBGELD_0593	fabG	Levodione reductase	COG:COG1028, COG:I, RefSeq:WP_215711028.1, SO:0001217, UniParc:UPI001C01DE77, UniRef:UniRef100_UPI001C01DE77, UniRef:UniRef50_R7BQZ8, UniRef:UniRef90_A0A174TD69
+contig_431	cds	96	479	+	NBGELD_0594		hypothetical protein	PFAM:PF02142.27
+contig_433	cds	116	1096	-	NBGELD_0595	birA	Bifunctional ligase/repressor BirA	COG:COG1654, COG:K, EC:6.3.4.15, KEGG:K03524, RefSeq:WP_055231589.1, SO:0001217, UniParc:UPI0006C48D6D, UniRef:UniRef100_A0A173TF20, UniRef:UniRef50_C4Z9L5, UniRef:UniRef90_A0A174SME1
+contig_434	cds	279	470	+	NBGELD_0596		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI002FCC87B8, UniRef:UniRef90_UPI00259AB6B8
+contig_434	cds	593	952	-	NBGELD_0597		hypothetical protein	PFAM:PF00023.36, PFAM:PF12796.13, PFAM:PF13606.12
+contig_434	cds	970	1572	-	NBGELD_0598		(pseudo) ankyrin repeat domain-containing protein	SO:0001217, UniRef:UniRef50_UPI001BA5C057, UniRef:UniRef90_UPI001BA5C057
+contig_435	cds	17	676	+	NBGELD_0599	ribE	riboflavin synthase	COG:COG0307, COG:H, EC:2.5.1.9, GO:0004746, KEGG:K00793, RefSeq:WP_008394332.1, SO:0001217, UniParc:UPI0001656C41, UniRef:UniRef100_A0A374AHK4, UniRef:UniRef50_A0A6I5X5U9, UniRef:UniRef90_A0A173T6H4
+contig_435	cds	703	1302	+	NBGELD_0600		GTP cyclohydrolase-2	SO:0001217, UniParc:UPI0001656B33, UniRef:UniRef100_A0A374AE83, UniRef:UniRef50_A0A7W8NH16, UniRef:UniRef90_A0A374AE83
+contig_437	cds	46	411	+	NBGELD_0601		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI001FAADD57
+contig_437	cds	899	1114	-	NBGELD_0602		Transposase IS200-like domain-containing protein	SO:0001217, UniRef:UniRef50_R9IXE8, UniRef:UniRef90_A0A0J9CFN3
+contig_438	cds	13	150	+	NBGELD_0603		hypothetical protein	
+contig_439	cds	68	2029	-	NBGELD_0604	fusA	elongation factor G	GO:0003746, GO:0005525, GO:0006414, KEGG:K02355, SO:0001217, UniRef:UniRef50_A9KRZ3, UniRef:UniRef90_A0A173Z2F2
+contig_440	cds	195	770	+	NBGELD_0605	infC	translation initiation factor IF-3	COG:COG0290, COG:J, GO:0003743, GO:0006413, SO:0001217, UniRef:UniRef50_C2KVG1, UniRef:UniRef90_A0A1Q9JSH5
+contig_440	cds	827	1024	+	NBGELD_0606	rpmI	50S ribosomal protein L35	COG:COG0291, COG:J, GO:0003735, GO:0005840, GO:0006412, KEGG:K02916, RefSeq:WP_008393260.1, SO:0001217, UniParc:UPI000165556D, UniRef:UniRef100_A0A1Q9JSH6, UniRef:UniRef50_P66269, UniRef:UniRef90_F7V6D1
+contig_440	cds	1054	1410	+	NBGELD_0607	rplT	50S ribosomal protein L20	COG:COG0292, COG:J, GO:0000315, GO:0003735, GO:0006412, GO:0022625, RefSeq:WP_008393261.1, SO:0001217, UniParc:UPI0001655585, UniRef:UniRef100_A0A374AW10, UniRef:UniRef50_P57228, UniRef:UniRef90_A0A1Q9JSH9
+contig_441	cds	132	1160	+	NBGELD_0608	aroG1	3-deoxy-7-phosphoheptulonate synthase	COG:COG0722, COG:E, EC:2.5.1.54, GO:0009073, GO:0016832, KEGG:K01626, RefSeq:WP_008390619.1, SO:0001217, UniParc:UPI000165334E, UniRef:UniRef100_D4MVS1, UniRef:UniRef50_D4MVS1, UniRef:UniRef90_D4MVS1
+contig_442	cds	63	596	-	NBGELD_0609	nrdG	anaerobic ribonucleoside-triphosphate reductase activating protein	COG:COG0602, COG:H, EC:1.97.1.4, GO:0043365, GO:0051539, KEGG:K04068, RefSeq:WP_008393806.1, SO:0001217, UniParc:UPI0001656D4F, UniRef:UniRef100_D4MU96, UniRef:UniRef50_D4MU96, UniRef:UniRef90_D4MU96
+contig_442	cds	556	939	-	NBGELD_0610		hypothetical protein	PFAM:PF01228.26
+contig_443	cds	44	178	+	NBGELD_0611		hypothetical protein	
+contig_443	cds	211	1008	+	NBGELD_0612		PTS system mannose-specific EIIC component	RefSeq:WP_009264440.1, SO:0001217, UniParc:UPI0001CE6909, UniRef:UniRef100_A0A374AG92, UniRef:UniRef50_A0A9X8XG99, UniRef:UniRef90_A0A1C5Z123
+contig_443	cds	1211	1441	-	NBGELD_0613		hypothetical protein	
+contig_444	cds	807	1076	-	NBGELD_0614		hypothetical protein	
+contig_445	cds	49	900	+	NBGELD_0615		hypothetical protein	PFAM:PF07687.19
+contig_446	cds	92	631	+	NBGELD_0616		M15 family metallopeptidase	SO:0001217, UniRef:UniRef50_UPI00265DB8C8
+contig_446	tRNA	680	752	-	NBGELD_0617	trnT	tRNA-Thr(cgt)	SO:0000270
+contig_446	cds	779	1042	-	NBGELD_0618	ptsH	HPr family phosphocarrier protein	COG:COG1925, COG:TG, RefSeq:WP_009202774.1, SO:0001217, UniParc:UPI0001F027F5, UniRef:UniRef100_A0A173YQR5, UniRef:UniRef50_A0A173YQR5, UniRef:UniRef90_A0A173YQR5
+contig_446	cds	1039	1425	-	NBGELD_0619	whiA	DNA-binding protein WhiA	SO:0001217, UniRef:UniRef50_UPI00307A2D81
+contig_447	cds	249	890	+	NBGELD_0620		hypothetical protein	
+contig_448	cds	518	1231	-	NBGELD_0621	purO	IMP cyclohydrolase	COG:COG3363, COG:F, SO:0001217, UniRef:UniRef50_G2SXQ7, UniRef:UniRef90_A0A173XPM4
+contig_448	cds	1458	2486	-	NBGELD_0622	aspB	LL-diaminopimelate aminotransferase	COG:COG0436, COG:E, EC:2.6.1.83, GO:0008483, KEGG:K10206, SO:0001217, UniRef:UniRef50_A3DK17, UniRef:UniRef90_A0A415YL95
+contig_449	cds	397	1035	-	NBGELD_0623	citB	Stage 0 sporulation A-like protein	COG:COG2197, COG:TK, RefSeq:WP_009264737.1, SO:0001217, UniParc:UPI0001F0293A, UniRef:UniRef100_A0A415YHL4, UniRef:UniRef50_A0A173SPF8, UniRef:UniRef90_A0A173SPF8
+contig_449	cds	992	1957	-	NBGELD_0624		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI002E777B24
+contig_450	cds	37	555	+	NBGELD_0625		Immunogenic protein	SO:0001217, UniRef:UniRef50_R5W6Q7
+contig_450	cds	574	1761	+	NBGELD_0626	gltS	sodium/glutamate symporter	COG:COG0786, COG:E, GO:0015501, GO:0015813, GO:0016020, KEGG:K03312, RefSeq:WP_009204728.1, SO:0001217, UniParc:UPI0002A45B6F, UniRef:UniRef100_A0AAQ3PTV5, UniRef:UniRef50_A0A173RLG8, UniRef:UniRef90_A0A173T6T6
+contig_450	cds	1783	2013	+	NBGELD_0627		DUF4316 domain-containing protein	RefSeq:WP_118352587.1, SO:0001217, UniParc:UPI000E5520C1, UniRef:UniRef100_A0A6N2UK41, UniRef:UniRef50_D4MTU9, UniRef:UniRef90_D4MTU9
+contig_451	cds	691	1704	+	NBGELD_0628	pta	phosphate acetyltransferase	COG:C, COG:COG0280, EC:2.3.1.8, GO:0006086, GO:0008959, RefSeq:WP_022091634.1, SO:0001217, UniParc:UPI00033601A8, UniRef:UniRef100_A0A173T018, UniRef:UniRef50_P71103, UniRef:UniRef90_D4MYX9
+contig_452	cds	38	703	+	NBGELD_0629		hypothetical protein	PFAM:PF02866.23
+contig_452	cds	711	974	-	NBGELD_0630		hypothetical protein	RefSeq:WP_008391501.1, SO:0001217, UniParc:UPI0001657510, UniRef:UniRef100_D4MZM1, UniRef:UniRef50_D4MZM1, UniRef:UniRef90_D4MZM1
+contig_452	cds	986	1216	-	NBGELD_0631		hypothetical protein	
+contig_453	cds	244	1011	-	NBGELD_0632	lolD	Macrolide export ATP-binding/permease protein MacB	COG:COG1136, COG:M, RefSeq:WP_008393000.1, SO:0001217, UniParc:UPI0001652EA9, UniRef:UniRef100_D4MX78, UniRef:UniRef50_A0A173UH17, UniRef:UniRef90_A0A173UH17
+contig_454	cds	22	657	+	NBGELD_0633		hypothetical protein	PFAM:PF00532.27, PFAM:PF13377.12
+contig_455	cds	80	1873	+	NBGELD_0634		diguanylate cyclase domain-containing protein	SO:0001217, UniRef:UniRef50_UPI0034B0F684, UniRef:UniRef90_UPI0034B0F684
+contig_456	cds	93	470	-	NBGELD_0635	yhcF	GntR family transcriptional regulator	COG:COG1725, COG:K, KEGG:K07979, RefSeq:WP_008390687.1, SO:0001217, UniParc:UPI000165330B, UniRef:UniRef100_A0A173UHP4, UniRef:UniRef50_A0A173UHP4, UniRef:UniRef90_A0A173UHP4
+contig_456	cds	722	964	-	NBGELD_0636		hypothetical protein	
+contig_456	cds	1044	1154	-	NBGELD_0637		hypothetical protein	
+contig_458	cds	819	1340	-	NBGELD_0638	purN	phosphoribosylglycinamide formyltransferase	COG:COG0299, COG:F, EC:2.1.2.2, GO:0004644, GO:0006189, SO:0001217, UniRef:UniRef50_A0A4R1R123, UniRef:UniRef90_D4N1D3
+contig_460	cds	116	2014	+	NBGELD_0639	nit1	NAD(+) synthase	COG:COG0388, COG:V, EC:6.3.1.5, EC:6.3.5.1, GO:0003952, GO:0004359, GO:0005524, GO:0008152, GO:0009435, KEGG:K01950, RefSeq:WP_009265460.1, SO:0001217, UniParc:UPI0001F0264D, UniRef:UniRef100_A0A417JPI8, UniRef:UniRef50_D7NAM1, UniRef:UniRef90_D4MVW3
+contig_460	cds	2115	3095	+	NBGELD_0640	rbsB	D-ribose-binding periplasmic protein	COG:COG1879, COG:G, RefSeq:WP_009265459.1, SO:0001217, UniParc:UPI0001F0264C, UniRef:UniRef100_A0A6N2VLP2, UniRef:UniRef50_D4MVW4, UniRef:UniRef90_A0A173SHG3
+contig_462	cds	1	936	+	NBGELD_0641		hypothetical protein	PFAM:PF13750.12, PFAM:PF19077.6
+contig_462	crispr	986	1361	?			CRISPR array with 6 repeats of length 36, consensus sequence GTTTTAGAACTGTGTAAAATCAGATGATTCCAAAGG and spacer length 30	SO:0001459
+contig_462	crispr-repeat	986	1021	?			CRISPR repeat	
+contig_462	crispr-spacer	1022	1051	?			CRISPR spacer, sequence TTTTCATTGATTCAAAGAAAACTCTTGGTC	
+contig_462	crispr-repeat	1052	1087	?			CRISPR repeat	
+contig_462	crispr-spacer	1088	1117	?			CRISPR spacer, sequence CTTCCACATTTTCTGTCTTTGTATTTGTCA	
+contig_462	crispr-repeat	1118	1153	?			CRISPR repeat	
+contig_462	crispr-spacer	1154	1183	?			CRISPR spacer, sequence TACGCTTGCTTTGGCATCAATAACAATATC	
+contig_462	crispr-repeat	1184	1219	?			CRISPR repeat	
+contig_462	crispr-spacer	1220	1249	?			CRISPR spacer, sequence GCCTATTAAATTCTACAATTCAGAAATGGA	
+contig_462	crispr-repeat	1250	1285	?			CRISPR repeat	
+contig_462	crispr-spacer	1286	1315	?			CRISPR spacer, sequence ATCTCCTTTCTTTTTAACAAACTACAGTAA	
+contig_462	crispr-repeat	1316	1351	?			CRISPR repeat	
+contig_462	crispr-spacer	1352	1361	?			CRISPR spacer, sequence GCCAAATTAC	
+contig_464	cds	8	943	+	NBGELD_0642		Hsp70 family protein	SO:0001217, UniRef:UniRef50_A0A1Y4TY32, UniRef:UniRef90_UPI002583FB7C
+contig_464	cds	1129	1740	+	NBGELD_0643		DUF3793 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1Q9JUF2, UniRef:UniRef90_A0A6N2SMZ6
+contig_465	cds	303	911	+	NBGELD_0644		hypothetical protein	PFAM:PF00041.27, PFAM:PF02368.24
+contig_466	cds	385	1908	-	NBGELD_0645	iscB	RNA-guided endonuclease IscB	SO:0001217, UniRef:UniRef50_A0A174P8G5, UniRef:UniRef90_A0A173TBU7
+contig_466	cds	2152	2682	-	NBGELD_0646		hypothetical protein	
+contig_467	cds	86	982	-	NBGELD_0647		Cd(2+)-exporting ATPase	SO:0001217, UniRef:UniRef50_R7MWD8
+contig_468	cds	44	1234	-	NBGELD_0648	nar1	Iron only hydrogenase large subunit, C-terminal domain	COG:C, COG:COG4624, SO:0001217, UniRef:UniRef50_U2TWJ3, UniRef:UniRef90_D4MX17
+contig_469	cds	11	241	+	NBGELD_0649		hypothetical protein	
+contig_469	cds	324	1016	+	NBGELD_0650		Deoxyribose-phosphate aldolase	SO:0001217, UniRef:UniRef50_Q18C22
+contig_469	cds	1513	1716	+	NBGELD_0651		hypothetical protein	
+contig_469	cds	2086	2301	+	NBGELD_0652		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI00189CC6B3, UniRef:UniRef90_UPI00189CC6B3
+contig_470	cds	92	622	+	NBGELD_0653		hypothetical protein	
+contig_470	cds	653	1084	+	NBGELD_0654		hypothetical protein	RefSeq:WP_044923738.1, SO:0001217, UniParc:UPI0005D198DB, UniRef:UniRef100_A0A173UTY6, UniRef:UniRef50_A0A173UTY6, UniRef:UniRef90_A0A173UTY6
+contig_472	cds	57	473	+	NBGELD_0655		DUF4866 domain-containing protein	SO:0001217, UniRef:UniRef50_UPI0025996F9F, UniRef:UniRef90_UPI002594F3EF
+contig_472	cds	690	1052	+	NBGELD_0656	yhcF	Uncharacterized HTH-type transcriptional regulator yjiR	COG:COG1725, COG:K, RefSeq:WP_009264153.1, SO:0001217, UniParc:UPI0001F0267F, UniRef:UniRef100_A0A417JY44, UniRef:UniRef50_A0A1C6CW70, UniRef:UniRef90_A0A1C6CW70
+contig_474	cds	62	421	+	NBGELD_0657		hypothetical protein	
+contig_474	cds	393	1250	+	NBGELD_0658	nadC	carboxylating nicotinate-nucleotide diphosphorylase	COG:COG0157, COG:H, EC:2.4.2.19, GO:0004514, GO:0009435, KEGG:K00767, SO:0001217, UniParc:UPI0001CE5548, UniRef:UniRef100_D4MYE4, UniRef:UniRef50_A0A829ZE20, UniRef:UniRef90_D4MYE4
+contig_475	cds	751	1020	+	NBGELD_0659		hypothetical protein	
+contig_475	cds	1254	1589	+	NBGELD_0660		LPS biosynthesis protein	RefSeq:WP_009204677.1, SO:0001217, UniParc:UPI0002A2BE68, UniRef:UniRef100_A0A174G3Y2, UniRef:UniRef50_C0CKB5, UniRef:UniRef90_D4MTX8
+contig_477	cds	544	2127	-	NBGELD_0661	pgi	glucose-6-phosphate isomerase	COG:COG0166, COG:G, EC:5.3.1.9, SO:0001217, UniRef:UniRef50_O83488, UniRef:UniRef90_D4MUA5
+contig_478	cds	51	212	+	NBGELD_0662		Tryptophan synthase subunit beta	SO:0001217, UniRef:UniRef50_A0A522WA67
+contig_478	cds	202	990	+	NBGELD_0663	trpA	tryptophan synthase subunit alpha	COG:COG0159, COG:E, EC:4.2.1.20, GO:0000162, GO:0004834, KEGG:K01695, RefSeq:WP_055257894.1, SO:0001217, UniParc:UPI0006C05936, UniRef:UniRef100_A0A173RKP5, UniRef:UniRef50_A0A1C6FI01, UniRef:UniRef90_A0A174R066
+contig_479	cds	292	1473	-	NBGELD_0664		FAD-dependent oxidoreductase	SO:0001217, UniRef:UniRef50_A0A1Q6U6A9
+contig_480	cds	27	764	+	NBGELD_0665		hypothetical protein	PFAM:PF00258.30, PFAM:PF12724.12
+contig_481	cds	16	309	+	NBGELD_0666		PBP domain-containing protein	SO:0001217, UniRef:UniRef50_R5A3X1
+contig_481	cds	342	1190	+	NBGELD_0667	pstC	phosphate ABC transporter permease subunit PstC	COG:COG0573, COG:P, GO:0005886, GO:0006817, GO:0015415, GO:0055052, RefSeq:WP_009265523.1, SO:0001217, UniParc:UPI0001CE5DA8, UniRef:UniRef100_D4MW59, UniRef:UniRef50_A0A1Q8EG77, UniRef:UniRef90_D4MW59
+contig_481	cds	1192	2094	+	NBGELD_0668	pstA	phosphate ABC transporter permease PstA	COG:COG0581, COG:P, GO:0005886, GO:0006817, GO:0015415, GO:0055052, SO:0001217, UniRef:UniRef50_A0A4S2EXT8, UniRef:UniRef90_D4MW60
+contig_481	cds	2101	2853	+	NBGELD_0669	pstB	phosphate ABC transporter ATP-binding protein PstB	COG:COG1117, COG:P, EC:7.3.2.1, GO:0005524, GO:0006817, GO:0009898, GO:0015415, GO:0055052, SO:0001217, UniRef:UniRef50_P63375, UniRef:UniRef90_D4MW61
+contig_481	cds	2859	3512	+	NBGELD_0670	phoU	phosphate signaling complex protein PhoU	COG:COG0704, COG:P, GO:0006817, GO:0030643, GO:0045936, SO:0001217, UniRef:UniRef50_D4MW62, UniRef:UniRef90_D4MW62
+contig_482	cds	27	221	+	NBGELD_0671		hypothetical protein	
+contig_482	cds	425	1342	-	NBGELD_0672		TIGR01212 family radical SAM protein	GO:0051536, GO:1904047, KEGG:K07139, SO:0001217, UniRef:UniRef50_A0A1M6IGR2, UniRef:UniRef90_D4MW08
+contig_483	cds	6	122	-	NBGELD_0673	ccmD	CcmD family protein	SO:0001217, UniParc:UPI0001CE6110, UniRef:UniRef100_D4MUS1, UniRef:UniRef50_D4MUS1, UniRef:UniRef90_D4MUS1
+contig_483	cds	129	302	-	NBGELD_0674		FeoB-associated Cys-rich membrane protein	SO:0001217, UniRef:UniRef50_D4MUS0
+contig_483	cds	402	1967	-	NBGELD_0675		Ferrous iron transport protein B	SO:0001217, UniRef:UniRef50_R6MVT8
+contig_484	cds	83	715	+	NBGELD_0676		hypothetical protein	
+contig_486	cds	15	266	+	NBGELD_0677		hypothetical protein	
+contig_486	cds	531	4052	+	NBGELD_0678	nifJ	pyruvate:ferredoxin (flavodoxin) oxidoreductase	COG:C, COG:COG1143, EC:1.2.7.-, EC:1.2.7.1, GO:0005506, GO:0016903, GO:0022900, GO:0030976, KEGG:K03737, SO:0001217, UniRef:UniRef50_P19543, UniRef:UniRef90_A0A173QZF7
+contig_486	cds	4198	4530	+	NBGELD_0679		Aspartyl-tRNA synthetase	SO:0001217, UniParc:UPI0001654FF3, UniRef:UniRef100_E5VHH3, UniRef:UniRef50_E5VHH3, UniRef:UniRef90_E5VHH3
+contig_487	cds	162	872	-	NBGELD_0680		Peptidase C39-like domain-containing protein	RefSeq:WP_022375507.1, SO:0001217, UniParc:UPI0003374847, UniRef:UniRef100_A0A374AKM6, UniRef:UniRef50_A0A1Q9JVF9, UniRef:UniRef90_D4MZ68
+contig_489	cds	191	487	-	NBGELD_0681		hypothetical protein	
+contig_493	cds	373	1065	-	NBGELD_0682	araD	L-ribulose-5-phosphate 4-epimerase	COG:COG0235, COG:EG, EC:5.1.3.4, SO:0001217, UniRef:UniRef50_A0A8B3URK9, UniRef:UniRef90_A0A173RWW9
+contig_493	cds	1080	1889	-	NBGELD_0683		Carbohydrate kinase FGGY C-terminal domain-containing protein	SO:0001217, UniRef:UniRef50_A0A7U9XCE4
+contig_494	cds	80	487	+	NBGELD_0684		hypothetical protein	PFAM:PF14278.11
+contig_494	cds	577	1122	-	NBGELD_0685		Chloramphenicol O-acetyltransferase	SO:0001217, UniRef:UniRef50_D4MYK9
+contig_495	cds	40	618	+	NBGELD_0686		Flagellar hook-associated protein 2 C-terminal domain-containing protein	RefSeq:WP_022046865.1, SO:0001217, UniParc:UPI00033AAF39, UniRef:UniRef100_A0A173SVQ1, UniRef:UniRef50_A0A3B9DB49, UniRef:UniRef90_A0A3B9DB49
+contig_495	cds	678	872	-	NBGELD_0687		DUF4314 domain-containing protein	RefSeq:WP_195592571.1, SO:0001217, UniParc:UPI00189E96D4, UniRef:UniRef100_UPI00189E96D4, UniRef:UniRef50_A0A396QE98, UniRef:UniRef90_A0A0M6WTH5
+contig_495	cds	926	2479	-	NBGELD_0688	cobI	precorrin-2 C(20)-methyltransferase	EC:2.1.1.130, GO:0009236, GO:0030788, SO:0001217, UniRef:UniRef50_B7AVC4, UniRef:UniRef90_A0A173SV37
+contig_495	cds	2481	3557	-	NBGELD_0689		hypothetical protein	PFAM:PF07685.20
+contig_496	cds	18	212	+	NBGELD_0690		hypothetical protein	
+contig_496	cds	220	1719	+	NBGELD_0691	atpA	F0F1 ATP synthase subunit alpha	COG:C, COG:COG0056, EC:7.1.2.2, GO:0015986, GO:0045261, GO:0046933, RefSeq:WP_008393991.1, SO:0001217, UniParc:UPI0001656C56, UniRef:UniRef100_A0A173TS74, UniRef:UniRef50_P37808, UniRef:UniRef90_A0A173TS74
+contig_496	cds	1720	2598	+	NBGELD_0692	atpG	ATP synthase F1 subunit gamma	COG:C, COG:COG0224, EC:7.1.2.2, GO:0015986, GO:0045261, GO:0046933, SO:0001217, UniRef:UniRef50_D1PIS1, UniRef:UniRef90_A0A174K2B0
+contig_497	cds	317	694	-	NBGELD_0693	yhcF	GntR family transcriptional regulator	COG:COG1725, COG:K, KEGG:K07979, RefSeq:WP_022374280.1, SO:0001217, UniParc:UPI000334F94D, UniRef:UniRef100_A0A1C6DYJ8, UniRef:UniRef50_A0A173UHP4, UniRef:UniRef90_A0A173UHP4
+contig_497	cds	957	1127	-	NBGELD_0694		DAK2 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A9X9CFA7
+contig_498	cds	16	819	+	NBGELD_0695		hypothetical protein	
+contig_498	cds	887	1426	+	NBGELD_0696	araC	AraC family transcriptional regulator	SO:0001217, UniRef:UniRef50_E5VKX3, UniRef:UniRef90_A0A1Q2C401
+contig_499	cds	119	361	+	NBGELD_0697		hypothetical protein	
+contig_499	cds	382	1458	+	NBGELD_0698	apbE	FAD:protein FMN transferase	COG:COG1477, COG:HO, EC:2.7.1.180, KEGG:K03734, SO:0001217, UniRef:UniRef50_A0A1C6A440, UniRef:UniRef90_A0A1C6A440
+contig_500	cds	62	1117	+	NBGELD_0699	thiC	phosphomethylpyrimidine synthase ThiC	COG:COG0422, COG:H, EC:4.1.99.17, GO:0009228, GO:0051536, KEGG:K03147, SO:0001217, UniRef:UniRef50_Q9PI55, UniRef:UniRef90_D4MUG7
+contig_500	cds	1238	2593	+	NBGELD_0700	yocR	Transporter	COG:COG0733, COG:R, RefSeq:WP_055231636.1, SO:0001217, UniParc:UPI0006C0B3A6, UniRef:UniRef100_A0A173SXY4, UniRef:UniRef50_A0A1C5M3J8, UniRef:UniRef90_D4MUG8
+contig_501	cds	271	1113	-	NBGELD_0701		Aspartyl/glutamyl-tRNA(Asn/Gln) amidotransferase subunit C	SO:0001217, UniRef:UniRef50_A0A3D0DMK4
+contig_502	cds	92	463	+	NBGELD_0702		hypothetical protein	
+contig_502	cds	1248	1709	-	NBGELD_0703	mtlA2	Mannitol-specific phosphotransferase enzyme IIA component	COG:COG4668, COG:G, SO:0001217, UniRef:UniRef50_D4MXA8, UniRef:UniRef90_D4MXA8
+contig_502	cds	1804	2916	-	NBGELD_0704	purR	Degradation activator	COG:COG1609, COG:K, RefSeq:WP_009265237.1, SO:0001217, UniParc:UPI0001CE5F2E, UniRef:UniRef100_A0A374B155, UniRef:UniRef50_N9VEH1, UniRef:UniRef90_A0A173UTP0
+contig_502	cds	3241	4680	+	NBGELD_0705	lhgO	FAD-dependent oxidoreductase	COG:COG0579, COG:G, EC:1.1.5.3, KEGG:K00111, RefSeq:WP_009204138.1, SO:0001217, UniParc:UPI0001F02176, UniRef:UniRef100_A0A174CW85, UniRef:UniRef50_A0A0R3K2G2, UniRef:UniRef90_A0A174Q9E6
+contig_502	cds	4680	5945	+	NBGELD_0706	trxB	Thioredoxin reductase	COG:COG0492, COG:O, RefSeq:WP_008393178.1, SO:0001217, UniParc:UPI0001654A99, UniRef:UniRef100_A0A374B060, UniRef:UniRef50_A0A174GPR9, UniRef:UniRef90_A0A1C6CD76
+contig_502	cds	5948	6298	+	NBGELD_0707		DUF1667 domain-containing protein	COG:COG3862, COG:S, RefSeq:WP_008393177.1, SO:0001217, UniParc:UPI0001654AB6, UniRef:UniRef100_A0A374B022, UniRef:UniRef50_C2BGZ7, UniRef:UniRef90_A0A374B022
+contig_502	cds	6343	7386	+	NBGELD_0708	gpsA	Glycerol-3-phosphate dehydrogenase	COG:C, COG:COG0240, RefSeq:WP_008393176.1, SO:0001217, UniParc:UPI0001654A35, UniRef:UniRef100_A0A374AXY0, UniRef:UniRef50_A0A928P7Z9, UniRef:UniRef90_A0A173UVP1
+contig_502	cds	7567	9060	+	NBGELD_0709	glpK	glycerol kinase GlpK	COG:C, COG:COG0554, EC:2.7.1.30, GO:0004370, GO:0006072, RefSeq:WP_008393175.1, SO:0001217, UniParc:UPI0001654AA2, UniRef:UniRef100_A0A374AXY5, UniRef:UniRef50_O93623, UniRef:UniRef90_A0A174Q0U1
+contig_502	cds	9106	9819	+	NBGELD_0710	glpF	Glyceroaquaporin	COG:COG0580, COG:G, RefSeq:WP_173782537.1, SO:0001217, UniParc:UPI0015700FB4, UniRef:UniRef100_UPI0015700FB4, UniRef:UniRef50_A0A0F0C7Q8, UniRef:UniRef90_A0A174Q0Y1
+contig_502	cds	9857	10402	+	NBGELD_0711	aF0104	putative DNA-binding protein with PD1-like DNA-binding motif	COG:COG1661, COG:R, SO:0001217, UniParc:UPI0002A337B1, UniRef:UniRef100_A0A415Y1G8, UniRef:UniRef50_D4MXB5, UniRef:UniRef90_D4MXB5
+contig_503	cds	802	1302	-	NBGELD_0712		TRAP transporter small permease	RefSeq:WP_173782883.1, SO:0001217, UniParc:UPI00156DDEB8, UniRef:UniRef100_UPI00156DDEB8, UniRef:UniRef50_A0A3P1Y0M5, UniRef:UniRef90_UPI00156DDEB8
+contig_503	cds	1305	1736	-	NBGELD_0713		hypothetical protein	
+contig_504	cds	37	1356	+	NBGELD_0714		UvrABC system protein B	SO:0001217, UniRef:UniRef50_A0A522X7I6
+contig_506	cds	213	956	-	NBGELD_0715	hIS2	putative phosphatase YcdX	COG:COG1387, COG:ER, RefSeq:WP_009204497.1, SO:0001217, UniParc:UPI0002A456A3, UniRef:UniRef100_A0A415YLA1, UniRef:UniRef50_A0A174KPX2, UniRef:UniRef90_A0A174KPX2
+contig_506	cds	993	3089	-	NBGELD_0716		valine--tRNA ligase	SO:0001217, UniRef:UniRef50_A0A645B3S9
+contig_506	cds	3120	3629	-	NBGELD_0717		valine--tRNA ligase	SO:0001217, UniRef:UniRef50_A0A3M1N3X2
+contig_507	cds	496	918	+	NBGELD_0718	marR	HTH-type transcriptional regulator MgrA	COG:COG1846, COG:K, RefSeq:WP_022091496.1, SO:0001217, UniParc:UPI0002FB0382, UniRef:UniRef100_A0A374AGD5, UniRef:UniRef50_A0A374AGD5, UniRef:UniRef90_A0A374AGD5
+contig_507	cds	940	1164	+	NBGELD_0719	yciV	Polymerase/histidinol phosphatase N-terminal domain-containing protein	COG:COG0613, COG:F, RefSeq:WP_008394324.1, SO:0001217, UniParc:UPI0001656D24, UniRef:UniRef100_D4MVE3, UniRef:UniRef50_E5VJJ6, UniRef:UniRef90_E5VJJ6
+contig_508	cds	637	1206	-	NBGELD_0720		hypothetical protein	PFAM:PF00266.25
+contig_509	cds	134	1135	+	NBGELD_0721	eCM27	Inner membrane protein yrbG	COG:COG0530, COG:P, SO:0001217, UniRef:UniRef50_G2SYK0, UniRef:UniRef90_A0A173UPV9
+contig_510	cds	23	346	+	NBGELD_0722		hypothetical protein	
+contig_510	cds	431	724	+	NBGELD_0723		hypothetical protein	
+contig_511	cds	205	468	+	NBGELD_0724	ptsH	Phosphocarrier protein HPr	COG:COG1925, COG:TG, SO:0001217, UniRef:UniRef50_A0A0M6WC50, UniRef:UniRef90_A0A1C6DNH2
+contig_511	cds	521	2233	+	NBGELD_0725	ptsA	Phosphoenolpyruvate-protein phosphotransferase	COG:COG1080, COG:G, RefSeq:WP_009204346.1, SO:0001217, UniParc:UPI0002A31B08, UniRef:UniRef100_A0A173YSP3, UniRef:UniRef50_A0A173YSP3, UniRef:UniRef90_A0A173YSP3
+contig_513	cds	412	999	-	NBGELD_0726	chrA	Chromate transport protein	COG:COG2059, COG:P, SO:0001217, UniRef:UniRef50_N9WLN9, UniRef:UniRef90_A0A6N2W3E4
+contig_513	cds	1029	2777	-	NBGELD_0727	mdlB	ABC-type multidrug transport system, ATPase and permease components	COG:COG1132, COG:V, SO:0001217, UniRef:UniRef50_A0A828SVW9, UniRef:UniRef90_D4MZC5
+contig_513	cds	2782	3675	-	NBGELD_0728		ATP-binding protein	SO:0001217, UniRef:UniRef50_A0A3C1WVH5
+contig_514	cds	820	984	-	NBGELD_0729		hypothetical protein	
+contig_515	cds	11	688	+	NBGELD_0730		hypothetical protein	
+contig_516	cds	42	470	+	NBGELD_0731	ybbK	DUF523 domain-containing protein	COG:COG1683, COG:S, RefSeq:WP_173760085.1, SO:0001217, UniParc:UPI000ECB0684, UniRef:UniRef100_UPI000ECB0684, UniRef:UniRef50_A0A0G2ZEX0, UniRef:UniRef90_D4MVD7
+contig_516	cds	501	1442	+	NBGELD_0732	frsA	putative esterase	COG:COG1073, COG:T, SO:0001217, UniRef:UniRef50_A0A916Q825, UniRef:UniRef90_D4MVD8
+contig_517	cds	170	1129	+	NBGELD_0733	deoR	Sor operon activator	COG:COG2390, COG:K, SO:0001217, UniRef:UniRef50_A0A174G1Y3, UniRef:UniRef90_A0A174G1Y3
+contig_519	cds	369	1325	-	NBGELD_0734	mmuM	homocysteine S-methyltransferase	COG:COG2040, COG:E, EC:2.1.1.10, GO:0009086, GO:0047150, KEGG:K00547, SO:0001217, UniRef:UniRef50_A0A7G9B618, UniRef:UniRef90_A0A173R245
+contig_519	cds	1325	1648	-	NBGELD_0735		hypothetical protein	
+contig_520	cds	271	1077	-	NBGELD_0736		O-Methyltransferase involved in polyketide biosynthesis	RefSeq:WP_008392722.1, SO:0001217, UniParc:UPI0001655699, UniRef:UniRef100_D4MWD9, UniRef:UniRef50_G5F3T7, UniRef:UniRef90_D4MWD9
+contig_520	cds	1152	1655	-	NBGELD_0737		Methylase involved in ubiquinone/menaquinone biosynthesis	RefSeq:WP_015530851.1, SO:0001217, UniParc:UPI0001CE6111, UniRef:UniRef100_D4MWD8, UniRef:UniRef50_A0A9W6CFP1, UniRef:UniRef90_D4MWD8
+contig_520	cds	1678	1908	-	NBGELD_0738	msbA	Lipid A export ATP-binding/permease protein MsbA	SO:0001217, UniRef:UniRef50_A0A174EJP7
+contig_521	cds	4	858	+	NBGELD_0739		hypothetical protein	PFAM:PF00155.27, PFAM:PF01041.23
+contig_522	cds	589	1527	-	NBGELD_0740	cysK	cysteine synthase A	COG:COG0031, COG:E, EC:2.5.1.47, GO:0004124, GO:0006535, SO:0001217, UniRef:UniRef50_P37887, UniRef:UniRef90_D4MU02
+contig_522	cds	1714	2532	-	NBGELD_0741	cof	HAD family hydrolase	COG:COG0561, COG:HR, EC:3.1.3.104, KEGG:K21064, RefSeq:WP_270425616.1, SO:0001217, UniParc:UPI0022E376CE, UniRef:UniRef100_A0A417VA30, UniRef:UniRef50_A0A6N2UNE2, UniRef:UniRef90_A0A6N2UNE2
+contig_522	cds	2751	3908	-	NBGELD_0742	metC	Cystathionine gamma-synthase	COG:COG0626, COG:E, RefSeq:WP_180105362.1, SO:0001217, UniParc:UPI0015D1E9EC, UniRef:UniRef100_UPI0015D1E9EC, UniRef:UniRef50_A0A1C5QL64, UniRef:UniRef90_A0A6N2UUY1
+contig_522	cds	3956	4282	-	NBGELD_0743	azlD	putative branched-chain amino acid permeases (Azaleucine resistance)	COG:COG1687, COG:E, RefSeq:WP_173782744.1, SO:0001217, UniParc:UPI001570B84E, UniRef:UniRef100_UPI001570B84E, UniRef:UniRef50_D4MTZ3, UniRef:UniRef90_D4MTZ3
+contig_522	cds	4300	4986	-	NBGELD_0744	azlC	Branched-chain amino acid permease	COG:COG1296, COG:E, KEGG:K26605, SO:0001217, UniRef:UniRef50_B7AW13, UniRef:UniRef90_A0A174ML28
+contig_522	cds	4974	5729	-	NBGELD_0745	tcdA	putative adenylyltransferase/sulfurtransferase MoeZ	COG:COG1179, COG:J, RefSeq:WP_055159755.1, SO:0001217, UniParc:UPI0006C47798, UniRef:UniRef100_A0A417V8I7, UniRef:UniRef50_E0RYB9, UniRef:UniRef90_A0A173SUV0
+contig_523	cds	535	1131	-	NBGELD_0746	recR	recombination mediator RecR	COG:COG0353, COG:L, GO:0003677, GO:0006281, GO:0006310, GO:0046872, RefSeq:WP_008393131.1, SO:0001217, UniParc:UPI0001654B03, UniRef:UniRef100_D4MXF3, UniRef:UniRef50_A0Q3R3, UniRef:UniRef90_D4MXF3
+contig_523	cds	1147	1500	-	NBGELD_0747	ybaB	YbaB/EbfC family nucleoid-associated protein	COG:COG0718, COG:K, GO:0003677, KEGG:K09747, RefSeq:WP_008393132.1, SO:0001217, UniParc:UPI0001654A45, UniRef:UniRef100_D4MXF2, UniRef:UniRef50_B0S0K7, UniRef:UniRef90_D4MXF2
+contig_524	cds	15	215	+	NBGELD_0748		hypothetical protein	PFAM:PF01202.28
+contig_524	cds	268	1452	+	NBGELD_0749	yqdH	NADH-dependent butanol dehydrogenase A	COG:C, COG:COG1979, EC:1.1.1.-, KEGG:K19955, RefSeq:WP_009264331.1, SO:0001217, UniParc:UPI0001F0213A, UniRef:UniRef100_A0A415Y509, UniRef:UniRef50_C9LUZ0, UniRef:UniRef90_D4MZX6
+contig_524	cds	1517	2074	+	NBGELD_0750	efp	elongation factor P	COG:COG0231, COG:J, GO:0003746, GO:0005737, GO:0006414, RefSeq:WP_008391359.1, SO:0001217, UniParc:UPI00016574F8, UniRef:UniRef100_A0A374AL45, UniRef:UniRef50_Q894F6, UniRef:UniRef90_A0A374AL45
+contig_525	cds	649	1047	-	NBGELD_0751		hypothetical protein	
+contig_526	cds	564	1685	-	NBGELD_0752		putative multitransmembrane protein	RefSeq:WP_173782887.1, SO:0001217, UniParc:UPI00156F7434, UniRef:UniRef100_UPI00156F7434, UniRef:UniRef50_F7V5R2, UniRef:UniRef90_D4MU47
+contig_527	cds	1059	1892	-	NBGELD_0753		hypothetical protein	PFAM:PF10410.14
+contig_528	cds	38	1606	+	NBGELD_0754		hypothetical protein	PFAM:PF02142.27, PFAM:PF02222.28, PFAM:PF02786.22, PFAM:PF15632.11
+contig_531	cds	519	1334	-	NBGELD_0755	fabG	3-oxoacyl-[acyl-carrier-protein] reductase FabG	COG:COG1028, COG:I, SO:0001217, UniRef:UniRef50_P37079, UniRef:UniRef90_D4MZJ4
+contig_531	cds	1446	2645	-	NBGELD_0756	dacC	serine-type D-Ala-D-Ala carboxypeptidase	COG:COG1686, COG:M, EC:3.4.16.4, KEGG:K07258, RefSeq:WP_173756108.1, SO:0001217, UniParc:UPI00156E2C03, UniRef:UniRef100_A0A9E0G631, UniRef:UniRef50_A0A916Q6C2, UniRef:UniRef90_A0A374AQT6
+contig_534	cds	56	241	+	NBGELD_0757		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI00165100FC
+contig_534	cds	244	426	+	NBGELD_0758		hypothetical protein	RefSeq:WP_156723278.1, SO:0001217, UniParc:UPI0012D280D4, UniRef:UniRef100_A0A6N2SYU9, UniRef:UniRef50_A0AAQ3JJ21, UniRef:UniRef90_A0A173SFW7
+contig_535	cds	498	845	-	NBGELD_0759		LpdD-like chaperone-like domain-containing protein	RefSeq:WP_173747798.1, SO:0001217, UniParc:UPI00156D4D53, UniRef:UniRef100_UPI00156D4D53, UniRef:UniRef50_D4N0Y8, UniRef:UniRef90_D4N0Y8
+contig_537	cds	75	1448	-	NBGELD_0760	mMP0363	ATPase family associated with various cellular activities (AAA)	COG:COG0714, COG:R, SO:0001217, UniRef:UniRef50_A0A0J9BDL6, UniRef:UniRef90_A0A174S1D8
+contig_538	cds	41	715	+	NBGELD_0761		hypothetical protein	PFAM:PF14450.12
+contig_539	cds	19	231	+	NBGELD_0762		hypothetical protein	
+contig_539	cds	243	707	+	NBGELD_0763		DUF4190 domain-containing protein	RefSeq:WP_044925366.1, SO:0001217, UniParc:UPI0005D25267, UniRef:UniRef100_UPI0005D25267, UniRef:UniRef50_D4MY87, UniRef:UniRef90_D4MY87
+contig_540	cds	368	589	-	NBGELD_0764		Integral membrane sensor signal transduction histidine kinase	RefSeq:WP_244091454.1, SO:0001217, UniParc:UPI001FC82145, UniRef:UniRef100_A0A415W0X9, UniRef:UniRef50_E5VNJ5, UniRef:UniRef90_E5VNJ5
+contig_540	cds	649	1053	-	NBGELD_0765	yitT	YitT family protein	KEGG:K07149, SO:0001217, UniRef:UniRef50_A0A374AU69, UniRef:UniRef90_A0A374AU69
+contig_541	cds	154	390	+	NBGELD_0766		AtpZ/AtpI family protein	RefSeq:WP_040344098.1, SO:0001217, UniParc:UPI00034943ED, UniRef:UniRef100_A0A417JSH8, UniRef:UniRef50_A0A415WC72, UniRef:UniRef90_A0A415WC72
+contig_541	cds	380	784	+	NBGELD_0767		ATP synthase subunit I	RefSeq:WP_008394022.1, SO:0001217, UniParc:UPI0001656CE8, UniRef:UniRef100_A0A374AHX0, UniRef:UniRef50_A0A1C6ANC6, UniRef:UniRef90_A0A374AHX0
+contig_541	cds	868	1599	+	NBGELD_0768	atpB	F0F1 ATP synthase subunit A	COG:C, COG:COG0356, EC:7.1.2.2, GO:0015986, GO:0045263, GO:0046933, RefSeq:WP_008394023.1, SO:0001217, UniParc:UPI0001656D17, UniRef:UniRef100_A0A374AGM9, UniRef:UniRef50_A0A173S881, UniRef:UniRef90_A0A173TNT3
+contig_541	cds	1659	1922	+	NBGELD_0769	atpE	ATP synthase F0 subunit C	COG:C, COG:COG0636, EC:7.1.2.2, GO:0015078, GO:0015986, GO:0045263, RefSeq:WP_008394024.1, SO:0001217, UniParc:UPI0001656AD4, UniRef:UniRef100_A0A374AFX9, UniRef:UniRef50_Q8RGD7, UniRef:UniRef90_A0A374AFX9
+contig_541	cds	1950	2471	+	NBGELD_0770	atpF	F0F1 ATP synthase subunit B	COG:C, COG:COG0711, EC:7.1.2.2, GO:0015078, GO:0015986, GO:0045263, RefSeq:WP_008394025.1, SO:0001217, UniParc:UPI0001656B77, UniRef:UniRef100_A0A173TQ54, UniRef:UniRef50_A0A173TQ54, UniRef:UniRef90_A0A173TQ54
+contig_541	cds	2456	3001	+	NBGELD_0771	atpH	ATP synthase F1 subunit delta	COG:C, COG:COG0712, EC:7.1.2.2, GO:0015986, GO:0045261, GO:0046933, RefSeq:WP_008394026.1, SO:0001217, UniParc:UPI0001656B31, UniRef:UniRef100_D4MUP2, UniRef:UniRef50_D4MUP2, UniRef:UniRef90_D4MUP2
+contig_542	cds	254	1264	+	NBGELD_0772		Radical SAM core domain-containing protein	SO:0001217, UniRef:UniRef50_A0A1H4BSA7
+contig_543	cds	153	497	+	NBGELD_0773		hypothetical protein	
+contig_543	cds	551	763	+	NBGELD_0774		hypothetical protein	RefSeq:WP_044923798.1, SO:0001217, UniParc:UPI0005D17709, UniRef:UniRef100_UPI0005D17709, UniRef:UniRef50_A0A173THR5, UniRef:UniRef90_A0A173THR5
+contig_544	cds	122	1222	-	NBGELD_0775		hypothetical protein	
+contig_545	cds	21	743	+	NBGELD_0776	yveK	Capsular polysaccharide type 8 biosynthesis protein cap8A	COG:COG3944, COG:M, RefSeq:WP_008393255.1, SO:0001217, UniParc:UPI000165554E, UniRef:UniRef100_A0A374AY56, UniRef:UniRef50_A0A173S4Y1, UniRef:UniRef90_A0A173S4Y1
+contig_545	cds	745	1455	+	NBGELD_0777	mrp	non-specific protein-tyrosine kinase	COG:COG0489, COG:D, SO:0001217, UniRef:UniRef50_A0A173S539, UniRef:UniRef90_A0A173SIU2
+contig_547	cds	787	978	-	NBGELD_0778		hypothetical protein	
+contig_548	cds	406	885	-	NBGELD_0779	greA	transcription elongation factor GreA	COG:COG0782, COG:K, GO:0003677, GO:0032784, GO:0070063, RefSeq:WP_008393842.1, SO:0001217, UniParc:UPI0001656BA9, UniRef:UniRef100_D4MUC2, UniRef:UniRef50_C4GCW1, UniRef:UniRef90_D4MUC2
+contig_548	cds	955	1266	-	NBGELD_0780		Putative tRNA-dihydrouridine synthase	SO:0001217, UniRef:UniRef50_A0A7U9XCS8
+contig_550	cds	670	1272	-	NBGELD_0781	rsmG	16S rRNA (guanine(527)-N(7))-methyltransferase RsmG	COG:COG0357, COG:J, EC:2.1.1.170, GO:0008168, GO:0031167, GO:0046118, KEGG:K03501, SO:0001217, UniRef:UniRef50_A8MKR7, UniRef:UniRef90_D4MX66
+contig_551	cds	29	826	+	NBGELD_0782		hypothetical protein	
+contig_553	cds	98	1456	-	NBGELD_0783		TIGR02677 family protein	RefSeq:WP_173723590.1, SO:0001217, UniParc:UPI00156F62FE, UniRef:UniRef100_UPI00156F62FE, UniRef:UniRef50_A0A3R6RW17, UniRef:UniRef90_D4MTY1
+contig_554	cds	6	764	+	NBGELD_0784		hypothetical protein	
+contig_555	cds	193	1170	-	NBGELD_0785		polysaccharide biosynthesis C-terminal domain-containing protein	SO:0001217, UniRef:UniRef50_UPI0032C1EB93, UniRef:UniRef90_UPI0032C1EB93
+contig_556	cds	64	639	+	NBGELD_0786		hypothetical protein	SO:0001217, UniRef:UniRef50_E5VM96, UniRef:UniRef90_E5VM96
+contig_556	cds	740	1207	-	NBGELD_0787		hypothetical protein	PFAM:PF00766.25
+contig_557	tRNA	308	380	+	NBGELD_0788	trnV	tRNA-Val(tac)	SO:0000273
+contig_557	tRNA	418	491	+	NBGELD_0789	trnM	tRNA-Met(cat)	SO:0000266
+contig_558	cds	375	1298	+	NBGELD_0790	cof	Cof-type HAD-IIB family hydrolase	COG:COG0561, COG:HR, EC:3.1.3.104, KEGG:K21064, RefSeq:WP_055232522.1, SO:0001217, UniParc:UPI0006C3B93F, UniRef:UniRef100_UPI0006C3B93F, UniRef:UniRef50_A0A174LRY0, UniRef:UniRef90_A0A174LRY0
+contig_558	cds	1431	1586	-	NBGELD_0791		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI001FA947C6, UniRef:UniRef90_UPI001FA947C6
+contig_559	cds	110	805	-	NBGELD_0792	yigB	HAD family hydrolase	COG:COG1011, COG:H, RefSeq:WP_055231817.1, SO:0001217, UniParc:UPI0006C50A73, UniRef:UniRef100_UPI0006C50A73, UniRef:UniRef50_A0A174J035, UniRef:UniRef90_A0A174J035
+contig_559	cds	807	1046	-	NBGELD_0793		hypothetical protein	PFAM:PF08282.18
+contig_561	cds	240	1751	+	NBGELD_0794	gerAA	Bacillus/Clostridium GerA spore germination protein	COG:COG5901, COG:D, RefSeq:WP_195465988.1, SO:0001217, UniParc:UPI00189AE4BB, UniRef:UniRef100_UPI00189AE4BB, UniRef:UniRef50_B0MHA1, UniRef:UniRef90_D4MU92
+contig_561	cds	1741	2796	+	NBGELD_0795	gerAB	Spore germination protein	COG:COG5902, COG:D, RefSeq:WP_009203986.1, SO:0001217, UniParc:UPI0002A2DABA, UniRef:UniRef100_A0A417K2U7, UniRef:UniRef50_E5VPQ5, UniRef:UniRef90_E5VPQ5
+contig_561	cds	2810	3298	+	NBGELD_0796	gerAC	Germination protein, Ger(X)C family	COG:COG5903, COG:D, SO:0001217, UniRef:UniRef50_A0A1Q9JT01, UniRef:UniRef90_A0A1Q2C6B5
+contig_562	cds	185	571	-	NBGELD_0797		CYTH domain-containing protein	SO:0001217, UniRef:UniRef50_A0A4V1EFU4
+contig_562	cds	698	1342	+	NBGELD_0798	trmB	tRNA (guanosine(46)-N7)-methyltransferase TrmB	COG:COG0220, COG:J, EC:2.1.1.33, GO:0006400, GO:0008176, RefSeq:WP_009203242.1, SO:0001217, UniParc:UPI0002A2995D, UniRef:UniRef100_UPI0002A2995D, UniRef:UniRef50_A9KLV5, UniRef:UniRef90_D4MUQ2
+contig_563	cds	26	1336	+	NBGELD_0799		Stage 0 sporulation A-like protein	SO:0001217, UniRef:UniRef50_A0A7U9SZS0
+contig_564	cds	822	2006	-	NBGELD_0800	paaJ	acetyl-CoA C-acetyltransferase	COG:COG0183, COG:I, RefSeq:WP_009204510.1, SO:0001217, UniParc:UPI0001F02111, UniRef:UniRef100_A0A374ANT6, UniRef:UniRef50_P45359, UniRef:UniRef90_D4MZK5
+contig_565	cds	4	486	+	NBGELD_0801	scpB	SMC-Scp complex subunit ScpB	COG:COG1386, COG:K, GO:0005515, GO:0007059, KEGG:K06024, SO:0001217, UniRef:UniRef50_A0A9D1X376, UniRef:UniRef90_D4MZK2
+contig_566	cds	431	997	-	NBGELD_0802		hypothetical protein	
+contig_567	cds	42	422	+	NBGELD_0803		hypothetical protein	PFAM:PF01261.30
+contig_567	cds	442	1497	+	NBGELD_0804	tdh	Alcohol dehydrogenase	COG:COG1063, COG:ER, SO:0001217, UniRef:UniRef50_D4MYB3, UniRef:UniRef90_D4MYB3
+contig_568	cds	867	1121	-	NBGELD_0805		Peptide deformylase 1	SO:0001217, UniRef:UniRef50_A0A7U9SQB2
+contig_569	cds	91	759	+	NBGELD_0806	citB	Stage 0 sporulation A-like protein	COG:COG2197, COG:TK, RefSeq:WP_055257821.1, SO:0001217, UniParc:UPI0006C73557, UniRef:UniRef100_A0A173RH09, UniRef:UniRef50_A0A143XVD4, UniRef:UniRef90_A0A173RH09
+contig_571	cds	579	1673	-	NBGELD_0807	orfB	(pseudo) Transposase, IS605 OrfB family	SO:0001217, UniRef:UniRef50_A0A317UBS4, UniRef:UniRef90_A0A173TI54
+contig_572	cds	600	953	-	NBGELD_0808		MogA/MoaB family molybdenum cofactor biosynthesis protein	SO:0001217, UniRef:UniRef50_A0A174THQ1
+contig_573	cds	58	450	+	NBGELD_0809		hypothetical protein	
+contig_573	cds	471	644	+	NBGELD_0810		Putative Flagellin Flp1-like domain-containing protein	RefSeq:WP_008393139.1, SO:0001217, UniParc:UPI0001654AB3, UniRef:UniRef100_D4MXE5, UniRef:UniRef50_A0A374B078, UniRef:UniRef90_A0A417K456
+contig_574	cds	94	804	+	NBGELD_0811	tsaB	tRNA (adenosine(37)-N6)-threonylcarbamoyltransferase complex dimerization subunit type 1 TsaB	COG:COG1214, COG:J, EC:2.3.1.234, GO:0002949, SO:0001217, UniRef:UniRef50_B0NF98, UniRef:UniRef90_A0AAQ3JHI3
+contig_575	cds	17	1198	+	NBGELD_0812		histidine kinase	SO:0001217, UniRef:UniRef50_A0A143XNX7
+contig_576	cds	215	1006	+	NBGELD_0813		Phosphoenolpyruvate carboxykinase	SO:0001217, UniRef:UniRef50_A0A3N1XES1
+contig_577	cds	1017	1703	-	NBGELD_0814	yrhO	TrmB family transcriptional regulator	COG:COG1378, COG:K, SO:0001217, UniRef:UniRef50_A0A1V6B4V7, UniRef:UniRef90_A0A374AY93
+contig_578	cds	58	1104	+	NBGELD_0815		Alcohol dehydrogenase	RefSeq:WP_215718448.1, SO:0001217, UniParc:UPI001C039484, UniRef:UniRef100_UPI001C039484, UniRef:UniRef50_R2TCV7, UniRef:UniRef90_A0A173U4U6
+contig_579	cds	128	979	+	NBGELD_0816	amiC	N-acetylmuramoyl-L-alanine amidase	COG:COG0860, COG:M, EC:3.5.1.28, KEGG:K01448, SO:0001217, UniRef:UniRef50_A0A1C5WTJ8, UniRef:UniRef90_A0AA43RIZ6
+contig_579	cds	966	1574	+	NBGELD_0817		YARHG domain-containing protein	RefSeq:WP_209291584.1, SO:0001217, UniParc:UPI001ADD8A09, UniRef:UniRef100_A0AAQ3JHD7, UniRef:UniRef50_A0A173RKA7, UniRef:UniRef90_A0A173SJK7
+contig_581	cds	155	925	+	NBGELD_0818	parA	AAA family ATPase	COG:COG1192, COG:DN, KEGG:K03496, RefSeq:WP_008392992.1, SO:0001217, UniParc:UPI0001652EFC, UniRef:UniRef100_D4MX69, UniRef:UniRef50_A0AAD2BSG0, UniRef:UniRef90_D4MX69
+contig_582	cds	13	210	+	NBGELD_0819		hypothetical protein	
+contig_582	cds	207	2336	+	NBGELD_0820	sUL1	Sulfate permease and related transporters (MFS superfamily)	COG:COG0659, COG:P, SO:0001217, UniRef:UniRef50_G2T4E7, UniRef:UniRef90_D4MTR3
+contig_583	cds	12	551	+	NBGELD_0821		NFACT RNA binding domain-containing protein	SO:0001217, UniRef:UniRef50_UPI0034A1BF7C
+contig_583	cds	631	828	+	NBGELD_0822		SSP-3	SO:0001217, UniRef:UniRef50_C4Z1T8, UniRef:UniRef90_A0A0M6WNE9
+contig_583	cds	902	1036	-	NBGELD_0823		hypothetical protein	
+contig_584	cds	17	550	+	NBGELD_0824	merR	MerR family transcriptional regulator	RefSeq:WP_329965221.1, SO:0001217, UniParc:UPI00242536A9, UniRef:UniRef100_UPI00242536A9, UniRef:UniRef50_A0A916QBF0, UniRef:UniRef90_A0A374AIC4
+contig_586	cds	819	1001	-	NBGELD_0825	secE	Preprotein translocase subunit SecE	RefSeq:WP_044921451.1, SO:0001217, UniParc:UPI0005D25D1A, UniRef:UniRef100_A0A173TFJ6, UniRef:UniRef50_A0A6N2VV85, UniRef:UniRef90_A0A6N2VV85
+contig_587	cds	1	426	+	NBGELD_0826	mraZ	division/cell wall cluster transcriptional repressor MraZ	COG:COG2001, COG:J, GO:0003700, GO:0006355, SO:0001217, UniRef:UniRef50_O07103, UniRef:UniRef90_A0A173RM33
+contig_587	cds	439	1377	+	NBGELD_0827	rsmH	16S rRNA (cytosine(1402)-N(4))-methyltransferase RsmH	COG:COG0275, COG:J, EC:2.1.1.199, GO:0016434, KEGG:K03438, SO:0001217, UniRef:UniRef50_B0K8J9, UniRef:UniRef90_D4MZF2
+contig_587	cds	1390	1884	+	NBGELD_0828	ftsL	Cell division protein FtsL	KEGG:K03586, RefSeq:WP_008392019.1, SO:0001217, UniParc:UPI0001654447, UniRef:UniRef100_D4MZF3, UniRef:UniRef50_A0A1Q9JV95, UniRef:UniRef90_A0A417K1D7
+contig_588	cds	65	520	+	NBGELD_0829		hypothetical protein	
+contig_589	cds	2	1900	+	NBGELD_0830		hypothetical protein	
+contig_589	cds	2019	2426	-	NBGELD_0831		C_GCAxxG_C_C family protein	RefSeq:WP_009265149.1, SO:0001217, UniParc:UPI0001F0285C, UniRef:UniRef100_A0A417JSX6, UniRef:UniRef50_A0A096LG12, UniRef:UniRef90_A0A173U1J1
+contig_589	cds	2445	2738	-	NBGELD_0832		Flagellar assembly protein H	SO:0001217, UniRef:UniRef50_A0A1Q2C968
+contig_590	cds	16	888	+	NBGELD_0833		hypothetical protein	PFAM:PF02080.26
+contig_590	cds	1016	1228	+	NBGELD_0834		Ferrous iron transporter FeoA-like domain-containing protein	RefSeq:WP_008392680.1, SO:0001217, UniParc:UPI0001655667, UniRef:UniRef100_D4MWA2, UniRef:UniRef50_A0A174PA02, UniRef:UniRef90_A0A174B129
+contig_591	cds	28	1368	+	NBGELD_0835	dnaB	replicative DNA helicase	COG:COG0305, COG:L, EC:3.6.4.12, EC:5.6.2.3, GO:0003677, GO:0003678, GO:0005524, GO:0006260, KEGG:K02314, RefSeq:WP_055197780.1, SO:0001217, UniParc:UPI0006BF12D0, UniRef:UniRef100_A0A374AJW4, UniRef:UniRef50_A0A3D0LE71, UniRef:UniRef90_A0A1C6C989
+contig_592	cds	52	393	+	NBGELD_0836		hypothetical protein	
+contig_593	cds	168	884	-	NBGELD_0837	sigE	RNA polymerase sporulation sigma factor SigE	COG:COG5811, COG:DK, GO:0003677, GO:0003700, GO:0006352, GO:0016987, KEGG:K03091, SO:0001217, UniParc:UPI0003031D19, UniRef:UniRef100_A0A174UBR4, UniRef:UniRef50_P06222, UniRef:UniRef90_D4MW46
+contig_593	cds	890	1084	-	NBGELD_0838		hypothetical protein	
+contig_595	cds	59	469	+	NBGELD_0839		hypothetical protein	
+contig_597	cds	32	1510	+	NBGELD_0840	ilvB	biosynthetic-type acetolactate synthase large subunit	COG:COG0028, COG:EH, EC:2.2.1.6, GO:0000287, GO:0003984, GO:0009082, GO:0030976, GO:0050660, KEGG:K01652, SO:0001217, UniRef:UniRef50_A0A3C0NZL8, UniRef:UniRef90_A0A374AR89
+contig_598	cds	704	1540	-	NBGELD_0841	cvfB	Conserved virulence factor B	COG:COG2996, COG:R, KEGG:K00243, RefSeq:WP_008394066.1, SO:0001217, UniParc:UPI0001656C4E, UniRef:UniRef100_D4MUS7, UniRef:UniRef50_H2J8H8, UniRef:UniRef90_D4MUS7
+contig_598	cds	1779	2054	+	NBGELD_0842	hupA	DNA-binding protein	COG:B, COG:COG0776, RefSeq:WP_008394067.1, SO:0001217, UniParc:UPI0001656D7D, UniRef:UniRef100_D4MUS8, UniRef:UniRef50_A0A4P7L0U8, UniRef:UniRef90_D4MUS8
+contig_599	cds	624	1274	-	NBGELD_0843	tesA	Lipase	COG:COG2755, COG:DI, RefSeq:WP_008393833.1, SO:0001217, UniParc:UPI0001656AFD, UniRef:UniRef100_D4MUB6, UniRef:UniRef50_D4MUB6, UniRef:UniRef90_D4MUB6
+contig_599	cds	1379	1888	-	NBGELD_0844		Band 7 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A645EE14
+contig_600	cds	145	732	+	NBGELD_0845		hypothetical protein	PFAM:PF00490.27
+contig_602	cds	96	671	+	NBGELD_0846		ABC transporter ATP-binding protein	SO:0001217, UniRef:UniRef50_UPI002ED1F351
+contig_602	cds	828	2051	-	NBGELD_0847	pepT	peptidase T	COG:COG2195, COG:E, EC:3.4.11.4, GO:0006508, GO:0008270, GO:0045148, RefSeq:WP_055159467.1, SO:0001217, UniParc:UPI0006C2AD2C, UniRef:UniRef100_A0A174KFT4, UniRef:UniRef50_A0A174IW23, UniRef:UniRef90_A0A174KFT4
+contig_603	cds	1208	2164	-	NBGELD_0848		AAA-ATPase-like domain-containing protein	SO:0001217, UniRef:UniRef50_C0FVM3
+contig_604	cds	204	1244	-	NBGELD_0849	gspF	Cholera toxin secretion protein epsF	COG:COG1459, COG:NU, RefSeq:WP_055159727.1, SO:0001217, UniParc:UPI0006C0501D, UniRef:UniRef100_A0A174MJ56, UniRef:UniRef50_A0A174MJ56, UniRef:UniRef90_A0A174MJ56
+contig_604	cds	1257	1859	-	NBGELD_0850		Transglutaminase domain-containing protein	SO:0001217, UniRef:UniRef50_A0A3A9F8U6
+contig_605	cds	121	228	-	NBGELD_0851		hypothetical protein	SO:0001217, UniParc:UPI0006BF1510, UniRef:UniRef100_A0A174QGW3, UniRef:UniRef50_D4MYD4, UniRef:UniRef90_D4MYD4
+contig_605	cds	412	1260	-	NBGELD_0852	araC	AraC family transcriptional regulator	COG:COG2207, COG:K, SO:0001217, UniRef:UniRef50_A0A173SZK6, UniRef:UniRef90_A0A173QYR7
+contig_607	cds	499	696	-	NBGELD_0853	secE	preprotein translocase subunit SecE	COG:COG0690, COG:U, GO:0005886, GO:0009306, GO:0015450, GO:0043952, RefSeq:WP_009204240.1, SO:0001217, UniParc:UPI0001F0273F, UniRef:UniRef100_A0A174N7F8, UniRef:UniRef50_D4MUF9, UniRef:UniRef90_D4MUF9
+contig_607	cds	736	885	-	NBGELD_0854	rpmG	50S ribosomal protein L33	COG:COG0267, COG:J, GO:0003735, GO:0005840, GO:0006412, KEGG:K02913, RefSeq:WP_008393888.1, SO:0001217, UniParc:UPI0001656B13, UniRef:UniRef100_A0A374AYG4, UniRef:UniRef50_P59628, UniRef:UniRef90_B0G4L7
+contig_608	cds	172	1377	-	NBGELD_0855	iS285	IS256 family transposase	COG:COG3328, COG:X, GO:0004803, RefSeq:WP_172622410.1, SO:0001217, UniParc:UPI000D79F601, UniRef:UniRef100_A0A2V2C9W5, UniRef:UniRef50_A0A402CWA0, UniRef:UniRef90_A0A2V2C9W5
+contig_609	cds	769	1413	-	NBGELD_0856		hypothetical protein	
+contig_611	cds	19	1032	+	NBGELD_0857		HD domain-containing phosphohydrolase	SO:0001217, UniRef:UniRef50_UPI001D023141
+contig_611	cds	1089	1568	-	NBGELD_0858		SLC41A/MgtE integral membrane domain-containing protein	SO:0001217, UniRef:UniRef50_R9M1B0
+contig_613	cds	139	1134	+	NBGELD_0859		hypothetical protein	SO:0001217, UniRef:UniRef50_UPI0022E08F04
+contig_614	cds	270	1049	-	NBGELD_0860	trpC	indole-3-glycerol phosphate synthase TrpC	COG:COG0134, COG:E, EC:4.1.1.48, GO:0004425, GO:0006568, RefSeq:WP_209291500.1, SO:0001217, UniParc:UPI0012C8CD97, UniRef:UniRef100_A0A6N2VHZ1, UniRef:UniRef50_A6TM74, UniRef:UniRef90_A0A173RL05
+contig_614	cds	1062	2477	-	NBGELD_0861	trpD	bifunctional anthranilate synthase component II/anthranilate phosphoribosyltransferase	COG:COG0547, COG:E, EC:2.4.2.18, EC:4.1.3.27, KEGG:K13497, SO:0001217, UniRef:UniRef50_Q0W627, UniRef:UniRef90_A0A6N2VEN6
+contig_615	cds	50	259	+	NBGELD_0862		hypothetical protein	PFAM:PF19302.4
+contig_615	cds	413	859	-	NBGELD_0863		XRE family transcriptional regulator	SO:0001217, UniParc:UPI000E54FE80, UniRef:UniRef100_A0A417JQK8, UniRef:UniRef50_A0A174S4F9, UniRef:UniRef90_A0A173T3B7
+contig_616	cds	194	1063	-	NBGELD_0864	fba	class II fructose-1,6-bisphosphate aldolase	COG:COG0191, COG:G, EC:4.1.2.13, GO:0004332, GO:0006096, GO:0008270, GO:0030388, KEGG:K01624, RefSeq:WP_173783069.1, SO:0001217, UniParc:UPI00156DE6E6, UniRef:UniRef100_UPI00156DE6E6, UniRef:UniRef50_P13243, UniRef:UniRef90_A0A173R497
+contig_616	cds	1186	1641	-	NBGELD_0865		hypothetical protein	
+contig_617	cds	236	547	+	NBGELD_0866	frwB	PTS system, Fru family, IIB component	COG:COG1445, COG:G, RefSeq:WP_008392341.1, SO:0001217, UniParc:UPI0001653B56, UniRef:UniRef100_A0A374B0B3, UniRef:UniRef50_D4GN37, UniRef:UniRef90_U5F8L7
+contig_617	cds	587	1675	+	NBGELD_0867	frwC	EIIBC-Fru	COG:COG1299, COG:G, RefSeq:WP_173782741.1, SO:0001217, UniParc:UPI0015704670, UniRef:UniRef100_UPI0015704670, UniRef:UniRef50_F2NAX9, UniRef:UniRef90_A0A173T777
+contig_618	cds	832	1389	-	NBGELD_0868	ftsK	FtsK domain-containing protein	SO:0001217, UniRef:UniRef50_T0N036
+contig_619	cds	116	1069	-	NBGELD_0869	bioB	biotin synthase BioB	COG:COG0502, COG:H, EC:2.8.1.6, GO:0004076, GO:0009102, GO:0051536, GO:1904047, RefSeq:WP_022091725.1, SO:0001217, UniParc:UPI00033BE547, UniRef:UniRef100_A0A174CZL1, UniRef:UniRef50_A0A174EMN1, UniRef:UniRef90_A0A174CZL1
+contig_620	cds	640	1860	+	NBGELD_0870	pfkA	Pyrophosphate--fructose 6-phosphate 1-phosphotransferase	COG:COG0205, COG:G, RefSeq:WP_008391771.1, SO:0001217, UniParc:UPI0001658244, UniRef:UniRef100_D4N1G1, UniRef:UniRef50_U2VZ41, UniRef:UniRef90_D4N1G1
+contig_621	cds	167	424	+	NBGELD_0871	virD4	VirD4-like conjugal transfer protein, CD1115 family	COG:COG3505, COG:U, EC:7.4.2.8, KEGG:K03205, SO:0001217, UniParc:UPI0006C5EB0D, UniRef:UniRef100_A0A125V618, UniRef:UniRef50_E9SEA9, UniRef:UniRef90_Q18AX5
+contig_621	cds	417	584	+	NBGELD_0872		hypothetical protein	RefSeq:WP_018112834.1, SO:0001217, UniParc:UPI000379B805, UniRef:UniRef100_A0A1M4T1G9, UniRef:UniRef50_C7H5B0, UniRef:UniRef90_A0A1M4T1G9
+contig_621	cds	604	771	+	NBGELD_0873		hypothetical protein	RefSeq:WP_162858247.1, SO:0001217, UniParc:UPI00090FA50A, UniRef:UniRef100_A0A1M4T1F6, UniRef:UniRef50_A0A1M4T1F6, UniRef:UniRef90_A0A1M4T1F6
+contig_621	cds	1013	1153	+	NBGELD_0874		Maff2 family protein	SO:0001217, UniParc:UPI00039D15F8, UniRef:UniRef100_A0A9X5C8S2, UniRef:UniRef50_Q832B3, UniRef:UniRef90_A0A1V0QDE0
+contig_623	cds	725	976	-	NBGELD_0875		hypothetical protein	
+contig_624	cds	2	616	+	NBGELD_0876		HAD family hydrolase	SO:0001217, UniRef:UniRef50_UPI0019D1F191
+contig_624	cds	676	1218	-	NBGELD_0877	spoT	Guanosine-3',5'-bis(Diphosphate) 3'-pyrophosphohydrolase	COG:COG0317, COG:TK, RefSeq:WP_008392061.1, SO:0001217, UniParc:UPI0001659389, UniRef:UniRef100_A0A2V2CD61, UniRef:UniRef50_F3B1I9, UniRef:UniRef90_A0A1C5XL53
+contig_625	cds	15	713	+	NBGELD_0878	rpsA	30S ribosomal S1-like protein	COG:COG0539, COG:J, RefSeq:WP_015530800.1, SO:0001217, UniParc:UPI0001CE572F, UniRef:UniRef100_E5VMQ7, UniRef:UniRef50_F7JIX4, UniRef:UniRef90_A0A173RIX1
+contig_625	cds	726	1826	+	NBGELD_0879	aroC	chorismate synthase	COG:COG0082, COG:E, EC:4.2.3.5, GO:0004107, GO:0009073, KEGG:K01736, RefSeq:WP_009265489.1, SO:0001217, UniParc:UPI0001F026CD, UniRef:UniRef100_A0A174BQA1, UniRef:UniRef50_Q8TT87, UniRef:UniRef90_A0A174BQA1
+contig_626	cds	1185	2063	-	NBGELD_0880	cdaA	diadenylate cyclase CdaA	COG:COG1642, COG:T, EC:2.7.7.85, GO:0004016, GO:0006171, KEGG:K18672, RefSeq:WP_009204088.1, SO:0001217, UniParc:UPI0002A1F24E, UniRef:UniRef100_A0A174IUE0, UniRef:UniRef50_A0A373W5T2, UniRef:UniRef90_A0A174IUE0
+contig_626	cds	2060	2785	-	NBGELD_0881		hypothetical protein	
+contig_627	cds	1528	2814	+	NBGELD_0882	hgdB	2-hydroxyacyl-CoA dehydratase family protein	COG:COG1775, COG:EQ, SO:0001217, UniRef:UniRef50_D4MY44, UniRef:UniRef90_D4MY44
+contig_629	cds	471	1025	-	NBGELD_0883		Transposase (putative) YhgA-like domain-containing protein	RefSeq:WP_008392725.1, SO:0001217, UniParc:UPI0001655664, UniRef:UniRef100_D4MWE2, UniRef:UniRef50_A0A6L8T175, UniRef:UniRef90_D4MWE2
+contig_630	cds	643	1764	+	NBGELD_0884	yejR	GTP-binding protein	COG:COG0523, COG:R, RefSeq:WP_149883622.1, SO:0001217, UniParc:UPI00122F191A, UniRef:UniRef100_A0AAQ3PXE4, UniRef:UniRef50_G5GFQ9, UniRef:UniRef90_A0A415YHG7
+contig_631	cds	36	1079	+	NBGELD_0885		BIG2 domain-containing protein	SO:0001217, UniRef:UniRef50_A0A374AW29, UniRef:UniRef90_A0A1Q2C8D3
+contig_632	cds	33	902	-	NBGELD_0886	degV	Dihydroxyacetone kinase	COG:COG1307, COG:I, SO:0001217, UniRef:UniRef50_E7GJ56, UniRef:UniRef90_A0A174R0H9
+contig_633	cds	726	1748	-	NBGELD_0887		hypothetical protein	PFAM:PF02625.21, PFAM:PF13478.12
+contig_634	cds	109	1962	+	NBGELD_0888	tex	S1 motif domain-containing protein	COG:COG2183, COG:K, KEGG:K06959, SO:0001217, UniRef:UniRef50_A0A1H2RL22, UniRef:UniRef90_A0A1Q2C7P9
+contig_635	cds	47	412	+	NBGELD_0889		hypothetical protein	PFAM:PF00712.24, PFAM:PF02768.20
+contig_635	cds	428	634	+	NBGELD_0890	ybcJ	RNA-binding S4 domain-containing protein	COG:COG2501, COG:J, KEGG:K14761, RefSeq:WP_008392977.1, SO:0001217, UniParc:UPI0001652EA7, UniRef:UniRef100_D4MX57, UniRef:UniRef50_A0A829NL56, UniRef:UniRef90_D4MX57
+contig_635	cds	646	1731	+	NBGELD_0891	recF	DNA replication/repair protein RecF	COG:COG1195, COG:L, GO:0003697, GO:0005524, GO:0006260, GO:0006281, GO:0006310, GO:0009432, SO:0001217, UniRef:UniRef50_C4Z176, UniRef:UniRef90_D4MX56
+contig_636	cds	174	1286	+	NBGELD_0892		Chromosome partition protein Smc	SO:0001217, UniRef:UniRef50_A0A7U9XFT7
+contig_637	cds	274	1086	-	NBGELD_0893		hypothetical protein	PFAM:PF18202.7
+contig_638	cds	130	1047	+	NBGELD_0894	rmlA1	Bifunctional protein GlmU	COG:COG1209, COG:M, SO:0001217, UniRef:UniRef50_B0NG19, UniRef:UniRef90_A0A6N2VJE5
+contig_641	cds	40	1140	-	NBGELD_0895		AAA-ATPase-like domain-containing protein	SO:0001217, UniRef:UniRef50_C0FVM3
+contig_643	cds	216	668	-	NBGELD_0896		hypothetical protein	
+contig_644	cds	115	1239	+	NBGELD_0897		Stage 0 sporulation A-like protein	SO:0001217, UniRef:UniRef50_D7GVF2
+contig_645	cds	635	1492	-	NBGELD_0898		Molybdate ABC transporter substrate-binding protein	SO:0001217, UniRef:UniRef50_A0A4T9T9Y3
+contig_646	cds	277	996	+	NBGELD_0899		hypothetical protein	
+contig_646	cds	1164	1652	-	NBGELD_0900		hypothetical protein	PFAM:PF00702.32, PFAM:PF08282.18

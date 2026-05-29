@@ -1,0 +1,195 @@
+May-25 14:36:36.571 [main] DEBUG nextflow.cli.Launcher - $> nextflow run ../../../MAG_Pipeline/setup.nf --illumina data/
+May-25 14:36:36.680 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.10.4
+May-25 14:36:36.710 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/danross/.nextflow/plugins; core-plugins: nf-amazon@3.4.4,nf-azure@1.20.2,nf-cloudcache@0.5.0,nf-codecommit@0.5.0,nf-console@1.3.0,nf-google@1.23.5,nf-k8s@1.2.2,nf-tower@1.17.5,nf-wave@1.16.1
+May-25 14:36:36.779 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+May-25 14:36:36.781 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+May-25 14:36:36.785 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+May-25 14:36:36.823 [main] DEBUG nextflow.util.RetryConfig - Missing nextflow session - using default retry config
+May-25 14:36:37.222 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+May-25 14:36:37.251 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /data/users/danross/MAG_Pipeline/nextflow.config
+May-25 14:36:37.254 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /data/users/danross/MAG_Pipeline/nextflow.config
+May-25 14:36:37.277 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+May-25 14:36:38.839 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+May-25 14:36:38.839 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+May-25 14:36:38.861 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/danross/.nextflow/secrets/store.json
+May-25 14:36:38.865 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@519c6fcc] - activable => nextflow.secret.LocalSecretsProvider@519c6fcc
+May-25 14:36:38.867 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+May-25 14:36:38.885 [main] DEBUG nextflow.cli.CmdRun - Launching `../../../MAG_Pipeline/setup.nf` [cranky_mcclintock] DSL2 - revision: 04509b32fd
+May-25 14:36:38.940 [main] DEBUG nextflow.Session - Session UUID: e88e0fe9-2518-43fc-97a5-b133702d3eaa
+May-25 14:36:38.940 [main] DEBUG nextflow.Session - Run name: cranky_mcclintock
+May-25 14:36:38.941 [main] DEBUG nextflow.Session - Executor pool size: 16
+May-25 14:36:38.968 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+May-25 14:36:38.974 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=48; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+May-25 14:36:39.005 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.10.4 build 11173
+  Created: 10-02-2026 15:17 UTC (10:17 EDT)
+  System: Linux 6.8.0-87-generic
+  Runtime: Groovy 4.0.28 on OpenJDK 64-Bit Server VM 17.0.3-internal+0-adhoc..src
+  Encoding: UTF-8 (UTF-8)
+  Process: 785542@tilia [132.208.75.66]
+  CPUs: 16 - Mem: 251.4 GB (209.4 GB) - Swap: 2 GB (1.1 GB)
+May-25 14:36:39.070 [main] DEBUG nextflow.Session - Work-dir: /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work [ext2/ext3]
+May-25 14:36:39.102 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+May-25 14:36:39.121 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+May-25 14:36:39.137 [main] DEBUG nextflow.Session - Observer factory (v2): DefaultObserverFactory
+May-25 14:36:39.199 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+May-25 14:36:39.213 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 17; maxThreads: 1000
+May-25 14:36:39.553 [main] DEBUG nextflow.Session - Session start
+May-25 14:36:39.561 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: reports/trace-20260525-143638.txt
+May-25 14:36:39.884 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+May-25 14:36:40.463 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_single` matches labels `process_single` for process with name CREATE_TMP_CSV
+May-25 14:36:40.470 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+May-25 14:36:40.470 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+May-25 14:36:40.481 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+May-25 14:36:40.487 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=16; memory=251.4 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
+May-25 14:36:40.490 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+May-25 14:36:40.517 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'CREATE_TMP_CSV': maxForks=0; fair=false; array=0
+May-25 14:36:40.557 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_single` matches labels `process_single` for process with name WRITE_SAMPLES_CSV
+May-25 14:36:40.568 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+May-25 14:36:40.568 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+May-25 14:36:40.569 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'WRITE_SAMPLES_CSV': maxForks=0; fair=false; array=0
+May-25 14:36:40.591 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_single` matches labels `process_single` for process with name REMOVE_TMP_CSV
+May-25 14:36:40.596 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+May-25 14:36:40.596 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+May-25 14:36:40.597 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'REMOVE_TMP_CSV': maxForks=0; fair=false; array=0
+May-25 14:36:40.670 [main] DEBUG n.script.dsl.ProcessConfigBuilder - Config settings `withLabel:process_single` matches labels `process_single` for process with name WRITE_CONFIG
+May-25 14:36:40.674 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+May-25 14:36:40.674 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+May-25 14:36:40.675 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'WRITE_CONFIG': maxForks=0; fair=false; array=0
+May-25 14:36:40.683 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: CONCATENATE_ONT_BARCODES, PBTK_BAM2FASTQ, REPLACE_CONCATENATED_SYMLINKS_ONT, CONFIRM_SAMPLE_ID_PB, REPLACE_SYMLINKS, WRITE_CONFIG, WRITE_SAMPLES_CSV, REMOVE_TMP_CSV, CREATE_TMP_CSV, REPLACE_FASTQ_SYMLINKS_PB, CONFIRM_UNIQUE_FILES
+May-25 14:36:40.736 [main] WARN  nextflow.Session - There's no process matching config selector: BOWTIE2_HOST_INDEX
+May-25 14:36:40.737 [main] WARN  nextflow.Session - There's no process matching config selector: BOWTIE2_FILTER_HOST
+May-25 14:36:40.738 [main] WARN  nextflow.Session - There's no process matching config selector: BOWTIE2_FILTER_PHIX
+May-25 14:36:40.738 [main] WARN  nextflow.Session - There's no process matching config selector: BRACKEN_BUILD
+May-25 14:36:40.738 [main] WARN  nextflow.Session - There's no process matching config selector: KRAKEN2
+May-25 14:36:40.738 [main] WARN  nextflow.Session - There's no process matching config selector: KRONA_K2_IMPORT_TAXONOMY
+May-25 14:36:40.738 [main] WARN  nextflow.Session - There's no process matching config selector: GTDB_DB_DOWNLOAD
+May-25 14:36:40.738 [main] WARN  nextflow.Session - There's no process matching config selector: GTDBTK_CLASSIFYWF
+May-25 14:36:40.738 [main] WARN  nextflow.Session - There's no process matching config selector: MEGAHIT
+May-25 14:36:40.738 [main] WARN  nextflow.Session - There's no process matching config selector: HIFIASM_META
+May-25 14:36:40.738 [main] WARN  nextflow.Session - There's no process matching config selector: BOWTIE2_BUILD_INDEX
+May-25 14:36:40.738 [main] WARN  nextflow.Session - There's no process matching config selector: METABAT2
+May-25 14:36:40.738 [main] WARN  nextflow.Session - There's no process matching config selector: MAXBIN2
+May-25 14:36:40.738 [main] WARN  nextflow.Session - There's no process matching config selector: CONCOCT_CONCOCT
+May-25 14:36:40.738 [main] WARN  nextflow.Session - There's no process matching config selector: SEMIBIN2
+May-25 14:36:40.738 [main] WARN  nextflow.Session - There's no process matching config selector: COMEBIN
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: VAMB_BIN
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: LRBINNER
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: FASTQC_IN
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: FASTQC_OUT
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: MULTIQC_IN
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: MULTIQC_OUT
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: FASTP
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: TRIMMOMATIC
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: TOULLIGQC_IN
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: TOULLIGQC_OUT
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: FASTPLONG
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: MINIMAP2_INDEX
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: MINIMAP2_FILTER_HOST
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: CONCATENATE_SHORT_READS_R1
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: CONCATENATE_SHORT_READS_R2
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: CONCATENATE_LONG_READS
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: METASPADES
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: GATB_MINIA_PIPELINE
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: HIFIASM_CONTIG_GFA2FA
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: HIFIASM_CREATE_BIN_FILES
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: METAFLYE
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: METAMDBG
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: MEDAKA
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: QUAST_CONTIGS
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: COVERM_CONTIG
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: BRACKEN
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: BRACKEN_SUMMARY
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: COMBINE_BRACKEN_OUTPUTS
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: TAXCONVERTER
+May-25 14:36:40.739 [main] WARN  nextflow.Session - There's no process matching config selector: SEMIBIN_CONCATENATE_FASTA
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: MINIMAP2_ASSEMBLY_INDEX
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: MINIMAP2_ASSEMBLY_ALIGNMENT
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: JGISUMMARIZEBAMCONTIGDEPTHS
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: VAMB_CONVERT_ABUNDANCE
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: VAMB_FILTER_TAXONOMY
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: CONCOCT_CUTUPFASTA
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: CONCOCT_CONCOCTCOVERAGETABLE
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: CONCOCT_MERGECUTUPCLUSTERING
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: METABINNER
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: CONCOCT_EXTRACTFASTABINS
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: LRBINNER_CREATE_BIN_FILES
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: DASTOOL_FASTATOCONTIG2BIN
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: DASTOOL_DASTOOL
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: HMBIN_VERIFY_F2C2B
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: CHECKM2_PREDICT
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: CHECKM_LINEAGEWF
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: DREP_COMPARE
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: DREP_DEREPLICATE
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: RENAME_DEREPLICATED_BINS
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: COVERM_GENOME_ORIGINAL
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: COVERM_GENOME_GROUPED
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: DRAM_ANNOTATE
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: DRAM_DISTILL
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: BAKTA_BAKTA
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: BAKTA_COLLECT_ANNOTATION_STATS
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: K2_DOWNLOAD_TAXONOMY
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: K2_BUILD
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: CHECKM_UNTAR
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: CHECKM2_DATABASEDOWNLOAD
+May-25 14:36:40.740 [main] WARN  nextflow.Session - There's no process matching config selector: BAKTA_BAKTADBDOWNLOAD
+May-25 14:36:40.741 [main] WARN  nextflow.Session - There's no process matching config selector: DRAM_IMPORT_CONFIG
+May-25 14:36:40.741 [main] WARN  nextflow.Session - There's no process matching config selector: DRAM_PREPARE_DB
+May-25 14:36:40.741 [main] WARN  nextflow.Session - There's no process matching config selector: EGGNOG_DB_DOWNLOAD
+May-25 14:36:40.743 [main] DEBUG nextflow.Session - Igniting dataflow network (14)
+May-25 14:36:40.748 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: data/; pattern: *{1,2}.{fastq,fq}.gz; options: [:]
+May-25 14:36:40.751 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > CREATE_TMP_CSV
+May-25 14:36:40.752 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > WRITE_SAMPLES_CSV
+May-25 14:36:40.752 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > REMOVE_TMP_CSV
+May-25 14:36:40.752 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > WRITE_CONFIG
+May-25 14:36:40.753 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_68240b8fb6224574: /data/users/danross/MAG_Pipeline/modules/local/scripts/confirm_unique_files/main.nf
+  Script_db27dcd0f3cf69f1: /data/users/danross/MAG_Pipeline/modules/local/scripts/concatenate_ont_barcodes/main.nf
+  Script_7a03bae017a7fc46: /data/users/danross/MAG_Pipeline/modules/local/scripts/write_sample_csv/create_tmp.nf
+  Script_a163657a7d3bdc95: /data/users/danross/MAG_Pipeline/modules/local/pbtk/bam2fastq/main.nf
+  Script_175a113b151e2fd1: /data/users/danross/MAG_Pipeline/setup.nf
+  Script_bd275a9b2de1e8bf: /data/users/danross/MAG_Pipeline/modules/local/scripts/write_config/main.nf
+  Script_557d1227840b2402: /data/users/danross/MAG_Pipeline/modules/local/scripts/write_sample_csv/remove_tmp.nf
+  Script_54125d605cf2c39d: /data/users/danross/MAG_Pipeline/modules/local/scripts/write_sample_csv/main.nf
+  Script_fd4035637344498e: /data/users/danross/MAG_Pipeline/modules/local/scripts/replace_symlinks/main.nf
+May-25 14:36:40.753 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+May-25 14:36:40.753 [main] DEBUG nextflow.Session - Session await
+May-25 14:36:40.914 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+May-25 14:36:40.921 [Task submitter] INFO  nextflow.Session - [d3/a39c0d] Submitted process > WRITE_CONFIG (1)
+May-25 14:36:40.942 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+May-25 14:36:40.943 [Task submitter] INFO  nextflow.Session - [8c/d5ab94] Submitted process > CREATE_TMP_CSV
+May-25 14:36:41.321 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: CREATE_TMP_CSV; status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/8c/d5ab9477bc4b222a537ed089366f1c]
+May-25 14:36:41.322 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=48; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+May-25 14:36:41.361 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+May-25 14:36:41.361 [Task submitter] INFO  nextflow.Session - [74/05397d] Submitted process > WRITE_SAMPLES_CSV (ERR011349)
+May-25 14:36:41.369 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+May-25 14:36:41.369 [Task submitter] INFO  nextflow.Session - [f0/8f15b0] Submitted process > WRITE_SAMPLES_CSV (ERR011348)
+May-25 14:36:41.405 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+May-25 14:36:41.407 [Task submitter] INFO  nextflow.Session - [17/622d23] Submitted process > WRITE_SAMPLES_CSV (ERR011347)
+May-25 14:36:41.690 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: WRITE_SAMPLES_CSV (ERR011349); status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/74/05397d137a6c47aa7ff7d371a46687]
+May-25 14:36:41.691 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: WRITE_SAMPLES_CSV (ERR011348); status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/f0/8f15b0ae7718e50b21d414918c00dc]
+May-25 14:36:41.692 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: WRITE_SAMPLES_CSV (ERR011347); status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/17/622d23a62f710daa7db60852a69b94]
+May-25 14:36:41.707 [Actor Thread 10] INFO  nextflow.conda.CondaCache - Creating env using conda: conda-forge::pandas=2.3.2 [cache /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/conda/env-4df97b846d138444ee5aea2c18692ed1]
+May-25 14:36:41.789 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: WRITE_CONFIG (1); status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/d3/a39c0d30a8279f734e6a944a2b021c]
+May-25 14:38:05.777 [Actor Thread 10] DEBUG nextflow.conda.CondaCache - 'conda' create complete env=conda-forge::pandas=2.3.2 path=/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/conda/env-4df97b846d138444ee5aea2c18692ed1
+May-25 14:38:05.789 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+May-25 14:38:05.789 [Task submitter] INFO  nextflow.Session - [ea/cad2f7] Submitted process > REMOVE_TMP_CSV
+May-25 14:38:11.731 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: REMOVE_TMP_CSV; status: COMPLETED; exit: 0; error: -; workDir: /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/ea/cad2f7b3976700b0a153aaf724d7e6]
+May-25 14:38:11.734 [TaskFinalizer-6] DEBUG n.processor.TaskFileCollector - Process `REMOVE_TMP_CSV` is unable to find [UnixPath]: `/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/ea/cad2f7b3976700b0a153aaf724d7e6/error_no_file.txt` (pattern: `error_no_file.txt`)
+May-25 14:38:11.735 [TaskFinalizer-6] DEBUG n.processor.TaskFileCollector - Process `REMOVE_TMP_CSV` is unable to find [UnixPath]: `/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/ea/cad2f7b3976700b0a153aaf724d7e6/error_file_empty.txt` (pattern: `error_file_empty.txt`)
+May-25 14:38:11.792 [TaskFinalizer-6] DEBUG nextflow.processor.TaskProcessor - Process REMOVE_TMP_CSV > Skipping output binding because one or more optional files are missing: fileoutparam<1>
+May-25 14:38:11.792 [TaskFinalizer-6] DEBUG nextflow.processor.TaskProcessor - Process REMOVE_TMP_CSV > Skipping output binding because one or more optional files are missing: fileoutparam<2>
+May-25 14:38:11.794 [main] DEBUG nextflow.Session - Session await > all processes finished
+May-25 14:38:11.831 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+May-25 14:38:11.831 [main] DEBUG nextflow.Session - Session await > all barriers passed
+May-25 14:38:11.833 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+May-25 14:38:11.835 [main] INFO  nextflow.script.BaseScript - <project> setup complete
+May-25 14:38:11.836 [main] INFO  nextflow.script.BaseScript - Please 
+May-25 14:38:11.836 [main] INFO  nextflow.script.BaseScript - Command line: nextflow run ../../../MAG_Pipeline/setup.nf --illumina data/
+May-25 14:38:11.842 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=6; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=6.5s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=4; peakMemory=24 GB; ]
+May-25 14:38:11.935 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+May-25 14:38:12.344 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+May-25 14:38:12.397 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+May-25 14:38:12.402 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+May-25 14:38:12.449 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+May-25 14:38:12.450 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

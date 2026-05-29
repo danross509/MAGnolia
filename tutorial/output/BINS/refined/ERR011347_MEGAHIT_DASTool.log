@@ -1,0 +1,36 @@
+DAS Tool 1.1.6 
+2026-05-25 16:28:46 
+
+Parameters: 
+--bins	MEGAHIT-MetaBAT2-ERR011347.tsv,MEGAHIT-MetaBinner-ERR011347.tsv,MEGAHIT-TaxVamb-ERR011347.tsv
+--contigs	ERR011347_contigs.fa
+--outputbasename	ERR011347_MEGAHIT
+--labels	NULL
+--search_engine	diamond
+--proteins	NULL
+--write_bin_evals	FALSE
+--write_bins	TRUE
+--write_unbinned	TRUE
+--threads	6
+--score_threshold	0.5
+--duplicate_penalty	0.6
+--megabin_penalty	0.5
+--dbDirectory	db
+--resume	FALSE
+--debug	FALSE
+--version	FALSE
+--help	FALSE
+
+Dependencies: 
+prodigal	/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/conda/env-45dea2aeda2640fc42a59bcaebb5cb99/bin/prodigal
+diamond	/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/conda/env-45dea2aeda2640fc42a59bcaebb5cb99/bin/diamond
+pullseq	/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/conda/env-45dea2aeda2640fc42a59bcaebb5cb99/bin/pullseq
+ruby	/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/conda/env-45dea2aeda2640fc42a59bcaebb5cb99/share/rubygems/bin/ruby
+usearch	
+blastp	/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/conda/env-45dea2aeda2640fc42a59bcaebb5cb99/bin/blastp
+
+Analyzing assembly 
+Predicting genes 
+Annotating single copy genes using diamond 
+Dereplicating, aggregating, and scoring bins 
+Writing bins 

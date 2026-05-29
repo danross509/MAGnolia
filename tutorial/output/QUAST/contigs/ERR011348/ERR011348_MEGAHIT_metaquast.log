@@ -1,0 +1,20 @@
+/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/conda/env-09fa064dad237af13d4e01487014dd7a/bin/metaquast.py -t 1 --rna-finding --max-ref-number 0 -l ERR011348_MEGAHIT ERR011348_assembly.fa -o ERR011348
+
+Version: 5.3.0
+
+System information:
+  OS: Linux-6.8.0-87-generic-x86_64-with-glibc2.35 (linux_64)
+  Python version: 3.13.13
+  CPUs number: 16
+
+Started: 2026-05-25 16:05:50
+
+Logging to /data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/77/80b27ef8be2373021c610c8e3df445/ERR011348/metaquast.log
+
+Contigs:
+  Pre-processing...
+  ERR011348_assembly.fa ==> ERR011348_MEGAHIT
+
+NOTICE: Maximum number of references (--max-ref-number) is set to 0, search in SILVA 16S rRNA database is disabled
+
+NOTICE: No references are provided, starting regular QUAST with MetaGeneMark gene finder

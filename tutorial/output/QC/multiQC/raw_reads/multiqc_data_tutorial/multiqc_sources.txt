@@ -1,0 +1,7 @@
+Module	Section	Sample Name	Source
+FastQC	all_sections	ERR011347_1	/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/9f/5f3c14f80fc8f0ca4b89f04c6a388f/ERR011347_1_fastqc.zip
+FastQC	all_sections	ERR011347_2	/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/9f/5f3c14f80fc8f0ca4b89f04c6a388f/ERR011347_2_fastqc.zip
+FastQC	all_sections	ERR011348_1	/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/9f/5f3c14f80fc8f0ca4b89f04c6a388f/ERR011348_1_fastqc.zip
+FastQC	all_sections	ERR011348_2	/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/9f/5f3c14f80fc8f0ca4b89f04c6a388f/ERR011348_2_fastqc.zip
+FastQC	all_sections	ERR011349_1	/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/9f/5f3c14f80fc8f0ca4b89f04c6a388f/ERR011349_1_fastqc.zip
+FastQC	all_sections	ERR011349_2	/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/9f/5f3c14f80fc8f0ca4b89f04c6a388f/ERR011349_2_fastqc.zip

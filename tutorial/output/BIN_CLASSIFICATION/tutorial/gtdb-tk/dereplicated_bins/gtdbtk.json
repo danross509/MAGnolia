@@ -1,0 +1,101 @@
+{
+    "version": "2.3.2",
+    "command_line": "gtdbtk classify_wf --extension fa --pplacer_cpus 1 --skip_ani_screen --genome_dir bins --prefix dereplicated_bins --out_dir dereplicated_bins --cpus 3 --scratch_dir pplacer_tmp",
+    "database_version": "r214",
+    "database_path": "GTDB_V08_R214",
+    "steps": [
+        {
+            "name": "identify",
+            "output_dir": "dereplicated_bins",
+            "starts_at": "2026-05-25T16:38:57.569812",
+            "ends_at": "2026-05-25T16:39:58.258511",
+            "duration": "0:01:00",
+            "status": "completed",
+            "genes": false,
+            "extension": "fa",
+            "write_single_copy_genes": false,
+            "genome_dir": "bins",
+            "batchfile": null,
+            "output_files": {
+                "all": [
+                    "dereplicated_bins/identify/dereplicated_bins.failed_genomes.tsv",
+                    "dereplicated_bins/identify/dereplicated_bins.translation_table_summary.tsv"
+                ],
+                "ar53": [
+                    "dereplicated_bins/identify/dereplicated_bins.ar53.markers_summary.tsv"
+                ],
+                "bac120": [
+                    "dereplicated_bins/identify/dereplicated_bins.bac120.markers_summary.tsv"
+                ]
+            }
+        },
+        {
+            "name": "align",
+            "output_dir": "dereplicated_bins",
+            "starts_at": "2026-05-25T16:39:58.258707",
+            "ends_at": "2026-05-25T16:42:56.060850",
+            "duration": "0:02:57",
+            "status": "completed",
+            "identify_dir": "dereplicated_bins",
+            "skip_gtdb_refs": false,
+            "taxa_filter": null,
+            "min_perc_aa": 10,
+            "custom_msa_filters": false,
+            "skip_trimming": false,
+            "rnd_seed": null,
+            "cols_per_gene": null,
+            "min_consensus": null,
+            "max_consensus": null,
+            "min_perc_taxa": null,
+            "outgroup_taxon": null,
+            "output_files": {
+                "bac120": [
+                    "dereplicated_bins/align/dereplicated_bins.bac120.filtered.tsv",
+                    "dereplicated_bins/align/dereplicated_bins.bac120.msa.fasta",
+                    "dereplicated_bins/align/dereplicated_bins.bac120.user_msa.fasta"
+                ],
+                "ar53": [
+                    "dereplicated_bins/align/dereplicated_bins.ar53.filtered.tsv",
+                    "dereplicated_bins/align/dereplicated_bins.ar53.msa.fasta",
+                    "dereplicated_bins/align/dereplicated_bins.ar53.user_msa.fasta"
+                ]
+            }
+        },
+        {
+            "name": "classify",
+            "output_dir": "dereplicated_bins",
+            "starts_at": "2026-05-25T16:42:56.061239",
+            "ends_at": "2026-05-25T17:20:22.527087",
+            "duration": "0:37:26",
+            "status": "completed",
+            "align_dir": "dereplicated_bins",
+            "genome_dir": "bins",
+            "batchfile": null,
+            "scratch_dir": "pplacer_tmp",
+            "debug_option": false,
+            "full_tree": false,
+            "skip_ani_screen": true,
+            "no_mash": false,
+            "mash_k": 16,
+            "mash_v": 1.0,
+            "mash_s": 5000,
+            "mash_db": null,
+            "mash_max_dist": 0.15,
+            "output_files": {
+                "ar53": [
+                    "dereplicated_bins/classify/dereplicated_bins.ar53.summary.tsv"
+                ],
+                "bac120": [
+                    "dereplicated_bins/classify/dereplicated_bins.backbone.bac120.classify.tree",
+                    "dereplicated_bins/classify/dereplicated_bins.bac120.classify.tree.2.tree",
+                    "dereplicated_bins/classify/dereplicated_bins.bac120.classify.tree.3.tree",
+                    "dereplicated_bins/classify/dereplicated_bins.bac120.classify.tree.8.tree",
+                    "dereplicated_bins/classify/dereplicated_bins.bac120.tree.mapping.tsv",
+                    "dereplicated_bins/classify/dereplicated_bins.bac120.summary.tsv"
+                ]
+            }
+        }
+    ],
+    "output_dir": "dereplicated_bins",
+    "path": "dereplicated_bins/gtdbtk.json"
+}

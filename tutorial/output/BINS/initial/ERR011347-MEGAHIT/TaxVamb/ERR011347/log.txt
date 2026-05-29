@@ -1,0 +1,180 @@
+2026-05-25 16:22:31.944 | INFO    | Starting Vamb version 5.0.4
+2026-05-25 16:22:31.945 | INFO    | Random seed is 67976113018169306
+2026-05-25 16:22:31.945 | INFO    | Invoked with CLI args: '/data/users/danross/MAG_Pipeline/pipeline_test/tutorial/work/conda/env-fddee4f510fc411c1e62e6f48e039d1b/bin/vamb bin taxvamb -p 12 --outdir ERR011347/ --fasta ERR011347_contigs.fa --abundance_tsv converted_abundance.tsv --taxonomy ERR011347_completedTax.tsv -e 5 -q 2 3 -m 1000 --minfasta 1000'
+2026-05-25 16:22:31.945 | INFO    | Loading TNF
+2026-05-25 16:22:31.945 | INFO    | 	Minimum sequence length: 1000
+2026-05-25 16:22:31.945 | INFO    | 	Loading data from FASTA file ERR011347_contigs.fa
+
+2026-05-25 16:22:33.115 | WARNING | Binsplit separator (option `-o`) implicitly passed as "C", but sequence identifier "k79_12181" does not contain this separator, or contains it at the very start or end.
+A binsplit separator X implies that every sequence identifier is formatted as
+[sample identifier][X][sequence identifier], e.g. a binsplit separator of 'C' means that 'S1C19' and '7C11' are valid identifiers.
+
+Skipping binsplitting.
+
+2026-05-25 16:22:33.116 | WARNING | The minimum sequence length has been set to 1000, but 88447 sequences fell below this threshold and was filtered away.
+Better results are obtained if the sequence file is filtered to the minimum sequence length before mapping.
+
+2026-05-25 16:22:33.116 | INFO    | 	Kept 17753102 bases in 8987 sequences
+2026-05-25 16:22:33.116 | INFO    | 	Processed TNF in 1.17 seconds.
+
+2026-05-25 16:22:33.116 | INFO    | Loading depths
+2026-05-25 16:22:33.116 | INFO    | 	Reference hash: 2e9a3cbc94379e8706321db60e0ffe68
+2026-05-25 16:22:33.116 | INFO    | 	Parsing abundance from TSV at "converted_abundance.tsv"
+2026-05-25 16:22:33.140 | INFO    | 	Order of columns is:
+2026-05-25 16:22:33.140 | INFO    | 	     0: ERR011347_ERR011347
+2026-05-25 16:22:33.140 | INFO    | 	Processed abundance in 0.02 seconds.
+
+2026-05-25 16:22:33.140 | INFO    | Predicting taxonomy with Taxometer
+2026-05-25 16:22:33.628 | INFO    | 	1278 nodes in the graph
+2026-05-25 16:22:33.685 | INFO    | 	Created dataloader
+2026-05-25 16:22:33.685 | INFO    | Starting training the taxonomy predictor
+2026-05-25 16:22:33.685 | INFO    | Using threshold 0.5
+2026-05-25 16:22:35.231 | INFO    | 	Network properties:
+2026-05-25 16:22:35.231 | INFO    | 	    CUDA: False
+2026-05-25 16:22:35.231 | INFO    | 	    Hierarchical loss: flat_softmax
+2026-05-25 16:22:35.231 | INFO    | 	    Alpha: 0.5
+2026-05-25 16:22:35.231 | INFO    | 	    Beta: 200.0
+2026-05-25 16:22:35.231 | INFO    | 	    Dropout: 0.2
+2026-05-25 16:22:35.231 | INFO    | 	    N hidden: 512, 512, 512, 512
+2026-05-25 16:22:35.231 | INFO    | 	Training properties:
+2026-05-25 16:22:35.231 | INFO    | 	    N epochs: 100
+2026-05-25 16:22:35.231 | INFO    | 	    Starting batch size: 1024
+2026-05-25 16:22:35.231 | INFO    | 	    Batchsteps: None
+2026-05-25 16:22:35.231 | INFO    | 	    Learning rate: 0.001
+2026-05-25 16:22:35.231 | INFO    | 	    N labels: torch.Size([8987, 1])
+2026-05-25 16:22:35.801 | INFO    | 	Epoch: 1	CE: 4.7610108	Batchsize: 1024
+2026-05-25 16:22:36.342 | INFO    | 	Epoch: 2	CE: 2.7185307	Batchsize: 1024
+2026-05-25 16:22:36.932 | INFO    | 	Epoch: 3	CE: 2.2026478	Batchsize: 1024
+2026-05-25 16:22:37.556 | INFO    | 	Epoch: 4	CE: 1.9885641	Batchsize: 1024
+2026-05-25 16:22:38.112 | INFO    | 	Epoch: 5	CE: 1.8237776	Batchsize: 1024
+2026-05-25 16:22:38.718 | INFO    | 	Epoch: 6	CE: 1.6843120	Batchsize: 1024
+2026-05-25 16:22:39.321 | INFO    | 	Epoch: 7	CE: 1.5883600	Batchsize: 1024
+2026-05-25 16:22:39.909 | INFO    | 	Epoch: 8	CE: 1.4920501	Batchsize: 1024
+2026-05-25 16:22:40.511 | INFO    | 	Epoch: 9	CE: 1.4094618	Batchsize: 1024
+2026-05-25 16:22:41.125 | INFO    | 	Epoch: 10	CE: 1.3413871	Batchsize: 1024
+2026-05-25 16:22:41.730 | INFO    | 	Epoch: 11	CE: 1.2855307	Batchsize: 1024
+2026-05-25 16:22:42.344 | INFO    | 	Epoch: 12	CE: 1.2233425	Batchsize: 1024
+2026-05-25 16:22:42.960 | INFO    | 	Epoch: 13	CE: 1.1885017	Batchsize: 1024
+2026-05-25 16:22:43.529 | INFO    | 	Epoch: 14	CE: 1.1265622	Batchsize: 1024
+2026-05-25 16:22:44.137 | INFO    | 	Epoch: 15	CE: 1.0759134	Batchsize: 1024
+2026-05-25 16:22:44.713 | INFO    | 	Epoch: 16	CE: 1.0228932	Batchsize: 1024
+2026-05-25 16:22:45.313 | INFO    | 	Epoch: 17	CE: 0.9617809	Batchsize: 1024
+2026-05-25 16:22:45.898 | INFO    | 	Epoch: 18	CE: 0.9145253	Batchsize: 1024
+2026-05-25 16:22:46.502 | INFO    | 	Epoch: 19	CE: 0.8524181	Batchsize: 1024
+2026-05-25 16:22:47.096 | INFO    | 	Epoch: 20	CE: 0.8207965	Batchsize: 1024
+2026-05-25 16:22:47.696 | INFO    | 	Epoch: 21	CE: 0.7893196	Batchsize: 1024
+2026-05-25 16:22:48.303 | INFO    | 	Epoch: 22	CE: 0.7572301	Batchsize: 1024
+2026-05-25 16:22:48.893 | INFO    | 	Epoch: 23	CE: 0.7042161	Batchsize: 1024
+2026-05-25 16:22:49.498 | INFO    | 	Epoch: 24	CE: 0.6535997	Batchsize: 1024
+2026-05-25 16:22:50.106 | INFO    | 	Epoch: 25	CE: 0.6259683	Batchsize: 1024
+2026-05-25 16:22:50.738 | INFO    | 	Epoch: 26	CE: 0.5849785	Batchsize: 1024
+2026-05-25 16:22:51.384 | INFO    | 	Epoch: 27	CE: 0.5564212	Batchsize: 1024
+2026-05-25 16:22:51.993 | INFO    | 	Epoch: 28	CE: 0.5278212	Batchsize: 1024
+2026-05-25 16:22:52.578 | INFO    | 	Epoch: 29	CE: 0.5029769	Batchsize: 1024
+2026-05-25 16:22:53.190 | INFO    | 	Epoch: 30	CE: 0.4767675	Batchsize: 1024
+2026-05-25 16:22:53.781 | INFO    | 	Epoch: 31	CE: 0.4450067	Batchsize: 1024
+2026-05-25 16:22:54.377 | INFO    | 	Epoch: 32	CE: 0.4327217	Batchsize: 1024
+2026-05-25 16:22:54.984 | INFO    | 	Epoch: 33	CE: 0.3921118	Batchsize: 1024
+2026-05-25 16:22:55.593 | INFO    | 	Epoch: 34	CE: 0.3906611	Batchsize: 1024
+2026-05-25 16:22:56.195 | INFO    | 	Epoch: 35	CE: 0.3657196	Batchsize: 1024
+2026-05-25 16:22:56.808 | INFO    | 	Epoch: 36	CE: 0.3424609	Batchsize: 1024
+2026-05-25 16:22:57.413 | INFO    | 	Epoch: 37	CE: 0.3308286	Batchsize: 1024
+2026-05-25 16:22:58.000 | INFO    | 	Epoch: 38	CE: 0.3130279	Batchsize: 1024
+2026-05-25 16:22:58.600 | INFO    | 	Epoch: 39	CE: 0.2795095	Batchsize: 1024
+2026-05-25 16:22:59.208 | INFO    | 	Epoch: 40	CE: 0.2752250	Batchsize: 1024
+2026-05-25 16:22:59.796 | INFO    | 	Epoch: 41	CE: 0.2594786	Batchsize: 1024
+2026-05-25 16:23:00.374 | INFO    | 	Epoch: 42	CE: 0.2512066	Batchsize: 1024
+2026-05-25 16:23:00.984 | INFO    | 	Epoch: 43	CE: 0.2523330	Batchsize: 1024
+2026-05-25 16:23:01.592 | INFO    | 	Epoch: 44	CE: 0.2295336	Batchsize: 1024
+2026-05-25 16:23:02.185 | INFO    | 	Epoch: 45	CE: 0.2191082	Batchsize: 1024
+2026-05-25 16:23:02.789 | INFO    | 	Epoch: 46	CE: 0.2107279	Batchsize: 1024
+2026-05-25 16:23:03.383 | INFO    | 	Epoch: 47	CE: 0.2119492	Batchsize: 1024
+2026-05-25 16:23:03.997 | INFO    | 	Epoch: 48	CE: 0.2079652	Batchsize: 1024
+2026-05-25 16:23:04.597 | INFO    | 	Epoch: 49	CE: 0.1920399	Batchsize: 1024
+2026-05-25 16:23:05.195 | INFO    | 	Epoch: 50	CE: 0.1862495	Batchsize: 1024
+2026-05-25 16:23:05.815 | INFO    | 	Epoch: 51	CE: 0.1639502	Batchsize: 1024
+2026-05-25 16:23:06.429 | INFO    | 	Epoch: 52	CE: 0.1687867	Batchsize: 1024
+2026-05-25 16:23:07.055 | INFO    | 	Epoch: 53	CE: 0.1576890	Batchsize: 1024
+2026-05-25 16:23:07.767 | INFO    | 	Epoch: 54	CE: 0.1594775	Batchsize: 1024
+2026-05-25 16:23:08.407 | INFO    | 	Epoch: 55	CE: 0.1566611	Batchsize: 1024
+2026-05-25 16:23:09.034 | INFO    | 	Epoch: 56	CE: 0.1517897	Batchsize: 1024
+2026-05-25 16:23:09.693 | INFO    | 	Epoch: 57	CE: 0.1505280	Batchsize: 1024
+2026-05-25 16:23:10.305 | INFO    | 	Epoch: 58	CE: 0.1453174	Batchsize: 1024
+2026-05-25 16:23:10.911 | INFO    | 	Epoch: 59	CE: 0.1410773	Batchsize: 1024
+2026-05-25 16:23:11.516 | INFO    | 	Epoch: 60	CE: 0.1301644	Batchsize: 1024
+2026-05-25 16:23:12.134 | INFO    | 	Epoch: 61	CE: 0.1406218	Batchsize: 1024
+2026-05-25 16:23:12.738 | INFO    | 	Epoch: 62	CE: 0.1221223	Batchsize: 1024
+2026-05-25 16:23:13.361 | INFO    | 	Epoch: 63	CE: 0.1158152	Batchsize: 1024
+2026-05-25 16:23:13.986 | INFO    | 	Epoch: 64	CE: 0.1150957	Batchsize: 1024
+2026-05-25 16:23:14.617 | INFO    | 	Epoch: 65	CE: 0.1103782	Batchsize: 1024
+2026-05-25 16:23:15.234 | INFO    | 	Epoch: 66	CE: 0.1103444	Batchsize: 1024
+2026-05-25 16:23:15.853 | INFO    | 	Epoch: 67	CE: 0.1075179	Batchsize: 1024
+2026-05-25 16:23:16.460 | INFO    | 	Epoch: 68	CE: 0.1007195	Batchsize: 1024
+2026-05-25 16:23:17.085 | INFO    | 	Epoch: 69	CE: 0.1224228	Batchsize: 1024
+2026-05-25 16:23:17.705 | INFO    | 	Epoch: 70	CE: 0.1066170	Batchsize: 1024
+2026-05-25 16:23:18.367 | INFO    | 	Epoch: 71	CE: 0.1067289	Batchsize: 1024
+2026-05-25 16:23:19.007 | INFO    | 	Epoch: 72	CE: 0.0952352	Batchsize: 1024
+2026-05-25 16:23:19.638 | INFO    | 	Epoch: 73	CE: 0.1069774	Batchsize: 1024
+2026-05-25 16:23:20.258 | INFO    | 	Epoch: 74	CE: 0.0874833	Batchsize: 1024
+2026-05-25 16:23:20.865 | INFO    | 	Epoch: 75	CE: 0.0937977	Batchsize: 1024
+2026-05-25 16:23:21.478 | INFO    | 	Epoch: 76	CE: 0.0884553	Batchsize: 1024
+2026-05-25 16:23:22.101 | INFO    | 	Epoch: 77	CE: 0.0856207	Batchsize: 1024
+2026-05-25 16:23:22.748 | INFO    | 	Epoch: 78	CE: 0.0815628	Batchsize: 1024
+2026-05-25 16:23:23.426 | INFO    | 	Epoch: 79	CE: 0.1004493	Batchsize: 1024
+2026-05-25 16:23:24.039 | INFO    | 	Epoch: 80	CE: 0.0855793	Batchsize: 1024
+2026-05-25 16:23:24.683 | INFO    | 	Epoch: 81	CE: 0.0819606	Batchsize: 1024
+2026-05-25 16:23:25.341 | INFO    | 	Epoch: 82	CE: 0.0812987	Batchsize: 1024
+2026-05-25 16:23:25.945 | INFO    | 	Epoch: 83	CE: 0.0813435	Batchsize: 1024
+2026-05-25 16:23:26.546 | INFO    | 	Epoch: 84	CE: 0.0974738	Batchsize: 1024
+2026-05-25 16:23:27.190 | INFO    | 	Epoch: 85	CE: 0.0830696	Batchsize: 1024
+2026-05-25 16:23:27.804 | INFO    | 	Epoch: 86	CE: 0.0802682	Batchsize: 1024
+2026-05-25 16:23:28.423 | INFO    | 	Epoch: 87	CE: 0.0682496	Batchsize: 1024
+2026-05-25 16:23:29.054 | INFO    | 	Epoch: 88	CE: 0.0724381	Batchsize: 1024
+2026-05-25 16:23:29.719 | INFO    | 	Epoch: 89	CE: 0.0785988	Batchsize: 1024
+2026-05-25 16:23:30.334 | INFO    | 	Epoch: 90	CE: 0.0760445	Batchsize: 1024
+2026-05-25 16:23:30.961 | INFO    | 	Epoch: 91	CE: 0.0707704	Batchsize: 1024
+2026-05-25 16:23:31.589 | INFO    | 	Epoch: 92	CE: 0.0731792	Batchsize: 1024
+2026-05-25 16:23:32.198 | INFO    | 	Epoch: 93	CE: 0.0709392	Batchsize: 1024
+2026-05-25 16:23:32.821 | INFO    | 	Epoch: 94	CE: 0.0748237	Batchsize: 1024
+2026-05-25 16:23:33.479 | INFO    | 	Epoch: 95	CE: 0.0663672	Batchsize: 1024
+2026-05-25 16:23:34.101 | INFO    | 	Epoch: 96	CE: 0.0698223	Batchsize: 1024
+2026-05-25 16:23:34.724 | INFO    | 	Epoch: 97	CE: 0.0697993	Batchsize: 1024
+2026-05-25 16:23:35.341 | INFO    | 	Epoch: 98	CE: 0.0702054	Batchsize: 1024
+2026-05-25 16:23:35.964 | INFO    | 	Epoch: 99	CE: 0.0637255	Batchsize: 1024
+2026-05-25 16:23:36.595 | INFO    | 	Epoch: 100	CE: 0.0636367	Batchsize: 1024
+2026-05-25 16:23:36.605 | INFO    | Finished training the taxonomy predictor in 62.92 seconds.
+2026-05-25 16:23:36.605 | INFO    | Writing the taxonomy predictions
+2026-05-25 16:23:36.606 | INFO    | Using threshold 0.5
+2026-05-25 16:23:38.148 | INFO    | Completed taxonomy predictions in 65.01 seconds.
+2026-05-25 16:23:38.331 | INFO    | 	Network properties:
+2026-05-25 16:23:38.331 | INFO    | 	    CUDA: False
+2026-05-25 16:23:38.331 | INFO    | 	    Alpha: 0.5
+2026-05-25 16:23:38.331 | INFO    | 	    Beta: 200.0
+2026-05-25 16:23:38.331 | INFO    | 	    Dropout: 0.0
+2026-05-25 16:23:38.331 | INFO    | 	    N hidden: 256, 256
+2026-05-25 16:23:38.331 | INFO    | 	    N latent: 32
+2026-05-25 16:23:38.331 | INFO    | 	Training properties:
+2026-05-25 16:23:38.331 | INFO    | 	    N epochs: 5
+2026-05-25 16:23:38.331 | INFO    | 	    Starting batch size: 256
+2026-05-25 16:23:38.331 | INFO    | 	    Batchsteps: 2, 3
+2026-05-25 16:23:38.331 | INFO    | 	    Learning rate: 0.001
+2026-05-25 16:23:38.331 | INFO    | 	    N sequences: 8987
+2026-05-25 16:23:38.331 | INFO    | 	    N samples: 1
+2026-05-25 16:23:41.025 | INFO    | 		Epoch: 0  loss_vamb: 6.68669e-01  ab_vamb: 2.40214e-01  ce_vamb: 0.00000e+00  sse_vamb: 4.26008e-01  kld_vamb: 3.35179e-03  loss_labels: 2.83006e+00  ce_labels_labels: 2.82255e+00  kld_labels: 4.80709e+01  correct_labels_labels: 0.00000e+00  loss_joint: 4.61148e+00  ce_joint: 0.00000e+00  sse_joint: 8.76087e+01  ce_labels_joint: 3.96212e+00  kld_vamb_joint: 1.36137e+00  kld_labels_joint: 1.62325e+00  correct_labels_joint: 0.00000e+00  loss: 8.11021e+00
+2026-05-25 16:23:43.539 | INFO    | 		Epoch: 1  loss_vamb: 3.57431e-01  ab_vamb: 5.18337e-02  ce_vamb: 0.00000e+00  sse_vamb: 2.98509e-01  kld_vamb: 7.31601e-03  loss_labels: 1.25729e+00  ce_labels_labels: 1.24516e+00  kld_labels: 7.76009e+01  correct_labels_labels: 0.00000e+00  loss_joint: 2.74963e+00  ce_joint: 0.00000e+00  sse_joint: 6.35235e+01  ce_labels_joint: 2.37614e+00  kld_vamb_joint: 2.21357e+00  kld_labels_joint: 2.87128e+00  correct_labels_joint: 0.00000e+00  loss: 4.36435e+00
+2026-05-25 16:23:45.560 | INFO    | 		Epoch: 2  loss_vamb: 3.09703e-01  ab_vamb: 3.14482e-02  ce_vamb: 0.00000e+00  sse_vamb: 2.68996e-01  kld_vamb: 9.27040e-03  loss_labels: 8.79178e-01  ce_labels_labels: 8.65375e-01  kld_labels: 8.83392e+01  correct_labels_labels: 0.00000e+00  loss_joint: 2.20540e+00  ce_joint: 0.00000e+00  sse_joint: 6.11862e+01  ce_labels_joint: 1.85278e+00  kld_vamb_joint: 2.49607e+00  kld_labels_joint: 3.15931e+00  correct_labels_joint: 0.00000e+00  loss: 3.39428e+00
+2026-05-25 16:23:47.376 | INFO    | 		Epoch: 3  loss_vamb: 2.95334e-01  ab_vamb: 2.55280e-02  ce_vamb: 0.00000e+00  sse_vamb: 2.59653e-01  kld_vamb: 9.87080e-03  loss_labels: 7.14561e-01  ce_labels_labels: 7.00131e-01  kld_labels: 9.23498e+01  correct_labels_labels: 0.00000e+00  loss_joint: 1.91978e+00  ce_joint: 0.00000e+00  sse_joint: 6.10693e+01  ce_labels_joint: 1.57036e+00  kld_vamb_joint: 2.61051e+00  kld_labels_joint: 3.15030e+00  correct_labels_joint: 0.00000e+00  loss: 2.92968e+00
+2026-05-25 16:23:49.276 | INFO    | 		Epoch: 4  loss_vamb: 2.89009e-01  ab_vamb: 2.40741e-02  ce_vamb: 0.00000e+00  sse_vamb: 2.54470e-01  kld_vamb: 1.02438e-02  loss_labels: 6.28047e-01  ce_labels_labels: 6.13173e-01  kld_labels: 9.51994e+01  correct_labels_labels: 0.00000e+00  loss_joint: 1.74662e+00  ce_joint: 0.00000e+00  sse_joint: 6.08318e+01  ce_labels_joint: 1.40001e+00  kld_vamb_joint: 2.77550e+00  kld_labels_joint: 3.19810e+00  correct_labels_joint: 0.00000e+00  loss: 2.66367e+00
+2026-05-25 16:23:49.656 | INFO    | (8987, 32) embedding shape
+2026-05-25 16:23:49.882 | INFO    | Clustering
+2026-05-25 16:23:49.882 | INFO    | 	Windowsize: 300
+2026-05-25 16:23:49.883 | INFO    | 	Min successful thresholds detected: 15
+2026-05-25 16:23:49.883 | INFO    | 	Max clusters: None
+2026-05-25 16:23:49.883 | INFO    | 	Use CUDA for clustering: False
+2026-05-25 16:23:49.883 | INFO    | 	Binsplitter: Defaulting to 'C', but disabled due to incompatible identifiers
+2026-05-25 16:23:56.500 | INFO    | 	Clustered 8987 contigs in 1632 unsplit bins
+2026-05-25 16:23:56.500 | INFO    | 	Wrote cluster file(s) in 0.0 seconds.
+2026-05-25 16:23:57.365 | INFO    | 	Wrote 1632 bins with 8987 sequences in 0.86 seconds.
+2026-05-25 16:23:57.365 | INFO    | 	Clustered contigs in 6.61 seconds.
+
+2026-05-25 16:23:57.378 | INFO    | Completed Vamb in 85.43 seconds.
