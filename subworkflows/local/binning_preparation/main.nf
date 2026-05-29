@@ -188,7 +188,8 @@ workflow BINNING_PREPARATION {
             }
         }
         .map { meta, reads ->
-            def sampleID = reads[0].getBaseName(2).replaceAll(/_corrected/, '').replaceAll(/_trimmed/, '').replaceAll(/_filtered/, '').replaceAll(/_.$/, '')
+            def read1Path = reads[0] instanceof Path ? reads[0] : Path.of(reads[0].toString())
+            def sampleID = read1Path.getBaseName(2).replaceAll(/_corrected/, '').replaceAll(/_trimmed/, '').replaceAll(/_filtered/, '').replaceAll(/_.$/, '')
             [ meta, sampleID, reads ]
         }
 
