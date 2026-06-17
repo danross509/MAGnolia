@@ -65,7 +65,12 @@ workflow BIN_ANNOTATION {
     }
 
     if ( !params.skip_eggnog ) {
-        eggnog_bins = bins
+        eggnog_bins = bins.transpose()
+            .map { meta, bin ->
+                def sampleID = bin.getBaseName()
+                def meta_new = meta + [id: "${sampleID}"]
+                [ meta_new, bin ]
+            }
 
         EGGNOGMAPPER_METAGENOME (
             eggnog_bins,
