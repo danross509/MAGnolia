@@ -12,7 +12,6 @@ process METAMDBG {
         tuple val(meta), path(reads)
         val generate_assembly_graph
         val assembly_graph_k
-        val assembly_graph_contigs
         val assembly_graph_reads
 
     output:
@@ -22,7 +21,6 @@ process METAMDBG {
 
     script:
     def reads_input = meta.sequencer == "ONT" ? "--in-ont ${reads}" : meta.sequencer == "PacBio" ? "--in-hifi ${reads}" : ""
-    def contigpath = assembly_graph_contigs ? "--contigpath" : ""
     def readpath = assembly_graph_reads ? "--readpath" : ""
     def gfa_k = assembly_graph_k == "max" || assembly_graph_k == "min" || assembly_graph_k.toString().isInteger() ? assembly_graph_k : { error "Invalid assembly_graph_k value: ${assembly_graph_k}. Use 'max', 'min', or an integer." }
     def asm_args = task.ext.asm_args ?: ''
@@ -68,7 +66,6 @@ process METAMDBG {
         metaMDBG gfa \
         --assembly-dir output \
         --k \$k_value \
-        ${contigpath} \
         ${readpath} \
         $gfa_args \
         --threads $task.cpus

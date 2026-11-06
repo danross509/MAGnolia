@@ -3,6 +3,7 @@
 include { HIFIASM_META } from '../../../modules/local/hifiasm_meta/main.nf'
 include { HIFIASM_CONTIG_GFA2FA } from '../../../modules/local/scripts/hifiasm/hifiasm_contig_gfa2fa.nf'
 include { HIFIASM_CREATE_BIN_FILES } from '../../../modules/local/scripts/hifiasm/hifiasm_create_bin_files.nf'
+include { MYLOASM } from '../../../modules/nf-core/myloasm/main.nf'
 include { FLYE as METAFLYE } from '../../../modules/local/flye/main.nf'
 include { METAMDBG } from '../../../modules/local/metamdbg/main.nf'
 include { CONTIG_POLISHING } from '../../../subworkflows/local/contig_polishing/main.nf'
@@ -82,6 +83,41 @@ workflow ASSEMBLY_LONG {
         assembly_graph_out = assembly_graph_out.mix ( HIFIASM_META.out.primary_contig_graph )
         unitigs = unitigs.mix ( HIFIASM_META.out.cleaned_unitig_graph )
 
+    // Long read assembly with myloasm
+    } else if (params.assembler_long_reads == 'myloasm') {
+        myloasm_input_ch = clean_reads_long
+            .map { meta, reads ->
+                def meta_new = meta + [assembler: 'myloasm']
+                // Apply '--hifi' parameter?
+                def mylo_hifi = ''
+                if ( !params.myloasm_force_hifi ) {
+                    if ( meta.sequencer == "ONT") {
+                        mylo_hifi = false
+                    } else if ( meta.sequencer == "PacBio" ) {
+                        mylo_hifi = true
+                    } else {
+                        exit 1, "ERROR: Meta.sequencer for long-read <${meta.id}> is invalid"
+                    }
+                } else {
+                    mylo_hifi = true
+                }
+                [ meta_new, reads, mylo_hifi ]
+            }
+
+        reads_out = reads_out.mix ( original_clean_reads_long )
+            .map { meta, reads ->
+                def meta_new = meta + [assembler: 'myloasm']
+                [meta_new, reads]
+            }
+
+        // Run myloasm   
+        MYLOASM (
+            myloasm_input_ch
+        )
+
+        assembly_out = assembly_out.mix ( MYLOASM.out.contigs )
+        assembly_graph_out = assembly_graph_out.mix ( MYLOASM.out.gfa )
+
     // Long read assembly with Flye
     } else if (params.assembler_long_reads == 'flye') {
         // Run Flye with "--meta" option?
@@ -158,8 +194,8 @@ workflow ASSEMBLY_LONG {
             mdbg_input_ch,
             params.mdbg_generate_assembly_graph,
             params.mdbg_assembly_graph_k,
-            params.mdbg_assembly_graph_contigs,
-            params.mdbg_assembly_graph_reads
+            //params.mdbg_assembly_graph_reads
+            false                               // --readpath flag is not yet supported in v1.4
         )
 
         assembly_out = assembly_out.mix ( METAMDBG.out.final_contigs )

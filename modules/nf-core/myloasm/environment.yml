@@ -1,0 +1,11 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/environment-schema.json
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - bioconda::myloasm=0.7.0
+  - bioconda::myloasm-kmc=0.1.0
+  - bioconda::mylotools=2.1.0
+  - conda-forge::findutils=4.10.0
+  - conda-forge::gzip=1.14
