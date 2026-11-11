@@ -53,7 +53,7 @@ workflow ASSEMBLY_PREP_SHORT {
 
     // Rename will fail if no QC steps performed
     if ( !params.skip_qc ) {
-        if ( !params.skip_fastp || params.host_genome ) {
+        if ( !params.skip_short_read_trimming || params.host_genome ) {
             RENAME_SHORT_READS_R1 (
                 clean_reads_1_solo,
                 "_1"
