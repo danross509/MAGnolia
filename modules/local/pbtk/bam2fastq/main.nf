@@ -6,7 +6,7 @@ process PBTK_BAM2FASTQ {
     container ""
     conda "bioconda::pbtk=3.5.0"
 
-    publishDir "${sample_prep_directory}", mode: 'symlink'
+    publishDir { "${sample_prep_directory}" }, mode: 'symlink'
 
     input:
         tuple val(meta), path(bam)

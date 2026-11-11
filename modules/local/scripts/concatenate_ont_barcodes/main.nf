@@ -7,7 +7,7 @@ process CONCATENATE_ONT_BARCODES {
     container ""
     conda ""
 
-    publishDir "${file_directory}", mode: 'symlink'
+    publishDir { "${file_directory}" }, mode: 'symlink'
 
     input:
         tuple val(meta), path(reads)

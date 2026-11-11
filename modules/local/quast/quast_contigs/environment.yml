@@ -1,0 +1,6 @@
+channels:
+- conda-forge
+- bioconda
+dependencies:
+- python=3.11
+- bioconda::quast=5.3.0
